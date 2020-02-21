@@ -1,0 +1,63 @@
+C:\Projects\DjangoREST\t190701\cat\endpoints.txt
+-----------------------------------------------------------------------------------------------------------------------------------------------------					
+PROJECT				
+					url											def/view								name						note
+t190701/
+anctradate.
+			urls	
+-----------------------------------------------------------------------------------------------------------------------------------------------------					
+					re_path(r"^.*$",							IndexTemplateView.as_view(),            name="entry-point")					
+
+					path('admin/', 								admin.site.urls
+					path("accounts/",																	include("django_reg.backends.one_step.urls")),
+					path("accounts/",																	include("django.contrib.auth.urls")),
+					path("accounts/register/",					RegistrationView						success_url="/"
+			#Browsable API
+					path("api-auth/",               			#Login:									include("rest_framework.urls")),
+
+			#REST:
+					path("api/rest-auth/",						#Login:                                 include("rest_auth.urls")),
+					path("api/rest-auth/registration/",			#Registration:                          include("rest_auth.registration.urls")),
+			#APP
+					path("api/events/",             													include("events.	api.urls")),
+					path("api/profiles/",           													include("profiles.	api.urls")),
+					
+	APP									
+					url											def/view								name						note
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+											
+	events.
+					router.register(r"",						eV.EventoModelViewSet),
+					router.register(r"photos",  				eV.EventoFotoPictureWiewSet),
+			api.urls---------------------------------------------------------------------------------------------------------------------------------
+					path("", 																			include(router.urls)),
+					---------------------------------------------------------------------------------------------------------------------------------
+					path("archive/",							ArchiveIndexView,        				"event_archive"
+					path("archive/count/",						eV.EventoListCountYearsAPIView,										< custom >
+					path('archive/<int:year>/',					eV.EventoYearArchiveView,
+					path("archive/<int:year>/",					eV.EventoListYearAPIView,
+
+					path("<slug:slug>/photos/",					eV.EventoFotoListAPIView,				"event-photos-list"			#list
+					path("<slug:slug>/photos/new/",				eV.EventoFotoPictureCreateAPIView,		"create-photo"				#create
+					path("<slug:slug>/photos/<int:pk>/",		eV.EventoFotoPictureRUDAPIView,										#read update delete
+					path("<slug:slug>/photos/<int:pk>/carica/",	eV.EventoFotoPictureUpdateView,		 	>CARICA FOTO<				#update  
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+
+	profiles.			
+					router.register(r"profiles",    			ProfileViewSet,
+					router.register(r"status",      			ProfileStatusViewSet, 																			
+			api.urls---------------------------------------------------------------------------------------------------------------------------------
+					path("", 																			include(router.urls)),											
+					---------------------------------------------------------------------------------------------------------------------------------					
+					path("profiles/",           				ProfileList,    						"profile_list"
+					path("profiles/",           				profile_list,             				"profile_list"				#OLD binding esplicito
+					path("profiles/<int:pk>",   				profile_detail,         				"profile_detail"			#OLD binding esplicito
+									
+					path("avatar/", 							AvatarUpdateView.as_view(), 			"avatar-update"
+
+					path("getcurrentuser/",     				get_current,             				"get_user"    				< custom >	
+					
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+					
+					
