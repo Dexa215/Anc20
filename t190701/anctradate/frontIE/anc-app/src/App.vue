@@ -1,0 +1,945 @@
+
+<template>
+<v-app id="anc">
+
+<!--
+<v-app id="inspire">
+
+  <v-navigation-drawer
+    v-model="drawerRight"
+    app
+    clipped
+    right
+  >
+    <v-list dense>
+      <v-list-item @click.stop="right = !right">
+        <v-list-item-action>
+          <v-icon>mdi-exit-to-app</v-icon>
+        </v-list-item-action>
+        <v-list-item-content>
+          <v-list-item-title>Open Temporary Drawer</v-list-item-title>
+        </v-list-item-content>
+      </v-list-item>
+    </v-list>
+  </v-navigation-drawer>
+
+    <v-navigation-drawer
+      v-model="right"
+      fixed
+      right
+      temporary
+    ></v-navigation-drawer>
+
+  <v-app-bar
+    app
+    clipped-right
+    color="blue-grey"
+    dark
+  >
+    <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
+
+    <v-toolbar-title>
+            <span>ANC</span>
+            <span class="font-weight-light">Tradate</span>
+    </v-toolbar-title>
+
+    <div class="flex-grow-1"></div>
+
+    <v-app-bar-nav-icon @click.stop="drawerRight = !drawerRight"></v-app-bar-nav-icon></v-app-bar>
+    -->
+
+        
+  <ancAppBar
+      :requestUser=         "requestUser"
+      :requestUserIsStaff=  "requestUserIsStaff"
+      :requestUserIsSuper=  "requestUserIsSuper"
+      :requestUserAvatar=   "requestUserAvatar"
+      :requestUserBio=      "requestUserBio"
+      
+      :nbc=                 "nbc"  
+      
+      :C=                   "C"
+      :CS=                  "CS"
+      :categorie=           "categorie"
+
+      :iconX=               "iconX"
+
+      @gotoR=               "gotoR"
+      @setD=                "setD"
+      @setDF=               "setDF"
+      @mouseover              ="setDF()"
+
+      :drawer=               "drawer"
+      :drawerLeft=           "drawerLeft"
+      :drawerRight=          "drawerRight"
+  >
+  </ancAppBar>
+
+
+<!--
+  <ancAppDrawerLeft
+      :requestUser=         "requestUser"
+      :requestUserIsStaff=  "requestUserIsStaff"
+      :requestUserIsSuper=  "requestUserIsSuper"
+      :requestUserAvatar=   "requestUserAvatar"
+      :requestUserBio=      "requestUserBio"
+      :nbc=                 "nbc"  
+      :drawerLeft=          "drawerLeft"
+      
+      :C=                   "C"
+      :CS=                  "CS"
+      :categorie=           "categorie"
+      
+      :iconX=               "iconX"
+      
+      @gotoR=               "gotoR"
+      @setD=                "setD"
+      @setDF=               "setDF"
+
+  >    
+  </ancAppDrawerLeft>  
+-->
+
+
+  <ancAppDrawerRight
+      :requestUser=         "requestUser"
+      :requestUserIsStaff=  "requestUserIsStaff"
+      :requestUserIsSuper=  "requestUserIsSuper"
+      :requestUserAvatar=   "requestUserAvatar"
+      :requestUserBio=      "requestUserBio"
+      :nbc=                 "nbc"  
+      :drawerRight=         "drawerRight"
+      
+      :C=                   "C"
+      :CS=                  "CS"
+      :categorie=           "categorie"
+      
+      :iconX=               "iconX"
+      
+      @gotoR=               "gotoR"
+      @setD=                "setD"
+      @setDF=               "setDF"
+
+  >    
+  </ancAppDrawerRight>  
+
+<!--
+  <v-navigation-drawer
+    v-model="left"
+    fixed
+    temporary
+  ></v-navigation-drawer>
+-->
+
+  <v-content>
+    <router-view
+        :requestUser        = "requestUser"
+        :rvt                = "rvt"
+        @gotoR              = "gotoR"
+        @spMC               = "spMC"
+        @mouseover          = "setDF()"
+
+        :evidenza           = "evidenza"
+        
+        :C=                   "C"
+        :CS=                  "CS"
+        :categorie=           "categorie"
+       
+    >
+    </router-view>
+  </v-content>
+
+<!--
+        :menuCat            = "menuCat"
+        :menuSubCat         = "menuSubCat"
+        :intMsg             = "intMsg"
+        :intMsgSubH         = "intMsgSubH"
+        :intFMsg            = "intFMsg"
+        :intFMsgSubH        = "intFMsgSubH"
+        :links              = "links"
+        :src                = "src"
+-->  
+
+
+
+<!--
+  <v-content>
+    <v-container
+      class="fill-height"
+      fluid
+    >
+      <v-row
+        justify="center"
+        align="center"
+      >
+        <v-col class="shrink">
+          <v-tooltip right>
+            <template v-slot:activator="{ on }">
+              <v-btn
+                :href="source"
+                icon
+                large
+                target="_blank"
+                v-on="on"
+              >
+                <v-icon large>mdi-code-tags</v-icon>
+              </v-btn>
+            </template>
+            <span>Source</span>
+          </v-tooltip>
+          <v-tooltip right>
+            <template v-slot:activator="{ on }">
+              <v-btn
+                icon
+                large
+                href="https://codepen.io/johnjleider/pen/QewYYx"
+                target="_blank"
+                v-on="on"
+              >
+                <v-icon large>mdi-codepen</v-icon>
+              </v-btn>
+            </template>
+            <span>Codepen</span>
+          </v-tooltip>
+        </v-col>
+      </v-row>
+    </v-container>
+  </v-content>
+-->
+
+
+<!--
+  <v-footer
+    app
+    color="blue-grey"
+    class="white--text"
+  >
+    <span>Vuetify</span>
+    <div class="flex-grow-1"></div>
+    <span>&copy; 2019</span>
+  </v-footer>
+-->
+
+  <ancFooter
+    :footercolor                    = footercolor
+    :requestUser                    = "requestUser"
+    
+    :C=                   "C"
+    :CS=                  "CS"
+    :categorie=           "categorie"
+
+    @gotoR              = "gotoR"
+
+  ></ancFooter>
+
+  <!-- 
+    
+    :menuCat                        = "menuCat"
+    :menuSubCat                     = "menuSubCat"
+    :intMsg                         = "intMsg"
+    :intMsgSubH                     = "intMsgSubH"
+    :intFMsg                        = "intFMsg"
+    :intFMsgSubH                    = "intFMsgSubH"
+    :src                            = "src"
+
+  -->
+
+
+</v-app>
+</template>
+
+<script>
+
+//import HelloWorld       from './components/HelloWorld'
+//import ancNavbar        from './components/AncNavbar'
+import ancFooter          from './components/AncFooter'
+import ancFooterMobile    from './components/AncFooterMobile'
+import ancAppBar          from './components/AncAppBar'
+import ancAppDrawerLeft   from './components/AncAppDrawerLeft'
+import ancAppDrawerRight   from './components/AncAppDrawerRight'
+
+
+import ancSystem          from './components/AncSystem'
+import router             from "./router";
+import { apiService }     from "./common/api.service";
+import { CSRF_TOKEN }     from './common/csrf_token';
+import { getCat }         from './common/menu';
+import { getCurrentCat }  from './common/menu';
+
+
+
+// test sintassi ok
+import menuT              from './common/menuTime.js';
+
+export default {
+    name: 'App',
+    components: {
+//      HelloWorld,
+//      ancNavbar,
+      ancFooter,
+      ancFooterMobile,
+      ancSystem,
+      ancAppBar,
+      ancAppDrawerLeft,
+      ancAppDrawerRight,
+      },
+
+    props: {
+        source: String,
+    },
+
+    data: () => ({
+
+        cc:[],
+
+        Ccurrent:0,
+        CScurrent:0,
+
+        C:10,           // start with HOME
+        CS:0,           // start with HOME
+
+        ru: null,
+
+        //nbc:"#212121",  //dark-grey
+
+        requestUser: "Visitatore",
+        requestUserIsStaff: false,
+        requestUserIsSuper: false,
+        requestUserAvatar: null,
+        requestUserBio: null,
+        requestToken: "",
+        rvt:10,
+
+        breweries: [],
+        isLoading: false,
+        tree: [],
+        types: [],
+
+        footercolor:'#0052cc',
+//        color: 'accent',
+//        colors: ['primary', 'accent', 'warning lighten-2', 'teal', 'orange'],
+        drawer: false,
+        drawerLeft: false,
+        drawerRight: false,
+        iconX:"mdi-menu",
+// PULSANTE MENU
+// mdi-tray-full
+// mdi-backburger
+        iconO:"mdi-backburger",
+        iconC:"mdi-menu",
+        
+        right: false,
+        left: false,
+
+        elevateOnScroll: false,
+        hideOnScroll: false,
+        fadeOnScroll: false,
+        fadeImgOnScroll: false,
+        invertedScroll: false,
+        collapse: false,
+        collapseOnScroll: true,
+        shrinkOnScroll: false,
+        extended: false,
+
+//<!--  importate da modulo menu.js-->
+        menucat:      "",
+        categorie:    [],
+
+//<!-- Ai -->
+        menuCat:      "",
+        menuSubCat:   "",
+        intMsg:       "",
+        intMsgSubH:   "",
+//<!-- AiF -->
+        intFMsg:      "",
+        intFMsgSubH:  "",
+//Links fine pagina
+        linksFP:[],
+        src: "xxx",
+
+//MESSAGGIO EVIDENZA
+        evidenza:"Elezioni per il rinnovo del Consiglio - 2 Febbraio 2020",
+       
+
+//Links utili
+        links:  [ { n:"1",
+                    img: "/static/images/Icone/bus.jpg",
+                    descrizione: "ASSOCIAZIONE NAZIONALE CARABINIERI 1",
+                    link: "http://assocarabinieri.it/"
+                  },
+                  { n:"2",
+                    img: "/static/images/Icone/bengradi.jpg",
+                    descrizione: "ASSOCIAZIONE NAZIONALE CARABINIERI 2",
+                    link: "http://assocarabinieri.it/"
+                  },
+                  { n:"3",
+                    img: "/static/images/Icone/cap.jpg",
+                    descrizione: "ASSOCIAZIONE NAZIONALE CARABINIERI 3",
+                    link: "http://assocarabinieri.it/"
+                  },
+                ],   
+
+//Categorie
+/*
+
+categorie:[
+
+                    {//cat1
+                      n:"10",
+                      descrizione:"home",
+                      titolo:"",
+                      icona:"mdi-shield-half-full",
+                      img:"/static/icons/menu/Sede.jpg",
+                      imgEvidenza:"/static/icons/menu/importanteww.png",      
+                      link:"/",
+                      linksFP:
+                          [   { descrizione:  "Ubicazione sede",
+                                link: "sede/"             },
+                              { descrizione:  "Chi siamo",
+                                link: "chisiamo/"             },             
+                              { descrizione:  "Richiedi INFO",
+                                link: "contatti/"         }, 
+                          ],
+                      sottocategorie: [
+                      ]
+                    },
+                    {//cat2
+                      n:"20",
+                      descrizione:"sede",
+                      titolo:"Il ritrovo abituale per i soci",
+                      icona:"mdi-bank",
+                      img:"/static/images/Icone/anclogo7.gif",   
+                      link: "/sede",
+                      linksFP:
+                          [   { descrizione:  "Ubicazione sede",
+                                link: "sede/"             },
+                              { descrizione:  "Chi siamo",
+                                link: "chisiamo/"             },             
+                              { descrizione:  "Richiedi INFO",
+                                link: "contatti/"         }, 
+                          ],
+                      sottocategorie: [
+                        {
+                          n:"21",
+                          descrizione:"ubicazione",
+                          titolo:"Dove siamo",
+                          icona:"mdi-compass",
+                          img:"/static/icons/menu/Sede.png",   
+                          link: "/sede",
+                        },
+                        {
+                          n:"22",
+                          descrizione:"orari",
+                          titolo:"Quando ci troviamo",
+                          icona:"mdi-clock-outline",
+                          img:"/static/icons/menu/Orologio.jpg",   
+                          link: "/sedeOrari",
+                        },
+                      ]
+                    },
+                    {//cat3
+                      n:"30",
+                      descrizione:"contatti",
+                      titolo:"Come contattarci",
+                      icona: "mdi-face-agent",
+                      img:"/static/images/Icone/anclogo7.gif",  
+                      link:"/contatti",
+                      linksFP:
+                          [   { descrizione:  "Ubicazione sede",
+                                link: "sede/"             },
+                              { descrizione:  "Chi siamo",
+                                link: "chisiamo/"             },             
+                              { descrizione:  "Richiedi INFO",
+                                link: "contatti/"         }, 
+                          ],
+                      sottocategorie: [
+                        {
+                          n:"31",
+                          descrizione:"presidente",
+                          titolo:"",
+                          icona:"",
+                          img:"",
+                          link:"",
+                        },
+                        {
+                          n:"32",
+                          descrizione:"vicepresidente",
+                          titolo:"",
+                          icona:"",
+                          img:"",
+                          link:"",
+                        },
+                        {
+                          n:"33",
+                          descrizione:"posta",
+                          titolo:"",
+                          icona:"",
+                          img:"",
+                          link:"",
+                        },
+                      ]
+                    },
+
+                    {//cat4
+                      n:"40",
+                      descrizione:"Chi siamo",
+                      titolo:"Organizzazione della sezione",
+                      icona: "mdi-account-group",
+                      img:"/static/images/Icone/anclogo7.gif",   
+                      link: "/chisiamo",
+                      linksFP:
+                          [   { descrizione:  "Ubicazione sede",
+                                link: "sede/"             },
+                              { descrizione:  "Chi siamo",
+                                link: "chisiamo/"             },             
+                              { descrizione:  "Richiedi INFO",
+                                link: "contatti/"         }, 
+                          ],
+
+                      sottocategorie: [
+                        {
+                          n:"41",
+                          descrizione:"Soci",
+                          titolo:"Il cuore dell'Associazione",
+                          icona:"mdi-human-greeting",
+                          img: "/static/images/Icone/bus.jpg",
+                          link: "/chisiamosoci",
+                        },
+                        {
+                          n:"42",
+                          descrizione:"Benemerite",
+                          titolo:"Il fiore all'occhiello",
+                          icona:"mdi-human-female",
+                          img: "/static/images/Icone/bengradi.jpg",
+                          link: "/chisiamobenemerite",
+                        },
+                        {
+                          n:"43",
+                          descrizione:"Simpatizzanti",
+                          titolo:"La forza di chi sta dalla nostra parte",
+                          icona:"mdi-human-handsup",
+                          img: "/static/images/Icone/cap.jpg",
+                          link: "/chisiamosimpatizzanti",
+                        },
+                      ]
+                    },
+                    {//cat5
+                      n:"50",
+                      descrizione:"agenda",
+                      titolo:"prossimi appuntamenti da non perdere",
+                      icona:"mdi-calendar-multiple",
+                      img:"/static/icons/menu/Agenda.jpg",   
+                      link:"/agenda",
+                      linksFP:
+                          [   { descrizione:  "Ubicazione sede",
+                                link: "sede/"             },
+                              { descrizione:  "Chi siamo",
+                                link: "chisiamo/"             },             
+                              { descrizione:  "Richiedi INFO",
+                                link: "contatti/"         }, 
+                          ],
+                      sottocategorie: [
+                        {
+                          n:"51",
+                          descrizione:"appuntamenti",
+                          titolo:"",
+                          icona:"",
+                          img:"/static/icons/menu/Agenda.jpg",
+                          link:"",   
+                        },
+                      ]
+                    },
+                    {//cat6
+                      n:"60",
+                      descrizione:"Archivio",
+                      titolo:"sfogliando tra i vecchi ricordi ",
+                      icona:"mdi-archive",
+                      img:"/static/images/Icone/anclogo7.gif",   
+                      link:"/archivio",
+                      linksFP:
+                          [   { descrizione:  "Ubicazione sede",
+                                link: "sede/"             },
+                              { descrizione:  "Chi siamo",
+                                link: "chisiamo/"             },             
+                              { descrizione:  "Richiedi INFO",
+                                link: "contatti/"         }, 
+                          ],
+
+                      sottocategorie: [
+                        {
+                          n:"61",
+                          descrizione:"Eventi",
+                          titolo:"Cosa abbiamo realizzato",
+                          icona:"",
+                          img:"/static/images/Icone/anclogo7.gif",   
+                          link:"",
+                        },
+                      ]
+                    },
+                    {//cat7
+                      n:"70",
+                      descrizione:"Tesseramento",
+                      titolo:"sostenere l'Associazione",
+                      icona:"mdi-passport",
+                      img:"/static/images/Materiale/tesserino.jpg",   
+                      link:"/tesseramento",
+                      linksFP:
+                          [   { descrizione:  "Ubicazione sede",
+                                link: "sede/"             },
+                              { descrizione:  "Chi siamo",
+                                link: "chisiamo/"             },             
+                              { descrizione:  "Richiedi INFO",
+                                link: "contatti/"         }, 
+                          ],
+
+                      sottocategorie: [
+                        {
+                          n:"71",
+                          descrizione:"Prassi",
+                          titolo:"Come funziona il tesseramento e il rinnovo",
+                          icona:"mdi-format-list-text",
+                          img:"/static/images/Materiale/tesserino.jpg",   
+                          link:"/tesseramentoprassi",
+                        },
+                      ]
+                    },
+                     {//cat8
+                      n:"80",
+                      descrizione:"Links",
+                      titolo:"Siti di interesse, amici, altro...",
+                      icona:"mdi-link-variant",
+                      img:"/static/images/Icone/anclogo7.gif",   
+                      link:"/links",
+                      linksFP:
+                          [   { descrizione:  "Ubicazione sede",
+                                link: "sede/"             },
+                              { descrizione:  "Chi siamo",
+                                link: "chisiamo/"             },             
+                              { descrizione:  "Richiedi INFO",
+                                link: "contatti/"         }, 
+                          ],
+
+                      sottocategorie: [
+                      ]
+                    },
+
+
+
+                  ],
+*/
+        catsChi:     
+                  [ { n:"1",
+                      img: "/static/images/Icone/bus.jpg",
+                      descrizione: "Soci",
+                      link: "/chisiamosoci"
+                    },
+                    { n:"2",
+                      img: "/static/images/Icone/bengradi.jpg",
+                      descrizione: "Benemerite",
+                      link: "/chisiamobenemerite"
+                    },
+                    { n:"3",
+                      img: "/static/images/Icone/cap.jpg",
+                      descrizione: "Simpatizzanti",
+                      link: "/chisiamosimpatizzanti"
+                    },
+                  ],   
+        catsConsiglio:
+                     [ { n:"1",
+                      img: "/static/images/Icone/bus.jpg",
+                      descrizione: "Soci Effettivi",
+                      link: "/chisiamosoci"
+                    },
+                    { n:"2",
+                      img: "/static/images/Icone/bus.jpg",
+                      descrizione: "Consigliere",
+                      link: "/chisiamosoci"
+                    },
+                    { n:"3",
+                      img: "/static/images/Icone/bus.jpg",
+                      descrizione: "Segretario",
+                      link: "/chisiamosoci"
+                    },
+                    { n:"4",
+                      img: "/static/images/Icone/bus.jpg",
+                      descrizione: "Revisore",
+                      link: "/chisiamosoci"
+                    },
+                    { n:"5",
+                      img: "/static/images/Icone/bus.jpg",
+                      descrizione: "Vice-Presidente",
+                      link: "/chisiamosoci"
+                    },
+                    { n:"6",
+                      img: "/static/images/Icone/bus.jpg",
+                      descrizione: "Presidente",
+                      link: "/chisiamosoci"
+                    },
+                    { n:"7",
+                      img: "/static/images/Icone/bus.jpg",
+                      descrizione: "Presidente-Onorario",
+                      link: "/chisiamosoci"
+                    },
+                  ],             
+    }),
+
+    methods: {
+
+/*  gotoSede() {
+      console.log("rotta per..");
+      router.push('sede')
+    },*/
+
+/*  async setup () {
+      this.claims = await this.$auth.getUser()
+    },*/
+/*  async isAuthenticated () {
+      this.authenticated = await this.$auth.isAuthenticated()
+    },*/            
+
+      getToken(){
+                  //test OK 
+              console.log("cookies.get(CSRF_TOKEN)",$cookies.get("csrftoken"));
+              this.requestToken = $cookies.get("csrftoken");
+      },
+
+      getRequestUser() {
+          let endpoint = "api/profiles/getcurrentuser/";
+          apiService(endpoint).then(data => {
+            console.log("chiamata rest... data:", data.us.name);
+
+            this.requestUser        = data.us.name;
+            this.requestUserIsStaff = data.us.staff;
+            this.requestUserIsSuper = data.us.superuser;
+            this.requestUserBio     = data.us.bio;
+
+          });
+      },
+
+      T(c){
+
+        console.log("App --> RICEVUTO emit su T ",c);  //set parameters 
+
+      },
+
+      spMC(P){
+
+//          console.log("RICEVUTO emit su spMC ");  //set parameters 
+//          console.log("salvo paramentri...", P );
+
+//          this.menuCat        = P.menuCat;
+//          this.menuSubCat     = P.menuSubCat;
+
+          this.Ccurrent       = P.Ccurrent;
+          this.CScurrent      = P.CScurrent;
+
+//          this.intMsg         = P.intMsg;        //<!-- Ai -->
+//          this.intMsgSubH     = P.intMsgSubH;
+//          this.intFMsg        = P.intFMsg;        //<!-- AiF -->
+//          this.intFMsgSubH    = P.intFMsgSubH;
+//          this.linksFP        = P.linksFP;
+//          this.src            = P.src;
+          
+      },
+
+      setD(){
+          this.drawerLeft= !this.drawerLeft;
+          if (this.drawerLeft==false) { this.setDF()  }
+          else                        { this.setDT()  }
+      },
+
+      setDF(){
+          this.drawerLeft= false;
+          this.drawerRight= false;
+          this.iconX= this.iconC;
+      },
+      setDT(){
+          this.drawerLeft= true;
+          this.drawerRight= true;
+          this.iconX= this.iconO;
+      },
+      setColor(){
+            if (this.requestUserIsSuper === true){
+              this.nbc = "light-red"
+            } else if (this.requestUserIsStaff === true){
+              this.nbc = "light-green"
+            } else {
+              this.nbc = "dark-grey"
+            }
+      },
+
+
+
+      navi(){
+        console.log("navi click...");
+      },
+
+      mouseOver: function(){
+          this.Logoutbtn.color="LightGoldenRodYellow";   
+      },
+
+
+
+      gotoR(r){
+        
+        var m = menuT;
+        m.goto(r);
+        this.C    = m.currentcat[0],
+        this.CS   = m.currentcat[1],
+
+        console.log("App goto --> OTTENGO current ( ", m.currentcat ," )");
+        console.log("App goto --> ");
+        console.log("App goto --> chiama menuT.goto( ",r," )");
+
+        //router.push("/");
+        //router.push(r);
+      },
+
+
+      getCat(){
+        var set = false;
+        var count = 0;
+        var m = menuT;
+        m.retrieveMenu();
+
+
+          while(set !== true && count < 5) {
+          var cr = m.canRead();  
+          console.log("m.canRead ",cr);
+          if  (cr === true){
+            console.log("m.canRead é TRUE");
+            this.categorie = m.cats;
+            set = true;
+
+          }else{
+            console.log("m.canRead é FALSE");
+
+
+
+          }
+
+
+          
+          console.log("count ",count);
+          count++;
+          //var check = menuT.retrieveMenu();
+
+          if (!this.categorie){
+             console.log("ritornato nullo ",this.categorie);
+          }else{
+              console.log("ritornato menuT canRead", m.canRead());
+              console.log("ritornato ",this.categorie);
+             
+          }
+          console.log("uscito dal ciclo");
+        }//fine while
+
+
+
+
+        console.log("App getCat FINEWHILE");
+      },
+      
+
+
+
+      setCat() {  menuT.sem.then( data => {console.log ("setCat ...data:", data
+                                                        );
+                                          }
+                                  ).catch(error => console.log(error
+                                                              )
+                                          );
+                //this.menucat    =  getCat();            //TEST OK
+                //this.categorie  =  getCat();            //TEST OK - CORRENTE
+                //this.categorie = menuT.retrieveMenu();  //TEST NG
+              },
+      
+
+// --------------------------------------------------------------
+    },
+
+
+
+    watch: {
+    },
+
+// Hooks ---------------------------------------------------------    
+
+beforecreated() {
+    
+},
+
+created() {
+
+    document.title = "ANC Tradate";
+    this.getToken();
+    this.getRequestUser();
+    this.setColor();
+    //this.setCat();  //modulo menu.js
+    this.getCat(); // test 2020 02 07
+
+
+//this.menu();
+},
+
+
+}
+</script>
+
+
+<style media="screen">
+
+/* ------------------------------ Dev -------------------- */
+.row{               background-color:snow;      
+                    
+}
+.column{            background-color:snow;    }
+
+.container-fluid{   background-color:snow;
+                      width: 100% ;
+                      height: "500px";              }
+
+#c0{                background-color:pink;
+                      height: 700px;                }
+#c0img{               height: 680px;                }
+#c1{                background-color:plum;
+                      height: 700px;                }
+#c1img{               height: 680px;                }
+#c2{                background-color:purple;    }
+#c2img{               height: 680px;                }
+/* ------------------------------ Dev -------------------- */
+
+.sedeorari{         background-color:purple;
+                      width: 100% ;
+                      height: 100%;}
+.taC {              text-align: center;}
+
+.logeduser {        color:LightGoldenRodYellow;}
+.logout {           color:DimGrey;}
+
+#Logoutbtn {        color:aquamarine;}
+
+.h2 {
+  background-color: aqua;
+}
+
+.ancTitle                 {color: #F9FBE7;}
+.AncTitleColor            {color: #F9FBE7;}
+
+.AncAppBarColor           {color: #F9FBE7;}
+.AncAppBarColor:hover     {color: #ffbe4d;}
+
+.AncIconColor             {color: #F9FBE7;}
+.AncIconColor:hover       {color: #ffbe4d;}
+
+.AncItemColor             {color: #6D4C41;}
+.AncItemColor:hover       {color: #ffbe4d;}
+
+.AncTitleColorDark        {color: darkslategray;}
+
+
+
+</style>
+
+
+
