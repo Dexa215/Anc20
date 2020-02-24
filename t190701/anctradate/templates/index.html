@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load static %}
+{% load render_bundle from webpack_loader %}
+
+{% block style %}
+    <link href="{% static 'bundle.css' %}" rel="stylesheet">
+{% endblock %}
+{% block content %}
+
+<!--
+<h3>Index-PRODUCTION TEST 7</h3>
+<h1>Test 7</h1>
+<h2>PRODUCTION TEST 7</h2>
+<h3>Index-PRODUCTION TEST 7</h3>
+-->
+
+<!--
+<img    src="{% static 'images/Soci/Registrazione/bustina.jpg' %}" 
+        class="rounded mx-auto d-block" 
+        style ="width: 80px"  
+        alt="..."
+>
+-->
+
+    <noscript>
+        <strong>
+            Ci spiace, ma il frontend non funziona senza JavaScript abilitato. Abilita JavaScript per continuare!
+        </strong>
+    </noscript>
+
+    <div id="app"></div>
+    {% render_bundle 'app' %}
+{% endblock %}
+
+{% block js %}
+    <script src="{% static 'bundle.js' %}"></script>
+{% endblock %}
