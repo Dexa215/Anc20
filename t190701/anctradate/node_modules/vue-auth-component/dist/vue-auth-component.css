@@ -1,0 +1,375 @@
+
+div.oauth-buttons {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+button.auth-button {
+  border: 0px solid #556D99;
+  border-radius: 2px;
+  padding: 0;
+  margin: 0.4em;
+  font-size: 12px;
+}
+button.auth-button a {
+  display: flex;
+  align-items: center;
+  padding: 0.5em 0;
+  text-decoration: none;
+}
+button.auth-button a span.inline-svg {
+  width: 28px;
+  height: 28px;
+  margin: 0 8px;
+  display: inline-block;
+}
+button.auth-button a span.inline-svg svg {
+  height: 100%;
+  width: 100%;
+}
+button.auth-button a img.logo {
+  height: 28px;
+  margin: 0 8px;
+}
+button.auth-button a:hover {
+  text-decoration: underline;
+}
+button.auth-button span.auth-button-text {
+  padding-left: 2px;
+  white-space: nowrap;
+  margin-right: 0.8em;
+}
+
+ul.vue-auth-component-tabs {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  display: flex;
+  font-size: 16px;
+  font-weight: 400;
+}
+ul.vue-auth-component-tabs li {
+  height: 56px;
+  line-height: 56px;
+  width: 50%;
+  text-align: center;
+}
+ul.vue-auth-component-tabs li:not(.active) {
+  background: #77BFED;
+}
+ul.vue-auth-component-tabs li:not(.active) a {
+  color: white;
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+ul.vue-auth-component-tabs a:active,
+ul.vue-auth-component-tabs a:focus,
+ul.vue-auth-component-tabs a:hover,
+ul.vue-auth-component-tabs a:visited {
+  text-decoration: none;
+}
+
+div.vue-auth-component {
+  display: block;
+  color: #4A4A4A;
+  width: 100%;
+}
+@media only screen and (min-width: 375px) {
+div.vue-auth-component {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+}
+div.vue-auth-component a {
+  text-decoration: none;
+}
+div.vue-auth-component div.auth-ui-container {
+  padding-bottom: 11px;
+  background: white;
+}
+@media only screen and (min-width: 375px) {
+div.vue-auth-component div.auth-ui-container {
+    -webkit-box-shadow: 0px 0px 24px 0px rgba(110, 110, 110, 0.75);
+    -moz-box-shadow: 0px 0px 24px 0px rgba(110, 110, 110, 0.75);
+    box-shadow: 0px 0px 24px 0px rgba(110, 110, 110, 0.75);
+    width: 290px;
+}
+}
+.auth-branding {
+  padding: 30px 0;
+  text-align: center;
+}
+.auth-error {
+  text-align: center;
+  background: #FFDCDC;
+  border: 1px solid #FF0000;
+  font-weight: 500;
+  margin: 0 15px;
+  padding: 4px;
+  font-size: 14px;
+  color: #FF0A0A;
+}
+/* MEDIUM MOBILE DEVICES ~375px+ */
+/* LARGE MOBILE DEVICES ~425px+ */
+/* TABLET & SMALLER LAPTOPS ~768px+ */
+/* DESKTOP ~1030px+ */
+/* LARGE VIEWING SIZE ~1240px+ */
+
+.oauth-yahoo {
+  background: #7B0099;
+  /* This shouldn't know about its implementation.  Move this somewhere else. */
+}
+.oauth-yahoo > * {
+  color: white;
+}
+.oauth-yahoo.one {
+  width: 142px;
+}
+
+.oauth-twitter {
+  background: #50ABF1;
+  /* This shouldn't know about its implementation.  Move this somewhere else. */
+}
+.oauth-twitter > * {
+  color: white;
+}
+.oauth-twitter.one {
+  width: 147px;
+}
+
+.oauth-stackoverflow {
+  background: #E5712A;
+  /* This shouldn't know about its implementation.  Move this somewhere else. */
+}
+.oauth-stackoverflow > * {
+  color: black;
+}
+.oauth-stackoverflow.one {
+  width: 179px;
+}
+
+.oauth-slack {
+  background: #50AD83;
+  /* This shouldn't know about its implementation.  Move this somewhere else. */
+}
+.oauth-slack > * {
+  color: white;
+}
+.oauth-slack.one {
+  width: 135px;
+}
+
+.oauth-skype {
+  background: #1AAEF0;
+  /* This shouldn't know about its implementation.  Move this somewhere else. */
+}
+.oauth-skype > * {
+  color: white;
+}
+.oauth-skype.one {
+  width: 140px;
+}
+
+.oauth-paypal {
+  background: #005082;
+  /* This shouldn't know about its implementation.  Move this somewhere else. */
+}
+.oauth-paypal > * {
+  color: white;
+}
+.oauth-paypal.one {
+  width: 141px;
+}
+
+.oauth-openid {
+  background: #F27F1C;
+  /* This shouldn't know about its implementation.  Move this somewhere else. */
+}
+.oauth-openid > * {
+  color: black;
+}
+.oauth-openid.one {
+  width: 148px;
+}
+
+.oauth-microsoft {
+  background: #2672EC;
+  /* This shouldn't know about its implementation.  Move this somewhere else. */
+}
+.oauth-microsoft > * {
+  color: white;
+}
+.oauth-microsoft.one {
+  width: 153px;
+}
+
+.oauth-linkedin {
+  background: #006087;
+  /* This shouldn't know about its implementation.  Move this somewhere else. */
+}
+.oauth-linkedin > * {
+  color: white;
+}
+.oauth-linkedin.one {
+  width: 148px;
+}
+
+.oauth-google {
+  background: #DD4B39;
+  /* This shouldn't know about its implementation.  Move this somewhere else. */
+}
+.oauth-google > * {
+  color: white;
+}
+.oauth-google.one {
+  width: 145px;
+}
+
+.oauth-github {
+  background: #a6a0a0;
+  /* This shouldn't know about its implementation.  Move this somewhere else. */
+}
+.oauth-github > * {
+  color: white;
+}
+.oauth-github.one {
+  width: 144px;
+}
+
+.oauth-facebook {
+  background: #5E7AB5;
+  /* This shouldn't know about its implementation.  Move this somewhere else. */
+}
+.oauth-facebook > * {
+  color: white;
+}
+.oauth-facebook.one {
+  width: 159px;
+}
+
+.oauth-evernote {
+  background: #68B629;
+  /* This shouldn't know about its implementation.  Move this somewhere else. */
+}
+.oauth-evernote > * {
+  color: white;
+}
+.oauth-evernote.one {
+  width: 149px;
+}
+
+.oauth-dropbox {
+  background: #007EE5;
+  /* This shouldn't know about its implementation.  Move this somewhere else. */
+}
+.oauth-dropbox > * {
+  color: white;
+}
+.oauth-dropbox.one {
+  width: 154px;
+}
+
+.oauth-amazon {
+  background: #FFAD1D;
+  /* This shouldn't know about its implementation.  Move this somewhere else. */
+}
+.oauth-amazon > * {
+  color: black;
+}
+.oauth-amazon.one {
+  width: 154px;
+}
+.oauth-amazon span {
+  font-weight: 400;
+}
+
+div.auth-ui-container form.vue-auth-component-form {
+  margin-bottom: 3px;
+}
+form.vue-auth-component-form {
+  text-align: center;
+  font-size: 16px;
+  margin-top: 22px;
+}
+form.vue-auth-component-form div.forgot-password {
+  margin-top: 12px;
+  height: 15px;
+  font-size: 12px;
+}
+form.vue-auth-component-form div.forgot-password a {
+  color: #77BFED;
+}
+form.vue-auth-component-form button {
+  width: calc(90%);
+  height: 52px;
+  background: #77BFED;
+  border: none;
+  color: white;
+  margin-top: 22px;
+  font-size: 16px;
+}
+form.vue-auth-component-form input {
+  border-bottom: solid 1px #E6E6E6;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  height: 30px;
+  width: calc(90%);
+  text-align: center;
+  padding: 6px 0 2px;
+  margin-bottom: 4px;
+  outline: none;
+  font-size: 14px;
+  box-sizing: content-box;
+}
+form.vue-auth-component-form input:focus {
+  border-bottom: solid 1px #77BFED;
+}
+
+div.auth-ui-container form.vue-auth-component-form {
+  margin-bottom: 3px;
+}
+form.vue-auth-component-form {
+  text-align: center;
+  font-size: 16px;
+  margin-top: 22px;
+}
+form.vue-auth-component-form div.forgot-password {
+  margin-top: 12px;
+  height: 15px;
+  font-size: 12px;
+}
+form.vue-auth-component-form div.forgot-password a {
+  color: #77BFED;
+}
+form.vue-auth-component-form button {
+  width: calc(90%);
+  height: 52px;
+  background: #77BFED;
+  border: none;
+  color: white;
+  margin-top: 22px;
+  font-size: 16px;
+}
+form.vue-auth-component-form input {
+  border-bottom: solid 1px #E6E6E6;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  height: 30px;
+  width: calc(90%);
+  text-align: center;
+  padding: 6px 0 2px;
+  margin-bottom: 4px;
+  outline: none;
+  font-size: 14px;
+  box-sizing: content-box;
+}
+form.vue-auth-component-form input:focus {
+  border-bottom: solid 1px #77BFED;
+}
