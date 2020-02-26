@@ -1,0 +1,21 @@
+Abilitare esecuzione script Powershell
+
+Ricordati sempre di eseguire la Powershell come Amministratore di sistema
+
+Puoi controllare il parametro prima di modificarlo utilizzando il comando:
+Get-ExecutionPolicy
+
+Set-ExecutionPolicy <policy name>
+
+Restricted: 	con questo comando lo script non si eseguirà mai.
+RemoteSigned: 	potranno essere eseguiti solamente gli script creati localmente
+AllSigned: 		potranno essere eseguiti solo script firmati da un editore attendibile
+Unrestriced: 	potranno essere eseguiti qualsiasi script, scaricato o scritto localmente.
+
+es:
+Set-ExecutionPolicy Unrestriced
+
+Abilitare esecuzione script Powershell eseguire tutti gli script
+Quindi nel caso si vogliono eseguire qualsiasi tipo di script si dovrà digitare il comando:
+
+Set-ExecutionPolicy Unrestricted
