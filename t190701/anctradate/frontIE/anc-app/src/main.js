@@ -14,6 +14,11 @@ import VueCookies           from 'vue-cookies';
 import VueAuthenticateService from 'vue-authenticate-service';
 
 
+import * as TastyBurgerButton from 'vue-tasty-burgers';
+//Vue.use(TastyBurgerButton);
+
+
+
 //import 'vue-material-design-icons/styles.css';
 
 //Vue.use(vueDateFormat)
@@ -47,6 +52,8 @@ new Vue({
   vueDateFormat,
   i18n,
   VueCookies,
+  TastyBurgerButton,
+
 //  VueAuthenticateService,
 //  VueAuth,
 

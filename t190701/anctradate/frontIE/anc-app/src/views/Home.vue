@@ -398,8 +398,8 @@ export default {
 };
 </script>
 
-<style media="screen">
 
+<style media="screen">
 .author-name {
   font-weight: bold;
   color: #dc3545;
@@ -425,9 +425,7 @@ opacity: 0.4;
 .bg {
 
     background-image: url("../assets/images/bg/bg1.jpg");
-
 }
-
 </style>
 
 <!--

@@ -4,40 +4,71 @@
 
 
 <template> 
+
+  <!--
+
+    fixed
+    //:collapse               = "collapse"
+
+    scroll-target           = "#playground-example"
+  -->
+
   <v-app-bar
     class="AncAppBarE"
     app
     
     clipped-right 
-    fixed
+    
+    absolute
 
     :color                  = "nbc"
     dark
-    scroll-target           = "#playground-example"
+    
+
     :elevate-on-scroll      = "elevateOnScroll"
     :hide-on-scroll         = "hideOnScroll"
     :fade-on-scroll         = "fadeOnScroll"
     :fade-img-on-scroll     = "fadeImgOnScroll"
     :inverted-scroll        = "invertedScroll"
-    :collapse               = "collapse"
+    
+    
+    :collapse               = "!collapseOnScroll"
     :collapse-on-scroll     = "collapseOnScroll"
+
+    scroll-target           = "#scrolling-techniques-6"
+
     :shrink-on-scroll       = "shrinkOnScroll"
     :extended               = "extended"
   >
     
 
-      <v-col  class="colbarsx">
-        <v-app-bar-nav-icon
-              style="z-index:5; "
-              @click.stop=  "setD" 
-        >
-          <v-btn icon class="" >
-            <!--v-model="iconX"-->
-            <v-icon v-if="drawerLeft"   large>{{iconO}}</v-icon>
-            <v-icon v-else              large>{{iconC}}</v-icon>
-          </v-btn>            
-        </v-app-bar-nav-icon>
+
+
+
+    <!--v-toolbar-title><h2>prova testo cangiante</h2></v-toolbar-title-->
+
+      <v-col  class="colbarsx" id="toolbar">
+        
+        
+
+
+        <!-- icona MENU -->
+          <v-app-bar-nav-icon
+            style="z-index:10; "
+            @click.stop=  "setD" 
+          >
+
+            <v-btn icon >
+              <!--v-model="iconX"-->   
+              <v-icon v-if="drawerLeft"   large  >{{iconO}}</v-icon>
+              <v-icon v-else              large  >{{iconC}}</v-icon>
+            </v-btn>
+          </v-app-bar-nav-icon>
+        <!-- icona MENU -->   
+        
+
       </v-col>
+
 
       <v-row 
                     dense
@@ -57,6 +88,17 @@
         </v-col>
 
         <v-col class="colAvatar pt-2" >
+
+          <tasty-burger-button 
+            :type="buttonType" 
+            :active="isActive" 
+            :size="size" 
+            :color="color" 
+            :active-color="activeColor"
+            v-on:toggle="onToggle" 
+          />  
+
+
           <v-avatar 
             class ="avatar"
             size = "62"
@@ -82,7 +124,11 @@
                   @mouseover    ="hoveravatar = true"
                   @mouseleave   ="hoveravatar = false"
                 >
-          </v-avatar>    
+      
+          </v-avatar>
+
+          
+
         </v-col>
 
         <v-col
@@ -146,7 +192,6 @@
     <div class="flex-grow-1"></div>
 -->
 
-
     <v-col  class="colbardx">
       <v-btn
         icon
@@ -157,19 +202,43 @@
     </v-col>
 
 
-
   </v-app-bar>
 
 </template>
 
 <script>
+
 import router       from "../router";
+
+import {TastyBurgerButton} from 'vue-tasty-burgers'
+//import 'vue-tasty-burgers/dist/vue-tasty-burgers.css'
+
 
   export default {
     name: "ancAppBar",
 
+    components: {
+    'tasty-burger-button': TastyBurgerButton
+    },
+
     data() {
         return {
+
+        //burger
+        //buttonType:   'elastic',
+        //buttonType:   'spin',
+        //buttonType:   'spring',
+
+        buttonType:   'collapse',
+
+
+        isActive:     true,
+        size:         'xl',
+        color:        'green',
+        activeColor:  'orange',
+        //burger
+        
+        
         
         nbc:  "#212121",  //dark-grey
 
@@ -198,8 +267,11 @@ import router       from "../router";
         fadeOnScroll:       false,
         fadeImgOnScroll:    false,
         invertedScroll:     false,
-        collapse:           false,
-        collapseOnScroll:   false,
+
+       
+        collapse:           true,
+
+        collapseOnScroll:   true,
 
         shrinkOnScroll:     false,
         extended:           false,
@@ -233,6 +305,33 @@ import router       from "../router";
 
 
     methods:{
+
+        //HAMBURGER
+        onToggle(active) {
+
+          let d = this.drawerLeft;
+          if (d===false) {
+            console.log("d false");
+            console.log("active" ,active);
+            this.drawerLeft=true;
+            
+          }
+          else {
+            console.log("d true");
+            console.log("active" ,active);
+            this.drawerLeft=false;
+          }
+
+          this.$emit("setD")
+
+          /*
+          if (d===false)  { this.iconX = this.iconC;  this.isActive = true ;    console.log("d true");}
+          else            { this.iconX = this.iconO;  this.isActive = false ;  console.log("d false");}
+          
+          this.$emit("setD")
+          */
+        },
+
         
         gotoR(r){
         console.log("AppBar rotta per...");
@@ -242,8 +341,8 @@ import router       from "../router";
 
         setD(){
         let d = this.drawerLeft;
-        if (d===false)  { this.iconX = this.iconC;  console.log("d true");}
-        else            { this.iconX = this.iconO;  console.log("d false");}
+        if (d===false)  { this.iconX = this.iconC;  this.isActive = true ; console.log("d true");}
+        else            { this.iconX = this.iconO;  this.isActive = false  ; console.log("d false");}
         this.$emit("setD")
         },
 
@@ -298,7 +397,70 @@ import router       from "../router";
   }
 </script>
 
+
+
+
+
+
 <style media="screen">
+
+/* NOT USED... */
+@media print {
+  body {
+    color: black; 
+  }
+}
+
+
+
+
+/* Extra small devices        (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+}
+
+/* Small devices              (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+}
+
+/* Medium devices             (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+
+}
+
+/* Large devices              (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+
+}
+
+/* Extra large devices        (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+
+}
+
+
+
+
+/* For portrait, we want the tool bar on top */
+@media screen and (orientation: portrait) {
+  #toolbar {
+    background-color: greenyellow !important;
+  }
+  h2 {
+    color: aqua
+  }
+}
+/* For landscape, we want the tool bar stick on the left */
+@media screen and (orientation: landscape) {
+  #toolbar {
+    /* display: none; */
+    background-color: red !important;
+  }
+  h2 {
+    color:blue
+  }
+}
+/* ------------------------------------- */
+
 
 col {
   padding: 20px 0px 0px;
@@ -410,6 +572,15 @@ col {
     min-height: 50px;
     max-height: 70px;
     max-width:  70px;
+}
+
+.icoO{
+    transform: origin-xtranslateX(0px);
+    position: relative;
+    left:200px;
+}
+.icoC{
+    transform: origin-xtranslateX(400px);
 }
 
 

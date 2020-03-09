@@ -1,7 +1,7 @@
 <template> 
 <!-- -->
         <v-card
-             style="z-index:100;"
+             style="z-index:5;"
         >    
             <!-- absolute -->
             <v-navigation-drawer

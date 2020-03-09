@@ -70,5 +70,11 @@ npm install vue-cookies --save
 npm install --save vue-authenticate-service
 npm install --save vue-auth
 
+//npm install hamburgers
+npm install vue-tasty-burgers
+
+npm install --save vue-authenticate-service
+npm install --save vue-auth
+
 
 
