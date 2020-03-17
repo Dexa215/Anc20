@@ -1,72 +1,87 @@
-<!-- 
-  
+<template>
+
+<!-- test new appbar 
+  <v-card class="overflow-hidden">
+  scroll-target           ="#scrolling-techniques-5"
+
 -->
+      <v-app-bar
+
+        app
+        fixed
+        dark
+        prominent
+        src="/static/images/HomePageCarousel/dsc32.jpg"
+        height= "350"
+        min-height="50"    
+        
+        scroll-threshold        ="500"
+        clipped-right 
+        :color                  = "nbc"
+        :elevate-on-scroll      = "elevateOnScroll"
+        :hide-on-scroll         = "hideOnScroll"
+        :fade-on-scroll         = "fadeOnScroll"
+        :fade-img-on-scroll     = "fadeImgOnScroll"
+        :inverted-scroll        = "invertedScroll"
+        
+        
+        :collapse               = "collapse"
+        :collapse-on-scroll     = "collapseOnScroll"
+
+        
+
+        :shrink-on-scroll       = "shrinkOnScroll"
+        :extended               = "extended"
+      >
+
+        <template v-slot:img="{ props }">
+          <v-img
+            v-bind="props"
+            gradient="to top right, rgba(106, 55, 52, 0.7), rgba(25,32,72,.7)"
+          >
+            <p 
+              class="display-4"
+              style="z-index:11;"
+            >ANC
+            </p> 
+
+          </v-img>
+
+          
+        </template>
 
 
-<template> 
+        <!--
+        <PushRotate>
+          <a id="home" href="#">
+            <span>Home</span>
+          </a>
+        </PushRotate>
+        -->
 
   <!--
-
-    fixed
-    //:collapse               = "collapse"
-
-    scroll-target           = "#playground-example"
-  -->
-
-  <v-app-bar
-    class="AncAppBarE"
-    app
-    
-    clipped-right 
-    
-    absolute
-
-    :color                  = "nbc"
-    dark
-    
-
-    :elevate-on-scroll      = "elevateOnScroll"
-    :hide-on-scroll         = "hideOnScroll"
-    :fade-on-scroll         = "fadeOnScroll"
-    :fade-img-on-scroll     = "fadeImgOnScroll"
-    :inverted-scroll        = "invertedScroll"
-    
-    
-    :collapse               = "!collapseOnScroll"
-    :collapse-on-scroll     = "collapseOnScroll"
-
-    scroll-target           = "#scrolling-techniques-6"
-
-    :shrink-on-scroll       = "shrinkOnScroll"
-    :extended               = "extended"
-  >
-    
-
-
-
-
-    <!--v-toolbar-title><h2>prova testo cangiante</h2></v-toolbar-title-->
-
-      <v-col  class="colbarsx" id="toolbar">
-        
-        
-
-
-        <!-- icona MENU -->
+        <!-- icona MENU 
           <v-app-bar-nav-icon
-            style="z-index:10; "
+            style="z-index:10;"
+            
             @click.stop=  "setD" 
           >
-
-            <v-btn icon >
-              <!--v-model="iconX"-->   
-              <v-icon v-if="drawerLeft"   large  >{{iconO}}</v-icon>
-              <v-icon v-else              large  >{{iconC}}</v-icon>
-            </v-btn>
+            <tasty-burger-button
+              :type         ="buttonType" 
+              :active       ="drawerLeft"
+              :size         ="size" 
+              :color        ="color" 
+              :active-color ="activeColor"
+              @toggle       ="onToggle" 
+              style="z-index:100; "
+            />  
           </v-app-bar-nav-icon>
-        <!-- icona MENU -->   
+        <!-- icona MENU --> 
+     
         
 
+
+      <v-col  class="colbarsx" id="toolbar">
       </v-col>
 
 
@@ -81,28 +96,66 @@
         <v-col
           class="colAvSx  hidden-sm-and-down"  
         >
+          <h6>
+              Associazione Nazionale Carabinieri
+          </h6>
+
+          
+
+
+<!--
           <div class="ma-0 px-0" 
               sytle= "max-height:50px;">
-            ANC
+            
           </div>
+-->
+
         </v-col>
 
         <v-col class="colAvatar pt-2" >
+          
+          
+          <!-- icona MENU   
+          <v-btn icon
+                    class="tile mx-4"
+          >
+            <v-app-bar-nav-icon
+              style="z-index:10;"
+              @click.stop=  "setD" 
+            >
+            -->
 
-          <tasty-burger-button 
-            :type="buttonType" 
-            :active="isActive" 
-            :size="size" 
-            :color="color" 
-            :active-color="activeColor"
-            v-on:toggle="onToggle" 
-          />  
+              <!--v-model="iconX"-->  
+              <!--
+                    <v-btn icon >   
+                      <v-icon v-if="drawerLeft"   large  >{{iconO}}</v-icon>
+                      <v-icon v-else              large  >{{iconC}}</v-icon>
+                    </v-btn>
+              -->
+              
+              <!--
+                :active       ="isActive" 
+              <tasty-burger-button
+                :type         ="buttonType" 
+                :active       ="drawerLeft"
+                :size         ="size" 
+                color         ="white" 
+                :active-color ="activeColor"
+                @toggle       ="onToggle" 
+                style="z-index:11;"
+              />
+              --> 
+            <!--
+            </v-app-bar-nav-icon>
+             icona MENU  
+          </v-btn>
+          -->
 
-
+        <!-- right = True -->
           <v-avatar 
             class ="avatar"
             size = "62"
-            right = true
+            
           >
                 <!-- drawer aperto -->
                 <img
@@ -126,9 +179,6 @@
                 >
       
           </v-avatar>
-
-          
-
         </v-col>
 
         <v-col
@@ -140,9 +190,67 @@
          <div 
             class="ma-0 px-0" 
             sytle= "max-height:50px;">
-            TRADATE
-          </div>
-          <!-- @mouseover="setD()" -->
+            
+
+                  <v-spacer></v-spacer>
+  
+        <!--
+        <v-app-bar-nav-icon
+          @click.stop=  "setD" 
+        >
+        </v-app-bar-nav-icon>
+        -->
+
+        <!--Slide>
+          <a id="home" href="#">
+            <span>Home</span>
+          </a>
+        </Slide-->
+
+        <!--
+          <tasty-burger-button
+              :type         ="buttonType" 
+              :active       ="drawerLeft"
+              :size         ="size" 
+              :color        ="color" 
+              :active-color ="activeColor"
+              @toggle       ="onToggle" 
+              style         ="z-index:10; "
+          /> 
+        -->
+        
+
+        
+
+
+
+        
+
+
+        <!--
+        <v-btn icon
+                    class="tile mx-4"
+        >
+          <v-icon>mdi-magnify</v-icon>
+        </v-btn>
+  
+        <v-btn icon
+                    class="tile mx-4"
+        >
+          <v-icon>mdi-heart</v-icon>
+        </v-btn>
+  
+        <v-btn icon
+                    class="tile mx-4"
+        >
+          <v-icon>mdi-dots-vertical</v-icon>
+        </v-btn>
+        -->
+        
+
+
+         </div>
+         <!-- @mouseover="setD()" -->
         </v-col>
       </v-row>
     <!-- <v-toolbar-title></v-toolbar-title> -->
@@ -192,25 +300,95 @@
     <div class="flex-grow-1"></div>
 -->
 
-    <v-col  class="colbardx">
+
+
+    <!-- v-col  class="colbardx">
       <v-btn
         icon
         class="hidden-sm-and-down" 
       >
         <v-icon>mdi-magnify</v-icon>
       </v-btn>
-    </v-col>
+    </v-col -->
+  
+        <v-toolbar-title>
+          <!-- Menu -->
+          <!--
+          <v-btn icon
+                      class="tile mx-2"
+                      @click.stop=  "setD" 
+          >  
+                      <tasty-burger-button
+                        :type         ="buttonType" 
+                        :active       ="drawerLeft"
+                        :size         ="size" 
+                        color         ="white" 
+                        :active-color ="activeColor"
+                        @toggle       ="onToggle" 
+                        style="z-index:11;"
+                      /> 
+                      <v-icon id="menu">mdi-menu</v-icon>
+          </v-btn>
+          -->
+          
+          <v-btn icon
+                      class="tile mx-4"
+                      @click.stop=  "setD" 
+          >
+            <v-icon>mdi-dots-vertical</v-icon>
+          </v-btn>
+          
+          <v-btn icon
+                      class="tile mx-2"
+                      v-for="item in categorie"
+                      :key="item.n"
+                      link
+                      @click = "gotoR(item.link)"
+          >
+                      <v-icon  id="item.icona">{{ item.icona }}</v-icon>
+                      <!--p                      >{{ item.descrizione }}</p-->
+          </v-btn>
+          <!-- Menu -->
+
+          
+          Sezione "C.Bergia" Tradate
+        </v-toolbar-title>
+
+      </v-app-bar>
 
 
-  </v-app-bar>
+      <!--
+      <v-sheet
+        id="scrolling-techniques-5"
+        class="overflow-y-auto"
+        max-height="600"
+      >
+        <v-container style="height: 1500px;"></v-container>
+      </v-sheet>
+    </v-card-->
+
+<!-- test new appbar -->
+
+
+
 
 </template>
 
 <script>
 
-import router       from "../router";
+import router               from "../router";
 
-import {TastyBurgerButton} from 'vue-tasty-burgers'
+import {TastyBurgerButton}  from 'vue-tasty-burgers'// test 2020 03 10
+//--------------------------------------------------------------------
+import { Slide }            from 'vue-burger-menu'  // test 2020 03 11
+import { Push }             from 'vue-burger-menu'  // test 2020 03 11
+import { PushRotate }       from 'vue-burger-menu'  // test 2020 03 11
+import { ScaleDown }        from 'vue-burger-menu'  // test 2020 03 11
+import { ScaleRotate }      from 'vue-burger-menu'  // test 2020 03 11
+import { Reveal }           from 'vue-burger-menu'  // test 2020 03 11
+
+
+//import '../../dist/hamburger.css'
 //import 'vue-tasty-burgers/dist/vue-tasty-burgers.css'
 
 
@@ -218,7 +396,9 @@ import {TastyBurgerButton} from 'vue-tasty-burgers'
     name: "ancAppBar",
 
     components: {
-    'tasty-burger-button': TastyBurgerButton
+      'tasty-burger-button': TastyBurgerButton,
+      Slide,
+      PushRotate,
     },
 
     data() {
@@ -232,10 +412,12 @@ import {TastyBurgerButton} from 'vue-tasty-burgers'
         buttonType:   'collapse',
 
 
-        isActive:     true,
-        size:         'xl',
-        color:        'green',
-        activeColor:  'orange',
+        isActive:     false,
+        //size:         'xl',
+        size:           'xl',
+        //color:        'green',
+        //activeColor:  'orange',
+
         //burger
         
         
@@ -265,15 +447,14 @@ import {TastyBurgerButton} from 'vue-tasty-burgers'
         elevateOnScroll:    false,
         hideOnScroll:       false,
         fadeOnScroll:       false,
-        fadeImgOnScroll:    false,
+        fadeImgOnScroll:    true,   //[2020 03 11]
         invertedScroll:     false,
 
        
-        collapse:           true,
+        collapse:           false,
+        collapseOnScroll:   false,
 
-        collapseOnScroll:   true,
-
-        shrinkOnScroll:     false,
+        shrinkOnScroll:     true,  //[2020 03 11]
         extended:           false,
 
 
@@ -308,27 +489,24 @@ import {TastyBurgerButton} from 'vue-tasty-burgers'
 
         //HAMBURGER
         onToggle(active) {
-
+          /*
+          //console.log("toggle");  
           let d = this.drawerLeft;
+          console.log("active:",d);  
+          console.log("isActive:",this.isActive);  
+
           if (d===false) {
-            console.log("d false");
-            console.log("active" ,active);
+            console.log("d:", this.isActive);
+            console.log("active:" ,active);
             this.drawerLeft=true;
-            
+            //this.drawerRight=true;
           }
           else {
             console.log("d true");
-            console.log("active" ,active);
+            console.log("active:" ,active);
             this.drawerLeft=false;
+            //this.drawerRight=false;
           }
-
-          this.$emit("setD")
-
-          /*
-          if (d===false)  { this.iconX = this.iconC;  this.isActive = true ;    console.log("d true");}
-          else            { this.iconX = this.iconO;  this.isActive = false ;  console.log("d false");}
-          
-          this.$emit("setD")
           */
         },
 
@@ -341,8 +519,8 @@ import {TastyBurgerButton} from 'vue-tasty-burgers'
 
         setD(){
         let d = this.drawerLeft;
-        if (d===false)  { this.iconX = this.iconC;  this.isActive = true ; console.log("d true");}
-        else            { this.iconX = this.iconO;  this.isActive = false  ; console.log("d false");}
+        if (d===false)  { this.iconX = this.iconC;  ; console.log("d===false - AncAppBar setD: d [this.drawerLeft] : ",d);}
+        else            { this.iconX = this.iconO;  ; console.log("else      - AncAppBar setD: d [this.drawerLeft] : ",d);}
         this.$emit("setD")
         },
 
@@ -443,7 +621,8 @@ import {TastyBurgerButton} from 'vue-tasty-burgers'
 /* For portrait, we want the tool bar on top */
 @media screen and (orientation: portrait) {
   #toolbar {
-    background-color: greenyellow !important;
+    /*background-color: greenyellow !important;*/
+    background-color: transparent !important;
   }
   h2 {
     color: aqua
@@ -453,7 +632,8 @@ import {TastyBurgerButton} from 'vue-tasty-burgers'
 @media screen and (orientation: landscape) {
   #toolbar {
     /* display: none; */
-    background-color: red !important;
+    /* background-color: red !important; */
+    background-color: transparent !important;
   }
   h2 {
     color:blue
@@ -477,15 +657,24 @@ col {
 .colBar{
     background-color: transparent !important;
 }
-.coltest{
+.coltestOK{
   background-color: red !important;
 }
-
+.coltest{
+  background-color: transparent !important;
+}
 .AncAppBarE{
     min-height: 80px;
     max-height: 84px;
     align:    center;
     justify:  center;  
+}
+
+.toolbarTitle{
+  background-color: orange !important;
+  align:    center;
+  justify:  center;  
+  padding: 2px 2px;    
 }
 
 .AncAppBar{
@@ -528,6 +717,7 @@ col {
 
 
 .rowavatar{
+    
     background-color: darkgreen !important;
     min-height:   76px;
     max-height:   80px;
@@ -583,6 +773,10 @@ col {
     transform: origin-xtranslateX(400px);
 }
 
+.btn:focus {
+  box-shadow: none !important;
+  box-decoration-break: none !important;
+}
 
 </style>
 

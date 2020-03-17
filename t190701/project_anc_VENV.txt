@@ -72,6 +72,7 @@ npm install --save vue-auth
 
 //npm install hamburgers
 npm install vue-tasty-burgers
+npm install vue-burger-menu --save [test 2020 03 11]
 
 npm install --save vue-authenticate-service
 npm install --save vue-auth

@@ -76,7 +76,7 @@
   </ancAppBar>
 
 
-<!--
+
   <ancAppDrawerLeft
       :requestUser=         "requestUser"
       :requestUserIsStaff=  "requestUserIsStaff"
@@ -98,9 +98,9 @@
 
   >    
   </ancAppDrawerLeft>  
--->
 
 
+<!--
   <ancAppDrawerRight
       :requestUser=         "requestUser"
       :requestUserIsStaff=  "requestUserIsStaff"
@@ -122,6 +122,8 @@
 
   >    
   </ancAppDrawerRight>  
+-->
+
 
 <!--
   <v-navigation-drawer
@@ -256,7 +258,7 @@ import ancFooter          from './components/AncFooter'
 import ancFooterMobile    from './components/AncFooterMobile'
 import ancAppBar          from './components/AncAppBar'
 import ancAppDrawerLeft   from './components/AncAppDrawerLeft'
-import ancAppDrawerRight   from './components/AncAppDrawerRight'
+import ancAppDrawerRight  from './components/AncAppDrawerRight'
 
 
 import ancSystem          from './components/AncSystem'
@@ -743,21 +745,24 @@ categorie:[
       },
 
       setD(){
+          console.log("App --> RICEVUTO emit su setD. drawerLeft corrente: ",this.drawerLeft); 
           this.drawerLeft= !this.drawerLeft;
           if (this.drawerLeft==false) { this.setDF()  }
           else                        { this.setDT()  }
+          console.log("App --> RICEVUTO emit su setD. drawerLeft modificato: ",this.drawerLeft); 
       },
 
       setDF(){
-          this.drawerLeft= false;
-          this.drawerRight= false;
-          this.iconX= this.iconC;
+          this.drawerLeft   = false;
+          //this.drawerRight  = false;
+          this.iconX        = this.iconC;
       },
       setDT(){
-          this.drawerLeft= true;
-          this.drawerRight= true;
-          this.iconX= this.iconO;
+          this.drawerLeft   = true;
+          //this.drawerRight  = true;
+          this.iconX        = this.iconO;
       },
+
       setColor(){
             if (this.requestUserIsSuper === true){
               this.nbc = "light-red"

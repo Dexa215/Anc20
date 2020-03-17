@@ -1,327 +1,178 @@
 <template> 
-<!-- -->
-        <v-card
-             style="z-index:5;"
-        >    
-            <!-- absolute -->
-            <v-navigation-drawer
-                app
-
-                v-model="drawerRight"
-
-                @transitionend ="ctlD()"
-                temporary
-                expand-on-hover
-                height="1000px"
-                color="#FAEBD7"
-            >
-                <template v-slot:prepend>
-                <v-list-item two-line>
-                    <v-list-item-avatar>
-                    <img :src="ico">
-                    </v-list-item-avatar>
-        
 
 
-                    <v-list-item-content>
-                    <v-row 
-                        dense
-                        class=          "row mx-2 pa-2"  
-                        style=          "background-color: transparent !important;"
-                        align=          "start"
-                        justify=        "center"
-                    >
-                        <v-col 
-                            class=      "pa-1" 
-                            style=      "background-color: transparent !important;"
-                            align=      "start"
-                            justify=    "center"
-                        >   
 
-                            <v-list-item-title
-                                class="my-1"
-                            > {{requestUser}}
-                            </v-list-item-title>
-
-                            <v-list-item-subtitle
-                                v-if="requestUserIsSuper"
-                                class="my-1"
-                                style="color:red;"
-                            >SuperUser</v-list-item-subtitle>
-                            <v-list-item-subtitle
-                                v-else-if="requestUserIsStaff"
-                                class="my-1"
-                                style="color:blue;"
-                            >Staff</v-list-item-subtitle>
-                            <v-list-item-subtitle
-                                v-else
-                                class="my-1"
-                                style="color:grey;"
-                            >User</v-list-item-subtitle>
-    <!--
-                            <v-list-item-subtitle
-                            class="my-1"
-                            >
-                            Logged In
-                            </v-list-item-subtitle>
-    -->                        
-                            <v-list-item-subtitle
-                            class="my-1"
-                            >
-                            <span v-if ="requestUser">
-                                <a  
-                                    class="my-1 btn btn-sm btn-outline-secondary"
-                                    href="/accounts/logout/"
-                                >Logout
-                                </a>
-                            </span>
-                            
-                            </v-list-item-subtitle>
-                        </v-col>
-                    </v-row>
-                    </v-list-item-content>
-                </v-list-item>
-                </template>
-        
-                <v-divider></v-divider>
-        
-
-    <!-- list 3 
-                <v-list>
-                    <v-list-group
-                    v-for="cat in  categorie"
-                    :key="cat.n"
-                    v-model="cat.icona"
-                    :prepend-icon="cat.icona"
-                    no-action
-                    >
-                    <template v-slot:activator>
-                        <v-list-item-content>
-                        <v-list-item-title v-text="cat.descrizione"></v-list-item-title>
-                        </v-list-item-content>
-                    </template>
+<v-card>
+      <!-- permanent -->
+      <!-- clipped -->
+      
+      <v-navigation-drawer
             
-                    <v-list-item
-                        v-for="subItem in cat.sottocategorie"
-                        :key="subItem.title"
-                        @click="gotoR(subItem.link)"
-                    >
-                        <v-list-item-content>
-                        <v-list-item-title v-text="subItem.descrizione"></v-list-item-title>
-                        </v-list-item-content>
-                    </v-list-item>
-                    </v-list-group>
-                </v-list>
-    -->
-
-
-    <!-- list 1 -->
-                
-        
-
-
-                <v-list shaped>
-                    <v-list-item
-
-                    class="tile"
-                    v-for="item in categorie"
-                    :key="item.n"
-                    link
-                    @click = "gotoR(item.link)"
-                >
-                    <v-list-item-icon>
-                    <v-icon>{{ item.icona }}</v-icon>
-                    </v-list-item-icon>
-        
-                    <v-list-item-content>
-                    <v-list-item-title>{{ item.descrizione }}</v-list-item-title>
-                    </v-list-item-content>
-                </v-list-item>    
-                </v-list>
-    
-    <!-- list 2 
-                <v-list shaped>
-
-                    <v-list-item
-                        v-for="item in categorie"
-                        :key="item.n"
-                        link
-                        
-                    >
-                        <v-list-group
-                            no-action
-                            sub-group
-                            value="false"
-                        >
-                        <template 
-                            v-slot:activator
-                            value="false"
-                        >
-                        <v-list-item-icon class="mx-4">
-                        <v-icon>{{ item.icona }}</v-icon>
-                        </v-list-item-icon>
-                        <v-list-item-content>
-                            <v-list-item-title>  {{item.descrizione }} </v-list-item-title>
-                        </v-list-item-content>
-                        </template>
-
-                    
-
-                            <v-list-item
-                            v-for="(sottocat, i) in item.sottocategorie"
-                            :key="i"
-                            link
-                            >
-                            <v-list-item-icon class="mx-4">
-                                <v-icon v-text="sottocat.icona"></v-icon>
-                            </v-list-item-icon>
-                            <v-list-item-content>
-                                <v-list-item-title>  {{sottocat.descrizione }} </v-list-item-title>
-                            </v-list-item-content>
-                            <v-list-item-title v-text="sottocat.descrizione"></v-list-item-title>
-                            
-                            </v-list-item>
-                        </v-list-group>
-
-                    
-                    </v-list-item>
-            </v-list>     
-    -->
-
-
-                <v-divider></v-divider>
-
-
-
-                <v-list shaped>
-                    <v-list-item
-                        class="tile"
-
-                        v-if="requestUserIsStaff"
-                        @click="gotoR('event/')"
-                        
-                
-                    >
-                        <v-list-item-icon>
-                        <v-icon>mdi-timeline-plus</v-icon>
-                        </v-list-item-icon>
-            
-                        <v-list-item-content>
-                        <v-list-item-title>Nuovo Evento</v-list-item-title>
-                        </v-list-item-content>
-                    </v-list-item>   
-
-
-
-                </v-list>
-
-
-
-
-
-                <v-row 
-                        dense
-                        class=          "row mx-1"  
-                        style=          "background-color: transparent !important;"
-                        align=          "center"
-                        justify=        "center"
-                    >
-                        <v-col 
-                            class=      "pa-1" 
-                            style=      "background-color: transparent !important;"
-                            align=      "center"
-                            justify=    "center"
-                        >
-                                    
-                            
-                        </v-col>
-                </v-row>    
-
-
-                <div>
-
-                    
-                
-
-                </div>
-                
-
-
-            </v-navigation-drawer>
-        </v-card>
-
-
-  
-
-
-
-
-
-<!-- 
-      <v-navigation-drawer 
-        v-model="drawerRight"
-
-        absolute
-        temporary
         expand-on-hover
+        app
+        floating
+
+        v-model="drawerRight"
+        
+        
+        
+        :mini-variant.sync="mini"
+
+        
+        
+       
       >
-      
-      
-        <v-list-item>
-          <v-list-item-content>
-            <v-list-item-title class="title">
-              Application
-            </v-list-item-title>
-            <v-list-item-subtitle>
-              subtext
-            </v-list-item-subtitle>
-          </v-list-item-content>
-        </v-list-item>
-  
-        <v-divider></v-divider>
-  
-        <v-list
-          dense
-          nav
-        >
-          <v-list-item
-            
-            v-for="item in categorie"
-            :key="item.n"
-            link
-            @click = "gotoR(item.link)"
+          <v-list
+            @close=                 "navi"
+            @click=                 "navi"
           >
-            <v-list-item-icon>
-              <v-icon>{{ item.icona }}</v-icon>
-            </v-list-item-icon>
-  
-            <v-list-item-content>
-              <v-list-item-title>{{ item.descrizione }}</v-list-item-title>
-            </v-list-item-content>
+            
+            <!--:active       ="isActive" -->
+            <!--@toggle       ="onToggle" -->
+            <tasty-burger-button
+                class="ma-4 justify-center text-alignment-center" 
+                style="z-index:100; "
+
+                :type         ="buttonType" 
+                :active       ="drawerLeft"
+
+                :size         ="size" 
+                :color        ="color" 
+                :active-color ="activeColor"
+                
+
+            /> 
+            
+            
+            <v-img
+              class="ma-4 justify-center text-alignment-center"
+              src= "/static/images/Icone/anclogo7.gif"   
+              max-width="50"
+              max-height="50"
+            >
+            </v-img>        
+          
+            <v-list-item  @click = "gotoR('/')">
+                  <v-list-item-action>
+                      <v-icon>mdi-shield-half-full</v-icon>
+                  </v-list-item-action>
+
+                  <v-list-item-content>
+                      <v-list-item-title>Home</v-list-item-title>
+                  </v-list-item-content>
+            </v-list-item>
+
+            <v-list-item  @click = "gotoR('sede')">
+                    <v-list-item-action>
+                        <v-icon>mdi-home</v-icon>
+                    </v-list-item-action>
+
+                    <v-list-item-content>
+                        <v-list-item-title>Sede</v-list-item-title>
+                    </v-list-item-content>
+            </v-list-item>
+
+            <v-list-item  @click = "gotoR('sedeorari')">
+                  <v-list-item-action>
+                      <v-icon>mdi-clock-outline</v-icon>
+                  </v-list-item-action>
+
+                  <v-list-item-content>
+                      <v-list-item-title>Orari</v-list-item-title>
+                  </v-list-item-content>
+            </v-list-item>
+
+            <v-list-item  @click = "gotoR('contatti')">
+                  <v-list-item-action>
+                      <v-icon>mdi-face-agent</v-icon>
+                  </v-list-item-action>
+                  <v-list-item-content>
+                      <v-list-item-title>Contatti</v-list-item-title>
+                  </v-list-item-content>
+            </v-list-item>
+
+            <v-list-item  @click = "gotoR('chisiamo')">
+                    <v-list-item-action>
+                        <v-icon>mdi-account-group</v-icon>
+                    </v-list-item-action>
+                    <v-list-item-content>
+                        <v-list-item-title>Chi siamo</v-list-item-title>
+                    </v-list-item-content>
+              </v-list-item>
+
+          <v-list-item  @click = "gotoR('agenda')">
+                <v-list-item-action>
+                    <v-icon>mdi-calendar-multiple</v-icon>
+                </v-list-item-action>
+                <v-list-item-content>
+                    <v-list-item-title>Agenda</v-list-item-title>
+                </v-list-item-content>
           </v-list-item>
-        </v-list>        
+
+          <v-list-item  @click = "gotoR('archivio')">
+                <v-list-item-action>
+                    <v-icon>mdi-archive</v-icon>
+                </v-list-item-action>
+                <v-list-item-content>
+                    <v-list-item-title>Archivio</v-list-item-title>
+                </v-list-item-content>
+          </v-list-item>
+
+          <v-list-item  @click = "gotoR('links')">
+                <v-list-item-action>
+                    <v-icon>mdi-link-variant</v-icon>
+                </v-list-item-action>
+                <v-list-item-content>
+                    <v-list-item-title>Links</v-list-item-title>
+                </v-list-item-content>
+          </v-list-item>
+
+
+    <!--
+    <v-list-item @click.stop="left = !left">
+    -->
+
+        </v-list>
       </v-navigation-drawer>
+      
+  </v-card>    
+ 
 
--->
 
-
-   
-
-    
 </template>
 
 <script>
 import router       from "../router";
+import {TastyBurgerButton} from 'vue-tasty-burgers'
 
   export default {
     name: "ancAppDrawerRight",
 
+    components: {
+    'tasty-burger-button': TastyBurgerButton
+    },
+
     data() {
         return {
 
-        mini: true,  
+        //burger
+        //buttonType:   'elastic',
+        //buttonType:   'spin',
+        //buttonType:   'spring',
 
-        ico:"/static/images/Icone/anclogo2012.gif",  
+        buttonType:   'collapse',
+
+
+        isActive:     true,
+        size:         'xl',
+        color:        'green',
+        activeColor:  'orange',
+        //burger
+
+
+
+
+        mini: true,  
 
         iconX:"",
 //      "mdi-alien-outline"
@@ -369,36 +220,53 @@ import router       from "../router";
       CS:                 {type:  Number,},
       categorie:          {type:  Array,},
       
+      drawerLeft:         {type: Boolean,},
       drawerRight:        {type: Boolean,},
+
     },      
 
 
     methods:{
+
+        //HAMBURGER
+        onToggle(active) {
+          //console.log("toggle");  
+          let d = this.isActive;
+          console.log("active:",d);  
+          console.log("isActive:",this.isActive);  
+
+          if (d===false) {
+            console.log("d:", this.isActive);
+            console.log("active:" ,active);
+            
+            this.drawerRight=true;
+              
+          }
+          else {
+            console.log("d true");
+            console.log("active:" ,active);
+            
+            this.drawerRight=false;
+          }
+        },
         
         gotoR(r){
         
-        this.drawerRight=false;
+        this.drawerLeft=false;
         this.setDF()
 
-        console.log("AncAppDrawer rotta per...");
+        console.log("rotta per...");
         this.$emit("gotoR",r)
         
   
     },
-    ctlD(){
-        let d = this.drawerRight;
-        console.log("d:", d);
-        if (d===false)  {
-            this.$emit("setDF")
-        }
-    },
-
         setD(){
-        let d = this.drawerRight;
-        if (d===false)  { this.iconX = this.iconC;  console.log("d true");}
-        else            { this.iconX = this.iconO;  console.log("d false");}
+        let d = this.drawerLeft;
+        if (d===false)  { this.iconX = this.iconC;  console.log("AncAppDrawerLeft : d true");}
+        else            { this.iconX = this.iconO;  console.log("AncAppDrawerLeft : d false");}
         this.$emit("setD")
     },
+
         setDF(){
         this.$emit("setDF")
     },
@@ -426,20 +294,4 @@ import router       from "../router";
 </script>
 
 <style media="screen">
-
-  .tile {
-    margin: 5px;
-    border-radius: 4px;
-  }
-  .tile:hover {
-    background: #ffda99;
-  }
-  .tile:active {
-    background: #ffbe4d;
-  }
-
 </style>
-
-
-</style>
-
