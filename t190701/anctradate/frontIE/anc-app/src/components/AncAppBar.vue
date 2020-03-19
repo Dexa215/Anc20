@@ -1,165 +1,198 @@
-<!-- 
-  
--->
+<template>   
+      <v-app-bar
+        class="AncAppBarE"
+        app
+        
+        clipped-right 
+        fixed
 
-
-<template> 
-  <v-app-bar
-    class="AncAppBarE"
-    app
-    
-    clipped-right 
-    fixed
-
-    :color                  = "nbc"
-    dark
-    scroll-target           = "#playground-example"
-    :elevate-on-scroll      = "elevateOnScroll"
-    :hide-on-scroll         = "hideOnScroll"
-    :fade-on-scroll         = "fadeOnScroll"
-    :fade-img-on-scroll     = "fadeImgOnScroll"
-    :inverted-scroll        = "invertedScroll"
-    :collapse               = "collapse"
-    :collapse-on-scroll     = "collapseOnScroll"
-    :shrink-on-scroll       = "shrinkOnScroll"
-    :extended               = "extended"
-  >
-    
-
-      <v-col  class="colbarsx">
-        <v-app-bar-nav-icon
-              style="z-index:5; "
-              @click.stop=  "setD" 
-        >
-          <v-btn icon class="" >
-            <!--v-model="iconX"-->
-            <v-icon v-if="drawerLeft"   large>{{iconO}}</v-icon>
-            <v-icon v-else              large>{{iconC}}</v-icon>
-          </v-btn>            
-        </v-app-bar-nav-icon>
-      </v-col>
-
-      <v-row 
-                    dense
-                    class=          "rowBar rowavatar AncAppBar"  
-                    style=          "max-height:70px; "
-                    align=          "center"
-                    justify=        "center"
+        :color                  = "nbc"
+        dark
+        scroll-target           = "#playground-example"
+        :elevate-on-scroll      = "elevateOnScroll"
+        :hide-on-scroll         = "hideOnScroll"
+        :fade-on-scroll         = "fadeOnScroll"
+        :fade-img-on-scroll     = "fadeImgOnScroll"
+        :inverted-scroll        = "invertedScroll"
+        :collapse               = "collapse"
+        :collapse-on-scroll     = "collapseOnScroll"
+        :shrink-on-scroll       = "shrinkOnScroll"
+        :extended               = "extended"
       >
-
-        <v-col
-          class="colAvSx  hidden-sm-and-down"  
+        
+        <v-row
+          class="AncRowBar" 
         >
-          <div class="ma-0 px-0" 
-              sytle= "max-height:50px;">
-            ANC
-          </div>
-        </v-col>
 
-        <v-col class="colAvatar pt-2" >
-          <v-avatar 
-            class ="avatar"
-            size = "62"
-            right = true
+          <v-col  class="colbarsx">
+            
+            <v-btn
+              icon
+              class="hidden-sm-and-down" 
+            >
+              <v-icon>mdi-magnify</v-icon>
+            </v-btn>
+            
+
+
+            <!--  
+            <v-app-bar-nav-icon
+                  style="z-index:5; "
+                  @click.stop=  "setD" 
+            >
+              <v-btn icon class="" >
+            -->     
+                <!--v-model="iconX"-->
+            <!--
+                <v-icon v-if="drawerLeft"   large>{{iconO}}</v-icon>
+                <v-icon v-else              large>{{iconC}}</v-icon>
+              </v-btn>            
+            </v-app-bar-nav-icon>
+            -->
+          
+          </v-col>
+
+          <v-col  class="colbarcx">
+
+          <v-row 
+                        dense
+                        class=          "rowBar 
+                                          AncAppBar
+                                        
+                                        "  
+                        style=          "height:60px; "
+                        align=          "center"
+                        justify=        "center"
           >
-                <!-- drawer aperto -->
-                <img
-                  v-if="drawerLeft"
-                  class="drwOpen"
-                  src="/static/images/Icone/anclogo2012.gif"
-                  alt="ancTradate"
-                  @click="gotoR('/')"
-                  @mouseover="hoveravatar = true"
-                  @mouseleave="hoveravatar = false" 
-                >
-                <!-- drawer chiuso -->
-                <img
-                  v-else
-                  class="drwClose"
-                  src="/static/images/Icone/anclogo2012.gif"
-                  alt="ancTradate"
-                  @click="gotoR('/')"
-                  @mouseover    ="hoveravatar = true"
-                  @mouseleave   ="hoveravatar = false"
-                >
-          </v-avatar>    
-        </v-col>
 
-        <v-col
-          class="colAvDx  hidden-sm-and-down"  
-          style="max-height:70px;"
-          align=          "start"
-          justify=        "center"      
-        >
-         <div 
-            class="ma-0 px-0" 
-            sytle= "max-height:50px;">
-            TRADATE
-          </div>
-          <!-- @mouseover="setD()" -->
-        </v-col>
-      </v-row>
-    <!-- <v-toolbar-title></v-toolbar-title> -->
-        
+            <v-col
+              class="colAvSx  hidden-sm-and-down"  
+            >
+              <div class="ma-0 px-0" 
+                  sytle= "max-height:50px;">
+                ANC
+              </div>
+            </v-col>
 
-    
-<!--
-    <a v-if="requestUserIsStaff">
-      <span class="mb-4 text-center text-rm-right">
+            <v-col class="colAvatar pt-2" >
+              <v-avatar 
+                class ="avatar"
+                size = "62"
+                right = true
+              >
+                    <!-- drawer aperto -->
+                    <img
+                      v-if="drawerLeft"
+                      class="drwOpen"
+                      src="/static/images/Icone/anclogo2012.gif"
+                      alt="ancTradate"
+                      @click="gotoR('/')"
+                      @mouseover="hoveravatar = true"
+                      @mouseleave="hoveravatar = false" 
+                    >
+                    <!-- drawer chiuso -->
+                    <img
+                      v-else
+                      class="drwClose"
+                      src="/static/images/Icone/anclogo2012.gif"
+                      alt="ancTradate"
+                      @click="gotoR('/')"
+                      @mouseover    ="hoveravatar = true"
+                      @mouseleave   ="hoveravatar = false"
+                    >
+              </v-avatar>
+
+            
+              <div
+                class="menubtnd1"
+              >
+                  <v-app-bar-nav-icon
+                      style="z-index:5; "
+                      @click.stop=  "setD" 
+                  >
+                      <v-btn icon class="" >
+                          <v-icon v-if="drawerRight"  large>{{iconO}}</v-icon>
+                          <v-icon v-else              large>{{iconC}}</v-icon>
+                      </v-btn>            
+                  </v-app-bar-nav-icon>
+              </div>
+             
+
+            </v-col>
+
+            <v-col
+              class="colAvDx  hidden-sm-and-down"  
+              style="max-height:70px;"
+              align=          "start"
+              justify=        "center"      
+            >
+            <div 
+                class="ma-0 px-0" 
+                sytle= "max-height:50px;">
+                TRADATE
+              </div>
+              <!-- @mouseover="setD()" -->
+            </v-col>
+          </v-row>
+        <!-- <v-toolbar-title></v-toolbar-title> -->
+        </v-col>    
+
         
-        <v-btn
+    <!--
+        <a v-if="requestUserIsStaff">
+          <span class="mb-4 text-center text-rm-right">
+            
+            <v-btn
+                class="mx-4 btn btn-sm btn-outline-secondary"
+                tagName="nuovoevento"
+                @click="gotoR('event/')"
+            > Nuovo Evento
+            </v-btn>                             
+          </span>
+        </a>
+
+        <div v-if ="requestUser">
+            <span class=""          >Benvenuto </span>
+            <span class="logeduser" > {{ requestUser }}   </span>
+            <span class=""          > !!!! </span>
+            
+        </div>
+        <div v-else>
+            <span>Login</span>              
+        </div>
+    -->
+
+    <!--    TEST OK:  <div class="btn btn-sm btn-info">Nuovo Evento</div> -->
+            <!--    TEST OK:  
+            <p>requestUser is staff: {{ requestUserIsStaff }}</p>
+            <p>requestUser is Superuser: {{ requestUserIsSuper }}</p>             
+    -->
+
+
+    <!--
+        <a v-if="requestUserIsStaff"><span>Staff</span></a>
+        <span v-if ="requestUser">
+          <a  
             class="mx-4 btn btn-sm btn-outline-secondary"
-            tagName="nuovoevento"
-            @click="gotoR('event/')"
-        > Nuovo Evento
-        </v-btn>                             
-      </span>
-    </a>
-
-    <div v-if ="requestUser">
-        <span class=""          >Benvenuto </span>
-        <span class="logeduser" > {{ requestUser }}   </span>
-        <span class=""          > !!!! </span>
-        
-    </div>
-    <div v-else>
-        <span>Login</span>              
-    </div>
--->
-
-<!--    TEST OK:  <div class="btn btn-sm btn-info">Nuovo Evento</div> -->
-        <!--    TEST OK:  
-        <p>requestUser is staff: {{ requestUserIsStaff }}</p>
-        <p>requestUser is Superuser: {{ requestUserIsSuper }}</p>             
--->
+            href="/accounts/logout/"
+          >Logout
+          </a>
+        </span>
+        <div class="flex-grow-1"></div>
+    -->
 
 
-<!--
-    <a v-if="requestUserIsStaff"><span>Staff</span></a>
-    <span v-if ="requestUser">
-      <a  
-        class="mx-4 btn btn-sm btn-outline-secondary"
-        href="/accounts/logout/"
-      >Logout
-      </a>
-    </span>
-    <div class="flex-grow-1"></div>
--->
+        <v-col  class="colbardx">
+          <v-btn
+            icon
+            class="hidden-sm-and-down" 
+          >
+            <v-icon>mdi-magnify</v-icon>
+          </v-btn>
+        </v-col>
 
-
-    <v-col  class="colbardx">
-      <v-btn
-        icon
-        class="hidden-sm-and-down" 
-      >
-        <v-icon>mdi-magnify</v-icon>
-      </v-btn>
-    </v-col>
-
-
-
-  </v-app-bar>
-
+      </v-row>
+    </v-app-bar>
 </template>
 
 <script>
@@ -174,8 +207,11 @@ import router       from "../router";
         nbc:  "#212121",  //dark-grey
 
         iconX:"mdi-menu",
-        iconO:"mdi-backburger",
-        iconC:"mdi-menu",
+//        iconC:"mdi-backburger",
+//        iconO:"mdi-tray-full",
+
+        iconC:"mdi-dots-vertical",
+        iconO:"mdi-menu-up",
 
         requestToken: "",
         rvt:10,
@@ -310,42 +346,74 @@ col {
 }
 
 .rowBar{
-    background-color: yellow !important;
+    background-color: yellow ;
 }
 .colBar{
     background-color: transparent !important;
 }
 .coltest{
-  background-color: red !important;
+    background-color: red !important;
 }
 
 .AncAppBarE{
-    min-height: 80px;
-    max-height: 84px;
-    align:    center;
-    justify:  center;  
+    height:             100px;
+    
+    text-align:         center;
+    text-justify:       center;
+
+    padding-top:        8px;  
 }
 
 .AncAppBar{
     z-index: 3;
-    background-color: brown !important;
-    min-height: 80px;
-    max-height: 84px;
-    align:    center;
-    justify:  center;
+    background-color:  brown !important;
+
+    height:             65px;
+    
+    text-align:         center;
+    text-justify:       center;
 }
+
+.AncRowBar{
+    background-color: darkgrey !important;
+
+    height:             78px;
+    text-align:         center;
+    text-justify:       center;
+
+    padding:            1px;
+
+    margin-left:        50px;
+    margin-right:       50px;
+    margin-top:         1px;
+    margin-bottom:      1px;
+
+    border-radius:      50px 50px 50px 50px;
+  
+    text-align:         center;
+    text-justify:       center;
+
+
+}
+
 .colbarsx{
   background-color: purple !important;
-  min-height: 76px;
+  height: 70px;
   text-align:        start;
-  padding: 12px 10px;
+  padding: 2px 10px;
+
+  border-radius:      50px 0px 0px 50px;
+
+
 }
 
 .colbardx{
   background-color: purple !important;
-  min-height: 76px;
+  height: 70px;
   text-align:        end;
-  padding: 12px 10px;    
+  padding: 2px 10px;    
+
+  border-radius:      0px 50px 50px 0px;
 }
 
 
@@ -356,6 +424,7 @@ col {
   max-height: 80px;
   padding: 22px 10px;   
 }
+
 .colAvDx{
   background-color: orange !important;
   text-align:        start;
@@ -364,21 +433,15 @@ col {
   padding: 22px 10px;    
 }
 
-
-.rowavatar{
-    background-color: darkgreen !important;
-    min-height:   76px;
-    max-height:   80px;
-    align:        center;
-    justify:      center;
-}
 .colAvatar{
-    background-color: pink !important;
-    min-height:   74px;
-    max-height:   76px;
-    
-    max-width:    80px;
-    text-align:   center;
+  background-color: pink !important;
+  height:         48px;
+  max-width:      80px;
+
+  text-align:     center;
+  text-justify:   center;
+
+  padding:        1px; 
 }
 
 .avatar{
@@ -386,31 +449,53 @@ col {
   color: green;
   right: "true";
 
-  size: 62;                 
-  tile:  false;
+  size: 48;                 
 
-  min-width:    65px;
-
-  max-height:   75px;
-  max-width:    75px;   
+  max-width:    48px;
+  max-height:   48px;
+  
+  
+  transform:  scale(1.0,1.0);   
 }
-         
+
+.avatar:hover{
+  transform:  scale(1.1,1.1);
+}
+
 .icorot{
     transform: rotate(10deg);
 }
 
 .drwOpen{
-    transform: rotate(25deg);
-    min-height: 50px;
-    max-height: 70px;
-    max-width:  70px;
+    /*transform: rotate(25deg);*/
+    transform:  scale(1.2,1.2);
+
+    height: 48px;
+    width:  48px;
 }
 .drwClose{
-    transform: rotate(0deg);
-    min-height: 50px;
-    max-height: 70px;
-    max-width:  70px;
+    /*transform: rotate(0deg);*/
+    transform:  scale(1.0,1.0);
+    height: 48px;
+    width:  48px;
 }
+
+.menubtnd1{
+   z-index: 7;
+  background-color: darkorchid !important;
+  
+  max-width:    75px;   
+  max-height:   45px;
+
+  border-radius: 2px 2px 40px 40px;
+  
+  text-align:         center;
+  text-justify:       center;
+  padding-bottom:     15px;
+  margin-top:         5px;
+}
+
+
 
 
 </style>

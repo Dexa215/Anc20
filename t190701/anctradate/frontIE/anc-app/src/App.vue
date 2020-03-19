@@ -101,6 +101,26 @@
 -->
 
 
+  <ancDrawer
+      :requestUser=         "requestUser"
+      :requestUserIsStaff=  "requestUserIsStaff"
+      :requestUserIsSuper=  "requestUserIsSuper"
+      :requestUserAvatar=   "requestUserAvatar"
+      :requestUserBio=      "requestUserBio"
+      :nbc=                 "nbc"  
+      :drawerRight=         "drawerRight"
+      :C=                   "C"
+      :CS=                  "CS"
+      :categorie=           "categorie"
+      :iconX=               "iconX"
+      @gotoR=               "gotoR"
+      @setD=                "setD"
+      @setDF=               "setDF"
+  >    
+  </ancDrawer>  
+
+
+<!--
   <ancAppDrawerRight
       :requestUser=         "requestUser"
       :requestUserIsStaff=  "requestUserIsStaff"
@@ -109,19 +129,17 @@
       :requestUserBio=      "requestUserBio"
       :nbc=                 "nbc"  
       :drawerRight=         "drawerRight"
-      
       :C=                   "C"
       :CS=                  "CS"
       :categorie=           "categorie"
-      
       :iconX=               "iconX"
-      
       @gotoR=               "gotoR"
       @setD=                "setD"
       @setDF=               "setDF"
-
   >    
   </ancAppDrawerRight>  
+-->
+
 
 <!--
   <v-navigation-drawer
@@ -221,15 +239,12 @@
 -->
 
   <ancFooter
-    :footercolor                    = footercolor
-    :requestUser                    = "requestUser"
-    
-    :C=                   "C"
-    :CS=                  "CS"
-    :categorie=           "categorie"
-
-    @gotoR              = "gotoR"
-
+    :footercolor  = "footercolor"
+    :requestUser  = "requestUser"
+    :C            = "C"
+    :CS           = "CS"
+    :categorie    = "categorie"
+    @gotoR        = "gotoR"
   ></ancFooter>
 
   <!-- 
@@ -252,15 +267,20 @@
 
 //import HelloWorld       from './components/HelloWorld'
 //import ancNavbar        from './components/AncNavbar'
-import ancFooter          from './components/AncFooter'
+
 import ancFooterMobile    from './components/AncFooterMobile'
+//import ancFooter          from './components/AncFooter'
+import ancFooter          from "@/components/AncFooters/AncFooter.vue";
+
 import ancAppBar          from './components/AncAppBar'
 import ancAppDrawerLeft   from './components/AncAppDrawerLeft'
-import ancAppDrawerRight   from './components/AncAppDrawerRight'
+import ancAppDrawerRight  from './components/AncAppDrawerRight'
 
+import ancDrawer          from "./components/AncAppDrawers/AncDrawer.vue";
 
 import ancSystem          from './components/AncSystem'
 import router             from "./router";
+
 import { apiService }     from "./common/api.service";
 import { CSRF_TOKEN }     from './common/csrf_token';
 import { getCat }         from './common/menu';
@@ -269,6 +289,8 @@ import { getCurrentCat }  from './common/menu';
 
 
 // test sintassi ok
+// @ resolve src
+
 import menuT              from './common/menuTime.js';
 
 export default {
@@ -282,6 +304,8 @@ export default {
       ancAppBar,
       ancAppDrawerLeft,
       ancAppDrawerRight,
+      
+      ancDrawer,            /*test 2020 03 18*/
       },
 
     props: {
@@ -936,6 +960,46 @@ created() {
 .AncItemColor:hover       {color: #ffbe4d;}
 
 .AncTitleColorDark        {color: darkslategray;}
+
+/*
+padding: 25px 50px 75px 100px;
+  1 value applies to  top padding is 25px
+  2 value applies to  right padding is 50px
+  3 value applies to  bottom padding is 75px
+  4 value applies to  left padding is 100px
+
+padding: 25px 50px 75px;
+  1 value applies to  top padding is 25px
+  2 value applies to  right and left paddings are 50px
+  3 value applies to  bottom padding is 75px
+
+padding: 25px 50px;
+  1 value applies to  top and bottom paddings are 25px
+  2 value applies to  right and left paddings are 50px
+
+padding: 25px;
+  all four paddings are 25px
+*/
+
+/* border radius
+border-radius: 15px 50px 30px 5px; 
+  1 value applies to top-left corner, 
+  2 value applies to top-right corner, 
+  3 value applies to bottom-right corner, 
+  4 value applies to bottom-left corner
+
+border-radius: 15px 50px 30px; 
+  1 value applies to top-left corner, 
+  2 value applies to top-right and bottom-left corners, 
+  3 value applies to bottom-right corner
+
+border-radius: 15px 50px; 
+  1 value applies to top-left and bottom-right corners, 
+  2 value applies to top-right and bottom-left corners
+ 
+border-radius: 15px; 
+  the value applies to all four corners, which are rounded equally
+*/
 
 
 

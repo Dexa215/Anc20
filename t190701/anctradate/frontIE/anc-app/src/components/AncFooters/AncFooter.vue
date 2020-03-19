@@ -44,8 +44,8 @@
 </template>
 
 <script>
-import { apiService }         from "../common/api.service";
-import router                 from "../router";
+import { apiService }         from "@/common/api.service";
+import router                 from "@/router";
 
 //import AncIntestazioneFine  from "@/components/AncIntestazioneFine.vue"; 
 
