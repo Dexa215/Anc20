@@ -7,6 +7,7 @@
         fixed
 
         :color                  = "nbc"
+
         dark
         scroll-target           = "#playground-example"
         :elevate-on-scroll      = "elevateOnScroll"
@@ -20,19 +21,39 @@
         :extended               = "extended"
       >
         
+       
         <v-row
-          class="AncRowBar" 
+          class="AncRowBar"
         >
 
-          <v-col  class="colbarsx">
-            
-            <v-btn
-              icon
-              class="hidden-sm-and-down" 
-            >
-              <v-icon>mdi-magnify</v-icon>
-            </v-btn>
-            
+          <v-col              class="AncRowBarColsx">
+      
+                  <v-btn  icon >
+                    <v-icon>mdi-magnify</v-icon>
+                  </v-btn>
+           
+          </v-col>
+
+
+
+<!-- class="hidden-sm-and-down"-->
+<!--
+          
+          <v-col      class="AncRowBarColsx">
+
+            <v-card>
+
+                <v-btn  icon >
+                  <v-icon>mdi-magnify</v-icon>
+                </v-btn>
+
+            </v-card>
+
+
+          </v-col>  
+-->
+
+
 
 
             <!--  
@@ -50,30 +71,88 @@
             </v-app-bar-nav-icon>
             -->
           
-          </v-col>
+          
 
-          <v-col  class="colbarcx">
+          <v-col              class="AncRowBarColcx">
+            <v-card>
 
-          <v-row 
-                        dense
-                        class=          "rowBar 
-                                          AncAppBar
-                                        
-                                        "  
-                        style=          "height:60px; "
-                        align=          "center"
-                        justify=        "center"
-          >
+            <v-row            class="AncRowBarColcxRowInt" 
+                              align= "center"  
+                              dense>
+              <v-col          class="AncRowBarColcxRowIntColsx">
+                <div>ANC</div>
+              </v-col>
 
-            <v-col
-              class="colAvSx  hidden-sm-and-down"  
-            >
-              <div class="ma-0 px-0" 
-                  sytle= "max-height:50px;">
-                ANC
-              </div>
-            </v-col>
+              <!-- Avatar -->
+              <v-col          class="AncRowBarColcxRowIntColcx">
 
+
+    
+
+          
+
+
+                <div>
+
+          <tasty-burger-button
+
+            :type         ="buttonType" 
+            :active       ="isActive" 
+            :size         ="size" 
+            :color        ="color" 
+            :active-color ="activeColor"
+            @toggle       ="onToggle" 
+            style="z-index:100; "
+
+          />  
+
+
+
+                    <v-avatar 
+                      class ="avatar"
+                      size = "62"
+                      right = true
+                    >
+                      <!-- drawer aperto -->
+                      <img
+                        v-if="drawerLeft"
+                        class="drwOpen"
+                        src="/static/images/Icone/anclogo2012.gif"
+                        alt="ancTradate"
+                        @click="gotoR('/')"
+                        @mouseover="hoveravatar = true"
+                        @mouseleave="hoveravatar = false" 
+                      >
+                      <!-- drawer chiuso -->
+                      <img
+                        v-else
+                        class="drwClose"
+                        src="/static/images/Icone/anclogo2012.gif"
+                        alt="ancTradate"
+                        @click="gotoR('/')"
+                        @mouseover    ="hoveravatar = true"
+                        @mouseleave   ="hoveravatar = false"
+                      >
+                    </v-avatar>
+                </div>  
+              <!-- Avatar -->
+              
+              
+              </v-col>
+              
+              <v-col          class="AncRowBarColcxRowIntColdx">
+                <div>TRADATE</div>
+              </v-col>
+            </v-row>
+
+            </v-card>
+        </v-col>  
+
+        <!--  hidden-sm-and-down-->
+        <!-- <v-toolbar-title></v-toolbar-title> -->
+
+            <!-- avatar -->
+            <!--
             <v-col class="colAvatar pt-2" >
               <v-avatar 
                 class ="avatar"
@@ -81,6 +160,7 @@
                 right = true
               >
                     <!-- drawer aperto -->
+            <!--        
                     <img
                       v-if="drawerLeft"
                       class="drwOpen"
@@ -91,6 +171,7 @@
                       @mouseleave="hoveravatar = false" 
                     >
                     <!-- drawer chiuso -->
+            <!--
                     <img
                       v-else
                       class="drwClose"
@@ -101,8 +182,6 @@
                       @mouseleave   ="hoveravatar = false"
                     >
               </v-avatar>
-
-            
               <div
                 class="menubtnd1"
               >
@@ -116,26 +195,11 @@
                       </v-btn>            
                   </v-app-bar-nav-icon>
               </div>
-             
-
             </v-col>
+            -->
+            <!-- avatar -->
 
-            <v-col
-              class="colAvDx  hidden-sm-and-down"  
-              style="max-height:70px;"
-              align=          "start"
-              justify=        "center"      
-            >
-            <div 
-                class="ma-0 px-0" 
-                sytle= "max-height:50px;">
-                TRADATE
-              </div>
-              <!-- @mouseover="setD()" -->
-            </v-col>
-          </v-row>
-        <!-- <v-toolbar-title></v-toolbar-title> -->
-        </v-col>    
+  
 
         
     <!--
@@ -182,16 +246,25 @@
     -->
 
 
-        <v-col  class="colbardx">
-          <v-btn
-            icon
-            class="hidden-sm-and-down" 
-          >
+        <v-col  class="AncRowBarColdx"
+                align= "center"
+                justify= "center"  
+        >
+          <v-btn  icon>
             <v-icon>mdi-magnify</v-icon>
           </v-btn>
-        </v-col>
+        </v-col>  
+
+ 
 
       </v-row>
+    
+
+     
+
+     
+
+
     </v-app-bar>
 </template>
 
@@ -345,9 +418,6 @@ col {
     background-color: transparent !important;
 }
 
-.rowBar{
-    background-color: yellow ;
-}
 .colBar{
     background-color: transparent !important;
 }
@@ -356,28 +426,44 @@ col {
 }
 
 .AncAppBarE{
+    background-color:  teal !important;
     height:             100px;
     
     text-align:         center;
     text-justify:       center;
 
-    padding-top:        8px;  
+    padding-top:        4px;  
+}
+
+.AncAppBarI{
+    z-index: 3;
+    background-color:  yellowgreen !important;
+
+    height:             45px;
+    
+    text-align:         center;
+    text-justify:       center;
+
+    border-radius:      48px 48px 48px 48px;
 }
 
 .AncAppBar{
     z-index: 3;
-    background-color:  brown !important;
+    background-color:  yellowgreen !important;
 
-    height:             65px;
+    height:             45px;
     
     text-align:         center;
     text-justify:       center;
+
+     border-radius:      48px 48px 48px 48px;
 }
 
 .AncRowBar{
-    background-color: darkgrey !important;
+    /*background-color: #2b2b29 !important;*/
+    background-color: YELLOW !important;
 
-    height:             78px;
+    height:             70px;
     text-align:         center;
     text-justify:       center;
 
@@ -385,8 +471,8 @@ col {
 
     margin-left:        50px;
     margin-right:       50px;
-    margin-top:         1px;
-    margin-bottom:      1px;
+    margin-top:         10px;
+    margin-bottom:      0px;
 
     border-radius:      50px 50px 50px 50px;
   
@@ -396,41 +482,104 @@ col {
 
 }
 
-.colbarsx{
-  background-color: purple !important;
-  height: 70px;
-  text-align:        start;
-  padding: 2px 10px;
+.AncRowBarColsx{
+  background-color: lightgreen !important;
+  height:             68px;
 
-  border-radius:      50px 0px 0px 50px;
+  text-align:         left;
+  text-justify:       auto;
 
+  padding:            11px 20px;
 
+  margin-left:        1px;
+  margin-right:       0px;
+  margin-top:         1px;
+  margin-bottom:      1px;
+
+  border-radius:      48px 48px 0px 48px;
 }
 
-.colbardx{
-  background-color: purple !important;
-  height: 70px;
-  text-align:        end;
-  padding: 2px 10px;    
+.AncRowBarColsxRow{
+  background-color: pink !important;
+  height:             32px;
+}
 
-  border-radius:      0px 50px 50px 0px;
+
+.AncRowBarColcx{
+  /*background-color: #2b2b29 !important;*/
+  background-color: salmon !important;
+  height: 90px;
+
+  text-align:         center;
+  text-justify:       auto;
+
+  padding:            2px 20px;    
+  margin-left:        0px;
+  margin-right:       0px;
+  margin-top:         0px;
+  margin-bottom:      0px;
+  border-radius:      0px 0px 25px 25px;
+}
+
+.AncRowBarColcxRowInt{
+  background-color: yellow !important;
+  border-radius:      0px 0px 50px 50px;
+}
+
+.AncRowBarColcxRowIntColsxsx{
+  background-color: darkred !important;
+  height:             50px;
+  text-align:         left;
+  text-justify:       auto;
+  
+}
+
+
+.AncRowBarColcxRowIntColsx{
+  background-color: red !important;
+  text-justify:       auto;
+  text-align:         right;
+}
+.AncRowBarColcxRowIntColcx{
+  background-color: darkred !important;
+  height:             66px;
+  text-align:         center;
+}
+.AncRowBarColcxRowIntColdx{
+  background-color: red !important;
+  text-justify:       auto;
+  text-align:         left;
+}
+
+
+.AncRowBarColdx{
+  background-color: deeppink !important;
+  height:             66px;
+  text-align:         start;
+
+  padding:            2px 2px;
+  margin-left:        0px;
+  margin-right:       1px;
+  margin-top:         1px;
+  margin-bottom:      1px;
+  border-radius:      40px 40px 40px 0px;
 }
 
 
 .colAvSx{
-  background-color: orange !important;
-  text-align:        end;
-  min-height: 22px;
-  max-height: 80px;
-  padding: 22px 10px;   
+  background-color: darkorange !important;
+  text-align:       end;
+  text-justify:     center;
+  height:           22px;
+  padding:          22px 10px;   
 }
 
 .colAvDx{
   background-color: orange !important;
-  text-align:        start;
-  min-height: 22px;
-  max-height: 80px;
-  padding: 22px 10px;    
+  text-align:       start;
+  text-justify:     center;
+  height:           22px;
+  padding:          22px 10px;    
 }
 
 .colAvatar{
@@ -460,7 +609,10 @@ col {
 
 .avatar:hover{
   transform:  scale(1.1,1.1);
+
 }
+
+
 
 .icorot{
     transform: rotate(10deg);
