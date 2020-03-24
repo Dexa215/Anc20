@@ -23,7 +23,7 @@
             justify=        "center"      
           >
             <div class="grey--text">
-                <span class="font-weight-light"> ANC Tradate</span>
+                <span class="font-weight-light"> ANC Tradate f1xs</span>
             </div>
           </v-col>
           <!-- Smartphone -->

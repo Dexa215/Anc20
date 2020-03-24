@@ -269,13 +269,20 @@
 //import ancNavbar        from './components/AncNavbar'
 
 import ancFooterMobile    from './components/AncFooterMobile'
+
 //import ancFooter          from './components/AncFooter'
+//v-folder
 import ancFooter          from "@/components/AncFooters/AncFooter.vue";
 
 import ancAppBar          from './components/AncAppBar'
+//v-folder
+//import ancAppBar          from "@/components/AncAppBars/AncAppBar.vue";
+
+
 import ancAppDrawerLeft   from './components/AncAppDrawerLeft'
 import ancAppDrawerRight  from './components/AncAppDrawerRight'
 
+//v-folder
 import ancDrawer          from "./components/AncAppDrawers/AncDrawer.vue";
 
 import ancSystem          from './components/AncSystem'
