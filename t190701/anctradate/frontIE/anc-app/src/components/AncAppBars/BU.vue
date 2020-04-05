@@ -27,6 +27,9 @@
         >
 
           <v-col              class="AncRowBarColsx">
+            <div>
+              b1xs
+            </div>
       
                   <v-btn  icon >
                     <v-icon>mdi-magnify</v-icon>
@@ -79,21 +82,33 @@
             <v-row            class="AncRowBarColcxRowInt" 
                               align= "center"  
                               dense>
+              <!--
               <v-col          class="AncRowBarColcxRowIntColsx">
                 <div>ANC</div>
               </v-col>
-
-              <!-- Avatar -->
+              -->
+              
               <v-col          class="AncRowBarColcxRowIntColcx">
 
+              <!-- v-app-bar -->
+              <v-app-bar-nav-icon
+                style="z-index:5; "
+                @click.stop=  "setD" 
+              >
+                  <v-btn 
+                    icon 
+                    class="" 
+                    v-model= "iconX"
+                  >
+                    
+                    <v-icon v-if="drawerLeft"   large>{{iconO}}</v-icon>
+                    <v-icon v-else              large>{{iconC}}</v-icon>                    
+                  </v-btn>            
+              </v-app-bar-nav-icon>
+              <!-- v-app-bar -->
 
-    
-
-          
-
-
+              <!-- Avatar --> 
                 <div>
-
                     <v-avatar 
                       class ="avatar"
                       size = "62"
@@ -122,13 +137,16 @@
                     </v-avatar>
                 </div>  
               <!-- Avatar -->
+
               
-              
+
               </v-col>
               
+              <!--
               <v-col          class="AncRowBarColcxRowIntColdx">
                 <div>TRADATE</div>
               </v-col>
+              -->
             </v-row>
 
             </v-card>
@@ -255,10 +273,10 @@
 </template>
 
 <script>
-import router       from "../router";
+import router       from "@/router";
 
   export default {
-    name: "ancAppBar",
+    name: "b1xs",
 
     data() {
         return {
@@ -309,8 +327,10 @@ import router       from "../router";
 
       //nbc:                {type: String,},  
       requestUser:        {type: String,},
+      
       requestUserIsStaff: {type: Boolean,},
       requestUserIsSuper: {type: Boolean,},
+
       requestUserAvatar:  {type: String,},
       requestUserBio:     {type: String,},
 
@@ -524,16 +544,11 @@ col {
   text-justify:       auto;
   text-align:         right;
 }
-
-/*
 .AncRowBarColcxRowIntColcx{
   background-color: darkred !important;
-  height:             66px;
+  height:             166px;
   text-align:         center;
 }
-*/
-
-
 .AncRowBarColcxRowIntColdx{
   background-color: red !important;
   text-justify:       auto;
@@ -586,19 +601,14 @@ col {
   background-color: green !important;
   color: green;
   right: "true";
-
   size: 48;                 
-
   max-width:    48px;
   max-height:   48px;
-  
-  
   transform:  scale(1.0,1.0);   
 }
 
 .avatar:hover{
   transform:  scale(1.1,1.1);
-
 }
 
 

@@ -1,17 +1,9 @@
 <template> 
 <!-- -->
         
-    <div
-        class="mx-auto"
-    >
-        
-        <div
-            class="d1int    mx-auto mu-auto"
-        ></div>
-
-        <div
-            class="d1       mx-auto mu-auto"
-        >
+    <div class="mx-auto">
+        <div class="d1int       mx-auto mu-auto"></div>
+        <div class="d1          mx-auto mu-auto">
             <!--
             <v-app-bar-nav-icon
                 style="z-index:5; "
@@ -23,37 +15,35 @@
                 </v-btn>            
             </v-app-bar-nav-icon>
             -->
-
         </div>
 
-        <v-card
-        
-        >
-                <!--v-navigation-drawer
-                    class="deep-purple accent-4"
-                    dark
-                    permanent
-                    mini-variant
-                    
-                    expand-on-hover
-                    
-                    bottom
-                    temporary
-                    clipped                    
-                    disable-route-watcher
-                    src="/static/images/HomePageCarousel/dsc32.jpg"
-                -->
+        <v-card>
+            <!--v-navigation-drawer
+                class="deep-purple accent-4"
+                dark
+                permanent
+                mini-variant
+                
+                expand-on-hover
+                
+                bottom
+                temporary
+                clipped                    
+                disable-route-watcher
+                src="/static/images/HomePageCarousel/dsc32.jpg"
+            -->
+            <v-navigation-drawer
+                app
+                class="dr1 mu-auto"
+                v-model="drawerRight"
+                @transitionend ="ctlD()"
+                color="rgb(29, 20, 6)"
+                dark
+            >
+            <!--  -->
 
-                <v-navigation-drawer
-                    app
-                    class="dr1 mu-auto"
-                    v-model="drawerRight"
-                    @transitionend ="ctlD()"
-                    color="rgb(29, 20, 6)"
 
-                    dark
 
-                >
 
                 <!--v-navigation-drawer
                     app
@@ -123,10 +113,9 @@
                     </v-list-item>
                     </template>
 
-                    
 
                     <div
-                        class="d1       mx-auto my-auto"
+                        class = "d1 rgbMenuU mx-auto my-auto"
                     >
                         <v-app-bar-nav-icon
                             style="z-index:5; "
@@ -139,8 +128,12 @@
                             </v-btn>            
                         </v-app-bar-nav-icon>
                     </div>
+        
+<v-form> 
+    <v-input
+    ></v-input>
+</v-form>
 
-                    
 
                     <v-list shaped>
                         <v-list-item
@@ -177,21 +170,20 @@
                     </v-list>
 
                     <v-row 
-                            dense
-                            class=          "row mx-1"  
-                            style=          "background-color: transparent !important;"
-                            align=          "center"
-                            justify=        "center"
-                        >
-                            <v-col 
-                                class=      "pa-1" 
-                                style=      "background-color: transparent !important;"
-                                align=      "center"
-                                justify=    "center"
-                            >                            
-                            </v-col>
+                        dense
+                        class=          "row mx-1"  
+                        style=          "background-color: transparent !important;"
+                        align=          "center"
+                        justify=        "center"
+                    >
+                        <v-col 
+                            class=      "pa-1" 
+                            style=      "background-color: transparent !important;"
+                            align=      "center"
+                            justify=    "center"
+                        >                            
+                        </v-col>
                     </v-row>    
-
                     <div>
                     </div>        
 
@@ -229,8 +221,8 @@ import router       from "@/router";
 //        iconO:"mdi-tray-full",
 
         iconC:"mdi-dots-vertical",
-        iconO:"mdi-menu-up",
-        
+        //iconO:"mdi-menu-up",
+        iconO:"mdi-close-circle",
         
         requestToken: "",
         rvt:10,
@@ -315,9 +307,12 @@ import router       from "@/router";
         height:             85px;
         background-color: green;
     }
+
     .d1{
-        height:             40px;
-        background-color:   darkgreen;
+        height:             80px;
+/*        background-color:   rgb(15, 10, 0);
+*/        
+        padding-top: 20px;
         text-align:         center;
         text-justify:       center;
     }
@@ -330,11 +325,19 @@ import router       from "@/router";
 
         width: 70%;
 
+        /*background-color:   rgb(29, 20, 6);*/
+    }
+
+    .drawercard{
+        border-radius:      0px 50px 50px 5px;
+    }
+
+    .x {
         text-align:         center;
         text-justify:       center;
-
-        background-color:   rgb(29, 20, 6);
     }
+
+
 
 
 

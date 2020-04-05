@@ -46,6 +46,10 @@
     <div class="flex-grow-1"></div>
 
     <v-app-bar-nav-icon @click.stop="drawerRight = !drawerRight"></v-app-bar-nav-icon></v-app-bar>
+    
+    :nbc=                 "nbc"  
+
+
     -->
 
         
@@ -55,8 +59,6 @@
       :requestUserIsSuper=  "requestUserIsSuper"
       :requestUserAvatar=   "requestUserAvatar"
       :requestUserBio=      "requestUserBio"
-      
-      :nbc=                 "nbc"  
       
       :C=                   "C"
       :CS=                  "CS"
@@ -72,6 +74,7 @@
       :drawer=               "drawer"
       :drawerLeft=           "drawerLeft"
       :drawerRight=          "drawerRight"
+
   >
   </ancAppBar>
 
@@ -274,9 +277,9 @@ import ancFooterMobile    from './components/AncFooterMobile'
 //v-folder
 import ancFooter          from "@/components/AncFooters/AncFooter.vue";
 
-import ancAppBar          from './components/AncAppBar'
+//import ancAppBar          from './components/AncAppBar'
 //v-folder
-//import ancAppBar          from "@/components/AncAppBars/AncAppBar.vue";
+import ancAppBar          from "@/components/AncAppBars/AncAppBar.vue";
 
 
 import ancAppDrawerLeft   from './components/AncAppDrawerLeft'
@@ -320,6 +323,8 @@ export default {
     },
 
     data: () => ({
+
+        nbc:      "red",
 
         cc:[],
 
@@ -992,7 +997,11 @@ css
     <- -> text-align:         left|right|center|justify|initial|inherit;
     
   padding
-  padding: 25px 50px 75px 100px;
+    padding: 25px 50px 75px 100px;      T-R-B-L
+    padding: 25px 50px 75px;            T-RL-B
+    padding: 25px 50px;                 TB-RL
+    padding: 25px;                      TBRL
+
     1 value applies to  top padding is 25px
     2 value applies to  right padding is 50px
     3 value applies to  bottom padding is 75px
@@ -1007,7 +1016,12 @@ css
   padding: 25px;
     all four paddings are 25px
 
-  border radius
+  border-radius
+    border-radius: 15px 50px 30px 5px;  TL-TR-BR-BL 
+    border-radius: 15px 50px 30px;      TL-TRBL-BR
+    border-radius: 15px 50px;           TLBR-TRBL
+    border-radius: 15px;                TLBRTRBL    
+
   border-radius: 15px 50px 30px 5px; 
     1 value applies to top-left corner, 
     2 value applies to top-right corner, 

@@ -1,7 +1,7 @@
 <template>
     
       <!-- @@@ -->
-      <div  v-if      = "currentres=='xs'">
+      <div  v-if      = "currentres=='xs' | currentres=='sm' " >
         <d1xs
               :requestUser=         "requestUser"
               :requestUserIsStaff=  "requestUserIsStaff"
@@ -372,6 +372,19 @@ import d5xl                 from "@/components/AncAppDrawers/D5xl.vue";
   text-align:           start;
   height:               70px;
 }         
+
+.rgbMenuU{
+  background-color:   rgb(15, 10, 0);
+}
+.rgbMenuList{
+  background-color:   rgb(29, 20, 6);
+}
+.rgbMenuUser{
+  background-color:   rgb(100, 200, 100);
+}
+.rgbMenuB{
+  background-color:   rgb(15, 10, 0);
+}
 
 
 </style>
