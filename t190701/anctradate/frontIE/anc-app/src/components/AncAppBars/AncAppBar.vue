@@ -383,7 +383,7 @@ export default {
 .AncRowBarEst {
   /*background-color: #2b2b29 !important;*/
   /*background-color: #241518 !important;*/
-  background-color: yellow !important;
+  background-color: ORANGE !important;
   height: 70px;
   text-align: center;
   text-justify: center;
