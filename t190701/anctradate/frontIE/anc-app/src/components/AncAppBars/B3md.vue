@@ -18,7 +18,7 @@
     :shrink-on-scroll="shrinkOnScroll"
     :extended="extended"
   >
-    <v-row class="AncRowBarEst ESTlg">
+    <v-row class="ARBI ESTlg">
       <v-col :class="AncRowBarColsssx">
         <!-- v-app-bar -->
         <v-app-bar-nav-icon style="z-index:5; " @click.stop="setD">
@@ -33,7 +33,7 @@
       <v-col cols="6" class="AncRowBarColccx">
         <v-row class="AncRowBarColccxRowInt" align="center" dense>
           <v-col class="AncRowBarColcxRowIntColsx">
-            <div>MOD - md - ANC</div>
+            <div>MD - ANC</div>
           </v-col>
 
           <v-col class="AncRowBarColcxRowIntColccx">
@@ -87,7 +87,7 @@ export default {
   data() {
     return {
       h: "80px",
-      cab: "AncAppBarELG cBE-Vis",
+      cab: "AncAppBarE cBE-Vis",
       nbc: "blue", //dark-grey
       AncRowBarColsssx: "AncRowBarColssx",
       AncRowBarColdddx: "AncRowBarColddx",
@@ -118,7 +118,7 @@ export default {
     };
   },
   props: {
-    hlg: { type: Number },
+    height: { type: Number },
     // eslint-disable-next-line vue/no-dupe-keys
     nbc: { type: String },
     colBarEst: { type: String },
@@ -175,7 +175,7 @@ export default {
   },
   mounted() {
     this.setcolor();
-    this.h = this.hlg;
+    this.h = this.height;
     //console.log(this.$vuetify.breakpoint);
   }
 };

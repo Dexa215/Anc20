@@ -2,6 +2,7 @@
   <!-- @@@ -->
   <div v-if="currentres == 'xs'">
     <b1xs
+      :height="hsm"
       :requestUser="requestUser"
       :requestUserIsStaff="requestUserIsStaff"
       :requestUserIsSuper="requestUserIsSuper"
@@ -22,6 +23,7 @@
   </div>
   <div v-else-if="currentres == 'sm'">
     <b2sm
+      :height="hsm"
       :requestUser="requestUser"
       :requestUserIsStaff="requestUserIsStaff"
       :requestUserIsSuper="requestUserIsSuper"
@@ -42,7 +44,7 @@
   </div>
   <div v-else-if="currentres == 'md'">
     <b3md
-      :hlg="hlg"
+      :height="hlg"
       :requestUser="requestUser"
       :requestUserIsStaff="requestUserIsStaff"
       :requestUserIsSuper="requestUserIsSuper"
@@ -63,7 +65,7 @@
   </div>
   <div v-else-if="currentres == 'lg'">
     <b4lg
-      :hlg="hlg"
+      :height="hlg"
       :requestUser="requestUser"
       :requestUserIsStaff="requestUserIsStaff"
       :requestUserIsSuper="requestUserIsSuper"
@@ -84,7 +86,7 @@
   </div>
   <div v-else-if="currentres == 'xl'">
     <b5xl
-      :hlg="hlg"
+      :height="hlg"
       :requestUser="requestUser"
       :requestUserIsStaff="requestUserIsStaff"
       :requestUserIsSuper="requestUserIsSuper"
@@ -147,7 +149,7 @@ export default {
   data: () => ({
     rgb2: "#241518",
     rgb3: "",
-    hsm: "100px",
+    hsm: "84px",
     hlg: "84px"
   }),
 
@@ -288,6 +290,7 @@ export default {
 </script>
 
 <style media="screen">
+/*
 .rowFot {
   background-color: orange !important;
 }
@@ -313,6 +316,7 @@ export default {
   min-height: 30px;
   max-height: 40px;
 }
+*/
 
 /*    AncAppBarE               #38282b                                                                        */
 /*  +-------------------------------------------------------------------------------------------------+ h100  */
@@ -343,14 +347,16 @@ export default {
   /*height: 250px;*/
   text-align: auto;
   text-justify: auto;
-  padding: 4px 0px 3px;
+  /*padding: 4px 0px 3px;*/
 }
-.AncAppBarELG {
-  /*background-color:  teal !important;*/
 
+/*
+.AncAppBarELG {
   text-align: auto;
   text-justify: auto;
 }
+*/
+
 /*
   padding: 25px 50px 75px 100px;      T-R-B-L
   padding: 25px 50px 75px;            T-RL-B
@@ -363,13 +369,10 @@ export default {
 /*  background-color:"#241518" !important;   Grigio scuro +5  */
 /*  background-color:"#1a0408" !important;   Grigio scuro +6  */
 
+/*color Background AR E */
 .cBE-Vis {
   background-color: "#38282b" !important;
 }
-*/ .cBE-Vis {
-  background-color: "blue" !important; /* Grigio scuro +4  */
-}
-
 .cBE-Socio {
   background-color: "green" !important; /* Grigio scuro +4  */
 }
@@ -380,20 +383,20 @@ export default {
   background-color: "#241b1d" !important; /* Grigio scuro +6  */
 }
 
-.AncRowBarEst {
+/*.AncRowBarEst {*/
+.ARBI {
   /*background-color: #2b2b29 !important;*/
   /*background-color: #241518 !important;*/
   background-color: ORANGE !important;
   height: 70px;
   text-align: center;
   text-justify: center;
-
   border-radius: 50px 50px 50px 50px;
 }
 .ESTsm {
   margin-left: 10px;
   margin-right: 10px;
-  margin-top: 15px;
+  margin-top: 0px;
   margin-bottom: 0px;
 }
 .ESTlg {
@@ -478,6 +481,7 @@ export default {
 /*  |          |   colAvSx   |     avatar      |   colAvDx  |           |   */
 /*  ---------------------------------------------------------------------   */
 
+/*
 col {
   padding: 20px 0px 0px;
 }
@@ -492,6 +496,7 @@ col {
 .coltest {
   background-color: red !important;
 }
+*/
 
 .AncRowBarColssx {
   /*background-color: rgb(194, 57, 212) !important;*/
@@ -562,11 +567,14 @@ border-radius
   margin-right: 0px;
   margin-top: 0px;
   margin-bottom: 0px;
+
   border-radius: 0px 0px 15px 15px;
 }
 .AncRowBarColccxRowInt {
-  background-color: transparent !important;
-  /*background-color: greenyellow !important;*/
+  /*background-color: transparent !important;
+  */
+  z-index: -1;
+  background-color: greenyellow !important;
   margin-left: 0px;
   margin-right: 0px;
   border-radius: 0px 0px 15px 15px;
@@ -578,9 +586,11 @@ border-radius
   text-align: right;
 }
 .AncRowBarColcxRowIntColccx {
-  background-color: transparent !important;
-  /*background-color: slateblue !important;*/
-  height: 70px;
+  /*background-color: transparent !important;
+  */
+  background-color: slateblue !important;
+  /*height: 70px;*/
+  height: 80px;
   padding: 2px 0px;
   text-align: center;
   text-justify: auto;
@@ -652,7 +662,9 @@ border-radius
   right: "true";
   size: 48;
   max-width: 48px;
-  max-height: 48px;
+  /*max-height: 48px;*/
+  height: 80px;
+
   transform: scale(1, 1);
 }
 

@@ -1,6 +1,7 @@
 <template>
   <v-app-bar
     :class="cab"
+    :height="h"
     app
     clipped-right
     fixed
@@ -17,7 +18,7 @@
     :shrink-on-scroll="shrinkOnScroll"
     :extended="extended"
   >
-    <v-row class="AncRowBarEst ESTsm">
+    <v-row class="ARBI ESTsm">
       <v-col :class="AncRowBarColsssx">
         <!-- v-app-bar -->
         <v-app-bar-nav-icon style="z-index:5; " @click.stop="setD">
@@ -72,6 +73,7 @@ export default {
   name: "b1xs",
   data() {
     return {
+      h: "80px",
       cab: "AncAppBarE cBE-Vis",
       nbc: "blue", //dark-grey
       AncRowBarColsssx: "AncRowBarColssx",
@@ -103,6 +105,7 @@ export default {
     };
   },
   props: {
+    height: { type: Number },
     nbc: { type: String },
     colBarEst: { type: String },
     colBarInt: { type: String },
@@ -158,6 +161,7 @@ export default {
   },
   mounted() {
     this.setcolor();
+    this.h = this.height;
     // eslint-disable-next-line no-console
     console.log(this.$vuetify.breakpoint);
   }
