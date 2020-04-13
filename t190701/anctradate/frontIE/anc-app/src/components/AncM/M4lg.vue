@@ -173,12 +173,14 @@ export default {
 }
 .ancM4r {
   margin-top: 0px;
+  z-index: -1;
 }
 
 .ancM4l {
   /*list*/
   margin-x: auto;
   background-color: black;
+  z-index: -1;
 }
 
 .tileM {

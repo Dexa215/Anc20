@@ -324,6 +324,9 @@ export default {
   /*height: 250px;*/
   text-align: auto;
   text-justify: auto;
+  position: absolute;
+  z-index: 1;
+
   /*padding: 4px 0px 3px;*/
 }
 /*------------------------------------------------------------------------------------------------------*/
@@ -350,107 +353,13 @@ export default {
   margin-bottom: 0px;
 }
 
-/* Background Colors    --T : Test   */
-/*------------------------------------------------------------------------------------------------------*/
-/*  r   */
-.r_BC {
-  background-color: #2b2b29 !important;
-  /*  background-color: #241518 !important;   */
-}
-.r_BC--T {
-  background-color: ORANGE !important;
-}
-/*  rcLat   [rcS / rcD]  */
-.rcLat_BC {
-  /*background-color: rgb(194, 57, 212) !important;*/
-  /*background-color: #1a0408 !important;*/
-  background-color: transparent !important;
-}
-.rcLat_BC_Visitor {
-  /*    EX:   .arbcs-Visitor    */
-  background-color: #1a0408 !important;
-}
-.rcLat_BC_Socio {
-  /*    EX:   .arbcs-Socio      */
-  background-color: #1a0408 !important;
-}
-.rcLat_BC_Staff {
-  /*    EX:   .arbcs-Staff      */
-  background-color: #87011a !important;
-}
-
-/*color Background AR E */
-/*  Grigio scuro +4   .cBE-Vis    {  background-color: "#38282b" !important;}
-/*  Grigio scuro +4   .cBE-Socio  {  background-color: "green" !important; }
-/*  Grigio scuro +4   .cBE-Staff  {  background-color: "red" !important; }
-/*  Grigio scuro +6   .cBI        {  background-color: "#241b1d" !important; }*/
-
-.rcLat_BC--T {
-  background-color: red !important;
-}
-
-.AncRowBarColsxRow {
-  background-color: pink !important;
-  height: 32px;
-}
-
-.AncRowBarColdxRow {
-  background-color: pink !important;
-  height: 32px;
-}
-
-/*  rcC  */
-.rcC_BC {
-  background-color: #241518 !important;
-}
-.rcC_BC--T {
-  /*background-color: SALMON !important;*/
-  background-color: yellow !important;
-}
-
-/*------------------------------------------------------------------------------------------------------*/
-/*  rcCr  */
-.rcCr_BC {
-  background-color: transparent !important;
-}
-.rcCr_BC--T {
-  z-index: -1;
-  background-color: greenyellow !important;
-}
-/*------------------------------------------------------------------------------------------------------*/
-/*    rcCrcLat [  rcCrcS  / rcCrcD  ]    */
-.rcCrcLat_BC {
-  background-color: transparent !important;
-}
-.rcCrcLat_BC--T {
-  background-color: red !important;
-}
-
-/*    rcCrcC    */
-.rcCrcC_BC {
-  background-color: transparent !important;
-}
-.rcCrcC_BC--T {
-  background-color: slateblue !important;
-}
-
-.rcCrcCr_BC--T {
-  background-color: brown !important;
-}
-
-/*    avatar    */
-.avatar_BC {
-  background-color: transparent !important;
-}
-
-.avatar_BC--T {
-  background-color: green !important;
-}
-
 /*------------------------------------------------------------------------------------------------------*/
 /*------------------------------------------------------------------------------------------------------*/
 
 .r {
+  position: relative;
+  z-index: 2;
+
   /*.AncRowBarEst / ARBI */
   background-color: ORANGE !important; /*test*/
   /*background-color: #2b2b29 !important;*/
@@ -461,6 +370,10 @@ export default {
   text-align: center;
   text-justify: center;
   border-radius: 50px 50px 50px 50px;
+}
+.rm {
+  position: relative;
+  z-index: -1;
 }
 
 /*------------------------------------------------------------------------------------------------------*/
@@ -667,6 +580,7 @@ export default {
   /*max-height: 48px;*/
   max-height: 50px;
   transform: scale(1, 1);
+  z-index: 5;
 }
 .avatar:hover {
   transform: scale(1.1, 1.1);
@@ -954,6 +868,104 @@ border-radius
   padding-bottom: 15px;
   margin-top: 5px;
 }
+
+/* Background Colors    --T : Test   */
+/*------------------------------------------------------------------------------------------------------*/
+/*  r   */
+.r_BC {
+  background-color: #2b2b29 !important;
+  /*  background-color: #241518 !important;   */
+}
+.r_BC--T {
+  background-color: ORANGE !important;
+}
+/*  rcLat   [rcS / rcD]  */
+.rcLat_BC {
+  /*background-color: rgb(194, 57, 212) !important;*/
+  /*background-color: #1a0408 !important;*/
+  background-color: transparent !important;
+}
+.rcLat_BC_Visitor {
+  /*    EX:   .arbcs-Visitor    */
+  background-color: #1a0408 !important;
+}
+.rcLat_BC_Socio {
+  /*    EX:   .arbcs-Socio      */
+  background-color: #1a0408 !important;
+}
+.rcLat_BC_Staff {
+  /*    EX:   .arbcs-Staff      */
+  background-color: #87011a !important;
+}
+
+/*color Background AR E */
+/*  Grigio scuro +4   .cBE-Vis    {  background-color: "#38282b" !important;}
+/*  Grigio scuro +4   .cBE-Socio  {  background-color: "green" !important; }
+/*  Grigio scuro +4   .cBE-Staff  {  background-color: "red" !important; }
+/*  Grigio scuro +6   .cBI        {  background-color: "#241b1d" !important; }*/
+
+.rcLat_BC--T {
+  background-color: red !important;
+}
+
+.AncRowBarColsxRow {
+  background-color: pink !important;
+  height: 32px;
+}
+
+.AncRowBarColdxRow {
+  background-color: pink !important;
+  height: 32px;
+}
+
+/*  rcC  */
+.rcC_BC {
+  background-color: #241518 !important;
+}
+.rcC_BC--T {
+  /*background-color: SALMON !important;*/
+  background-color: yellow !important;
+}
+
+/*------------------------------------------------------------------------------------------------------*/
+/*  rcCr  */
+.rcCr_BC {
+  background-color: transparent !important;
+}
+.rcCr_BC--T {
+  z-index: -1;
+  background-color: greenyellow !important;
+}
+/*------------------------------------------------------------------------------------------------------*/
+/*    rcCrcLat [  rcCrcS  / rcCrcD  ]    */
+.rcCrcLat_BC {
+  background-color: transparent !important;
+}
+.rcCrcLat_BC--T {
+  background-color: red !important;
+}
+
+/*    rcCrcC    */
+.rcCrcC_BC {
+  background-color: transparent !important;
+}
+.rcCrcC_BC--T {
+  background-color: slateblue !important;
+}
+
+.rcCrcCr_BC--T {
+  background-color: brown !important;
+}
+
+/*    avatar    */
+.avatar_BC {
+  background-color: transparent !important;
+}
+
+.avatar_BC--T {
+  background-color: green !important;
+}
+
 /*
 v-enter:          Starting state for enter. Added before element is inserted, removed one frame after element is inserted.
 v-enter-active:   Active state for enter. Applied during the entire entering phase. Added before element is inserted, removed when transition/animation finishes. This class can be used to define the duration, delay and easing curve for the entering transition.

@@ -21,7 +21,7 @@
     <v-row class="r r_BC--T">
       <v-col class="rcS rcX rcLat rcLat_BC--T ">
         <!-- v-app-bar -->
-        <v-app-bar-nav-icon style="z-index:5; " @click.stop="setD">
+        <v-app-bar-nav-icon @click.stop="setD">
           <v-btn icon class v-model="iconX">
             <v-icon v-if="drawerLeft" large>{{ iconO }}</v-icon>
             <v-icon v-else large>{{ iconC }}</v-icon>
@@ -95,11 +95,12 @@
         <transition
           name="custom-classes-transition"
           enter-active-class="animated fadeInDown"
-          leave-active-class="animated zoomOut"
+          leave-active-class="animated fadeOutUp"
         >
           <div
+            class="rm"
             v-show="drawerLeft"
-            style="background-color:  transparent !important; z-index: -1"
+            style="background-color:  transparent !important;"
           >
             <m4lg
               :C="C"
@@ -271,7 +272,7 @@ export default {
   }
   to {
     opacity: 0;
-    transform: translate3d(0, -5%, 0);
+    transform: translate3d(0, -100%, 0);
   }
 }
 .fadeOutUp {
@@ -283,7 +284,7 @@ export default {
 @keyframes fadeInDown {
   from {
     opacity: 0;
-    transform: translate3d(0, -50px, 0);
+    transform: translate3d(0, -100px, 0);
   }
 
   to {
@@ -293,8 +294,9 @@ export default {
 }
 .fadeInDown {
   animation-name: fadeInDown;
-  animation-duration: 3s;
-  animation-delay: -2s;
+  animation-duration: 1s;
+
+  /* animation-delay: -2s; test ok*/
 }
 /* -------------------------------------------------------------------- */
 @keyframes flipOutX {
