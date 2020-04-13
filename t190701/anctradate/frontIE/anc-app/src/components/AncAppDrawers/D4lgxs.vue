@@ -1,16 +1,10 @@
 <template>
-  <!-- 
-  <v-row align="center" justify="center" class="ancmenu4">
--->
+  <!-- -->
 
-  <!--
-        mx-auto
-
-
+  <div class="mx-auto">
     <div class="d1int       mx-auto mu-auto"></div>
-    <div class="d1          mx-auto mu-auto"></div>
--->
-  <!--
+    <div class="d1          mx-auto mu-auto">
+      <!--
             <v-app-bar-nav-icon
                 style="z-index:5; "
                 @click.stop=  "setD" 
@@ -21,11 +15,10 @@
                 </v-btn>            
             </v-app-bar-nav-icon>
             -->
+    </div>
 
-  <!--
-    <v-card>
--->
-  <!--v-navigation-drawer
+    <v-card v-show="drawerRight" class="mx-auto dr1" height="1000" width="368">
+      <!--v-navigation-drawer
                 class="deep-purple accent-4"
                 dark
                 permanent
@@ -39,35 +32,17 @@
                 disable-route-watcher
                 src="/static/images/HomePageCarousel/dsc32.jpg"
             -->
-
-  <!--
-      <v-navigation-drawer 
-        app
-        class="dr1 mu-auto"
+      <v-navigation-drawer
+        absolute
+        dark
+        width="100%"
         v-model="drawerRight"
         @transitionend="ctlD()"
-        color="rgb(29, 20, 6)"
-        dark
       >
--->
-  <v-row class="ancmenu4">
-    <!-- TEST OK : bounce -  name="bounce" -->
-    <!-- TEST OK : bounce -  name="bounce" -->
-
-    <!-- enter-active-class="animated bounceInDown" -->
-
-    <transition
-      name="custom-classes-transition"
-      enter-active-class="animated fadeInDown"
-      leave-active-class="animated fadeOutUp"
-    >
-      <v-card
-        height="800px"
-        width="306px"
-        v-show="drawerRight"
-        class="mx-auto ancmenu5"
-      >
-        <!--  -->
+        <!-- 
+            permanent
+            src="/static/images/HomePageCarousel/dsc32.jpg"
+          -->
 
         <!--v-navigation-drawer
                     app
@@ -196,27 +171,17 @@
           >
           </v-col>
         </v-row>
-
-        <!--
-      </v-row>
--->
-      </v-card>
-    </transition>
-
-    <!-- /v-navigation-drawer-->
-
-    <!--
+        <div></div>
+      </v-navigation-drawer>
     </v-card>
-
--->
-  </v-row>
+  </div>
 </template>
 
 <script>
 import router from "@/router";
 
 export default {
-  name: "d4lg",
+  name: "d1xs",
 
   props: {
     nbc: { type: String },
@@ -316,42 +281,6 @@ export default {
 </script>
 
 <style media="screen">
-/* Transitions... */
-/* -------------------------------------------------- */
-.fade-enter-active {
-  transition: all 0.3s ease;
-}
-.fade-leave-active {
-  transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
-}
-.fade-enter, .fade-leave-to
-/* .slide-fade-leave-active below version 2.1.8 */ {
-  transform: translateX(100px);
-  opacity: 0;
-}
-/* --------------------------------------------------------------------------- */
-
-.bounce-enter-active {
-  animation: bounce-in 0.5s;
-}
-.bounce-leave-active {
-  animation: bounce-in 0.5s reverse;
-}
-
-@keyframes bounce-in {
-  0% {
-    transform: scale(0);
-  }
-  50% {
-    transform: scale(1.5);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-
-/* -------------------------------------------------- */
-
 .tile {
   margin: 5px;
   border-radius: 4px;
@@ -364,31 +293,28 @@ export default {
 }
 
 .d1int {
-  height: 85px;
+  height: 5px;
   background-color: green;
 }
 
 .d1 {
-  height: 80px;
+  height: 5px;
   /*        background-color:   rgb(15, 10, 0);
 */
   padding-top: 20px;
   text-align: center;
-  text-justify: center;
+  text-justify: start;
 }
+
 .dr1 {
   opacity: 0.9;
-  /* margin-left: 20px;*/
-
+  background-color: transparent;
+  margin-left: 700px;
   min-height: 30px;
   max-height: 700px;
-
-  width: 70%;
+  width: 100%;
 
   /*background-color:   rgb(29, 20, 6);*/
-}
-.d4m {
-  opacity: 0.9;
 }
 
 .drawercard {
@@ -399,19 +325,4 @@ export default {
   text-align: center;
   text-justify: center;
 }
-
-.ancmenu4 {
-  background-color: transparent !important;
-  background-image: url("/static/images/HomePageCarousel/dsc32.jpg");
-  text-align: center;
-  text-justify: center;
-  border-radius: 50px 50px 50px 50px;
-}
-
-.ancmenu5 {
-  background-color: black !important;
-  opacity: 0.9;
-}
-
-/* -------------------------------------------------------------------------------------------------------- */
 </style>

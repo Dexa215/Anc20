@@ -36,11 +36,24 @@
             <div>xl - Associazione Nazionale Carabinieri</div>
           </v-col>
 
-          <v-col class="AncRowBarColcxRowIntColccx">
-            <!-- Avatar -->
-            <div>
+          <v-expand-x-transition>
+            <v-col class="AncRowBarColcxRowIntColccx">
+              <!-- Avatar -->
+              <div>
+                <img
+                  v-show="drawerLeft"
+                  class="drwOpen"
+                  src="/static/images/Icone/anclogo2012.gif"
+                  alt="ancTradate"
+                  @click="gotoR('/')"
+                  @mouseover="hoveravatar = true"
+                  @mouseleave="hoveravatar = false"
+                />
+
+                <!--
               <v-avatar class="avatar" size="62" right="true">
                 <!-- drawer aperto -->
+                <!--
                 <img
                   v-if="drawerLeft"
                   class="drwOpen"
@@ -51,6 +64,7 @@
                   @mouseleave="hoveravatar = false"
                 />
                 <!-- drawer chiuso -->
+                <!--
                 <img
                   v-else
                   class="drwClose"
@@ -61,9 +75,11 @@
                   @mouseleave="hoveravatar = false"
                 />
               </v-avatar>
-            </div>
-            <!-- Avatar -->
-          </v-col>
+-->
+              </div>
+              <!-- Avatar -->
+            </v-col>
+          </v-expand-x-transition>
 
           <v-col class="AncRowBarColcxRowIntColdx">
             <div>Sezione "C.Bergia" Tradate</div>
@@ -137,17 +153,17 @@ export default {
   },
   methods: {
     gotoR(r) {
-      console.log("AppBar rotta per...");
+      //console.log("AppBar rotta per...");
       this.$emit("gotoR", r);
     },
     setD() {
       let d = this.drawerLeft;
       if (d === false) {
         this.iconX = this.iconC;
-        console.log("d true");
+        //console.log("d true");
       } else {
         this.iconX = this.iconO;
-        console.log("d false");
+        //("d false");
       }
       this.$emit("setD");
     },

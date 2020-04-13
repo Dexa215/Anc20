@@ -1,0 +1,27 @@
+REMOTE
+-------------------------------------------------------------------------------------------
+ARU-225634
+Maaaaa12345!
+-------------------------------------------------------------------------------------------
+root
+Maaaaa12345
+cd ..
+cd home/dexo
+source django_REST_env/bin/activate
+cd anctradate
+-------------------------------------------------------------------------------------------
+sudo service nginx preload
+sudo service nginx start
+sudo service nginx stop
+sudo service nginx restart
+
+sudo systemctl reload supervisor
+sudo systemctl start supervisor
+sudo systemctl stop supervisor
+sudo systemctl restart supervisor
+sudo systemctl enable supervisor
+sudo supervisorctl
+-------------------------------------------------------------------------------------------
+mailup pydexo@gmail.com Mailup1234	test email da django 12345xxxxx pyDexo@gmail.com
+smarthost	smtp2go pydexo@gmail.com Maaaaa1234
+http://igetintopc.com/

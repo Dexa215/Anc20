@@ -1,8 +1,6 @@
-
 <template>
-<v-app id="anc">
-
-<!--
+  <v-app id="anc">
+    <!--
 <v-app id="inspire">
 
   <v-navigation-drawer
@@ -52,34 +50,27 @@
 
     -->
 
-        
-  <ancAppBar
-      :requestUser=         "requestUser"
-      :requestUserIsStaff=  "requestUserIsStaff"
-      :requestUserIsSuper=  "requestUserIsSuper"
-      :requestUserAvatar=   "requestUserAvatar"
-      :requestUserBio=      "requestUserBio"
-      
-      :C=                   "C"
-      :CS=                  "CS"
-      :categorie=           "categorie"
+    <ancAppBar
+      :requestUser="requestUser"
+      :requestUserIsStaff="requestUserIsStaff"
+      :requestUserIsSuper="requestUserIsSuper"
+      :requestUserAvatar="requestUserAvatar"
+      :requestUserBio="requestUserBio"
+      :C="C"
+      :CS="CS"
+      :categorie="categorie"
+      :iconX="iconX"
+      @gotoR="gotoR"
+      @setD="setD"
+      @setDF="setDF"
+      @mouseover="setDF()"
+      :drawer="drawer"
+      :drawerLeft="drawerLeft"
+      :drawerRight="drawerRight"
+    >
+    </ancAppBar>
 
-      :iconX=               "iconX"
-
-      @gotoR=               "gotoR"
-      @setD=                "setD"
-      @setDF=               "setDF"
-      @mouseover              ="setDF()"
-
-      :drawer=               "drawer"
-      :drawerLeft=           "drawerLeft"
-      :drawerRight=          "drawerRight"
-
-  >
-  </ancAppBar>
-
-
-<!--
+    <!--
   <ancAppDrawerLeft
       :requestUser=         "requestUser"
       :requestUserIsStaff=  "requestUserIsStaff"
@@ -103,27 +94,25 @@
   </ancAppDrawerLeft>  
 -->
 
+    <ancDrawer
+      :requestUser="requestUser"
+      :requestUserIsStaff="requestUserIsStaff"
+      :requestUserIsSuper="requestUserIsSuper"
+      :requestUserAvatar="requestUserAvatar"
+      :requestUserBio="requestUserBio"
+      :nbc="nbc"
+      :drawerRight="drawerRight"
+      :C="C"
+      :CS="CS"
+      :categorie="categorie"
+      :iconX="iconX"
+      @gotoR="gotoR"
+      @setD="setD"
+      @setDF="setDF"
+    >
+    </ancDrawer>
 
-  <ancDrawer
-      :requestUser=         "requestUser"
-      :requestUserIsStaff=  "requestUserIsStaff"
-      :requestUserIsSuper=  "requestUserIsSuper"
-      :requestUserAvatar=   "requestUserAvatar"
-      :requestUserBio=      "requestUserBio"
-      :nbc=                 "nbc"  
-      :drawerRight=         "drawerRight"
-      :C=                   "C"
-      :CS=                  "CS"
-      :categorie=           "categorie"
-      :iconX=               "iconX"
-      @gotoR=               "gotoR"
-      @setD=                "setD"
-      @setDF=               "setDF"
-  >    
-  </ancDrawer>  
-
-
-<!--
+    <!--
   <ancAppDrawerRight
       :requestUser=         "requestUser"
       :requestUserIsStaff=  "requestUserIsStaff"
@@ -143,8 +132,7 @@
   </ancAppDrawerRight>  
 -->
 
-
-<!--
+    <!--
   <v-navigation-drawer
     v-model="left"
     fixed
@@ -152,25 +140,22 @@
   ></v-navigation-drawer>
 -->
 
-  <v-content>
-    <router-view
-        :requestUser        = "requestUser"
-        :rvt                = "rvt"
-        @gotoR              = "gotoR"
-        @spMC               = "spMC"
-        @mouseover          = "setDF()"
+    <v-content>
+      <router-view
+        :requestUser="requestUser"
+        :rvt="rvt"
+        @gotoR="gotoR"
+        @spMC="spMC"
+        @mouseover="setDF()"
+        :evidenza="evidenza"
+        :C="C"
+        :CS="CS"
+        :categorie="categorie"
+      >
+      </router-view>
+    </v-content>
 
-        :evidenza           = "evidenza"
-        
-        :C=                   "C"
-        :CS=                  "CS"
-        :categorie=           "categorie"
-       
-    >
-    </router-view>
-  </v-content>
-
-<!--
+    <!--
         :menuCat            = "menuCat"
         :menuSubCat         = "menuSubCat"
         :intMsg             = "intMsg"
@@ -179,11 +164,9 @@
         :intFMsgSubH        = "intFMsgSubH"
         :links              = "links"
         :src                = "src"
--->  
+-->
 
-
-
-<!--
+    <!--
   <v-content>
     <v-container
       class="fill-height"
@@ -228,8 +211,7 @@
   </v-content>
 -->
 
-
-<!--
+    <!--
   <v-footer
     app
     color="blue-grey"
@@ -241,16 +223,16 @@
   </v-footer>
 -->
 
-  <ancFooter
-    :footercolor  = "footercolor"
-    :requestUser  = "requestUser"
-    :C            = "C"
-    :CS           = "CS"
-    :categorie    = "categorie"
-    @gotoR        = "gotoR"
-  ></ancFooter>
+    <ancFooter
+      :footercolor="footercolor"
+      :requestUser="requestUser"
+      :C="C"
+      :CS="CS"
+      :categorie="categorie"
+      @gotoR="gotoR"
+    ></ancFooter>
 
-  <!-- 
+    <!-- 
     
     :menuCat                        = "menuCat"
     :menuSubCat                     = "menuSubCat"
@@ -261,162 +243,158 @@
     :src                            = "src"
 
   -->
-
-
-</v-app>
+  </v-app>
 </template>
 
 <script>
-
 //import HelloWorld       from './components/HelloWorld'
 //import ancNavbar        from './components/AncNavbar'
 
-import ancFooterMobile    from './components/AncFooterMobile'
+import ancFooterMobile from "./components/AncFooterMobile";
 
 //import ancFooter          from './components/AncFooter'
 //v-folder
-import ancFooter          from "@/components/AncFooters/AncFooter.vue";
+import ancFooter from "@/components/AncFooters/AncFooter.vue";
 
 //import ancAppBar          from './components/AncAppBar'
 //v-folder
-import ancAppBar          from "@/components/AncAppBars/AncAppBar.vue";
+import ancAppBar from "@/components/AncAppBars/AncAppBar.vue";
 
-
-import ancAppDrawerLeft   from './components/AncAppDrawerLeft'
-import ancAppDrawerRight  from './components/AncAppDrawerRight'
+import ancAppDrawerLeft from "./components/AncAppDrawerLeft";
+import ancAppDrawerRight from "./components/AncAppDrawerRight";
 
 //v-folder
-import ancDrawer          from "./components/AncAppDrawers/AncDrawer.vue";
+import ancDrawer from "./components/AncAppDrawers/AncDrawer.vue";
 
-import ancSystem          from './components/AncSystem'
-import router             from "./router";
+import ancSystem from "./components/AncSystem";
+import router from "./router";
 
-import { apiService }     from "./common/api.service";
-import { CSRF_TOKEN }     from './common/csrf_token';
-import { getCat }         from './common/menu';
-import { getCurrentCat }  from './common/menu';
-
-
+import { apiService } from "./common/api.service";
+import { CSRF_TOKEN } from "./common/csrf_token";
+import { getCat } from "./common/menu";
+import { getCurrentCat } from "./common/menu";
 
 // test sintassi ok
 // @ resolve src
 
-import menuT              from './common/menuTime.js';
+import menuT from "./common/menuTime.js";
 
 export default {
-    name: 'App',
-    components: {
-//      HelloWorld,
-//      ancNavbar,
-      ancFooter,
-      ancFooterMobile,
-      ancSystem,
-      ancAppBar,
-      ancAppDrawerLeft,
-      ancAppDrawerRight,
-      
-      ancDrawer,            /*test 2020 03 18*/
+  name: "App",
+  components: {
+    //      HelloWorld,
+    //      ancNavbar,
+    ancFooter,
+    ancFooterMobile,
+    ancSystem,
+    ancAppBar,
+    ancAppDrawerLeft,
+    ancAppDrawerRight,
+
+    ancDrawer /*test 2020 03 18*/
+  },
+
+  props: {
+    source: String
+  },
+
+  data: () => ({
+    nbc: "red",
+
+    cc: [],
+
+    Ccurrent: 0,
+    CScurrent: 0,
+
+    C: 10, // start with HOME
+    CS: 0, // start with HOME
+
+    ru: null,
+
+    //nbc:"#212121",  //dark-grey
+
+    requestUser: "Visitatore",
+    requestUserIsStaff: false,
+    requestUserIsSuper: false,
+    requestUserAvatar: null,
+    requestUserBio: null,
+    requestToken: "",
+    rvt: 10,
+
+    breweries: [],
+    isLoading: false,
+    tree: [],
+    types: [],
+
+    footercolor: "#0052cc",
+    //        color: 'accent',
+    //        colors: ['primary', 'accent', 'warning lighten-2', 'teal', 'orange'],
+    drawer: false,
+    drawerLeft: false,
+    drawerRight: false,
+    iconX: "mdi-menu",
+    // PULSANTE MENU
+    // mdi-tray-full
+    // mdi-backburger
+    iconO: "mdi-backburger",
+    iconC: "mdi-menu",
+
+    right: false,
+    left: false,
+
+    elevateOnScroll: false,
+    hideOnScroll: false,
+    fadeOnScroll: false,
+    fadeImgOnScroll: false,
+    invertedScroll: false,
+    collapse: false,
+    collapseOnScroll: true,
+    shrinkOnScroll: false,
+    extended: false,
+
+    //<!--  importate da modulo menu.js-->
+    menucat: "",
+    categorie: [],
+
+    //<!-- Ai -->
+    menuCat: "",
+    menuSubCat: "",
+    intMsg: "",
+    intMsgSubH: "",
+    //<!-- AiF -->
+    intFMsg: "",
+    intFMsgSubH: "",
+    //Links fine pagina
+    linksFP: [],
+    src: "xxx",
+
+    //MESSAGGIO EVIDENZA
+    evidenza: "Elezioni per il rinnovo del Consiglio - 2 Febbraio 2020",
+
+    //Links utili
+    links: [
+      {
+        n: "1",
+        img: "/static/images/Icone/bus.jpg",
+        descrizione: "ASSOCIAZIONE NAZIONALE CARABINIERI 1",
+        link: "http://assocarabinieri.it/"
       },
+      {
+        n: "2",
+        img: "/static/images/Icone/bengradi.jpg",
+        descrizione: "ASSOCIAZIONE NAZIONALE CARABINIERI 2",
+        link: "http://assocarabinieri.it/"
+      },
+      {
+        n: "3",
+        img: "/static/images/Icone/cap.jpg",
+        descrizione: "ASSOCIAZIONE NAZIONALE CARABINIERI 3",
+        link: "http://assocarabinieri.it/"
+      }
+    ],
 
-    props: {
-        source: String,
-    },
-
-    data: () => ({
-
-        nbc:      "red",
-
-        cc:[],
-
-        Ccurrent:0,
-        CScurrent:0,
-
-        C:10,           // start with HOME
-        CS:0,           // start with HOME
-
-        ru: null,
-
-        //nbc:"#212121",  //dark-grey
-
-        requestUser: "Visitatore",
-        requestUserIsStaff: false,
-        requestUserIsSuper: false,
-        requestUserAvatar: null,
-        requestUserBio: null,
-        requestToken: "",
-        rvt:10,
-
-        breweries: [],
-        isLoading: false,
-        tree: [],
-        types: [],
-
-        footercolor:'#0052cc',
-//        color: 'accent',
-//        colors: ['primary', 'accent', 'warning lighten-2', 'teal', 'orange'],
-        drawer: false,
-        drawerLeft: false,
-        drawerRight: false,
-        iconX:"mdi-menu",
-// PULSANTE MENU
-// mdi-tray-full
-// mdi-backburger
-        iconO:"mdi-backburger",
-        iconC:"mdi-menu",
-        
-        right: false,
-        left: false,
-
-        elevateOnScroll: false,
-        hideOnScroll: false,
-        fadeOnScroll: false,
-        fadeImgOnScroll: false,
-        invertedScroll: false,
-        collapse: false,
-        collapseOnScroll: true,
-        shrinkOnScroll: false,
-        extended: false,
-
-//<!--  importate da modulo menu.js-->
-        menucat:      "",
-        categorie:    [],
-
-//<!-- Ai -->
-        menuCat:      "",
-        menuSubCat:   "",
-        intMsg:       "",
-        intMsgSubH:   "",
-//<!-- AiF -->
-        intFMsg:      "",
-        intFMsgSubH:  "",
-//Links fine pagina
-        linksFP:[],
-        src: "xxx",
-
-//MESSAGGIO EVIDENZA
-        evidenza:"Elezioni per il rinnovo del Consiglio - 2 Febbraio 2020",
-       
-
-//Links utili
-        links:  [ { n:"1",
-                    img: "/static/images/Icone/bus.jpg",
-                    descrizione: "ASSOCIAZIONE NAZIONALE CARABINIERI 1",
-                    link: "http://assocarabinieri.it/"
-                  },
-                  { n:"2",
-                    img: "/static/images/Icone/bengradi.jpg",
-                    descrizione: "ASSOCIAZIONE NAZIONALE CARABINIERI 2",
-                    link: "http://assocarabinieri.it/"
-                  },
-                  { n:"3",
-                    img: "/static/images/Icone/cap.jpg",
-                    descrizione: "ASSOCIAZIONE NAZIONALE CARABINIERI 3",
-                    link: "http://assocarabinieri.it/"
-                  },
-                ],   
-
-//Categorie
-/*
+    //Categorie
+    /*
 
 categorie:[
 
@@ -663,250 +641,229 @@ categorie:[
 
                   ],
 */
-        catsChi:     
-                  [ { n:"1",
-                      img: "/static/images/Icone/bus.jpg",
-                      descrizione: "Soci",
-                      link: "/chisiamosoci"
-                    },
-                    { n:"2",
-                      img: "/static/images/Icone/bengradi.jpg",
-                      descrizione: "Benemerite",
-                      link: "/chisiamobenemerite"
-                    },
-                    { n:"3",
-                      img: "/static/images/Icone/cap.jpg",
-                      descrizione: "Simpatizzanti",
-                      link: "/chisiamosimpatizzanti"
-                    },
-                  ],   
-        catsConsiglio:
-                     [ { n:"1",
-                      img: "/static/images/Icone/bus.jpg",
-                      descrizione: "Soci Effettivi",
-                      link: "/chisiamosoci"
-                    },
-                    { n:"2",
-                      img: "/static/images/Icone/bus.jpg",
-                      descrizione: "Consigliere",
-                      link: "/chisiamosoci"
-                    },
-                    { n:"3",
-                      img: "/static/images/Icone/bus.jpg",
-                      descrizione: "Segretario",
-                      link: "/chisiamosoci"
-                    },
-                    { n:"4",
-                      img: "/static/images/Icone/bus.jpg",
-                      descrizione: "Revisore",
-                      link: "/chisiamosoci"
-                    },
-                    { n:"5",
-                      img: "/static/images/Icone/bus.jpg",
-                      descrizione: "Vice-Presidente",
-                      link: "/chisiamosoci"
-                    },
-                    { n:"6",
-                      img: "/static/images/Icone/bus.jpg",
-                      descrizione: "Presidente",
-                      link: "/chisiamosoci"
-                    },
-                    { n:"7",
-                      img: "/static/images/Icone/bus.jpg",
-                      descrizione: "Presidente-Onorario",
-                      link: "/chisiamosoci"
-                    },
-                  ],             
-    }),
+    catsChi: [
+      {
+        n: "1",
+        img: "/static/images/Icone/bus.jpg",
+        descrizione: "Soci",
+        link: "/chisiamosoci"
+      },
+      {
+        n: "2",
+        img: "/static/images/Icone/bengradi.jpg",
+        descrizione: "Benemerite",
+        link: "/chisiamobenemerite"
+      },
+      {
+        n: "3",
+        img: "/static/images/Icone/cap.jpg",
+        descrizione: "Simpatizzanti",
+        link: "/chisiamosimpatizzanti"
+      }
+    ],
+    catsConsiglio: [
+      {
+        n: "1",
+        img: "/static/images/Icone/bus.jpg",
+        descrizione: "Soci Effettivi",
+        link: "/chisiamosoci"
+      },
+      {
+        n: "2",
+        img: "/static/images/Icone/bus.jpg",
+        descrizione: "Consigliere",
+        link: "/chisiamosoci"
+      },
+      {
+        n: "3",
+        img: "/static/images/Icone/bus.jpg",
+        descrizione: "Segretario",
+        link: "/chisiamosoci"
+      },
+      {
+        n: "4",
+        img: "/static/images/Icone/bus.jpg",
+        descrizione: "Revisore",
+        link: "/chisiamosoci"
+      },
+      {
+        n: "5",
+        img: "/static/images/Icone/bus.jpg",
+        descrizione: "Vice-Presidente",
+        link: "/chisiamosoci"
+      },
+      {
+        n: "6",
+        img: "/static/images/Icone/bus.jpg",
+        descrizione: "Presidente",
+        link: "/chisiamosoci"
+      },
+      {
+        n: "7",
+        img: "/static/images/Icone/bus.jpg",
+        descrizione: "Presidente-Onorario",
+        link: "/chisiamosoci"
+      }
+    ]
+  }),
 
-    methods: {
-
-/*  gotoSede() {
+  methods: {
+    /*  gotoSede() {
       console.log("rotta per..");
       router.push('sede')
     },*/
 
-/*  async setup () {
+    /*  async setup () {
       this.claims = await this.$auth.getUser()
     },*/
-/*  async isAuthenticated () {
+    /*  async isAuthenticated () {
       this.authenticated = await this.$auth.isAuthenticated()
-    },*/            
+    },*/
 
-      getToken(){
-                  //test OK 
-              console.log("cookies.get(CSRF_TOKEN)",$cookies.get("csrftoken"));
-              this.requestToken = $cookies.get("csrftoken");
-      },
-
-      getRequestUser() {
-          let endpoint = "api/profiles/getcurrentuser/";
-          apiService(endpoint).then(data => {
-            console.log("chiamata rest... data:", data.us.name);
-
-            this.requestUser        = data.us.name;
-            this.requestUserIsStaff = data.us.staff;
-            this.requestUserIsSuper = data.us.superuser;
-            this.requestUserBio     = data.us.bio;
-
-          });
-      },
-
-      T(c){
-
-        console.log("App --> RICEVUTO emit su T ",c);  //set parameters 
-
-      },
-
-      spMC(P){
-
-//          console.log("RICEVUTO emit su spMC ");  //set parameters 
-//          console.log("salvo paramentri...", P );
-
-//          this.menuCat        = P.menuCat;
-//          this.menuSubCat     = P.menuSubCat;
-
-          this.Ccurrent       = P.Ccurrent;
-          this.CScurrent      = P.CScurrent;
-
-//          this.intMsg         = P.intMsg;        //<!-- Ai -->
-//          this.intMsgSubH     = P.intMsgSubH;
-//          this.intFMsg        = P.intFMsg;        //<!-- AiF -->
-//          this.intFMsgSubH    = P.intFMsgSubH;
-//          this.linksFP        = P.linksFP;
-//          this.src            = P.src;
-          
-      },
-
-      setD(){
-          this.drawerLeft= !this.drawerLeft;
-          if (this.drawerLeft==false) { this.setDF()  }
-          else                        { this.setDT()  }
-      },
-
-      setDF(){
-          this.drawerLeft= false;
-          this.drawerRight= false;
-          this.iconX= this.iconC;
-      },
-      setDT(){
-          this.drawerLeft= true;
-          this.drawerRight= true;
-          this.iconX= this.iconO;
-      },
-      setColor(){
-            if (this.requestUserIsSuper === true){
-              this.nbc = "light-red"
-            } else if (this.requestUserIsStaff === true){
-              this.nbc = "light-green"
-            } else {
-              this.nbc = "dark-grey"
-            }
-      },
-
-
-
-      navi(){
-        console.log("navi click...");
-      },
-
-      mouseOver: function(){
-          this.Logoutbtn.color="LightGoldenRodYellow";   
-      },
-
-
-
-      gotoR(r){
-        
-        var m = menuT;
-        m.goto(r);
-        this.C    = m.currentcat[0],
-        this.CS   = m.currentcat[1],
-
-        console.log("App goto --> OTTENGO current ( ", m.currentcat ," )");
-        console.log("App goto --> ");
-        console.log("App goto --> chiama menuT.goto( ",r," )");
-
-        //router.push("/");
-        //router.push(r);
-      },
-
-
-      getCat(){
-        var set = false;
-        var count = 0;
-        var m = menuT;
-        m.retrieveMenu();
-
-
-          while(set !== true && count < 5) {
-          var cr = m.canRead();  
-          console.log("m.canRead ",cr);
-          if  (cr === true){
-            console.log("m.canRead é TRUE");
-            this.categorie = m.cats;
-            set = true;
-
-          }else{
-            console.log("m.canRead é FALSE");
-
-
-
-          }
-
-
-          
-          console.log("count ",count);
-          count++;
-          //var check = menuT.retrieveMenu();
-
-          if (!this.categorie){
-             console.log("ritornato nullo ",this.categorie);
-          }else{
-              console.log("ritornato menuT canRead", m.canRead());
-              console.log("ritornato ",this.categorie);
-             
-          }
-          console.log("uscito dal ciclo");
-        }//fine while
-
-
-
-
-        console.log("App getCat FINEWHILE");
-      },
-      
-
-
-
-      setCat() {  menuT.sem.then( data => {console.log ("setCat ...data:", data
-                                                        );
-                                          }
-                                  ).catch(error => console.log(error
-                                                              )
-                                          );
-                //this.menucat    =  getCat();            //TEST OK
-                //this.categorie  =  getCat();            //TEST OK - CORRENTE
-                //this.categorie = menuT.retrieveMenu();  //TEST NG
-              },
-      
-
-// --------------------------------------------------------------
+    getToken() {
+      //test OK
+      console.log("cookies.get(CSRF_TOKEN)", $cookies.get("csrftoken"));
+      this.requestToken = $cookies.get("csrftoken");
     },
 
+    getRequestUser() {
+      let endpoint = "api/profiles/getcurrentuser/";
+      apiService(endpoint).then(data => {
+        console.log("chiamata rest... data:", data.us.name);
 
-
-    watch: {
+        this.requestUser = data.us.name;
+        this.requestUserIsStaff = data.us.staff;
+        this.requestUserIsSuper = data.us.superuser;
+        this.requestUserBio = data.us.bio;
+      });
     },
 
-// Hooks ---------------------------------------------------------    
+    T(c) {
+      console.log("App --> RICEVUTO emit su T ", c); //set parameters
+    },
 
-beforecreated() {
-    
-},
+    spMC(P) {
+      //          console.log("RICEVUTO emit su spMC ");  //set parameters
+      //          console.log("salvo paramentri...", P );
 
-created() {
+      //          this.menuCat        = P.menuCat;
+      //          this.menuSubCat     = P.menuSubCat;
 
+      this.Ccurrent = P.Ccurrent;
+      this.CScurrent = P.CScurrent;
+
+      //          this.intMsg         = P.intMsg;        //<!-- Ai -->
+      //          this.intMsgSubH     = P.intMsgSubH;
+      //          this.intFMsg        = P.intFMsg;        //<!-- AiF -->
+      //          this.intFMsgSubH    = P.intFMsgSubH;
+      //          this.linksFP        = P.linksFP;
+      //          this.src            = P.src;
+    },
+
+    setD() {
+      this.drawerLeft = !this.drawerLeft;
+      if (this.drawerLeft == false) {
+        this.setDF();
+      } else {
+        this.setDT();
+      }
+    },
+
+    setDF() {
+      this.drawerLeft = false;
+      this.drawerRight = false;
+      this.iconX = this.iconC;
+    },
+    setDT() {
+      this.drawerLeft = true;
+      this.drawerRight = true;
+      this.iconX = this.iconO;
+    },
+    setColor() {
+      if (this.requestUserIsSuper === true) {
+        this.nbc = "light-red";
+      } else if (this.requestUserIsStaff === true) {
+        this.nbc = "light-green";
+      } else {
+        this.nbc = "dark-grey";
+      }
+    },
+
+    navi() {
+      console.log("navi click...");
+    },
+
+    mouseOver: function() {
+      this.Logoutbtn.color = "LightGoldenRodYellow";
+    },
+
+    gotoR(r) {
+      var m = menuT;
+      m.goto(r);
+      (this.C = m.currentcat[0]),
+        (this.CS = m.currentcat[1]),
+        console.log("App goto --> OTTENGO current ( ", m.currentcat, " )");
+      console.log("App goto --> ");
+      console.log("App goto --> chiama menuT.goto( ", r, " )");
+
+      //router.push("/");
+      //router.push(r);
+    },
+
+    getCat() {
+      var set = false;
+      var count = 0;
+      var m = menuT;
+      m.retrieveMenu();
+
+      while (set !== true && count < 5) {
+        var cr = m.canRead();
+        console.log("m.canRead ", cr);
+        if (cr === true) {
+          console.log("m.canRead é TRUE");
+          this.categorie = m.cats;
+          set = true;
+        } else {
+          console.log("m.canRead é FALSE");
+        }
+
+        console.log("count ", count);
+        count++;
+        //var check = menuT.retrieveMenu();
+
+        if (!this.categorie) {
+          console.log("ritornato nullo ", this.categorie);
+        } else {
+          console.log("ritornato menuT canRead", m.canRead());
+          console.log("ritornato ", this.categorie);
+        }
+        console.log("uscito dal ciclo");
+      } //fine while
+
+      console.log("App getCat FINEWHILE");
+    },
+
+    setCat() {
+      menuT.sem
+        .then(data => {
+          console.log("setCat ...data:", data);
+        })
+        .catch(error => console.log(error));
+      //this.menucat    =  getCat();            //TEST OK
+      //this.categorie  =  getCat();            //TEST OK - CORRENTE
+      //this.categorie = menuT.retrieveMenu();  //TEST NG
+    }
+
+    // --------------------------------------------------------------
+  },
+
+  watch: {},
+
+  // Hooks ---------------------------------------------------------
+
+  beforecreated() {},
+
+  created() {
     document.title = "ANC Tradate";
     this.getToken();
     this.getRequestUser();
@@ -914,65 +871,113 @@ created() {
     //this.setCat();  //modulo menu.js
     this.getCat(); // test 2020 02 07
 
-
-//this.menu();
-},
-
-
-}
+    //this.menu();
+  }
+};
 </script>
 
-
 <style media="screen">
-
 /* ------------------------------ Dev -------------------- */
-.row{               background-color:snow;      
-                    
+.row {
+  background-color: snow;
 }
-.column{            background-color:snow;    }
+.column {
+  background-color: snow;
+}
 
-.container-fluid{   background-color:snow;
-                      width: 100% ;
-                      height: "500px";              }
+.container-fluid {
+  background-color: snow;
+  width: 100%;
+  height: "500px";
+}
 
-#c0{                background-color:pink;
-                      height: 700px;                }
-#c0img{               height: 680px;                }
-#c1{                background-color:plum;
-                      height: 700px;                }
-#c1img{               height: 680px;                }
-#c2{                background-color:purple;    }
-#c2img{               height: 680px;                }
+#c0 {
+  background-color: pink;
+  height: 700px;
+}
+#c0img {
+  height: 680px;
+}
+#c1 {
+  background-color: plum;
+  height: 700px;
+}
+#c1img {
+  height: 680px;
+}
+#c2 {
+  background-color: purple;
+}
+#c2img {
+  height: 680px;
+}
 /* ------------------------------ Dev -------------------- */
 
-.sedeorari{         background-color:purple;
-                      width: 100% ;
-                      height: 100%;}
-.taC {              text-align: center;}
+.sedeorari {
+  background-color: purple;
+  width: 100%;
+  height: 100%;
+}
+.taC {
+  text-align: center;
+}
 
-.logeduser {        color:LightGoldenRodYellow;}
-.logout {           color:DimGrey;}
+.logeduser {
+  color: LightGoldenRodYellow;
+}
+.logout {
+  color: DimGrey;
+}
 
-#Logoutbtn {        color:aquamarine;}
+#Logoutbtn {
+  color: aquamarine;
+}
 
 .h2 {
   background-color: aqua;
 }
 
-.ancTitle                 {color: #F9FBE7;}
-.AncTitleColor            {color: #F9FBE7;}
+.ancTitle {
+  color: #f9fbe7;
+}
+.AncTitleColor {
+  color: #f9fbe7;
+}
 
-.AncAppBarColor           {color: #F9FBE7;}
-.AncAppBarColor:hover     {color: #ffbe4d;}
+.AncAppBarColor {
+  color: #f9fbe7;
+}
+.AncAppBarColor:hover {
+  color: #ffbe4d;
+}
 
-.AncIconColor             {color: #F9FBE7;}
-.AncIconColor:hover       {color: #ffbe4d;}
+.AncIconColor {
+  color: #f9fbe7;
+}
+.AncIconColor:hover {
+  color: #ffbe4d;
+}
 
-.AncItemColor             {color: #6D4C41;}
-.AncItemColor:hover       {color: #ffbe4d;}
+.AncItemColor {
+  color: #6d4c41;
+}
+.AncItemColor:hover {
+  color: #ffbe4d;
+}
 
-.AncTitleColorDark        {color: darkslategray;}
+.AncTitleColorDark {
+  color: darkslategray;
+}
 
+.rgbANC1 {
+  background-color: rgb(20, 9, 2); /* Marrone scuro +6 */
+}
+.rgbANC2 {
+  background-color: rgb(36, 17, 6); /* Marrone scuro +5 */
+}
+.rgbANC3 {
+  background-color: rgb(51, 26, 12); /* Marrone scuro +4 */
+}
 
 /*
 
@@ -1039,8 +1044,4 @@ css
 
 
 */
-
 </style>
-
-
-

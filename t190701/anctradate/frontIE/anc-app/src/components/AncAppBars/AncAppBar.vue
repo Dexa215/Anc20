@@ -63,6 +63,7 @@
       @mouseover="setDF()"
     ></b3md>
   </div>
+
   <div v-else-if="currentres == 'lg'">
     <b4lg
       :height="hlg"
@@ -84,6 +85,7 @@
       @mouseover="setDF()"
     ></b4lg>
   </div>
+
   <div v-else-if="currentres == 'xl'">
     <b5xl
       :height="hlg"
@@ -317,31 +319,6 @@ export default {
   max-height: 40px;
 }
 */
-
-/*    AncAppBarE               #38282b                                                                        */
-/*  +-------------------------------------------------------------------------------------------------+ h100  */
-/*     AncRowBarEst            #241518                                                                        */
-/*    +---------------------------------------------------------------------------------------------+   h70   */
-/*                                                                                                            */
-/*      +--------------         -----------------------------------------           --------------+           */
-/*      | AncRowBar-  |                      AncRowBar-Colcx-                       | AncRowBar-  |           */
-/*      |   Colssx    |                                                             |   colddx    |           */
-/*      |             |         -----------------------------------------           |             |           */
-/*      |             |                       RowInt-                               |             |           */
-/*      |             |         +---------------------------------------+           |             |           */
-/*      |             |         |           |             |             |           |             |           */
-/*      |             |         |  Colssx   |   Colxccx   |   Colddx    |           |             |           */
-/*      |             |         |           |             |             |           |             |           */
-/*      |             |         |           | +---------+ |             |           |             |           */
-/*      |             |         |           | | Avatar  | |             |           |             |           */
-/*      |             |         |           | +---------+ |             |           |             |           */
-/*      |             |         |           |             |             |           |             |           */
-/*      |             |         +---------------------------------------+           |             |           */
-/*      |             |                                                             |             |           */
-/*      +-----------------------------------------------------------------------------------------+           */
-/*    +---------------------------------------------------------------------------------------------+         */
-/*  +-------------------------------------------------------------------------------------------------+       */
-
 .AncAppBarE {
   /*background-color:  teal !important;*/
   /*height: 250px;*/
@@ -349,40 +326,7 @@ export default {
   text-justify: auto;
   /*padding: 4px 0px 3px;*/
 }
-
-/*
-.AncAppBarELG {
-  text-align: auto;
-  text-justify: auto;
-}
-*/
-
-/*
-  padding: 25px 50px 75px 100px;      T-R-B-L
-  padding: 25px 50px 75px;            T-RL-B
-  padding: 25px 50px;                 TB-RL
-  padding: 25px;                      TBRL
-*/
-
-/*  Colori barra... */
-/*  background-color:"#38282b" !important;   Grigio scuro +4  */
-/*  background-color:"#241518" !important;   Grigio scuro +5  */
-/*  background-color:"#1a0408" !important;   Grigio scuro +6  */
-
-/*color Background AR E */
-.cBE-Vis {
-  background-color: "#38282b" !important;
-}
-.cBE-Socio {
-  background-color: "green" !important; /* Grigio scuro +4  */
-}
-.cBE-Staff {
-  background-color: "red" !important; /* Grigio scuro +4  */
-}
-.cBI {
-  background-color: "#241b1d" !important; /* Grigio scuro +6  */
-}
-
+/*------------------------------------------------------------------------------------------------------*/
 /*.AncRowBarEst {*/
 .ARBI {
   /*background-color: #2b2b29 !important;*/
@@ -405,6 +349,440 @@ export default {
   margin-top: 0px;
   margin-bottom: 0px;
 }
+
+/* Background Colors    --T : Test   */
+/*------------------------------------------------------------------------------------------------------*/
+/*  r   */
+.r_BC {
+  background-color: #2b2b29 !important;
+  /*  background-color: #241518 !important;   */
+}
+.r_BC--T {
+  background-color: ORANGE !important;
+}
+/*  rcLat   [rcS / rcD]  */
+.rcLat_BC {
+  /*background-color: rgb(194, 57, 212) !important;*/
+  /*background-color: #1a0408 !important;*/
+  background-color: transparent !important;
+}
+.rcLat_BC_Visitor {
+  /*    EX:   .arbcs-Visitor    */
+  background-color: #1a0408 !important;
+}
+.rcLat_BC_Socio {
+  /*    EX:   .arbcs-Socio      */
+  background-color: #1a0408 !important;
+}
+.rcLat_BC_Staff {
+  /*    EX:   .arbcs-Staff      */
+  background-color: #87011a !important;
+}
+
+/*color Background AR E */
+/*  Grigio scuro +4   .cBE-Vis    {  background-color: "#38282b" !important;}
+/*  Grigio scuro +4   .cBE-Socio  {  background-color: "green" !important; }
+/*  Grigio scuro +4   .cBE-Staff  {  background-color: "red" !important; }
+/*  Grigio scuro +6   .cBI        {  background-color: "#241b1d" !important; }*/
+
+.rcLat_BC--T {
+  background-color: red !important;
+}
+
+.AncRowBarColsxRow {
+  background-color: pink !important;
+  height: 32px;
+}
+
+.AncRowBarColdxRow {
+  background-color: pink !important;
+  height: 32px;
+}
+
+/*  rcC  */
+.rcC_BC {
+  background-color: #241518 !important;
+}
+.rcC_BC--T {
+  /*background-color: SALMON !important;*/
+  background-color: yellow !important;
+}
+
+/*------------------------------------------------------------------------------------------------------*/
+/*  rcCr  */
+.rcCr_BC {
+  background-color: transparent !important;
+}
+.rcCr_BC--T {
+  z-index: -1;
+  background-color: greenyellow !important;
+}
+/*------------------------------------------------------------------------------------------------------*/
+/*    rcCrcLat [  rcCrcS  / rcCrcD  ]    */
+.rcCrcLat_BC {
+  background-color: transparent !important;
+}
+.rcCrcLat_BC--T {
+  background-color: red !important;
+}
+
+/*    rcCrcC    */
+.rcCrcC_BC {
+  background-color: transparent !important;
+}
+.rcCrcC_BC--T {
+  background-color: slateblue !important;
+}
+
+.rcCrcCr_BC--T {
+  background-color: brown !important;
+}
+
+/*    avatar    */
+.avatar_BC {
+  background-color: transparent !important;
+}
+
+.avatar_BC--T {
+  background-color: green !important;
+}
+
+/*------------------------------------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------------------------------------*/
+
+.r {
+  /*.AncRowBarEst / ARBI */
+  background-color: ORANGE !important; /*test*/
+  /*background-color: #2b2b29 !important;*/
+  /*background-color: #241518 !important;*/
+  height: 70px;
+  margin-left: 10px;
+  margin-right: 10px;
+  text-align: center;
+  text-justify: center;
+  border-radius: 50px 50px 50px 50px;
+}
+
+/*------------------------------------------------------------------------------------------------------*/
+.rcX {
+  /*    per rcS - rcC - rcD  */
+  height: 66px;
+  text-justify: auto;
+}
+.rcLat {
+  /*    add:  rcX rcLat_BC   */
+  /*    per:  Colonne Laterali rcS - rcD  */
+  padding: 8px 8px;
+  margin-top: 2px;
+  margin-bottom: 1px;
+}
+.rcS {
+  /*    add:  rcX rcLat   */
+  /*background-color: rgb(194, 57, 212) !important;*/
+  /*background-color: #1a0408 !important;*/
+  /*height: 66px;             incorporato rCx*/
+  /*text-justify: auto;       incorporato rCx*/
+  /*padding: 8px 8px;         incorporato rClaterale*/
+  /*margin-top: 1px;*/
+  /*margin-bottom: 1px;*/
+  text-align: left;
+  margin-left: 2px;
+  margin-right: 0px;
+  border-radius: 48px 85px 0px 48px;
+}
+/*
+.AncRowBarColssx {
+  /*background-color: rgb(194, 57, 212) !important;*/
+/*background-color: #1a0408 !important;*/
+/*
+  height: 66px;
+  text-align: left;
+  text-justify: auto;
+  padding: 8px 8px;
+  margin-left: 1px;
+  margin-right: 0px;
+  margin-top: 1px;
+  margin-bottom: 1px;
+  border-radius: 48px 85px 0px 48px;
+}
+*/
+
+.rcD {
+  /*    add:  rcX rcLat    */
+  /*background-color: rgb(194, 57, 212) !important;*/
+  /*background-color: #1a0408 !important;*/
+  /*height: 66px;             incorporato rCx*/
+  /*text-justify: auto;       incorporato rCx*/
+  /*padding: 8px 8px;         incorporato rClaterale*/
+  /*margin-top: 1px;*/
+  /*margin-bottom: 1px;*/
+  text-align: right;
+  margin-left: 0px;
+  margin-right: 2px;
+  border-radius: 85px 48px 48px 0px;
+}
+/*
+.AncRowBarColddx {
+  /*background-color: rgb(194, 57, 212) !important;*/
+/*background-color: #1a0408 !important;*/
+/*
+  height: 66px;
+  text-align: right;
+  text-justify: auto;
+  padding: 8px 8px;
+  margin-left: 0px;
+  margin-right: 1px;
+  margin-top: 1px;
+  margin-bottom: 1px;
+  border-radius: 85px 48px 48px 0px;
+}
+*/
+
+.rcC {
+  /*    add:  rcX       */
+  /*background-color: #241518 !important;*/
+  /*background-color: salmon !important;*/
+  /*height: 66px;             incorporato rCx*/
+  /*text-justify: auto;       incorporato rCx*/
+  /*padding: 8px 8px;         incorporato rClaterale*/
+  /*margin-top: 1px;*/
+  /*margin-bottom: 1px;*/
+  padding: 0px 0px;
+  text-align: center;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  /*border-radius: 0px 0px 15px 15px;*/
+  border-radius: 0px 0px 0px 15px;
+}
+/*
+.AncRowBarColccx {
+  background-color: #241518 !important;
+  /*background-color: salmon !important;*/
+/*
+  height: 66px;
+  text-align: center;
+  text-justify: auto;
+
+  padding: 0px 0px;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+
+  border-radius: 0px 0px 15px 15px;
+}
+*/
+
+/*------------------------------------------------------------------------------------------------------*/
+.rcCr {
+  /*    add:  rcCr_BC       */
+  /*    EX:   AncRowBarColccxRowInt */
+  /*background-color: transparent !important;
+  z-index: -1;
+  background-color: greenyellow !important;*/
+  height: 64px;
+  margin-left: 0px;
+  margin-right: 0px;
+  border-radius: 0px 0px 15px 15px;
+  z-index: 2;
+}
+/*
+.AncRowBarColccxRowInt {
+  /*background-color: transparent !important;
+  z-index: -1;
+  background-color: greenyellow !important;
+  margin-left: 0px;
+  margin-right: 0px;
+  border-radius: 0px 0px 15px 15px;
+}
+*/
+/*------------------------------------------------------------------------------------------------------*/
+.rcCrcX {
+  text-justify: auto;
+}
+.rcCrcLat {
+  /*    add:    rcCrcX  rcCrcLat_BC       */
+  /*    per:    rcCrcS  / rcCrcD    */
+}
+.rcCrcS {
+  /*    add:    rcCrcX  rcCrcLat       */
+  /*    EX:     AncRowBarColcxRowIntColsx*/
+  text-align: right;
+}
+/*
+.AncRowBarColcxRowIntColsx {
+  background-color: transparent !important;
+  background-color: red !important;
+  text-justify: auto;
+  text-align: right;
+}
+/*
+.colAvSx {
+  background-color: orange !important;
+  text-align: end;
+  min-height: 22px;
+  max-height: 80px;
+  padding: 22px 10px;
+}
+*/
+
+.rcCrcD {
+  /*    add:    rcCrcX  rcCrcLat       */
+  /*    EX:     AncRowBarColcxRowIntColdx*/
+  text-align: left;
+}
+/*
+.AncRowBarColcxRowIntColdx {
+  background-color: transparent !important;
+  background-color: red !important;
+  text-justify: auto;
+  text-align: left;
+}
+.colAvDx {
+  background-color: orange !important;
+  text-align: start;
+  min-height: 22px;
+  max-height: 80px;
+  padding: 22px 10px;
+}
+*/
+
+.rcCrcC {
+  /*    add:    rcCrcC_BC       */
+  /*    EX:     AncRowBarColcxRowIntColccx    */
+  /*    text-justify: auto;   */
+  /* height: 60px; */
+  padding: 15px 2px 3px; /* T-RL-B */
+  text-align: center;
+}
+
+.avatar {
+  /* background-color: green !important; */
+  /* color: green; */
+  /*right: "true";*/
+  size: 48;
+  max-width: 48px;
+  /*max-height: 48px;*/
+  max-height: 50px;
+  transform: scale(1, 1);
+}
+.avatar:hover {
+  transform: scale(1.1, 1.1);
+}
+.icorot {
+  transform: rotate(10deg);
+}
+.drwOpen {
+  /*transform: rotate(25deg);*/
+  transform: scale(1.2, 1.2);
+  height: 48px;
+  width: 48px;
+}
+.drwClose {
+  /*transform: rotate(0deg);*/
+  transform: scale(1, 1);
+  height: 48px;
+  width: 48px;
+}
+
+/*
+.AncRowBarColcxRowIntColccx {
+  background-color: transparent !important;
+  background-color: slateblue !important;
+  /*height: 70px;*/
+/*
+  height: 80px;
+  padding: 2px 0px;
+  text-align: center;
+  text-justify: auto;
+}
+.Avatar {
+}
+
+/*V2*/
+/*    AncAppBar                                                                                                                                */
+/*  +------------------------------------------------------------------------------------------------------------------------------+ h100      */
+/*  |                                                                                                                              | #38282b   */
+/*  |    r                                                                                                                         |           */
+/*  | +--------------------------------------------------------------------------------------------------------------------------+ | h 70      */
+/*  | |                                                                                                                          | | #241518   */
+/*  | |              rcS                                          rcC                                          rcD               | |           */
+/*  | | +-----------------------------+----------------------------------------------------------+-----------------------------+ | |           */
+/*  | | |                             |                                                          |                             | | |           */
+/*  | | |                             |                           rcCr                           |                             | | |           */
+/*  | | |                             | +------------------------------------------------------+ |                             | | |           */
+/*  | | |                             | |                                                      | |                             | | |           */
+/*  | | |                             | |      rcCrcS             rcCrcC          rcCrcD       | |                             | | |           */
+/*  | | |                             | | +----------------+-----------------+---------------+ | |                             | | |           */
+/*  | | |                             | | |                |                 |               | | |                             | | |           */
+/*  | | |                             | | |                |                 |               | | |                             | | |           */
+/*  | | |                             | | |                |                 |               | | |                             | | |           */
+/*  | | |                             | | |                |   +---------+   |               | | |                             | | |           */
+/*  | | |                             | | |                |   |         |   |               | | |                             | | |           */
+/*  | | |                             | | |                |   | Avatar  |   |               | | |                             | | |           */
+/*  | | |                             | | |                |   +---------+   |               | | |                             | | |           */
+/*  | | |                             | | |                |                 |               | | |                             | | |           */
+/*  | | |                             | | |                |                 |               | | |                             | | |           */
+/*  | | |                             | | |                |                 |               | | |                             | | |           */
+/*  | | |                             | | |                |                 |               | | |                             | | |           */
+/*  | | |                             | | +----------------+-----------------+---------------+ | |                             | | |           */
+/*  | | |                             | |                                                      | |                             | | |           */
+/*  | | |                             | +------------------------------------------------------+ |                             | | |           */
+/*  | | |                             |                                                          |                             | | |           */
+/*  | | |                             |                                                          |                             | | |           */
+/*  | | +-----------------------------+----------------------------------------------------------+-----------------------------+ | |           */
+/*  | |                                                                                                                          | |           */
+/*  | +--------------------------------------------------------------------------------------------------------------------------+ |           */
+/*  |                                                                                                                              |           */
+/*  |                                                                                                                              |           */
+/*  +------------------------------------------------------------------------------------------------------------------------------+           */
+
+/*    AncAppBarE               #38282b                                                                        */
+/*  +-------------------------------------------------------------------------------------------------+ h100  */
+/*    r   AncRowBarEst            #241518                                                                        */
+/*    +---------------------------------------------------------------------------------------------+   h70   */
+/*      +--------------         -----------------------------------------           --------------+           */
+/*        rcS                     rcC                                                 rcD                   */
+/*      | AncRowBar-  |           AncRowBar-Colcx-                                  | AncRowBar-  |           */
+/*      |   Colssx    |                                                             |   colddx    |           */
+/*      |             |         -----------------------------------------           |             |           */
+/*      |             |           rcCr
+/*                                RowInt-                                           |             |           */
+/*      |             |         +---------------------------------------+           |             |           */
+/*      |             |         | rcCrcS    | rcCrcC      | rcCrcD      |           |             |           */
+/*      |             |         |           |             |             |           |             |           */
+/*      |             |         |  Colssx   |   Colxccx   |   Colddx    |           |             |           */
+/*      |             |         |           |             |             |           |             |           */
+/*      |             |         |           | +---------+ |             |           |             |           */
+/*      |             |         |           | | Avatar  | |             |           |             |           */
+/*      |             |         |           | +---------+ |             |           |             |           */
+/*      |             |         |           |             |             |           |             |           */
+/*      |             |         +---------------------------------------+           |             |           */
+/*      |             |                                                             |             |           */
+/*      +-----------------------------------------------------------------------------------------+           */
+/*    +---------------------------------------------------------------------------------------------+         */
+/*  +-------------------------------------------------------------------------------------------------+       */
+
+/*
+.AncAppBarELG {
+  text-align: auto;
+  text-justify: auto;
+}
+*/
+
+/*
+  padding: 25px 50px 75px 100px;      T-R-B-L
+  padding: 25px 50px 75px;            T-RL-B
+  padding: 25px 50px;                 TB-RL
+  padding: 25px;                      TBRL
+*/
+
+/*  Colori barra... */
+/*  background-color:"#38282b" !important;   Grigio scuro +4  */
+/*  background-color:"#241518" !important;   Grigio scuro +5  */
+/*  background-color:"#1a0408" !important;   Grigio scuro +6  */
 
 .AncAppBarI {
   z-index: 3;
@@ -434,6 +812,8 @@ export default {
 /*  | colbarsx |                  colbarcx                  | colbardx  |   */
 /*  |          |   colAvSx   |     avatar      |   colAvDx  |           |   */
 /*  ---------------------------------------------------------------------   */
+
+/*OLD
 .colbarsx {
   background-color: purple !important;
   min-height: 76px;
@@ -446,187 +826,14 @@ export default {
   text-align: start;
   padding: 12px 10px;
 }
-.colAvSx {
-  background-color: orange !important;
-  text-align: end;
-  min-height: 22px;
-  max-height: 80px;
-  padding: 22px 10px;
-}
-.avatar {
-  background-color: green !important;
-  color: green;
-  right: "true";
-  size: 62;
-  /*tile: "false";*/
-  min-width: 65px;
-  max-height: 75px;
-  max-width: 75px;
-}
-.colAvDx {
-  background-color: orange !important;
-  text-align: start;
-  min-height: 22px;
-  max-height: 80px;
-  padding: 22px 10px;
-}
 .colbardx {
   background-color: purple !important;
   min-height: 76px;
   text-align: end;
   padding: 12px 10px;
 }
-/*  ---------------------------------------------------------------------   */
-/*  | colbarsx |                  colbarcx                  | colbardx  |   */
-/*  |          |   colAvSx   |     avatar      |   colAvDx  |           |   */
-/*  ---------------------------------------------------------------------   */
-
-/*
-col {
-  padding: 20px 0px 0px;
-}
-
-.t {
-  background-color: transparent !important;
-}
-
-.colBar {
-  background-color: transparent !important;
-}
-.coltest {
-  background-color: red !important;
-}
 */
 
-.AncRowBarColssx {
-  /*background-color: rgb(194, 57, 212) !important;*/
-  /*background-color: #1a0408 !important;*/
-  height: 66px;
-  text-align: left;
-  text-justify: auto;
-  padding: 8px 8px;
-  margin-left: 1px;
-  margin-right: 0px;
-  margin-top: 1px;
-  margin-bottom: 1px;
-  border-radius: 48px 85px 0px 48px;
-}
-.arbcs-Visitor {
-  background-color: #1a0408 !important;
-}
-.arbcs-Socio {
-  background-color: #1a0408 !important;
-}
-.arbcs-Staff {
-  background-color: #87011a !important;
-}
-
-.AncRowBarColsxRow {
-  background-color: pink !important;
-  height: 32px;
-}
-.AncRowBarColddx {
-  /*background-color: rgb(194, 57, 212) !important;*/
-  /*background-color: #1a0408 !important;*/
-  height: 66px;
-  text-align: right;
-  text-justify: auto;
-  padding: 8px 8px;
-  margin-left: 0px;
-  margin-right: 1px;
-  margin-top: 1px;
-  margin-bottom: 1px;
-  border-radius: 85px 48px 48px 0px;
-}
-.AncRowBarColdxRow {
-  background-color: pink !important;
-  height: 32px;
-}
-
-/*
-padding
-    padding: 25px 50px 75px 100px;      T-R-B-L
-    padding: 25px 50px 75px;            T-RL-B
-    padding: 25px 50px;                 TB-RL
-    padding: 25px;                      TBRL
-border-radius
-    border-radius: 15px 50px 30px 5px;  TL-TR-BR-BL 
-    border-radius: 15px 50px 30px;      TL-TRBL-BR
-    border-radius: 15px 50px;           TLBR-TRBL
-    border-radius: 15px;                TLBRTRBL    
-*/
-
-.AncRowBarColccx {
-  background-color: #241518 !important;
-  /*background-color: salmon !important;*/
-  height: 66px;
-  text-align: center;
-  text-justify: auto;
-  padding: 0px 0px;
-  margin-left: 0px;
-  margin-right: 0px;
-  margin-top: 0px;
-  margin-bottom: 0px;
-
-  border-radius: 0px 0px 15px 15px;
-}
-.AncRowBarColccxRowInt {
-  /*background-color: transparent !important;
-  */
-  z-index: -1;
-  background-color: greenyellow !important;
-  margin-left: 0px;
-  margin-right: 0px;
-  border-radius: 0px 0px 15px 15px;
-}
-.AncRowBarColcxRowIntColsx {
-  background-color: transparent !important;
-  /*  background-color: red !important;*/
-  text-justify: auto;
-  text-align: right;
-}
-.AncRowBarColcxRowIntColccx {
-  /*background-color: transparent !important;
-  */
-  background-color: slateblue !important;
-  /*height: 70px;*/
-  height: 80px;
-  padding: 2px 0px;
-  text-align: center;
-  text-justify: auto;
-}
-.AncRowBarColcxRowIntColdx {
-  background-color: transparent !important;
-  /*  background-color: red !important;*/
-  text-justify: auto;
-  text-align: left;
-}
-/*
-.AncRowBarColcxRowIntColcx {
-  background-color: darkred !important;
-  height: 66px;
-  text-align: center;
-}
-*/
-.AncRowBarColcxRowIntColsxsx {
-  background-color: darkred !important;
-  height: 50px;
-  text-align: left;
-  text-justify: auto;
-}
-
-.AncRowBarColdx {
-  background-color: deeppink !important;
-  height: 66px;
-  text-align: start;
-
-  padding: 2px 2px;
-  margin-left: 0px;
-  margin-right: 1px;
-  margin-top: 1px;
-  margin-bottom: 1px;
-  border-radius: 40px 40px 40px 0px;
-}
 /*
 .colAvSx {
   background-color: darkorange !important;
@@ -656,39 +863,82 @@ border-radius
 }
 */
 
+/*  ---------------------------------------------------------------------   */
+/*  | colbarsx |                  colbarcx                  | colbardx  |   */
+/*  |          |   colAvSx   |     avatar      |   colAvDx  |           |   */
+/*  ---------------------------------------------------------------------   */
+
+/*
+col {
+  padding: 20px 0px 0px;
+}
+
+.t {
+  background-color: transparent !important;
+}
+
+.colBar {
+  background-color: transparent !important;
+}
+.coltest {
+  background-color: red !important;
+}
+*/
+
+/*
+padding
+    padding: 25px 50px 75px 100px;      T-R-B-L
+    padding: 25px 50px 75px;            T-RL-B
+    padding: 25px 50px;                 TB-RL
+    padding: 25px;                      TBRL
+border-radius
+    border-radius: 15px 50px 30px 5px;  TL-TR-BR-BL 
+    border-radius: 15px 50px 30px;      TL-TRBL-BR
+    border-radius: 15px 50px;           TLBR-TRBL
+    border-radius: 15px;                TLBRTRBL    
+*/
+
+/*
+.AncRowBarColcxRowIntColcx {
+  background-color: darkred !important;
+  height: 66px;
+  text-align: center;
+}
+*/
+
+/*
+.AncRowBarColcxRowIntColsxsx {
+  background-color: darkred !important;
+  height: 50px;
+  text-align: left;
+  text-justify: auto;
+}
+*/
+
+.AncRowBarColdx {
+  background-color: deeppink !important;
+  height: 66px;
+  text-align: start;
+
+  padding: 2px 2px;
+  margin-left: 0px;
+  margin-right: 1px;
+  margin-top: 1px;
+  margin-bottom: 1px;
+  border-radius: 40px 40px 40px 0px;
+}
+
+/*
 .avatar {
   background-color: green !important;
   color: green;
   right: "true";
-  size: 48;
-  max-width: 48px;
-  /*max-height: 48px;*/
-  height: 80px;
-
-  transform: scale(1, 1);
+  size: 62;
+  min-width: 65px;
+  max-height: 75px;
+  max-width: 75px;
 }
-
-.avatar:hover {
-  transform: scale(1.1, 1.1);
-}
-
-.icorot {
-  transform: rotate(10deg);
-}
-
-.drwOpen {
-  /*transform: rotate(25deg);*/
-  transform: scale(1.2, 1.2);
-
-  height: 48px;
-  width: 48px;
-}
-.drwClose {
-  /*transform: rotate(0deg);*/
-  transform: scale(1, 1);
-  height: 48px;
-  width: 48px;
-}
+*/
 
 .menubtnd1 {
   z-index: 7;
@@ -704,8 +954,18 @@ border-radius
   padding-bottom: 15px;
   margin-top: 5px;
 }
+/*
+v-enter:          Starting state for enter. Added before element is inserted, removed one frame after element is inserted.
+v-enter-active:   Active state for enter. Applied during the entire entering phase. Added before element is inserted, removed when transition/animation finishes. This class can be used to define the duration, delay and easing curve for the entering transition.
+v-enter-to:       Only available in versions 2.1.8+. Ending state for enter. Added one frame after element is inserted (at the same time v-enter is removed), removed when transition/animation finishes.
+
+v-leave:          Starting state for leave. Added immediately when a leaving transition is triggered, removed after one frame.
+v-leave-active:   Active state for leave. Applied during the entire leaving phase. Added immediately when leave transition is triggered, removed when the transition/animation finishes. This class can be used to define the duration, delay and easing curve for the leaving transition.
+v-leave-to:       Only available in versions 2.1.8+. Ending state for leave. Added one frame after a leaving transition is triggered (at the same time v-leave is removed), removed when the transition/animation finishes.
+*/
 
 /*
+CAT2020...
 padding
     padding: 25px 50px 75px 100px;      T-R-B-L
     padding: 25px 50px 75px;            T-RL-B
