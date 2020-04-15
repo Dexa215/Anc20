@@ -1,8 +1,8 @@
 <template>
   <!-- -->
 
-  <div class="ancM4                     rgbANC2     mx-auto">
-    <v-row class="ancM4r                rgbANC2     mx-auto">hello...</v-row>
+  <div class="ancM4 rgbANC2 mx-auto">
+    <v-row class="ancM4r rgbANC2 mx-auto">hello...</v-row>
 
     <!-- v-list shaped dark class="ancM4l   rgbANC1" -->
 
@@ -46,6 +46,7 @@ export default {
 
   data() {
     return {
+      dark: "true",
       rgb1: "rgb(56, 25, 7)",
       mini: true,
       ico: "/static/images/Icone/anclogo2012.gif",
@@ -118,14 +119,30 @@ export default {
 </script>
 
 <style media="screen">
+/*
 .tile {
   margin: 5px;
   border-radius: 4px;
+  color: khaki;
 }
 .tile:hover {
   background: #ffda99;
+  color: black;
 }
 .tile:active {
+  background: #ffbe4d;
+}
+*/
+
+.tileM {
+  margin: 5px;
+  border-radius: 4px;
+  color: khaki;
+}
+.tileM:hover {
+  background: #1f1401;
+}
+.tileM:active {
   background: #ffbe4d;
 }
 
@@ -182,24 +199,13 @@ export default {
   position: relative;
   z-index: 1;
   margin-top: 0px;
+  text-align: center;
+  text-justify: center;
 }
 
 .ancM4l {
   position: relative;
   z-index: 2;
   /*list*/
-  margin-x: auto;
-}
-
-.tileM {
-  margin: 5px;
-  border-radius: 4px;
-}
-.tileM:hover {
-  background: #ffda99;
-  color: black;
-}
-.tileM:active {
-  background: #ffbe4d;
 }
 </style>

@@ -69,6 +69,8 @@
       <!--div class="rmblock">ciao</div-->
 
       <b4lg
+        :rcS="rcS"
+        :rcD="rcD"
         :height="hlg"
         :requestUser="requestUser"
         :requestUserIsStaff="requestUserIsStaff"
@@ -131,6 +133,7 @@
             :drawer="drawer"
             :drawerLeft="drawerLeft"
             :drawerRight="drawerRight"
+            :rcLat_BC="rcLat_BC"
             :iconX="iconX"
             @gotoR="gotoR"
             @setD="setD"
@@ -193,7 +196,9 @@ export default {
     rgb2: "#241518",
     rgb3: "",
     hsm: "84px",
-    hlg: "84px"
+    hlg: "84px",
+    rcS: "rcS rcX rcLat rcLat_BC_Visitor",
+    rcD: "rcD rcX rcLat rcLat_BC_Visitor"
   }),
 
   methods: {
@@ -250,19 +255,23 @@ export default {
       var x = this;
       //console.log("setcolor analizzo this.requestuserisstaff...", x.requestUserIsStaff);
       if (x.requestUserIsStaff === true) {
+        this.rcS = "rcS rcX rcLat rcLat_BC_Staff";
+        this.rcD = "rcD rcX rcLat rcLat_BC_Staff";
         this.nbc = "black";
       } else {
+        this.rcS = "rcS rcX rcLat rcLat_BC_Visitor";
+        this.rcD = "rcD rcX rcLat rcLat_BC_Visitor";
         this.nbc = "#212121"; //dark-grey
       }
     }
   },
 
   updated() {
-    //      this.setcolor();
+    this.setcolor();
   },
 
   mounted() {
-    //      this.setcolor();
+    this.setcolor();
     // eslint-disable-next-line no-console
     console.log(this.$vuetify.breakpoint);
   },
@@ -338,8 +347,8 @@ export default {
   z-index: 2;
   height: 150px;
   width: 100%;
-  padding-top: 6px;
-  padding-bottom: 6px;
+  padding-top: 0px;
+  padding-bottom: 0px;
   text-align: auto;
   text-justify: auto;
 }
@@ -391,18 +400,21 @@ export default {
 }
 .rmH {
   position: relative;
-  height: 50px;
+  height: 5px;
 }
 .rmvrow {
-  background-color: orange !important; /*test*/
-  top: 70px; /*width: 578px; */
   z-index: 3;
+  /*background-color: orange !important; /*test*/
+  background-color: transparent !important;
+  top: 70px; /*width: 578px; */
 }
 .rmvcol {
-  background-color: yellow !important; /*test*/
+  /*background-color: yellow !important; /*test*/
+  background-color: transparent !important;
 }
 .rmvcolC {
-  background-color: pink !important; /*test*/
+  /* background-color: pink !important; /*test*/
+  background-color: transparent !important;
 }
 /*------------------------------------------------------------------------------------------------------*/
 /*color Background AR E */
@@ -434,6 +446,7 @@ export default {
 .rcLat_BC_Visitor {
   /*    EX:   .arbcs-Visitor    */
   background-color: #1a0408 !important;
+  /*background-color: pink !important;*/
 }
 .rcLat_BC_Socio {
   /*    EX:   .arbcs-Socio      */
@@ -441,7 +454,7 @@ export default {
 }
 .rcLat_BC_Staff {
   /*    EX:   .arbcs-Staff      */
-  background-color: #87011a !important;
+  background-color: #470410 !important;
 }
 .rcLat_BC--T {
   background-color: red !important;

@@ -30,9 +30,9 @@
       app
 
 
-    -->
+      -->
       <v-row class="r r_BC">
-        <v-col class="rcS rcX rcLat rcLat_BC ">
+        <v-col :class="rcS">
           <!-- Avatar -->
 
           <!-- /*62*/ -->
@@ -63,19 +63,14 @@
           <!-- Avatar -->
         </v-col>
 
-        <v-col class="rcC rcX rcC_BC--T" cols="3">
+        <v-col class="rcC rcX rcC_BC" cols="3">
           <!--v-expand-transition v-show="!drawerLeft" -->
-          <v-row
-            class="rcCr rcCr_BC--T"
-            align="center"
-            dense
-            style="z-index: 2"
-          >
-            <v-col class="rcCrcS rcCrcLat_BC--T">
+          <v-row class="rcCr rcCr_BC" align="center" dense style="z-index: 2">
+            <v-col class="rcCrcS rcCrcLat_BC">
               <div>lg - ANC</div>
             </v-col>
 
-            <v-col class="rcCrcC rcCrcX rcCrcC_BC--T">
+            <v-col class="rcCrcC rcCrcX rcCrcC_BC">
               <!-- v-app-bar -->
               <v-app-bar-nav-icon @click.stop="setD">
                 <v-btn icon class v-model="iconX">
@@ -86,7 +81,7 @@
               <!-- v-app-bar -->
             </v-col>
 
-            <v-col class="rcCrcD rcCrcX rcCrcLat_BC--T">
+            <v-col class="rcCrcD rcCrcX rcCrcLat_BC">
               <div>TRADATE</div>
             </v-col>
           </v-row>
@@ -94,7 +89,10 @@
           <!--/v-expand-transition-->
         </v-col>
 
+        <v-col :class="rcD">
+          <!--
         <v-col class="rcD rcX rcLat rcLat_BC">
+          -->
           <v-expand-x-transition>
             <v-btn icon v-show="!drawerLeft">
               <v-icon>mdi-magnify</v-icon>
@@ -120,9 +118,6 @@ export default {
       expand: "true",
       h: "80px",
       cab: "AncAppBarE cBE-Vis",
-      nbc: "blue", //dark-grey
-      AncRowBarColsssx: "AncRowBarColssx",
-      AncRowBarColdddx: "AncRowBarColddx",
       iconX: "mdi-menu",
       //        iconC:"mdi-backburger",
       //        iconO:"mdi-tray-full",
@@ -152,9 +147,12 @@ export default {
   props: {
     height: { type: Number },
     // eslint-disable-next-line vue/no-dupe-keys
-    nbc: { type: String },
-    colBarEst: { type: String },
-    colBarInt: { type: String },
+    rcS: { type: String },
+    rcD: { type: String },
+
+    //colBarEst: { type: String },
+    //colBarInt: { type: String },
+
     requestUser: { type: String },
     requestUserIsStaff: { type: Boolean },
     requestUserIsSuper: { type: Boolean },
@@ -188,7 +186,8 @@ export default {
     },
     setDF() {
       this.$emit("setDF");
-    },
+    }
+    /*
     setcolor() {
       var x = this;
       //console.log("setcolor analizzo this.requestuserisstaff...", x.requestUserIsStaff);
@@ -204,12 +203,13 @@ export default {
         this.AncRowBarColdddx = "AncRowBarColddx arbcs-Visitor";
       }
     }
+    */
   },
   updated() {
-    this.setcolor();
+    /*this.setcolor();*/
   },
   mounted() {
-    this.setcolor();
+    /*this.setcolor();*/
     this.h = this.height;
     //console.log(this.$vuetify.breakpoint);
   }
