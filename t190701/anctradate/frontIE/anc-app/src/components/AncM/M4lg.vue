@@ -1,12 +1,14 @@
 <template>
   <!-- -->
 
-  <div class="ancM4         rgbANC1 mx-auto">
-    <v-row class="ancM4r    rgbANC2 mx-auto">hello...</v-row>
+  <div class="ancM4                     rgbANC2     mx-auto">
+    <v-row class="ancM4r                rgbANC2     mx-auto">hello...</v-row>
 
-    <v-list shaped dark class="ancM4l rgbANC2">
+    <!-- v-list shaped dark class="ancM4l   rgbANC1" -->
+
+    <v-list dark shaped class="ancM4l" color="rgb(36, 17, 6)">
       <v-list-item
-        class="tileM"
+        class="tileM rgbANC1"
         v-for="item in categorie"
         :key="item.n"
         link
@@ -162,25 +164,31 @@ export default {
 }
 
 .ancM4 {
-  z-index: -1;
-  opacity: 0.9;
+  position: relative;
+  z-index: 1;
+
+  opacity: 0.95;
   padding-top: 20px;
 
-  margin-top: 12px;
-  border-radius: 0px 0px 15px 15px;
+  margin-top: 0px;
+
+  border-radius: 0px 0px 50px 5px;
   height: 600px;
+  /*width: 368px;*/
+
   /*background-image: url("/static/images/HomePageCarousel/dsc32.jpg");*/
 }
 .ancM4r {
+  position: relative;
+  z-index: 1;
   margin-top: 0px;
-  z-index: -1;
 }
 
 .ancM4l {
+  position: relative;
+  z-index: 2;
   /*list*/
   margin-x: auto;
-  background-color: black;
-  z-index: -1;
 }
 
 .tileM {

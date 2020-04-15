@@ -1,111 +1,148 @@
 <template>
-  <!-- @@@ -->
-  <div v-if="currentres == 'xs'">
-    <b1xs
-      :height="hsm"
-      :requestUser="requestUser"
-      :requestUserIsStaff="requestUserIsStaff"
-      :requestUserIsSuper="requestUserIsSuper"
-      :requestUserAvatar="requestUserAvatar"
-      :requestUserBio="requestUserBio"
-      :C="C"
-      :CS="CS"
-      :categorie="categorie"
-      :drawer="drawer"
-      :drawerLeft="drawerLeft"
-      :drawerRight="drawerRight"
-      :iconX="iconX"
-      @gotoR="gotoR"
-      @setD="setD"
-      @setDF="setDF"
-      @mouseover="setDF()"
-    ></b1xs>
-  </div>
-  <div v-else-if="currentres == 'sm'">
-    <b2sm
-      :height="hsm"
-      :requestUser="requestUser"
-      :requestUserIsStaff="requestUserIsStaff"
-      :requestUserIsSuper="requestUserIsSuper"
-      :requestUserAvatar="requestUserAvatar"
-      :requestUserBio="requestUserBio"
-      :C="C"
-      :CS="CS"
-      :categorie="categorie"
-      :drawer="drawer"
-      :drawerLeft="drawerLeft"
-      :drawerRight="drawerRight"
-      :iconX="iconX"
-      @gotoR="gotoR"
-      @setD="setD"
-      @setDF="setDF"
-      @mouseover="setDF()"
-    ></b2sm>
-  </div>
-  <div v-else-if="currentres == 'md'">
-    <b3md
-      :height="hlg"
-      :requestUser="requestUser"
-      :requestUserIsStaff="requestUserIsStaff"
-      :requestUserIsSuper="requestUserIsSuper"
-      :requestUserAvatar="requestUserAvatar"
-      :requestUserBio="requestUserBio"
-      :C="C"
-      :CS="CS"
-      :categorie="categorie"
-      :drawer="drawer"
-      :drawerLeft="drawerLeft"
-      :drawerRight="drawerRight"
-      :iconX="iconX"
-      @gotoR="gotoR"
-      @setD="setD"
-      @setDF="setDF"
-      @mouseover="setDF()"
-    ></b3md>
-  </div>
+  <div>
+    <!-- @@@ -->
+    <div v-if="currentres == 'xs'">
+      <b1xs
+        :height="hsm"
+        :requestUser="requestUser"
+        :requestUserIsStaff="requestUserIsStaff"
+        :requestUserIsSuper="requestUserIsSuper"
+        :requestUserAvatar="requestUserAvatar"
+        :requestUserBio="requestUserBio"
+        :C="C"
+        :CS="CS"
+        :categorie="categorie"
+        :drawer="drawer"
+        :drawerLeft="drawerLeft"
+        :drawerRight="drawerRight"
+        :iconX="iconX"
+        @gotoR="gotoR"
+        @setD="setD"
+        @setDF="setDF"
+        @mouseover="setDF()"
+      ></b1xs>
+    </div>
+    <div v-else-if="currentres == 'sm'">
+      <b2sm
+        :height="hsm"
+        :requestUser="requestUser"
+        :requestUserIsStaff="requestUserIsStaff"
+        :requestUserIsSuper="requestUserIsSuper"
+        :requestUserAvatar="requestUserAvatar"
+        :requestUserBio="requestUserBio"
+        :C="C"
+        :CS="CS"
+        :categorie="categorie"
+        :drawer="drawer"
+        :drawerLeft="drawerLeft"
+        :drawerRight="drawerRight"
+        :iconX="iconX"
+        @gotoR="gotoR"
+        @setD="setD"
+        @setDF="setDF"
+        @mouseover="setDF()"
+      ></b2sm>
+    </div>
+    <div v-else-if="currentres == 'md'">
+      <b3md
+        :height="hlg"
+        :requestUser="requestUser"
+        :requestUserIsStaff="requestUserIsStaff"
+        :requestUserIsSuper="requestUserIsSuper"
+        :requestUserAvatar="requestUserAvatar"
+        :requestUserBio="requestUserBio"
+        :C="C"
+        :CS="CS"
+        :categorie="categorie"
+        :drawer="drawer"
+        :drawerLeft="drawerLeft"
+        :drawerRight="drawerRight"
+        :iconX="iconX"
+        @gotoR="gotoR"
+        @setD="setD"
+        @setDF="setDF"
+        @mouseover="setDF()"
+      ></b3md>
+    </div>
 
-  <div v-else-if="currentres == 'lg'">
-    <b4lg
-      :height="hlg"
-      :requestUser="requestUser"
-      :requestUserIsStaff="requestUserIsStaff"
-      :requestUserIsSuper="requestUserIsSuper"
-      :requestUserAvatar="requestUserAvatar"
-      :requestUserBio="requestUserBio"
-      :C="C"
-      :CS="CS"
-      :categorie="categorie"
-      :drawer="drawer"
-      :drawerLeft="drawerLeft"
-      :drawerRight="drawerRight"
-      :iconX="iconX"
-      @gotoR="gotoR"
-      @setD="setD"
-      @setDF="setDF"
-      @mouseover="setDF()"
-    ></b4lg>
-  </div>
+    <div v-else-if="currentres == 'lg'">
+      <!--div class="rmblock">ciao</div-->
 
-  <div v-else-if="currentres == 'xl'">
-    <b5xl
-      :height="hlg"
-      :requestUser="requestUser"
-      :requestUserIsStaff="requestUserIsStaff"
-      :requestUserIsSuper="requestUserIsSuper"
-      :requestUserAvatar="requestUserAvatar"
-      :requestUserBio="requestUserBio"
-      :C="C"
-      :CS="CS"
-      :categorie="categorie"
-      :drawer="drawer"
-      :drawerLeft="drawerLeft"
-      :drawerRight="drawerRight"
-      :iconX="iconX"
-      @gotoR="gotoR"
-      @setD="setD"
-      @setDF="setDF"
-      @mouseover="setDF()"
-    ></b5xl>
+      <b4lg
+        :height="hlg"
+        :requestUser="requestUser"
+        :requestUserIsStaff="requestUserIsStaff"
+        :requestUserIsSuper="requestUserIsSuper"
+        :requestUserAvatar="requestUserAvatar"
+        :requestUserBio="requestUserBio"
+        :C="C"
+        :CS="CS"
+        :categorie="categorie"
+        :drawer="drawer"
+        :drawerLeft="drawerLeft"
+        :drawerRight="drawerRight"
+        :iconX="iconX"
+        @gotoR="gotoR"
+        @setD="setD"
+        @setDF="setDF"
+        @mouseover="setDF()"
+      ></b4lg>
+    </div>
+
+    <div v-else-if="currentres == 'xl'">
+      <b5xl
+        :height="hlg"
+        :requestUser="requestUser"
+        :requestUserIsStaff="requestUserIsStaff"
+        :requestUserIsSuper="requestUserIsSuper"
+        :requestUserAvatar="requestUserAvatar"
+        :requestUserBio="requestUserBio"
+        :C="C"
+        :CS="CS"
+        :categorie="categorie"
+        :drawer="drawer"
+        :drawerLeft="drawerLeft"
+        :drawerRight="drawerRight"
+        :iconX="iconX"
+        @gotoR="gotoR"
+        @setD="setD"
+        @setDF="setDF"
+        @mouseover="setDF()"
+      ></b5xl>
+    </div>
+
+    <!-- ****************************************************************** -->
+    <div class="rmNews"></div>
+    <transition
+      name="custom-classes-transition"
+      enter-active-class="animated fadeInDown"
+      leave-active-class="animated fadeOutUp"
+    >
+      <!-- div -->
+
+      <v-row class="rmvrow rmH" v-show="drawerLeft" text-align="center">
+        <v-col class="rmvcol rmH"></v-col>
+
+        <v-col class="rmvcolC rmH" cols="3">
+          <m4lg
+            :C="C"
+            :CS="CS"
+            :categorie="categorie"
+            :drawer="drawer"
+            :drawerLeft="drawerLeft"
+            :drawerRight="drawerRight"
+            :iconX="iconX"
+            @gotoR="gotoR"
+            @setD="setD"
+            @setDF="setDF"
+            @mouseover="setDF()"
+          ></m4lg>
+        </v-col>
+
+        <v-col class="rmvcol rmH"></v-col>
+      </v-row>
+    </transition>
+    <!-- ****************************************************************** -->
   </div>
   <!-- @@@ -->
 </template>
@@ -121,6 +158,8 @@ import b2sm from "@/components/AncAppBars/B2sm.vue";
 import b3md from "@/components/AncAppBars/B3md.vue";
 import b4lg from "@/components/AncAppBars/B4lg.vue";
 import b5xl from "@/components/AncAppBars/B5xl.vue";
+/* Transitions */
+import m4lg from "@/components/AncM/M4lg.vue";
 
 export default {
   name: "ancAppBar",
@@ -130,7 +169,9 @@ export default {
     b2sm,
     b3md,
     b4lg,
-    b5xl
+    b5xl,
+
+    m4lg
   },
 
   props: {
@@ -292,78 +333,24 @@ export default {
 </script>
 
 <style media="screen">
-/*
-.rowFot {
-  background-color: orange !important;
-}
-.rowFotS {
-  background-color: lightblue !important;
-}
-
-.colFot {
-  background-color: transparent !important;
-}
-
-.colFotS {
-  background-color: lightblue !important;
-}
-
-.colFotSmallUp {
-  background-color: lightblue !important;
-  min-height: 30px;
-  max-height: 40px;
-}
-.colFotSmallDown {
-  background-color: transparent !important;
-  min-height: 30px;
-  max-height: 40px;
-}
-*/
 .AncAppBarE {
-  /*background-color:  teal !important;*/
-  /*height: 250px;*/
+  position: fixed;
+  z-index: 2;
+  height: 150px;
+  width: 100%;
+  padding-top: 6px;
+  padding-bottom: 6px;
   text-align: auto;
   text-justify: auto;
-  position: absolute;
-  z-index: 1;
-
-  /*padding: 4px 0px 3px;*/
-}
-/*------------------------------------------------------------------------------------------------------*/
-/*.AncRowBarEst {*/
-.ARBI {
-  /*background-color: #2b2b29 !important;*/
-  /*background-color: #241518 !important;*/
-  background-color: ORANGE !important;
-  height: 70px;
-  text-align: center;
-  text-justify: center;
-  border-radius: 50px 50px 50px 50px;
-}
-.ESTsm {
-  margin-left: 10px;
-  margin-right: 10px;
-  margin-top: 0px;
-  margin-bottom: 0px;
-}
-.ESTlg {
-  margin-left: 10px;
-  margin-right: 10px;
-  margin-top: 0px;
-  margin-bottom: 0px;
 }
 
-/*------------------------------------------------------------------------------------------------------*/
-/*------------------------------------------------------------------------------------------------------*/
-
+/* ---------------------------------------------------------------------- */
+/* MdS> 
+*/
 .r {
-  position: relative;
-  z-index: 2;
-
   /*.AncRowBarEst / ARBI */
-  background-color: ORANGE !important; /*test*/
-  /*background-color: #2b2b29 !important;*/
-  /*background-color: #241518 !important;*/
+  position: relative;
+  z-index: 3;
   height: 70px;
   margin-left: 10px;
   margin-right: 10px;
@@ -371,220 +358,214 @@ export default {
   text-justify: center;
   border-radius: 50px 50px 50px 50px;
 }
-.rm {
-  position: relative;
-  z-index: -1;
+.r_BC {
+  background-color: rgb(36, 17, 6) !important;
+  /*background-color: #241518 !important;   */
+  /*background-color: #2b2b29 !important;*/
+  /*background-color: #241518 !important;*/
+}
+.r_BC--T {
+  background-color: ORANGE !important;
+}
+/* ---------------------------------------------------------------------- */
+.rmNews {
+  /* ... comunicazioni ...*/
+  position: absolute;
+  z-index: 3;
+  height: 105px;
+  width: 100%;
+  background-color: purple !important; /*test*/
 }
 
+/* ---------------------------------------------------------------------- */
+/* MdS> 
+*/
+.rm {
+  /*menu a discesa*/
+  position: fixed;
+  top: 66px;
+  /* left: 578px; */
+  z-index: 3;
+  height: 50px;
+  /*width: 368px;*/
+}
+.rmH {
+  position: relative;
+  height: 50px;
+}
+.rmvrow {
+  background-color: orange !important; /*test*/
+  top: 70px; /*width: 578px; */
+  z-index: 3;
+}
+.rmvcol {
+  background-color: yellow !important; /*test*/
+}
+.rmvcolC {
+  background-color: pink !important; /*test*/
+}
 /*------------------------------------------------------------------------------------------------------*/
+/*color Background AR E */
+/*  Grigio scuro +4   .cBE-Vis    {  background-color: "#38282b" !important;}
+/*  Grigio scuro +4   .cBE-Socio  {  background-color: "green" !important; }
+/*  Grigio scuro +4   .cBE-Staff  {  background-color: "red" !important; }
+/*  Grigio scuro +6   .cBI        {  background-color: "#241b1d" !important; }*/
+/*------------------------------------------------------------------------------------------------------*/
+/* Background Colors    --T : Test   */
+/* ---------------------------------------------------------------------- */
+/* MdS> 
+*/
 .rcX {
+  position: relative;
+  z-index: 4;
   /*    per rcS - rcC - rcD  */
   height: 66px;
   text-justify: auto;
 }
 .rcLat {
   /*    add:  rcX rcLat_BC   */
-  /*    per:  Colonne Laterali rcS - rcD  */
   padding: 8px 8px;
-  margin-top: 2px;
+  margin-top: 4px;
   margin-bottom: 1px;
 }
+.rcLat_BC {
+  background-color: rgb(20, 9, 2) !important;
+}
+.rcLat_BC_Visitor {
+  /*    EX:   .arbcs-Visitor    */
+  background-color: #1a0408 !important;
+}
+.rcLat_BC_Socio {
+  /*    EX:   .arbcs-Socio      */
+  background-color: #1a0408 !important;
+}
+.rcLat_BC_Staff {
+  /*    EX:   .arbcs-Staff      */
+  background-color: #87011a !important;
+}
+.rcLat_BC--T {
+  background-color: red !important;
+}
+
+/* TODO: Riordina classi
+
+  /*------------------------------------------------------------------------------------------------------*/
 .rcS {
   /*    add:  rcX rcLat   */
-  /*background-color: rgb(194, 57, 212) !important;*/
-  /*background-color: #1a0408 !important;*/
-  /*height: 66px;             incorporato rCx*/
-  /*text-justify: auto;       incorporato rCx*/
-  /*padding: 8px 8px;         incorporato rClaterale*/
-  /*margin-top: 1px;*/
-  /*margin-bottom: 1px;*/
   text-align: left;
   margin-left: 2px;
   margin-right: 0px;
   border-radius: 48px 85px 0px 48px;
 }
-/*
-.AncRowBarColssx {
-  /*background-color: rgb(194, 57, 212) !important;*/
-/*background-color: #1a0408 !important;*/
-/*
-  height: 66px;
-  text-align: left;
-  text-justify: auto;
-  padding: 8px 8px;
-  margin-left: 1px;
-  margin-right: 0px;
-  margin-top: 1px;
-  margin-bottom: 1px;
-  border-radius: 48px 85px 0px 48px;
-}
-*/
-
+/*------------------------------------------------------------------------------------------------------*/
 .rcD {
-  /*    add:  rcX rcLat    */
-  /*background-color: rgb(194, 57, 212) !important;*/
-  /*background-color: #1a0408 !important;*/
-  /*height: 66px;             incorporato rCx*/
-  /*text-justify: auto;       incorporato rCx*/
-  /*padding: 8px 8px;         incorporato rClaterale*/
-  /*margin-top: 1px;*/
-  /*margin-bottom: 1px;*/
+  /*    add:  rcX rcLat   */
   text-align: right;
   margin-left: 0px;
   margin-right: 2px;
   border-radius: 85px 48px 48px 0px;
 }
-/*
-.AncRowBarColddx {
-  /*background-color: rgb(194, 57, 212) !important;*/
-/*background-color: #1a0408 !important;*/
-/*
-  height: 66px;
-  text-align: right;
-  text-justify: auto;
-  padding: 8px 8px;
-  margin-left: 0px;
-  margin-right: 1px;
-  margin-top: 1px;
-  margin-bottom: 1px;
-  border-radius: 85px 48px 48px 0px;
-}
-*/
-
+/*------------------------------------------------------------------------------------------------------*/
 .rcC {
-  /*    add:  rcX       */
-  /*background-color: #241518 !important;*/
-  /*background-color: salmon !important;*/
-  /*height: 66px;             incorporato rCx*/
-  /*text-justify: auto;       incorporato rCx*/
-  /*padding: 8px 8px;         incorporato rClaterale*/
-  /*margin-top: 1px;*/
-  /*margin-bottom: 1px;*/
+  /*    add:  rcX    */
+  position: relative;
+  z-index: 5;
+  /*width: 368px; RIFERIMENTO*/
   padding: 0px 0px;
   text-align: center;
   margin-left: 0px;
   margin-right: 0px;
-  margin-top: 0px;
+  margin-top: 4px;
   margin-bottom: 0px;
-  /*border-radius: 0px 0px 15px 15px;*/
-  border-radius: 0px 0px 0px 15px;
+  border-radius: 0px 0px 0px 0px;
 }
-/*
-.AncRowBarColccx {
-  background-color: #241518 !important;
-  /*background-color: salmon !important;*/
-/*
-  height: 66px;
-  text-align: center;
-  text-justify: auto;
-
-  padding: 0px 0px;
-  margin-left: 0px;
-  margin-right: 0px;
-  margin-top: 0px;
-  margin-bottom: 0px;
-
-  border-radius: 0px 0px 15px 15px;
+.rcC_BC {
+  background-color: #241518 !importan;
 }
-*/
-
+.rcC_BC--T {
+  background-color: salmon !important;
+}
 /*------------------------------------------------------------------------------------------------------*/
 .rcCr {
+  position: relative;
+  z-index: 5;
   /*    add:  rcCr_BC       */
   /*    EX:   AncRowBarColccxRowInt */
-  /*background-color: transparent !important;
-  z-index: -1;
-  background-color: greenyellow !important;*/
   height: 64px;
   margin-left: 0px;
   margin-right: 0px;
-  border-radius: 0px 0px 15px 15px;
-  z-index: 2;
+  border-radius: 48px 48px 0px 0px;
 }
-/*
-.AncRowBarColccxRowInt {
-  /*background-color: transparent !important;
+.rcCr_BC {
+  background-color: transparent !important;
+}
+.rcCr_BC--T {
+  background-color: green !important;
   z-index: -1;
-  background-color: greenyellow !important;
-  margin-left: 0px;
-  margin-right: 0px;
-  border-radius: 0px 0px 15px 15px;
 }
-*/
 /*------------------------------------------------------------------------------------------------------*/
 .rcCrcX {
+  position: relative;
+  z-index: 6;
   text-justify: auto;
 }
+/*------------------------------------------------------------------------------------------------------*/
 .rcCrcLat {
   /*    add:    rcCrcX  rcCrcLat_BC       */
   /*    per:    rcCrcS  / rcCrcD    */
 }
+.rcCrcLat_BC {
+  background-color: transparent !important;
+}
+.rcCrcLat_BC--T {
+  background-color: red !important;
+}
+/*------------------------------------------------------------------------------------------------------*/
 .rcCrcS {
-  /*    add:    rcCrcX  rcCrcLat       */
   /*    EX:     AncRowBarColcxRowIntColsx*/
-  text-align: right;
-}
-/*
-.AncRowBarColcxRowIntColsx {
-  background-color: transparent !important;
-  background-color: red !important;
-  text-justify: auto;
-  text-align: right;
-}
-/*
-.colAvSx {
-  background-color: orange !important;
-  text-align: end;
-  min-height: 22px;
-  max-height: 80px;
-  padding: 22px 10px;
-}
-*/
-
-.rcCrcD {
   /*    add:    rcCrcX  rcCrcLat       */
+  text-align: right;
+}
+.rcCrcD {
   /*    EX:     AncRowBarColcxRowIntColdx*/
+  /*    add:    rcCrcX  rcCrcLat       */
   text-align: left;
 }
-/*
-.AncRowBarColcxRowIntColdx {
-  background-color: transparent !important;
-  background-color: red !important;
-  text-justify: auto;
-  text-align: left;
-}
-.colAvDx {
-  background-color: orange !important;
-  text-align: start;
-  min-height: 22px;
-  max-height: 80px;
-  padding: 22px 10px;
-}
-*/
-
+/*------------------------------------------------------------------------------------------------------*/
 .rcCrcC {
-  /*    add:    rcCrcC_BC       */
-  /*    EX:     AncRowBarColcxRowIntColccx    */
-  /*    text-justify: auto;   */
-  /* height: 60px; */
   padding: 15px 2px 3px; /* T-RL-B */
   text-align: center;
 }
-
+.rcCrcC_BC {
+  background-color: transparent !important;
+}
+.rcCrcC_BC--T {
+  background-color: slateblue !important;
+}
+/*------------------------------------------------------------------------------------------------------*/
+.rcCrcCr_BC--T {
+  background-color: brown !important;
+}
+/*------------------------------------------------------------------------------------------------------*/
 .avatar {
-  /* background-color: green !important; */
-  /* color: green; */
+  z-index: 5;
   /*right: "true";*/
   size: 48;
   max-width: 48px;
-  /*max-height: 48px;*/
   max-height: 50px;
   transform: scale(1, 1);
-  z-index: 5;
 }
 .avatar:hover {
   transform: scale(1.1, 1.1);
 }
+.avatar_BC {
+  background-color: transparent !important;
+}
+.avatar_BC--T {
+  background-color: green !important;
+}
+/*------------------------------------------------------------------------------------------------------*/
+
 .icorot {
   transform: rotate(10deg);
 }
@@ -599,20 +580,6 @@ export default {
   transform: scale(1, 1);
   height: 48px;
   width: 48px;
-}
-
-/*
-.AncRowBarColcxRowIntColccx {
-  background-color: transparent !important;
-  background-color: slateblue !important;
-  /*height: 70px;*/
-/*
-  height: 80px;
-  padding: 2px 0px;
-  text-align: center;
-  text-justify: auto;
-}
-.Avatar {
 }
 
 /*V2*/
@@ -698,106 +665,15 @@ export default {
 /*  background-color:"#241518" !important;   Grigio scuro +5  */
 /*  background-color:"#1a0408" !important;   Grigio scuro +6  */
 
-.AncAppBarI {
-  z-index: 3;
-  background-color: yellowgreen !important;
-
-  height: 45px;
-
-  text-align: center;
-  text-justify: center;
-
-  border-radius: 48px 48px 48px 48px;
-}
-
-.AncAppBar {
-  z-index: 3;
-  background-color: yellowgreen !important;
-
-  height: 45px;
-
-  text-align: center;
-  text-justify: center;
-
-  border-radius: 48px 48px 48px 48px;
-}
-
 /*  ---------------------------------------------------------------------   */
 /*  | colbarsx |                  colbarcx                  | colbardx  |   */
 /*  |          |   colAvSx   |     avatar      |   colAvDx  |           |   */
 /*  ---------------------------------------------------------------------   */
 
-/*OLD
-.colbarsx {
-  background-color: purple !important;
-  min-height: 76px;
-  text-align: start;
-  padding: 12px 10px;
-}
-.colbarcx {
-  background-color: navy !important;
-  min-height: 76px;
-  text-align: start;
-  padding: 12px 10px;
-}
-.colbardx {
-  background-color: purple !important;
-  min-height: 76px;
-  text-align: end;
-  padding: 12px 10px;
-}
-*/
-
-/*
-.colAvSx {
-  background-color: darkorange !important;
-  text-align: end;
-  text-justify: center;
-  height: 22px;
-  padding: 22px 10px;
-}
-
-.colAvDx {
-  background-color: orange !important;
-  text-align: start;
-  text-justify: center;
-  height: 22px;
-  padding: 22px 10px;
-}
-
-.colAvatar {
-  background-color: pink !important;
-  height: 48px;
-  max-width: 80px;
-
-  text-align: center;
-  text-justify: center;
-
-  padding: 1px;
-}
-*/
-
 /*  ---------------------------------------------------------------------   */
 /*  | colbarsx |                  colbarcx                  | colbardx  |   */
 /*  |          |   colAvSx   |     avatar      |   colAvDx  |           |   */
 /*  ---------------------------------------------------------------------   */
-
-/*
-col {
-  padding: 20px 0px 0px;
-}
-
-.t {
-  background-color: transparent !important;
-}
-
-.colBar {
-  background-color: transparent !important;
-}
-.coltest {
-  background-color: red !important;
-}
-*/
 
 /*
 padding
@@ -806,54 +682,13 @@ padding
     padding: 25px 50px;                 TB-RL
     padding: 25px;                      TBRL
 border-radius
-    border-radius: 15px 50px 30px 5px;  TL-TR-BR-BL 
+    border-radius: 15px 50px 30px 5px;  TL-TR-BR-BL
     border-radius: 15px 50px 30px;      TL-TRBL-BR
     border-radius: 15px 50px;           TLBR-TRBL
-    border-radius: 15px;                TLBRTRBL    
+    border-radius: 15px;                TLBRTRBL
 */
 
 /*
-.AncRowBarColcxRowIntColcx {
-  background-color: darkred !important;
-  height: 66px;
-  text-align: center;
-}
-*/
-
-/*
-.AncRowBarColcxRowIntColsxsx {
-  background-color: darkred !important;
-  height: 50px;
-  text-align: left;
-  text-justify: auto;
-}
-*/
-
-.AncRowBarColdx {
-  background-color: deeppink !important;
-  height: 66px;
-  text-align: start;
-
-  padding: 2px 2px;
-  margin-left: 0px;
-  margin-right: 1px;
-  margin-top: 1px;
-  margin-bottom: 1px;
-  border-radius: 40px 40px 40px 0px;
-}
-
-/*
-.avatar {
-  background-color: green !important;
-  color: green;
-  right: "true";
-  size: 62;
-  min-width: 65px;
-  max-height: 75px;
-  max-width: 75px;
-}
-*/
-
 .menubtnd1 {
   z-index: 7;
   background-color: darkorchid !important;
@@ -868,103 +703,115 @@ border-radius
   padding-bottom: 15px;
   margin-top: 5px;
 }
+*/
 
-/* Background Colors    --T : Test   */
-/*------------------------------------------------------------------------------------------------------*/
-/*  r   */
-.r_BC {
-  background-color: #2b2b29 !important;
-  /*  background-color: #241518 !important;   */
+/* TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT */
+/* rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr */
+@keyframes slideInDown {
+  from {
+    transform: translate3d(0, -100%, 0);
+    visibility: visible;
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+  }
 }
-.r_BC--T {
-  background-color: ORANGE !important;
+.slideInDown {
+  animation-name: slideInDown;
 }
-/*  rcLat   [rcS / rcD]  */
-.rcLat_BC {
-  /*background-color: rgb(194, 57, 212) !important;*/
-  /*background-color: #1a0408 !important;*/
-  background-color: transparent !important;
+/* -------------------------------------------------------------------- */
+@keyframes fadeOutUp {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    transform: translate3d(0, -100%, 0);
+  }
 }
-.rcLat_BC_Visitor {
-  /*    EX:   .arbcs-Visitor    */
-  background-color: #1a0408 !important;
+.fadeOutUp {
+  animation-name: fadeOutUp;
+  animation-duration: 1s;
 }
-.rcLat_BC_Socio {
-  /*    EX:   .arbcs-Socio      */
-  background-color: #1a0408 !important;
+/* -------------------------------------------------------------------- */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -100px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
 }
-.rcLat_BC_Staff {
-  /*    EX:   .arbcs-Staff      */
-  background-color: #87011a !important;
-}
+.fadeInDown {
+  animation-name: fadeInDown;
+  animation-duration: 1s;
 
-/*color Background AR E */
-/*  Grigio scuro +4   .cBE-Vis    {  background-color: "#38282b" !important;}
-/*  Grigio scuro +4   .cBE-Socio  {  background-color: "green" !important; }
-/*  Grigio scuro +4   .cBE-Staff  {  background-color: "red" !important; }
-/*  Grigio scuro +6   .cBI        {  background-color: "#241b1d" !important; }*/
+  /* animation-delay: -2s; test ok*/
+}
+/* -------------------------------------------------------------------- */
+@keyframes flipOutX {
+  from {
+    transform: perspective(200px);
+  }
 
-.rcLat_BC--T {
-  background-color: red !important;
-}
+  30% {
+    transform: perspective(200px) rotate3d(1, 0, 0, -50deg);
+    opacity: 1;
+  }
 
-.AncRowBarColsxRow {
-  background-color: pink !important;
-  height: 32px;
-}
-
-.AncRowBarColdxRow {
-  background-color: pink !important;
-  height: 32px;
-}
-
-/*  rcC  */
-.rcC_BC {
-  background-color: #241518 !important;
-}
-.rcC_BC--T {
-  /*background-color: SALMON !important;*/
-  background-color: yellow !important;
-}
-
-/*------------------------------------------------------------------------------------------------------*/
-/*  rcCr  */
-.rcCr_BC {
-  background-color: transparent !important;
-}
-.rcCr_BC--T {
-  z-index: -1;
-  background-color: greenyellow !important;
-}
-/*------------------------------------------------------------------------------------------------------*/
-/*    rcCrcLat [  rcCrcS  / rcCrcD  ]    */
-.rcCrcLat_BC {
-  background-color: transparent !important;
-}
-.rcCrcLat_BC--T {
-  background-color: red !important;
+  to {
+    transform: perspective(200px) rotate3d(1, 0, 0, 90deg);
+    opacity: 0;
+  }
 }
 
-/*    rcCrcC    */
-.rcCrcC_BC {
-  background-color: transparent !important;
+.flipOutX {
+  animation-duration: 0.75s;
+  animation-name: flipOutX;
+  backface-visibility: visible !important;
 }
-.rcCrcC_BC--T {
-  background-color: slateblue !important;
+/* -------------------------------------------------------------------- */
+@keyframes zoomOutDown {
+  40% {
+    opacity: 1;
+    transform: scale3d(0.475, 0.475, 0.475) translate3d(0, -60px, 0);
+    animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  }
+
+  to {
+    opacity: 0;
+    transform: scale3d(0.1, 0.1, 0.1) translate3d(0, 2000px, 0);
+    transform-origin: center bottom;
+    animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1);
+  }
 }
 
-.rcCrcCr_BC--T {
-  background-color: brown !important;
+.zoomOutDown {
+  animation-name: zoomOutDown;
+}
+/* -------------------------------------------------------------------- */
+@keyframes zoomOut {
+  from {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+    transform: scale3d(0.3, 0.3, 0.3);
+  }
+  to {
+    opacity: 0;
+  }
+}
+.zoomOut {
+  animation-name: zoomOut;
 }
 
-/*    avatar    */
-.avatar_BC {
-  background-color: transparent !important;
-}
+/* TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT */
+/* rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr */
 
-.avatar_BC--T {
-  background-color: green !important;
-}
+/* -------------------------------------------------------------------- */
 
 /*
 v-enter:          Starting state for enter. Added before element is inserted, removed one frame after element is inserted.
@@ -984,9 +831,9 @@ padding
     padding: 25px 50px;                 TB-RL
     padding: 25px;                      TBRL
 border-radius
-    border-radius: 15px 50px 30px 5px;  TL-TR-BR-BL 
+    border-radius: 15px 50px 30px 5px;  TL-TR-BR-BL
     border-radius: 15px 50px 30px;      TL-TRBL-BR
     border-radius: 15px 50px;           TLBR-TRBL
-    border-radius: 15px;                TLBRTRBL    
+    border-radius: 15px;                TLBRTRBL
 */
 </style>

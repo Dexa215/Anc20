@@ -943,28 +943,26 @@ categorie:[
 .AncTitleColor {
   color: #f9fbe7;
 }
-
 .AncAppBarColor {
   color: #f9fbe7;
 }
-.AncAppBarColor:hover {
-  color: #ffbe4d;
-}
-
 .AncIconColor {
   color: #f9fbe7;
 }
+
+.AncAppBarColor:hover {
+  color: #ffbe4d;
+}
 .AncIconColor:hover {
+  color: #ffbe4d;
+}
+.AncItemColor:hover {
   color: #ffbe4d;
 }
 
 .AncItemColor {
   color: #6d4c41;
 }
-.AncItemColor:hover {
-  color: #ffbe4d;
-}
-
 .AncTitleColorDark {
   color: darkslategray;
 }
