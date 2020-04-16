@@ -63,7 +63,7 @@
           <!-- Avatar -->
         </v-col>
 
-        <v-col class="rcC rcX rcC_BC" cols="3">
+        <v-col class="rcC rcX rcC_BC" cols="5">
           <!--v-expand-transition v-show="!drawerLeft" -->
           <v-row class="rcCr rcCr_BC" align="center" dense style="z-index: 2">
             <v-col class="rcCrcS rcCrcLat_BC">

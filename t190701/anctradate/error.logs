@@ -1,1 +1,174 @@
 04/15/2020 11:35:01 PM INFO autoreload 29112 19812 Watching for file changes with StatReloader
+04/15/2020 11:38:54 PM WARNING log 29112 23580 Not Found: /media/images/preview/DSC_0006.jpg
+04/15/2020 11:39:09 PM WARNING log 29112 23580 Not Found: /media/images/preview/DSC_0003.jpg
+04/16/2020 12:08:40 AM ERROR log 29112 25700 Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\core\handlers\base.py", line 145, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\core\handlers\base.py", line 143, in _get_response
+    response = response.render()
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\response.py", line 106, in render
+    self.content = self.rendered_content
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\response.py", line 83, in rendered_content
+    content = template.render(context, self._request)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\library.py", line 192, in render
+    output = self.func(*resolved_args, **resolved_kwargs)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\webpack_loader\templatetags\webpack_loader.py", line 12, in render_bundle
+    tags = utils.get_as_tags(bundle_name, extension=extension, config=config, attrs=attrs)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\webpack_loader\utils.py", line 45, in get_as_tags
+    bundle = _get_bundle(bundle_name, extension, config)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\webpack_loader\utils.py", line 23, in _get_bundle
+    bundle = get_loader(config).get_bundle(bundle_name)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\webpack_loader\loader.py", line 97, in get_bundle
+    raise WebpackError(error)
+webpack_loader.exceptions.WebpackError: 
+            ModuleParseError in 
+            Module parse failed: Unexpected token (267:4)
+File was processed with these loaders:
+ * ./node_modules/vuetify-loader/lib/loader.js
+ * ./node_modules/cache-loader/dist/cjs.js
+ * ./node_modules/vue-loader/lib/index.js
+You may need an additional loader to handle the result of these loaders.
+| 
+| 
+>     setcolor() {
+|       var x = this;
+|       //console.log("setcolor analizzo this.requestuserisstaff...", x.requestUserIsStaff);
+            
+04/16/2020 12:13:34 AM WARNING log 29112 25700 Not Found: /media/images/preview/DSC_0003.jpg
+04/16/2020 12:13:46 AM WARNING log 29112 25700 Not Found: /media/images/preview/DSC_0006.jpg
+04/16/2020 12:14:04 AM WARNING log 29112 25700 Not Found: /media/images/preview/DSC_0003.jpg
+04/16/2020 12:14:16 AM WARNING log 29112 25700 Not Found: /media/images/preview/DSC_0006.jpg
+04/16/2020 12:14:34 AM WARNING log 29112 25700 Not Found: /media/images/preview/DSC_0003.jpg
+04/16/2020 12:14:46 AM WARNING log 29112 25700 Not Found: /media/images/preview/DSC_0006.jpg
+04/16/2020 12:15:04 AM WARNING log 29112 25700 Not Found: /media/images/preview/DSC_0003.jpg
+04/16/2020 12:15:16 AM WARNING log 29112 24608 Not Found: /media/images/preview/DSC_0006.jpg
+04/16/2020 12:16:31 AM WARNING log 29112 25700 Not Found: /media/images/preview/DSC_0003.jpg
+04/16/2020 12:16:44 AM WARNING log 29112 25700 Not Found: /media/images/preview/DSC_0006.jpg
+04/16/2020 12:17:02 AM WARNING log 29112 25700 Not Found: /media/images/preview/DSC_0003.jpg
+04/16/2020 12:17:14 AM WARNING log 29112 25700 Not Found: /media/images/preview/DSC_0006.jpg
+04/16/2020 12:17:32 AM WARNING log 29112 25700 Not Found: /media/images/preview/DSC_0003.jpg
+04/16/2020 12:17:44 AM WARNING log 29112 25700 Not Found: /media/images/preview/DSC_0006.jpg
+04/16/2020 12:18:02 AM WARNING log 29112 25700 Not Found: /media/images/preview/DSC_0003.jpg
+04/16/2020 12:18:21 AM WARNING log 29112 25700 Not Found: /media/images/preview/DSC_0003.jpg
+04/16/2020 12:18:33 AM WARNING log 29112 25700 Not Found: /media/images/preview/DSC_0006.jpg
+04/16/2020 12:18:52 AM WARNING log 29112 25700 Not Found: /media/images/preview/DSC_0003.jpg
+04/16/2020 12:19:04 AM WARNING log 29112 25700 Not Found: /media/images/preview/DSC_0006.jpg
+04/16/2020 12:19:36 AM WARNING log 29112 25700 Not Found: /media/images/preview/DSC_0003.jpg
+04/16/2020 12:19:48 AM WARNING log 29112 25700 Not Found: /media/images/preview/DSC_0006.jpg
+04/16/2020 12:20:07 AM WARNING log 29112 25700 Not Found: /media/images/preview/DSC_0003.jpg
+04/16/2020 12:20:19 AM WARNING log 29112 25700 Not Found: /media/images/preview/DSC_0006.jpg
+04/16/2020 12:20:37 AM WARNING log 29112 25700 Not Found: /media/images/preview/DSC_0003.jpg
+04/16/2020 12:21:03 AM WARNING log 29112 25700 Not Found: /media/images/preview/DSC_0003.jpg
+04/16/2020 12:21:15 AM WARNING log 29112 25700 Not Found: /media/images/preview/DSC_0006.jpg
+04/16/2020 12:21:33 AM WARNING log 29112 25700 Not Found: /media/images/preview/DSC_0003.jpg
+04/16/2020 12:21:46 AM WARNING log 29112 25700 Not Found: /media/images/preview/DSC_0006.jpg
+04/16/2020 12:22:04 AM WARNING log 29112 25700 Not Found: /media/images/preview/DSC_0003.jpg
+04/16/2020 12:22:16 AM WARNING log 29112 25700 Not Found: /media/images/preview/DSC_0006.jpg
+04/16/2020 12:22:34 AM WARNING log 29112 25700 Not Found: /media/images/preview/DSC_0003.jpg
+04/16/2020 12:22:46 AM WARNING log 29112 25700 Not Found: /media/images/preview/DSC_0006.jpg
+04/16/2020 12:23:04 AM WARNING log 29112 25700 Not Found: /media/images/preview/DSC_0003.jpg
+04/16/2020 12:23:16 AM WARNING log 29112 25700 Not Found: /media/images/preview/DSC_0006.jpg
+04/16/2020 12:23:34 AM WARNING log 29112 25700 Not Found: /media/images/preview/DSC_0003.jpg
+04/16/2020 12:23:46 AM WARNING log 29112 25700 Not Found: /media/images/preview/DSC_0006.jpg
+04/16/2020 12:24:17 AM WARNING log 29112 25700 Not Found: /media/images/preview/DSC_0003.jpg
+04/16/2020 12:26:41 AM WARNING log 29112 25700 Not Found: /media/images/preview/DSC_0003.jpg
+04/16/2020 12:36:02 AM WARNING log 29112 29364 Not Found: /media/images/preview/7_poppy2gif.gif
+04/16/2020 12:36:02 AM WARNING log 29112 25700 Not Found: /media/images/preview/mugatu-s-l640.jpg
+04/16/2020 12:36:29 AM WARNING log 29112 25700 Not Found: /media/images/preview/7_poppy2gif.gif
+04/16/2020 12:36:29 AM WARNING log 29112 29364 Not Found: /media/images/preview/mugatu-s-l640.jpg
+04/16/2020 12:37:55 AM WARNING log 29112 25700 Not Found: /media/images/preview/mugatu-s-l640.jpg
+04/16/2020 12:37:55 AM WARNING log 29112 29364 Not Found: /media/images/preview/7_poppy2gif.gif
+04/16/2020 12:38:12 AM WARNING log 29112 29364 Not Found: /media/images/preview/mugatu-s-l640.jpg
+04/16/2020 12:38:12 AM WARNING log 29112 18200 Not Found: /media/images/preview/7_poppy2gif.gif
+04/16/2020 12:39:47 AM WARNING log 29112 25700 Not Found: /media/images/preview/mugatu-s-l640.jpg
+04/16/2020 12:39:47 AM WARNING log 29112 18200 Not Found: /media/images/preview/7_poppy2gif.gif
+04/16/2020 12:39:56 AM WARNING log 29112 18200 Not Found: /media/images/preview/7_poppy2gif.gif
+04/16/2020 12:39:56 AM WARNING log 29112 29364 Not Found: /media/images/preview/mugatu-s-l640.jpg
+04/16/2020 12:40:55 AM WARNING log 29112 29364 Not Found: /media/images/preview/7_poppy2gif.gif
+04/16/2020 12:40:55 AM WARNING log 29112 25700 Not Found: /media/images/preview/mugatu-s-l640.jpg
+04/16/2020 12:47:44 AM WARNING log 29112 27392 Not Found: /media/images/preview/mugatu-s-l640.jpg
+04/16/2020 12:47:44 AM WARNING log 29112 22736 Not Found: /media/images/preview/7_poppy2gif.gif
+04/16/2020 12:48:25 AM WARNING log 29112 22736 Not Found: /media/images/preview/7_poppy2gif.gif
+04/16/2020 12:48:25 AM WARNING log 29112 26648 Not Found: /media/images/preview/mugatu-s-l640.jpg
+04/16/2020 12:49:01 AM WARNING log 29112 22736 Not Found: /media/images/preview/7_poppy2gif.gif
+04/16/2020 12:49:01 AM WARNING log 29112 26648 Not Found: /media/images/preview/mugatu-s-l640.jpg
+04/16/2020 12:50:38 AM WARNING log 29112 26648 Not Found: /media/images/preview/7_poppy2gif.gif
+04/16/2020 12:50:38 AM WARNING log 29112 22736 Not Found: /media/images/preview/mugatu-s-l640.jpg
+04/16/2020 12:50:51 AM WARNING log 29112 26648 Not Found: /media/images/preview/mugatu-s-l640.jpg
+04/16/2020 12:50:51 AM WARNING log 29112 27392 Not Found: /media/images/preview/7_poppy2gif.gif
+04/16/2020 12:51:28 AM WARNING log 29112 22736 Not Found: /media/images/preview/mugatu-s-l640.jpg
+04/16/2020 12:51:28 AM WARNING log 29112 27392 Not Found: /media/images/preview/7_poppy2gif.gif
+04/16/2020 12:52:37 AM WARNING log 29112 27392 Not Found: /media/images/preview/7_poppy2gif.gif
+04/16/2020 12:52:37 AM WARNING log 29112 22736 Not Found: /media/images/preview/mugatu-s-l640.jpg
+04/16/2020 12:53:54 AM WARNING log 29112 27392 Not Found: /media/images/preview/mugatu-s-l640.jpg
+04/16/2020 12:53:54 AM WARNING log 29112 22736 Not Found: /media/images/preview/7_poppy2gif.gif
+04/16/2020 12:54:35 AM WARNING log 29112 22736 Not Found: /media/images/preview/mugatu-s-l640.jpg
+04/16/2020 12:54:35 AM WARNING log 29112 26648 Not Found: /media/images/preview/7_poppy2gif.gif
+04/16/2020 12:55:20 AM WARNING log 29112 27392 Not Found: /media/images/preview/mugatu-s-l640.jpg
+04/16/2020 12:55:20 AM WARNING log 29112 22736 Not Found: /media/images/preview/7_poppy2gif.gif
+04/16/2020 12:56:05 AM WARNING log 29112 26648 Not Found: /media/images/preview/mugatu-s-l640.jpg
+04/16/2020 12:56:05 AM WARNING log 29112 27392 Not Found: /media/images/preview/7_poppy2gif.gif
+04/16/2020 12:56:47 AM WARNING log 29112 27392 Not Found: /media/images/preview/mugatu-s-l640.jpg
+04/16/2020 12:56:47 AM WARNING log 29112 22736 Not Found: /media/images/preview/7_poppy2gif.gif
+04/16/2020 12:57:17 AM WARNING log 29112 22736 Not Found: /media/images/preview/7_poppy2gif.gif
+04/16/2020 12:57:17 AM WARNING log 29112 27392 Not Found: /media/images/preview/mugatu-s-l640.jpg
+04/16/2020 12:57:29 AM WARNING log 29112 22736 Not Found: /media/images/preview/mugatu-s-l640.jpg
+04/16/2020 12:57:29 AM WARNING log 29112 26648 Not Found: /media/images/preview/7_poppy2gif.gif
+04/16/2020 12:58:13 AM WARNING log 29112 27392 Not Found: /media/images/preview/7_poppy2gif.gif
+04/16/2020 12:58:13 AM WARNING log 29112 26648 Not Found: /media/images/preview/mugatu-s-l640.jpg
+04/16/2020 12:58:32 AM WARNING log 29112 26648 Not Found: /media/images/preview/7_poppy2gif.gif
+04/16/2020 12:58:32 AM WARNING log 29112 27392 Not Found: /media/images/preview/mugatu-s-l640.jpg
+04/16/2020 12:59:35 AM WARNING log 29112 27392 Not Found: /media/images/preview/mugatu-s-l640.jpg
+04/16/2020 12:59:35 AM WARNING log 29112 22736 Not Found: /media/images/preview/7_poppy2gif.gif
+04/16/2020 01:01:51 AM WARNING log 29112 27392 Not Found: /media/images/preview/7_poppy2gif.gif
+04/16/2020 01:01:51 AM WARNING log 29112 26648 Not Found: /media/images/preview/mugatu-s-l640.jpg
+04/16/2020 01:02:15 AM WARNING log 29112 22736 Not Found: /media/images/preview/mugatu-s-l640.jpg
+04/16/2020 01:02:15 AM WARNING log 29112 27392 Not Found: /media/images/preview/7_poppy2gif.gif
+04/16/2020 01:02:35 AM WARNING log 29112 27392 Not Found: /media/images/preview/7_poppy2gif.gif
+04/16/2020 01:02:35 AM WARNING log 29112 26648 Not Found: /media/images/preview/mugatu-s-l640.jpg
+04/16/2020 01:03:46 AM WARNING log 29112 26648 Not Found: /media/images/preview/7_poppy2gif.gif
+04/16/2020 01:03:46 AM WARNING log 29112 27392 Not Found: /media/images/preview/mugatu-s-l640.jpg
+04/16/2020 01:05:13 AM WARNING log 29112 27392 Not Found: /media/images/preview/mugatu-s-l640.jpg
+04/16/2020 01:05:13 AM WARNING log 29112 26648 Not Found: /media/images/preview/7_poppy2gif.gif
+04/16/2020 01:05:32 AM WARNING log 29112 26648 Not Found: /media/images/preview/mugatu-s-l640.jpg
+04/16/2020 01:05:32 AM WARNING log 29112 27392 Not Found: /media/images/preview/7_poppy2gif.gif
+04/16/2020 01:05:42 AM WARNING log 29112 22736 Not Found: /media/images/preview/7_poppy2gif.gif
+04/16/2020 01:05:42 AM WARNING log 29112 27392 Not Found: /media/images/preview/mugatu-s-l640.jpg
+04/16/2020 01:06:14 AM WARNING log 29112 26648 Not Found: /media/images/preview/7_poppy2gif.gif
+04/16/2020 01:06:14 AM WARNING log 29112 27392 Not Found: /media/images/preview/mugatu-s-l640.jpg
+04/16/2020 01:07:41 AM WARNING log 29112 26648 Not Found: /media/images/preview/mugatu-s-l640.jpg
+04/16/2020 01:07:41 AM WARNING log 29112 27392 Not Found: /media/images/preview/7_poppy2gif.gif
+04/16/2020 01:08:04 AM WARNING log 29112 27392 Not Found: /media/images/preview/mugatu-s-l640.jpg
+04/16/2020 01:08:04 AM WARNING log 29112 22736 Not Found: /media/images/preview/7_poppy2gif.gif
+04/16/2020 01:09:47 AM WARNING log 29112 22736 Not Found: /media/images/preview/7_poppy2gif.gif
+04/16/2020 01:09:47 AM WARNING log 29112 22736 Not Found: /media/images/preview/mugatu-s-l640.jpg
+04/16/2020 01:09:48 AM WARNING log 29112 22736 Not Found: /media/images/preview/slack-django-large2.jpg
+04/16/2020 01:10:17 AM WARNING log 29112 27392 Not Found: /media/images/preview/DSC_0003.jpg
+04/16/2020 01:10:29 AM WARNING log 29112 27392 Not Found: /media/images/preview/DSC_0006.jpg

@@ -1,35 +1,61 @@
 <template>
-  <!-- -->
+  <!-- 
+  <div class="ancM4 rgbANC2">
+  -->
+  <div>
+    <!-- test 2020 04 16 -->
 
-  <div class="ancM4 rgbANC2 mx-auto">
-    <v-row class="ancM4r rgbANC2 mx-auto">hello...</v-row>
+    <v-row class="mr mx-auto">
+      <!--v-col>lato sx</v-col-->
+      <!-- shaped -->
+      <v-col>
+        <v-list shaped dark class="ancM4l ancM4l_BC">
+          <!-- color="rgb(36, 17, 6)" -->
+          <v-list-item
+            class="tileM"
+            v-for="item in categorie"
+            :key="item.n"
+            link
+            @click="gotoR(item.link)"
+          >
+            <v-list-item-content>
+              <v-list-item-title>{{ item.descrizione }}</v-list-item-title>
+            </v-list-item-content>
 
-    <!-- v-list shaped dark class="ancM4l   rgbANC1" -->
+            <v-list-item-icon>
+              <v-icon>{{ item.icona }}</v-icon>
+            </v-list-item-icon>
+          </v-list-item>
+        </v-list>
+      </v-col>
+      <!-- v-col>lato dx</v-col -->
+    </v-row>
 
-    <v-list dark shaped class="ancM4l" color="rgb(36, 17, 6)">
-      <v-list-item
-        class="tileM rgbANC1"
-        v-for="item in categorie"
-        :key="item.n"
-        link
-        @click="gotoR(item.link)"
-      >
-        <v-list-item-icon>
-          <v-icon>{{ item.icona }}</v-icon>
-        </v-list-item-icon>
-        <v-list-item-content>
-          <v-list-item-title>{{ item.descrizione }}</v-list-item-title>
-        </v-list-item-content>
-      </v-list-item>
-    </v-list>
+    <!-- old -->
+
+    <v-row class="mx-auto" style="background-color: red">
+      <!--  
+      <v-col cols="3" style="background-color: green">
+      </v-col>
+      <v-col class="McU" style="background-color: yellow">
+        
+      </v-col>
+      -->
+    </v-row>
+    <!-- old -->
   </div>
 </template>
 
 <script>
 import router from "@/router";
+import u4lg from "@/components/AncM/AncU/U4lg.vue";
 
 export default {
   name: "m4lg",
+
+  components: {
+    u4lg
+  },
 
   props: {
     nbc: { type: String },
@@ -83,7 +109,7 @@ export default {
     gotoR(r) {
       this.drawerRight = false;
       this.setDF();
-      console.log("AncAppDrawer rotta per...");
+      console.log("M4lg rotta per...");
       this.$emit("gotoR", r);
     },
     ctlD() {
@@ -138,6 +164,7 @@ export default {
   margin: 5px;
   border-radius: 4px;
   color: khaki;
+  width: 100%;
 }
 .tileM:hover {
   background: #1f1401;
@@ -181,7 +208,7 @@ export default {
 }
 
 .ancM4 {
-  position: relative;
+  position: fixed;
   z-index: 1;
 
   opacity: 0.95;
@@ -189,8 +216,10 @@ export default {
 
   margin-top: 0px;
 
-  border-radius: 0px 0px 50px 5px;
+  border-radius: 0px 0px 50px 50px;
   height: 600px;
+  width: 100%;
+
   /*width: 368px;*/
 
   /*background-image: url("/static/images/HomePageCarousel/dsc32.jpg");*/
@@ -208,4 +237,22 @@ export default {
   z-index: 2;
   /*list*/
 }
+.ancM4l_BC {
+  background-color: transparent !important;
+}
+
+.McU {
+  /* Menu column User...*/
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.mr {
+  background-color: transparent !important;
+}
 </style>
+
+
+
+
+

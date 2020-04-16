@@ -113,7 +113,7 @@
       ></b5xl>
     </div>
 
-    <!-- ****************************************************************** -->
+    <!-- menu -- ****************************************************************** -->
     <div class="rmNews"></div>
     <transition
       name="custom-classes-transition"
@@ -122,11 +122,31 @@
     >
       <!-- div -->
 
-      <v-row class="rmvrow rmH" v-show="drawerLeft" text-align="center">
-        <v-col class="rmvcol rmH"></v-col>
+      <v-row class="rmvrow" v-show="drawerLeft" text-align="center">
+        <v-col class="rmvcolS rmH"></v-col>
+        <!-- /*trasparente*/ -->
 
-        <v-col class="rmvcolC rmH" cols="3">
+        <v-col class="rmvcolC rmH rcC_BC" cols="5">
+          <u4lg
+            :requestUser="requestUser"
+            :requestUserIsStaff="requestUserIsStaff"
+            :requestUserIsSuper="requestUserIsSuper"
+            :requestUserAvatar="requestUserAvatar"
+            :requestUserBio="requestUserBio"
+            @gotoR="gotoR"
+          ></u4lg>
+        </v-col>
+
+        <!-- old ok
+        <v-col class="rmvcolD rmH rcLat_BC">
+        -->
+        <v-col :class="rcU">
           <m4lg
+            :requestUser="requestUser"
+            :requestUserIsStaff="requestUserIsStaff"
+            :requestUserIsSuper="requestUserIsSuper"
+            :requestUserAvatar="requestUserAvatar"
+            :requestUserBio="requestUserBio"
             :C="C"
             :CS="CS"
             :categorie="categorie"
@@ -141,8 +161,6 @@
             @mouseover="setDF()"
           ></m4lg>
         </v-col>
-
-        <v-col class="rmvcol rmH"></v-col>
       </v-row>
     </transition>
     <!-- ****************************************************************** -->
@@ -163,6 +181,7 @@ import b4lg from "@/components/AncAppBars/B4lg.vue";
 import b5xl from "@/components/AncAppBars/B5xl.vue";
 /* Transitions */
 import m4lg from "@/components/AncM/M4lg.vue";
+import u4lg from "@/components/AncM/AncU/U4lg.vue";
 
 export default {
   name: "ancAppBar",
@@ -174,7 +193,8 @@ export default {
     b4lg,
     b5xl,
 
-    m4lg
+    m4lg,
+    u4lg
   },
 
   props: {
@@ -198,7 +218,8 @@ export default {
     hsm: "84px",
     hlg: "84px",
     rcS: "rcS rcX rcLat rcLat_BC_Visitor",
-    rcD: "rcD rcX rcLat rcLat_BC_Visitor"
+    rcD: "rcD rcX rcLat rcLat_BC_Visitor",
+    rcU: "rcS rcX rcLat rcLat_BC_Visitor"
   }),
 
   methods: {
@@ -258,10 +279,12 @@ export default {
         this.rcS = "rcS rcX rcLat rcLat_BC_Staff";
         this.rcD = "rcD rcX rcLat rcLat_BC_Staff";
         this.nbc = "black";
+        this.rcU = "rmvcolD rmH   rcLat_BC_Staff";
       } else {
         this.rcS = "rcS rcX rcLat rcLat_BC_Visitor";
         this.rcD = "rcD rcX rcLat rcLat_BC_Visitor";
         this.nbc = "#212121"; //dark-grey
+        this.rcU = "rmvcolD rmH   rcLat_BC_Visitor";
       }
     }
   },
@@ -347,7 +370,7 @@ export default {
   z-index: 2;
   height: 150px;
   width: 100%;
-  padding-top: 0px;
+  padding-top: 6px;
   padding-bottom: 0px;
   text-align: auto;
   text-justify: auto;
@@ -365,10 +388,15 @@ export default {
   margin-right: 10px;
   text-align: center;
   text-justify: center;
-  border-radius: 50px 50px 50px 50px;
+  border-radius: 50px 50px 0px 50px;
 }
 .r_BC {
-  background-color: rgb(36, 17, 6) !important;
+  background-color: rgb(
+    36,
+    17,
+    6
+  ) !important; /* AncColor2
+  
   /*background-color: #241518 !important;   */
   /*background-color: #2b2b29 !important;*/
   /*background-color: #241518 !important;*/
@@ -398,23 +426,46 @@ export default {
   height: 50px;
   /*width: 368px;*/
 }
+
+/*Menu*/
 .rmH {
   position: relative;
-  height: 5px;
+  height: 600px;
 }
 .rmvrow {
+  position: relative;
   z-index: 3;
-  /*background-color: orange !important; /*test*/
-  background-color: transparent !important;
+  height: 10px;
+  margin-left: 25px;
+  margin-right: 25px;
+  text-align: center;
+  text-justify: center;
+  border-radius: 0px 0px 50px 50px;
+
+  background-color: orange !important; /*test*/
+
+  /*background-color: transparent !important;*/
   top: 70px; /*width: 578px; */
 }
-.rmvcol {
-  /*background-color: yellow !important; /*test*/
-  background-color: transparent !important;
+.rmvcolS {
+  margin-left: 0px;
+  margin-right: 0px;
+  background-color: transparent !important; /*test*/
+  opacity: 0.5;
+  /*background-color: transparent !important;*/
+}
+.rmvcolD {
+  margin-left: 0px;
+  margin-right: 0px;
+  opacity: 0.9;
+  /* background-color: yellow !important; /*test*/
+  /*background-color: transparent !important;*/
+  border-radius: 0px 0px 25px 0px;
 }
 .rmvcolC {
-  /* background-color: pink !important; /*test*/
-  background-color: transparent !important;
+  opacity: 0.9;
+  /* background-color: transparent !important; */
+  border-radius: 0px 0px 0px 648px;
 }
 /*------------------------------------------------------------------------------------------------------*/
 /*color Background AR E */
@@ -493,7 +544,7 @@ export default {
   border-radius: 0px 0px 0px 0px;
 }
 .rcC_BC {
-  background-color: #241518 !importan;
+  background-color: #241518 !important;
 }
 .rcC_BC--T {
   background-color: salmon !important;
