@@ -93,6 +93,14 @@
           <!--
         <v-col class="rcD rcX rcLat rcLat_BC">
           -->
+
+          <v-icon
+            class="mx-4 AncIconColor"
+            large
+            dark
+            @click="gotoR(categorie[C/10-1].link)"
+          >{{categorie[C/10-1].icona}}</v-icon>
+
           <v-expand-x-transition>
             <v-btn icon v-show="!drawerLeft">
               <v-icon>mdi-magnify</v-icon>
