@@ -113,8 +113,10 @@
       ></b5xl>
     </div>
 
-    <!-- menu -- ****************************************************************** -->
+    <!-- INFO -- ****************************************************************** -->
     <div class="rmNews"></div>
+
+    <!-- menu -- ****************************************************************** -->
     <transition
       name="custom-classes-transition"
       enter-active-class="animated fadeInDown"
@@ -435,7 +437,7 @@ export default {
   /* ... comunicazioni ...*/
   position: absolute;
   z-index: 3;
-  height: 105px;
+  height: 150px;
   width: 100%;
   background-color: purple !important; /*test*/
 }
