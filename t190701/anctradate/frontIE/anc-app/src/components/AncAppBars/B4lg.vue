@@ -56,7 +56,7 @@
             <!-- drawer aperto -->
 
             <v-expand-x-transition>
-              <v-icon size="64" @click="setDF">mdi-close-circle</v-icon>
+              <v-icon size="48" @click="setDF">mdi-shield-half-full</v-icon>
             </v-expand-x-transition>
           </v-avatar>
 

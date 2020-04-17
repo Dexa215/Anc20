@@ -123,8 +123,23 @@
       <!-- div -->
 
       <v-row class="rmvrow" v-show="drawerLeft" text-align="center">
-        <v-col class="rmvcolS rmH"></v-col>
+        <!--  finestra amministatore -->
+        <v-col v-if="admin" class="rmvcolSadmin rmH">
+          <v-list dark shaped class="adminList">
+            <v-list-item class="tile" @click="gotoR('event/')">
+              <v-list-item-icon>
+                <v-icon>mdi-timeline-plus</v-icon>
+              </v-list-item-icon>
+
+              <v-list-item-content>
+                <v-list-item-title>Nuovo Evento</v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
+          </v-list>
+        </v-col>
+        <v-col v-else class="rmvcolS rmH"></v-col>
         <!-- /*trasparente*/ -->
+        <!--  finestra amministatore -->
 
         <v-col class="rmvcolC rmH rcC_BC" cols="5">
           <u4lg
@@ -219,7 +234,8 @@ export default {
     hlg: "84px",
     rcS: "rcS rcX rcLat rcLat_BC_Visitor",
     rcD: "rcD rcX rcLat rcLat_BC_Visitor",
-    rcU: "rcS rcX rcLat rcLat_BC_Visitor"
+    rcU: "rcS rcX rcLat rcLat_BC_Visitor",
+    admin: false
   }),
 
   methods: {
@@ -275,16 +291,26 @@ export default {
     setcolor() {
       var x = this;
       //console.log("setcolor analizzo this.requestuserisstaff...", x.requestUserIsStaff);
-      if (x.requestUserIsStaff === true) {
-        this.rcS = "rcS rcX rcLat rcLat_BC_Staff";
-        this.rcD = "rcD rcX rcLat rcLat_BC_Staff";
-        this.nbc = "black";
-        this.rcU = "rmvcolD rmH   rcLat_BC_Staff";
-      } else {
-        this.rcS = "rcS rcX rcLat rcLat_BC_Visitor";
-        this.rcD = "rcD rcX rcLat rcLat_BC_Visitor";
+      if (x.requestUserIsSuper === true) {
+        this.rcS = "rcS rcX rcLat rcLat_BC_Admin";
+        this.rcD = "rcD rcX rcLat rcLat_BC_Admin";
         this.nbc = "#212121"; //dark-grey
-        this.rcU = "rmvcolD rmH   rcLat_BC_Visitor";
+        this.rcU = "rmvcolD rmH   rcLat_BC_Admin";
+        this.admin = true;
+      } else {
+        if (x.requestUserIsStaff === true) {
+          this.rcS = "rcS rcX rcLat rcLat_BC_Staff";
+          this.rcD = "rcD rcX rcLat rcLat_BC_Staff";
+          this.nbc = "black";
+          this.rcU = "rmvcolD rmH   rcLat_BC_Staff";
+          this.admin = false;
+        } else {
+          this.rcS = "rcS rcX rcLat rcLat_BC_Visitor";
+          this.rcD = "rcD rcX rcLat rcLat_BC_Visitor";
+          this.nbc = "#212121"; //dark-grey
+          this.rcU = "rmvcolD rmH   rcLat_BC_Visitor";
+          this.admin = false;
+        }
       }
     }
   },
@@ -388,7 +414,7 @@ export default {
   margin-right: 10px;
   text-align: center;
   text-justify: center;
-  border-radius: 50px 50px 0px 50px;
+  border-radius: 50px 50px 50px 50px;
 }
 .r_BC {
   background-color: rgb(
@@ -454,6 +480,16 @@ export default {
   opacity: 0.5;
   /*background-color: transparent !important;*/
 }
+.rmvcolSadmin {
+  position: relative;
+  margin-left: 0px;
+  margin-right: 0px;
+  height: 200px;
+  background-color: #470410 !important; /*test*/
+  opacity: 0.95;
+  /*background-color: transparent !important;*/
+  border-radius: 5px 0px 150px 25px;
+}
 .rmvcolD {
   margin-left: 0px;
   margin-right: 0px;
@@ -507,6 +543,9 @@ export default {
   /*    EX:   .arbcs-Staff      */
   background-color: #470410 !important;
 }
+.rcLat_BC_Admin {
+  background-color: #470410 !important;
+}
 .rcLat_BC--T {
   background-color: red !important;
 }
@@ -544,7 +583,7 @@ export default {
   border-radius: 0px 0px 0px 0px;
 }
 .rcC_BC {
-  background-color: #241518 !important;
+  background-color: rgb(36, 17, 6) !important;
 }
 .rcC_BC--T {
   background-color: salmon !important;
@@ -644,6 +683,10 @@ export default {
   transform: scale(1, 1);
   height: 48px;
   width: 48px;
+}
+
+.adminList {
+  background-color: transparent !important;
 }
 
 /*V2*/
