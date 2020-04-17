@@ -1,6 +1,6 @@
-var menuR=function(){
+var menuR = function () {
 
-    this.finish=false;
+    this.finish = false;
     this.cat = [];          //tutte le categorie  
     this.cats = [];         //categoria corrente
     /*
@@ -11,52 +11,52 @@ var menuR=function(){
 };
 
 menuR.prototype.getCurrentCat = function (r) {
-        
-        this.finish = false;
 
-        var C = '';
-        var CS = '';
-        var cat = [];
+    this.finish = false;
 
-        console.log("menuRetrieve.JS --> CHIAMATA PER ... ", r);
-        switch (r) {
-            case "":                        cat = [0, 0]; break;
+    var C = '';
+    var CS = '';
+    var cat = [];
 
-            case "/":                       cat = [10, 0]; break;
-            case "/sede":                   cat = [20, 21]; break;
-            case "/sedeOrari":              cat = [20, 22]; break;
-            case "/contatti":               cat = [30, 0]; break;
-            case "/chisiamo":               cat = [40, 0]; break;
-            case "/chisiamosoci":           cat = [40, 41]; break;
-            case "/chisiamobenemerite":     cat = [40, 42]; break;
-            case "/chisiamosimpatizzanti":  cat = [40, 43]; break;
-            case "/agenda":                 cat = [50, 0]; break;
-            case "/archivio":               cat = [60, 0]; break;
-            
-            case "/event":                  cat = [60, 68]; break;//crea 
-            case "/event/":                 cat = [60, 68]; break;//crea  
+    console.log("menuRetrieve.JS --> CHIAMATA PER ... ", r);
+    switch (r) {
+        case "": cat = [0, 0]; break;
 
-            case "/event/:slug":            cat = [60, 69]; break;//modifica 
-            case "/tesseramento":           cat = [70, 0]; break;
-            case "/links":                  cat = [80, 0]; break;
+        case "/": cat = [10, 0]; break;
+        case "/sede": cat = [20, 21]; break;
+        case "/sedeOrari": cat = [20, 22]; break;
+        case "/contatti": cat = [30, 0]; break;
+        case "/chisiamo": cat = [40, 0]; break;
+        case "/chisiamosoci": cat = [40, 41]; break;
+        case "/chisiamobenemerite": cat = [40, 42]; break;
+        case "/chisiamosimpatizzanti": cat = [40, 43]; break;
+        case "/agenda": cat = [50, 0]; break;
+        case "/archivio": cat = [60, 0]; break;
 
-            default:                        cat = [10, 0]; break;
-        };
+        case "/event": cat = [60, 68]; break;//crea 
+        case "/event/": cat = [60, 68]; break;//crea  
 
-        console.log("menuRetrieve.JS --> CODIFICA OTTENUTA : ", cat);
-        this.cats = cat;
-        this.finish = true;
-        console.log("menuRetrieve.JS --> CODIFICA OTTENUTA : ", this.cats);
-        
-        
+        case "/event/:slug": cat = [60, 69]; break;//modifica 
+        case "/tesseramento": cat = [70, 0]; break;
+        case "/links": cat = [80, 0]; break;
+
+        default: cat = [10, 0]; break;
+    };
+
+    console.log("menuRetrieve.JS --> CODIFICA OTTENUTA : ", cat);
+    this.cats = cat;
+    this.finish = true;
+    console.log("menuRetrieve.JS --> CODIFICA OTTENUTA : ", this.cats);
+
+
 };
 
-menuR.prototype.canRead = function(){
+menuR.prototype.canRead = function () {
     console.log("menuRetrieve.JS canRead : ", this.finish);
     return this.finish;
 };
 
-menuR.prototype.getCat = function (){       //menu categorie
+menuR.prototype.getCat = function () {       //menu categorie
     this.finish = false;
 
     const menucat =
@@ -65,7 +65,8 @@ menuR.prototype.getCat = function (){       //menu categorie
                 n: "10",
                 descrizione: "home",
                 titolo: "",
-                icona: "mdi-shield-half-full",
+                //icona: "mdi-shield-half-full",
+                icona: "mdi-bank",
                 img: "/static/icons/menu/Sede.jpg",
                 imgEvidenza: "/static/icons/menu/importanteww.png",
                 link: "/",
@@ -90,7 +91,8 @@ menuR.prototype.getCat = function (){       //menu categorie
                 n: "20",
                 descrizione: "sede",
                 titolo: "Il ritrovo abituale per i soci",
-                icona: "mdi-bank",
+                icona: "mdi-compass",
+                //icona: "mdi-bank",
                 img: "/static/images/Icone/anclogo7.gif",
                 link: "/sede",
                 linksFP:
@@ -348,17 +350,17 @@ menuR.prototype.getCat = function (){       //menu categorie
                 ]
             },
         ];
-    
+
     this.cat = menucat;
 
     this.finish = true;
-    
+
     //return (menucat);
-    
+
 };
 
 menuR.prototype.canRead = function () {
     return this.finish;
-};   
+};
 
-module.exports= new menuR();
+module.exports = new menuR();

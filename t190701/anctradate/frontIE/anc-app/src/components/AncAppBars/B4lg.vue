@@ -93,16 +93,22 @@
           <!--
         <v-col class="rcD rcX rcLat rcLat_BC">
           -->
+          <v-btn icon class>
+            <v-icon
+              class="mx-4 AncIconColor"
+              large
+              dark
+              @click="gotoR(categorie[C/10-1].link)"
+            >{{categorie[C/10-1].icona}}</v-icon>
+          </v-btn>
 
-          <v-icon
-            class="mx-4 AncIconColor"
-            large
-            dark
-            @click="gotoR(categorie[C/10-1].link)"
-          >{{categorie[C/10-1].icona}}</v-icon>
+          <v-btn icon class @click.stop="setD" v-model="iconX">
+            <v-icon v-if="drawerLeft" large>{{ iconOdx }}</v-icon>
+            <v-icon v-else large>{{ iconCdx }}</v-icon>
+          </v-btn>
 
           <v-expand-x-transition>
-            <v-btn icon v-show="!drawerLeft">
+            <v-btn icon class v-show="!drawerLeft">
               <v-icon>mdi-magnify</v-icon>
             </v-btn>
           </v-expand-x-transition>
@@ -131,6 +137,10 @@ export default {
       //        iconO:"mdi-tray-full",
       iconC: "mdi-dots-vertical",
       iconO: "mdi-menu-up",
+
+      iconCdx: "mdi-menu-down",
+      iconOdx: "mdi-menu-up",
+
       requestToken: "",
       rvt: 10,
       breweries: [],
