@@ -65,7 +65,7 @@
 
         <v-col class="rcC rcX rcC_BC" cols="5">
           <!--v-expand-transition v-show="!drawerLeft" -->
-          <v-row class="rcCr rcCr_BC" align="center" dense style="z-index: 2">
+          <v-row class="rcCr rcCr_BC" align="center" justify="center" dense style="z-index: 2">
             <v-col class="rcCrcS rcCrcLat_BC">
               <div>lg - ANC</div>
             </v-col>
@@ -89,29 +89,85 @@
           <!--/v-expand-transition-->
         </v-col>
 
+        <!--
+        <v-col :class="rcD">
+        -->
         <v-col :class="rcD">
           <!--
         <v-col class="rcD rcX rcLat rcLat_BC">
           -->
-          <v-btn icon class>
-            <v-icon
-              class="mx-4 AncIconColor"
-              large
-              dark
-              @click="gotoR(categorie[C/10-1].link)"
-            >{{categorie[C/10-1].icona}}</v-icon>
-          </v-btn>
+          <v-row class="iconavR mx-auto" justify="center">
+            <!-- ICONE NAVIGAZIONE - SX -->
+            <v-col class="iconavcS">
+              <div class="xxx">
+                <v-icon
+                  v-for="item in categorie[C/10-1].sottocategorie"
+                  :key="item.n"
+                  class="mx-2 AncIconColor"
+                  large
+                  dark
+                  @click="gotoR(item.link)"
+                  style="height: 30px;"
+                >{{item.icona}}</v-icon>
+              </div>
 
-          <v-btn icon class @click.stop="setD" v-model="iconX">
-            <v-icon v-if="drawerLeft" large>{{ iconOdx }}</v-icon>
-            <v-icon v-else large>{{ iconCdx }}</v-icon>
-          </v-btn>
+              <!--
+              <div v-if="categorie[C/10-1].sottocategorie.length == 0" class="AncTitleColor ma-2">NN</div>
+              -->
 
-          <v-expand-x-transition>
-            <v-btn icon class v-show="!drawerLeft">
-              <v-icon>mdi-magnify</v-icon>
-            </v-btn>
-          </v-expand-x-transition>
+              <!-- TEST OK -->
+              <!--
+              <v-btn icon class>
+                <v-icon
+                  class="mx-4 AncIconColor"
+                  large
+                  dark
+                  @click="gotoR(categorie[C/10-1].link)"
+                >{{categorie[C/10-1].icona}}</v-icon>
+              </v-btn>
+              -->
+              <!-- TEST OK -->
+            </v-col>
+            <!-- ICONE NAVIGAZIONE - SX -->
+
+            <!-- <v-col cols="0"></v-col> -->
+
+            <!-- ICONE NAVIGAZIONE - DX style="height: 30px;" -->
+            <v-col class="iconavcD">
+              <div>
+                <v-icon
+                  class="mx-2 AncIconColor"
+                  large
+                  dark
+                  @click="gotoR(categorie[C/10-1].link)"
+                >{{categorie[C/10-1].icona}}</v-icon>
+
+                <v-icon
+                  @click.stop="setD"
+                  class="mx-2 AncIconColor"
+                  v-if="drawerLeft"
+                  medium
+                >{{ iconOdx }}</v-icon>
+                <v-icon @click.stop="setD" class="mx-2 AncIconColor" v-else medium>{{ iconCdx }}</v-icon>
+
+                <!--
+                <v-btn icon class @click.stop="setD" v-model="iconX">
+                  
+                </v-btn>
+                -->
+
+                <!--
+                <v-expand-x-transition>
+                  <v-btn icon class v-show="!drawerLeft">
+                   </v-btn>
+                </v-expand-x-transition>
+                -->
+
+                <v-icon v-show="!drawerLeft" class="mx-2 AncIconColor" large dark>mdi-magnify</v-icon>
+              </div>
+            </v-col>
+            <!-- ICONE NAVIGAZIONE - DX -->
+          </v-row>
         </v-col>
       </v-row>
     </v-app-bar>
@@ -234,4 +290,33 @@ export default {
 };
 </script>
 
-<style media="screen"></style>
+<style media="screen">
+.iconavR {
+  height: 100%;
+
+  background-color: transparent !important;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  padding-left: 2px;
+  padding-right: 2px;
+}
+.iconavcS {
+  /*height: 80%;*/
+  height: 100%;
+  background-color: transparent;
+  text-align: left;
+  padding-left: 5px;
+}
+.iconavcD {
+  /*height: 80%;*/
+  height: 100%;
+  background-color: transparent;
+  text-align: right;
+  padding-right: 15px;
+}
+.ct {
+  position: relative;
+  background-color: aqua;
+  height: 100%;
+}
+</style>

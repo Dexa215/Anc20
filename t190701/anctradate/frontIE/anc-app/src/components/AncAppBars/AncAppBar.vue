@@ -297,20 +297,20 @@ export default {
         this.rcS = "rcS rcX rcLat rcLat_BC_Admin";
         this.rcD = "rcD rcX rcLat rcLat_BC_Admin";
         this.nbc = "#212121"; //dark-grey
-        this.rcU = "rmvcolD rmH   rcLat_BC_Admin";
+        this.rcU = "rmvcolD rmH   rcLat_BC_Admin"; /*menu USER*/
         this.admin = true;
       } else {
         if (x.requestUserIsStaff === true) {
           this.rcS = "rcS rcX rcLat rcLat_BC_Staff";
           this.rcD = "rcD rcX rcLat rcLat_BC_Staff";
           this.nbc = "black";
-          this.rcU = "rmvcolD rmH   rcLat_BC_Staff";
+          this.rcU = "rmvcolD rmH   rcLat_BC_Staff"; /*menu USER*/
           this.admin = false;
         } else {
           this.rcS = "rcS rcX rcLat rcLat_BC_Visitor";
           this.rcD = "rcD rcX rcLat rcLat_BC_Visitor";
           this.nbc = "#212121"; //dark-grey
-          this.rcU = "rmvcolD rmH   rcLat_BC_Visitor";
+          this.rcU = "rmvcolD rmH   rcLat_BC_Visitor"; /*menu USER*/
           this.admin = false;
         }
       }
@@ -525,7 +525,6 @@ export default {
 }
 .rcLat {
   /*    add:  rcX rcLat_BC   */
-  padding: 8px 8px;
   margin-top: 4px;
   margin-bottom: 1px;
 }
@@ -560,6 +559,9 @@ export default {
   text-align: left;
   margin-left: 2px;
   margin-right: 0px;
+
+  padding: 8px 8px;
+
   border-radius: 48px 85px 0px 48px;
 }
 /*------------------------------------------------------------------------------------------------------*/
@@ -568,6 +570,9 @@ export default {
   text-align: right;
   margin-left: 0px;
   margin-right: 2px;
+
+  padding: 0px 8px 0px 8px; /*T-R-B-L*/
+
   border-radius: 85px 48px 48px 0px;
 }
 /*------------------------------------------------------------------------------------------------------*/

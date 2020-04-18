@@ -1,13 +1,4 @@
-04/17/2020 06:16:47 PM INFO autoreload 2844 31160 Watching for file changes with StatReloader
-04/17/2020 06:27:08 PM WARNING log 2844 4684 Not Found: /media/images/preview/7_poppy2gif.gif
-04/17/2020 06:27:08 PM WARNING log 2844 15420 Not Found: /media/images/preview/mugatu-s-l640.jpg
-04/17/2020 06:27:08 PM WARNING log 2844 4684 Not Found: /media/images/preview/slack-django-large2.jpg
-04/17/2020 06:35:11 PM WARNING log 2844 15420 Not Found: /media/images/preview/mugatu-s-l640.jpg
-04/17/2020 06:35:11 PM WARNING log 2844 4684 Not Found: /media/images/preview/slack-django-large2.jpg
-04/17/2020 06:35:11 PM WARNING log 2844 15420 Not Found: /media/images/preview/7_poppy2gif.gif
-04/17/2020 06:40:02 PM WARNING log 2844 4684 Not Found: /media/images/preview/mugatu-s-l640.jpg
-04/17/2020 06:40:02 PM WARNING log 2844 15420 Not Found: /media/images/preview/7_poppy2gif.gif
-04/17/2020 06:40:02 PM WARNING log 2844 15420 Not Found: /media/images/preview/slack-django-large2.jpg
-04/17/2020 06:41:46 PM WARNING log 2844 15420 Not Found: /media/images/preview/7_poppy2gif.gif
-04/17/2020 06:41:46 PM WARNING log 2844 4684 Not Found: /media/images/preview/slack-django-large2.jpg
-04/17/2020 06:41:46 PM WARNING log 2844 6924 Not Found: /media/images/preview/mugatu-s-l640.jpg
+04/18/2020 12:21:42 AM INFO autoreload 30060 19412 Watching for file changes with StatReloader
+04/18/2020 12:31:59 AM WARNING log 30060 17144 Not Found: /media/images/preview/slack-django-large2.jpg
+04/18/2020 12:31:59 AM WARNING log 30060 29576 Not Found: /media/images/preview/7_poppy2gif.gif
+04/18/2020 12:31:59 AM WARNING log 30060 17144 Not Found: /media/images/preview/mugatu-s-l640.jpg
