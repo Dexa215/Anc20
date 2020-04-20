@@ -128,26 +128,36 @@
       leave-active-class="animated fadeOutUp"
     >
       <v-row class="rmvrow" v-show="drawerLeft" text-align="center">
-        <v-row v-show="categorie[C/10-1].sottocategorie.length > 1" class="sottocategorieList">
-          <v-col cols="1" class="sottocategorieListr1"></v-col>
-          <v-col cols="3" class="sottocategorieListr2 rcLat_BC_Visitor">
-            <!-- Finestra sottocategorie -->
-            <v-col v-show="drawerSottocategoria" class="m4lgSottocategorie">
-              <m4lgSottocategorie
-                :C="C"
-                :CS="CS"
-                :categorie="categorie"
-                :drawerRight="drawerRight"
-                :drawerSottocategoria="drawerSottocategoria"
-                @gotoR="gotoR"
-                @setD="setD"
-                @setDF="setDF"
-                @mouseover="setDF()"
-              ></m4lgSottocategorie>
-            </v-col>
-            <!-- Finestra sottocategorie -->
+        <!-- BARRA SOTTOCATEGORIE -->
+        <transition
+          name="custom-classes-transition"
+          enter-active-class="animated fadeInRight"
+          leave-active-class="animated fadeOutRight"
+        >
+          <v-row
+            v-show="categorie[C/10-1].sottocategorie.length > 1 && drawerSottocategoria"
+            class="sottocategorieList"
+          >
+            <v-col cols="1" class="sottocategorieListr1"></v-col>
 
-            <!--
+            <v-col cols="3" class="sottocategorieListr2 rcLat_BC_Visitor">
+              <!-- Finestra sottocategorie -->
+              <v-col v-show="drawerSottocategoria" class="m4lgSottocategorie">
+                <m4lgSottocategorie
+                  :C="C"
+                  :CS="CS"
+                  :categorie="categorie"
+                  :drawerRight="drawerRight"
+                  :drawerSottocategoria="drawerSottocategoria"
+                  @gotoR="gotoR"
+                  @setD="setD"
+                  @setDF="setDF"
+                  @mouseover="setDF()"
+                ></m4lgSottocategorie>
+              </v-col>
+              <!-- Finestra sottocategorie -->
+
+              <!--
             <v-icon
               v-for="item in categorie[C/10-1].sottocategorie"
               :key="item.n"
@@ -158,10 +168,11 @@
               style="height: 30px;"
             >{{item.icona}}</v-icon>
 
-            -->
-          </v-col>
-          <v-col cols="8" class="sottocategorieListr3 rcLat_BC_Visitor"></v-col>
-        </v-row>
+              -->
+            </v-col>
+            <v-col cols="8" class="sottocategorieListr3 rcLat_BC_Visitor"></v-col>
+          </v-row>
+        </transition>
 
         <!-- menu sottocategorie... -->
 
@@ -855,7 +866,7 @@ export default {
 }
 .m4lgSottocategorie {
   position: absolute;
-  background-color: transparent !important;
+  background-color: YELLOW !important;
 }
 
 /*V2*/
@@ -1134,6 +1145,50 @@ border-radius
 
 .bounceOutLeft {
   animation-name: bounceOutLeft;
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translate3d(100%, 0, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.fadeInRight {
+  animation-name: fadeInRight;
+}
+@keyframes fadeOutLeft {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+.fadeOutLeft {
+  animation-name: fadeOutLeft;
+}
+@keyframes fadeOutRight {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+    transform: translate3d(100%, 0, 0);
+  }
+}
+
+.fadeOutRight {
+  animation-name: fadeOutRight;
 }
 
 /* TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT */

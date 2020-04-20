@@ -93,6 +93,7 @@ export default {
   text-align: right;
   padding-left: 70px;
   padding-right: 0px;
+  background-color: chocolate;
 }
 
 .itemSC {
