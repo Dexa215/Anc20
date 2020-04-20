@@ -113,11 +113,11 @@
       ></b5xl>
     </div>
 
-    <!-- INFO -- ****************************************************************** -->
-    <!-- test OK 2020 04 20 -->
+    <!-- INFO -- TEST 2020.04.20 -- *********************************************** -->
     <div class="rmNews">
       <ancNews :C="C" :CS="CS" :categorie="categorie"></ancNews>
     </div>
+    <!-- INFO -- ****************************************************************** -->
 
     <!-- menu -- ****************************************************************** -->
 
@@ -128,9 +128,46 @@
       leave-active-class="animated fadeOutUp"
     >
       <v-row class="rmvrow" v-show="drawerLeft" text-align="center">
-        <v-col class="rmH" cols="4"></v-col>
-        <!-- {{admincommands}} -->
+        <v-row v-show="categorie[C/10-1].sottocategorie.length > 1" class="sottocategorieList">
+          <v-col cols="1" class="sottocategorieListr1"></v-col>
+          <v-col cols="3" class="sottocategorieListr2 rcLat_BC_Visitor">
+            <!-- Finestra sottocategorie -->
+            <v-col v-show="drawerSottocategoria" class="m4lgSottocategorie">
+              <m4lgSottocategorie
+                :C="C"
+                :CS="CS"
+                :categorie="categorie"
+                :drawerRight="drawerRight"
+                :drawerSottocategoria="drawerSottocategoria"
+                @gotoR="gotoR"
+                @setD="setD"
+                @setDF="setDF"
+                @mouseover="setDF()"
+              ></m4lgSottocategorie>
+            </v-col>
+            <!-- Finestra sottocategorie -->
 
+            <!--
+            <v-icon
+              v-for="item in categorie[C/10-1].sottocategorie"
+              :key="item.n"
+              class="mx-2 AncIconColor"
+              large
+              dark
+              @click="gotoR(item.link)"
+              style="height: 30px;"
+            >{{item.icona}}</v-icon>
+
+            -->
+          </v-col>
+          <v-col cols="8" class="sottocategorieListr3 rcLat_BC_Visitor"></v-col>
+        </v-row>
+
+        <!-- menu sottocategorie... -->
+
+        <v-col class="rmH" cols="4"></v-col>
+
+        <!-- {{admincommands}} -->
         <!--
         <v-col v-if="admin" class="rmH">{{admincommands}}</v-col>
         <v-col v-else class="rmH">Visitor</v-col>
@@ -182,12 +219,14 @@
             :drawer="drawer"
             :drawerLeft="drawerLeft"
             :drawerRight="drawerRight"
+            :drawerSottocategoria="drawerSottocategoria"
             :rcLat_BC="rcLat_BC"
             :iconX="iconX"
             @gotoR="gotoR"
             @setD="setD"
             @setDF="setDF"
             @mouseover="setDF()"
+            @DSCset="DSCset()"
           ></m4lg>
         </v-col>
       </v-row>
@@ -210,9 +249,11 @@ import b3md from "@/components/AncAppBars/B3md.vue";
 import b4lg from "@/components/AncAppBars/B4lg.vue";
 import b5xl from "@/components/AncAppBars/B5xl.vue";
 /* Transitions */
-import m4lg from "@/components/AncM/M4lg.vue";
-import m4lgAdmin from "@/components/AncM/M4lgAdmin.vue";
-import u4lg from "@/components/AncM/AncU/U4lg.vue";
+
+import u4lg from "@/components/AncM/User/U4lg.vue";
+import m4lg from "@/components/AncM/Cat/M4lg.vue";
+import m4lgSottocategorie from "@/components/AncM/CatSotto/M4lgSottocategorie.vue";
+import m4lgAdmin from "@/components/AncM/Admin/M4lgAdmin.vue";
 
 export default {
   name: "ancAppBar",
@@ -224,9 +265,10 @@ export default {
     b4lg,
     b5xl,
 
-    m4lg,
-    m4lgAdmin,
     u4lg,
+    m4lg,
+    m4lgSottocategorie,
+    m4lgAdmin,
     ancNews
   },
 
@@ -254,7 +296,8 @@ export default {
     rcD: "rcD rcX rcLat rcLat_BC_Visitor",
     rcU: "rcS rcX rcLat rcLat_BC_Visitor",
     admin: false,
-    admincommands: false
+    admincommands: false,
+    drawerSottocategoria: true
   }),
 
   methods: {
@@ -334,6 +377,21 @@ export default {
           this.rcU = "rmvcolD rmH   rcLat_BC_Visitor"; /*menu USER*/
           this.admin = false;
         }
+      }
+    },
+
+    /* Drawer Sotto Categoria */
+    DSCset(state) {
+      switch (state) {
+        case "true":
+          this.drawerSottocategoria = true;
+          break;
+        case "false":
+          this.drawerSottocategoria = false;
+          break;
+        default:
+          this.drawerSottocategoria = !this.drawerSottocategoria;
+          break;
       }
     }
   },
@@ -763,6 +821,40 @@ export default {
 }
 
 .adminList {
+  background-color: transparent !important;
+}
+
+.sottocategorieList {
+  position: absolute;
+
+  background-color: transparent !important;
+  height: 600px;
+  width: 100%;
+  border-radius: 0px 0px 0px 0px;
+}
+
+.sottocategorieListr1 {
+  position: relative;
+  background-color: transparent !important;
+  height: 600px;
+  border-radius: 0px 0px 0px 0px;
+}
+
+.sottocategorieListr2 {
+  position: relative;
+  height: 300px;
+  border-radius: 0px 0px 0px 650px;
+}
+
+.sottocategorieListr3 {
+  position: relative;
+  text-align: left;
+  /* background-color: green !important;*/
+  height: 300px;
+  border-radius: 0px 0px 0px 0px;
+}
+.m4lgSottocategorie {
+  position: absolute;
   background-color: transparent !important;
 }
 

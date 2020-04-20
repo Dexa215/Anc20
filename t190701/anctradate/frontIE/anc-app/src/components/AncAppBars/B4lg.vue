@@ -39,25 +39,23 @@
 
           <v-row class="iconavR mx-auto" justify="center">
             <!-- ICONE NAVIGAZIONE - SX class="avatar" -->
-            <v-col class="iconavcS" cols="9">
+
+            <v-col class="iconavcS" cols="6">
+              <!--
+              <span
+                v-if="categorie[C/10-1].sottocategorie.length > 1"
+                class="mr-2"
+                style="color:lightblue;"
+              >
+                <v-btn rounded>+</v-btn>
+              </span>
+              -->
               <transition
                 name="custom-classes-transition"
                 enter-active-class="animated bounceInLeft"
                 leave-active-class="animated fadeOutUp"
               >
-                <v-icon
-                  class="mx-6 AncIconColor"
-                  large
-                  dark
-                  @click="gotoR(categorie[C/10-1].link)"
-                >{{categorie[C/10-1].icona}}</v-icon>
-              </transition>
-              <transition
-                name="custom-classes-transition"
-                enter-active-class="animated bounceInLeft"
-                leave-active-class="animated fadeOutUp"
-              >
-                <v-btn rounded>
+                <v-btn rounded v-if="categorie[C/10-1].descrizione">
                   <a class="ml-4 mr-2">
                     <span
                       v-if="categorie[C/10-1].descrizione.length < 15"
@@ -72,18 +70,34 @@
             </v-col>
 
             <!-- v-col class="iconavcD" cols="3" style="background-color:orange !important"-->
-            <v-col class="iconavcD" cols="3">
+            <v-col class="iconavcSbtnCategoriaCorrente" cols="2">
               <!--
               TODO: controllare transizione apparentemente non attiva
               -->
 
-              <span
-                v-if="categorie[C/10-1].sottocategorie.length > 1"
-                class="mr-2"
-                style="color:lightblue;"
+              <!-- categoria corrente -->
+              <transition
+                name="custom-classes-transition"
+                enter-active-class="animated bounceInLeft"
+                leave-active-class="animated fadeOutUp"
               >
-                <v-btn rounded>+</v-btn>
-              </span>
+                <v-icon
+                  class="AncIconColor"
+                  large
+                  dark
+                  @click="gotoR(categorie[C/10-1].link)"
+                >{{categorie[C/10-1].icona}}</v-icon>
+              </transition>
+              <!-- categoria corrente -->
+            </v-col>
+
+            <v-col class="iconavcSbtnMENU" cols="2">
+              <!-- BTN MENU -->
+              <v-btn icon v-model="iconX" @click.stop="setD">
+                <v-icon v-if="drawerLeft" large>{{ iconO }}</v-icon>
+                <v-icon v-else large>{{ iconC }}</v-icon>
+              </v-btn>
+              <!-- BTN MENU -->
             </v-col>
           </v-row>
         </v-col>
@@ -96,16 +110,7 @@
             </v-col>
 
             <v-col class="rcCrcC rcCrcX rcCrcC_BC">
-              <!-- v-app-bar -->
-              <v-app-bar-nav-icon @click.stop="setD">
-                <v-btn icon class v-model="iconX">
-                  <v-icon v-if="drawerLeft" large>{{ iconO }}</v-icon>
-                  <v-icon v-else large>{{ iconC }}</v-icon>
-                </v-btn>
-              </v-app-bar-nav-icon>
-              <!-- v-app-bar -->
-
-              <v-avatar class="avatar" size="32" right="true" v-if="!drawerLeft">
+              <v-avatar class="avatar" size="48" right="true" v-if="!drawerLeft">
                 <!-- drawer aperto-->
 
                 <v-expand-x-transition>
@@ -120,7 +125,7 @@
                 </v-expand-x-transition>
               </v-avatar>
 
-              <v-avatar class="avatar" size="32" right="true" v-else>
+              <v-avatar class="avatar" size="48" right="true" v-else>
                 <!-- drawer aperto -->
 
                 <v-expand-x-transition>
@@ -160,6 +165,10 @@
               </div>
               -->
 
+              <v-expand-x-transition>
+                <v-icon v-show="!drawerLeft" class="mx-2 AncIconColor" large dark>mdi-magnify</v-icon>
+              </v-expand-x-transition>
+
               <v-icon
                 v-for="item in categorie[C/10-1].sottocategorie"
                 :key="item.n"
@@ -192,8 +201,18 @@
             <!-- <v-col cols="0"></v-col> -->
 
             <!-- ICONE NAVIGAZIONE - DX style="height: 30px;" -->
-            <v-col class="iconavcD">
-              <div>
+            <v-col class="iconavcDD">
+              <!-- v-app-bar -->
+              <!--v-app-bar-nav-icon >
+              </v-app-bar-nav-icon-->
+
+              <v-btn icon v-model="iconX" @click.stop="setD">
+                <v-icon v-if="drawerLeft" large>{{ iconO }}</v-icon>
+                <v-icon v-else large>{{ iconC }}</v-icon>
+              </v-btn>
+
+              <!-- v-app-bar -->
+              <!--
                 <v-icon
                   @click.stop="setD"
                   class="mx-2 AncIconColor"
@@ -201,23 +220,20 @@
                   large
                 >{{ iconOdx }}</v-icon>
                 <v-icon @click.stop="setD" class="mx-2 AncIconColor" v-else large>{{ iconCdx }}</v-icon>
+              -->
 
-                <!--
+              <!--
                 <v-btn icon class @click.stop="setD" v-model="iconX">
                   
                 </v-btn>
-                -->
+              -->
 
-                <!--
+              <!--
                 <v-expand-x-transition>
                   <v-btn icon class v-show="!drawerLeft">
                    </v-btn>
                 </v-expand-x-transition>
-                -->
-                <v-expand-x-transition>
-                  <v-icon v-show="!drawerLeft" class="mx-2 AncIconColor" large dark>mdi-magnify</v-icon>
-                </v-expand-x-transition>
-              </div>
+              -->
             </v-col>
             <!-- ICONE NAVIGAZIONE - DX -->
           </v-row>
@@ -239,6 +255,7 @@ export default {
   data() {
     return {
       expand: "true",
+      expandSC: "false",
       h: "80px",
       cab: "AncAppBarE cBE-Vis",
       iconX: "mdi-menu",
@@ -353,6 +370,25 @@ export default {
   padding-left: 2px;
   padding-right: 2px;
 }
+
+.iconavcSbtnCategoriaCorrente {
+  position: relative;
+  /*height: 80%;*/
+  height: 100%;
+  /* background-color: burlywood !important;*/
+  text-align: center;
+  padding-top: 12px;
+}
+
+.iconavcSbtnMENU {
+  position: relative;
+  /*height: 80%;*/
+  height: 100%;
+  /* background-color: GREEN !important; */
+  text-align: center;
+  padding-top: 5px;
+}
+
 .iconavcS {
   position: relative;
   /*height: 80%;*/
@@ -361,12 +397,20 @@ export default {
   text-align: left;
   padding-left: 5px;
 }
-.iconavcD {
+.iconavcSD {
   /*height: 80%;*/
   height: 100%;
   background-color: transparent !important;
   text-align: right;
   padding-right: 15px;
+}
+.iconavcDD {
+  /*height: 80%;*/
+  height: 100%;
+  background-color: transparent !important;
+  text-align: right;
+  padding-right: 20px;
+  padding-top: 5px;
 }
 .ct {
   position: relative;

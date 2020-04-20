@@ -6,9 +6,11 @@
     <!-- test 2020 04 16 -->
 
     <v-row class="mr mx-auto">
+      <a style="color : white">{{drawerSottocategoria}}</a>
+
       <!--v-col>lato sx</v-col-->
       <!-- shaped -->
-      <v-col>
+      <v-col @mouseenter="DSCset()" @mouseleave="DSCset()">
         <v-list shaped dark class="ancM4l ancM4l_BC">
           <!-- color="rgb(36, 17, 6)" -->
           <v-list-item
@@ -19,7 +21,9 @@
             @click="gotoR(item.link)"
           >
             <v-list-item-content>
-              <v-list-item-title>{{ item.descrizione }}</v-list-item-title>
+              <v-btn rounded>
+                <v-list-item-title>{{ item.descrizione }}</v-list-item-title>
+              </v-btn>
             </v-list-item-content>
 
             <v-list-item-icon>
@@ -48,7 +52,7 @@
 
 <script>
 import router from "@/router";
-import u4lg from "@/components/AncM/AncU/U4lg.vue";
+import u4lg from "@/components/AncM/User/U4lg.vue";
 
 export default {
   name: "m4lg",
@@ -67,7 +71,8 @@ export default {
     C: { type: Number },
     CS: { type: Number },
     categorie: { type: Array },
-    drawerRight: { type: Boolean }
+    drawerRight: { type: Boolean },
+    drawerSottocategoria: { type: Boolean }
   },
 
   data() {
@@ -112,6 +117,11 @@ export default {
       console.log("M4lg rotta per...");
       this.$emit("gotoR", r);
     },
+
+    DSCset(state) {
+      this.$emit("DSCset", state);
+    },
+
     ctlD() {
       let d = this.drawerRight;
       console.log("d:", d);
