@@ -1,30 +1,30 @@
-import Vue                      from "vue";
-import Router                   from "vue-router";
-import Home                     from "./views/Home.vue";
-import Esempio                  from "./views/Esempio.vue";
-import Sede                     from "./views/Sede.vue";
-import SedeOrari                from "./views/SedeOrari.vue";
-import Contatti                 from "./views/Contatti.vue";
+import Vue from "vue";
+import Router from "vue-router";
+import Home from "./views/Home.vue";
+//import Esempio from "./views/Esempio.vue";
+import Sede from "./views/Sede.vue";
+import SedeOrari from "./views/SedeOrari.vue";
+import Contatti from "./views/Contatti.vue";
 
-import Chisiamo                 from "./views/Chisiamo.vue";
-import ChisiamoBenemerite       from "./views/ChisiamoBenemerite.vue";
-import ChisiamoSimpatizzanti    from "./views/ChisiamoSimpatizzanti.vue";
-import ChisiamoSoci             from "./views/ChisiamoSoci.vue";
+import Chisiamo from "./views/Chisiamo.vue";
+import ChisiamoBenemerite from "./views/ChisiamoBenemerite.vue";
+import ChisiamoSimpatizzanti from "./views/ChisiamoSimpatizzanti.vue";
+import ChisiamoSoci from "./views/ChisiamoSoci.vue";
 
-import Eventi                   from "./views/Eventi.vue";
-import Links                    from "./views/Links.vue";
-import Bacheca                  from "./views/Bacheca.vue";
+//import Eventi from "./views/Eventi.vue";
+import Links from "./views/Links.vue";
+import Bacheca from "./views/Bacheca.vue";
 
-import Tesseramentoprassi       from "./views/Tesseramentoprassi.vue";
-import Tesseramento             from "./views/Tesseramento.vue";
-import Event                    from "./views/Event.vue"; 
-import EventEditor              from "./views/EventEditor.vue";
+import Tesseramentoprassi from "./views/Tesseramentoprassi.vue";
+import Tesseramento from "./views/Tesseramento.vue";
+import Event from "./views/Event.vue";
+import EventEditor from "./views/EventEditor.vue";
 
 //import EventNEXT from "./views/EventNEXT.vue";
 
-import Agenda                   from "./views/Agenda.vue";
-import Archivio                 from "./views/Archivio.vue";
-import ArchivioAnno             from "./views/ArchivioAnno.vue";
+import Agenda from "./views/Agenda.vue";
+import Archivio from "./views/Archivio.vue";
+import ArchivioAnno from "./views/ArchivioAnno.vue";
 
 
 
@@ -32,129 +32,134 @@ import ArchivioAnno             from "./views/ArchivioAnno.vue";
 Vue.use(Router);
 export default new Router({
     mode: "history",      // # normalmente verrebbe usato l'hashtag
-                          // base: process.env.BASE_URL,
-                          // doppio percorso nella barra di navigazione
+    // base: process.env.BASE_URL,
+    // doppio percorso nella barra di navigazione
 
 
-  routes: [
-    {
-        path: "^.*$",
-        name: "homeDefault",
-        component: Home
-    },
-    {
-        path: "/",
-        name: "home",         //export default {  name: "home"
-        component: Home       //Home.vue
-    },
-      {
-          path: "/home",
-          name: "home",         
-          component: Home      
-      },
-    {
-        path: "/esempio",
-        name: "esempio",
-        component: Esempio
-    },
-    {
-        path: "/sede",
-        name: "sede",
-        component: Sede
-    },
-    {
-        path: "/sedeOrari",
-        name: "sedeOrari",
-        component: SedeOrari
-    },
-    {
-        path: "/contatti",
-        name: "contatti",
-        component: Contatti
-    },
+    routes: [
+        {
+            path: "^.*$",
+            name: "homeDefault",
+            component: Home
+        },
+        {
+            path: "/",
+            name: "home",         //export default {  name: "home"
+            component: Home       //Home.vue
+        },
+        {
+            path: "/home",
+            name: "home",
+            component: Home
+        },
+        /*      {
+                  path: "/esempio",
+                  name: "esempio",
+                  component: Esempio
+              },
+        */
+        {
+            path: "/sede",
+            name: "sede",
+            component: Sede
+        },
+        {
+            path: "/sedeOrari",
+            name: "sedeOrari",
+            component: SedeOrari
+        },
+        {
+            path: "/contatti",
+            name: "contatti",
+            component: Contatti
+        },
 
-    {
-        path: "/chisiamo",
-        name: "chisiamo",
-        component: Chisiamo
-    },
-    {
-        path: "/chisiamosoci",
-        name: "chisiamosoci",
-        component: ChisiamoSoci
-    },
-    {
-        path: "/chisiamobenemerite",
-        name: "chisiamobenemerite",
-        component: ChisiamoBenemerite
-    },
-    {
-        path: "/chisiamosimpatizzanti",
-        name: "chisiamosimpatizzanti",
-        component: ChisiamoSimpatizzanti
-    },
+        {
+            path: "/chisiamo",
+            name: "chisiamo",
+            component: Chisiamo
+        },
+        {
+            path: "/chisiamosoci",
+            name: "chisiamosoci",
+            component: ChisiamoSoci
+        },
+        {
+            path: "/chisiamobenemerite",
+            name: "chisiamobenemerite",
+            component: ChisiamoBenemerite
+        },
+        {
+            path: "/chisiamosimpatizzanti",
+            name: "chisiamosimpatizzanti",
+            component: ChisiamoSimpatizzanti
+        },
 
-    {
-        path: "/eventi",
-        name: "eventi",
-        component: Eventi
-    },
-    {
-        path: "/event/:slug",
-        name: "event",
-        component: Event,
-        props: true
-    },
-    {
-        path: "/event/",
-        name: "eventEditor",
-        component: EventEditor
-    },
-    {
-        path: "/links",
-        name: "links",
-        component: Links
-    },
-    {
-        path: "/bacheca",
-        name: "bacheca",
-        component: Bacheca
-    },
-    {
-        path: "/tesseramento",
-        name: "tesseramento",
-        component: Tesseramento
-    },
-    {
-        path: "/tesseramentoprassi",
-        name: "tesseramentoprassi",
-        component: Tesseramentoprassi
-    },
-    {
-        path: "/agenda",
-        name: "agenda",
-        component: Agenda
-//        component: EventNEXT
-    },
-    {
-        path: "/archivio",
-        name: "archivio",
-        component: Archivio
-    },
-    {
-        path: "/archivioAnno",
-        name: "archivioAnno",
-        component: ArchivioAnno
-    },
-    {
-        path: "/about",
-        name: "about",
-        // route level code-splitting
-        // this generates a separate chunk (about.[hash].js) for this route
-        // which is lazy-loaded when the route is visited.
-        component: () =>
-          import(/* webpackChunkName: "about" */ "./views/About.vue")
-    },
+        /*        {
+                    path: "/eventi",
+                    name: "eventi",
+                    component: Eventi
+                },
+         */
+        {
+            path: "/event/:slug",
+            name: "event",
+            component: Event,
+            props: true
+        },
+        {
+            path: "/event/",
+            name: "eventEditor",
+            component: EventEditor
+        },
+        {
+            path: "/links",
+            name: "links",
+            component: Links
+        },
+        {
+            path: "/bacheca",
+            name: "bacheca",
+            component: Bacheca
+        },
+        {
+            path: "/tesseramento",
+            name: "tesseramento",
+            component: Tesseramento
+        },
+        {
+            path: "/tesseramentoprassi",
+            name: "tesseramentoprassi",
+            component: Tesseramentoprassi
+        },
+        {
+            path: "/agenda",
+            name: "agenda",
+            component: Agenda
+            //        component: EventNEXT
+        },
+        {
+            path: "/archivio",
+            name: "archivio",
+            component: Archivio
+        },
+        {
+            path: "/archivioAnno",
+            name: "archivioAnno",
+            component: ArchivioAnno
+        },
+        /*
+        {
+            path: "/about",
+            name: "about",
+            // route level code-splitting
+            // this generates a separate chunk (about.[hash].js) for this route
+            // which is lazy-loaded when the route is visited.
+            component: () =>
+              import(/* webpackChunkName: "about"  "./views/About.vue")
+    
+            },
+        */
 
-  ]
+    ]
 });

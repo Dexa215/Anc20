@@ -22,7 +22,8 @@
     "vue-material-design-icons": "^4.1.0",
     "vue-media-library-image": "^0.1.2",
     "vue2-google-maps": "^0.10.7",
-    "vuetify": "^2.0.19"
+    "vuetify": "^2.0.19",
+    "vuex": "^3.2.0"
   },
   "devDependencies": {},
   "scripts": {

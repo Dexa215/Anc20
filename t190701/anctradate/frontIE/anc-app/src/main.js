@@ -1,15 +1,18 @@
-import Vue                  from "vue";
-import App                  from "./App.vue";
-import router               from "./router";
-import vuetify              from './plugins/vuetify';
+import Vue from "vue";
+import Vuex from "vuex";
+//Vue.use(Vuex)
 
-import VueFilterDateFormat  from 'vue-filter-date-format';
-import vueDateFormat        from 'vue-date-format';
-import moment               from 'moment';
+import App from "./App.vue";
+import router from "./router";
+import vuetify from './plugins/vuetify';
+
+import VueFilterDateFormat from 'vue-filter-date-format';
+import vueDateFormat from 'vue-date-format';
+import moment from 'moment';
 //import VueI18n              from 'vue-i18n'
 
-import {i18n}               from './plugins/i18n.js';
-import VueCookies           from 'vue-cookies';
+import { i18n } from './plugins/i18n.js';
+import VueCookies from 'vue-cookies';
 
 import VueAuthenticateService from 'vue-authenticate-service';
 
@@ -27,10 +30,10 @@ Vue.config.productionTip = false
 // set default config
 VueCookies.config('7d')
 // set global cookie
-VueCookies.set('theme','default');
-VueCookies.set('hover-time','1s');
+VueCookies.set('theme', 'default');
+VueCookies.set('hover-time', '1s');
 
-Vue.filter('formatDate', function(value) {
+Vue.filter('formatDate', function (value) {
   if (value) {
     return moment(String(value)).format('DD MMMM YYYY')
   }
@@ -42,13 +45,15 @@ i18n.locale = 'it';
 new Vue({
 
   router,
+  //Vuex,
+
   vuetify,
   VueFilterDateFormat,
   vueDateFormat,
   i18n,
   VueCookies,
-//  VueAuthenticateService,
-//  VueAuth,
+  //  VueAuthenticateService,
+  //  VueAuth,
 
   render: h => h(App)
 }).$mount("#app");

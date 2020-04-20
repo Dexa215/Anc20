@@ -9,6 +9,7 @@
           outlined
           large
           color="rgb(245, 244, 228)"
+          @click="acs"
         >
           <a style="color:red;">Amministratore</a>
         </v-btn>
@@ -154,6 +155,10 @@ export default {
       console.log("U4lg rotta per...");
       this.$emit("gotoR", r);
     },
+    acs() {
+      this.$emit("adminCommandSwitch");
+    },
+
     ctlD() {
       let d = this.drawerRight;
       console.log("d:", d);

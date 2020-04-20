@@ -34,7 +34,7 @@ function getCat () {//menu categorie
         [
             {//cat1
                 n: "10",
-                descrizione: "home",
+                descrizione: "Home",
                 titolo: "",
                 //icona: "mdi-shield-half-full",
                 icona: "mdi-bank",

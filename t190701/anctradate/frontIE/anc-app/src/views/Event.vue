@@ -1,5 +1,6 @@
 <template lang="html">
   <div class="single-event">
+    <v-row class="AncTrasparenza" v-show="drawerLeft"></v-row>
   <!--
   name
   lastModified
@@ -516,18 +517,18 @@ test parallax OK !!! ***********************************************************
 </template>
 
 <script>
-import router                   from "../router";
+import router from "../router";
 
-import { apiService }           from "../common/api.service";
-import PhotoComponent           from "../components/Photo.vue";
-import EventActions             from "../components/EventActions.vue";
+import { apiService } from "../common/api.service";
+import PhotoComponent from "../components/Photo.vue";
+import EventActions from "../components/EventActions.vue";
 
 //test axios
-import { axiosTest }            from "../common/axios_calls";
-import { axiosGet }             from "../common/axios_calls";
-import { CSRF_TOKEN }           from "../common/csrf_token.js";
+import { axiosTest } from "../common/axios_calls";
+import { axiosGet } from "../common/axios_calls";
+import { CSRF_TOKEN } from "../common/csrf_token.js";
 
-import AncCard                  from "@/components/AncCard.vue";
+import AncCard from "@/components/AncCard.vue";
 
 /*
 import { axiosRequest }         from "../common/axios_calls";
@@ -546,107 +547,99 @@ export default {
   name: "Event",
 
   props: {
-    slug:           {
-                      type: String,
-                      required: true
-                    },
-    id:             {
-                      type: Number, 
-                      required: true
-                    },
-    requestUser:    {
-                      type: String
-                    },
-    categorie:      { type: Array,},     
-    C:              { type: Number,},
-    CS:             { type: Number,},
+    slug: {
+      type: String,
+      required: true
+    },
+    id: {
+      type: Number,
+      required: true
+    },
+    requestUser: {
+      type: String
+    },
+    categorie: { type: Array },
+    C: { type: Number },
+    CS: { type: Number },
 
+    drawerLeft: { type: Boolean }
   },
 
   components: {
     PhotoComponent,
     EventActions,
-     AncCard
+    AncCard
   },
 
   data() {
     return {
+      selectedphoto: "",
 
-        selectedphoto:"",
+      event: {},
+      loadingPhotos: false,
+      items: [
+        {
+          src: "https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg"
+        },
+        {
+          src: "https://cdn.vuetifyjs.com/images/carousel/sky.jpg"
+        },
+        {
+          src: "https://cdn.vuetifyjs.com/images/carousel/bird.jpg"
+        },
+        {
+          src: "https://cdn.vuetifyjs.com/images/carousel/planet.jpg"
+        }
+      ],
+      photos: [],
+      photoss: [
+        "https://ichef.bbci.co.uk/news/624/cpsprodpb/65EB/production/_103919062_ezultimo.jpg",
+        "https://ichef.bbci.co.uk/news/624/cpsprodpb/2F81/production/_103916121_mediaitem103910950.jpg"
+      ],
+      //userHasAnswered: false,
+      showForm: false,
+      newPhotoBody: null,
+      error: null,
+      next: null,
 
-        event: {},
-        loadingPhotos: false,
-        items: [
-          {
-            src: 'https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg'
-          },
-          {
-            src: 'https://cdn.vuetifyjs.com/images/carousel/sky.jpg'
-          },
-          {
-            src: 'https://cdn.vuetifyjs.com/images/carousel/bird.jpg'
-          },
-          {
-            src: 'https://cdn.vuetifyjs.com/images/carousel/planet.jpg'
-          }
-        ],
-        photos: [],
-        photoss : [
-          'https://ichef.bbci.co.uk/news/624/cpsprodpb/65EB/production/_103919062_ezultimo.jpg',
-          'https://ichef.bbci.co.uk/news/624/cpsprodpb/2F81/production/_103916121_mediaitem103910950.jpg'
+      //form *************************************************************************
+      valid: true,
+      name: "",
+      nameRules: [
+        v => !!v || "Name is required",
+        v => (v && v.length <= 10) || "Name must be less than 10 characters"
+      ],
+      email: "",
+      emailRules: [
+        v => !!v || "E-mail is required",
+        v => /.+@.+\..+/.test(v) || "E-mail must be valid"
+      ],
+      select: null,
+      items: ["Item 1", "Item 2", "Item 3", "Item 4"],
+      checkbox: false,
+      lazy: false,
 
-        ],
-        //userHasAnswered: false,
-        showForm: false,
-        newPhotoBody: null,
-        error: null,
-        next: null,
+      postevento: null,
+      postdescrizione: null,
+      postdata: null,
 
-//form *************************************************************************
-        valid: true,
-        name: '',
-        nameRules: [
-          v => !!v || 'Name is required',
-          v => (v && v.length <= 10) || 'Name must be less than 10 characters',
-        ],
-        email: '',
-        emailRules: [
-          v => !!v || 'E-mail is required',
-          v => /.+@.+\..+/.test(v) || 'E-mail must be valid',
-        ],
-        select: null,
-        items: [
-          'Item 1',
-          'Item 2',
-          'Item 3',
-          'Item 4',
-        ],
-        checkbox: false,
-        lazy: false,
+      postnewphoto: null,
+      file: "",
+      ideventofoto: 38,
 
-        postevento: null,
-        postdescrizione: null,
-        postdata:null,
+      ppLoading: null,
+      ppNext: null,
+      pp: [],
+      selected: [],
 
-        postnewphoto:null,
-        file:'',
-        ideventofoto:38,
-        
-        ppLoading:null,
-        ppNext:null,
-        pp:[],
-        selected: [],
+      loader: null,
+      loading: false,
+      loading2: false,
+      loading3: false,
+      loading4: false,
+      loading5: false,
 
-        loader: null,
-        loading: false,
-        loading2: false,
-        loading3: false,
-        loading4: false,
-        loading5: false,
-
-        axiosMsg:"",
-
-
+      axiosMsg: ""
     };
   },
 
@@ -660,13 +653,12 @@ export default {
   },
 
   methods: {
-
     AxiosTest() {
-        axiosTest();
+      axiosTest();
     },
 
     AxiosTestGet() {
-        axiosGet();
+      axiosGet();
     },
 
     setPageTitle(title) {
@@ -676,7 +668,7 @@ export default {
     setRequestUser() {
       this.requestUser = window.localStorage.getItem("username");
     },
-/*
+    /*
     getRequestUser() {
         let endpoint = "api/profiles/getcurrentuser/";
         apiService(endpoint).then(data => {
@@ -688,16 +680,15 @@ export default {
 */
 
     getEventData() {
-        let endpoint = `/api/events/${this.slug}/`;
-        apiService(endpoint).then(data => {
-            this.event = data;
-            //this.userHasAnswered = data.user_has_answered;
-            this.setPageTitle(data.content);
+      let endpoint = `/api/events/${this.slug}/`;
+      apiService(endpoint).then(data => {
+        this.event = data;
+        //this.userHasAnswered = data.user_has_answered;
+        this.setPageTitle(data.content);
       });
     },
 
-
-/*
+    /*
     async deleteEvent() {
       let endpoint = `/api/events/${this.slug}/`;
 
@@ -708,93 +699,86 @@ export default {
       }
     },
 */
-    async eventoDELETE()
-      { 
-        const axios = require('axios');
-        let url = `/api/events/${this.slug}/`
+    async eventoDELETE() {
+      const axios = require("axios");
+      let url = `/api/events/${this.slug}/`;
 
-        axios.delete( url,{ headers:{ "Content-Type":"multipart/form-data",
-                                      "X-CSRFToken": CSRF_TOKEN }}
-                    ).then(response => 
-                            { console.log('SUCCESS!! EVENTO CANCELLATO');
-                              //this.axiosMsg = "evento cancellato";
-                              this.gotoR("/");
-                            }
-                          ).catch(function(){ console.log('evento delete FAILURE!!');
-                                              //this.axiosMsg = "evento NON cacellato"; 
-                                            }
-                                  );
-      },
-    
-    eventoPATCH()
-      { const axios = require('axios');
-        let url = `/api/events/${this.slug}/`
+      axios
+        .delete(url, {
+          headers: {
+            "Content-Type": "multipart/form-data",
+            "X-CSRFToken": CSRF_TOKEN
+          }
+        })
+        .then(response => {
+          console.log("SUCCESS!! EVENTO CANCELLATO");
+          //this.axiosMsg = "evento cancellato";
+          this.gotoR("/");
+        })
+        .catch(function() {
+          console.log("evento delete FAILURE!!");
+          //this.axiosMsg = "evento NON cacellato";
+        });
+    },
 
-        console.log('title prima',this.title);
+    eventoPATCH() {
+      const axios = require("axios");
+      let url = `/api/events/${this.slug}/`;
 
-        let formData = new FormData();      //Initialize the form data
-        
-        formData.append('title',    'title MOD 9');               
-        formData.append('content',  'content MOD 9');
-        formData.append('luogo',    'luogo MOD 9');
+      console.log("title prima", this.title);
 
-        
-        console.log('title durante ',this.title + "modificato2");
-        console.log("dati...",formData);
+      let formData = new FormData(); //Initialize the form data
 
-        axios.patch(url,
-                   formData,
-                   { headers:{"Content-Type":"multipart/form-data",
-                               "X-CSRFToken": CSRF_TOKEN
-                              }
-                   }
-                  ).then(response => {
-                    console.log('SUCCESS!!');
-                    console.log("AFTER AXIOS Patch STATUS:",response.status);
-                    console.log("AFTER AXIOS Patch response:",response);
-                    
-                    this.axiosMsg = "evento modificato correttamente"; 
+      formData.append("title", "title MOD 9");
+      formData.append("content", "content MOD 9");
+      formData.append("luogo", "luogo MOD 9");
 
+      console.log("title durante ", this.title + "modificato2");
+      console.log("dati...", formData);
 
+      axios
+        .patch(url, formData, {
+          headers: {
+            "Content-Type": "multipart/form-data",
+            "X-CSRFToken": CSRF_TOKEN
+          }
+        })
+        .then(response => {
+          console.log("SUCCESS!!");
+          console.log("AFTER AXIOS Patch STATUS:", response.status);
+          console.log("AFTER AXIOS Patch response:", response);
 
-                                   }
-                        ).catch(function(){
-                                            console.log('evento patch FAILURE!!');
-                                            this.axiosMsg = "evento NON modificato"; 
-                                          }
-                               );
-      },
-
-
+          this.axiosMsg = "evento modificato correttamente";
+        })
+        .catch(function() {
+          console.log("evento patch FAILURE!!");
+          this.axiosMsg = "evento NON modificato";
+        });
+    },
 
     getEventPhotos() {
-
       let endpoint = `/api/events/${this.slug}/photos/`;
       if (this.next) {
         endpoint = this.next;
       }
       this.loadingPhotos = true;
-      apiService(endpoint)
-        .then(data => {
-            this.photos.push(...data.results);
-            this.loadingPhotos = false;
-            if (data.next) {
-              this.next = data.next;
-            } else {
-              this.next = null;
-            }
+      apiService(endpoint).then(data => {
+        this.photos.push(...data.results);
+        this.loadingPhotos = false;
+        if (data.next) {
+          this.next = data.next;
+        } else {
+          this.next = null;
+        }
       });
     },
-
 
     onSubmit() {
       if (this.newPhotoBody) {
         let endpoint = `/api/events/${this.slug}/photo/`;
-        apiService(endpoint, "POST", { body: this.newPhotoBody }).then(
-          data => {
-            this.photos.unshift(data);
-          }
-        );
+        apiService(endpoint, "POST", { body: this.newPhotoBody }).then(data => {
+          this.photos.unshift(data);
+        });
         this.newPhotoBody = null;
         this.showForm = false;
         //this.userHasAnswered = true;
@@ -806,12 +790,12 @@ export default {
       }
     },
 
-    onfileselected(event){
-        console.log(event)
+    onfileselected(event) {
+      console.log(event);
     },
 
     async deletePhoto(photo) {
-//ng      let endpoint = `/api/photos/${photo.id}/`;
+      //ng      let endpoint = `/api/photos/${photo.id}/`;
       let endpoint = `/api/events/${this.slug}/photos/${photo.id}/`;
 
       try {
@@ -825,190 +809,180 @@ export default {
     },
 
     addPhoto(photo) {
-      const axios = require('axios');
+      const axios = require("axios");
       let url = `/api/events/${this.slug}/photos/new/`;
 
       const config = {
-            headers: {
-            "content-type": "application/json",
-            "X-CSRFToken": CSRF_TOKEN
-            }
+        headers: {
+          "content-type": "application/json",
+          "X-CSRFToken": CSRF_TOKEN
+        }
       };
       let FILES = [];
       FILES.push(this.postnewphoto);
 
       let data = {
-        picture:this.postnewphoto,
-        descrizione:"fotoAAAA",
-        created_at:"2019-12-25T10:00Z",
-        updated_at:"2019-12-25T10:00Z",
-        isFirst:true,
-        data:"2019-12-25T10:00Z",
-        luogo:"appiano",        
+        picture: this.postnewphoto,
+        descrizione: "fotoAAAA",
+        created_at: "2019-12-25T10:00Z",
+        updated_at: "2019-12-25T10:00Z",
+        isFirst: true,
+        data: "2019-12-25T10:00Z",
+        luogo: "appiano"
       };
 
-
-      
-      axios.post(url, data, config, FILES)
-            .then(response => {
-      console.log("AFTER AXIOS POST STATUS:",response.status);
-      console.log("AFTER AXIOS POST response:",response);
-            });
-
+      axios.post(url, data, config, FILES).then(response => {
+        console.log("AFTER AXIOS POST STATUS:", response.status);
+        console.log("AFTER AXIOS POST response:", response);
+      });
     },
 
+    //2019 12 10 TEST OK
+    submitFile() {
+      const axios = require("axios");
+      let url = `/api/events/${this.slug}/caricafile/`;
+      let formData = new FormData(); //Initialize the form data
+      formData.append("picture", this.file);
+      formData.append("evento", this.id);
+      formData.append("descrizione", "test file 10");
 
-//2019 12 10 TEST OK 
-      submitFile()
-      { const axios = require('axios');
-        let url = `/api/events/${this.slug}/caricafile/`
-        let formData = new FormData();      //Initialize the form data
-        formData.append('picture', this.file);               
-        formData.append('evento', this.id);
-        formData.append('descrizione', "test file 10");
-
-        axios.post(url,//Make the request to the POST /single-file URL
-                   formData,
-                   { headers:{"Content-Type":"multipart/form-data",
-                               "X-CSRFToken": CSRF_TOKEN
-                              }
-                   }
-                  ).then(response => {
-                    console.log('SUCCESS!!');
-                    console.log("AFTER AXIOS POST STATUS:",response.status);
-                    console.log("AFTER AXIOS POST response:",response);
-                    
-                    this.axiosMsg = "file caricato correttamente"; 
-
-
-
-                                   }
-                        ).catch(function(){
-                                            console.log('submit file FAILURE!!');
-                                            this.axiosMsg = "file NON caricato"; 
-                                          }
-                               );
-      },
-
-      getPP()
-      { 
-        this.loader = 'loading3';
-        const axios = require('axios');
-        let url = `/api/events/${this.id}/photosPlus/`
-
-        if(this.ppNext){endpoint = this.ppNext;}
-
-        this.ppLoading = true;
-        axios.get(  url,
-                    { headers:{"Content-Type":"multipart/form-data",
-                                "X-CSRFToken": CSRF_TOKEN
-                              }
-                    }
-                  ).then(response =>
-                          {
-                            console.log('SUCCESS!!');
-                            console.log("AFTER AXIOS POST STATUS:",response.status);
-                            console.log("AFTER AXIOS POST response:",response);
-                            console.log("AFTER AXIOS POST response.results:",response.data.results);
-
-                            this.pp.push(...response.data.results);
-                            this.ppLoading = false;
-                            if (response.next) {
-                              this.ppNext = response.next;
-                            } else {
-                              this.ppNext = null;
-                            }
-                          }
-                        ).catch(function(){console.log('get PP FAILURE!!');
-                                          }
-                                );
-      },
-
-      handleFileUpload()                    //Handles a change on the file upload  
-      { this.file = this.$refs.file.files[0];
-      },
-
-
-      vaiadarchivio(){
-        let r = "archivio/";
-        this.gotoR(r);
-      },
-
-
-      setMyPar(){
-          let myparam={ 
-            Ccurrent:         60,
-            CScurrent:        69,
+      axios
+        .post(
+          url, //Make the request to the POST /single-file URL
+          formData,
+          {
+            headers: {
+              "Content-Type": "multipart/form-data",
+              "X-CSRFToken": CSRF_TOKEN
+            }
           }
-          this.$emit("spMC",myparam) //spMC -- > sAVE pARAMETER / menu Cat 
-      }, 
+        )
+        .then(response => {
+          console.log("SUCCESS!!");
+          console.log("AFTER AXIOS POST STATUS:", response.status);
+          console.log("AFTER AXIOS POST response:", response);
 
+          this.axiosMsg = "file caricato correttamente";
+        })
+        .catch(function() {
+          console.log("submit file FAILURE!!");
+          this.axiosMsg = "file NON caricato";
+        });
+    },
 
-      gotoR(r){
-          console.log("rotta per...");
-          this.$emit("gotoR",r)
-      },
+    getPP() {
+      this.loader = "loading3";
+      const axios = require("axios");
+      let url = `/api/events/${this.id}/photosPlus/`;
 
+      if (this.ppNext) {
+        endpoint = this.ppNext;
+      }
 
+      this.ppLoading = true;
+      axios
+        .get(url, {
+          headers: {
+            "Content-Type": "multipart/form-data",
+            "X-CSRFToken": CSRF_TOKEN
+          }
+        })
+        .then(response => {
+          console.log("SUCCESS!!");
+          console.log("AFTER AXIOS POST STATUS:", response.status);
+          console.log("AFTER AXIOS POST response:", response);
+          console.log(
+            "AFTER AXIOS POST response.results:",
+            response.data.results
+          );
 
-//form *************************************************************************
-    validate () {
+          this.pp.push(...response.data.results);
+          this.ppLoading = false;
+          if (response.next) {
+            this.ppNext = response.next;
+          } else {
+            this.ppNext = null;
+          }
+        })
+        .catch(function() {
+          console.log("get PP FAILURE!!");
+        });
+    },
+
+    handleFileUpload() { //Handles a change on the file upload
+      this.file = this.$refs.file.files[0];
+    },
+
+    vaiadarchivio() {
+      let r = "archivio/";
+      this.gotoR(r);
+    },
+
+    setMyPar() {
+      let myparam = {
+        Ccurrent: 60,
+        CScurrent: 69
+      };
+      this.$emit("spMC", myparam); //spMC -- > sAVE pARAMETER / menu Cat
+    },
+
+    gotoR(r) {
+      console.log("rotta per...");
+      this.$emit("gotoR", r);
+    },
+
+    //form *************************************************************************
+    validate() {
       if (this.$refs.form.validate()) {
-        this.snackbar = true
+        this.snackbar = true;
       }
     },
-    reset () {
-      this.$refs.form.reset()
+    reset() {
+      this.$refs.form.reset();
     },
-    resetValidation () {
-      this.$refs.form.resetValidation()
+    resetValidation() {
+      this.$refs.form.resetValidation();
     }
-//form *************************************************************************
+    //form *************************************************************************
   },
-// methods ******
+  // methods ******
 
-
-
-  updated(){
-//    this.getRequestUser();
-    },
+  updated() {
+    //    this.getRequestUser();
+  },
 
   watch: {
-    loader () {
-      const l = this.loader
-      this[l] = !this[l]
+    loader() {
+      const l = this.loader;
+      this[l] = !this[l];
 
-      setTimeout(() => (this[l] = false), 3000)
+      setTimeout(() => (this[l] = false), 3000);
 
-      this.loader = null
-    },
+      this.loader = null;
+    }
   },
-
-  
 
   created() {
     //this.getRequestUser();
     //this.setMyPar();
     this.getEventData();
     this.getEventPhotos();
-    this.getPP();//PP==PhotoPlus
+    this.getPP(); //PP==PhotoPlus
 
-//    this.AxiosTest();
-//    this.AxiosTestGet();
+    //    this.AxiosTest();
+    //    this.AxiosTestGet();
   }
-
-
 };
 </script>
 
 <style lang="css">
 .Photo-added {
-    color: green;
-    font-weight: bold;
+  color: green;
+  font-weight: bold;
 }
 .error {
-    color: red;
-    font-weight: bold;
+  color: red;
+  font-weight: bold;
 }
 .custom-loader {
   animation: loader 1s infinite;
@@ -1047,5 +1021,4 @@ export default {
     transform: rotate(360deg);
   }
 }
-
 </style>

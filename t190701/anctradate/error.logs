@@ -1,4 +1,19 @@
-04/18/2020 12:21:42 AM INFO autoreload 30060 19412 Watching for file changes with StatReloader
-04/18/2020 12:31:59 AM WARNING log 30060 17144 Not Found: /media/images/preview/slack-django-large2.jpg
-04/18/2020 12:31:59 AM WARNING log 30060 29576 Not Found: /media/images/preview/7_poppy2gif.gif
-04/18/2020 12:31:59 AM WARNING log 30060 17144 Not Found: /media/images/preview/mugatu-s-l640.jpg
+04/20/2020 02:48:06 AM INFO autoreload 9740 3240 Watching for file changes with StatReloader
+04/20/2020 03:07:49 AM WARNING log 9740 13352 Not Found: /media/images/preview/slack-django-large2.jpg
+04/20/2020 03:07:49 AM WARNING log 9740 13352 Not Found: /media/images/preview/mugatu-s-l640.jpg
+04/20/2020 03:07:49 AM WARNING log 9740 13352 Not Found: /media/images/preview/7_poppy2gif.gif
+04/20/2020 03:08:50 AM WARNING log 9740 13352 Not Found: /media/images/preview/slack-django-large2.jpg
+04/20/2020 03:08:50 AM WARNING log 9740 13352 Not Found: /media/images/preview/7_poppy2gif.gif
+04/20/2020 03:08:50 AM WARNING log 9740 13352 Not Found: /media/images/preview/mugatu-s-l640.jpg
+04/20/2020 03:27:59 AM WARNING log 9740 17368 Not Found: /media/images/preview/slack-django-large2.jpg
+04/20/2020 03:27:59 AM WARNING log 9740 11292 Not Found: /media/images/preview/7_poppy2gif.gif
+04/20/2020 03:27:59 AM WARNING log 9740 17368 Not Found: /media/images/preview/mugatu-s-l640.jpg
+04/20/2020 03:34:22 AM WARNING log 9740 11292 Not Found: /media/images/preview/7_poppy2gif.gif
+04/20/2020 03:34:22 AM WARNING log 9740 17368 Not Found: /media/images/preview/slack-django-large2.jpg
+04/20/2020 03:34:22 AM WARNING log 9740 11292 Not Found: /media/images/preview/mugatu-s-l640.jpg
+04/20/2020 03:35:32 AM WARNING log 9740 17368 Not Found: /media/images/preview/mugatu-s-l640.jpg
+04/20/2020 03:35:32 AM WARNING log 9740 11292 Not Found: /media/images/preview/7_poppy2gif.gif
+04/20/2020 03:35:32 AM WARNING log 9740 17368 Not Found: /media/images/preview/slack-django-large2.jpg
+04/20/2020 03:38:25 AM WARNING log 9740 11292 Not Found: /media/images/preview/mugatu-s-l640.jpg
+04/20/2020 03:38:25 AM WARNING log 9740 17368 Not Found: /media/images/preview/slack-django-large2.jpg
+04/20/2020 03:38:25 AM WARNING log 9740 11292 Not Found: /media/images/preview/7_poppy2gif.gif

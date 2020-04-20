@@ -1,7 +1,12 @@
 TODO:
+yarn install vuex --save
+npm install vuex --save
+
 npm install vue-filter-date-format
 npm install moment
-npm install axios  
+
+npm install axios
+  
 npm install querystring 
 npm install vee-validate 
 npm install vue-material

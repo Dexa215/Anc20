@@ -1,55 +1,5 @@
 <template>
   <v-app id="anc">
-    <!--
-<v-app id="inspire">
-
-  <v-navigation-drawer
-    v-model="drawerRight"
-    app
-    clipped
-    right
-  >
-    <v-list dense>
-      <v-list-item @click.stop="right = !right">
-        <v-list-item-action>
-          <v-icon>mdi-exit-to-app</v-icon>
-        </v-list-item-action>
-        <v-list-item-content>
-          <v-list-item-title>Open Temporary Drawer</v-list-item-title>
-        </v-list-item-content>
-      </v-list-item>
-    </v-list>
-  </v-navigation-drawer>
-
-    <v-navigation-drawer
-      v-model="right"
-      fixed
-      right
-      temporary
-    ></v-navigation-drawer>
-
-  <v-app-bar
-    app
-    clipped-right
-    color="blue-grey"
-    dark
-  >
-    <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
-
-    <v-toolbar-title>
-            <span>ANC</span>
-            <span class="font-weight-light">Tradate</span>
-    </v-toolbar-title>
-
-    <div class="flex-grow-1"></div>
-
-    <v-app-bar-nav-icon @click.stop="drawerRight = !drawerRight"></v-app-bar-nav-icon></v-app-bar>
-    
-    :nbc=                 "nbc"  
-
-
-    -->
-
     <ancAppBar
       :requestUser="requestUser"
       :requestUserIsStaff="requestUserIsStaff"
@@ -67,33 +17,8 @@
       :drawer="drawer"
       :drawerLeft="drawerLeft"
       :drawerRight="drawerRight"
-    >
-    </ancAppBar>
-
+    ></ancAppBar>
     <!--
-  <ancAppDrawerLeft
-      :requestUser=         "requestUser"
-      :requestUserIsStaff=  "requestUserIsStaff"
-      :requestUserIsSuper=  "requestUserIsSuper"
-      :requestUserAvatar=   "requestUserAvatar"
-      :requestUserBio=      "requestUserBio"
-      :nbc=                 "nbc"  
-      :drawerLeft=          "drawerLeft"
-      
-      :C=                   "C"
-      :CS=                  "CS"
-      :categorie=           "categorie"
-      
-      :iconX=               "iconX"
-      
-      @gotoR=               "gotoR"
-      @setD=                "setD"
-      @setDF=               "setDF"
-
-  >    
-  </ancAppDrawerLeft>  
--->
-
     <ancDrawer
       :requestUser="requestUser"
       :requestUserIsStaff="requestUserIsStaff"
@@ -109,36 +34,8 @@
       @gotoR="gotoR"
       @setD="setD"
       @setDF="setDF"
-    >
-    </ancDrawer>
-
-    <!--
-  <ancAppDrawerRight
-      :requestUser=         "requestUser"
-      :requestUserIsStaff=  "requestUserIsStaff"
-      :requestUserIsSuper=  "requestUserIsSuper"
-      :requestUserAvatar=   "requestUserAvatar"
-      :requestUserBio=      "requestUserBio"
-      :nbc=                 "nbc"  
-      :drawerRight=         "drawerRight"
-      :C=                   "C"
-      :CS=                  "CS"
-      :categorie=           "categorie"
-      :iconX=               "iconX"
-      @gotoR=               "gotoR"
-      @setD=                "setD"
-      @setDF=               "setDF"
-  >    
-  </ancAppDrawerRight>  
--->
-
-    <!--
-  <v-navigation-drawer
-    v-model="left"
-    fixed
-    temporary
-  ></v-navigation-drawer>
--->
+    ></ancDrawer>
+    -->
 
     <v-content>
       <router-view
@@ -151,20 +48,9 @@
         :C="C"
         :CS="CS"
         :categorie="categorie"
-      >
-      </router-view>
+        :drawerLeft="drawerLeft"
+      ></router-view>
     </v-content>
-
-    <!--
-        :menuCat            = "menuCat"
-        :menuSubCat         = "menuSubCat"
-        :intMsg             = "intMsg"
-        :intMsgSubH         = "intMsgSubH"
-        :intFMsg            = "intFMsg"
-        :intFMsgSubH        = "intFMsgSubH"
-        :links              = "links"
-        :src                = "src"
--->
 
     <!--
   <v-content>
@@ -209,7 +95,7 @@
       </v-row>
     </v-container>
   </v-content>
--->
+    -->
 
     <!--
   <v-footer
@@ -221,8 +107,7 @@
     <div class="flex-grow-1"></div>
     <span>&copy; 2019</span>
   </v-footer>
--->
-
+    -->
     <ancFooter
       :footercolor="footercolor"
       :requestUser="requestUser"
@@ -231,18 +116,6 @@
       :categorie="categorie"
       @gotoR="gotoR"
     ></ancFooter>
-
-    <!-- 
-    
-    :menuCat                        = "menuCat"
-    :menuSubCat                     = "menuSubCat"
-    :intMsg                         = "intMsg"
-    :intMsgSubH                     = "intMsgSubH"
-    :intFMsg                        = "intFMsg"
-    :intFMsgSubH                    = "intFMsgSubH"
-    :src                            = "src"
-
-  -->
   </v-app>
 </template>
 
@@ -975,6 +848,15 @@ categorie:[
 }
 .rgbANC3 {
   background-color: rgb(51, 26, 12); /* Marrone scuro +4 */
+}
+
+.AncTrasparenza {
+  position: absolute;
+  z-index: 2;
+  background-color: rgb(44, 3, 12) !important;
+  height: 100%;
+  width: 100%;
+  opacity: 0.7;
 }
 
 /*

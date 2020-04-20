@@ -114,45 +114,57 @@
     </div>
 
     <!-- INFO -- ****************************************************************** -->
-    <div class="rmNews"></div>
+    <!-- test OK 2020 04 20 -->
+    <div class="rmNews">
+      <ancNews :C="C" :CS="CS" :categorie="categorie"></ancNews>
+    </div>
 
     <!-- menu -- ****************************************************************** -->
+
+    <!-- div -->
     <transition
       name="custom-classes-transition"
       enter-active-class="animated fadeInDown"
       leave-active-class="animated fadeOutUp"
     >
-      <!-- div -->
-
       <v-row class="rmvrow" v-show="drawerLeft" text-align="center">
-        <!--  finestra amministatore -->
-        <v-col v-if="admin" class="rmvcolSadmin rmH">
-          <v-list dark shaped class="adminList">
-            <v-list-item class="tile" @click="gotoR('event/')">
-              <v-list-item-icon>
-                <v-icon>mdi-timeline-plus</v-icon>
-              </v-list-item-icon>
+        <v-col class="rmH" cols="4"></v-col>
+        <!-- {{admincommands}} -->
 
-              <v-list-item-content>
-                <v-list-item-title>Nuovo Evento</v-list-item-title>
-              </v-list-item-content>
-            </v-list-item>
-          </v-list>
-        </v-col>
-        <v-col v-else class="rmvcolS rmH"></v-col>
-        <!-- /*trasparente*/ -->
+        <!--
+        <v-col v-if="admin" class="rmH">{{admincommands}}</v-col>
+        <v-col v-else class="rmH">Visitor</v-col>
+        -->
+
+        <!--  finestra amministatore 
+        <v-col v-if="admin" class="rmH"></v-col>
+        <!--  finestra amministatore-->
+
+        <!--  finestra comandi amministatore -->
+        <transition
+          name="custom-classes-transition2"
+          enter-active-class="animated bounceInLeft"
+          leave-active-class="animated bounceOutLeft"
+        >
+          <v-col v-show="admin & admincommands" class="rmvcolSadmin rmH" cols="12">
+            <m4lgAdmin @gotoR="gotoR" @setDF="setDF"></m4lgAdmin>
+          </v-col>
+        </transition>
         <!--  finestra amministatore -->
 
-        <v-col class="rmvcolC rmH rcC_BC" cols="5">
+        <!--  finestra dati untente -->
+        <v-col class="rmvcolC rmH rcC_BC" cols="4">
           <u4lg
             :requestUser="requestUser"
             :requestUserIsStaff="requestUserIsStaff"
             :requestUserIsSuper="requestUserIsSuper"
             :requestUserAvatar="requestUserAvatar"
             :requestUserBio="requestUserBio"
+            @adminCommandSwitch="adminCommandSwitch"
             @gotoR="gotoR"
           ></u4lg>
         </v-col>
+        <!--  finestra dati untente -->
 
         <!-- old ok
         <v-col class="rmvcolD rmH rcLat_BC">
@@ -190,6 +202,7 @@
 import { apiService } from "@/common/api.service";
 // eslint-disable-next-line no-unused-vars
 import router from "@/router";
+import ancNews from "@/components/AncNews.vue";
 
 import b1xs from "@/components/AncAppBars/B1xs.vue";
 import b2sm from "@/components/AncAppBars/B2sm.vue";
@@ -198,6 +211,7 @@ import b4lg from "@/components/AncAppBars/B4lg.vue";
 import b5xl from "@/components/AncAppBars/B5xl.vue";
 /* Transitions */
 import m4lg from "@/components/AncM/M4lg.vue";
+import m4lgAdmin from "@/components/AncM/M4lgAdmin.vue";
 import u4lg from "@/components/AncM/AncU/U4lg.vue";
 
 export default {
@@ -211,7 +225,9 @@ export default {
     b5xl,
 
     m4lg,
-    u4lg
+    m4lgAdmin,
+    u4lg,
+    ancNews
   },
 
   props: {
@@ -237,7 +253,8 @@ export default {
     rcS: "rcS rcX rcLat rcLat_BC_Visitor",
     rcD: "rcD rcX rcLat rcLat_BC_Visitor",
     rcU: "rcS rcX rcLat rcLat_BC_Visitor",
-    admin: false
+    admin: false,
+    admincommands: false
   }),
 
   methods: {
@@ -245,6 +262,10 @@ export default {
       // eslint-disable-next-line no-console
       console.log("AppBar rotta per...");
       this.$emit("gotoR", r);
+    },
+
+    adminCommandSwitch() {
+      this.admincommands = !this.admincommands;
     },
 
     setD() {
@@ -420,10 +441,20 @@ export default {
 }
 .r_BC {
   background-color: rgb(
+    4,
+    11,
+    46
+  ) !important; /* AncColor Blue +6
+  /*
+
+  
+  rgb(
     36,
     17,
     6
-  ) !important; /* AncColor2
+  )*/
+
+  /* AncColor2
   
   /*background-color: #241518 !important;   */
   /*background-color: #2b2b29 !important;*/
@@ -436,10 +467,11 @@ export default {
 .rmNews {
   /* ... comunicazioni ...*/
   position: absolute;
+  top: 80px;
   z-index: 3;
-  height: 150px;
+  height: 100px;
   width: 100%;
-  background-color: purple !important; /*test*/
+  background-color: rgb(146, 0, 0) !important; /*test*/
 }
 
 /* ---------------------------------------------------------------------- */
@@ -469,8 +501,9 @@ export default {
   text-align: center;
   text-justify: center;
   border-radius: 0px 0px 50px 50px;
+  background-image: url("/static/images/HomePageCarousel/dsc32.jpg");
 
-  background-color: orange !important; /*test*/
+  /*background-color: orange !important; /*test*/
 
   /*background-color: transparent !important;*/
   top: 70px; /*width: 578px; */
@@ -482,16 +515,28 @@ export default {
   opacity: 0.5;
   /*background-color: transparent !important;*/
 }
+
+.rmvcolrSadmin {
+  position: absolute;
+  text-align: center;
+  text-justify: center;
+  z-index: 3;
+  width: 100%;
+  height: 95%;
+  background-color: transparent !important;
+}
 .rmvcolSadmin {
-  position: relative;
+  position: absolute;
+  top: 0px;
+  /*left: 1000px;*/
+  z-index: 3;
   margin-left: 0px;
   margin-right: 0px;
-  height: 200px;
-  background-color: #470410 !important; /*test*/
-  opacity: 0.95;
-  /*background-color: transparent !important;*/
-  border-radius: 5px 0px 150px 25px;
+  height: 600px;
+  border-radius: 0px 0px 0px 100px;
+  background-color: transparent !important;
 }
+
 .rmvcolD {
   margin-left: 0px;
   margin-right: 0px;
@@ -501,10 +546,13 @@ export default {
   border-radius: 0px 0px 25px 0px;
 }
 .rmvcolC {
+  position: relative;
+  z-index: 3;
   opacity: 0.9;
   /* background-color: transparent !important; */
   border-radius: 0px 0px 0px 648px;
 }
+
 /*------------------------------------------------------------------------------------------------------*/
 /*color Background AR E */
 /*  Grigio scuro +4   .cBE-Vis    {  background-color: "#38282b" !important;}
@@ -516,6 +564,18 @@ export default {
 /* ---------------------------------------------------------------------- */
 /* MdS> 
 */
+
+/*------------------------------------------------------------------------------------------------------*/
+/*color Background AR E */
+/*  Grigio scuro +4   .cBE-Vis    {  background-color: "#38282b" !important;}
+/*  Grigio scuro +4   .cBE-Socio  {  background-color:  !important; }
+
+
+/*  Blue    scuro +5   .cBE-Staff  {  background-color: "rgb(4, 11, 46)" !important; } */ /* App bar
+
+/*  Blue    scuro +6   .cBI        {  background-color: "rgb(1, 4, 20)" !important; }*/ /* interno row */
+/*------------------------------------------------------------------------------------------------------*/
+
 .rcX {
   position: relative;
   z-index: 4;
@@ -529,11 +589,14 @@ export default {
   margin-bottom: 1px;
 }
 .rcLat_BC {
-  background-color: rgb(20, 9, 2) !important;
+  background-color: rgb(1, 4, 20) !important; /* Blue */
+  /*  background-color: rgb(20, 9, 2) !important;*/
 }
 .rcLat_BC_Visitor {
   /*    EX:   .arbcs-Visitor    */
-  background-color: #1a0408 !important;
+  background-color: rgb(1, 4, 20) !important; /* Blue */
+
+  /*background-color: #1a0408 !important; */ /* Marrone */
   /*background-color: pink !important;*/
 }
 .rcLat_BC_Socio {
@@ -560,7 +623,7 @@ export default {
   margin-left: 2px;
   margin-right: 0px;
 
-  padding: 8px 8px;
+  padding: 0px 8px 0px 8px; /*T-R-B-L*/
 
   border-radius: 48px 85px 0px 48px;
 }
@@ -590,7 +653,12 @@ export default {
   border-radius: 0px 0px 0px 0px;
 }
 .rcC_BC {
-  background-color: rgb(36, 17, 6) !important;
+  background-color: rgb(
+    4,
+    11,
+    46
+  ) !important; /* AncColor Blue +6  /*
+  background-color: rgb(36, 17, 6) !important; /* Marrone */
 }
 .rcC_BC--T {
   background-color: salmon !important;
@@ -660,9 +728,11 @@ export default {
 .avatar {
   z-index: 5;
   /*right: "true";*/
-  size: 48;
+  /*size: 32;*/
+
   max-width: 48px;
   max-height: 50px;
+
   transform: scale(1, 1);
 }
 .avatar:hover {
@@ -920,6 +990,58 @@ border-radius
 }
 .zoomOut {
   animation-name: zoomOut;
+}
+
+@keyframes bounceInLeft {
+  from,
+  60%,
+  75%,
+  90%,
+  to {
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+
+  0% {
+    opacity: 0;
+    transform: translate3d(-300px, 0, 0);
+  }
+
+  60% {
+    opacity: 1;
+    transform: translate3d(25px, 0, 0);
+  }
+
+  75% {
+    transform: translate3d(-10px, 0, 0);
+  }
+
+  90% {
+    transform: translate3d(5px, 0, 0);
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.bounceInLeft {
+  animation-name: bounceInLeft;
+}
+
+@keyframes bounceOutLeft {
+  20% {
+    opacity: 1;
+    transform: translate3d(20px, 0, 0);
+  }
+
+  to {
+    opacity: 0;
+    transform: translate3d(-400px, 0, 0);
+  }
+}
+
+.bounceOutLeft {
+  animation-name: bounceOutLeft;
 }
 
 /* TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT */

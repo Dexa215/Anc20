@@ -4,14 +4,14 @@
     <div class="AncAppBarE"></div>
     -->
 
-    <!--rmblock-->
+    <!--rmblock color="#38282b" -->
 
     <v-app-bar
       fixed
       :class="cab"
       :height="h"
       clipped-right
-      color="#38282b"
+      color="rgb(6, 20, 89)"
       dark
       scroll-target="#playground-example"
       :elevate-on-scroll="elevateOnScroll"
@@ -37,33 +37,58 @@
 
           <!-- /*62*/ -->
 
-          <v-avatar class="avatar" size="48" right="true" v-if="!drawerLeft">
-            <!-- drawer aperto -->
+          <v-row class="iconavR mx-auto" justify="center">
+            <!-- ICONE NAVIGAZIONE - SX class="avatar" -->
+            <v-col class="iconavcS" cols="9">
+              <transition
+                name="custom-classes-transition"
+                enter-active-class="animated bounceInLeft"
+                leave-active-class="animated fadeOutUp"
+              >
+                <v-icon
+                  class="mx-6 AncIconColor"
+                  large
+                  dark
+                  @click="gotoR(categorie[C/10-1].link)"
+                >{{categorie[C/10-1].icona}}</v-icon>
+              </transition>
+              <transition
+                name="custom-classes-transition"
+                enter-active-class="animated bounceInLeft"
+                leave-active-class="animated fadeOutUp"
+              >
+                <v-btn rounded>
+                  <a class="ml-4 mr-2">
+                    <span
+                      v-if="categorie[C/10-1].descrizione.length < 15"
+                      class="mr-2"
+                      style="color:lightblue;"
+                    ></span>
 
-            <v-expand-x-transition>
-              <img
-                class="drwOpen"
-                src="/static/images/Icone/anclogo2012.gif"
-                alt="ancTradate"
-                @click="gotoR('/')"
-                @mouseover="hoveravatar = true"
-                @mouseleave="hoveravatar = false"
-              />
-            </v-expand-x-transition>
-          </v-avatar>
+                    <span class="mr-2" style="color:white;">{{categorie[C/10-1].descrizione}}</span>
+                  </a>
+                </v-btn>
+              </transition>
+            </v-col>
 
-          <v-avatar class="avatar" size="48" right="true" v-else>
-            <!-- drawer aperto -->
+            <!-- v-col class="iconavcD" cols="3" style="background-color:orange !important"-->
+            <v-col class="iconavcD" cols="3">
+              <!--
+              TODO: controllare transizione apparentemente non attiva
+              -->
 
-            <v-expand-x-transition>
-              <v-icon size="48" @click="setDF">mdi-shield-half-full</v-icon>
-            </v-expand-x-transition>
-          </v-avatar>
-
-          <!-- Avatar -->
+              <span
+                v-if="categorie[C/10-1].sottocategorie.length > 1"
+                class="mr-2"
+                style="color:lightblue;"
+              >
+                <v-btn rounded>+</v-btn>
+              </span>
+            </v-col>
+          </v-row>
         </v-col>
 
-        <v-col class="rcC rcX rcC_BC" cols="5">
+        <v-col class="rcC rcX rcC_BC" cols="4">
           <!--v-expand-transition v-show="!drawerLeft" -->
           <v-row class="rcCr rcCr_BC" align="center" justify="center" dense style="z-index: 2">
             <v-col class="rcCrcS rcCrcLat_BC">
@@ -79,6 +104,31 @@
                 </v-btn>
               </v-app-bar-nav-icon>
               <!-- v-app-bar -->
+
+              <v-avatar class="avatar" size="32" right="true" v-if="!drawerLeft">
+                <!-- drawer aperto-->
+
+                <v-expand-x-transition>
+                  <img
+                    class="drwOpen"
+                    src="/static/images/Icone/anclogo2012.gif"
+                    alt="ancTradate"
+                    @click="gotoR('/')"
+                    @mouseover="hoveravatar = true"
+                    @mouseleave="hoveravatar = false"
+                  />
+                </v-expand-x-transition>
+              </v-avatar>
+
+              <v-avatar class="avatar" size="32" right="true" v-else>
+                <!-- drawer aperto -->
+
+                <v-expand-x-transition>
+                  <v-icon size="32" @click="setDF">mdi-shield-half-full</v-icon>
+                </v-expand-x-transition>
+              </v-avatar>
+
+              <!-- Avatar -->
             </v-col>
 
             <v-col class="rcCrcD rcCrcX rcCrcLat_BC">
@@ -99,17 +149,26 @@
           <v-row class="iconavR mx-auto" justify="center">
             <!-- ICONE NAVIGAZIONE - SX -->
             <v-col class="iconavcS">
+              <!--
               <div class="xxx">
                 <v-icon
-                  v-for="item in categorie[C/10-1].sottocategorie"
-                  :key="item.n"
                   class="mx-2 AncIconColor"
                   large
                   dark
-                  @click="gotoR(item.link)"
-                  style="height: 30px;"
-                >{{item.icona}}</v-icon>
+                  @click="gotoR(categorie[C/10-1].link)"
+                >{{categorie[C/10-1].icona}}</v-icon>
               </div>
+              -->
+
+              <v-icon
+                v-for="item in categorie[C/10-1].sottocategorie"
+                :key="item.n"
+                class="mx-2 AncIconColor"
+                large
+                dark
+                @click="gotoR(item.link)"
+                style="height: 30px;"
+              >{{item.icona}}</v-icon>
 
               <!--
               <div v-if="categorie[C/10-1].sottocategorie.length == 0" class="AncTitleColor ma-2">NN</div>
@@ -136,19 +195,12 @@
             <v-col class="iconavcD">
               <div>
                 <v-icon
-                  class="mx-2 AncIconColor"
-                  large
-                  dark
-                  @click="gotoR(categorie[C/10-1].link)"
-                >{{categorie[C/10-1].icona}}</v-icon>
-
-                <v-icon
                   @click.stop="setD"
                   class="mx-2 AncIconColor"
                   v-if="drawerLeft"
-                  medium
+                  large
                 >{{ iconOdx }}</v-icon>
-                <v-icon @click.stop="setD" class="mx-2 AncIconColor" v-else medium>{{ iconCdx }}</v-icon>
+                <v-icon @click.stop="setD" class="mx-2 AncIconColor" v-else large>{{ iconCdx }}</v-icon>
 
                 <!--
                 <v-btn icon class @click.stop="setD" v-model="iconX">
@@ -162,8 +214,9 @@
                    </v-btn>
                 </v-expand-x-transition>
                 -->
-
-                <v-icon v-show="!drawerLeft" class="mx-2 AncIconColor" large dark>mdi-magnify</v-icon>
+                <v-expand-x-transition>
+                  <v-icon v-show="!drawerLeft" class="mx-2 AncIconColor" large dark>mdi-magnify</v-icon>
+                </v-expand-x-transition>
               </div>
             </v-col>
             <!-- ICONE NAVIGAZIONE - DX -->
@@ -301,16 +354,17 @@ export default {
   padding-right: 2px;
 }
 .iconavcS {
+  position: relative;
   /*height: 80%;*/
   height: 100%;
-  background-color: transparent;
+  background-color: transparent !important;
   text-align: left;
   padding-left: 5px;
 }
 .iconavcD {
   /*height: 80%;*/
   height: 100%;
-  background-color: transparent;
+  background-color: transparent !important;
   text-align: right;
   padding-right: 15px;
 }

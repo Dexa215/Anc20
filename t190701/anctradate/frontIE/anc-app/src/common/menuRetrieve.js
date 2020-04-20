@@ -63,7 +63,7 @@ menuR.prototype.getCat = function () {       //menu categorie
         [
             {//cat1
                 n: "10",
-                descrizione: "home",
+                descrizione: "Home",
                 titolo: "",
                 //icona: "mdi-shield-half-full",
                 icona: "mdi-bank",
@@ -89,7 +89,7 @@ menuR.prototype.getCat = function () {       //menu categorie
             },
             {//cat2
                 n: "20",
-                descrizione: "sede",
+                descrizione: "Sede",
                 titolo: "Il ritrovo abituale per i soci",
                 icona: "mdi-compass",
                 //icona: "mdi-bank",
@@ -130,7 +130,7 @@ menuR.prototype.getCat = function () {       //menu categorie
             },
             {//cat3
                 n: "30",
-                descrizione: "contatti",
+                descrizione: "Contatti",
                 titolo: "Come contattarci",
                 icona: "mdi-face-agent",
                 img: "/static/images/Icone/anclogo7.gif",
@@ -228,7 +228,7 @@ menuR.prototype.getCat = function () {       //menu categorie
             },
             {//cat5
                 n: "50",
-                descrizione: "agenda",
+                descrizione: "Agenda",
                 titolo: "prossimi appuntamenti da non perdere",
                 icona: "mdi-calendar-multiple",
                 img: "/static/icons/menu/Agenda.jpg",
