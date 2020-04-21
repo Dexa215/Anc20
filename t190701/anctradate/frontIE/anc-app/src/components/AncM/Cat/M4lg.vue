@@ -10,7 +10,7 @@
 
       <!--v-col>lato sx</v-col-->
       <!-- shaped -->
-      <v-col @mouseenter="DSCset()" @mouseleave="DSCset()">
+      <v-col @mouseenter="DSCset('false')" @mouseleave="DSCset('truee')">
         <v-list shaped dark class="ancM4l ancM4l_BC">
           <!-- color="rgb(36, 17, 6)" -->
           <v-list-item

@@ -83,11 +83,13 @@
         :drawer="drawer"
         :drawerLeft="drawerLeft"
         :drawerRight="drawerRight"
+        :drawerSottocategoria="drawerSottocategoria"
         :iconX="iconX"
         @gotoR="gotoR"
         @setD="setD"
         @setDF="setDF"
         @mouseover="setDF()"
+        @DSCset="DSCset"
       ></b4lg>
     </div>
 
@@ -114,12 +116,22 @@
     </div>
 
     <!-- INFO -- TEST 2020.04.20 -- *********************************************** -->
-    <div class="rmNews">
-      <ancNews :C="C" :CS="CS" :categorie="categorie"></ancNews>
-    </div>
-    <!-- INFO -- ****************************************************************** -->
 
-    <!-- menu -- ****************************************************************** -->
+    <ancNews :C="C" :CS="CS" :categorie="categorie"></ancNews>
+
+    <!-- menu Sottocategorie -- ****************************************************************** -->
+    <m4lgSottocategorie
+      :C="C"
+      :CS="CS"
+      :categorie="categorie"
+      :drawerRight="drawerRight"
+      :drawerSottocategoria="drawerSottocategoria"
+      @gotoR="gotoR"
+      @setD="setD"
+      @setDF="setDF"
+      @mouseover="setDF()"
+      @DSCset="DSCset"
+    ></m4lgSottocategorie>
 
     <!-- div -->
     <transition
@@ -128,65 +140,9 @@
       leave-active-class="animated fadeOutUp"
     >
       <v-row class="rmvrow" v-show="drawerLeft" text-align="center">
-        <!-- BARRA SOTTOCATEGORIE -->
-        <transition
-          name="custom-classes-transition"
-          enter-active-class="animated fadeInRight"
-          leave-active-class="animated fadeOutRight"
-        >
-          <v-row
-            v-show="categorie[C/10-1].sottocategorie.length > 1 && drawerSottocategoria"
-            class="sottocategorieList"
-          >
-            <v-col cols="1" class="sottocategorieListr1"></v-col>
-
-            <v-col cols="3" class="sottocategorieListr2 rcLat_BC_Visitor">
-              <!-- Finestra sottocategorie -->
-              <v-col v-show="drawerSottocategoria" class="m4lgSottocategorie">
-                <m4lgSottocategorie
-                  :C="C"
-                  :CS="CS"
-                  :categorie="categorie"
-                  :drawerRight="drawerRight"
-                  :drawerSottocategoria="drawerSottocategoria"
-                  @gotoR="gotoR"
-                  @setD="setD"
-                  @setDF="setDF"
-                  @mouseover="setDF()"
-                ></m4lgSottocategorie>
-              </v-col>
-              <!-- Finestra sottocategorie -->
-
-              <!--
-            <v-icon
-              v-for="item in categorie[C/10-1].sottocategorie"
-              :key="item.n"
-              class="mx-2 AncIconColor"
-              large
-              dark
-              @click="gotoR(item.link)"
-              style="height: 30px;"
-            >{{item.icona}}</v-icon>
-
-              -->
-            </v-col>
-            <v-col cols="8" class="sottocategorieListr3 rcLat_BC_Visitor"></v-col>
-          </v-row>
-        </transition>
-
         <!-- menu sottocategorie... -->
 
-        <v-col class="rmH" cols="4"></v-col>
-
-        <!-- {{admincommands}} -->
-        <!--
-        <v-col v-if="admin" class="rmH">{{admincommands}}</v-col>
-        <v-col v-else class="rmH">Visitor</v-col>
-        -->
-
-        <!--  finestra amministatore 
-        <v-col v-if="admin" class="rmH"></v-col>
-        <!--  finestra amministatore-->
+        <v-col class="rmH0" cols="4"></v-col>
 
         <!--  finestra comandi amministatore -->
         <transition
@@ -237,7 +193,7 @@
             @setD="setD"
             @setDF="setDF"
             @mouseover="setDF()"
-            @DSCset="DSCset()"
+            @DSCset="DSCset"
           ></m4lg>
         </v-col>
       </v-row>
@@ -295,7 +251,8 @@ export default {
     categorie: { type: Array },
     drawer: { type: Boolean },
     drawerLeft: { type: Boolean },
-    drawerRight: { type: Boolean }
+    drawerRight: { type: Boolean },
+    drawerSottocategoria: { type: Boolean }
   },
 
   data: () => ({
@@ -307,8 +264,7 @@ export default {
     rcD: "rcD rcX rcLat rcLat_BC_Visitor",
     rcU: "rcS rcX rcLat rcLat_BC_Visitor",
     admin: false,
-    admincommands: false,
-    drawerSottocategoria: true
+    admincommands: false
   }),
 
   methods: {
@@ -391,19 +347,8 @@ export default {
       }
     },
 
-    /* Drawer Sotto Categoria */
     DSCset(state) {
-      switch (state) {
-        case "true":
-          this.drawerSottocategoria = true;
-          break;
-        case "false":
-          this.drawerSottocategoria = false;
-          break;
-        default:
-          this.drawerSottocategoria = !this.drawerSottocategoria;
-          break;
-      }
+      this.$emit("DSCset", state);
     }
   },
 
@@ -538,7 +483,7 @@ export default {
   position: absolute;
   top: 80px;
   z-index: 3;
-  height: 100px;
+  height: 70px;
   width: 100%;
   background-color: rgb(146, 0, 0) !important; /*test*/
 }
@@ -557,6 +502,10 @@ export default {
 }
 
 /*Menu*/
+.rmH0 {
+  position: relative;
+  height: 1px;
+}
 .rmH {
   position: relative;
   height: 600px;
@@ -835,40 +784,6 @@ export default {
   background-color: transparent !important;
 }
 
-.sottocategorieList {
-  position: absolute;
-
-  background-color: transparent !important;
-  height: 600px;
-  width: 100%;
-  border-radius: 0px 0px 0px 0px;
-}
-
-.sottocategorieListr1 {
-  position: relative;
-  background-color: transparent !important;
-  height: 600px;
-  border-radius: 0px 0px 0px 0px;
-}
-
-.sottocategorieListr2 {
-  position: relative;
-  height: 300px;
-  border-radius: 0px 0px 0px 650px;
-}
-
-.sottocategorieListr3 {
-  position: relative;
-  text-align: left;
-  /* background-color: green !important;*/
-  height: 300px;
-  border-radius: 0px 0px 0px 0px;
-}
-.m4lgSottocategorie {
-  position: absolute;
-  background-color: YELLOW !important;
-}
-
 /*V2*/
 /*    AncAppBar                                                                                                                                */
 /*  +------------------------------------------------------------------------------------------------------------------------------+ h100      */
@@ -994,6 +909,9 @@ border-radius
 
 /* TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT */
 /* rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr */
+
+/*
+
 @keyframes slideInDown {
   from {
     transform: translate3d(0, -100%, 0);
@@ -1006,7 +924,6 @@ border-radius
 .slideInDown {
   animation-name: slideInDown;
 }
-/* -------------------------------------------------------------------- */
 @keyframes fadeOutUp {
   from {
     opacity: 1;
@@ -1020,7 +937,6 @@ border-radius
   animation-name: fadeOutUp;
   animation-duration: 1s;
 }
-/* -------------------------------------------------------------------- */
 @keyframes fadeInDown {
   from {
     opacity: 0;
@@ -1034,10 +950,12 @@ border-radius
 .fadeInDown {
   animation-name: fadeInDown;
   animation-duration: 1s;
+*/
 
-  /* animation-delay: -2s; test ok*/
+/* animation-delay: -2s; test ok*/
+/*
+
 }
-/* -------------------------------------------------------------------- */
 @keyframes flipOutX {
   from {
     transform: perspective(200px);
@@ -1059,7 +977,6 @@ border-radius
   animation-name: flipOutX;
   backface-visibility: visible !important;
 }
-/* -------------------------------------------------------------------- */
 @keyframes zoomOutDown {
   40% {
     opacity: 1;
@@ -1078,7 +995,6 @@ border-radius
 .zoomOutDown {
   animation-name: zoomOutDown;
 }
-/* -------------------------------------------------------------------- */
 @keyframes zoomOut {
   from {
     opacity: 1;
@@ -1190,6 +1106,7 @@ border-radius
 .fadeOutRight {
   animation-name: fadeOutRight;
 }
+*/
 
 /* TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT */
 /* rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr */

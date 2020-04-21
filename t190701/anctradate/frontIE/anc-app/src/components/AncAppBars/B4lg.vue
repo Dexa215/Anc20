@@ -24,13 +24,6 @@
       :shrink-on-scroll="shrinkOnScroll"
       :extended="extended"
     >
-      <!-- 
-
-      fixed
-      app
-
-
-      -->
       <v-row class="r r_BC">
         <v-col :class="rcS">
           <!-- Avatar -->
@@ -40,7 +33,7 @@
           <v-row class="iconavR mx-auto" justify="center">
             <!-- ICONE NAVIGAZIONE - SX class="avatar" -->
 
-            <v-col class="iconavcS" cols="6">
+            <v-col class="iconavcSbassa" cols="6">
               <!--
               <span
                 v-if="categorie[C/10-1].sottocategorie.length > 1"
@@ -55,15 +48,25 @@
                 enter-active-class="animated bounceInLeft"
                 leave-active-class="animated fadeOutUp"
               >
-                <v-btn rounded v-if="categorie[C/10-1].descrizione">
-                  <a class="ml-4 mr-2">
-                    <span
+                <v-btn
+                  rounded
+                  v-if="categorie[C/10-1].descrizione"
+                  @click="gotoR(categorie[C/10-1].link)"
+                  @mouseenter="DSCset('true')"
+                >
+                  <a class="mx-1">
+                    <!--span
                       v-if="categorie[C/10-1].descrizione.length < 15"
                       class="mr-2"
                       style="color:lightblue;"
-                    ></span>
-
-                    <span class="mr-2" style="color:white;">{{categorie[C/10-1].descrizione}}</span>
+                    ></span-->
+                    <span class="mx-1" style="color:white;">{{categorie[C/10-1].descrizione}}</span>
+                    <span class="mx-1" v-if="CS!=0" style="color:white;">\</span>
+                    <span
+                      class="mx-1"
+                      v-if="CS!=0"
+                      style="color:burlywood;"
+                    >{{categorie[C/10-1].sottocategorie[(CS-C)-1].descrizione }}</span>
                   </a>
                 </v-btn>
               </transition>
@@ -74,7 +77,6 @@
               <!--
               TODO: controllare transizione apparentemente non attiva
               -->
-
               <!-- categoria corrente -->
               <transition
                 name="custom-classes-transition"
@@ -85,6 +87,7 @@
                   class="AncIconColor"
                   large
                   dark
+                  @mouseenter="DSCset('true')"
                   @click="gotoR(categorie[C/10-1].link)"
                 >{{categorie[C/10-1].icona}}</v-icon>
               </transition>
@@ -92,7 +95,7 @@
             </v-col>
 
             <v-col class="iconavcSbtnMENU" cols="2">
-              <!-- BTN MENU -->
+              <!-- BTN MENU @mouseenter="DSCset('false')" -->
               <v-btn icon v-model="iconX" @click.stop="setD">
                 <v-icon v-if="drawerLeft" large>{{ iconO }}</v-icon>
                 <v-icon v-else large>{{ iconC }}</v-icon>
@@ -110,10 +113,9 @@
             </v-col>
 
             <v-col class="rcCrcC rcCrcX rcCrcC_BC">
-              <v-avatar class="avatar" size="48" right="true" v-if="!drawerLeft">
-                <!-- drawer aperto-->
-
-                <v-expand-x-transition>
+              <v-expand-x-transition>
+                <v-avatar class="avatar" size="48" right="true" v-if="!drawerLeft">
+                  <!-- drawer aperto-->
                   <img
                     class="drwOpen"
                     src="/static/images/Icone/anclogo2012.gif"
@@ -122,16 +124,13 @@
                     @mouseover="hoveravatar = true"
                     @mouseleave="hoveravatar = false"
                   />
-                </v-expand-x-transition>
-              </v-avatar>
+                </v-avatar>
+                <v-avatar size="48" right="true" v-else>
+                  <!-- drawer aperto -->
 
-              <v-avatar class="avatar" size="48" right="true" v-else>
-                <!-- drawer aperto -->
-
-                <v-expand-x-transition>
-                  <v-icon size="32" @click="setDF">mdi-shield-half-full</v-icon>
-                </v-expand-x-transition>
-              </v-avatar>
+                  <v-icon size="48" @click="setDF">mdi-close-circle-outline</v-icon>
+                </v-avatar>
+              </v-expand-x-transition>
 
               <!-- Avatar -->
             </v-col>
@@ -205,6 +204,10 @@
               <!-- v-app-bar -->
               <!--v-app-bar-nav-icon >
               </v-app-bar-nav-icon-->
+
+              <v-btn icon @click="gotoR('/')">
+                <v-icon large>mdi-bank</v-icon>
+              </v-btn>
 
               <v-btn icon v-model="iconX" @click.stop="setD">
                 <v-icon v-if="drawerLeft" large>{{ iconO }}</v-icon>
@@ -307,7 +310,8 @@ export default {
     categorie: { type: Array },
     drawer: { type: Boolean },
     drawerLeft: { type: Boolean },
-    drawerRight: { type: Boolean }
+    drawerRight: { type: Boolean },
+    drawerSottocategoria: { type: Boolean }
   },
   methods: {
     gotoR(r) {
@@ -317,6 +321,11 @@ export default {
       console.log("AppBar rotta per...");
       this.$emit("gotoR", r);
     },
+
+    DSCset(state) {
+      this.$emit("DSCset", state);
+    },
+
     setD() {
       let d = this.drawerLeft;
       if (d === false) {
@@ -362,8 +371,10 @@ export default {
 
 <style media="screen">
 .iconavR {
+  height: 1px;
+  /*
   height: 100%;
-
+*/
   background-color: transparent !important;
   padding-top: 2px;
   padding-bottom: 2px;
@@ -387,6 +398,14 @@ export default {
   /* background-color: GREEN !important; */
   text-align: center;
   padding-top: 5px;
+}
+.iconavcSbassa {
+  position: relative;
+  /*height: 80%;*/
+  height: 1px;
+  background-color: transparent !important;
+  text-align: left;
+  padding-left: 5px;
 }
 
 .iconavcS {

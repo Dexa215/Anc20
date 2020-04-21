@@ -14,9 +14,11 @@
       @setD="setD"
       @setDF="setDF"
       @mouseover="setDF()"
+      @DSCset="DSCset"
       :drawer="drawer"
       :drawerLeft="drawerLeft"
       :drawerRight="drawerRight"
+      :drawerSottocategoria="drawerSottocategoria"
     ></ancAppBar>
     <!--
     <ancDrawer
@@ -205,6 +207,7 @@ export default {
     drawer: false,
     drawerLeft: false,
     drawerRight: false,
+    drawerSottocategoria: false,
     iconX: "mdi-menu",
     // PULSANTE MENU
     // mdi-tray-full
@@ -642,6 +645,20 @@ categorie:[
       }
     },
 
+    /* Drawer SottoCategoria */
+    DSCset(state) {
+      switch (state) {
+        case "true":
+          this.drawerSottocategoria = true;
+          break;
+        case "false":
+          this.drawerSottocategoria = false;
+          break;
+        default:
+          this.drawerSottocategoria = !this.drawerSottocategoria;
+          break;
+      }
+    },
     setDF() {
       this.drawerLeft = false;
       this.drawerRight = false;

@@ -1,30 +1,30 @@
 <template>
   <!-- home view -->
-
-  <v-row class="ancNewsr" align="center" justify="center">
-    <v-col class="tc1 t_BC" align="center" cols="1">
-      <!--
+  <div class="rmNews">
+    <v-row class="ancNewsr" align="center" justify="center">
+      <v-col class="tc1 t_BC" align="center" cols="1">
+        <!--
         v-if="C==10 && Eevents!='' && Eevents "
-      -->
+        -->
 
-      <v-img
-        v-if="Eevents!='' && Eevents "
-        style="background-color: transparent !important;"
-        :src="categorie[0].imgEvidenza"
-        width="80"
-        height="80"
-      ></v-img>
-    </v-col>
-    <v-col class="tc2 t_BC" cols="10">
-      <marquee align="center" justify="center" behavior="scroll" direction="left" scrolldelay="0">
-        <div
-          class="display-2 font-weight-bold AncTitleColorDark"
-          style="color:white; background-color:transparent;"
-        >{{Titolone}}</div>
-      </marquee>
-    </v-col>
+        <v-img
+          v-if="Eevents!='' && Eevents "
+          style="background-color: transparent !important;"
+          :src="categorie[0].imgEvidenza"
+          width="50"
+          height="50"
+        ></v-img>
+      </v-col>
+      <v-col class="tc2 t_BC" cols="10">
+        <marquee align="center" justify="center" behavior="scroll" direction="left" scrolldelay="0">
+          <div
+            class="display-1 font-weight-bold AncTitleColorDark"
+            style="color:white; background-color:transparent;"
+          >{{Titolone}}</div>
+        </marquee>
+      </v-col>
 
-    <!--
+      <!--
     
     <v-col>
       <v-img
@@ -38,10 +38,10 @@
         height="80"
       ></v-img>
     </v-col>
-    <! img-->
+      <! img-->
 
-    <!-- msg -->
-    <!--
+      <!-- msg -->
+      <!--
     <v-col
       cols="10"
       class="pa-0"
@@ -58,8 +58,9 @@
         </marquee>
       </div>
     </v-col>
-    -->
-  </v-row>
+      -->
+    </v-row>
+  </div>
 </template>
 
 <script>
