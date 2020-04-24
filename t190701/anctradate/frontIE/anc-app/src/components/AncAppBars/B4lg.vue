@@ -4,14 +4,17 @@
     <div class="AncAppBarE"></div>
     -->
 
-    <!--rmblock color="#38282b" -->
+    <!--
+      rmblock color="#38282b"
+      color="rgb(6, 20, 89)"
+    -->
 
     <v-app-bar
       fixed
       :class="cab"
       :height="h"
       clipped-right
-      color="rgb(6, 20, 89)"
+      :color="AncAppBar_BC"
       dark
       scroll-target="#playground-example"
       :elevate-on-scroll="elevateOnScroll"
@@ -167,7 +170,10 @@
               <v-expand-x-transition>
                 <v-icon v-show="!drawerLeft" class="mx-2 AncIconColor" large dark>mdi-magnify</v-icon>
               </v-expand-x-transition>
-
+              <v-btn icon @click="gotoR('/')">
+                <v-icon large>mdi-bank</v-icon>
+              </v-btn>
+              <!--
               <v-icon
                 v-for="item in categorie[C/10-1].sottocategorie"
                 :key="item.n"
@@ -177,7 +183,7 @@
                 @click="gotoR(item.link)"
                 style="height: 30px;"
               >{{item.icona}}</v-icon>
-
+              -->
               <!--
               <div v-if="categorie[C/10-1].sottocategorie.length == 0" class="AncTitleColor ma-2">NN</div>
               -->
@@ -204,10 +210,6 @@
               <!-- v-app-bar -->
               <!--v-app-bar-nav-icon >
               </v-app-bar-nav-icon-->
-
-              <v-btn icon @click="gotoR('/')">
-                <v-icon large>mdi-bank</v-icon>
-              </v-btn>
 
               <v-btn icon v-model="iconX" @click.stop="setD">
                 <v-icon v-if="drawerLeft" large>{{ iconO }}</v-icon>
@@ -288,7 +290,9 @@ export default {
       collapse: false,
       collapseOnScroll: false,
       shrinkOnScroll: true,
-      extended: false
+      extended: false,
+
+      AncAppBar_BC: "rgb(19, 21, 36)"
     };
   },
   props: {

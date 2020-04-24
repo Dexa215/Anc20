@@ -169,8 +169,9 @@ export default {
 
 <style media="screen">
 .rowFot {
-  background-color: orange !important;
+  /* background-color: orange !important;*/
   border-radius: 40px;
+  background-color: green !important;
 }
 .rowFotS {
   background-color: lightblue !important;

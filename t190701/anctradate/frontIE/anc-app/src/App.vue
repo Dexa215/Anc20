@@ -774,13 +774,13 @@ categorie:[
 .column {
   background-color: snow;
 }
-
+/*
 .container-fluid {
   background-color: snow;
   width: 100%;
   height: "500px";
 }
-
+*/
 #c0 {
   background-color: pink;
   height: 700px;
@@ -867,6 +867,18 @@ categorie:[
   background-color: rgb(51, 26, 12); /* Marrone scuro +4 */
 }
 
+.AncAppBar_BC {
+  background-color: rgb(19, 21, 36);
+}
+
+/*background-color: #241518 !important;   */
+/*background-color: #2b2b29 !important;   */
+/*background-color: #241518 !important;   */
+
+.r_BC {
+  background-color: rgb(4, 11, 46) !important; /* AncColor Blue +6 */
+}
+
 .AncTrasparenza {
   position: absolute;
   z-index: 2;
@@ -874,6 +886,54 @@ categorie:[
   height: 100%;
   width: 100%;
   opacity: 0.7;
+}
+
+.AncAppBar_BC {
+  background-color: "rgb(19, 21, 36)";
+}
+
+.SfBase {
+  /* Sfondo Base */
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  background-color: whitesmoke;
+  text-align: center;
+}
+
+.SfImmagine {
+  /* Sfondo Immagine TEST OK 2020 04 22*/
+  position: relative;
+  z-index: 3;
+  opacity: 0.15;
+  height: 100%;
+  width: 100%;
+  background-image: url("~@/assets/images/bg/bg8.jpg");
+}
+
+.SfParallax {
+  /* Sfondo Parallax */
+  position: relative;
+  z-index: 1;
+  opacity: 0.15;
+  height: 600px;
+  width: 100%;
+}
+
+.SfSpazio {
+  /*spazio sotto AncAppBar*/
+
+  width: 100%;
+  position: relative;
+  z-index: 3;
+  opacity: 1;
+}
+.SfShUp {
+  height: 150px;
+}
+.SfShDown {
+  height: 78px;
 }
 
 /*

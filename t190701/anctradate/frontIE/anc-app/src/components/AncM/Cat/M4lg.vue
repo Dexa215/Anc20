@@ -6,7 +6,7 @@
     <!-- test 2020 04 16 -->
 
     <v-row class="mr mx-auto">
-      <a style="color : white">{{drawerSottocategoria}}</a>
+      <!-- <a style="color : white">{{drawerSottocategoria}}</a>-->
 
       <!--v-col>lato sx</v-col-->
       <!-- shaped -->

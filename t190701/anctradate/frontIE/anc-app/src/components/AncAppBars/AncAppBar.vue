@@ -453,27 +453,7 @@ export default {
   text-justify: center;
   border-radius: 50px 50px 50px 50px;
 }
-.r_BC {
-  background-color: rgb(
-    4,
-    11,
-    46
-  ) !important; /* AncColor Blue +6
-  /*
 
-  
-  rgb(
-    36,
-    17,
-    6
-  )*/
-
-  /* AncColor2
-  
-  /*background-color: #241518 !important;   */
-  /*background-color: #2b2b29 !important;*/
-  /*background-color: #241518 !important;*/
-}
 .r_BC--T {
   background-color: ORANGE !important;
 }

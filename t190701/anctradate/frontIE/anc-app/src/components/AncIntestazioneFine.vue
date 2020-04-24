@@ -1,52 +1,36 @@
 <template>
-  <div>   
+  <v-row dense class="row ma-2 pa-2">
     <v-container>
       <v-flex xs12>
-        <v-img
-          class="my-3"
-          contain
-          height="50"
-        ></v-img>
-      </v-flex>  
+        <v-img class="my-3" contain height="50"></v-img>
+      </v-flex>
 
-      <v-layout
-        text-xs-center
-        wrap
-      >
+      <v-layout text-xs-center wrap>
         <v-flex xs12>
-                <v-img
-                  :src="require('../assets/images/Icone/busS.png')"
-                  class="my-3"
-                  contain
-                  height="100"
-                ></v-img>
+          <v-img
+            :src="require('../assets/images/Icone/busS.png')"
+            class="my-3"
+            contain
+            height="100"
+          ></v-img>
         </v-flex>
       </v-layout>
 
-
-<!-- contattaci... -->
+      <!-- contattaci... -->
       <v-layout justify-center>
         <p class="my-2">
-          Per qualsiasi informazione non presente in questa pagina non esitare a contattarci 
-          <br>
-            <v-chip
-              class="ma-4"
-              color="red"
-              text-color="white"
-              @click="gotoR('contatti/')"
-            >
+          Per qualsiasi informazione non presente in questa pagina non esitare a contattarci
+          <br />
+          <v-chip class="ma-4" color="red" text-color="white" @click="gotoR('contatti/')">
             <a>Contatti</a>
-            </v-chip>
-          <!-- class="headline font-weight-bold" -->  
+          </v-chip>
+          <!-- class="headline font-weight-bold" -->
         </p>
       </v-layout>
-<!-- contattaci... -->
+      <!-- contattaci... -->
 
-<!-- links -->
-      <v-layout 
-        justify-center
-        text-center
-      >
+      <!-- links -->
+      <v-layout justify-center text-center>
         <div>
           <h3 class="headline font-weight-bold mb-3 text-center">Potrebbero interessarti...</h3>
           <a
@@ -62,100 +46,68 @@
               class="ma-2"
               color="green"
               text-color="white"
-            >
-
-            {{ link.descrizione }}  
-            
-            </v-chip>              
+            >{{ link.descrizione }}</v-chip>
           </a>
         </div>
       </v-layout>
-<!-- links -->    
 
-      
-      
-
+      <div class="mb-4"></div>
+      <!-- links -->
     </v-container>
-
-    <!--div>    
-        <v-card
-            class="d-flex pa-2"
-            outlined
-            tile
-            >
-                <div>
-                    <h1 class="display-2 font-weight-bold mb-3">  
-                        {{menuSubCat}}
-                    </h1>
-
-                    <p class="subheading font-weight-regular">
-                        {{menuCat}}
-                    </p>
-                </div>
-            
-        </v-card>
-    </div-->
-
-  </div>
+  </v-row>
 </template>
 
 <script>
 //import router       from "../router";
 
-  export default {
-    name: "ancIntestazioneFine",
+export default {
+  name: "ancIntestazioneFine",
 
-    props: {
-        linksFP:        {type: Array,},    
-        alignment:      {type: String,},
-        justify:        {type: String,},
+  props: {
+    linksFP: { type: Array },
+    alignment: { type: String },
+    justify: { type: String },
 
-        C:              {type: Number,},
-        CS:             {type: Number,},
-        categorie:      {type:Array,},   
-    },
+    C: { type: Number },
+    CS: { type: Number },
+    categorie: { type: Array }
+  },
 
+  data: () => ({
+    iconsrc: "",
 
-    data: () => ({
+    importantLinks: [
+      {
+        text: "Documentation",
+        href: "https://vuetifyjs.com"
+      },
+      {
+        text: "Chat",
+        href: "https://community.vuetifyjs.com"
+      },
+      {
+        text: "Made with Vuetify",
+        href: "https://madewithvuetifyjs.com"
+      },
+      {
+        text: "Twitter",
+        href: "https://twitter.com/vuetifyjs"
+      },
+      {
+        text: "Articles",
+        href: "https://medium.com/vuetify"
+      }
+    ]
+  }),
 
-      iconsrc:"",
-  
-      importantLinks: [
-        {
-          text: 'Documentation',
-          href: 'https://vuetifyjs.com'
-        },
-        {
-          text: 'Chat',
-          href: 'https://community.vuetifyjs.com'
-        },
-        {
-          text: 'Made with Vuetify',
-          href: 'https://madewithvuetifyjs.com'
-        },
-        {
-          text: 'Twitter',
-          href: 'https://twitter.com/vuetifyjs'
-        },
-        {
-          text: 'Articles',
-          href: 'https://medium.com/vuetify'
-        }
-      ],
-
-    }),
-
-    methods:{
-      
-        gotoR(r){
-          console.log("intestazionefine goto ... " , r);
-          this.$emit("gotoR",r)
-        },             
+  methods: {
+    gotoR(r) {
+      console.log("intestazionefine goto ... ", r);
+      this.$emit("gotoR", r);
     }
-
   }
+};
 </script>
 
 <style>
-
 </style>

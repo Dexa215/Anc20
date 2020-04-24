@@ -1,6 +1,12 @@
 <template lang="html">
+<div class="SfBase">
+    <div class="SfSpazio SfShUp AncAppBar_BC">spazio Up</div>
+
   <div class="single-event">
     <v-row class="AncTrasparenza" v-show="drawerLeft"></v-row>
+
+
+
   <!--
   name
   lastModified
@@ -514,6 +520,12 @@ test parallax OK !!! ***********************************************************
     </div>
   </div>
 
+
+</div>
+</div>
+
+
+
 </template>
 
 <script>
@@ -909,7 +921,8 @@ export default {
         });
     },
 
-    handleFileUpload() { //Handles a change on the file upload
+    handleFileUpload() {
+      //Handles a change on the file upload
       this.file = this.$refs.file.files[0];
     },
 

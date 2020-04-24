@@ -1,136 +1,118 @@
 <template>
   <div>
-    <v-footer
-      fixed
-      app
-      color="dark-grey"
-      class="grey--text"
-      dark
-    >
-      <v-row 
-          dense
-          class=          "rowFot ma-1 pu-1"  
-          style=          "background-color: red; 
-                          max-height:550px; "
-          align=          "center"
-          justify=        "start"
+    <v-footer fixed app :color="AncFooter_BC" class="grey--text" dark>
+      <v-row
+        dense
+        class="AncFooter_r_BC ma-1 pu-1"
+        style="max-height:550px; background-color:rgb(11, 26, 14);"
+        align="center"
+        justify="start"
       >
-
-        <!-- large --> 
+        <!-- large -->
         <!-- class="hidden-md-and-down" -->
-        <!-- large --> 
-        <v-col  
-          class=          "hidden-md-and-down colFot" 
-          align=          "center"
-          justify=        "center"      
-        >
+        <!-- large -->
+        <v-col class="hidden-md-and-down colFot" align="center" justify="center">
           <div class="grey--text">
-              <span class="font-weight-light">ANC </span>
-              <span> Sezione "C.Bergia" Tradate </span>
+            <span class="font-weight-light mx-2">ANC</span>
+            <span>Sezione "C.Bergia" Tradate</span>
           </div>
         </v-col>
         <!-- large -->
 
         <!-- col2 CENTER -->
         <v-col
-           style=         "background-color: transparent; 
+          style="background-color: transparent; 
                             max-height:150px "
-          align=          "center"
-          justify=        "start"
+          align="center"
+          justify="start"
         >
-          <div sytle= "max-height:80px;"> 
+          <div sytle="max-height:80px;">
             <v-avatar
-                class ="mx-4 my-0"
-                max-height= 90
-                max-width=  90
-                
-                min-height= 50
-                min-width=  50
+              class="mx-4 my-0"
+              max-height="90"
+              max-width="90"
+              min-height="50"
+              min-width="50"
             >
               <img
-                  src="/static/images/Icone/logoanc2000.png"
-                  alt="ancTradate"
-                  @click="gotoR('/')"
-                  @mouseover="hoveravatar = true"
-                  @mouseleave="hoveravatar = false"
-                  style="
+                src="/static/images/Icone/logoanc2000.png"
+                alt="ancTradate"
+                @click="gotoR('/')"
+                @mouseover="hoveravatar = true"
+                @mouseleave="hoveravatar = false"
+                style="
                     height: 50px; 
                     width:  50px;"
-              >
-            </v-avatar>        
+              />
+            </v-avatar>
           </div>
         </v-col>
         <!-- col2 CENTER -->
 
-        <!-- large --> 
+        <!-- large -->
         <!-- class="hidden-md-and-down" -->
-        <!-- large --> 
+        <!-- large -->
         <v-col
-          class="colFot hidden-md-and-down" 
-          style=          "background-color: transparent; 
+          class="colFot hidden-md-and-down"
+          style="background-color: transparent; 
                             max-height:90px; "
-          align=          "center"
-          justify=        "center"      
+          align="center"
+          justify="center"
         >
           <div class="grey--text">
-              <span class="font-weight-light"> CF:95066440124 </span>
-              <span class="font-weight-light"> / Powered by </span>
-              <span> 2Pi-NT &copy; </span>
-              <span class="font-weight-light"> {{ new Date().getFullYear() }}</span>
+            <span class="font-weight-light">CF:95066440124</span>
+            <span class="font-weight-light">/ Powered by</span>
+            <span>2Pi-NT &copy;</span>
+            <span class="font-weight-light">{{ new Date().getFullYear() }}</span>
           </div>
         </v-col>
-        <!-- large --> 
-        
+        <!-- large -->
       </v-row>
     </v-footer>
   </div>
 </template>
 
 <script>
-  export default {
-    name: "f4lg",
-    
-    props:{
-        footercolor: String,
-        requestUser: String,
-        C:              {type: Number,},
-        CS:             {type: Number,},
-        categorie:      {type: Array,},   
-    },
+export default {
+  name: "f4lg",
 
-    data: () => ({
+  props: {
+    footercolor: String,
+    requestUser: String,
+    C: { type: Number },
+    CS: { type: Number },
+    categorie: { type: Array }
+  },
 
-        colordefault : 'footercolor',
-//        requestUser: "...",
-        requestUserIsStaff: false,
-        requestUserIsSuper: false,
+  data: () => ({
+    /*AncAppBar_BC: "rgb(19, 21, 36)" /* blue */
+    AncFooter_BC: "rgb(28, 43, 31)" /* green */,
+    AncFooter_r_BC: "rgb(11, 26, 14)" /* green */,
 
-      icons: [
-        'home',
-        'mail',
-        'event',
-        'delete',
-      ],
-      items: [
-        'default',
-        'absolute',
-        'fixed',
-      ],
-      fixed:    true,
-      padless:  false,
-      variant: 'default',
+    colordefault: "footercolor",
+    //        requestUser: "...",
+    requestUserIsStaff: false,
+    requestUserIsSuper: false,
 
-    }),
+    icons: ["home", "mail", "event", "delete"],
+    items: ["default", "absolute", "fixed"],
+    fixed: true,
+    padless: false,
+    variant: "default"
+  }),
 
-    methods:{
-      gotoR(r){
-        console.log("AppBar rotta per...");
-        this.$emit("gotoR",r)
-        },
-    },
-
+  methods: {
+    gotoR(r) {
+      console.log("AppBar rotta per...");
+      this.$emit("gotoR", r);
+    }
   }
+};
 </script>
 
 <style media="screen">
+.AncFooter_r_BC {
+  background-color: green; /* rgb(11, 26, 14);*/
+  border-radius: 40px;
+} /* green */
 </style>

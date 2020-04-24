@@ -63,8 +63,8 @@ export default {
   padding-top: 20px;
   padding-left: 20px;
   padding-right: 20px;
-  background-color: blueviolet;
-  height: 100%;
+  background-color: rgb(7, 14, 85);
+  height: 600px;
   border-radius: 0px 15px 15px 15px;
 }
 </style>

@@ -1,102 +1,143 @@
 {% load l10n %}
+<template>
+  <div class="home-view">
+    <!-- Ai  -->
 
-  <template>
-  <div class="SfBase">
-    <div class="SfSpazio SfShUp AncAppBar_BC">spazio Up</div>
     <!--
-    <v-parallax class="SfParallax" src="/static/images/HomePageCarousel/dsc3.jpg" height="1000"></v-parallax>
+                                                            :menuCat=         "menuCat"              
+                                                            :menuSubCat=      "menuSubCat"
+                                                            :intMsg=          "intMsg"
+                                                            :intMsgSubH=      "intMsgSubH"
+                                                            :linksFP=         "linksFP"
     -->
-    <v-row
-      justify="center"
-      align="center"
-      class="anchomer mx-auto"
-      style="height:600px; width:100%; background-color:transparent; "
+
+    <!--
+    <v-row class="AncTrasparenza" v-show="drawerLeft"></v-row>
+    -->
+
+    <!--
+    <AncIntestazioneHome :C="10" :CS="0" :categorie="categorie" @gotoR="gotoR"></AncIntestazioneHome>
+    -->
+    <!-- Ai  -->
+
+    <!-- Titolo -->
+    <!--
+    <AncCard
+      :C="10"
+      :CS="0"
+      :categorie="categorie"
+      :evidenza="Eevents"
+      :Titolone="Titolone"
+      @gotoR="gotoR"
+    ></AncCard>
+    -->
+    <!-- Titolo -->
+
+    <!-- div 00 -->
+    <div class="anchome mb-0 pb-0 container-fluid text-center">
+      <!--container-fluid -->
+
+      <!--
+    <v-parallax
+        height="180"
+        src="../assets/images/bg/bg8.jpg"
     >
-      <!--sx-->
-      <carP
-        :Pevents="Pevents"
-        :Pnext="Pnext"
-        :PloadingEvents="PloadingEvents"
-        clFcard="grey darken-4"
-        clFtitle="grey darken-4 "
-        clFevent="grey darken-3 "
-        clFeventInt="grey darken-4 "
-      ></carP>
-      <!--sx-->
+      <div>    
+          <div class="text-right">
+              <h1     class="display-2 font-weight-bold mb-3"
+              >Home page
+              </h1>
 
-      <!--cx-->
-      <v-col cols="3" style="height:500px; background-color:transparent; " align="center">
-        <!-- data oggi 555555555555555555555555555555555555555555555555555555555555  -->
-        <v-row class="todayCircle" align="center" justify="center">
-          <v-col cols="12" class="todayCircleText">
-            <v-row align="end">
-              <v-col cols="12" class="todaylineup headline mt-0">Oggi...</v-col>
-            </v-row>
-            <v-row align="start">
-              <v-col cols="12" class="todaylinedown headline mt-0">{{ displaydate }}</v-col>
-            </v-row>
-          </v-col>
-        </v-row>
-      </v-col>
-      <!--cx-->
+              <p class="subheading font-weight-regular">
+                 <a href="">Ultimi avvenimenti e prossimi appuntamenti...</a>
+              </p>
 
-      <!--dx-->
-      <carF
-        :Fevents="Fevents"
-        :Fnext="Fnext"
-        :FloadingEvents="FloadingEvents"
-        clFcard="grey lighten-4"
-        clFtitle="grey lighten-4 "
-        clFevent="grey lighten-3 "
-        clFeventInt="grey lighten-4 "
-      ></carF>
-      <!--dx-->
-    </v-row>
-    <!--
-      <v-col cols="4" style="height:500px; background-color:blue; "></v-col>
-    <dx-->
+          </div>
+      </div>      
+    </v-parallax>
+      -->
 
-    <v-parallax class="SfParallax" src="/static/images/bg/bg8.jpg" height="800"></v-parallax>
+      <!--div>
+        <div> {{ requestUser.name }} {{rvt}}</div>
+        <div v-if= "focusOn" >focus on</div>
+        <div v-else>focus off</div>
+      </div-->
 
-    <v-row class="qdcrhome" justify="center" align="center" style="background-color: transparent">
-      <v-col class="qdcchome" cols="12">
-        <v-row align="center" justify="center" style="background-color:transparent !important">
-          <v-col></v-col>
-          <!--
-          <v-col>
-            <ancEventsFuture
-              :Fevents="Fevents"
-              :Fnext="Fnext"
-              :FloadingEvents="FloadingEvents"
-              clFcard="grey lighten-3 mx-auto my-4"
-              clFtitle="grey lighten-4"
-              clFevent="grey lighten-2"
-              clFeventInt="grey lighten-4"
-            ></ancEventsFuture>
-          </v-col>
+      <!--
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/i8n1gSw_o_8"></iframe>
+      -->
+      <v-row
+        class="fill-height"
+        align="center"
+        justify="center"
+        style="background-color:transparent !important"
+      >
+        <v-col>
+          <ancEventsPast
+            :Pevents="Pevents"
+            :Pnext="Pnext"
+            :PloadingEvents="PloadingEvents"
+            clFcard="grey darken-4 mx-auto my-4"
+            clFtitle="grey darken-4 "
+            clFevent="grey darken-3 "
+            clFeventInt="grey darken-4 "
+          ></ancEventsPast>
+        </v-col>
 
-          -->
-        </v-row>
-      </v-col>
-    </v-row>
+        <v-col align="center">
+          <!-- data oggi 555555555555555555555555555555555555555555555555555555555555  -->
+          <v-card
+            class="mx-auto my-4 text-center ma-2 grey lighten-5"
+            light
+            max-width="500"
+            outlined
+          >
+            <v-list-item three-line>
+              <v-list-item-content>
+                <div class="overline ma-2"></div>
+                <v-list-item-subtitle>OGGI...</v-list-item-subtitle>
+                <v-list-item-title id="date" class="headline mb-1">
+                  <div>{{ displaydate }}</div>
+                  <!--              
+                  {{ date }} {{month}} {{year}} 
+                  -->
+                </v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
+          </v-card>
+          <!-- data oggi 555555555555555555555555555555555555555555555555555555555555  -->
+        </v-col>
 
-    <span>spiegone:</span>
+        <v-col>
+          <ancEventsFuture
+            :Fevents="Fevents"
+            :Fnext="Fnext"
+            :FloadingEvents="FloadingEvents"
+            clFcard="grey lighten-3 mx-auto my-4"
+            clFtitle="grey lighten-4"
+            clFevent="grey lighten-2"
+            clFeventInt="grey lighten-4"
+          ></ancEventsFuture>
+        </v-col>
+      </v-row>
 
-    <span v-if="CS==0">{{ categorie[(C/10)-1].descrizione }}</span>
-    <span v-else>{{ categorie[(C/10)-1].sottocategorie[(CS-C)-1].descrizione }}</span>
+      <!-- **** -->
 
-    <!--
-    <div class="SfImmagine">sfondo Immagine</div>
-    -->
-    <div class="container-fluid text-center">
-      <AncIntestazioneFine :C="C" :CS="CS" :categorie="categorie" @gotoR="gotoR"></AncIntestazioneFine>
+      <v-row dense class="row ma-2 pa-2">
+        <!-- row 7 -->
+        <!-- The end -->
+        <!-- AiF -->
+        <div class="container-fluid text-center">
+          <AncIntestazioneFine :C="C" :CS="CS" :categorie="categorie" @gotoR="gotoR"></AncIntestazioneFine>
+        </div>
+        <!-- AiF -->
+      </v-row>
+      <!-- row 7 -->
+      <!-- The end -->
     </div>
-    <div class="SfSpazio SfShDown AncAppBar_BC">spazio Down</div>
-
-    <!--
-/* ********************************************************************************************************** */
-    -->
+    <!-- container-fluid -->
   </div>
+  <!-- div 00 -->
 </template>
 
 <script>
@@ -107,9 +148,6 @@ import ancEventsFuture from "../components/AncEventsFuture";
 import AncIntestazioneHome from "@/components/AncIntestazioneHome.vue";
 import AncIntestazioneFine from "@/components/AncIntestazioneFine.vue";
 import AncCard from "@/components/AncCard.vue";
-
-import carP from "@/components/AncCarousels/Past/Car.vue";
-import carF from "@/components/AncCarousels/Future/Car.vue";
 
 //import ancEventsPreview     from '../components/AncEventsPreview';
 
@@ -124,9 +162,7 @@ export default {
     ancEventsFuture,
     AncIntestazioneHome,
     AncIntestazioneFine,
-    AncCard,
-    carP,
-    carF
+    AncCard
 
     //  ancEventsPreview
     //  NavbarComponentDark
@@ -353,10 +389,6 @@ export default {
   background-image: url("~@/assets/images/bg/bg7.jpg");
   opacity: 0.3;
 }
-.anchomer {
-  position: absolute;
-  z-index: 4;
-}
 
 .home-view {
   position: relative;
@@ -393,83 +425,6 @@ export default {
   background-image: url("~@/assets/images/bg/bg8.jpg");
   */
 }
-
-/* -------------------------------------------------------------------- 2020 04 22 */
-
-.q {
-  height: 50px;
-}
-
-.qd2 {
-  /*finestra contenuto*/
-  position: absolute;
-  top: 300px;
-  z-index: 4;
-  opacity: 1;
-
-  width: 80%;
-}
-.qd3 {
-  position: relative;
-  z-index: 3;
-  opacity: 1;
-  background-color: green;
-  width: 100px;
-}
-.qd4 {
-  position: relative;
-  z-index: 4;
-  opacity: 1;
-  background-color: cyan;
-  width: 100px;
-}
-
-.qdcrhome {
-  position: absolute;
-  top: 140px;
-  z-index: 4;
-  opacity: 1;
-  width: 100%;
-  height: 100%;
-  background-color: yellow;
-}
-.qdcchome {
-  position: relative;
-  width: 100px;
-  height: 100%;
-  /* background-color: orange;*/
-  background-color: transparent;
-}
-
-.todayhome {
-  height: 300px;
-  width: 300px;
-  background-color: azure;
-  opacity: 1;
-  border-radius: 150px;
-}
-.todayCircle {
-  height: 300px;
-  width: 300px;
-  background-color: azure;
-  opacity: 1;
-  border-radius: 150px;
-}
-.todayCircleText {
-  background-color: transparent;
-  opacity: 1;
-  border-radius: 100px;
-}
-
-.todaylineup {
-  /*background-color: orangered;*/
-  background-color: transparent;
-}
-
-.todaylinedown {
-  /*background-color: orange;*/
-  background-color: transparent;
-}
 </style>
 
 <!--
@@ -478,30 +433,3 @@ export default {
     src="../assets/images/bg/bg1.jpg"
 ></v-parallax>
 -->
-
-
-        <!-- data oggi 555555555555555555555555555555555555555555555555555555555555  -->
-        <!--
-            <v-row class="todayCircle" align="center" justify="center">
-            <v-card
-              class="mx-auto my-4 text-center ma-2 grey lighten-5"
-              light
-              max-width="500"
-              outlined
-            >
-              <v-list-item three-line>
-                <v-list-item-content>
-                  <div class="overline ma-2"></div>
-                  <v-list-item-subtitle>OGGI...</v-list-item-subtitle>
-                  <v-list-item-title id="date" class="headline mb-1">
-                    <div>{{ displaydate }}</div>
-
-                  </v-list-item-title>
-                </v-list-item-content>
-              </v-list-item>
-            </v-card>
-        -->
-        <!--              
-                  {{ date }} {{month}} {{year}} 
-        -->
-        <!-- data oggi 555555555555555555555555555555555555555555555555555555555555  -->

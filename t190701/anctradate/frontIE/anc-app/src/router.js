@@ -10,6 +10,8 @@ import Chisiamo from "./views/Chisiamo.vue";
 import ChisiamoBenemerite from "./views/ChisiamoBenemerite.vue";
 import ChisiamoSimpatizzanti from "./views/ChisiamoSimpatizzanti.vue";
 import ChisiamoSoci from "./views/ChisiamoSoci.vue";
+import ChisiamoDirettivo from "@/views/chisiamo/ChisiamoDirettivo.vue";
+
 
 //import Eventi from "./views/Eventi.vue";
 import Links from "./views/Links.vue";
@@ -94,6 +96,12 @@ export default new Router({
             name: "chisiamosimpatizzanti",
             component: ChisiamoSimpatizzanti
         },
+        {
+            path: "/chisiamodirettivo",
+            name: "chisiamodirettivo",
+            component: ChisiamoDirettivo
+        },
+
 
         /*        {
                     path: "/eventi",

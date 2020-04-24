@@ -27,9 +27,11 @@ menuR.prototype.getCurrentCat = function (r) {
         case "/sedeOrari": cat = [20, 22]; break;
         case "/contatti": cat = [30, 0]; break;
         case "/chisiamo": cat = [40, 0]; break;
-        case "/chisiamosoci": cat = [40, 41]; break;
-        case "/chisiamobenemerite": cat = [40, 42]; break;
-        case "/chisiamosimpatizzanti": cat = [40, 43]; break;
+        case "/chisiamodirettivo": cat = [40, 41]; break;
+        case "/chisiamosoci": cat = [40, 42]; break;
+        case "/chisiamobenemerite": cat = [40, 43]; break;
+        case "/chisiamosimpatizzanti": cat = [40, 44]; break;
+
         case "/agenda": cat = [50, 0]; break;
         case "/archivio": cat = [60, 0]; break;
 
@@ -202,6 +204,14 @@ menuR.prototype.getCat = function () {       //menu categorie
                 sottocategorie: [
                     {
                         n: "41",
+                        descrizione: "Direttivo",
+                        titolo: "L'Amministrazione dell'Associazione",
+                        icona: "mdi-human-greeting",
+                        img: "/static/images/Icone/bus.jpg",
+                        link: "/chisiamodirettivo",
+                    },
+                    {
+                        n: "42",
                         descrizione: "Soci",
                         titolo: "Il cuore dell'Associazione",
                         icona: "mdi-human-greeting",
@@ -209,7 +219,7 @@ menuR.prototype.getCat = function () {       //menu categorie
                         link: "/chisiamosoci",
                     },
                     {
-                        n: "42",
+                        n: "43",
                         descrizione: "Benemerite",
                         titolo: "Il fiore all'occhiello",
                         icona: "mdi-human-female",
@@ -217,7 +227,7 @@ menuR.prototype.getCat = function () {       //menu categorie
                         link: "/chisiamobenemerite",
                     },
                     {
-                        n: "43",
+                        n: "44",
                         descrizione: "Simpatizzanti",
                         titolo: "La forza di chi sta dalla nostra parte",
                         icona: "mdi-human-handsup",

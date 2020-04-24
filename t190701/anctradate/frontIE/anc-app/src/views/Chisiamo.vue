@@ -161,6 +161,8 @@ export default {
 
 <style media="screen">
 .chisiamo {
+  background-image: url("~@/assets/images/bg/bg8.jpg");
+  opacity: 0.3;
   background-color: black;
   width: 100%;
   height: 100%;

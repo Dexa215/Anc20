@@ -1,64 +1,38 @@
 <template>
   <div class="chisiamobenemerite">
-    <v-row class="AncTrasparenza" v-show="drawerLeft"></v-row>
-    <!-- Ai  -->
-    <AncIntestazione :C="40" :CS="42" :categorie="categorie" @gotoR="gotoR"></AncIntestazione>
-    <!-- Ai  -->
+    <v-row dense class="row ma-2 pa-2">
+      <!-- row 01 -->
+      <!--  -->
+      <v-col cols="4" v-for="cat in cats" :key="cat.n">
+        <v-card light class="pa-4" height="400px">
+          <v-img :src="cat.link" width="300" max-height="200"></v-img>
+          <v-card-title>{{cat.descrizione}}</v-card-title>
+        </v-card>
+      </v-col>
+    </v-row>
+    <!-- row 01 -->
+    <!--  -->
 
-    <div>
-      <!-- div 00 -->
-      <div class="my-4 pb-2 container-fluid text-center">
-        <!--container-fluid -->
-        <!-- Titolo -->
-        <AncCard
-          :C="40"
-          :CS="42"
-          :categorie="categorie"
-          :evidenza="Eevents"
-          :Titolone="Titolone"
-          @gotoR="gotoR"
-        ></AncCard>
-        <!-- Titolo -->
+    <!-- **** -->
 
-        <!-- **** -->
-
-        <v-row dense class="row ma-2 pa-2">
-          <!-- row 01 -->
-          <!--  -->
-          <v-col cols="4" v-for="cat in cats" :key="cat.n">
-            <v-card light class="pa-4" height="400px">
-              <v-img :src="cat.link" width="300" max-height="200"></v-img>
-              <v-card-title>{{cat.descrizione}}</v-card-title>
-            </v-card>
-          </v-col>
-        </v-row>
-        <!-- row 01 -->
-        <!--  -->
-
-        <!-- **** -->
-
-        <v-row dense class="row ma-2 pa-2">
-          <!-- row 7 -->
-          <!-- The end -->
-          <!-- AiF -->
-          <div class="container-fluid text-center">
-            <AncIntestazioneFine
-              :menuCat="menuCat"
-              :menuSubCat="menuSubCat"
-              :intFMsg="intMsg"
-              :intFMsgSubH="intMsgSubH"
-              :linksFP="linksFP"
-              :src="src"
-            ></AncIntestazioneFine>
-          </div>
-          <!-- AiF -->
-        </v-row>
-        <!-- row 7 -->
-        <!-- The end -->
+    <v-row dense class="row ma-2 pa-2">
+      <!-- row 7 -->
+      <!-- The end -->
+      <!-- AiF -->
+      <div class="container-fluid text-center">
+        <AncIntestazioneFine
+          :menuCat="menuCat"
+          :menuSubCat="menuSubCat"
+          :intFMsg="intMsg"
+          :intFMsgSubH="intMsgSubH"
+          :linksFP="linksFP"
+          :src="src"
+        ></AncIntestazioneFine>
       </div>
-      <!-- container-fluid -->
-    </div>
-    <!-- div 00 -->
+      <!-- AiF -->
+    </v-row>
+    <!-- row 7 -->
+    <!-- The end -->
   </div>
 </template>
 <script>
@@ -132,6 +106,8 @@ export default {
 
 <style media="screen">
 .chisiamobenemerite {
+  background-image: url("~@/assets/images/bg/bg8.jpg");
+  opacity: 0.3;
   background-color: pink;
   width: 100%;
   height: 100%;
