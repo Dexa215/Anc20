@@ -240,7 +240,7 @@ menuR.prototype.getCat = function () {       //menu categorie
                 n: "50",
                 descrizione: "Agenda",
                 titolo: "prossimi appuntamenti da non perdere",
-                icona: "mdi-calendar-multiple",
+                icona: "mdi-calendar-clock",
                 img: "/static/icons/menu/Agenda.jpg",
                 link: "/agenda",
                 linksFP:

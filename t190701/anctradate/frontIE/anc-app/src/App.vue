@@ -878,6 +878,14 @@ categorie:[
 .r_BC {
   background-color: rgb(4, 11, 46) !important; /* AncColor Blue +6 */
 }
+.r_C {
+  color: rgb(4, 11, 46) !important; /* AncColor Blue +6 */
+}
+
+.rcLat_BC {
+  background-color: rgb(1, 4, 20) !important; /* Blue */
+  /*  background-color: rgb(20, 9, 2) !important;*/
+}
 
 .AncTrasparenza {
   position: absolute;
@@ -910,15 +918,6 @@ categorie:[
   height: 100%;
   width: 100%;
   background-image: url("~@/assets/images/bg/bg8.jpg");
-}
-
-.SfParallax {
-  /* Sfondo Parallax */
-  position: relative;
-  z-index: 1;
-  opacity: 0.15;
-  height: 600px;
-  width: 100%;
 }
 
 .SfSpazio {

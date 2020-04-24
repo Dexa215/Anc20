@@ -1,12 +1,15 @@
 <template>
   <v-col cols="4" class="carcolsx">
     <!-- ///////////////////////////////////////////////////////////////////////////// -->
-    <v-card elevation="24" class="anccard mx-auto my-auto grey darken-4" dark shaped height="465">
-      <v-list two-line class="carlist grey darken-4" dark>
+    <v-card elevation="24" class="anccard mx-auto my-auto r_BC darken-4" dark shaped height="465">
+      <v-list two-line class="carlist r_BC darken-4" dark>
         <v-list-item>
-          <v-list-item-avatar>
-            <v-icon x-large>mdi-calendar-check</v-icon>
-          </v-list-item-avatar>
+          <router-link :to="{name: 'archivio',}" class="event-link">
+            <v-list-item-avatar>
+              <v-icon x-large>mdi-archive</v-icon>
+            </v-list-item-avatar>
+          </router-link>
+
           <v-list-item-content>
             <v-list-item-title>Ultimi eventi</v-list-item-title>
             <v-list-item-subtitle></v-list-item-subtitle>
@@ -57,8 +60,9 @@ settaggi carousel:
             </v-row>
           </v-sheet>
           <!-- intestazione evento -->
-          <v-list two-line class="eventrif" :class="clFevent" dark>
-            <v-list-item :class="clFeventInt">
+
+          <v-list two-line class="eventrif r_BC darken-3" dark>
+            <v-list-item class="r_BC darken-4">
               <v-list-item-content>
                 <v-list-item-title>{{ event.datainizio | formatDate }}</v-list-item-title>
                 <v-list-item-subtitle>
@@ -94,23 +98,18 @@ export default {
   name: "carP",
 
   props: {
-    Pevents: {
-      type: Array
-    },
-    Pnext: {
-      type: String
-    },
-    PloadingEvents: {
-      type: Boolean
-    },
+    Pevents: { type: Array },
+    Pnext: { type: String },
+    PloadingEvents: { type: Boolean }
+  },
 
-    //      clDark: Boolean,
-    //      clLight: Boolean,
-
-    clFcard: String,
-    clFtitle: String,
-    clFevent: String,
-    clFeventInt: String
+  data() {
+    return {
+      clFcard: "grey darken-4",
+      clFtitle: "grey darken-4 ",
+      clFeventInt: "grey darken-4 ",
+      clFevent: "grey darken-3 "
+    };
   }
 };
 </script>

@@ -1,8 +1,14 @@
 <template>
   <v-col cols="4" class="carcoldx">
     <!-- ///////////////////////////////////////////////////////////////////////////// -->
-    <v-card elevation="24" class="anccard mx-auto my-auto grey lighten-4" light shaped height="465">
-      <v-list two-line class="carlist grey lighten-4" light>
+    <v-card
+      elevation="24"
+      class="anccard mx-auto my-auto grey r_C lighten-4"
+      light
+      shaped
+      height="465"
+    >
+      <v-list two-line class="carlist grey r_C lighten-4" light>
         <v-list-item>
           <v-list-item-avatar>
             <v-icon x-large>mdi-calendar-clock</v-icon>

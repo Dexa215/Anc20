@@ -3,9 +3,6 @@
   <template>
   <div class="SfBase">
     <div class="SfSpazio SfShUp AncAppBar_BC">spazio Up</div>
-    <!--
-    <v-parallax class="SfParallax" src="/static/images/HomePageCarousel/dsc3.jpg" height="1000"></v-parallax>
-    -->
     <v-row
       justify="center"
       align="center"
@@ -13,31 +10,11 @@
       style="height:600px; width:100%; background-color:transparent; "
     >
       <!--sx-->
-      <carP
-        :Pevents="Pevents"
-        :Pnext="Pnext"
-        :PloadingEvents="PloadingEvents"
-        clFcard="grey darken-4"
-        clFtitle="grey darken-4 "
-        clFevent="grey darken-3 "
-        clFeventInt="grey darken-4 "
-      ></carP>
+      <carP :Pevents="Pevents" :Pnext="Pnext" :PloadingEvents="PloadingEvents"></carP>
       <!--sx-->
 
       <!--cx-->
-      <v-col cols="3" style="height:500px; background-color:transparent; " align="center">
-        <!-- data oggi 555555555555555555555555555555555555555555555555555555555555  -->
-        <v-row class="todayCircle" align="center" justify="center">
-          <v-col cols="12" class="todayCircleText">
-            <v-row align="end">
-              <v-col cols="12" class="todaylineup headline mt-0">Oggi...</v-col>
-            </v-row>
-            <v-row align="start">
-              <v-col cols="12" class="todaylinedown headline mt-0">{{ displaydate }}</v-col>
-            </v-row>
-          </v-col>
-        </v-row>
-      </v-col>
+      <ancClock></ancClock>
       <!--cx-->
 
       <!--dx-->
@@ -56,31 +33,9 @@
       <v-col cols="4" style="height:500px; background-color:blue; "></v-col>
     <dx-->
 
-    <v-parallax class="SfParallax" src="/static/images/bg/bg8.jpg" height="800"></v-parallax>
+    <v-parallax class="SfParallax" src="/static/images/bg/bg8.jpg" height="650"></v-parallax>
 
-    <v-row class="qdcrhome" justify="center" align="center" style="background-color: transparent">
-      <v-col class="qdcchome" cols="12">
-        <v-row align="center" justify="center" style="background-color:transparent !important">
-          <v-col></v-col>
-          <!--
-          <v-col>
-            <ancEventsFuture
-              :Fevents="Fevents"
-              :Fnext="Fnext"
-              :FloadingEvents="FloadingEvents"
-              clFcard="grey lighten-3 mx-auto my-4"
-              clFtitle="grey lighten-4"
-              clFevent="grey lighten-2"
-              clFeventInt="grey lighten-4"
-            ></ancEventsFuture>
-          </v-col>
-
-          -->
-        </v-row>
-      </v-col>
-    </v-row>
-
-    <span>spiegone:</span>
+    <!-- <span>spiegone:</span>-->
 
     <span v-if="CS==0">{{ categorie[(C/10)-1].descrizione }}</span>
     <span v-else>{{ categorie[(C/10)-1].sottocategorie[(CS-C)-1].descrizione }}</span>
@@ -111,6 +66,8 @@ import AncCard from "@/components/AncCard.vue";
 import carP from "@/components/AncCarousels/Past/Car.vue";
 import carF from "@/components/AncCarousels/Future/Car.vue";
 
+import ancClock from "@/components/AncObjects/AncClock.vue";
+
 //import ancEventsPreview     from '../components/AncEventsPreview';
 
 //import HelloWorld           from '../components/HelloWorld';
@@ -126,7 +83,8 @@ export default {
     AncIntestazioneFine,
     AncCard,
     carP,
-    carF
+    carF,
+    ancClock
 
     //  ancEventsPreview
     //  NavbarComponentDark
@@ -353,9 +311,17 @@ export default {
   background-image: url("~@/assets/images/bg/bg7.jpg");
   opacity: 0.3;
 }
+.SfParallax {
+  /* Sfondo Parallax */
+  position: relative;
+  z-index: 1;
+  opacity: 0.15;
+  height: 600px;
+  width: 100%;
+}
 .anchomer {
   position: absolute;
-  z-index: 4;
+  z-index: 5;
 }
 
 .home-view {
@@ -440,36 +406,6 @@ export default {
   /* background-color: orange;*/
   background-color: transparent;
 }
-
-.todayhome {
-  height: 300px;
-  width: 300px;
-  background-color: azure;
-  opacity: 1;
-  border-radius: 150px;
-}
-.todayCircle {
-  height: 300px;
-  width: 300px;
-  background-color: azure;
-  opacity: 1;
-  border-radius: 150px;
-}
-.todayCircleText {
-  background-color: transparent;
-  opacity: 1;
-  border-radius: 100px;
-}
-
-.todaylineup {
-  /*background-color: orangered;*/
-  background-color: transparent;
-}
-
-.todaylinedown {
-  /*background-color: orange;*/
-  background-color: transparent;
-}
 </style>
 
 <!--
@@ -505,3 +441,50 @@ export default {
                   {{ date }} {{month}} {{year}} 
         -->
         <!-- data oggi 555555555555555555555555555555555555555555555555555555555555  -->
+
+        <!--
+      <v-col
+        cols="3"
+        style="height:500px; background-color:transparent;"
+        align="center"
+        justify="center"
+      >
+        <!-- data oggi 555555555555555555555555555555555555555555555555555555555555  -->
+<!--        
+        <v-row class="todayCircle my-auto" align="center" justify="center">
+          <v-col cols="12" class="todayCircleText">
+            <v-row align="end">
+              <v-col cols="12" class="todaylineup headline mt-0">Oggi...</v-col>
+            </v-row>
+            <v-row align="start">
+              <v-col cols="12" class="todaylinedown headline mt-0">{{ displaydate }}</v-col>
+            </v-row>
+          </v-col>
+        </v-row>
+      </v-col>
+-->
+
+
+<!--
+    <v-row class="qdcrhome" justify="center" align="center" style="background-color: transparent">
+      <v-col class="qdcchome" cols="12">
+        <v-row align="center" justify="center" style="background-color:transparent !important">
+          <v-col></v-col>
+          <!--
+          <v-col>
+            <ancEventsFuture
+              :Fevents="Fevents"
+              :Fnext="Fnext"
+              :FloadingEvents="FloadingEvents"
+              clFcard="grey lighten-3 mx-auto my-4"
+              clFtitle="grey lighten-4"
+              clFevent="grey lighten-2"
+              clFeventInt="grey lighten-4"
+            ></ancEventsFuture>
+          </v-col>
+
+         
+        </v-row>
+      </v-col>
+    </v-row>
+     -->
