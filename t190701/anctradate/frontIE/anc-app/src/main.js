@@ -2,7 +2,8 @@ import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
 import vuetify from './plugins/vuetify';
-import store from '@/store/store.js';
+import { store } from '@/store/store'
+
 import VueFilterDateFormat from 'vue-filter-date-format';
 import vueDateFormat from 'vue-date-format';
 import moment from 'moment';
@@ -50,6 +51,7 @@ new Vue({
   i18n,
   VueCookies,
   store,
+
   //  VueAuthenticateService,
   //  VueAuth,
 

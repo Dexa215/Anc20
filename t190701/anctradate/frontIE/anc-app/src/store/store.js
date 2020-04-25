@@ -5,7 +5,7 @@ Vue.use(Vuex)
 
 export const store = new Vuex.Store({
     state: {
-        flavor: ''
+        flavor: 'pippo'
     },
     mutations: {
         change (state, flavor) {

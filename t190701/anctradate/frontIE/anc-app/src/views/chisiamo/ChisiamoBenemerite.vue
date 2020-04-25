@@ -14,6 +14,7 @@
         <div>
           <label for="flavor">Favorite ice cream flavor?</label>
           <input @input="changed" name="flavor" />
+          <p>You chose {{ $store.getters.flavor }}</p>
         </div>
 
         <span v-if="CS==0">{{ categorie[(C/10)-1].descrizione }}</span>
@@ -75,7 +76,8 @@ export default {
 
       alignment: "start",
       justify: "start",
-      dense: false
+      dense: false,
+      datoinserito: "puddu"
     };
   },
 
