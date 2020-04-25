@@ -94,7 +94,8 @@ export default {
     },
 
     changed: function(event) {
-      alert(event.target.value);
+      //alert(event.target.value);
+      this.$store.commit("change", event.target.value);
     }
   }, //methods
 
