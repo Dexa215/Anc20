@@ -14,7 +14,22 @@
         <div>
           <label for="flavor">Favorite ice cream flavor?</label>
           <input @input="changed" name="flavor" />
-          <p>You chose {{ $store.getters.flavor }}</p>
+
+          <!-- test 2020 04 25 -->
+          <p>Loading: {{ $store.getters.loadingStatus }}</p>
+
+          <p>todo [id 2] {{ $store.getters.todoById(2) }}</p>
+
+          <p>done todos: {{ todosDone }}</p>
+          <p>todos: {{$store.getters.todos }}</p>
+          <p>todos computed: {{ todoscomputed }}</p>
+
+          <p @click="decvar">You chose {{ $store.getters.flavor }}</p>
+          <p @click="incvar">Conteggio variabili: {{$store.getters.count}}</p>
+        </div>
+
+        <div>
+          <v-btn @click="ancAction1">anc Action 1</v-btn>
         </div>
 
         <span v-if="CS==0">{{ categorie[(C/10)-1].descrizione }}</span>
@@ -81,6 +96,15 @@ export default {
     };
   },
 
+  computed: {
+    todoscomputed() {
+      return this.$store.state.todoscomputed;
+    },
+    todosDone() {
+      return this.$store.getters.todosDone;
+    }
+  },
+
   methods: {
     setMyPar() {
       let myparam = {
@@ -98,6 +122,19 @@ export default {
     changed: function(event) {
       //alert(event.target.value);
       this.$store.commit("change", event.target.value);
+    },
+
+    decvar() {
+      this.$store.commit("decrementcount");
+    },
+    incvar() {
+      this.$store.commit("incrementcount");
+    },
+
+    ancAction1() {
+      alert("anc Action 1");
+      //      this.$store.dispatch("fetchTodos");
+      this.$store.dispatch("ancAction2");
     }
   }, //methods
 

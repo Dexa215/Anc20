@@ -603,6 +603,14 @@ categorie:[
     },
 
     getRequestUser() {
+      /*TODO: RIPRENDI TEST PER SPOSTARE TUTTE LE CHIAMATE 
+      SU STORE
+      */
+      /* 
+      this.$store.dispatch("getRequestUser");
+*/
+      /*TODO: test ... da ripristinare */
+
       let endpoint = "api/profiles/getcurrentuser/";
       apiService(endpoint).then(data => {
         console.log("chiamata rest... data:", data.us.name);
@@ -612,6 +620,8 @@ categorie:[
         this.requestUserIsSuper = data.us.superuser;
         this.requestUserBio = data.us.bio;
       });
+
+      /*TODO: test ... da ripristinare */
     },
 
     T(c) {
@@ -767,20 +777,14 @@ categorie:[
 </script>
 
 <style media="screen">
-/* ------------------------------ Dev -------------------- */
+/*
+
 .row {
   background-color: snow;
 }
 .column {
   background-color: snow;
 }
-/*
-.container-fluid {
-  background-color: snow;
-  width: 100%;
-  height: "500px";
-}
-*/
 #c0 {
   background-color: pink;
   height: 700px;
@@ -801,8 +805,6 @@ categorie:[
 #c2img {
   height: 680px;
 }
-/* ------------------------------ Dev -------------------- */
-
 .sedeorari {
   background-color: purple;
   width: 100%;
@@ -811,7 +813,6 @@ categorie:[
 .taC {
   text-align: center;
 }
-
 .logeduser {
   color: LightGoldenRodYellow;
 }
@@ -857,35 +858,30 @@ categorie:[
   color: darkslategray;
 }
 
-.rgbANC1 {
-  background-color: rgb(20, 9, 2); /* Marrone scuro +6 */
-}
-.rgbANC2 {
-  background-color: rgb(36, 17, 6); /* Marrone scuro +5 */
-}
-.rgbANC3 {
-  background-color: rgb(51, 26, 12); /* Marrone scuro +4 */
-}
-
-.AncAppBar_BC {
-  background-color: rgb(19, 21, 36);
-}
-
+/* 
+Marrone scuro +6 
+.rgbANC1 {  background-color: rgb(20, 9, 2); }
+Marrone scuro +5 
+.rgbANC2 {  background-color: rgb(36, 17, 6); }
+Marrone scuro +4 
+.rgbANC3 {  background-color: rgb(51, 26, 12); }
+.AncAppBar_BC {  background-color: rgb(19, 21, 36);}
+*/
 /*background-color: #241518 !important;   */
 /*background-color: #2b2b29 !important;   */
 /*background-color: #241518 !important;   */
+/* AncColor Blue +6 */
 
 .r_BC {
-  background-color: rgb(4, 11, 46) !important; /* AncColor Blue +6 */
-}
+  background-color: rgb(4, 11, 46) !important;
+} /* AncColor Blue +6 */
 .r_C {
-  color: rgb(4, 11, 46) !important; /* AncColor Blue +6 */
-}
-
+  color: rgb(4, 11, 46) !important;
+} /**/
 .rcLat_BC {
-  background-color: rgb(1, 4, 20) !important; /* Blue */
-  /*  background-color: rgb(20, 9, 2) !important;*/
-}
+  background-color: rgb(1, 4, 20) !important;
+} /* Blue */
+/*  background-color: rgb(20, 9, 2) !important;*/
 
 .AncTrasparenza {
   position: absolute;
@@ -934,70 +930,4 @@ categorie:[
 .SfShDown {
   height: 78px;
 }
-
-/*
-
-vuetify
-  v-row
-    
-    <- -> justify=  ['start','center','end','space-around','space-between',]  
-    ^     align=    ['start','center','end','baseline','stretch',]
-
-    es:
-    <v-row
-            :align  ="alignment"
-            :justify="justify"
-            class   ="grey lighten-5"
-            style   ="height: 300px;"
-            dense
-    >
-
-css
-  text
-    ^     text-justify:       auto|inter-word|inter-character|none|initial|inherit;
-    <- -> text-align:         left|right|center|justify|initial|inherit;
-    
-  padding
-    padding: 25px 50px 75px 100px;      T-R-B-L
-    padding: 25px 50px 75px;            T-RL-B
-    padding: 25px 50px;                 TB-RL
-    padding: 25px;                      TBRL
-
-    1 value applies to  top padding is 25px
-    2 value applies to  right padding is 50px
-    3 value applies to  bottom padding is 75px
-    4 value applies to  left padding is 100px
-  padding: 25px 50px 75px;
-    1 value applies to  top padding is 25px
-    2 value applies to  right and left paddings are 50px
-    3 value applies to  bottom padding is 75px
-  padding: 25px 50px;
-    1 value applies to  top and bottom paddings are 25px
-    2 value applies to  right and left paddings are 50px
-  padding: 25px;
-    all four paddings are 25px
-
-  border-radius
-    border-radius: 15px 50px 30px 5px;  TL-TR-BR-BL 
-    border-radius: 15px 50px 30px;      TL-TRBL-BR
-    border-radius: 15px 50px;           TLBR-TRBL
-    border-radius: 15px;                TLBRTRBL    
-
-  border-radius: 15px 50px 30px 5px; 
-    1 value applies to top-left corner, 
-    2 value applies to top-right corner, 
-    3 value applies to bottom-right corner, 
-    4 value applies to bottom-left corner
-  border-radius: 15px 50px 30px; 
-    1 value applies to top-left corner, 
-    2 value applies to top-right and bottom-left corners, 
-    3 value applies to bottom-right corner
-  border-radius: 15px 50px; 
-    1 value applies to top-left and bottom-right corners, 
-    2 value applies to top-right and bottom-left corners
-  border-radius: 15px; 
-    the value applies to all four corners, which are rounded equally
-
-
-*/
 </style>
