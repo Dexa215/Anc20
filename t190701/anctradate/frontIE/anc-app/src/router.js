@@ -7,11 +7,11 @@ import SedeOrari from "./views/SedeOrari.vue";
 import Contatti from "./views/Contatti.vue";
 
 import Chisiamo from "./views/Chisiamo.vue";
-import ChisiamoBenemerite from "./views/ChisiamoBenemerite.vue";
+//import ChisiamoBenemerite from "./views/ChisiamoBenemerite.vue";
 import ChisiamoSimpatizzanti from "./views/ChisiamoSimpatizzanti.vue";
 import ChisiamoSoci from "./views/ChisiamoSoci.vue";
 import ChisiamoDirettivo from "@/views/chisiamo/ChisiamoDirettivo.vue";
-
+import ChisiamoBenemerite from "@/views/chisiamo/ChisiamoBenemerite.vue";
 
 //import Eventi from "./views/Eventi.vue";
 import Links from "./views/Links.vue";
