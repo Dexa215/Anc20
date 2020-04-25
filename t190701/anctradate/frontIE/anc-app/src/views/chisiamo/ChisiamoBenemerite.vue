@@ -9,6 +9,8 @@
       <v-col cols="6" class="qdcc">
         <span>spiegone:</span>
 
+        <div>test vuex 4</div>
+
         <div>
           <label for="flavor">Favorite ice cream flavor?</label>
           <input @input="changed" name="flavor" />
