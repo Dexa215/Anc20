@@ -24,13 +24,14 @@
           <!-- Avatar -->
           <!-- /*62*/ -->
           <v-row class="iconavR mx-auto" justify="center">
-            class: {{rcS}}
             <!-- test ok TODO: RIMUOVI TEST
             categoria[2]: {{categorie[1].descrizione}}
             C: {{C}}
             Cs: {{Cs}}
+            class: {{rcS}}
             requestuser: {{requestUser}}
             -->
+
             <!-- ICONE NAVIGAZIONE - SX class="avatar" -->
             <v-col class="iconavcSbassa" cols="6">
               <transition

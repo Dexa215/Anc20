@@ -2,6 +2,7 @@
 
   <template>
   <div class="SfBase">
+    <v-row class="AncTrasparenza" v-show="drawerLeft"></v-row>
     <div class="SfSpazio SfShUp AncAppBar_BC">spazio Up</div>
     <v-row
       justify="center"
