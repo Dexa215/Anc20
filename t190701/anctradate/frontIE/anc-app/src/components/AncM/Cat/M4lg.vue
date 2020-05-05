@@ -10,7 +10,7 @@
 
       <!--v-col>lato sx</v-col-->
       <!-- shaped -->
-      <v-col @mouseenter="DSCset('false')" @mouseleave="DSCset('truee')">
+      <v-col @mouseenter="DSCset('false')" @mouseleave="DSCset('true')">
         <v-list shaped dark class="ancM4l ancM4l_BC">
           <!-- color="rgb(36, 17, 6)" -->
           <v-list-item
@@ -63,16 +63,64 @@ export default {
 
   props: {
     nbc: { type: String },
+    /*
     requestUser: { type: String },
     requestUserIsStaff: { type: Boolean },
     requestUserIsSuper: { type: Boolean },
     requestUserAvatar: { type: String },
     requestUserBio: { type: String },
+    
     C: { type: Number },
     CS: { type: Number },
     categorie: { type: Array },
+*/
+
     drawerRight: { type: Boolean },
     drawerSottocategoria: { type: Boolean }
+  },
+  computed: {
+    categorie() {
+      return this.$store.getters.categorie;
+    },
+
+    C() {
+      return this.$store.getters.getC;
+    },
+    CS() {
+      return this.$store.getters.getCS;
+    },
+
+    requestUser() {
+      return this.$store.getters.requestUser;
+    },
+    requestUserIsStaff() {
+      return this.$store.getters.requestUserIsStaff;
+    },
+    requestUserIsSuper() {
+      return this.$store.getters.requestUserIsSuper;
+    },
+    requestUserAvatar() {
+      return this.$store.getters.requestUserAvatar;
+    },
+    requestUserBio() {
+      return this.$store.getters.requestUserBio;
+    },
+    requestToken() {
+      return this.$store.getters.requestToken;
+    } /*TODO: SOSTITUIRE RCS RCD [ PROP CON COMPUTED DA STORE ] */ /*TODO: SOSTITUIRE RCS RCD [ PROP CON COMPUTED DA STORE ] */ /*
+    rcS: { type: String },
+    rcD: { type: String },
+    */,
+
+    /* TEST DINAMIC CSS */ rcS() {
+      return this.$store.getters.rcS;
+    },
+    rcD() {
+      return this.$store.getters.rcD;
+    },
+    rcU() {
+      return this.$store.getters.rcU;
+    }
   },
 
   data() {
@@ -110,6 +158,7 @@ export default {
       extended: false
     };
   },
+
   methods: {
     gotoR(r) {
       this.drawerRight = false;

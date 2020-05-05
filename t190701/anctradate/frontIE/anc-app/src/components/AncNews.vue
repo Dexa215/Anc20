@@ -69,12 +69,13 @@ import { apiService } from "../common/api.service";
 
 export default {
   name: "ancNews",
+  /*
   props: {
     categorie: { type: Array },
     C: { type: Number },
     CS: { type: Number }
   },
-
+*/
   data() {
     return {
       // * EVIDENZA
@@ -83,6 +84,11 @@ export default {
       EloadingEvents: false,
       Titolone: null
     };
+  },
+  computed: {
+    categorie() {
+      return this.$store.getters.categorie;
+    }
   },
 
   methods: {

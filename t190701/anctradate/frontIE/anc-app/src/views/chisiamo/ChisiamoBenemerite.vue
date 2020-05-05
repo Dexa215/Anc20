@@ -16,8 +16,13 @@
           <input @input="changed" name="flavor" />
 
           <!-- test 2020 04 25 -->
-          <p>Loading: {{ $store.getters.loadingStatus }}</p>
+          <p>menucatComputed: {{ menucatComputed }}</p>
+          <spacer></spacer>
+          <p>menucat: {{ $store.state.a.menucat }}</p>
 
+          <spacer></spacer>
+
+          <p>Loading: {{ $store.getters.loadingStatus }}</p>
           <p>todo [id 2] {{ $store.getters.todoById(2) }}</p>
 
           <p>done todos: {{ todosDone }}</p>
@@ -102,6 +107,9 @@ export default {
     },
     todosDone() {
       return this.$store.getters.todosDone;
+    },
+    menucatComputed() {
+      return this.$store.getters.categorie;
     }
   },
 

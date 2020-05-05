@@ -13,3 +13,9 @@ PS[2]
 CD C:\Projects\GIT\online\Anc20\t190701\anctradate\frontIE\anc-app
 vue ui
 [ local port 8001 ]
+
+
+
+SmartGit            v20.1.1     REPO:       C:\Projects\GIT\online\Anc20
+Visual Studio Code  v1.44.2     WORKSPACE:  C:\Projects\GIT\VSCworkspaces\Anc20.code-workspace
+

@@ -1,14 +1,5 @@
 <template>
   <div>
-    <!--
-    <div class="AncAppBarE"></div>
-    -->
-
-    <!--
-      rmblock color="#38282b"
-      color="rgb(6, 20, 89)"
-    -->
-
     <v-app-bar
       fixed
       :class="cab"
@@ -29,28 +20,26 @@
     >
       <v-row class="r r_BC">
         <v-col :class="rcS">
+          <!-- test ok rcS from $store-->
           <!-- Avatar -->
-
           <!-- /*62*/ -->
-
           <v-row class="iconavR mx-auto" justify="center">
+            class: {{rcS}}
+            <!-- test ok TODO: RIMUOVI TEST
+            categoria[2]: {{categorie[1].descrizione}}
+            C: {{C}}
+            Cs: {{Cs}}
+            requestuser: {{requestUser}}
+            -->
             <!-- ICONE NAVIGAZIONE - SX class="avatar" -->
-
             <v-col class="iconavcSbassa" cols="6">
-              <!--
-              <span
-                v-if="categorie[C/10-1].sottocategorie.length > 1"
-                class="mr-2"
-                style="color:lightblue;"
-              >
-                <v-btn rounded>+</v-btn>
-              </span>
-              -->
               <transition
                 name="custom-classes-transition"
                 enter-active-class="animated bounceInLeft"
                 leave-active-class="animated fadeOutUp"
               >
+                <!--TODO: RIPRISTINARE V-BTN-->
+
                 <v-btn
                   rounded
                   v-if="categorie[C/10-1].descrizione"
@@ -63,6 +52,7 @@
                       class="mr-2"
                       style="color:lightblue;"
                     ></span-->
+
                     <span class="mx-1" style="color:white;">{{categorie[C/10-1].descrizione}}</span>
                     <span class="mx-1" v-if="CS!=0" style="color:white;">\</span>
                     <span
@@ -72,14 +62,13 @@
                     >{{categorie[C/10-1].sottocategorie[(CS-C)-1].descrizione }}</span>
                   </a>
                 </v-btn>
+
+                <!-- TODO: RIPRISTINARE V-BTN-->
               </transition>
             </v-col>
 
             <!-- v-col class="iconavcD" cols="3" style="background-color:orange !important"-->
             <v-col class="iconavcSbtnCategoriaCorrente" cols="2">
-              <!--
-              TODO: controllare transizione apparentemente non attiva
-              -->
               <!-- categoria corrente -->
               <transition
                 name="custom-classes-transition"
@@ -112,13 +101,13 @@
           <!--v-expand-transition v-show="!drawerLeft" -->
           <v-row class="rcCr rcCr_BC" align="center" justify="center" dense style="z-index: 2">
             <v-col class="rcCrcS rcCrcLat_BC">
-              <div>lg - ANC</div>
+              <div>lg $STORE- ANC</div>
             </v-col>
 
             <v-col class="rcCrcC rcCrcX rcCrcC_BC">
               <v-expand-x-transition>
-                <v-avatar class="avatar" size="48" right="true" v-if="!drawerLeft">
-                  <!-- drawer aperto-->
+                <v-avatar class="avatar" size="48" v-if="!drawerLeft">
+                  <!-- drawer aperto right="True" -->
                   <img
                     class="drwOpen"
                     src="/static/images/Icone/anclogo2012.gif"
@@ -257,6 +246,12 @@ export default {
 
   components: {},
 
+  /*
+ESCLUSI DA DATA:
+
+ requestToken: "",
+
+*/
   data() {
     return {
       expand: "true",
@@ -272,7 +267,6 @@ export default {
       iconCdx: "mdi-menu-down",
       iconOdx: "mdi-menu-up",
 
-      requestToken: "",
       rvt: 10,
       breweries: [],
       isLoading: false,
@@ -296,34 +290,104 @@ export default {
     };
   },
   props: {
-    height: { type: Number },
-    // eslint-disable-next-line vue/no-dupe-keys
+    height: {
+      type: String
+    } /*TODO: SOSTITUIRE CS CS categorie [ PROP CON COMPUTED DA STORE ] */ /*
+    C:{type: Number},
+    CS: { type: Number },
+    categorie: {type: Array},
+    */ /*TODO: SOSTITUIRE CS CS [ PROP CON COMPUTED DA STORE ] */ /*TODO: SOSTITUIRE RCS RCD [ PROP CON COMPUTED DA STORE ] */ /*
     rcS: { type: String },
     rcD: { type: String },
+*/, //colBarEst: { type: String }, //colBarInt: { type: String }, // eslint-disable-next-line vue/no-dupe-keys
 
-    //colBarEst: { type: String },
-    //colBarInt: { type: String },
+    /*
+TODO:
+test sostituzione con computed su 
+TODO:
+*/
 
+    /*
     requestUser: { type: String },
     requestUserIsStaff: { type: Boolean },
     requestUserIsSuper: { type: Boolean },
     requestUserAvatar: { type: String },
     requestUserBio: { type: String },
-    C: { type: Number },
-    CS: { type: Number },
-    categorie: { type: Array },
-    drawer: { type: Boolean },
+*/
+
+    /*TODO: SOSTITUIRE RCS RCD [ PROP CON COMPUTED DA STORE ] */ drawer: {
+      type: Boolean
+    },
     drawerLeft: { type: Boolean },
     drawerRight: { type: Boolean },
     drawerSottocategoria: { type: Boolean }
   },
+
+  computed: {
+    categorie() {
+      return this.$store.getters.categorie;
+    },
+
+    C() {
+      return this.$store.getters.getC;
+    },
+    CS() {
+      return this.$store.getters.getCS;
+    },
+
+    requestUser() {
+      return this.$store.getters.requestUser;
+    },
+    requestUserIsStaff() {
+      return this.$store.getters.requestUserIsStaff;
+    },
+    requestUserIsSuper() {
+      return this.$store.getters.requestUserIsSuper;
+    },
+    requestUserAvatar() {
+      return this.$store.getters.requestUserAvatar;
+    },
+    requestUserBio() {
+      return this.$store.getters.requestUserBio;
+    },
+    requestToken() {
+      return this.$store.getters.requestToken;
+    } /*TODO: SOSTITUIRE RCS RCD [ PROP CON COMPUTED DA STORE ] */ /*TODO: SOSTITUIRE RCS RCD [ PROP CON COMPUTED DA STORE ] */ /*
+    rcS: { type: String },
+    rcD: { type: String },
+    */,
+
+    /* TEST DINAMIC CSS */
+
+    rcS() {
+      return this.$store.getters.rcS;
+    },
+    rcD() {
+      return this.$store.getters.rcD;
+    },
+    rcU() {
+      return this.$store.getters.rcU;
+    },
+
+    /* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+    todoscomputed() {
+      return this.$store.state.todoscomputed;
+    },
+    todosDone() {
+      return this.$store.getters.todosDone;
+    }
+    /* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+  },
+
   methods: {
     gotoR(r) {
       this.expand = !this.expand;
-
+      this.$store.dispatch("gotoR", r);
       // eslint-disable-next-line no-console
-      console.log("AppBar rotta per...");
+      /*
+      console.log("AppBar B4LG rotta per...", r);
       this.$emit("gotoR", r);
+      */
     },
 
     DSCset(state) {

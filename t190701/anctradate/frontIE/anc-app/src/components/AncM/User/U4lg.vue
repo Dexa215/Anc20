@@ -127,11 +127,13 @@ export default {
   name: "u4lg",
 
   props: {
+    /*
     requestUser: { type: String },
     requestUserIsStaff: { type: Boolean },
     requestUserIsSuper: { type: Boolean },
     requestUserAvatar: { type: String },
     requestUserBio: { type: String }
+    */
   },
 
   data() {
@@ -148,6 +150,28 @@ export default {
       iconO: "mdi-close-circle"
     };
   },
+
+  computed: {
+    requestUser() {
+      return this.$store.getters.requestUser;
+    },
+    requestUserIsStaff() {
+      return this.$store.getters.requestUserIsStaff;
+    },
+    requestUserIsSuper() {
+      return this.$store.getters.requestUserIsSuper;
+    },
+    requestUserAvatar() {
+      return this.$store.getters.requestUserAvatar;
+    },
+    requestUserBio() {
+      return this.$store.getters.requestUserBio;
+    },
+    requestToken() {
+      return this.$store.getters.requestToken;
+    }
+  },
+
   methods: {
     gotoR(r) {
       this.drawerRight = false;

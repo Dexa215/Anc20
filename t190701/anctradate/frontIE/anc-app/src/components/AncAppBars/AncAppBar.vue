@@ -66,20 +66,25 @@
     </div>
 
     <div v-else-if="currentres == 'lg'">
-      <!--div class="rmblock">ciao</div-->
+      <!--div class="rmblock">ciao</div
 
-      <b4lg
-        :rcS="rcS"
-        :rcD="rcD"
-        :height="hlg"
         :requestUser="requestUser"
         :requestUserIsStaff="requestUserIsStaff"
         :requestUserIsSuper="requestUserIsSuper"
         :requestUserAvatar="requestUserAvatar"
-        :requestUserBio="requestUserBio"
+        :requestUserBio="requestUserBio"      
         :C="C"
         :CS="CS"
         :categorie="categorie"
+        :rcS="rcS"
+        :rcD="rcD"      
+      
+      
+      
+      -->
+
+      <b4lg
+        :height="hlg"
         :drawer="drawer"
         :drawerLeft="drawerLeft"
         :drawerRight="drawerRight"
@@ -117,13 +122,16 @@
 
     <!-- INFO -- TEST 2020.04.20 -- *********************************************** -->
 
-    <ancNews :C="C" :CS="CS" :categorie="categorie"></ancNews>
+    <!-- TODO: computed su store <ancNews :C="C" :CS="CS" :categorie="categorie"></ancNews>-->
+    <ancNews></ancNews>
 
-    <!-- menu Sottocategorie -- ****************************************************************** -->
-    <m4lgSottocategorie
+    <!-- menu Sottocategorie 
       :C="C"
       :CS="CS"
       :categorie="categorie"
+    -- ******************************************************************-->
+
+    <m4lgSottocategorie
       :drawerRight="drawerRight"
       :drawerSottocategoria="drawerSottocategoria"
       @gotoR="gotoR"
@@ -133,7 +141,7 @@
       @DSCset="DSCset"
     ></m4lgSottocategorie>
 
-    <!-- div -->
+    <!-- div BLOCCO MENU -->
     <transition
       name="custom-classes-transition"
       enter-active-class="animated fadeInDown"
@@ -144,29 +152,34 @@
 
         <v-col class="rmH0" cols="4"></v-col>
 
-        <!--  finestra comandi amministatore -->
+        <!--  finestra comandi amministatore **************************************************** -->
         <transition
           name="custom-classes-transition2"
           enter-active-class="animated bounceInLeft"
           leave-active-class="animated bounceOutLeft"
         >
-          <v-col v-show="admin & admincommands" class="rmvcolSadmin rmH" cols="12">
+          <!-- v-col v-show="admin & admincommands" class="rmvcolSadmin rmH" cols="12"-->
+          <v-col
+            v-show="this.$store.getters.requestUserIsSuper & admincommands"
+            class="rmvcolSadmin rmH"
+            cols="12"
+          >
             <m4lgAdmin @gotoR="gotoR" @setDF="setDF"></m4lgAdmin>
           </v-col>
         </transition>
-        <!--  finestra amministatore -->
+        <!--  finestra comandi amministatore **************************************************** -->
 
         <!--  finestra dati untente -->
         <v-col class="rmvcolC rmH rcC_BC" cols="4">
-          <u4lg
-            :requestUser="requestUser"
-            :requestUserIsStaff="requestUserIsStaff"
-            :requestUserIsSuper="requestUserIsSuper"
-            :requestUserAvatar="requestUserAvatar"
-            :requestUserBio="requestUserBio"
-            @adminCommandSwitch="adminCommandSwitch"
-            @gotoR="gotoR"
-          ></u4lg>
+          <!--          
+          :requestUser="requestUser"
+          :requestUserIsStaff="requestUserIsStaff"
+          :requestUserIsSuper="requestUserIsSuper"
+          :requestUserAvatar="requestUserAvatar"
+          :requestUserBio="requestUserBio"
+          -->
+
+          <u4lg @adminCommandSwitch="adminCommandSwitch" @gotoR="gotoR"></u4lg>
         </v-col>
         <!--  finestra dati untente -->
 
@@ -174,15 +187,24 @@
         <v-col class="rmvcolD rmH rcLat_BC">
         -->
         <v-col :class="rcU">
-          <m4lg
+          <!-- test OK
+          class rcU: {{rcU}}
+          class rcS: {{rcS}}
+          class rcD: {{rcD}}
+          -->
+
+          <!-- 
             :requestUser="requestUser"
             :requestUserIsStaff="requestUserIsStaff"
             :requestUserIsSuper="requestUserIsSuper"
             :requestUserAvatar="requestUserAvatar"
             :requestUserBio="requestUserBio"
-            :C="C"
+                        :C="C"
             :CS="CS"
             :categorie="categorie"
+          -->
+
+          <m4lg
             :drawer="drawer"
             :drawerLeft="drawerLeft"
             :drawerRight="drawerRight"
@@ -241,14 +263,25 @@ export default {
 
   props: {
     iconX: { type: String },
+    /*
+TODO:
+2020 04 26 test sostituzione con computed su 
+/*
     requestUser: { type: String },
     requestUserIsStaff: { type: Boolean },
     requestUserIsSuper: { type: Boolean },
     requestUserAvatar: { type: String },
     requestUserBio: { type: String },
+*/
+    /*
+TODO:
+test sostituzione con computed su 
+*/
+
     C: { type: Number },
     CS: { type: Number },
     categorie: { type: Array },
+
     drawer: { type: Boolean },
     drawerLeft: { type: Boolean },
     drawerRight: { type: Boolean },
@@ -260,18 +293,35 @@ export default {
     rgb3: "",
     hsm: "84px",
     hlg: "84px",
+
+    /*TODO: DA RI-ESCLUDERE PER ATTIVARE CON COMPUTED E STORE*/
+
+    //rcU: "rcS rcX rcLat rcLat_BC_Visitor",
+    //rcLat_BC: "",
+
+    /*
     rcS: "rcS rcX rcLat rcLat_BC_Visitor",
     rcD: "rcD rcX rcLat rcLat_BC_Visitor",
     rcU: "rcS rcX rcLat rcLat_BC_Visitor",
+*/
+
     admin: false,
     admincommands: false
   }),
 
+  computed: {},
+
   methods: {
+    /* old...
     gotoR(r) {
       // eslint-disable-next-line no-console
-      console.log("AppBar rotta per...");
+      console.log("AppBar * rotta per...", r);
       this.$emit("gotoR", r);
+    },
+    */
+
+    gotoR(r) {
+      this.$store.dispatch("gotoR", r);
     },
 
     adminCommandSwitch() {
@@ -322,16 +372,31 @@ export default {
     },
 
     setcolor() {
+      //this.$store.dispatch(setcolor);
+
       var x = this;
-      //console.log("setcolor analizzo this.requestuserisstaff...", x.requestUserIsStaff);
-      if (x.requestUserIsSuper === true) {
+      console.log(
+        "AncAppBAr...  setcolor analizzo this.requestuserisstaff...",
+        x.requestUserIsStaff
+      );
+
+      console.log(
+        "setcolor analizzo computed requestuserisstaff...",
+        requestUserIsStaff
+      );
+      /*TODO: TRASPORTARE TUTTE QUESTE CLASSI IN STORE*/
+
+      //if (x.requestUserIsSuper === true) {
+      if (this.$store.getters.requestUserIsSuper === true) {
         this.rcS = "rcS rcX rcLat rcLat_BC_Admin";
         this.rcD = "rcD rcX rcLat rcLat_BC_Admin";
+
         this.nbc = "#212121"; //dark-grey
-        this.rcU = "rmvcolD rmH   rcLat_BC_Admin"; /*menu USER*/
+        this.rcU = "rmvcolD rmH   rcLat_BC_Admin"; //menu USER
         this.admin = true;
       } else {
-        if (x.requestUserIsStaff === true) {
+        //if (x.requestUserIsStaff === true) {
+        if (this.$store.getters.requestUserIsStaff === true) {
           this.rcS = "rcS rcX rcLat rcLat_BC_Staff";
           this.rcD = "rcD rcX rcLat rcLat_BC_Staff";
           this.nbc = "black";
@@ -353,16 +418,55 @@ export default {
   },
 
   updated() {
-    this.setcolor();
+    //TODO: RIPRISTINARE    this.setcolor();
   },
 
   mounted() {
-    this.setcolor();
+    //TODO: RIPRISTINARE    this.setcolor();
+
     // eslint-disable-next-line no-console
     console.log(this.$vuetify.breakpoint);
   },
 
   _computed: {
+    requestUser() {
+      return this.$store.getters.requestUser;
+    },
+    requestUserIsStaff() {
+      return this.$store.getters.requestUserIsStaff;
+    },
+    requestUserIsSuper() {
+      return this.$store.getters.requestUserIsSuper;
+    },
+    requestUserAvatar() {
+      return this.$store.getters.requestUserAvatar;
+    },
+    requestUserBio() {
+      return this.$store.getters.requestUserBio;
+    },
+    requestToken() {
+      return this.$store.getters.requestToken;
+    },
+    categorie() {
+      return this.$store.getters.categorie;
+    },
+
+    C() {
+      return this.$store.getters.C;
+    },
+    Cs() {
+      return this.$store.getters.CS;
+    },
+    rcS() {
+      return this.$store.getters.rcS;
+    },
+    rcD() {
+      return this.$store.getters.rcD;
+    },
+    rcU() {
+      return this.$store.getters.rcU;
+    },
+
     imageHeight() {
       switch (this.$vuetify.breakpoint.name) {
         case "xs":
@@ -418,9 +522,11 @@ export default {
       return attrs;
     }
   },
+
   get computed() {
     return this._computed;
   },
+
   set computed(value) {
     this._computed = value;
   }
@@ -499,9 +605,10 @@ export default {
   text-align: center;
   text-justify: center;
   border-radius: 0px 0px 50px 50px;
-  background-image: url("/static/images/HomePageCarousel/dsc32.jpg");
 
-  /*background-color: orange !important; /*test*/
+  /*background-image: url("/static/images/HomePageCarousel/dsc32.jpg");*/
+
+  background-color: orange !important;
 
   /*background-color: transparent !important;*/
   top: 70px; /*width: 578px; */
@@ -539,7 +646,7 @@ export default {
   margin-left: 0px;
   margin-right: 0px;
   opacity: 0.9;
-  /* background-color: yellow !important; /*test*/
+  background-color: yellow !important; /*test*/
   /*background-color: transparent !important;*/
   border-radius: 0px 0px 25px 0px;
 }
@@ -686,10 +793,14 @@ export default {
   text-justify: auto;
 }
 /*------------------------------------------------------------------------------------------------------*/
+
+/*
 .rcCrcLat {
-  /*    add:    rcCrcX  rcCrcLat_BC       */
-  /*    per:    rcCrcS  / rcCrcD    */
 }
+*/
+/*    add:    rcCrcX  rcCrcLat_BC       */
+/*    per:    rcCrcS  / rcCrcD    */
+
 .rcCrcLat_BC {
   background-color: transparent !important;
 }

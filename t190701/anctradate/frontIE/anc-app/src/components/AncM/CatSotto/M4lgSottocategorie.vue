@@ -75,13 +75,45 @@ export default {
   name: "m4lgSottocategorie",
 
   props: {
+    /*
     C: { type: Number },
     CS: { type: Number },
     categorie: { type: Array },
+    */
+
     drawerRight: { type: Boolean },
     drawerSottocategoria: { type: Boolean }
   },
 
+  computed: {
+    categorie() {
+      return this.$store.getters.categorie;
+    },
+    C() {
+      return this.$store.getters.getC;
+    },
+    CS() {
+      return this.$store.getters.getCS;
+    },
+    requestUser() {
+      return this.$store.getters.requestUser;
+    },
+    requestUserIsStaff() {
+      return this.$store.getters.requestUserIsStaff;
+    },
+    requestUserIsSuper() {
+      return this.$store.getters.requestUserIsSuper;
+    },
+    requestUserAvatar() {
+      return this.$store.getters.requestUserAvatar;
+    },
+    requestUserBio() {
+      return this.$store.getters.requestUserBio;
+    },
+    requestToken() {
+      return this.$store.getters.requestToken;
+    }
+  },
   data() {
     return {};
   },
@@ -117,7 +149,8 @@ export default {
     },
     setDF() {
       this.$emit("setDF");
-    },
+    }
+    /*
     setC() {
       if (requestUserIsStaff === "true") {
         this.navbarcolor = "red";
@@ -125,6 +158,7 @@ export default {
         this.navbarcolor = "grey";
       }
     }
+    */
   }
 };
 </script>

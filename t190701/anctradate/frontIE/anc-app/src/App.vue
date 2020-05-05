@@ -1,11 +1,13 @@
 <template>
   <v-app id="anc">
-    <ancAppBar
+    <!--
       :requestUser="requestUser"
       :requestUserIsStaff="requestUserIsStaff"
       :requestUserIsSuper="requestUserIsSuper"
       :requestUserAvatar="requestUserAvatar"
       :requestUserBio="requestUserBio"
+    -->
+    <ancAppBar
       :C="C"
       :CS="CS"
       :categorie="categorie"
@@ -39,9 +41,9 @@
     ></ancDrawer>
     -->
 
+    <!-- :requestUser="requestUser" -->
     <v-content>
       <router-view
-        :requestUser="requestUser"
         :rvt="rvt"
         @gotoR="gotoR"
         @spMC="spMC"
@@ -110,14 +112,9 @@
     <span>&copy; 2019</span>
   </v-footer>
     -->
-    <ancFooter
-      :footercolor="footercolor"
-      :requestUser="requestUser"
-      :C="C"
-      :CS="CS"
-      :categorie="categorie"
-      @gotoR="gotoR"
-    ></ancFooter>
+
+    <!-- :requestUser="requestUser" -->
+    <ancFooter :footercolor="footercolor" :C="C" :CS="CS" :categorie="categorie" @gotoR="gotoR"></ancFooter>
   </v-app>
 </template>
 
@@ -187,13 +184,15 @@ export default {
     ru: null,
 
     //nbc:"#212121",  //dark-grey
-
+    /*
     requestUser: "Visitatore",
     requestUserIsStaff: false,
     requestUserIsSuper: false,
     requestUserAvatar: null,
     requestUserBio: null,
     requestToken: "",
+*/
+
     rvt: 10,
 
     breweries: [],
@@ -606,11 +605,11 @@ categorie:[
       /*TODO: RIPRENDI TEST PER SPOSTARE TUTTE LE CHIAMATE 
       SU STORE
       */
-      /* 
-      this.$store.dispatch("getRequestUser");
-*/
-      /*TODO: test ... da ripristinare */
 
+      this.$store.dispatch("getRequestUser");
+
+      /*TODO: test ... da ripristinare */
+      /*
       let endpoint = "api/profiles/getcurrentuser/";
       apiService(endpoint).then(data => {
         console.log("chiamata rest... data:", data.us.name);
@@ -620,7 +619,7 @@ categorie:[
         this.requestUserIsSuper = data.us.superuser;
         this.requestUserBio = data.us.bio;
       });
-
+*/
       /*TODO: test ... da ripristinare */
     },
 
@@ -679,7 +678,10 @@ categorie:[
       this.drawerRight = true;
       this.iconX = this.iconO;
     },
+
     setColor() {
+      this.$store.dispatch("setcolor");
+      /*
       if (this.requestUserIsSuper === true) {
         this.nbc = "light-red";
       } else if (this.requestUserIsStaff === true) {
@@ -687,6 +689,7 @@ categorie:[
       } else {
         this.nbc = "dark-grey";
       }
+      */
     },
 
     navi() {
@@ -697,7 +700,14 @@ categorie:[
       this.Logoutbtn.color = "LightGoldenRodYellow";
     },
 
+    /* TEST OK 2020 05 03 */
     gotoR(r) {
+      console.log("APP gotoR", r);
+      this.$store.dispatch("gotoR", r);
+    },
+
+    /* TODO: RIPRISTINARE DOPO IL TEST COME GOTOR */
+    gotoR1(r) {
       var m = menuT;
       m.goto(r);
       (this.C = m.currentcat[0]),
@@ -765,13 +775,23 @@ categorie:[
 
   created() {
     document.title = "ANC Tradate";
+
     this.getToken();
-    this.getRequestUser();
-    this.setColor();
-    //this.setCat();  //modulo menu.js
+    this.getRequestUser(); // !!store - moduleU
+
+    //this.setColor(); // TODO: SPOSTARE SU !!store - moduleA
+
     this.getCat(); // test 2020 02 07
 
+    /*TODO: RIPRISTINARE */
+    /*
+     */
+    /*TODO: RIPRISTINARE */
+
+    /* GIA ESCLUSE AL 2/5/2020 */
+    //this.setCat();  //modulo menu.js
     //this.menu();
+    /* GIA ESCLUSE AL 2/5/2020 */
   }
 };
 </script>

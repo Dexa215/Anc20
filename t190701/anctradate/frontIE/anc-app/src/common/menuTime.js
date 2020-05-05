@@ -1,22 +1,16 @@
 import router from "../router";
 
-var menuT=function() {
-
-        this.finish = false;
-        this.cats = [];
-        this.currentcat = [];
-
-        /*
-            var rou = require("../router");
-            this.rou = rou;
-        */
-        var mr = require("./menuRetrieve");
-        this.menu = mr;
+var menuT = function () {
+    this.finish = false;
+    this.cats = [];
+    this.currentcat = [];
+    var mr = require("./menuRetrieve");
+    this.menu = mr;
 };
 
 menuT.prototype.retrieveMenu = function () {
     var t1 = this;
-    var n=0;
+    var n = 0;
     console.log("menuT.JS retrieveMenu");
     t1.menu.getCat(); //---------------------->
     var task1 = function (pm) {
@@ -27,22 +21,22 @@ menuT.prototype.retrieveMenu = function () {
         }
         else {
             console.log("menuT.JS f RITORNATA -- DATI CATS t1.menu.cat: ", t1.menu.cat);
-            
+
             t1.cats = t1.menu.cat;
             t1.finish = true;
             return t1.cats;
         }
     };
-    task1(this);    
+    task1(this);
 };
 
-menuT.prototype.sem = function() {
+menuT.prototype.sem = function () {
     let saluto = "ciao";
     return saluto;
 };
 
 
-menuT.prototype.goto = function (r){
+menuT.prototype.goto = function (r) {
     var t1 = this;
     console.log("menuT.JS goto r:", r);
     t1.menu.getCurrentCat(r); //---------------------->
@@ -58,17 +52,17 @@ menuT.prototype.goto = function (r){
             console.log("menuT.JS goto DATI CATS: ", t1.menu.cats);
             router.push(r);
         }
-    };    
+    };
     task2(this);
 };
 
 menuT.prototype.canRead = function () {
     return this.finish;
-};    
+};
 
 menuT.prototype.getMenu = function () {
     return this.cats;
-};  
+};
 
 
 

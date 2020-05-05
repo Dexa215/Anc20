@@ -1,13 +1,7 @@
 var menuR = function () {
-
     this.finish = false;
     this.cat = [];          //tutte le categorie  
     this.cats = [];         //categoria corrente
-    /*
-    var M = require("./menu.js");
-    this.menu = M;    
-    */
-
 };
 
 menuR.prototype.getCurrentCat = function (r) {
