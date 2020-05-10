@@ -68,3 +68,298 @@ You may need an additional loader to handle the result of these loaders.
 > };
 | 
             
+05/10/2020 12:42:40 AM WARNING log 17536 9680 Not Found: /media/images/preview/7_poppy2gif.gif
+05/10/2020 12:42:40 AM WARNING log 17536 7076 Not Found: /media/images/preview/mugatu-s-l640.jpg
+05/10/2020 12:42:40 AM WARNING log 17536 12072 Not Found: /media/images/preview/slack-django-large2.jpg
+05/10/2020 02:20:51 AM ERROR log 17536 21356 Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\core\handlers\base.py", line 145, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\core\handlers\base.py", line 143, in _get_response
+    response = response.render()
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\response.py", line 106, in render
+    self.content = self.rendered_content
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\response.py", line 83, in rendered_content
+    content = template.render(context, self._request)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\library.py", line 192, in render
+    output = self.func(*resolved_args, **resolved_kwargs)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\webpack_loader\templatetags\webpack_loader.py", line 12, in render_bundle
+    tags = utils.get_as_tags(bundle_name, extension=extension, config=config, attrs=attrs)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\webpack_loader\utils.py", line 45, in get_as_tags
+    bundle = _get_bundle(bundle_name, extension, config)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\webpack_loader\utils.py", line 23, in _get_bundle
+    bundle = get_loader(config).get_bundle(bundle_name)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\webpack_loader\loader.py", line 97, in get_bundle
+    raise WebpackError(error)
+webpack_loader.exceptions.WebpackError: 
+            ModuleParseError in 
+            Module parse failed: Shorthand property assignments are valid only in destructuring patterns (443:19)
+File was processed with these loaders:
+ * ./node_modules/eslint-loader/index.js
+You may need an additional loader to handle the result of these loaders.
+| const moduleL = {
+|     state: {
+>         monthArrIT =[
+|             "Gennaio",
+|             "Febbraio",
+            
+05/10/2020 02:30:47 AM ERROR log 17536 2712 Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\core\handlers\base.py", line 145, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\core\handlers\base.py", line 143, in _get_response
+    response = response.render()
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\response.py", line 106, in render
+    self.content = self.rendered_content
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\response.py", line 83, in rendered_content
+    content = template.render(context, self._request)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\library.py", line 192, in render
+    output = self.func(*resolved_args, **resolved_kwargs)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\webpack_loader\templatetags\webpack_loader.py", line 12, in render_bundle
+    tags = utils.get_as_tags(bundle_name, extension=extension, config=config, attrs=attrs)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\webpack_loader\utils.py", line 45, in get_as_tags
+    bundle = _get_bundle(bundle_name, extension, config)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\webpack_loader\utils.py", line 23, in _get_bundle
+    bundle = get_loader(config).get_bundle(bundle_name)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\webpack_loader\loader.py", line 97, in get_bundle
+    raise WebpackError(error)
+webpack_loader.exceptions.WebpackError: 
+            ModuleParseError in 
+            Module parse failed: Unexpected token (491:4)
+File was processed with these loaders:
+ * ./node_modules/eslint-loader/index.js
+You may need an additional loader to handle the result of these loaders.
+|             },
+| 
+>     },
+|     mutations: {
+| 
+            
+05/10/2020 02:31:41 AM ERROR log 17536 2712 Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\core\handlers\base.py", line 145, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\core\handlers\base.py", line 143, in _get_response
+    response = response.render()
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\response.py", line 106, in render
+    self.content = self.rendered_content
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\response.py", line 83, in rendered_content
+    content = template.render(context, self._request)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\library.py", line 192, in render
+    output = self.func(*resolved_args, **resolved_kwargs)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\webpack_loader\templatetags\webpack_loader.py", line 12, in render_bundle
+    tags = utils.get_as_tags(bundle_name, extension=extension, config=config, attrs=attrs)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\webpack_loader\utils.py", line 45, in get_as_tags
+    bundle = _get_bundle(bundle_name, extension, config)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\webpack_loader\utils.py", line 23, in _get_bundle
+    bundle = get_loader(config).get_bundle(bundle_name)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\webpack_loader\loader.py", line 97, in get_bundle
+    raise WebpackError(error)
+webpack_loader.exceptions.WebpackError: 
+            ModuleParseError in 
+            Module parse failed: Shorthand property assignments are valid only in destructuring patterns (444:17)
+File was processed with these loaders:
+ * ./node_modules/eslint-loader/index.js
+You may need an additional loader to handle the result of these loaders.
+| 
+|     state: {
+>         monthArr =[
+|             {
+|                 "0": "it"[
+            
+05/10/2020 02:36:34 AM WARNING log 17536 1096 Not Found: /favicon.ico
+05/10/2020 03:53:52 AM ERROR log 17536 20700 Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\core\handlers\base.py", line 145, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\core\handlers\base.py", line 143, in _get_response
+    response = response.render()
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\response.py", line 106, in render
+    self.content = self.rendered_content
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\response.py", line 83, in rendered_content
+    content = template.render(context, self._request)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\library.py", line 192, in render
+    output = self.func(*resolved_args, **resolved_kwargs)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\webpack_loader\templatetags\webpack_loader.py", line 12, in render_bundle
+    tags = utils.get_as_tags(bundle_name, extension=extension, config=config, attrs=attrs)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\webpack_loader\utils.py", line 45, in get_as_tags
+    bundle = _get_bundle(bundle_name, extension, config)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\webpack_loader\utils.py", line 23, in _get_bundle
+    bundle = get_loader(config).get_bundle(bundle_name)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\webpack_loader\loader.py", line 97, in get_bundle
+    raise WebpackError(error)
+webpack_loader.exceptions.WebpackError: 
+            ModuleParseError in 
+            Module parse failed: Unexpected token (447:51)
+File was processed with these loaders:
+ * ./node_modules/eslint-loader/index.js
+You may need an additional loader to handle the result of these loaders.
+|             {
+|                 idlang: 0, nome: "Italiano", [
+>                     { idmonth: 0, nome: "Gennaio" },
+|                     { idmonth: 1, nome: "Febbraio" },
+|                     { idmonth: 2, nome: "Marzo" },
+            
+05/10/2020 03:53:54 AM WARNING log 17536 20700 Not Found: /favicon.ico
+05/10/2020 03:55:32 AM ERROR log 17536 20700 Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\core\handlers\base.py", line 145, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\core\handlers\base.py", line 143, in _get_response
+    response = response.render()
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\response.py", line 106, in render
+    self.content = self.rendered_content
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\response.py", line 83, in rendered_content
+    content = template.render(context, self._request)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\library.py", line 192, in render
+    output = self.func(*resolved_args, **resolved_kwargs)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\webpack_loader\templatetags\webpack_loader.py", line 12, in render_bundle
+    tags = utils.get_as_tags(bundle_name, extension=extension, config=config, attrs=attrs)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\webpack_loader\utils.py", line 45, in get_as_tags
+    bundle = _get_bundle(bundle_name, extension, config)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\webpack_loader\utils.py", line 23, in _get_bundle
+    bundle = get_loader(config).get_bundle(bundle_name)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\webpack_loader\loader.py", line 97, in get_bundle
+    raise WebpackError(error)
+webpack_loader.exceptions.WebpackError: 
+            ModuleParseError in 
+            Module parse failed: Unexpected token (447:51)
+File was processed with these loaders:
+ * ./node_modules/eslint-loader/index.js
+You may need an additional loader to handle the result of these loaders.
+|             {
+|                 idlang: 0, nome: "Italiano", [
+>                     { idmonth: 0, nome: "Gennaio" },
+|                     { idmonth: 1, nome: "Febbraio" },
+|                     { idmonth: 2, nome: "Marzo" },
+            

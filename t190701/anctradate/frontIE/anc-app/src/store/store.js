@@ -1,18 +1,23 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import router from "@/router";
-
 //import moduleC from "./modCategorie"
-
 // @ resolve src
+
 import { apiService } from "@/common/api.service";
 import { axiosService } from "@/common/axios_calls";
-
 import menuT from "@/common/menuTime.js";
+
+//Module A: General, dynamic assignment css
+//Module C: Categories
+//Module D: Drawers
+//Module R: Router, internal coding of the call - [ C - CS ] 
+//Module U: User, retrieve informations of current user [ RANK ]
+//Module X:
 
 Vue.use(Vuex)
 
-/*      general      */
+//      Module A: General, dynamic assignment css
 const moduleA = {
     state: {
         rcS: "rcS rcX rcLat rcLat_BC_Visitor",
@@ -42,6 +47,7 @@ const moduleA = {
 
             var x = this;
             /*TODO: sistema sincronizzazione per non far leggere sempre vis...*/
+
             var cu = context.getters.requestUser;
             console.log("$store moduleA setcolor, intanto user :", cu);
 
@@ -98,7 +104,7 @@ const moduleA = {
     },
 
 }
-/*      categorie: menucat      */
+//      Module C: Categories
 const moduleC = {
     state: {
         count: 3,
@@ -415,11 +421,9 @@ const moduleC = {
     },
 
 }
-
-/*      Dinamic css - color      */
+//      Module D: Drawers
 const moduleD = {
     state: {
-        count: 3,
     },
     mutations: {
 
@@ -433,20 +437,201 @@ const moduleD = {
     },
 
 }
+//      Module L: Languages
+const moduleL = {
 
-/*  router  */
+    state: {
+
+        Startlanguage: "it",
+        Currentlanguage: "it",
+
+        monthArr: [
+            {
+                idlang: 0,
+                code: "it",
+                nome: "Italiano",
+                mesi: [
+                    { idmonth: 0, nome: "Gennaio" },
+                    { idmonth: 1, nome: "Febbraio" },
+                    { idmonth: 2, nome: "Marzo" },
+                    { idmonth: 3, nome: "Aprile" },
+                    { idmonth: 4, nome: "Maggio" },
+                    { idmonth: 5, nome: "Giugno" },
+                    { idmonth: 6, nome: "Luglio" },
+                    { idmonth: 7, nome: "Agosto" },
+                    { idmonth: 8, nome: "Settembre" },
+                    { idmonth: 9, nome: "Ottobre" },
+                    { idmonth: 10, nome: "Novembre" },
+                    { idmonth: 11, nome: "Dicembre" }
+                ]
+            },
+            {
+                idlang: 1,
+                code: "en",
+                nome: "English",
+                mesi: [
+                    { idmonth: 0, nome: "January" },
+                    { idmonth: 1, nome: "February" },
+                    { idmonth: 2, nome: "MarzoS" },
+                    { idmonth: 3, nome: "April" },
+                    { idmonth: 4, nome: "May" },
+                    { idmonth: 5, nome: "June" },
+                    { idmonth: 6, nome: "July" },
+                    { idmonth: 7, nome: "August" },
+                    { idmonth: 8, nome: "September" },
+                    { idmonth: 9, nome: "October" },
+                    { idmonth: 10, nome: "November" },
+                    { idmonth: 11, nome: "December" }
+                ]
+            },
+
+            {
+                idlang: 2,
+                code: "sp",
+                nome: "Spanish",
+                mesi: [
+                    { idmonth: 0, nome: "GennaioS" },
+                    { idmonth: 1, nome: "FebbraioS" },
+                    { idmonth: 2, nome: "MarzoS" },
+                    { idmonth: 3, nome: "AprileS" },
+                    { idmonth: 4, nome: "MaggioS" },
+                    { idmonth: 0, nome: "GiugnoS" },
+                    { idmonth: 1, nome: "LuglioS" },
+                    { idmonth: 2, nome: "AgostoS" },
+                    { idmonth: 3, nome: "SettembreS" },
+                    { idmonth: 4, nome: "OttobreS" },
+                    { idmonth: 0, nome: "NovembreS" },
+                    { idmonth: 1, nome: "DicembreS" }
+                ]
+            },
+        ],
+
+
+
+        monthArrIt: [
+            { id: 0, nome: "Gennaio" },
+            { id: 1, nome: "Febbraio" },
+            { id: 2, nome: "Marzo" },
+            { id: 3, nome: "Aprile" },
+            { id: 4, nome: "Maggio" },
+            { id: 0, nome: "Giugno" },
+            { id: 1, nome: "Luglio" },
+            { id: 2, nome: "Agosto" },
+            { id: 3, nome: "Settembre" },
+            { id: 4, nome: "Ottobre" },
+            { id: 0, nome: "Novembre" },
+            { id: 1, nome: "Dicembre" }
+        ],
+        monthArrSp: [
+            { id: 0, nome: "GennaioS" },
+            { id: 1, nome: "FebbraioS" },
+            { id: 2, nome: "MarzoS" },
+            { id: 3, nome: "AprileS" },
+            { id: 4, nome: "MaggioS" },
+            { id: 0, nome: "GiugnoS" },
+            { id: 1, nome: "LuglioS" },
+            { id: 2, nome: "AgostoS" },
+            { id: 3, nome: "SettembreS" },
+            { id: 4, nome: "OttobreS" },
+            { id: 0, nome: "NovembreS" },
+            { id: 1, nome: "DicembreS" }
+        ],
+        monthArrEn: [
+            { id: 0, nome: "January" },
+            { id: 1, nome: "February" },
+            { id: 2, nome: "MarzoS" },
+            { id: 3, nome: "April" },
+            { id: 4, nome: "May" },
+            { id: 5, nome: "June" },
+            { id: 6, nome: "July" },
+            { id: 7, nome: "August" },
+            { id: 8, nome: "September" },
+            { id: 9, nome: "October" },
+            { id: 10, nome: "November" },
+            { id: 11, nome: "December" }],
+
+    },
+
+    mutations: {
+        setCurrentLanguage (state, val) {
+            state.Currentlanguage = val;
+        }
+    },
+    actions: {
+        setL (context, val) {
+            context.commit('setCurrentLanguage', val);
+        }
+    },
+
+    getters: {
+
+
+        todoById: (state) => (id) => {
+            return state.todos.find(todo => todo.id === id)
+        },
+
+
+        /*test OK 2020 05 10 */
+        getmonthArrLang: (state) => (id) => (lang) => {
+
+            switch (lang) {
+                case "it":
+                    return state.monthArrIt.find(month => month.id === id)
+                    break;
+                case "sp":
+                    return state.monthArrSp.find(month => month.id === id)
+                    break;
+                case "fr":
+                    return state.monthArrFr.find(month => month.id === id)
+                    break;
+                default:
+                    return state.monthArrEn.find(month => month.id === id)
+                    break;
+            }
+        },
+
+        /*test NG TODO: RIVEDERE */
+        getmonthArrLanguage: (state) => (id) => (lang) => {
+            let langSel = state.monthArr.find(lS => lS.code === lang);
+            return langSel.find(month => month.idmonth === id)
+        },
+        /*test NG TODO: RIVEDERE */
+
+
+        getmonthArrByLang: (state) => (lang) => {
+
+            switch (lang) {
+                case "it":
+                    return state.monthArr[0];
+                    break;
+                case "sp":
+                    return state.monthArr[1];
+                    break;
+                default:
+                    return state.monthArr[2];
+                    break;
+            }
+        },
+
+
+
+    },
+
+}
+
+
+
+
+//      Module R: Router, internal coding of the call - [ C - CS ] 
 const moduleR = {
     state: {
         calculatingC: "false",
         calculatingCS: "false",
         C: 10, // start with HOME
         CS: 0, // start with HOME
-
-
-
     },
-    mutations: {
 
+    mutations: {
         aggiornaC (state, c) {
             state.C = c;
             state.calculatingC = false;
@@ -484,7 +669,7 @@ const moduleR = {
         /* TEST 2020 05 03 OK */
         gotoR (context, r) {
             context.commit('aggiornamento');
-            store.dispatch('setCS', r).then(() => {
+            store.dispatch('setCS', r).then(() => {//Attesa assegnazione codice pagina corrente
                 if ((context.state.calculatingC || context.state.calculatingCS)) {
                     setTimeout(100);
                 }
@@ -529,9 +714,7 @@ const moduleR = {
     }
 
 }
-
-
-/*      user      */
+//      Module U: User, retrieve informations of current user [ RANK ]
 const moduleU = {
     state: {
 
@@ -641,18 +824,15 @@ const moduleU = {
 
 }
 
-
-
 export const store = new Vuex.Store({
     modules: {
         a: moduleA,//General
-
         c: moduleC,//Categorie
-        d: moduleD,//Dinamic Css - Colors 
-        u: moduleU,//User 
-        r: moduleR,//router
+        d: moduleD,//Drawers
+        l: moduleL,//Language [ test with Clock ]
+        r: moduleR,//Router
+        u: moduleU,//User
     },
-
     state: {
 
         /* ---- module U ---- */
@@ -665,7 +845,7 @@ export const store = new Vuex.Store({
         requestToken: "",
         */
         /* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ css */
-
+        language: 'it',
         flavor: 'pippo',
         count: 0,
         loadingStatus: 'notLoading',
@@ -676,10 +856,12 @@ export const store = new Vuex.Store({
             { id: 4, text: '.dd..', done: true },
             { id: 5, text: '.ee..', done: false },
         ],
-        todoscomputed: [{ "nome": "piero" }, { "nome": "marco" },]
+        todoscomputed: [{ "nome": "piero" }, { "nome": "marco" },],
+
+
+
 
     },
-
     mutations: {
         change (state, newdata) {       /*  this.$store.commit("change", event.target.value);    */
             state.flavor = newdata
@@ -712,8 +894,8 @@ export const store = new Vuex.Store({
         */
 
     },
-
     actions: {
+
         ancAction2 (context) {  /* test ok */
             context.commit('SET_LOADING_STATUS', 'loading')
             const axios = require('axios');
@@ -753,7 +935,6 @@ export const store = new Vuex.Store({
         },
         */
     },
-
     getters: {
         flavor: state => state.flavor,
         count: state => state.count,
@@ -767,6 +948,8 @@ export const store = new Vuex.Store({
         todoById: (state) => (id) => {
             return state.todos.find(todo => todo.id === id)
         },
+
+
     }
 })
 

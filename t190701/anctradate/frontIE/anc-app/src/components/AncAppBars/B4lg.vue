@@ -328,14 +328,12 @@ TODO:
     categorie() {
       return this.$store.getters.categorie;
     },
-
     C() {
       return this.$store.getters.getC;
     },
     CS() {
       return this.$store.getters.getCS;
     },
-
     requestUser() {
       return this.$store.getters.requestUser;
     },
@@ -371,12 +369,14 @@ TODO:
     },
 
     /* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
     todoscomputed() {
       return this.$store.state.todoscomputed;
     },
     todosDone() {
       return this.$store.getters.todosDone;
     }
+
     /* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
   },
 
@@ -384,9 +384,7 @@ TODO:
     gotoR(r) {
       this.expand = !this.expand;
       this.$store.dispatch("gotoR", r);
-      // eslint-disable-next-line no-console
-      /*
-      console.log("AppBar B4LG rotta per...", r);
+      /*console.log("AppBar B4LG rotta per...", r);
       this.$emit("gotoR", r);
       */
     },

@@ -1,13 +1,18 @@
 <template>
   <v-app id="anc">
-    <!-- Delegate a $store 
-      :C="C"
-      :CS="CS"
-      :categorie="categorie"    
-       @gotoR="gotoR"  
+    <!--
+      :requestUser="requestUser"
+      :requestUserIsStaff="requestUserIsStaff"
+      :requestUserIsSuper="requestUserIsSuper"
+      :requestUserAvatar="requestUserAvatar"
+      :requestUserBio="requestUserBio"
     -->
     <ancAppBar
+      :C="C"
+      :CS="CS"
+      :categorie="categorie"
       :iconX="iconX"
+      @gotoR="gotoR"
       @setD="setD"
       @setDF="setDF"
       @mouseover="setDF()"
@@ -37,14 +42,13 @@
     -->
 
     <!-- :requestUser="requestUser" -->
-
     <v-content>
       <router-view
         :rvt="rvt"
+        @gotoR="gotoR"
         @spMC="spMC"
         @mouseover="setDF()"
         :evidenza="evidenza"
-        @gotoR="gotoR"
         :C="C"
         :CS="CS"
         :categorie="categorie"

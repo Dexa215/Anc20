@@ -43,31 +43,58 @@ export default {
       date: null,
       year: null,
       month: null,
-      monthArr: null,
+      // monthArr: null, /*test 2020 05 10*/
       displaydate: null
     };
   },
+
+  computed: {
+    getmonthArrLang() {
+      let lang = "sp";
+      //      return this.$store.getters.getmonthArrIt(this.month + 1)(lang);
+      return this.$store.getters.getmonthArrLang(this.month)(lang);
+
+      //return this.$store.state.l.monthArrIt;
+    },
+    getmonthArrLanguage() {
+      let lang = "sp";
+      return this.$store.getters.getmonthArrLanguage(this.month)(lang);
+
+      //return this.$store.state.l.monthArrIt;
+    }
+  },
+
   methods: {
-    clock() {
+    clock(lang) {
       this.d = new Date();
       this.date = this.d.getDate();
       this.year = this.d.getFullYear();
       this.month = this.d.getMonth();
+
+      /*test 2020 05 10
       this.monthArr = [
-        "January",
-        "February",
-        "March",
-        "April",
-        "May",
-        "June",
-        "July",
-        "August",
-        "September",
-        "October",
-        "November",
-        "December"
-      ];
+        "Gennaio",
+        "Febbraio",
+        "Marzo",
+        "Aprile",
+        "Maggio",
+        "Giugno",
+        "Luglio",
+        "Agosto",
+        "Settembre",
+        "Ottobre",
+        "Novembre",
+        "Dicembre"
+      ];  
       this.month = this.monthArr[this.month];
+     /*test 2020 05 10*/
+
+      /* TEST OK 2020 05 10 */
+      this.month = this.getmonthArrLang.nome;
+
+      /* TEST ng TODO: RIVEDERE 
+      this.month = this.getmonthArrLanguage.nome;
+      */
 
       this.displaydate = this.date + " " + this.month + ", " + this.year;
       //            document.getElementById("date").innerHTML=this.date+" "+this.month+", "+this.year;

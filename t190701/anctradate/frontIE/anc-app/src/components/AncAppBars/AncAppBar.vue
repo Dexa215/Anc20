@@ -68,6 +68,8 @@
     <div v-else-if="currentres == 'lg'">
       <!--div class="rmblock">ciao</div
 
+        DELEGATE A $STORE
+
         :requestUser="requestUser"
         :requestUserIsStaff="requestUserIsStaff"
         :requestUserIsSuper="requestUserIsSuper"
@@ -79,7 +81,7 @@
         :rcS="rcS"
         :rcD="rcD"      
       
-      
+        @gotoR="gotoR"
       
       -->
 
@@ -90,7 +92,6 @@
         :drawerRight="drawerRight"
         :drawerSottocategoria="drawerSottocategoria"
         :iconX="iconX"
-        @gotoR="gotoR"
         @setD="setD"
         @setDF="setDF"
         @mouseover="setDF()"
@@ -263,24 +264,19 @@ export default {
 
   props: {
     iconX: { type: String },
-    /*
-TODO:
-2020 04 26 test sostituzione con computed su 
-/*
+    /*  2020 04 26 test sostituzione con computed su $store - TEST OK /*
     requestUser: { type: String },
     requestUserIsStaff: { type: Boolean },
     requestUserIsSuper: { type: Boolean },
     requestUserAvatar: { type: String },
     requestUserBio: { type: String },
-*/
-    /*
-TODO:
-test sostituzione con computed su 
-*/
+    */
 
+    /*TODO: 2020 05 10 test sostituzione con computed su 
     C: { type: Number },
     CS: { type: Number },
     categorie: { type: Array },
+    TODO:*/
 
     drawer: { type: Boolean },
     drawerLeft: { type: Boolean },

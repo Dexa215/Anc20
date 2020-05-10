@@ -167,7 +167,7 @@ export default {
         "February",
         "March",
         "April",
-        "May",
+        "Maggio",
         "June",
         "July",
         "August",
@@ -281,9 +281,16 @@ export default {
     },
 
     gotoR(r) {
+      console.log("APP gotoR", r);
+      this.$store.dispatch("gotoR", r);
+    }
+
+    /*old
+    gotoR(r) {
       console.log("Home rotta per...", r);
       this.$emit("gotoR", r);
     }
+    */
   },
 
   created() {
@@ -301,6 +308,7 @@ export default {
     this.setMyPar();
   },
   updated() {
+    this.clock();
     //    this.getRequestUser();
   }
 };
