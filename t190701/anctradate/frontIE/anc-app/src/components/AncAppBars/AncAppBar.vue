@@ -851,6 +851,15 @@ export default {
 }
 /*------------------------------------------------------------------------------------------------------*/
 
+.AncBtnLanguages {
+  background-color: transparent !important;
+  transform: scale(1, 1);
+}
+.AncBtnLanguages:hover {
+  background-color: lightseagreen !important;
+  transform: scale(1.1, 1.1);
+}
+
 .icorot {
   transform: rotate(10deg);
 }

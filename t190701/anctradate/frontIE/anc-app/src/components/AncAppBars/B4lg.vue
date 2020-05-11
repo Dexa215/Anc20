@@ -145,7 +145,7 @@
           -->
           <v-row class="iconavR mx-auto" justify="center">
             <!-- ICONE NAVIGAZIONE - SX -->
-            <v-col class="iconavcS">
+            <v-col class="iconavcS" cols="9">
               <!--
               <div class="xxx">
                 <v-icon
@@ -157,11 +157,62 @@
               </div>
               -->
 
+              <!-- search... -->
               <v-expand-x-transition>
-                <v-icon v-show="!drawerLeft" class="mx-2 AncIconColor" large dark>mdi-magnify</v-icon>
+                <v-btn
+                  class="mx-3"
+                  icon
+                  v-show="!drawerLeft & !languagesShow"
+                  fab
+                  rounded
+                  style="background-color: transparent"
+                >
+                  <v-icon class="mx-3 AncIconColor" large dark>mdi-magnify</v-icon>
+                </v-btn>
               </v-expand-x-transition>
+
+              <!-- Language... -->
+              <v-expand-x-transition>
+                <v-btn
+                  class="mx-1"
+                  icon
+                  v-show="!drawerLeft && !languagesShow"
+                  fab
+                  rounded
+                  style="background-color: transparent"
+                  @click="SDL"
+                >
+                  <v-img class="mx-3 AncIconLang" large dark :src="lang.icona"></v-img>
+                  <!-- TEST OK 2020 05 10-->
+                  <!--
+                                  {{lang.code}}
+              {{lang.icona}}
+
+                  <v-img class="mx-3 AncIconLang" large dark :src="langIco"></v-img>
+                  -->
+                </v-btn>
+              </v-expand-x-transition>
+
+              <!-- lista di linguaggi... -->
+              <!-- @click="SDL" -->
+              <v-btn
+                v-show="languagesShow"
+                v-for="lang in languages"
+                :key="lang.pk"
+                class="mx-1 AncBtnLanguages"
+                icon
+                fab
+                rounded
+                @click="ScL(lang.code)"
+              >
+                <v-img class="mx-1 AncIconLang" large dark :src="lang.icona"></v-img>
+              </v-btn>
+
+              <!--
               <v-btn icon @click="gotoR('/')">
-                <v-icon large>mdi-bank</v-icon>
+              -->
+              <v-btn v-show="!languagesShow && drawerLeft" class="mx-3" icon @click="gotoR('/')">
+                <v-icon class="mx-3 AncIconLang" large dark>mdi-bank</v-icon>
               </v-btn>
               <!--
               <v-icon
@@ -196,11 +247,12 @@
             <!-- <v-col cols="0"></v-col> -->
 
             <!-- ICONE NAVIGAZIONE - DX style="height: 30px;" -->
-            <v-col class="iconavcDD">
+            <v-col class="iconavcDD" cols="3">
               <!-- v-app-bar -->
               <!--v-app-bar-nav-icon >
               </v-app-bar-nav-icon-->
 
+              <!-- BUTTON HOME... -->
               <v-btn icon v-model="iconX" @click.stop="setD">
                 <v-icon v-if="drawerLeft" large>{{ iconO }}</v-icon>
                 <v-icon v-else large>{{ iconC }}</v-icon>
@@ -255,6 +307,8 @@ ESCLUSI DA DATA:
 */
   data() {
     return {
+      langIco: "/static/icons/Nations/italy.png",
+
       expand: "true",
       expandSC: "false",
       h: "80px",
@@ -325,6 +379,16 @@ TODO:
   },
 
   computed: {
+    lang() {
+      return this.$store.getters.getCurrentLanguage;
+    },
+    languages() {
+      return this.$store.getters.getLanguages;
+    },
+    languagesShow() {
+      return this.$store.getters.getLanguagesShow;
+    },
+    /*  -----------------------------------------------------------------------   */
     categorie() {
       return this.$store.getters.categorie;
     },
@@ -389,6 +453,15 @@ TODO:
       */
     },
 
+    SDL() {
+      /*Switch Drawer Language*/
+      this.$store.dispatch("switchDrawerLang");
+    },
+    ScL(val) {
+      /*SET Current Language*/
+      this.$store.dispatch("setL", val);
+    },
+
     DSCset(state) {
       this.$emit("DSCset", state);
     },
@@ -437,6 +510,16 @@ TODO:
 </script>
 
 <style media="screen">
+.AncIconLang {
+  height: 38px;
+  width: 38px;
+  transform: scale(1, 1);
+}
+
+.AncIconLang:hover {
+  transform: scale(1.2, 1.2);
+}
+
 .iconavR {
   height: 1px;
   /*
@@ -481,7 +564,10 @@ TODO:
   height: 100%;
   background-color: transparent !important;
   text-align: left;
-  padding-left: 5px;
+  padding-left: 35px;
+
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 .iconavcSD {
   /*height: 80%;*/
@@ -489,6 +575,7 @@ TODO:
   background-color: transparent !important;
   text-align: right;
   padding-right: 15px;
+  padding-top: 5px;
 }
 .iconavcDD {
   /*height: 80%;*/

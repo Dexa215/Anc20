@@ -11,6 +11,7 @@ import menuT from "@/common/menuTime.js";
 //Module A: General, dynamic assignment css
 //Module C: Categories
 //Module D: Drawers
+//Module L: Languages
 //Module R: Router, internal coding of the call - [ C - CS ] 
 //Module U: User, retrieve informations of current user [ RANK ]
 //Module X:
@@ -111,7 +112,7 @@ const moduleC = {
         //anc app Menu
         menucat:
             [
-                {//cat1
+                {//cat1 10 home
                     n: "10",
                     descrizione: "Home",
                     titolo: "",
@@ -137,7 +138,7 @@ const moduleC = {
                     sottocategorie: [
                     ]
                 },
-                {//cat2
+                {//cat2 20 sede
                     n: "20",
                     descrizione: "Sede",
                     titolo: "Il ritrovo abituale per i soci",
@@ -178,7 +179,7 @@ const moduleC = {
                         },
                     ]
                 },
-                {//cat3
+                {//cat3 30 contatti
                     n: "30",
                     descrizione: "Contatti",
                     titolo: "Come contattarci",
@@ -226,8 +227,7 @@ const moduleC = {
                         },
                     ]
                 },
-
-                {//cat4
+                {//cat4 40 chisiamo
                     n: "40",
                     descrizione: "Chi siamo",
                     titolo: "Organizzazione della sezione",
@@ -284,7 +284,7 @@ const moduleC = {
                         },
                     ]
                 },
-                {//cat5
+                {//cat5 50 agenda
                     n: "50",
                     descrizione: "Agenda",
                     titolo: "prossimi appuntamenti da non perdere",
@@ -316,7 +316,7 @@ const moduleC = {
                         },
                     ]
                 },
-                {//cat6
+                {//cat6 60 archivio
                     n: "60",
                     descrizione: "Archivio",
                     titolo: "sfogliando tra i vecchi ricordi ",
@@ -349,7 +349,7 @@ const moduleC = {
                         },
                     ]
                 },
-                {//cat7
+                {//cat7 70 tesseramento
                     n: "70",
                     descrizione: "Tesseramento",
                     titolo: "sostenere l'Associazione",
@@ -382,7 +382,7 @@ const moduleC = {
                         },
                     ]
                 },
-                {//cat8
+                {//cat8 80 links
                     n: "80",
                     descrizione: "Links",
                     titolo: "Siti di interesse, amici, altro...",
@@ -442,14 +442,23 @@ const moduleL = {
 
     state: {
 
+
         Startlanguage: "it",
         Currentlanguage: "it",
+
+        LanguagesShow: "false",
+        // [0]:it     
+        // [1]:en    
+        // [2]:sp    
+
+
 
         monthArr: [
             {
                 idlang: 0,
                 code: "it",
                 nome: "Italiano",
+                icona: "/static/icons/Nations/italy.png",
                 mesi: [
                     { idmonth: 0, nome: "Gennaio" },
                     { idmonth: 1, nome: "Febbraio" },
@@ -463,12 +472,172 @@ const moduleL = {
                     { idmonth: 9, nome: "Ottobre" },
                     { idmonth: 10, nome: "Novembre" },
                     { idmonth: 11, nome: "Dicembre" }
-                ]
+                ],
+                text1: "Oggi",
+
+                /*testi*/
+                t: [        /* tipi:    0:components - 1:views  */
+                    {
+                        id: 0, tipo: "components", lista: [
+                            {
+                                id: 0, code: "AncIntestazioneFine", t: [
+                                    { id: 0, code: "T1", text: "Per qualsiasi informazione non presente in questa pagina non esitare a contattarci" },
+                                    { id: 1, code: "T2", text: "Potrebbero interessarti..." }
+                                ]
+                            },
+                            {
+                                id: 1, code: "", t: [
+                                    { id: 0, code: "T1", text: "Per qualsiasi informazione non presente in questa pagina non esitare a contattarci" },
+                                    { id: 1, code: "T2", text: "Potrebbero interessarti..." }
+                                ]
+                            },
+
+                        ]
+                    },
+                    /*      ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++      */
+                    {
+                        id: 1, tipo: "views", lista: [
+                            {//10 home
+                                id: 10, nomecategoria: "home",
+                                t: [
+                                    { id: 0, code: "Ttoday", text: "Oggi" }
+                                ],
+                                sc: []
+                            },
+                            {//20 sede
+                                id: 20, nomecategoria: "sede",
+                                t: [
+                                    { id: 0, code: "Ttoday", text: "Oggi" }
+                                ],
+                                sc: [
+                                    {
+                                        id: 21, nome: "ubicazione",
+                                        t: [
+                                            { id: 0, code: "", text: "" }
+                                        ],
+                                    },
+                                    {
+                                        id: 22, nome: "orari",
+                                        t: [
+                                            { id: 0, code: "", text: "" }
+                                        ],
+                                    },
+                                ]
+                            },
+                            {//30 contatti
+                                id: 30, nomecategoria: "contatti",
+                                t: [
+                                    { id: 0, code: "", text: "" }
+                                ],
+                                sc: [
+                                    {
+                                        id: 31, nome: "Presidente",
+                                        t: [
+                                            { id: 0, code: "", text: "" }
+                                        ],
+                                    },
+                                    {
+                                        id: 32, nome: "Vice",
+                                        t: [
+                                            { id: 0, code: "", text: "" }
+                                        ],
+                                    },
+                                    {
+                                        id: 33, nome: "Posta",
+                                        t: [
+                                            { id: 0, code: "", text: "" }
+                                        ],
+                                    },
+                                ]
+
+                            },
+                            {//40 chisiamo
+                                id: 40, nomecategoria: "chisiamo",
+                                t: [
+                                    { id: 0, code: "", text: "" }
+                                ],
+                                sc: [
+                                    {
+                                        id: 41, nome: "Direttivo",
+                                        t: [
+                                            { id: 0, code: "", text: "" }
+                                        ],
+                                    },
+                                    {
+                                        id: 42, nome: "Soci",
+                                        t: [
+                                            { id: 0, code: "", text: "" }
+                                        ],
+                                    },
+                                    {
+                                        id: 43, nome: "Benemerite",
+                                        t: [
+                                            { id: 0, code: "", text: "" }
+                                        ],
+                                    },
+                                    {
+                                        id: 44, nome: "Simpatizzanti",
+                                        t: [
+                                            { id: 0, code: "", text: "" }
+                                        ],
+                                    },
+                                ]
+
+                            },
+                            {//50 agenda
+                                id: 50, nomecategoria: "agenda",
+                                t: [
+                                    { id: 0, code: "", text: "" }
+                                ],
+                                sc: [
+                                    {
+                                        id: 51, nome: "appuntamenti",
+                                        t: [
+                                            { id: 0, code: "", text: "" }
+                                        ],
+                                    },
+                                ]
+                            },
+                            {//60 archivio
+                                id: 60, nomecategoria: "archivio",
+                                t: [
+                                    { id: 0, code: "", text: "" }
+                                ],
+                                sc: [
+                                    {
+                                        id: 61, nome: "eventi",
+                                        t: [
+                                            { id: 0, code: "", text: "" }
+                                        ],
+                                    },
+                                ]
+                            },
+                            {//cat7 70 tesseramento
+                                id: 70, nomecategoria: "tesseramento",
+                                t: [
+                                    { id: 0, code: "", text: "" }
+                                ]
+                            },
+                            {//cat8 80 links
+                                id: 80, nomecategoria: "links", t: [
+                                    { id: 0, code: "", text: "" }
+                                ]
+                            },
+                        ]
+                    }
+                ]/*testi*/
+
+
+
+
+
+
             },
             {
                 idlang: 1,
                 code: "en",
                 nome: "English",
+                icona: "/static/icons/Nations/united_kingdom.png",
                 mesi: [
                     { idmonth: 0, nome: "January" },
                     { idmonth: 1, nome: "February" },
@@ -482,27 +651,334 @@ const moduleL = {
                     { idmonth: 9, nome: "October" },
                     { idmonth: 10, nome: "November" },
                     { idmonth: 11, nome: "December" }
-                ]
+                ],
+                text1: "Today",
+                /*testi*/
+                t: [        /* tipi:    0:components - 1:views  */
+                    {
+                        id: 0, tipo: "components", lista: [
+                            {
+                                id: 0, code: "AncIntestazioneFine", t: [
+                                    { id: 0, code: "T1", text: "For any information not present on this page, do not hesitate to contact us" },
+                                    { id: 1, code: "T2", text: "You might be interested ..." }
+                                ]
+                            },
+                            {
+                                id: 1, code: "", t: [
+                                    { id: 0, code: "T1", text: "" },
+                                    { id: 1, code: "T2", text: "" }
+                                ]
+                            },
+
+                        ]
+                    },
+                    /*      ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++      */
+                    {
+                        id: 1, tipo: "views", lista: [
+                            {//10 home
+                                id: 10, nomecategoria: "home",
+                                t: [
+                                    { id: 0, code: "Ttoday", text: "Oggi" }
+                                ],
+                                sc: []
+                            },
+                            {//20 sede
+                                id: 20, nomecategoria: "sede",
+                                t: [
+                                    { id: 0, code: "Ttoday", text: "Oggi" }
+                                ],
+                                sc: [
+                                    {
+                                        id: 21, nome: "ubicazione",
+                                        t: [
+                                            { id: 0, code: "", text: "" }
+                                        ],
+                                    },
+                                    {
+                                        id: 22, nome: "orari",
+                                        t: [
+                                            { id: 0, code: "", text: "" }
+                                        ],
+                                    },
+                                ]
+                            },
+                            {//30 contatti
+                                id: 30, nomecategoria: "contatti",
+                                t: [
+                                    { id: 0, code: "", text: "" }
+                                ],
+                                sc: [
+                                    {
+                                        id: 31, nome: "Presidente",
+                                        t: [
+                                            { id: 0, code: "", text: "" }
+                                        ],
+                                    },
+                                    {
+                                        id: 32, nome: "Vice",
+                                        t: [
+                                            { id: 0, code: "", text: "" }
+                                        ],
+                                    },
+                                    {
+                                        id: 33, nome: "Posta",
+                                        t: [
+                                            { id: 0, code: "", text: "" }
+                                        ],
+                                    },
+                                ]
+
+                            },
+                            {//40 chisiamo
+                                id: 40, nomecategoria: "chisiamo",
+                                t: [
+                                    { id: 0, code: "", text: "" }
+                                ],
+                                sc: [
+                                    {
+                                        id: 41, nome: "Direttivo",
+                                        t: [
+                                            { id: 0, code: "", text: "" }
+                                        ],
+                                    },
+                                    {
+                                        id: 42, nome: "Soci",
+                                        t: [
+                                            { id: 0, code: "", text: "" }
+                                        ],
+                                    },
+                                    {
+                                        id: 43, nome: "Benemerite",
+                                        t: [
+                                            { id: 0, code: "", text: "" }
+                                        ],
+                                    },
+                                    {
+                                        id: 44, nome: "Simpatizzanti",
+                                        t: [
+                                            { id: 0, code: "", text: "" }
+                                        ],
+                                    },
+                                ]
+
+                            },
+                            {//50 agenda
+                                id: 50, nomecategoria: "agenda",
+                                t: [
+                                    { id: 0, code: "", text: "" }
+                                ],
+                                sc: [
+                                    {
+                                        id: 51, nome: "appuntamenti",
+                                        t: [
+                                            { id: 0, code: "", text: "" }
+                                        ],
+                                    },
+                                ]
+                            },
+                            {//60 archivio
+                                id: 60, nomecategoria: "archivio",
+                                t: [
+                                    { id: 0, code: "", text: "" }
+                                ],
+                                sc: [
+                                    {
+                                        id: 61, nome: "eventi",
+                                        t: [
+                                            { id: 0, code: "", text: "" }
+                                        ],
+                                    },
+                                ]
+                            },
+                            {//cat7 70 tesseramento
+                                id: 70, nomecategoria: "tesseramento",
+                                t: [
+                                    { id: 0, code: "", text: "" }
+                                ]
+                            },
+                            {//cat8 80 links
+                                id: 80, nomecategoria: "links", t: [
+                                    { id: 0, code: "", text: "" }
+                                ]
+                            },
+                        ]
+                    }
+                ]/*testi*/
+
+
             },
 
             {
                 idlang: 2,
                 code: "sp",
                 nome: "Spanish",
+                icona: "/static/icons/Nations/spain.png",
                 mesi: [
-                    { idmonth: 0, nome: "GennaioS" },
-                    { idmonth: 1, nome: "FebbraioS" },
-                    { idmonth: 2, nome: "MarzoS" },
-                    { idmonth: 3, nome: "AprileS" },
-                    { idmonth: 4, nome: "MaggioS" },
-                    { idmonth: 0, nome: "GiugnoS" },
-                    { idmonth: 1, nome: "LuglioS" },
-                    { idmonth: 2, nome: "AgostoS" },
-                    { idmonth: 3, nome: "SettembreS" },
-                    { idmonth: 4, nome: "OttobreS" },
-                    { idmonth: 0, nome: "NovembreS" },
-                    { idmonth: 1, nome: "DicembreS" }
-                ]
+                    { idmonth: 0, nome: "Enero" },
+                    { idmonth: 1, nome: "Febrero" },
+                    { idmonth: 2, nome: "Marzo" },
+                    { idmonth: 3, nome: "Abril" },
+                    { idmonth: 4, nome: "Mayo" },
+                    { idmonth: 0, nome: "Junio" },
+                    { idmonth: 1, nome: "Julio" },
+                    { idmonth: 2, nome: "Agosto" },
+                    { idmonth: 3, nome: "Septiembre" },
+                    { idmonth: 4, nome: "Octubre" },
+                    { idmonth: 0, nome: "Noviembre" },
+                    { idmonth: 1, nome: "Diciembre" }
+                ],
+                text1: "hoy",
+                /*testi*/
+                t: [        /* tipi:    0:components - 1:views  */
+                    {
+                        id: 0, tipo: "components", lista: [
+                            {
+                                id: 0, code: "AncIntestazioneFine", t: [
+                                    { id: 0, code: "T1", text: "Para cualquier información no presente en esta página, no dude en contactarnos" },
+                                    { id: 1, code: "T2", text: "Te puede interesar ..." }
+                                ]
+                            },
+                            {
+                                id: 1, code: "", t: [
+                                    { id: 0, code: "T1", text: "" },
+                                    { id: 1, code: "T2", text: "" }
+                                ]
+                            },
+
+                        ]
+                    },
+                    /*      ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++      */
+                    {
+                        id: 1, tipo: "views", lista: [
+                            {//10 home
+                                id: 10, nomecategoria: "home",
+                                t: [
+                                    { id: 0, code: "Ttoday", text: "Oggi" }
+                                ],
+                                sc: []
+                            },
+                            {//20 sede
+                                id: 20, nomecategoria: "sede",
+                                t: [
+                                    { id: 0, code: "Ttoday", text: "Oggi" }
+                                ],
+                                sc: [
+                                    {
+                                        id: 21, nome: "ubicazione",
+                                        t: [
+                                            { id: 0, code: "", text: "" }
+                                        ],
+                                    },
+                                    {
+                                        id: 22, nome: "orari",
+                                        t: [
+                                            { id: 0, code: "", text: "" }
+                                        ],
+                                    },
+                                ]
+                            },
+                            {//30 contatti
+                                id: 30, nomecategoria: "contatti",
+                                t: [
+                                    { id: 0, code: "", text: "" }
+                                ],
+                                sc: [
+                                    {
+                                        id: 31, nome: "Presidente",
+                                        t: [
+                                            { id: 0, code: "", text: "" }
+                                        ],
+                                    },
+                                    {
+                                        id: 32, nome: "Vice",
+                                        t: [
+                                            { id: 0, code: "", text: "" }
+                                        ],
+                                    },
+                                    {
+                                        id: 33, nome: "Posta",
+                                        t: [
+                                            { id: 0, code: "", text: "" }
+                                        ],
+                                    },
+                                ]
+
+                            },
+                            {//40 chisiamo
+                                id: 40, nomecategoria: "chisiamo",
+                                t: [
+                                    { id: 0, code: "", text: "" }
+                                ],
+                                sc: [
+                                    {
+                                        id: 41, nome: "Direttivo",
+                                        t: [
+                                            { id: 0, code: "", text: "" }
+                                        ],
+                                    },
+                                    {
+                                        id: 42, nome: "Soci",
+                                        t: [
+                                            { id: 0, code: "", text: "" }
+                                        ],
+                                    },
+                                    {
+                                        id: 43, nome: "Benemerite",
+                                        t: [
+                                            { id: 0, code: "", text: "" }
+                                        ],
+                                    },
+                                    {
+                                        id: 44, nome: "Simpatizzanti",
+                                        t: [
+                                            { id: 0, code: "", text: "" }
+                                        ],
+                                    },
+                                ]
+
+                            },
+                            {//50 agenda
+                                id: 50, nomecategoria: "agenda",
+                                t: [
+                                    { id: 0, code: "", text: "" }
+                                ],
+                                sc: [
+                                    {
+                                        id: 51, nome: "appuntamenti",
+                                        t: [
+                                            { id: 0, code: "", text: "" }
+                                        ],
+                                    },
+                                ]
+                            },
+                            {//60 archivio
+                                id: 60, nomecategoria: "archivio",
+                                t: [
+                                    { id: 0, code: "", text: "" }
+                                ],
+                                sc: [
+                                    {
+                                        id: 61, nome: "eventi",
+                                        t: [
+                                            { id: 0, code: "", text: "" }
+                                        ],
+                                    },
+                                ]
+                            },
+                            {//cat7 70 tesseramento
+                                id: 70, nomecategoria: "tesseramento",
+                                t: [
+                                    { id: 0, code: "", text: "" }
+                                ]
+                            },
+                            {//cat8 80 links
+                                id: 80, nomecategoria: "links", t: [
+                                    { id: 0, code: "", text: "" }
+                                ]
+                            },
+                        ]
+                    }
+                ]/*testi*/
             },
         ],
 
@@ -555,12 +1031,30 @@ const moduleL = {
     mutations: {
         setCurrentLanguage (state, val) {
             state.Currentlanguage = val;
+            state.LanguagesShow = false;
+        },
+        switchDL (state) {
+            state.LanguagesShow = !state.LanguagesShow;
+        },
+        setDL (state, val) {
+            state.LanguagesShow = val;
         }
+
+
     },
     actions: {
         setL (context, val) {
             context.commit('setCurrentLanguage', val);
-        }
+        },
+        switchDrawerLang (context) {
+            context.commit('switchDL');
+        },
+        setDLf (context) {
+            context.commit('setDL', false);
+        },
+        setDLt (context) {
+            context.commit('setDL', true);
+        },
     },
 
     getters: {
@@ -570,22 +1064,28 @@ const moduleL = {
             return state.todos.find(todo => todo.id === id)
         },
 
-
         /*test OK 2020 05 10 */
+        /* getmonthArrLang: (state) => (id) => (lang) => { */
+
         getmonthArrLang: (state) => (id) => (lang) => {
+            let idl = state.monthArr.find(m => m.code === state.Currentlanguage).idlang;
+            return state.monthArr[idl].mesi.find(m => m.idmonth === id)
+
 
             switch (lang) {
+
+
                 case "it":
-                    return state.monthArrIt.find(month => month.id === id)
+                    return state.monthArr[0].find(month => month.id === id)
                     break;
                 case "sp":
-                    return state.monthArrSp.find(month => month.id === id)
+                    return state.monthArr[2].find(month => month.id === id)
                     break;
                 case "fr":
-                    return state.monthArrFr.find(month => month.id === id)
+                    return state.monthArr[4].find(month => month.id === id)
                     break;
                 default:
-                    return state.monthArrEn.find(month => month.id === id)
+                    return state.monthArr[1].find(month => month.id === id)
                     break;
             }
         },
@@ -596,8 +1096,6 @@ const moduleL = {
             return langSel.find(month => month.idmonth === id)
         },
         /*test NG TODO: RIVEDERE */
-
-
         getmonthArrByLang: (state) => (lang) => {
 
             switch (lang) {
@@ -613,6 +1111,19 @@ const moduleL = {
             }
         },
 
+        /*----------------------------------------------------*/
+
+        getCurrentLanguage: (state) => {
+            let cl = state.Currentlanguage;
+            return state.monthArr.find(lS => lS.code === cl);
+        },
+
+        getLanguages: (state) => {
+            return state.monthArr;
+        },
+        getLanguagesShow: (state) => {
+            return state.LanguagesShow;
+        }
 
 
     },

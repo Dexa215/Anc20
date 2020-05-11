@@ -156,7 +156,7 @@ export default {
       };
       this.$emit("spMC", myparam); //spMC -- > sAVE pARAMETER / menu Cat
     },
-
+    /*
     clock() {
       this.d = new Date();
       this.date = this.d.getDate();
@@ -181,7 +181,7 @@ export default {
       this.displaydate = this.date + " " + this.month + ", " + this.year;
       //            document.getElementById("date").innerHTML=this.date+" "+this.month+", "+this.year;
     },
-
+*/
     getEvidenza() {
       var x;
       let endpoint = "api/evidenza/";
@@ -267,6 +267,7 @@ export default {
       });
     },
 
+    /*
     getRequestUser() {
       let endpoint = "api/profiles/getcurrentuser/";
       apiService(endpoint).then(data => {
@@ -275,11 +276,10 @@ export default {
         //              this.requestUser = data.us.name;
       });
     },
-
     setRequestUser() {
       this.requestUser = window.localStorage.getItem("username");
     },
-
+*/
     gotoR(r) {
       console.log("APP gotoR", r);
       this.$store.dispatch("gotoR", r);

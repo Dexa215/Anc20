@@ -16,10 +16,10 @@
         </v-flex>
       </v-layout>
 
-      <!-- contattaci... -->
       <v-layout justify-center>
         <p class="my-2">
-          Per qualsiasi informazione non presente in questa pagina non esitare a contattarci
+          <!-- contattaci... Per qualsiasi informazione non presente in questa pagina non esitare a contattarci  -->
+          {{lang.t[0].lista[0].t[0].text}}
           <br />
           <v-chip class="ma-4" color="red" text-color="white" @click="gotoR('contatti/')">
             <a>Contatti</a>
@@ -32,7 +32,8 @@
       <!-- links -->
       <v-layout justify-center text-center>
         <div>
-          <h3 class="headline font-weight-bold mb-3 text-center">Potrebbero interessarti...</h3>
+          <!-- Potrebbero interessarti... -->
+          <h3 class="headline font-weight-bold mb-3 text-center">{{lang.t[0].lista[0].t[1].text}}</h3>
           <a
             style="color:green"
             v-for="(link, i) in categorie[C/10-1].linksFP"
@@ -100,8 +101,34 @@ export default {
     ]
   }),
 
+  computed: {
+    lang() {
+      return this.$store.getters.getCurrentLanguage;
+    },
+    languages() {
+      return this.$store.getters.getLanguages;
+    },
+    languagesShow() {
+      return this.$store.getters.getLanguagesShow;
+    },
+    /*  -----------------------------------------------------------------------   */
+    categorie() {
+      return this.$store.getters.categorie;
+    },
+    C() {
+      return this.$store.getters.getC;
+    },
+    CS() {
+      return this.$store.getters.getCS;
+    }
+  },
+
   methods: {
     gotoR(r) {
+      this.$store.dispatch("gotoR", r);
+    },
+
+    gotoR0(r) {
       console.log("intestazionefine goto ... ", r);
       this.$emit("gotoR", r);
     }

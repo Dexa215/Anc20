@@ -675,6 +675,10 @@ categorie:[
       this.iconX = this.iconO;
     },
 
+    setDLf() {
+      this.$store.dispatch("setDLf");
+    },
+
     setColor() {
       this.$store.dispatch("setcolor");
       /*
@@ -771,7 +775,7 @@ categorie:[
 
   created() {
     document.title = "ANC Tradate";
-
+    this.setDLf();
     this.getToken();
     this.getRequestUser(); // !!store - moduleU
 

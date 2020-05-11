@@ -5,12 +5,15 @@
 
       <v-row class="todayr" align="center" justify="center">
         <v-row class="rup mx-auto" align="end">
-          <v-col cols="9" class="cup mx-auto display-2">Oggi...</v-col>
+          <v-col cols="9" class="cup mx-auto display-2">{{lang.text1}}...</v-col>
         </v-row>
 
         <v-row class="rdw mx-auto" align="start">
           <v-col cols="9" class="cdw mx-auto">
+            <!-- test ok 
             <a class="title">{{ displaydate }}</a>
+            -->
+            <a class="title">{{ displayeddate }}</a>
           </v-col>
         </v-row>
       </v-row>
@@ -49,13 +52,42 @@ export default {
   },
 
   computed: {
+    displayeddate() {
+      this.d = new Date();
+      this.date = this.d.getDate();
+      this.year = this.d.getFullYear();
+      this.month = this.d.getMonth();
+      /* TEST OK 2020 05 10 */
+      this.month = this.getmonthArrLang.nome;
+      this.displaydate = this.date + " " + this.month + ", " + this.year;
+      return this.displaydate;
+    },
+
+    lang() {
+      return this.$store.getters.getCurrentLanguage;
+    },
+    languages() {
+      return this.$store.getters.getLanguages;
+    },
+    languagesShow() {
+      return this.$store.getters.getLanguagesShow;
+    },
+
     getmonthArrLang() {
-      let lang = "sp";
+      // test ok
+      //      let lang = "it";
+      //      let lang = "sp";
+      //      let lang = "en";
+      let lang = this.lang.code;
+
       //      return this.$store.getters.getmonthArrIt(this.month + 1)(lang);
+
       return this.$store.getters.getmonthArrLang(this.month)(lang);
 
       //return this.$store.state.l.monthArrIt;
     },
+
+    /* TODO: DA RIVEDERE */
     getmonthArrLanguage() {
       let lang = "sp";
       return this.$store.getters.getmonthArrLanguage(this.month)(lang);
