@@ -74,8 +74,7 @@
               </v-row>
             </v-col>
 
-            <!-- v-col class="iconavcD" cols="3" style="background-color:orange !important"-->
-
+            <!-- ICONA CATEGORIA CORRENTE -->
             <v-col class="icoSx iconavcSbtnCategoriaCorrente" cols="2">
               <v-row class="rIco" justify="center" align="center">
                 <!-- categoria corrente -->
@@ -159,27 +158,29 @@
             <!-- ICONE NAVIGAZIONE - DX -->
 
             <v-col v-if="languagesShow && !drawerLeft" cols="12">
-              <!-- lista di linguaggi... -->
-              <!-- @click="SDL" -->
-              <!-- -->
-              <v-btn @click="SDL" rounded v-show="languagesShow && !drawerLeft" class="mx-3">
-                {{lang.t[0].lista[2].t[0].text}}
-                <!-- lang.t[0] == components-->
-                <!-- lang.t[0].lista[2] == Menu Language-->
-                <!-- lang.t[0].lista[2].t[0] == Menu Language testo 0 -->
-              </v-btn>
-              <!-- -->
-              <v-btn
-                v-for="lang in languages"
-                :key="lang.pk"
-                class="mx-1 AncBtnLanguages"
-                icon
-                fab
-                rounded
-                @click="ScL(lang.code)"
-              >
-                <v-img class="mx-1 AncIconLang" large dark :src="lang.icona"></v-img>
-              </v-btn>
+              <v-row class="rIco" align="center" justify="center">
+                <!-- lista di linguaggi... -->
+                <!-- @click="SDL" -->
+                <!-- -->
+                <v-btn @click="SDL" rounded v-show="languagesShow && !drawerLeft" class="mx-3">
+                  {{lang.t[0].lista[2].t[0].text}}
+                  <!-- lang.t[0] == components-->
+                  <!-- lang.t[0].lista[2] == Menu Language-->
+                  <!-- lang.t[0].lista[2].t[0] == Menu Language testo 0 -->
+                </v-btn>
+                <!-- -->
+                <v-btn
+                  v-for="lang in languages"
+                  :key="lang.pk"
+                  class="mx-1 AncBtnLanguages"
+                  icon
+                  fab
+                  rounded
+                  @click="ScL(lang.code)"
+                >
+                  <v-img class="mx-1 AncIconLang" large dark :src="lang.icona"></v-img>
+                </v-btn>
+              </v-row>
             </v-col>
 
             <v-col class="icoSx iconavcDD" cols="3">

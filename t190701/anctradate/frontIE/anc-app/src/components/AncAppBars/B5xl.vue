@@ -74,8 +74,7 @@
               </v-row>
             </v-col>
 
-            <!-- v-col class="iconavcD" cols="3" style="background-color:orange !important"-->
-
+            <!-- ICONA CATEGORIA CORRENTE -->
             <v-col class="icoSx iconavcSbtnCategoriaCorrente" cols="2">
               <v-row class="rIco" justify="center" align="center">
                 <!-- categoria corrente -->
@@ -157,6 +156,33 @@
         <v-col :class="rcD">
           <v-row class="iconavR mx-auto" justify="center" align="center">
             <!-- ICONE NAVIGAZIONE - DX -->
+
+            <v-col v-if="languagesShow && !drawerLeft" cols="12">
+              <v-row class="rIco" align="center" justify="center">
+                <!-- lista di linguaggi... -->
+                <!-- @click="SDL" -->
+                <!-- -->
+                <v-btn @click="SDL" rounded v-show="languagesShow && !drawerLeft" class="mx-3">
+                  {{lang.t[0].lista[2].t[0].text}}
+                  <!-- lang.t[0] == components-->
+                  <!-- lang.t[0].lista[2] == Menu Language-->
+                  <!-- lang.t[0].lista[2].t[0] == Menu Language testo 0 -->
+                </v-btn>
+                <!-- -->
+                <v-btn
+                  v-for="lang in languages"
+                  :key="lang.pk"
+                  class="mx-1 AncBtnLanguages"
+                  icon
+                  fab
+                  rounded
+                  @click="ScL(lang.code)"
+                >
+                  <v-img class="mx-1 AncIconLang" large dark :src="lang.icona"></v-img>
+                </v-btn>
+              </v-row>
+            </v-col>
+
             <v-col class="icoSx iconavcDD" cols="3">
               <v-row class="rIco" align="center" justify="center">
                 <!-- v-app-bar -->
@@ -257,21 +283,6 @@
                   </v-btn>
                 </v-expand-x-transition>
 
-                <!-- lista di linguaggi... -->
-                <!-- @click="SDL" -->
-                <v-btn
-                  v-show="languagesShow"
-                  v-for="lang in languages"
-                  :key="lang.pk"
-                  class="mx-1 AncBtnLanguages"
-                  icon
-                  fab
-                  rounded
-                  @click="ScL(lang.code)"
-                >
-                  <v-img class="mx-1 AncIconLang" large dark :src="lang.icona"></v-img>
-                </v-btn>
-
                 <!--
               <v-btn icon @click="gotoR('/')">
                 -->
@@ -306,7 +317,7 @@
               </v-row>
             </v-col>
 
-            <v-col class="icoSx iconavcDD" cols="3">
+            <v-col v-if="!languagesShow" class="icoSx iconavcDD" cols="3">
               <v-row class="rIco" justify="end" align="center">
                 <!-- BUTTON HOME... -->
                 <v-btn icon v-model="iconX" @click.stop="setD">

@@ -33,7 +33,7 @@
       <v-col cols="6" class="AncRowBarColccx">
         <v-row class="AncRowBarColccxRowInt" align="center" dense>
           <v-col class="AncRowBarColcxRowIntColsx">
-            <div>ANC</div>
+            <div>SM - ANC</div>
           </v-col>
 
           <v-col class="AncRowBarColcxRowIntColccx">
