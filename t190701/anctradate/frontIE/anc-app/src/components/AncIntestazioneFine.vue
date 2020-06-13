@@ -20,6 +20,8 @@
         <p class="my-2">
           <!-- contattaci... Per qualsiasi informazione non presente in questa pagina non esitare a contattarci  -->
           {{lang.t[0].lista[0].t[0].text}}
+          ---
+          {{lang.text1}}
           <br />
           <v-chip class="ma-4" color="red" text-color="white" @click="gotoR('contatti/')">
             <a>Contatti</a>

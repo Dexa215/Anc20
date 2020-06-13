@@ -19,11 +19,15 @@
       :extended="extended"
     >
       <v-row class="r r_BC">
+        <!-- BARRA PRINCIPALE -->
+
         <v-col :class="rcS">
+          <!-- MACRO COLONNA SINISTRA ************************************************************************************************************ -->
+
           <!-- test ok rcS from $store-->
           <!-- Avatar -->
           <!-- /*62*/ -->
-          <v-row class="iconavR mx-auto" justify="center">
+          <v-row class="iconavR mx-auto" justify="center" align="center">
             <!-- test ok TODO: RIMUOVI TEST
             categoria[2]: {{categorie[1].descrizione}}
             C: {{C}}
@@ -33,76 +37,88 @@
             -->
 
             <!-- ICONE NAVIGAZIONE - SX class="avatar" -->
-            <v-col class="iconavcSbassa" cols="6">
-              <transition
-                name="custom-classes-transition"
-                enter-active-class="animated bounceInLeft"
-                leave-active-class="animated fadeOutUp"
-              >
-                <!--TODO: RIPRISTINARE V-BTN-->
-
-                <v-btn
-                  rounded
-                  v-if="categorie[C/10-1].descrizione"
-                  @click="gotoR(categorie[C/10-1].link)"
-                  @mouseenter="DSCset('true')"
+            <v-col class="icoSx iconavcSbassa" cols="10">
+              <v-row class="rIco" justify="start" align="center">
+                <transition
+                  name="custom-classes-transition"
+                  enter-active-class="animated bounceInLeft"
+                  leave-active-class="animated fadeOutUp"
                 >
-                  <a class="mx-1">
-                    <!--span
+                  <!--TODO: RIPRISTINARE V-BTN-->
+                  <v-btn
+                    rounded
+                    class="ml-3"
+                    v-if="categorie[C/10-1].descrizione"
+                    @click="gotoR(categorie[C/10-1].link)"
+                    @mouseenter="DSCset('true')"
+                  >
+                    <a class="mx-1">
+                      <!--span
                       v-if="categorie[C/10-1].descrizione.length < 15"
                       class="mr-2"
                       style="color:lightblue;"
-                    ></span-->
+                      ></span-->
 
-                    <span class="mx-1" style="color:white;">{{categorie[C/10-1].descrizione}}</span>
-                    <span class="mx-1" v-if="CS!=0" style="color:white;">\</span>
-                    <span
-                      class="mx-1"
-                      v-if="CS!=0"
-                      style="color:burlywood;"
-                    >{{categorie[C/10-1].sottocategorie[(CS-C)-1].descrizione }}</span>
-                  </a>
-                </v-btn>
+                      <span class="mx-1" style="color:white;">{{categorie[C/10-1].descrizione}}</span>
+                      <span class="mx-1" v-if="CS!=0" style="color:white;">\</span>
+                      <span
+                        class="mx-1"
+                        v-if="CS!=0"
+                        style="color:burlywood;"
+                      >{{categorie[C/10-1].sottocategorie[(CS-C)-1].descrizione }}</span>
+                    </a>
+                  </v-btn>
 
-                <!-- TODO: RIPRISTINARE V-BTN-->
-              </transition>
+                  <!-- TODO: RIPRISTINARE V-BTN-->
+                </transition>
+              </v-row>
             </v-col>
 
             <!-- v-col class="iconavcD" cols="3" style="background-color:orange !important"-->
-            <v-col class="iconavcSbtnCategoriaCorrente" cols="2">
-              <!-- categoria corrente -->
-              <transition
-                name="custom-classes-transition"
-                enter-active-class="animated bounceInLeft"
-                leave-active-class="animated fadeOutUp"
-              >
-                <v-icon
-                  class="AncIconColor"
-                  large
-                  dark
-                  @mouseenter="DSCset('true')"
-                  @click="gotoR(categorie[C/10-1].link)"
-                >{{categorie[C/10-1].icona}}</v-icon>
-              </transition>
-              <!-- categoria corrente -->
+
+            <v-col class="icoSx iconavcSbtnCategoriaCorrente" cols="2">
+              <v-row class="rIco" justify="center" align="center">
+                <!-- categoria corrente -->
+                <transition
+                  name="custom-classes-transition"
+                  enter-active-class="animated bounceInLeft"
+                  leave-active-class="animated fadeOutUp"
+                >
+                  <v-icon
+                    class="AncIconColor"
+                    large
+                    dark
+                    @mouseenter="DSCset('true')"
+                    @click="gotoR(categorie[C/10-1].link)"
+                  >{{categorie[C/10-1].icona}}</v-icon>
+                </transition>
+                <!-- categoria corrente -->
+              </v-row>
             </v-col>
 
-            <v-col class="iconavcSbtnMENU" cols="2">
-              <!-- BTN MENU @mouseenter="DSCset('false')" -->
+            <!-- 
+            <v-col class="icoSx iconavcSbtnMENU" cols="2">
+            <!-- BTN MENU @mouseenter="DSCset('false')"-->
+            <!-- BTN MENU -->
+
+            <!--          
               <v-btn icon v-model="iconX" @click.stop="setD">
                 <v-icon v-if="drawerLeft" large>{{ iconO }}</v-icon>
                 <v-icon v-else large>{{ iconC }}</v-icon>
               </v-btn>
-              <!-- BTN MENU -->
+              
             </v-col>
+            -->
           </v-row>
         </v-col>
+        <!-- MACRO COLONNA SINISTRA ************************************************************************************************************ -->
 
         <v-col class="rcC rcX rcC_BC" cols="4">
+          <!-- MACRO COLONNA CENTRO ************************************************************************************************************ -->
           <!--v-expand-transition v-show="!drawerLeft" -->
           <v-row class="rcCr rcCr_BC" align="center" justify="center" dense style="z-index: 2">
             <v-col class="rcCrcS rcCrcLat_BC">
-              <div>lg $STORE- ANC</div>
+              <div>ANC</div>
             </v-col>
 
             <v-col class="rcCrcC rcCrcX rcCrcC_BC">
@@ -135,68 +151,25 @@
 
           <!--/v-expand-transition-->
         </v-col>
+        <!-- MACRO COLONNA CENTRO ************************************************************************************************************ -->
 
-        <!--
+        <!-- MACRO COLONNA DESTRA ************************************************************************************************************ -->
         <v-col :class="rcD">
-        -->
-        <v-col :class="rcD">
-          <!--
-        <v-col class="rcD rcX rcLat rcLat_BC">
-          -->
-          <v-row class="iconavR mx-auto" justify="center">
-            <!-- ICONE NAVIGAZIONE - SX -->
-            <v-col class="iconavcS" cols="9">
-              <!--
-              <div class="xxx">
-                <v-icon
-                  class="mx-2 AncIconColor"
-                  large
-                  dark
-                  @click="gotoR(categorie[C/10-1].link)"
-                >{{categorie[C/10-1].icona}}</v-icon>
-              </div>
-              -->
+          <v-row class="iconavR mx-auto" justify="center" align="center">
+            <!-- ICONE NAVIGAZIONE - DX -->
 
-              <!-- search... -->
-              <v-expand-x-transition>
-                <v-btn
-                  class="mx-3"
-                  icon
-                  v-show="!drawerLeft & !languagesShow"
-                  fab
-                  rounded
-                  style="background-color: transparent"
-                >
-                  <v-icon class="mx-3 AncIconColor" large dark>mdi-magnify</v-icon>
-                </v-btn>
-              </v-expand-x-transition>
-
-              <!-- Language... -->
-              <v-expand-x-transition>
-                <v-btn
-                  class="mx-1"
-                  icon
-                  v-show="!drawerLeft && !languagesShow"
-                  fab
-                  rounded
-                  style="background-color: transparent"
-                  @click="SDL"
-                >
-                  <v-img class="mx-3 AncIconLang" large dark :src="lang.icona"></v-img>
-                  <!-- TEST OK 2020 05 10-->
-                  <!--
-                                  {{lang.code}}
-              {{lang.icona}}
-
-                  <v-img class="mx-3 AncIconLang" large dark :src="langIco"></v-img>
-                  -->
-                </v-btn>
-              </v-expand-x-transition>
-
+            <v-col v-if="languagesShow && !drawerLeft" cols="12">
               <!-- lista di linguaggi... -->
               <!-- @click="SDL" -->
+              <!-- -->
+              <v-btn @click="SDL" rounded v-show="languagesShow && !drawerLeft" class="mx-3">
+                {{lang.t[0].lista[2].t[0].text}}
+                <!-- lang.t[0] == components-->
+                <!-- lang.t[0].lista[2] == Menu Language-->
+                <!-- lang.t[0].lista[2].t[0] == Menu Language testo 0 -->
+              </v-btn>
+              <!-- -->
               <v-btn
-                v-show="languagesShow"
                 v-for="lang in languages"
                 :key="lang.pk"
                 class="mx-1 AncBtnLanguages"
@@ -207,14 +180,113 @@
               >
                 <v-img class="mx-1 AncIconLang" large dark :src="lang.icona"></v-img>
               </v-btn>
+            </v-col>
 
+            <v-col class="icoSx iconavcDD" cols="3">
+              <v-row class="rIco" align="center" justify="center">
+                <!-- v-app-bar -->
+                <!--v-app-bar-nav-icon >
+                </v-app-bar-nav-icon-->
+
+                <v-btn v-show="!languagesShow && drawerLeft" class="mx-3" icon @click="gotoR('/')">
+                  <v-icon class="mx-3 AncIconLang" large dark>mdi-bank</v-icon>
+                </v-btn>
+
+                <!-- Language btn ...
+                <v-expand-x-transition>
+                  <v-btn
+                    rounded
+                    fab
+                    class="ml-3"
+                    icon
+                    v-show="!drawerLeft && !languagesShow"
+                    style="background-color:   rgb(1, 4, 20) "
+                    @click="SDL"
+                  >
+                    <v-img class="mx-1 AncIconLang" large dark :src="lang.icona"></v-img>
+                  </v-btn>
+                </v-expand-x-transition>
+                <!-- Language btn ...-->
+
+                <!-- Language... -->
+                <v-expand-x-transition>
+                  <v-btn
+                    class="mx-1"
+                    icon
+                    v-show="!drawerLeft && !languagesShow"
+                    fab
+                    rounded
+                    style="background-color: transparent"
+                    @click="SDL"
+                  >
+                    <v-img class="mx-1 AncIconLang" large dark :src="lang.icona"></v-img>
+                    <!-- TEST OK 2020 05 10-->
+                    <!--
+                    {{lang.code}}
+                    {{lang.icona}}
+                    <v-img class="mx-3 AncIconLang" large dark :src="langIco"></v-img>
+                    -->
+                  </v-btn>
+                </v-expand-x-transition>
+                <!-- Language... -->
+
+                <!-- v-app-bar -->
+                <!--
+                <v-icon
+                  @click.stop="setD"
+                  class="mx-2 AncIconColor"
+                  v-if="drawerLeft"
+                  large
+                >{{ iconOdx }}</v-icon>
+                <v-icon @click.stop="setD" class="mx-2 AncIconColor" v-else large>{{ iconCdx }}</v-icon>
+                -->
+
+                <!--
+                <v-btn icon class @click.stop="setD" v-model="iconX">
+                  
+                </v-btn>
+                -->
+
+                <!--
+                <v-expand-x-transition>
+                  <v-btn icon class v-show="!drawerLeft">
+                   </v-btn>
+                </v-expand-x-transition>
+                -->
+              </v-row>
+            </v-col>
+
+            <v-col class="icoSx iconavcS" cols="6">
               <!--
-              <v-btn icon @click="gotoR('/')">
+              <div class="xxx">
+                <v-icon
+                  class="mx-2 AncIconColor"
+                  large
+                  dark
+                  @click="gotoR(categorie[C/10-1].link)"
+                >{{categorie[C/10-1].icona}}</v-icon>
+              </div>
               -->
-              <v-btn v-show="!languagesShow && drawerLeft" class="mx-3" icon @click="gotoR('/')">
-                <v-icon class="mx-3 AncIconLang" large dark>mdi-bank</v-icon>
-              </v-btn>
-              <!--
+              <v-row class="rIco" align="center">
+                <!-- search... -->
+                <v-expand-x-transition>
+                  <v-btn
+                    class="mx-1"
+                    icon
+                    v-show="!drawerLeft & !languagesShow"
+                    fab
+                    rounded
+                    style="background-color: transparent"
+                  >
+                    <v-icon class="mx-3 AncIconColor" large dark>mdi-magnify</v-icon>
+                  </v-btn>
+                </v-expand-x-transition>
+
+                <!--
+              <v-btn icon @click="gotoR('/')">
+                -->
+
+                <!--
               <v-icon
                 v-for="item in categorie[C/10-1].sottocategorie"
                 :key="item.n"
@@ -224,13 +296,13 @@
                 @click="gotoR(item.link)"
                 style="height: 30px;"
               >{{item.icona}}</v-icon>
-              -->
-              <!--
+                -->
+                <!--
               <div v-if="categorie[C/10-1].sottocategorie.length == 0" class="AncTitleColor ma-2">NN</div>
-              -->
+                -->
 
-              <!-- TEST OK -->
-              <!--
+                <!-- TEST OK -->
+                <!--
               <v-btn icon class>
                 <v-icon
                   class="mx-4 AncIconColor"
@@ -239,53 +311,27 @@
                   @click="gotoR(categorie[C/10-1].link)"
                 >{{categorie[C/10-1].icona}}</v-icon>
               </v-btn>
-              -->
-              <!-- TEST OK -->
+                -->
+                <!-- TEST OK -->
+              </v-row>
             </v-col>
-            <!-- ICONE NAVIGAZIONE - SX -->
 
-            <!-- <v-col cols="0"></v-col> -->
-
-            <!-- ICONE NAVIGAZIONE - DX style="height: 30px;" -->
-            <v-col class="iconavcDD" cols="3">
-              <!-- v-app-bar -->
-              <!--v-app-bar-nav-icon >
-              </v-app-bar-nav-icon-->
-
-              <!-- BUTTON HOME... -->
-              <v-btn icon v-model="iconX" @click.stop="setD">
-                <v-icon v-if="drawerLeft" large>{{ iconO }}</v-icon>
-                <v-icon v-else large>{{ iconC }}</v-icon>
-              </v-btn>
-
-              <!-- v-app-bar -->
-              <!--
-                <v-icon
-                  @click.stop="setD"
-                  class="mx-2 AncIconColor"
-                  v-if="drawerLeft"
-                  large
-                >{{ iconOdx }}</v-icon>
-                <v-icon @click.stop="setD" class="mx-2 AncIconColor" v-else large>{{ iconCdx }}</v-icon>
-              -->
-
-              <!--
-                <v-btn icon class @click.stop="setD" v-model="iconX">
-                  
+            <v-col v-if="!languagesShow" class="icoSx iconavcDD" cols="3">
+              <v-row class="rIco" justify="end" align="center">
+                <!-- BUTTON HOME... -->
+                <v-btn icon v-model="iconX" @click.stop="setD">
+                  <v-icon v-if="drawerLeft" large>{{ iconO }}</v-icon>
+                  <v-icon v-else large>{{ iconC }}</v-icon>
                 </v-btn>
-              -->
-
-              <!--
-                <v-expand-x-transition>
-                  <v-btn icon class v-show="!drawerLeft">
-                   </v-btn>
-                </v-expand-x-transition>
-              -->
+              </v-row>
             </v-col>
+
             <!-- ICONE NAVIGAZIONE - DX -->
           </v-row>
         </v-col>
+        <!-- MACRO COLONNA DESTRA ************************************************************************************************************ -->
       </v-row>
+      <!-- BARRA PRINCIPALE -->
     </v-app-bar>
   </div>
 </template>
@@ -471,6 +517,8 @@ TODO:
       if (d === false) {
         this.iconX = this.iconC;
         console.log("d true");
+
+        this.$store.dispatch("setDLf");
       } else {
         this.iconX = this.iconO;
         console.log("d false");
@@ -521,69 +569,55 @@ TODO:
 }
 
 .iconavR {
-  height: 1px;
-  /*
+  /*height: 1px;*/
   height: 100%;
-*/
   background-color: transparent !important;
+  /*
   padding-top: 2px;
   padding-bottom: 2px;
   padding-left: 2px;
   padding-right: 2px;
+  */
 }
 
-.iconavcSbtnCategoriaCorrente {
-  position: relative;
-  /*height: 80%;*/
+.rIco {
+  /* row - fila di icone parte sinistra */
   height: 100%;
-  /* background-color: burlywood !important;*/
-  text-align: center;
-  padding-top: 12px;
-}
-
-.iconavcSbtnMENU {
-  position: relative;
-  /*height: 80%;*/
-  height: 100%;
-  /* background-color: GREEN !important; */
-  text-align: center;
-  padding-top: 5px;
-}
-.iconavcSbassa {
-  position: relative;
-  /*height: 80%;*/
-  height: 1px;
   background-color: transparent !important;
+  /*background-color: black !important;*/
+}
+
+.icoSx {
+  position: relative;
+  height: 100%;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  /*padding-top: 5px;*/
+  background-color: transparent !important;
+}
+
+.iconavcSbassa {
+  /* background-color: yellow !important;*/
   text-align: left;
   padding-left: 5px;
 }
+.iconavcSbtnCategoriaCorrente {
+  /* background-color: burlywood !important; */
+  background-color: transparent !important;
+  text-align: center;
+}
+.iconavcSbtnMENU {
+  background-color: transparent !important;
+  text-align: center;
+}
 
 .iconavcS {
-  position: relative;
-  /*height: 80%;*/
-  height: 100%;
-  background-color: transparent !important;
   text-align: left;
-  padding-left: 35px;
+  padding-left: 15px;
+}
 
-  padding-top: 5px;
-  padding-bottom: 5px;
-}
-.iconavcSD {
-  /*height: 80%;*/
-  height: 100%;
-  background-color: transparent !important;
-  text-align: right;
-  padding-right: 15px;
-  padding-top: 5px;
-}
 .iconavcDD {
-  /*height: 80%;*/
-  height: 100%;
   background-color: transparent !important;
-  text-align: right;
-  padding-right: 20px;
-  padding-top: 5px;
 }
 .ct {
   position: relative;

@@ -1,30 +1,24 @@
 <template>
-  <!-- home view -->
   <div class="rmNews">
-    <v-row class="ancNewsr" align="center" justify="center">
-      <v-col class="tc1 t_BC" align="center" cols="1">
-        <!--
-        v-if="C==10 && Eevents!='' && Eevents "
-        -->
+    <!-- @@@ -->
+    <div v-if="currentres=='xs'">
+      <n1xs></n1xs>
+    </div>
+    <div v-else-if="currentres=='sm'">
+      <n2sm></n2sm>
+    </div>
+    <div v-else-if="currentres=='md'">
+      <n3md></n3md>
+    </div>
+    <div v-else-if="currentres=='lg'">
+      <n4lg></n4lg>
+    </div>
+    <div v-else-if="currentres=='xl'">
+      <n5xl></n5xl>
+    </div>
+  </div>
 
-        <v-img
-          v-if="Eevents!='' && Eevents "
-          style="background-color: transparent !important;"
-          :src="categorie[0].imgEvidenza"
-          width="50"
-          height="50"
-        ></v-img>
-      </v-col>
-      <v-col class="tc2 t_BC" cols="10">
-        <marquee align="center" justify="center" behavior="scroll" direction="left" scrolldelay="0">
-          <div
-            class="display-1 font-weight-bold AncTitleColorDark"
-            style="color:white; background-color:transparent;"
-          >{{Titolone}}</div>
-        </marquee>
-      </v-col>
-
-      <!--
+  <!--
     
     <v-col>
       <v-img
@@ -38,10 +32,10 @@
         height="80"
       ></v-img>
     </v-col>
-      <! img-->
+  <! img-->
 
-      <!-- msg -->
-      <!--
+  <!-- msg -->
+  <!--
     <v-col
       cols="10"
       class="pa-0"
@@ -58,24 +52,30 @@
         </marquee>
       </div>
     </v-col>
-      -->
-    </v-row>
-  </div>
+  -->
 </template>
 
 <script>
-import router from "../router";
-import { apiService } from "../common/api.service";
+import { apiService } from "@/common/api.service";
+import router from "@/router";
+
+import n1xs from "@/components/AncNews/N1xs.vue";
+import n2sm from "@/components/AncNews/N2sm.vue";
+import n3md from "@/components/AncNews/N3md.vue";
+import n4lg from "@/components/AncNews/N4lg.vue";
+import n5xl from "@/components/AncNews/N5xl.vue";
 
 export default {
   name: "ancNews",
-  /*
-  props: {
-    categorie: { type: Array },
-    C: { type: Number },
-    CS: { type: Number }
+
+  components: {
+    n1xs,
+    n2sm,
+    n3md,
+    n4lg,
+    n5xl
   },
-*/
+
   data() {
     return {
       // * EVIDENZA
@@ -88,6 +88,27 @@ export default {
   computed: {
     categorie() {
       return this.$store.getters.categorie;
+    },
+
+    // eslint-disable-next-line vue/return-in-computed-property
+    currentres() {
+      switch (this.$vuetify.breakpoint.name) {
+        case "xs":
+          //console.log("xs");
+          return "xs";
+        case "sm":
+          //onsole.log("sm");
+          return "sm";
+        case "md":
+          //console.log("md");
+          return "md";
+        case "lg":
+          //console.log("lg");
+          return "lg";
+        case "xl":
+          //console.log("xl");
+          return "xl";
+      }
     }
   },
 
@@ -144,15 +165,22 @@ export default {
 
 .ancNewsr {
   background-color: transparent !important;
+  align-content: center;
 }
 
 .t_BC {
   background-color: transparent !important;
 }
 .tc1 {
-  height: 100px;
+  height: 80%;
+  justify-content: center;
 }
 .tc2 {
-  height: 80px;
+  height: 90%;
+}
+.rc2 {
+  height: 80%;
+  background-color: transparent !important;
+  align-content: center;
 }
 </style>

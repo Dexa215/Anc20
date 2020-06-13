@@ -231,7 +231,7 @@
 import { apiService } from "@/common/api.service";
 // eslint-disable-next-line no-unused-vars
 import router from "@/router";
-import ancNews from "@/components/AncNews.vue";
+import ancNews from "@/components/AncNews/AncNews.vue";
 
 import b1xs from "@/components/AncAppBars/B1xs.vue";
 import b2sm from "@/components/AncAppBars/B2sm.vue";
@@ -857,7 +857,7 @@ export default {
 }
 .AncBtnLanguages:hover {
   background-color: lightseagreen !important;
-  transform: scale(1.1, 1.1);
+  transform: scale(1.05, 1.05);
 }
 
 .icorot {

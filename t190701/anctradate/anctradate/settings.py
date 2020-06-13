@@ -6,6 +6,7 @@ https://docs.djangoproject.com/en/2.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.2/ref/settings/
 """
+import logging
 import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -15,20 +16,20 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'li$ypw%l-n7ko(z7r1pbx2n=cd&bqazrp9)l_hag8tv)++nbrj'
 # SECURITY WARNING: don't run with debug turned on in production!
 
-import logging
 
 FORMAT = '%(asctime)-15s %(levelname)s %(module)s %(process)s %(thread)s %(message)s'
-logging.basicConfig(filename='error.logs',format=FORMAT, datefmt='%m/%d/%Y %I:%M:%S %p' ,filemode='w')
+logging.basicConfig(filename='error.logs', format=FORMAT,
+                    datefmt='%m/%d/%Y %I:%M:%S %p', filemode='w')
 
-#logging.basicConfig(filename='error.logs')
-#logging.basicConfig(filename='error.logs',filemode='w')
+# logging.basicConfig(filename='error.logs')
+# logging.basicConfig(filename='error.logs',filemode='w')
 
-#PRODUZIONE
-DEBUG               = True
+# PRODUZIONE
+DEBUG = True
 #ALLOWED_HOSTS       = [ '127.0.0.1','80.211.234.218','localhost','0.0.0.0:8000']
-ALLOWED_HOSTS       = ['*']
+ALLOWED_HOSTS = ['*']
 
-#SVILUPPO
+# SVILUPPO
 #DEBUG = False
 #ALLOWED_HOSTS = ['*']
 
@@ -42,8 +43,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sites',
 
-#    'social_django',    # <-- in test 05 08 2019
-#    'admin_view_permission',
+    #    'social_django',    # <-- in test 05 08 2019
+    #    'admin_view_permission',
 
     'rest_framework',
     'rest_framework.authtoken',
@@ -59,7 +60,7 @@ INSTALLED_APPS = [
     'webpack_loader',
     'crispy_forms',
 
-#    'users',
+    #    'users',
     'profiles',
     'events',
     'evidenza',
@@ -79,7 +80,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-#    'social_django.middleware.SocialAuthExceptionMiddleware',
+    #    'social_django.middleware.SocialAuthExceptionMiddleware',
 ]
 
 ROOT_URLCONF = 'anctradate.urls'
@@ -87,9 +88,9 @@ ROOT_URLCONF = 'anctradate.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [   os.path.join(BASE_DIR, 'templates'),
-                    os.path.join(BASE_DIR, 'events/templates')
-                ],
+        'DIRS': [os.path.join(BASE_DIR, 'templates'),
+                 os.path.join(BASE_DIR, 'events/templates')
+                 ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -97,8 +98,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-#                'social_django.context_processors.backends',  # <--
-#                'social_django.context_processors.login_redirect', # <--
+                #                'social_django.context_processors.backends',  # <--
+                #                'social_django.context_processors.login_redirect', # <--
             ],
         },
     },
@@ -120,21 +121,21 @@ DATABASES = {
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
-    {        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',    },
-    {        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',              },
-    {        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',             },
-    {        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',            },
+    {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator', },
+    {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator', },
+    {'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator', },
+    {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator', },
 ]
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
 
 
-#AUTHENTICATION_BACKENDS = (
+# AUTHENTICATION_BACKENDS = (
 #    'social_core.backends.github.GithubOAuth2',
 #    'social_core.backends.twitter.TwitterOAuth',
 #    'social_core.backends.facebook.FacebookOAuth2',
 #    'django.contrib.auth.backends.ModelBackend',
-#)
+# )
 
 
 LANGUAGE_CODE = 'it'
@@ -151,17 +152,16 @@ LOGOUT_URL = "/accounts/logout/"
 LOGIN_REDIRECT_URL = "/"
 LOGOUT_REDIRECT_URL = "/"
 
-#Dexo Settings------------------------------------------------------------------
-#Debug MODE
+# Dexo Settings------------------------------------------------------------------
+# Debug MODE
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static-storage'),
-   
 
-#    os.path.join(BASE_DIR, "frontend/dist"),
-#    os.path.join(BASE_DIR, "frontend/src/assets"),
+    #    os.path.join(BASE_DIR, "frontend/dist"),
+    #    os.path.join(BASE_DIR, "frontend/src/assets"),
 
-#    os.path.join(BASE_DIR, "frontVT/anc-app/dist"),
-#    os.path.join(BASE_DIR, "frontVT/anc-app/src/assets"),
+    #    os.path.join(BASE_DIR, "frontVT/anc-app/dist"),
+    #    os.path.join(BASE_DIR, "frontVT/anc-app/src/assets"),
 
     os.path.join(BASE_DIR, "frontIE/anc-app/dist"),
     os.path.join(BASE_DIR, "frontIE/anc-app/src/assets"),
@@ -169,20 +169,18 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "uploads"),
 ]
 
-STATIC_ROOT      = os.path.join(os.path.dirname(BASE_DIR), 'static-serve')
-MEDIA_ROOT       = os.path.join(os.path.dirname(BASE_DIR), 'media-serve')
+STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'static-serve')
+MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'media-serve')
 
-#Production
-#STATIC_ROOT     = '/home/dexo/static-serve/'        ### collectstatic
+# Production
+# STATIC_ROOT     = '/home/dexo/static-serve/'        ### collectstatic
 #MEDIA_ROOT      = '/home/dexo/media-serve/'
 
-STATIC_URL      = '/static/'                        ### {% static %}
-MEDIA_URL       = '/media/'
+STATIC_URL = '/static/'  # {% static %}
+MEDIA_URL = '/media/'
 
 
-
-
-#test URKEL OK
+# test URKEL OK
 #MEDIA_URL = '/media/'
 #MEDIA_URL = '/home/dexo/media-serve/'
 #MEDIA_URL = 'http://localhost/media-serve/'
@@ -191,7 +189,7 @@ MEDIA_URL       = '/media/'
 #MEDIA_ROOT = "uploads"
 #MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'uploads')
 
-#Dexo Settings------------------------------------------------------------------
+# Dexo Settings------------------------------------------------------------------
 
 # django-allauth
 ACCOUNT_EMAIL_VERIFICATION = "none"
@@ -220,13 +218,13 @@ ADMIN_VIEW_PERMISSION_MODELS = [
     'evidenza'
 ]
 
-#-------------------------------------------------------------------------------
+# -------------------------------------------------------------------------------
 
 WEBPACK_LOADER = {
     'DEFAULT': {
         'BUNDLE_DIR_NAME': 'dist/',
-#        'STATS_FILE':   os.path.join(BASE_DIR, 'frontend', 'webpack-stats.json'),
-#        'STATS_FILE':   os.path.join(BASE_DIR, 'frontVT/anc-app', 'webpack-stats.json'),
+        #        'STATS_FILE':   os.path.join(BASE_DIR, 'frontend', 'webpack-stats.json'),
+        #        'STATS_FILE':   os.path.join(BASE_DIR, 'frontVT/anc-app', 'webpack-stats.json'),
         'STATS_FILE':   os.path.join(BASE_DIR, 'frontIE/anc-app', 'webpack-stats.json'),
     }
 }
@@ -237,8 +235,8 @@ WEBPACK_LOADER = {
 # django-crispy-forms
 CRISPY_TEMPLATE_PACK = "bootstrap4"
 
-ADMINS              = [('mauro','dexa@hotmail.it'),('dexo','pydexo@gmail.com')]
-MANAGERS            = ADMINS
+ADMINS = [('mauro', 'dexa@hotmail.it'), ('dexo', 'pydexo@gmail.com')]
+MANAGERS = ADMINS
 
 # test NG
 #EMAIL_HOST          = 'smtp.gmail.com'
@@ -264,18 +262,17 @@ MANAGERS            = ADMINS
 #EMAIL_HOST_USER     = 'pydexa@hotmail.com'
 #EMAIL_HOST_PASSWORD = 'TestTest1234'
 
-SERVER_EMAIL        = 'pydexo'
-DEFAULT_FROM_EMAIL  = 'pydexa@hotmail.com'
+SERVER_EMAIL = 'pydexo'
+DEFAULT_FROM_EMAIL = 'pydexa@hotmail.com'
 #DEFAULT_TO_EMAIL    = 'pyDexo@gmail.com'
 
 #EMAIL_BACKEND       = 'django.core.mail.backends.console.EmailBackend'
 #EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 # test 2019 11 10
-EMAIL_BACKEND       = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST          = 'smtp.gmail.com'
-EMAIL_USE_TLS       = True
-EMAIL_PORT          = 587
-EMAIL_HOST_USER     = 'pydexo@gmail.com'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'pydexo@gmail.com'
 EMAIL_HOST_PASSWORD = 'Maaaaa1234'
-

@@ -5,7 +5,7 @@
 
       <v-row class="todayr" align="center" justify="center">
         <v-row class="rup mx-auto" align="end">
-          <v-col cols="9" class="cup mx-auto display-2">{{lang.text1}}...</v-col>
+          <v-col cols="9" class="cup mx-auto display-2">{{lang.text1}}</v-col>
         </v-row>
 
         <v-row class="rdw mx-auto" align="start">
@@ -13,7 +13,10 @@
             <!-- test ok 
             <a class="title">{{ displaydate }}</a>
             -->
-            <a class="title">{{ displayeddate }}</a>
+            <a class="title">
+              {{ displayeddate }}
+              {{lang.text1}}
+            </a>
           </v-col>
         </v-row>
       </v-row>
@@ -58,7 +61,9 @@ export default {
       this.year = this.d.getFullYear();
       this.month = this.d.getMonth();
       /* TEST OK 2020 05 10 */
+
       this.month = this.getmonthArrLang.nome;
+
       this.displaydate = this.date + " " + this.month + ", " + this.year;
       return this.displaydate;
     },
@@ -89,15 +94,14 @@ export default {
 
     /* TODO: DA RIVEDERE */
     getmonthArrLanguage() {
-      let lang = "sp";
-      return this.$store.getters.getmonthArrLanguage(this.month)(lang);
+      return this.$store.getters.getmonthArrLanguage(this.month);
 
       //return this.$store.state.l.monthArrIt;
     }
   },
 
   methods: {
-    clock(lang) {
+    clock() {
       this.d = new Date();
       this.date = this.d.getDate();
       this.year = this.d.getFullYear();
@@ -122,11 +126,12 @@ export default {
      /*test 2020 05 10*/
 
       /* TEST OK 2020 05 10 */
-      this.month = this.getmonthArrLang.nome;
+      /* this.month = this.getmonthArrLang.nome; */
 
-      /* TEST ng TODO: RIVEDERE 
-      this.month = this.getmonthArrLanguage.nome;
-      */
+      /* TEST ng TODO: RIVEDERE */
+      /* TEST 2020 06 09 */
+
+      this.month = this.getmonthArrLanguage[this.month];
 
       this.displaydate = this.date + " " + this.month + ", " + this.year;
       //            document.getElementById("date").innerHTML=this.date+" "+this.month+", "+this.year;

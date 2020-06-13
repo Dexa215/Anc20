@@ -415,7 +415,6 @@ const moduleC = {
     actions: {
 
     },
-
     getters: {
         categorie (state) { return state.menucat },
     },
@@ -442,7 +441,6 @@ const moduleL = {
 
     state: {
 
-
         Startlanguage: "it",
         Currentlanguage: "it",
 
@@ -451,9 +449,8 @@ const moduleL = {
         // [1]:en    
         // [2]:sp    
 
-
-
         monthArr: [
+            /* lang0 / italian */
             {
                 idlang: 0,
                 code: "it",
@@ -491,6 +488,11 @@ const moduleL = {
                                     { id: 1, code: "T2", text: "Potrebbero interessarti..." }
                                 ]
                             },
+                            {
+                                id: 2, code: "MenuLanguage", t: [
+                                    { id: 0, code: "T1", text: "Lingua" },
+                                ]
+                            },
 
                         ]
                     },
@@ -626,13 +628,8 @@ const moduleL = {
                         ]
                     }
                 ]/*testi*/
-
-
-
-
-
-
             },
+            /* lang1 / english */
             {
                 idlang: 1,
                 code: "en",
@@ -669,6 +666,11 @@ const moduleL = {
                                     { id: 1, code: "T2", text: "" }
                                 ]
                             },
+                            {
+                                id: 2, code: "MenuLanguage", t: [
+                                    { id: 0, code: "T1", text: "Language" },
+                                ]
+                            },
 
                         ]
                     },
@@ -807,7 +809,7 @@ const moduleL = {
 
 
             },
-
+            /* lang2 / spanish */
             {
                 idlang: 2,
                 code: "sp",
@@ -819,13 +821,13 @@ const moduleL = {
                     { idmonth: 2, nome: "Marzo" },
                     { idmonth: 3, nome: "Abril" },
                     { idmonth: 4, nome: "Mayo" },
-                    { idmonth: 0, nome: "Junio" },
-                    { idmonth: 1, nome: "Julio" },
-                    { idmonth: 2, nome: "Agosto" },
-                    { idmonth: 3, nome: "Septiembre" },
-                    { idmonth: 4, nome: "Octubre" },
-                    { idmonth: 0, nome: "Noviembre" },
-                    { idmonth: 1, nome: "Diciembre" }
+                    { idmonth: 5, nome: "Junio" },
+                    { idmonth: 6, nome: "Julio" },
+                    { idmonth: 7, nome: "Agosto" },
+                    { idmonth: 8, nome: "Septiembre" },
+                    { idmonth: 9, nome: "Octubre" },
+                    { idmonth: 10, nome: "Noviembre" },
+                    { idmonth: 11, nome: "Diciembre" }
                 ],
                 text1: "hoy",
                 /*testi*/
@@ -844,6 +846,11 @@ const moduleL = {
                                     { id: 1, code: "T2", text: "" }
                                 ]
                             },
+                            {
+                                id: 2, code: "MenuLanguage", t: [
+                                    { id: 0, code: "T1", text: "idioma" },
+                                ]
+                            },
 
                         ]
                     },
@@ -980,9 +987,8 @@ const moduleL = {
                     }
                 ]/*testi*/
             },
+
         ],
-
-
 
         monthArrIt: [
             { id: 0, nome: "Gennaio" },
@@ -1068,7 +1074,11 @@ const moduleL = {
         /* getmonthArrLang: (state) => (id) => (lang) => { */
 
         getmonthArrLang: (state) => (id) => (lang) => {
+
             let idl = state.monthArr.find(m => m.code === state.Currentlanguage).idlang;
+            console.log("getmonthArrLang - mese id", id)
+            console.log("getmonthArrLang - monthArr[", id, "]", state.monthArr[idl].mesi.find(m => m.idmonth === id).nome)
+            /**/
             return state.monthArr[idl].mesi.find(m => m.idmonth === id)
 
 
@@ -1091,10 +1101,15 @@ const moduleL = {
         },
 
         /*test NG TODO: RIVEDERE */
-        getmonthArrLanguage: (state) => (id) => (lang) => {
-            let langSel = state.monthArr.find(lS => lS.code === lang);
+        getmonthArrLanguage: (state) => (id) => {
+
+            console.log("get month arr language")
+            let cl = state.Currentlanguage;
+            let langSel = state.monthArr.find(lS => lS.code === cl);
             return langSel.find(month => month.idmonth === id)
         },
+
+
         /*test NG TODO: RIVEDERE */
         getmonthArrByLang: (state) => (lang) => {
 
@@ -1106,7 +1121,7 @@ const moduleL = {
                     return state.monthArr[1];
                     break;
                 default:
-                    return state.monthArr[2];
+                    return state.monthArr[2];   /*english*/
                     break;
             }
         },
@@ -1115,6 +1130,9 @@ const moduleL = {
 
         getCurrentLanguage: (state) => {
             let cl = state.Currentlanguage;
+            console.log("ricerca linguaggio... ", cl)
+            console.log("state.monthArr.find ls.code === ", cl)
+
             return state.monthArr.find(lS => lS.code === cl);
         },
 
