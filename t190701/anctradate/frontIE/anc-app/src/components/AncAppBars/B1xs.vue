@@ -1,71 +1,181 @@
 <template>
-  <v-app-bar
-    :class="cab"
-    :height="h"
-    app
-    clipped-right
-    fixed
-    color="#38282b"
-    dark
-    scroll-target="#playground-example"
-    :elevate-on-scroll="elevateOnScroll"
-    :hide-on-scroll="hideOnScroll"
-    :fade-on-scroll="fadeOnScroll"
-    :fade-img-on-scroll="fadeImgOnScroll"
-    :inverted-scroll="invertedScroll"
-    :collapse="collapse"
-    :collapse-on-scroll="collapseOnScroll"
-    :shrink-on-scroll="shrinkOnScroll"
-    :extended="extended"
-  >
-    <v-row class="ARBI ESTsm">
-      <v-col :class="AncRowBarColsssx">
-        <!-- v-app-bar -->
-        <v-app-bar-nav-icon style="z-index:5; " @click.stop="setD">
-          <v-btn icon class v-model="iconX">
-            <v-icon v-if="drawerLeft" large>{{ iconO }}</v-icon>
-            <v-icon v-else large>{{ iconC }}</v-icon>
-          </v-btn>
-        </v-app-bar-nav-icon>
-        <!-- v-app-bar -->
-      </v-col>
+  <div>
+    <v-app-bar
+      fixed
+      :class="cab"
+      :height="h"
+      clipped-right
+      :color="AncAppBar_BC"
+      dark
+      scroll-target="#playground-example"
+      :elevate-on-scroll="elevateOnScroll"
+      :hide-on-scroll="hideOnScroll"
+      :fade-on-scroll="fadeOnScroll"
+      :fade-img-on-scroll="fadeImgOnScroll"
+      :inverted-scroll="invertedScroll"
+      :collapse="collapse"
+      :collapse-on-scroll="collapseOnScroll"
+      :shrink-on-scroll="shrinkOnScroll"
+      :extended="extended"
+    >
+      <v-row class="r r_BC">
+        <!-- BARRA PRINCIPALE -->
 
-      <v-col class="AncRowBarColccx">
-        <!-- Avatar -->
-        <div>
-          <v-avatar class="avatar" size="62" right="true">
-            <!-- drawer aperto -->
-            <img
-              v-if="drawerLeft"
-              class="drwOpen"
-              src="/static/images/Icone/anclogo2012.gif"
-              alt="ancTradate"
-              @click="gotoR('/')"
-              @mouseover="hoveravatar = true"
-              @mouseleave="hoveravatar = false"
-            />
-            <!-- drawer chiuso -->
-            <img
-              v-else
-              class="drwClose"
-              src="/static/images/Icone/anclogo2012.gif"
-              alt="ancTradate"
-              @click="gotoR('/')"
-              @mouseover="hoveravatar = true"
-              @mouseleave="hoveravatar = false"
-            />
-          </v-avatar>
-        </div>
-        <!-- Avatar -->
-      </v-col>
+        <v-col :class="rcS">
+          <!-- MACRO COLONNA SINISTRA ************************************************************************************************************ -->
+          <v-row class="iconavR mx-auto" justify="center" align="center">
+            <!-- ICONA CATEGORIA CORRENTE -->
+            <v-col class="icoSx iconavcSbtnCategoriaCorrente" cols="12">
+              <v-row class="rIco" justify="center" align="center">
+                <!-- categoria corrente -->
+                <transition
+                  name="custom-classes-transition"
+                  enter-active-class="animated bounceInLeft"
+                  leave-active-class="animated fadeOutUp"
+                >
+                  <v-icon
+                    class="AncIconColor"
+                    large
+                    dark
+                    @mouseenter="DSCset('true')"
+                    @click="gotoR(categorie[C/10-1].link)"
+                  >{{categorie[C/10-1].icona}}</v-icon>
+                </transition>
+                <!-- categoria corrente -->
+              </v-row>
+            </v-col>
+          </v-row>
+        </v-col>
+        <!-- MACRO COLONNA SINISTRA ************************************************************************************************************ -->
 
-      <v-col :class="AncRowBarColdddx">
-        <v-btn icon>
-          <v-icon>mdi-magnify</v-icon>
-        </v-btn>
-      </v-col>
-    </v-row>
-  </v-app-bar>
+        <v-col class="rcC rcX rcC_BC" cols="4">
+          <!-- MACRO COLONNA CENTRO ************************************************************************************************************ -->
+          <!--v-expand-transition v-show="!drawerLeft" -->
+          <v-row class="rcCr rcCr_BC" align="center" justify="center" dense style="z-index: 2">
+            <v-col class="rcCrcC rcCrcX rcCrcC_BC">
+              <v-expand-x-transition>
+                <v-avatar class="avatar" size="48" v-if="!drawerLeft">
+                  <!-- drawer aperto right="True" -->
+                  <img
+                    class="drwOpen"
+                    src="/static/images/Icone/anclogo2012.gif"
+                    alt="ancTradate"
+                    @click="gotoR('/')"
+                    @mouseover="hoveravatar = true"
+                    @mouseleave="hoveravatar = false"
+                  />
+                </v-avatar>
+                <v-avatar size="48" right="true" v-else>
+                  <!-- drawer aperto -->
+                  <v-icon size="48" @click="setDF">mdi-close-circle-outline</v-icon>
+                </v-avatar>
+              </v-expand-x-transition>
+              <!-- Avatar -->
+            </v-col>
+          </v-row>
+          <!--/v-expand-transition-->
+        </v-col>
+        <!-- MACRO COLONNA CENTRO ************************************************************************************************************ -->
+
+        <!-- MACRO COLONNA DESTRA ************************************************************************************************************ -->
+        <v-col :class="rcD">
+          <v-row class="iconavR mx-auto" justify="center" align="center">
+            <!-- ICONE NAVIGAZIONE - DX -->
+            <!--
+            <v-col class="icoSx iconavcDD" cols="3">
+              <v-row class="rIco" align="center" justify="center">
+                <v-btn v-if="!languagesShow && drawerLeft" class="mx-3" icon @click="gotoR('/')">
+                  <v-icon class="mx-3 AncIconLang" large dark>mdi-bank</v-icon>
+                </v-btn>
+              </v-row>
+            </v-col>
+            -->
+
+            <v-col v-if="languagesShow && !drawerLeft" cols="12">
+              <v-row class="rIco" align="center" justify="center">
+                <!-- lista di linguaggi... -->
+                <!-- @click="SDL" -->
+                <!-- -->
+                <v-btn @click="SDL" rounded v-show="languagesShow && !drawerLeft" class="mx-3">
+                  {{lang.t[0].lista[2].t[0].text}}
+                  <!-- lang.t[0] == components-->
+                  <!-- lang.t[0].lista[2] == Menu Language-->
+                  <!-- lang.t[0].lista[2].t[0] == Menu Language testo 0 -->
+                </v-btn>
+                <!-- -->
+                <v-btn
+                  v-for="lang in languages"
+                  :key="lang.pk"
+                  class="mx-1 AncBtnLanguages"
+                  icon
+                  fab
+                  rounded
+                  @click="ScL(lang.code)"
+                >
+                  <v-img class="mx-1 AncIconLang" large dark :src="lang.icona"></v-img>
+                </v-btn>
+              </v-row>
+            </v-col>
+
+            <v-col class="icoSx iconavcS" cols="6">
+              <v-row class="rIco" align="center">
+                <!-- Language... -->
+                <v-expand-x-transition>
+                  <v-btn
+                    class="mx-1"
+                    icon
+                    v-show="!drawerLeft && !languagesShow"
+                    fab
+                    rounded
+                    style="background-color: transparent"
+                    @click="SDL"
+                  >
+                    <v-img class="mx-1 AncIconLang" large dark :src="lang.icona"></v-img>
+                    <!-- TEST OK 2020 05 10-->
+                    <!--
+                    {{lang.code}}
+                    {{lang.icona}}
+                    <v-img class="mx-3 AncIconLang" large dark :src="langIco"></v-img>
+                    -->
+                  </v-btn>
+                </v-expand-x-transition>
+                <!-- Language... -->
+
+                <!-- search... 
+                <v-expand-x-transition>
+                  <v-btn
+                    class="mx-1"
+                    icon
+                    v-show="!drawerLeft & !languagesShow"
+                    fab
+                    rounded
+                    style="background-color: transparent"
+                  >
+                    <v-icon size="48" class="mx-3 AncIconColor" large dark>mdi-magnify</v-icon>
+                  </v-btn>
+                </v-expand-x-transition>
+                search...-->
+              </v-row>
+            </v-col>
+
+            <v-col v-if="!languagesShow" class="icoSx iconavcDD" cols="6">
+              <v-row class="rIco" justify="end" align="center">
+                <!-- BUTTON HOME... -->
+                <v-btn icon v-model="iconX" @click.stop="setD">
+                  <v-icon size="48" v-if="drawerLeft" large>{{ iconO }}</v-icon>
+                  <v-icon size="48" v-else large>{{ iconC }}</v-icon>
+                </v-btn>
+              </v-row>
+            </v-col>
+
+            <!-- ICONE NAVIGAZIONE - DX -->
+          </v-row>
+        </v-col>
+        <!-- MACRO COLONNA DESTRA ************************************************************************************************************ -->
+      </v-row>
+      <!-- BARRA PRINCIPALE -->
+    </v-app-bar>
+  </div>
 </template>
 <script>
 import router from "@/router";
@@ -121,16 +231,102 @@ export default {
     drawerLeft: { type: Boolean },
     drawerRight: { type: Boolean }
   },
+
+  computed: {
+    lang() {
+      return this.$store.getters.getCurrentLanguage;
+    },
+    languages() {
+      return this.$store.getters.getLanguages;
+    },
+    languagesShow() {
+      return this.$store.getters.getLanguagesShow;
+    },
+    /*  -----------------------------------------------------------------------   */
+    categorie() {
+      return this.$store.getters.categorie;
+    },
+    C() {
+      return this.$store.getters.getC;
+    },
+    CS() {
+      return this.$store.getters.getCS;
+    },
+    requestUser() {
+      return this.$store.getters.requestUser;
+    },
+    requestUserIsStaff() {
+      return this.$store.getters.requestUserIsStaff;
+    },
+    requestUserIsSuper() {
+      return this.$store.getters.requestUserIsSuper;
+    },
+    requestUserAvatar() {
+      return this.$store.getters.requestUserAvatar;
+    },
+    requestUserBio() {
+      return this.$store.getters.requestUserBio;
+    },
+    requestToken() {
+      return this.$store.getters.requestToken;
+    } /*TODO: SOSTITUIRE RCS RCD [ PROP CON COMPUTED DA STORE ] */ /*TODO: SOSTITUIRE RCS RCD [ PROP CON COMPUTED DA STORE ] */ /*
+    rcS: { type: String },
+    rcD: { type: String },
+    */,
+
+    /* TEST DINAMIC CSS */
+
+    rcS() {
+      return this.$store.getters.rcS;
+    },
+    rcD() {
+      return this.$store.getters.rcD;
+    },
+    rcU() {
+      return this.$store.getters.rcU;
+    },
+
+    /* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+    todoscomputed() {
+      return this.$store.state.todoscomputed;
+    },
+    todosDone() {
+      return this.$store.getters.todosDone;
+    }
+
+    /* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+  },
+
   methods: {
     gotoR(r) {
-      console.log("AppBar rotta per...");
+      this.expand = !this.expand;
+      this.$store.dispatch("gotoR", r);
+      /*console.log("AppBar B4LG rotta per...", r);
       this.$emit("gotoR", r);
+      */
     },
+
+    SDL() {
+      /*Switch Drawer Language*/
+      this.$store.dispatch("switchDrawerLang");
+    },
+    ScL(val) {
+      /*SET Current Language*/
+      this.$store.dispatch("setL", val);
+    },
+
+    DSCset(state) {
+      this.$emit("DSCset", state);
+    },
+
     setD() {
       let d = this.drawerLeft;
       if (d === false) {
         this.iconX = this.iconC;
         console.log("d true");
+
+        this.$store.dispatch("setDLf");
       } else {
         this.iconX = this.iconO;
         console.log("d false");
@@ -139,31 +335,83 @@ export default {
     },
     setDF() {
       this.$emit("setDF");
-    },
-    setcolor() {
-      var x = this;
-      //console.log("setcolor analizzo this.requestuserisstaff...", x.requestUserIsStaff);
-      if (x.requestUserIsStaff === true) {
-        //this.cab="AncAppBarE cBE-Staff";
-        this.nbc = "#80051c"; //dark-RED
-        this.AncRowBarColsssx = "AncRowBarColssx arbcs-Staff";
-        this.AncRowBarColdddx = "AncRowBarColddx arbcs-Staff";
-      } else {
-        //this.cab="AncAppBarE cBE-Socio"
-        this.nbc = "#38282b"; //dark-grey
-        this.AncRowBarColsssx = "AncRowBarColssx arbcs-Visitor";
-        this.AncRowBarColdddx = "AncRowBarColddx arbcs-Visitor";
-      }
     }
   },
   updated() {
-    this.setcolor();
+    /*this.setcolor();*/
   },
   mounted() {
-    this.setcolor();
+    /*this.setcolor();*/
     this.h = this.height;
-    // eslint-disable-next-line no-console
-    console.log(this.$vuetify.breakpoint);
+    //console.log(this.$vuetify.breakpoint);
   }
 };
 </script>
+<style media="screen">
+.AncIconLang {
+  height: 38px;
+  width: 38px;
+  transform: scale(1, 1);
+}
+
+.AncIconLang:hover {
+  transform: scale(1.2, 1.2);
+}
+
+.iconavR {
+  /*height: 1px;*/
+  height: 100%;
+  background-color: transparent !important;
+  /*
+  padding-top: 2px;
+  padding-bottom: 2px;
+  padding-left: 2px;
+  padding-right: 2px;
+  */
+}
+
+.rIco {
+  /* row - fila di icone parte sinistra */
+  height: 100%;
+  background-color: transparent !important;
+  /*background-color: black !important;*/
+}
+
+.icoSx {
+  position: relative;
+  height: 100%;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  /*padding-top: 5px;*/
+  background-color: transparent !important;
+}
+
+.iconavcSbassa {
+  /* background-color: yellow !important;*/
+  text-align: left;
+  padding-left: 5px;
+}
+.iconavcSbtnCategoriaCorrente {
+  /* background-color: burlywood !important; */
+  background-color: transparent !important;
+  text-align: center;
+}
+.iconavcSbtnMENU {
+  background-color: transparent !important;
+  text-align: center;
+}
+
+.iconavcS {
+  text-align: left;
+  padding-left: 15px;
+}
+
+.iconavcDD {
+  background-color: transparent !important;
+}
+.ct {
+  position: relative;
+  background-color: aqua;
+  height: 100%;
+}
+</style>

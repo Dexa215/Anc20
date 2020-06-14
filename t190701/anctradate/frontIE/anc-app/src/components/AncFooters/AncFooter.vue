@@ -168,6 +168,11 @@ export default {
 </script>
 
 <style media="screen">
+.AncFooter_r_BC {
+  background-color: green; /* rgb(11, 26, 14);*/
+  border-radius: 40px;
+} /* green */
+
 .rowFot {
   /* background-color: orange !important;*/
   border-radius: 40px;

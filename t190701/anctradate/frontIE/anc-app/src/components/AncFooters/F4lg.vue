@@ -103,16 +103,15 @@ export default {
 
   methods: {
     gotoR(r) {
-      console.log("AppBar rotta per...");
+      this.expand = !this.expand;
+      this.$store.dispatch("gotoR", r);
+      /*console.log("AppBar B4LG rotta per...", r);
       this.$emit("gotoR", r);
+      */
     }
   }
 };
 </script>
 
 <style media="screen">
-.AncFooter_r_BC {
-  background-color: green; /* rgb(11, 26, 14);*/
-  border-radius: 40px;
-} /* green */
 </style>

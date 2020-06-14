@@ -13,10 +13,7 @@
             <!-- test ok 
             <a class="title">{{ displaydate }}</a>
             -->
-            <a class="title">
-              {{ displayeddate }}
-              {{lang.text1}}
-            </a>
+            <a class="title">{{ displayeddate }}</a>
           </v-col>
         </v-row>
       </v-row>
