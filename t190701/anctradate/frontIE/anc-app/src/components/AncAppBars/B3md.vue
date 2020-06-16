@@ -476,58 +476,26 @@ TODO:
   methods: {
     gotoR(r) {
       this.expand = !this.expand;
+      this.$store.dispatch("setDF");
       this.$store.dispatch("gotoR", r);
-      /*console.log("AppBar B4LG rotta per...", r);
-      this.$emit("gotoR", r);
-      */
     },
-
     SDL() {
       /*Switch Drawer Language*/
       this.$store.dispatch("switchDrawerLang");
     },
     ScL(val) {
-      /*SET Current Language*/
+      /*Set Current Language*/
       this.$store.dispatch("setL", val);
     },
-
     DSCset(state) {
-      this.$emit("DSCset", state);
+      this.$store.dispatch("DSCset", state);
     },
-
     setD() {
-      let d = this.drawerLeft;
-      if (d === false) {
-        this.iconX = this.iconC;
-        console.log("d true");
-
-        this.$store.dispatch("setDLf");
-      } else {
-        this.iconX = this.iconO;
-        console.log("d false");
-      }
-      this.$emit("setD");
+      this.$store.dispatch("setD");
     },
     setDF() {
-      this.$emit("setDF");
+      this.$store.dispatch("setDF");
     }
-    /*
-    setcolor() {
-      var x = this;
-      //console.log("setcolor analizzo this.requestuserisstaff...", x.requestUserIsStaff);
-      if (x.requestUserIsStaff === true) {
-        //this.cab="AncAppBarE cBE-Staff";
-        this.nbc = "#80051c"; //dark-RED
-        this.AncRowBarColsssx = "AncRowBarColssx arbcs-Staff";
-        this.AncRowBarColdddx = "AncRowBarColddx arbcs-Staff";
-      } else {
-        //this.cab="AncAppBarE cBE-Socio"
-        this.nbc = "#38282b"; //dark-grey
-        this.AncRowBarColsssx = "AncRowBarColssx arbcs-Visitor";
-        this.AncRowBarColdddx = "AncRowBarColddx arbcs-Visitor";
-      }
-    }
-    */
   },
   updated() {
     /*this.setcolor();*/

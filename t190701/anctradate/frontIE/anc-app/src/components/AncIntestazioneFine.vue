@@ -19,7 +19,6 @@
       <v-layout justify-center>
         <p class="my-2">
           <!-- contattaci... Per qualsiasi informazione non presente in questa pagina non esitare a contattarci  -->
-
           {{lang.t[0].lista[0].t[0].text}}
           <br />
           <v-chip class="ma-4" color="red" text-color="white" @click="gotoR('contatti/')">
@@ -68,11 +67,12 @@ export default {
   props: {
     linksFP: { type: Array },
     alignment: { type: String },
-    justify: { type: String },
-
+    justify: { type: String }
+    /*
     C: { type: Number },
     CS: { type: Number },
     categorie: { type: Array }
+    */
   },
 
   data: () => ({

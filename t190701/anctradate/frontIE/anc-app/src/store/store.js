@@ -43,7 +43,6 @@ const moduleA = {
 
     },
     actions: {
-
         setcolor (context) {
 
             var x = this;
@@ -94,7 +93,6 @@ const moduleA = {
                 }
             }
         },
-
     },
     getters: {
 
@@ -410,10 +408,8 @@ const moduleC = {
             ]
     },
     mutations: {
-
     },
     actions: {
-
     },
     getters: {
         categorie (state) { return state.menucat },
@@ -423,15 +419,142 @@ const moduleC = {
 //      Module D: Drawers
 const moduleD = {
     state: {
+        drawer: false,
+        drawerLeft: false,
+        drawerRight: false,
+        drawerSottocategoria: false,
+
+        admin: false,
+        admincommands: false,
+
+
+        iconX: "mdi-menu",
+        /* v 1.0
+        iconO: "mdi-backburger",
+        iconC: "mdi-menu",
+        */
+        /* v 2.0 */
+        iconC: "mdi-dots-vertical",
+        iconO: "mdi-menu-up",
+
+        iconCdx: "mdi-menu-down",
+        iconOdx: "mdi-menu-up",
     },
     mutations: {
+        setDrawer (state, val) {
+            state.drawer = val;
+        },
+        setDrawerLeft (state, val) {
+            state.drawerLeft = val;
+        },
+        setDrawerRight (state, val) {
+            state.drawerRight = val;
+        },
+        setDrawerSottocategoria (state, val) {
+            state.drawerSottocategoria = val;
+        },
+
+        setDSC (state, val) {
+            switch (val) {
+                case "true":
+                    state.drawerSottocategoria = true;
+                    break;
+                case "false":
+                    state.drawerSottocategoria = false;
+                    break;
+                default:
+                    state.drawerSottocategoria = !state.drawerSottocategoria;
+                    break;
+            }
+
+        },
+        switchD (state) {
+            state.drawerLeft = !state.drawerLeft;
+        },
+
+        setDF (state) {
+            state.drawerLeft = false;
+            state.drawerRight = false;
+            state.iconX = state.iconC;
+        },
+        setDT (state) {
+            state.drawerLeft = true;
+            state.drawerRight = true;
+            state.iconX = state.iconO;
+        },
+
+        adminCommandSwitch (state) {
+            state.admincommands = !state.admincommands;
+        },
+
+
 
     },
     actions: {
 
+        setL (context, val) {
+            context.commit('setCurrentLanguage', val);
+        },
+
+        DSCset (context, val) {
+            context.commit('setDSC', val);
+        },
+        setD (context) {
+            context.commit('switchD');
+        },
+        setDF (context) {
+            context.commit('setDF');
+        },
+        setDT (context) {
+            context.commit('setDT');
+        },
+        adminCommandSwitch (context) {
+            context.commit('adminCommandSwitch');
+        },
+
     },
 
     getters: {
+        getDrawer: (state) => {
+            return state.drawer;
+        },
+        getDrawerLeft: (state) => {
+            return state.drawerLeft;
+        },
+        getDrawerRight: (state) => {
+            return state.drawerRight;
+        },
+        getDrawerSottocategoria: (state) => {
+            return state.drawerSottocategoria;
+        },
+        getIconX: (state) => {
+            return state.iconX;
+        },
+        getIconO: (state) => {
+            return state.iconO;
+        },
+        getIconC: (state) => {
+            return state.iconC;
+        },
+
+        getIconCdx: (state) => {
+            return state.iconCdx;
+        },
+        getIconOdx: (state) => {
+            return state.iconOdx;
+        },
+
+        admin: (state) => {
+            return state.admin;
+        },
+        admincommands: (state) => {
+            return state.admincommands;
+        },
+
+
+
+
+
 
     },
 
@@ -1474,9 +1597,11 @@ export const store = new Vuex.Store({
             return state.todos.filter(todo => todo.done)
         },
         todoscomputed: state => state.todoscomputed,
+        /*
         todoById: (state) => (id) => {
             return state.todos.find(todo => todo.id === id)
         },
+        */
 
 
     }

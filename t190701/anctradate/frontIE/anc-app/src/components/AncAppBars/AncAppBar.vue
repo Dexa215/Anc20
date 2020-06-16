@@ -65,40 +65,6 @@
       ></b3md>
     </div>
 
-    <div v-else-if="currentres == 'lg'">
-      <!--div class="rmblock">ciao</div
-
-        DELEGATE A $STORE
-
-        :requestUser="requestUser"
-        :requestUserIsStaff="requestUserIsStaff"
-        :requestUserIsSuper="requestUserIsSuper"
-        :requestUserAvatar="requestUserAvatar"
-        :requestUserBio="requestUserBio"      
-        :C="C"
-        :CS="CS"
-        :categorie="categorie"
-        :rcS="rcS"
-        :rcD="rcD"      
-      
-        @gotoR="gotoR"
-      
-      -->
-
-      <b4lg
-        :height="hlg"
-        :drawer="drawer"
-        :drawerLeft="drawerLeft"
-        :drawerRight="drawerRight"
-        :drawerSottocategoria="drawerSottocategoria"
-        :iconX="iconX"
-        @setD="setD"
-        @setDF="setDF"
-        @mouseover="setDF()"
-        @DSCset="DSCset"
-      ></b4lg>
-    </div>
-
     <div v-else-if="currentres == 'xl'">
       <b5xl
         :height="hlg"
@@ -119,11 +85,53 @@
         @setDF="setDF"
         @mouseover="setDF()"
       ></b5xl>
+      <!--
+      <m4lgSottocategorie
+        :drawerRight="drawerRight"
+        :drawerSottocategoria="drawerSottocategoria"
+        @gotoR="gotoR"
+        @setD="setD"
+        @setDF="setDF"
+        @mouseover="setDF()"
+        @DSCset="DSCset"
+      ></m4lgSottocategorie>
+      -->
+    </div>
+
+    <div v-else-if="currentres == 'lg'">
+      <!--div class="rmblock">ciao</div
+        DELEGATE A $STORE
+        :requestUser="requestUser"
+        :requestUserIsStaff="requestUserIsStaff"
+        :requestUserIsSuper="requestUserIsSuper"
+        :requestUserAvatar="requestUserAvatar"
+        :requestUserBio="requestUserBio"      
+        :C="C"
+        :CS="CS"
+        :categorie="categorie"
+        :rcS="rcS"
+        :rcD="rcD"      
+        :drawer="drawer"
+        :drawerLeft="drawerLeft"
+        :drawerRight="drawerRight"
+        :drawerSottocategoria="drawerSottocategoria"
+        :iconX="iconX"
+        @gotoR="gotoR"
+        @setD="setD" 
+        @setDF="setDF"
+        @DSCset="DSCset"
+      -->
+
+      <b4lg :height="hlg" @mouseover="setDF()"></b4lg>
     </div>
 
     <!-- INFO -- TEST 2020.04.20 -- *********************************************** -->
 
     <!-- TODO: computed su store <ancNews :C="C" :CS="CS" :categorie="categorie"></ancNews>-->
+
+    <menuS></menuS>
+    <menuSC class="Mx1"></menuSC>
+
     <ancNews></ancNews>
 
     <!-- menu Sottocategorie 
@@ -131,118 +139,31 @@
       :CS="CS"
       :categorie="categorie"
     -- ******************************************************************-->
-
-    <m4lgSottocategorie
-      :drawerRight="drawerRight"
-      :drawerSottocategoria="drawerSottocategoria"
-      @gotoR="gotoR"
-      @setD="setD"
-      @setDF="setDF"
-      @mouseover="setDF()"
-      @DSCset="DSCset"
-    ></m4lgSottocategorie>
-
-    <!-- div BLOCCO MENU -->
-    <transition
-      name="custom-classes-transition"
-      enter-active-class="animated fadeInDown"
-      leave-active-class="animated fadeOutUp"
-    >
-      <v-row class="rmvrow" v-show="drawerLeft" text-align="center">
-        <!-- menu sottocategorie... -->
-
-        <v-col class="rmH0" cols="4"></v-col>
-
-        <!--  finestra comandi amministatore **************************************************** -->
-        <transition
-          name="custom-classes-transition2"
-          enter-active-class="animated bounceInLeft"
-          leave-active-class="animated bounceOutLeft"
-        >
-          <!-- v-col v-show="admin & admincommands" class="rmvcolSadmin rmH" cols="12"-->
-          <v-col
-            v-show="this.$store.getters.requestUserIsSuper & admincommands"
-            class="rmvcolSadmin rmH"
-            cols="12"
-          >
-            <m4lgAdmin @gotoR="gotoR" @setDF="setDF"></m4lgAdmin>
-          </v-col>
-        </transition>
-        <!--  finestra comandi amministatore **************************************************** -->
-
-        <!--  finestra dati untente -->
-        <v-col class="rmvcolC rmH rcC_BC" cols="4">
-          <!--          
-          :requestUser="requestUser"
-          :requestUserIsStaff="requestUserIsStaff"
-          :requestUserIsSuper="requestUserIsSuper"
-          :requestUserAvatar="requestUserAvatar"
-          :requestUserBio="requestUserBio"
-          -->
-
-          <u4lg @adminCommandSwitch="adminCommandSwitch" @gotoR="gotoR"></u4lg>
-        </v-col>
-        <!--  finestra dati untente -->
-
-        <!-- old ok
-        <v-col class="rmvcolD rmH rcLat_BC">
-        -->
-        <v-col :class="rcU">
-          <!-- test OK
-          class rcU: {{rcU}}
-          class rcS: {{rcS}}
-          class rcD: {{rcD}}
-          -->
-
-          <!-- 
-            :requestUser="requestUser"
-            :requestUserIsStaff="requestUserIsStaff"
-            :requestUserIsSuper="requestUserIsSuper"
-            :requestUserAvatar="requestUserAvatar"
-            :requestUserBio="requestUserBio"
-                        :C="C"
-            :CS="CS"
-            :categorie="categorie"
-          -->
-
-          <m4lg
-            :drawer="drawer"
-            :drawerLeft="drawerLeft"
-            :drawerRight="drawerRight"
-            :drawerSottocategoria="drawerSottocategoria"
-            :rcLat_BC="rcLat_BC"
-            :iconX="iconX"
-            @gotoR="gotoR"
-            @setD="setD"
-            @setDF="setDF"
-            @mouseover="setDF()"
-            @DSCset="DSCset"
-          ></m4lg>
-        </v-col>
-      </v-row>
-    </transition>
-    <!-- ****************************************************************** -->
   </div>
   <!-- @@@ -->
 </template>
 
 <script>
-// eslint-disable-next-line no-unused-vars
 import { apiService } from "@/common/api.service";
-// eslint-disable-next-line no-unused-vars
+
 import router from "@/router";
 import ancNews from "@/components/AncNews/AncNews.vue";
-
+//AncAppBars...
 import b1xs from "@/components/AncAppBars/B1xs.vue";
 import b2sm from "@/components/AncAppBars/B2sm.vue";
 import b3md from "@/components/AncAppBars/B3md.vue";
 import b4lg from "@/components/AncAppBars/B4lg.vue";
 import b5xl from "@/components/AncAppBars/B5xl.vue";
-/* Transitions */
+// menuS
+
+import menuS from "@/components/AncM/MenuS/MenuS.vue";
+import menuSC from "@/components/AncM/CatSotto/MenuSottoCategorie.vue";
 
 import u4lg from "@/components/AncM/User/U4lg.vue";
 import m4lg from "@/components/AncM/Cat/M4lg.vue";
+
 import m4lgSottocategorie from "@/components/AncM/CatSotto/M4lgSottocategorie.vue";
+
 import m4lgAdmin from "@/components/AncM/Admin/M4lgAdmin.vue";
 
 export default {
@@ -255,6 +176,9 @@ export default {
     b4lg,
     b5xl,
 
+    menuS,
+    menuSC,
+
     u4lg,
     m4lg,
     m4lgSottocategorie,
@@ -263,7 +187,7 @@ export default {
   },
 
   props: {
-    iconX: { type: String },
+    iconX: { type: String }
     /*  2020 04 26 test sostituzione con computed su $store - TEST OK /*
     requestUser: { type: String },
     requestUserIsStaff: { type: Boolean },
@@ -277,11 +201,12 @@ export default {
     CS: { type: Number },
     categorie: { type: Array },
     TODO:*/
-
+    /*
     drawer: { type: Boolean },
     drawerLeft: { type: Boolean },
     drawerRight: { type: Boolean },
     drawerSottocategoria: { type: Boolean }
+*/
   },
 
   data: () => ({
@@ -305,7 +230,102 @@ export default {
     admincommands: false
   }),
 
-  computed: {},
+  computed: {
+    drawer() {
+      return this.$store.getters.getDrawer;
+    },
+    drawerLeft() {
+      return this.$store.getters.getDrawerLeft;
+    },
+    drawerRight() {
+      return this.$store.getters.getDrawerRight;
+    },
+    drawerSottocategoria() {
+      return this.$store.getters.getDrawerSottocategoria;
+    },
+    requestUser() {
+      return this.$store.getters.requestUser;
+    },
+    requestUserIsStaff() {
+      return this.$store.getters.requestUserIsStaff;
+    },
+    requestUserIsSuper() {
+      return this.$store.getters.requestUserIsSuper;
+    },
+    requestUserAvatar() {
+      return this.$store.getters.requestUserAvatar;
+    },
+    requestUserBio() {
+      return this.$store.getters.requestUserBio;
+    },
+    requestToken() {
+      return this.$store.getters.requestToken;
+    },
+    categorie() {
+      return this.$store.getters.categorie;
+    },
+
+    C() {
+      return this.$store.getters.C;
+    },
+    Cs() {
+      return this.$store.getters.CS;
+    },
+    rcS() {
+      return this.$store.getters.rcS;
+    },
+    rcD() {
+      return this.$store.getters.rcD;
+    },
+    rcU() {
+      return this.$store.getters.rcU;
+    },
+
+    imageHeight() {
+      switch (this.$vuetify.breakpoint.name) {
+        case "xs":
+          // eslint-disable-next-line no-console
+          console.log("xs");
+          return "220px";
+        case "sm":
+          // eslint-disable-next-line no-console
+          console.log("sm");
+          return "400px";
+        case "md":
+          // eslint-disable-next-line no-console
+          console.log("md");
+          return "500px";
+        case "lg":
+          // eslint-disable-next-line no-console
+          console.log("lg");
+          return "600px";
+        case "xl":
+          // eslint-disable-next-line no-console
+          console.log("lg");
+          return "800px";
+      }
+    },
+    // eslint-disable-next-line vue/return-in-computed-property
+    currentres() {
+      switch (this.$vuetify.breakpoint.name) {
+        case "xs":
+          //console.log("xs");
+          return "xs";
+        case "sm":
+          //onsole.log("sm");
+          return "sm";
+        case "md":
+          //console.log("md");
+          return "md";
+        case "lg":
+          //console.log("lg");
+          return "lg";
+        case "xl":
+          //console.log("xl");
+          return "xl";
+      }
+    }
+  },
 
   methods: {
     /* old...
@@ -422,91 +442,10 @@ export default {
 
     // eslint-disable-next-line no-console
     console.log(this.$vuetify.breakpoint);
-  },
+  }
 
-  _computed: {
-    requestUser() {
-      return this.$store.getters.requestUser;
-    },
-    requestUserIsStaff() {
-      return this.$store.getters.requestUserIsStaff;
-    },
-    requestUserIsSuper() {
-      return this.$store.getters.requestUserIsSuper;
-    },
-    requestUserAvatar() {
-      return this.$store.getters.requestUserAvatar;
-    },
-    requestUserBio() {
-      return this.$store.getters.requestUserBio;
-    },
-    requestToken() {
-      return this.$store.getters.requestToken;
-    },
-    categorie() {
-      return this.$store.getters.categorie;
-    },
-
-    C() {
-      return this.$store.getters.C;
-    },
-    Cs() {
-      return this.$store.getters.CS;
-    },
-    rcS() {
-      return this.$store.getters.rcS;
-    },
-    rcD() {
-      return this.$store.getters.rcD;
-    },
-    rcU() {
-      return this.$store.getters.rcU;
-    },
-
-    imageHeight() {
-      switch (this.$vuetify.breakpoint.name) {
-        case "xs":
-          // eslint-disable-next-line no-console
-          console.log("xs");
-          return "220px";
-        case "sm":
-          // eslint-disable-next-line no-console
-          console.log("sm");
-          return "400px";
-        case "md":
-          // eslint-disable-next-line no-console
-          console.log("md");
-          return "500px";
-        case "lg":
-          // eslint-disable-next-line no-console
-          console.log("lg");
-          return "600px";
-        case "xl":
-          // eslint-disable-next-line no-console
-          console.log("lg");
-          return "800px";
-      }
-    },
-    // eslint-disable-next-line vue/return-in-computed-property
-    currentres() {
-      switch (this.$vuetify.breakpoint.name) {
-        case "xs":
-          //console.log("xs");
-          return "xs";
-        case "sm":
-          //onsole.log("sm");
-          return "sm";
-        case "md":
-          //console.log("md");
-          return "md";
-        case "lg":
-          //console.log("lg");
-          return "lg";
-        case "xl":
-          //console.log("xl");
-          return "xl";
-      }
-    },
+  /*
+  _computed: {  
     localAttrs() {
       const attrs = {};
       if (this.variant === "default") {
@@ -526,13 +465,37 @@ export default {
   set computed(value) {
     this._computed = value;
   }
+  */
 };
 </script>
 
 <style media="screen">
+.Mx1 {
+  /* menuSC */
+  position: relative;
+  z-index: 2;
+  background-color: green !important;
+  height: 400px;
+}
+
+/* MENU LINKS - UTENTE */
+.menuS {
+  position: relative;
+  z-index: 4;
+}
+/* MENU SOTTOCATEGORIE */
+.menuSC {
+  position: relative;
+  z-index: 3;
+  /*background-color: greenyellow !important;*/
+  background-color: transparent !important;
+  height: 200px;
+  width: 100%;
+}
+
 .AncAppBarE {
   position: fixed;
-  z-index: 2;
+  z-index: 6;
   height: 150px;
   width: 100%;
   padding-top: 6px;
@@ -547,7 +510,7 @@ export default {
 .r {
   /*.AncRowBarEst / ARBI */
   position: relative;
-  z-index: 3;
+  z-index: 7;
   height: 70px;
   margin-left: 10px;
   margin-right: 10px;
@@ -560,15 +523,6 @@ export default {
   background-color: ORANGE !important;
 }
 /* ---------------------------------------------------------------------- */
-.rmNews {
-  /* ... comunicazioni ...*/
-  position: absolute;
-  top: 80px;
-  z-index: 3;
-  height: 70px;
-  width: 100%;
-  background-color: rgb(146, 0, 0) !important; /*test*/
-}
 
 /* ---------------------------------------------------------------------- */
 /* MdS> 
@@ -596,6 +550,7 @@ export default {
   position: relative;
   z-index: 3;
   height: 10px;
+
   margin-left: 25px;
   margin-right: 25px;
   text-align: center;
@@ -604,7 +559,7 @@ export default {
 
   /*background-image: url("/static/images/HomePageCarousel/dsc32.jpg");*/
 
-  background-color: orange !important;
+  background-color: green !important;
 
   /*background-color: transparent !important;*/
   top: 70px; /*width: 578px; */
@@ -621,7 +576,7 @@ export default {
   position: absolute;
   text-align: center;
   text-justify: center;
-  z-index: 3;
+  z-index: 7;
   width: 100%;
   height: 95%;
   background-color: transparent !important;
@@ -648,7 +603,7 @@ export default {
 }
 .rmvcolC {
   position: relative;
-  z-index: 3;
+  z-index: 7;
   opacity: 0.9;
   /* background-color: transparent !important; */
   border-radius: 0px 0px 0px 648px;
@@ -679,7 +634,7 @@ export default {
 
 .rcX {
   position: relative;
-  z-index: 4;
+  z-index: 8;
   /*    per rcS - rcC - rcD  */
   height: 66px;
   text-justify: auto;
@@ -743,7 +698,7 @@ export default {
 .rcC {
   /*    add:  rcX    */
   position: relative;
-  z-index: 5;
+  z-index: 9;
   /*width: 368px; RIFERIMENTO*/
   padding: 0px 0px;
   text-align: center;
@@ -754,11 +709,11 @@ export default {
   border-radius: 0px 0px 0px 0px;
 }
 .rcC_BC {
-  background-color: rgb(
-    4,
-    11,
-    46
-  ) !important; /* AncColor Blue +6  /*
+  /*TODO: LEVATO PER TEST 2020 06 16*/
+
+  background-color: rgb(4, 11, 46) !important;
+
+  /* AncColor Blue +6  /*
   background-color: rgb(36, 17, 6) !important; /* Marrone */
 }
 .rcC_BC--T {
@@ -767,7 +722,7 @@ export default {
 /*------------------------------------------------------------------------------------------------------*/
 .rcCr {
   position: relative;
-  z-index: 5;
+  z-index: 9;
   /*    add:  rcCr_BC       */
   /*    EX:   AncRowBarColccxRowInt */
   height: 64px;
@@ -785,7 +740,7 @@ export default {
 /*------------------------------------------------------------------------------------------------------*/
 .rcCrcX {
   position: relative;
-  z-index: 6;
+  z-index: 10;
   text-justify: auto;
 }
 /*------------------------------------------------------------------------------------------------------*/
@@ -831,7 +786,7 @@ export default {
 }
 /*------------------------------------------------------------------------------------------------------*/
 .avatar {
-  z-index: 5;
+  z-index: 9;
   /*right: "true";*/
   /*size: 32;*/
 

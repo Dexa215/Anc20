@@ -7,15 +7,15 @@
   >
     <v-row
       v-show="categorie[C/10-1].sottocategorie.length > 1 && drawerSottocategoria"
-      class="sottocategorieList mx-auto"
+      class="sottocategorieList"
     >
-      <!--
       <v-col cols="1" class="sottocategorieListr1"></v-col>
-      -->
-      <v-col cols="7" class="sottocategorieListr2 rcLat_BC_Visitor">
+
+      <v-col cols="3" class="sottocategorieListr2 rcLat_BC_Visitor">
         <!-- Finestra sottocategorie -->
         <v-col v-show="drawerSottocategoria" class="m4lgSottocategorie">
           <!-- -------------------------------------------------------------------------------------------------------------------------- -->
+
           <div class="box" @mouseleave="DSCset('false')">
             <v-list shaped dark class="ancM4l ancM4l_BC">
               <!-- color="rgb(36, 17, 6)" -->
@@ -31,6 +31,11 @@
                     <v-list-item-title>{{ item.descrizione }}</v-list-item-title>
                   </v-btn>
                 </v-list-item-content>
+                <!--
+        <v-list-item-icon style="background-color:yellow">
+          <v-icon>{{ item.icona }}</v-icon>
+        </v-list-item-icon>
+                -->
                 <v-icon
                   class="AncIconColor"
                   large
@@ -41,11 +46,25 @@
               </v-list-item>
             </v-list>
           </div>
+
           <!-- -------------------------------------------------------------------------------------------------------------------------- -->
         </v-col>
         <!-- Finestra sottocategorie -->
+
+        <!--
+            <v-icon
+              v-for="item in categorie[C/10-1].sottocategorie"
+              :key="item.n"
+              class="mx-2 AncIconColor"
+              large
+              dark
+              @click="gotoR(item.link)"
+              style="height: 30px;"
+            >{{item.icona}}</v-icon>
+
+        -->
       </v-col>
-      <v-col cols="5" class="sottocategorieListr3 rcLat_BC_Visitor"></v-col>
+      <v-col cols="8" class="sottocategorieListr3 rcLat_BC_Visitor"></v-col>
     </v-row>
   </transition>
 </template>
@@ -55,15 +74,18 @@ import router from "@/router";
 export default {
   name: "m4lgSottocategorie",
 
-  props: {},
+  props: {
+    /*
+    C: { type: Number },
+    CS: { type: Number },
+    categorie: { type: Array },
+    */
+
+    drawerRight: { type: Boolean },
+    drawerSottocategoria: { type: Boolean }
+  },
 
   computed: {
-    drawerSottocategoria() {
-      return this.$store.getters.getDrawerSottocategoria;
-    },
-    drawerRight() {
-      return this.$store.getters.getDrawerRight;
-    },
     categorie() {
       return this.$store.getters.categorie;
     },
@@ -72,43 +94,97 @@ export default {
     },
     CS() {
       return this.$store.getters.getCS;
+    },
+    requestUser() {
+      return this.$store.getters.requestUser;
+    },
+    requestUserIsStaff() {
+      return this.$store.getters.requestUserIsStaff;
+    },
+    requestUserIsSuper() {
+      return this.$store.getters.requestUserIsSuper;
+    },
+    requestUserAvatar() {
+      return this.$store.getters.requestUserAvatar;
+    },
+    requestUserBio() {
+      return this.$store.getters.requestUserBio;
+    },
+    requestToken() {
+      return this.$store.getters.requestToken;
     }
   },
   data() {
     return {};
   },
   methods: {
-    /*2020 06 16*/
     gotoR(r) {
-      this.expand = !this.expand;
-      this.$store.dispatch("setDF");
-      this.$store.dispatch("gotoR", r);
-    },
-    SDL() {
-      /*Switch Drawer Language*/
-      this.$store.dispatch("switchDrawerLang");
-    },
-    ScL(val) {
-      /*SET Current Language*/
-      this.$store.dispatch("setL", val);
+      this.drawerRight = false;
+      this.setDF();
+      console.log("M4lg rotta per...");
+      this.DSCset("false");
+      this.$emit("gotoR", r);
     },
     DSCset(state) {
-      /*SC Sotto Categoria*/
-      this.$store.dispatch("DSCset", state);
+      this.$emit("DSCset", state);
+    },
+
+    ctlD() {
+      let d = this.drawerRight;
+      console.log("d:", d);
+      if (d === false) {
+        this.$emit("setDF");
+      }
     },
     setD() {
-      this.$store.dispatch("setD");
+      let d = this.drawerRight;
+      if (d === false) {
+        this.iconX = this.iconC;
+        console.log("d true");
+      } else {
+        this.iconX = this.iconO;
+        console.log("d false");
+      }
+      this.$emit("setD");
     },
     setDF() {
-      this.$store.dispatch("setDF");
+      this.$emit("setDF");
     }
+    /*
+    setC() {
+      if (requestUserIsStaff === "true") {
+        this.navbarcolor = "red";
+      } else {
+        this.navbarcolor = "grey";
+      }
+    }
+    */
   }
 };
 </script>
 
-<style media="screen" scoped>
+
+<style media="screen">
+.box {
+  position: absolute;
+  height: 200px;
+  text-align: right;
+  padding-left: 70px;
+  padding-right: 0px;
+  background-color: transparent;
+}
+
+.itemSC {
+  padding-right: 20px;
+}
+
+.listSC {
+  height: 30px;
+  padding-right: 70px;
+}
+
 .sottocategorieList {
-  position: relative;
+  position: absolute;
   z-index: 3;
   top: 60px;
   left: 0px;
@@ -142,6 +218,13 @@ export default {
   height: 300px;
   border-radius: 0px 0px 0px 0px;
 }
+/*
+.m4lgSottocategorie {
+  position: absolute;
+  top: 70px;
+  background-color: transparent !important;
+}
+*/
 </style>
 
 

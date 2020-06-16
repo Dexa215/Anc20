@@ -7,14 +7,12 @@
   >
     <v-row
       v-show="categorie[C/10-1].sottocategorie.length > 1 && drawerSottocategoria"
-      class="sottocategorieList mx-auto"
+      class="sottocategorieList"
     >
-      <!--
       <v-col cols="1" class="sottocategorieListr1"></v-col>
-      -->
-      <v-col cols="7" class="sottocategorieListr2 rcLat_BC_Visitor">
+      <v-col cols="3" class="sottocategorieListr2 rcLat_BC_Visitor">
         <!-- Finestra sottocategorie -->
-        <v-col v-show="drawerSottocategoria" class="m4lgSottocategorie">
+        <v-col v-show="drawerSottocategoria" class="mxxxSottocategorie">
           <!-- -------------------------------------------------------------------------------------------------------------------------- -->
           <div class="box" @mouseleave="DSCset('false')">
             <v-list shaped dark class="ancM4l ancM4l_BC">
@@ -43,9 +41,8 @@
           </div>
           <!-- -------------------------------------------------------------------------------------------------------------------------- -->
         </v-col>
-        <!-- Finestra sottocategorie -->
       </v-col>
-      <v-col cols="5" class="sottocategorieListr3 rcLat_BC_Visitor"></v-col>
+      <v-col cols="8" class="sottocategorieListr3 rcLat_BC_Visitor"></v-col>
     </v-row>
   </transition>
 </template>
@@ -53,17 +50,51 @@
 import router from "@/router";
 
 export default {
-  name: "m4lgSottocategorie",
-
+  name: "m1xsSottocategorie",
   props: {},
-
+  data() {
+    return {};
+  },
   computed: {
-    drawerSottocategoria() {
-      return this.$store.getters.getDrawerSottocategoria;
+    lang() {
+      return this.$store.getters.getCurrentLanguage;
+    },
+    languages() {
+      return this.$store.getters.getLanguages;
+    },
+    languagesShow() {
+      return this.$store.getters.getLanguagesShow;
+    },
+    /*  -----------------------------------------------------------------------   */
+    drawer() {
+      return this.$store.getters.getDrawer;
+    },
+    drawerLeft() {
+      return this.$store.getters.getDrawerLeft;
     },
     drawerRight() {
       return this.$store.getters.getDrawerRight;
     },
+    drawerSottocategoria() {
+      return this.$store.getters.getDrawerSottocategoria;
+    },
+    /*  -----------------------------------------------------------------------   */
+    iconX() {
+      return this.$store.getters.getIconX;
+    },
+    iconO() {
+      return this.$store.getters.getIconO;
+    },
+    iconOdx() {
+      return this.$store.getters.getIconOdx;
+    },
+    iconC() {
+      return this.$store.getters.getIconC;
+    },
+    iconCdx() {
+      return this.$store.getters.getIconCdx;
+    },
+    /*  -----------------------------------------------------------------------   */
     categorie() {
       return this.$store.getters.categorie;
     },
@@ -72,13 +103,40 @@ export default {
     },
     CS() {
       return this.$store.getters.getCS;
+    },
+    requestUser() {
+      return this.$store.getters.requestUser;
+    },
+    requestUserIsStaff() {
+      return this.$store.getters.requestUserIsStaff;
+    },
+    requestUserIsSuper() {
+      return this.$store.getters.requestUserIsSuper;
+    },
+    requestUserAvatar() {
+      return this.$store.getters.requestUserAvatar;
+    },
+    requestUserBio() {
+      return this.$store.getters.requestUserBio;
+    },
+    requestToken() {
+      return this.$store.getters.requestToken;
+    },
+    /* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+    /* DINAMIC CSS */
+    rcS() {
+      return this.$store.getters.rcS;
+    },
+    rcD() {
+      return this.$store.getters.rcD;
+    },
+    rcU() {
+      return this.$store.getters.rcU;
     }
+    /* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
   },
-  data() {
-    return {};
-  },
+
   methods: {
-    /*2020 06 16*/
     gotoR(r) {
       this.expand = !this.expand;
       this.$store.dispatch("setDF");
@@ -89,11 +147,10 @@ export default {
       this.$store.dispatch("switchDrawerLang");
     },
     ScL(val) {
-      /*SET Current Language*/
+      /*Set Current Language*/
       this.$store.dispatch("setL", val);
     },
     DSCset(state) {
-      /*SC Sotto Categoria*/
       this.$store.dispatch("DSCset", state);
     },
     setD() {
@@ -106,9 +163,28 @@ export default {
 };
 </script>
 
-<style media="screen" scoped>
+
+<style media="screen">
+.box {
+  position: absolute;
+  height: 200px;
+  text-align: right;
+  padding-left: 70px;
+  padding-right: 0px;
+  background-color: transparent;
+}
+
+.itemSC {
+  padding-right: 20px;
+}
+
+.listSC {
+  height: 30px;
+  padding-right: 70px;
+}
+
 .sottocategorieList {
-  position: relative;
+  position: absolute;
   z-index: 3;
   top: 60px;
   left: 0px;
@@ -142,6 +218,13 @@ export default {
   height: 300px;
   border-radius: 0px 0px 0px 0px;
 }
+/*
+.mxxxSottocategorie {
+  position: absolute;
+  top: 70px;
+  background-color: transparent !important;
+}
+*/
 </style>
 
 

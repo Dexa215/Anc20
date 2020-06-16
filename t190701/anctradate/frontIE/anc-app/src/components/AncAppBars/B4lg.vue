@@ -97,8 +97,10 @@
 
             <!-- 
             <v-col class="icoSx iconavcSbtnMENU" cols="2">
-            <!-- BTN MENU @mouseenter="DSCset('false')"-->
-            <!-- BTN MENU -->
+            -->
+            <!-- 
+              BTN MENU @mouseenter="DSCset('false')"
+            -->
 
             <!--          
               <v-btn icon v-model="iconX" @click.stop="setD">
@@ -207,6 +209,7 @@
                     <v-img class="mx-1 AncIconLang" large dark :src="lang.icona"></v-img>
                   </v-btn>
                 </v-expand-x-transition>
+                -->
                 <!-- Language btn ...-->
 
                 <!-- Language... -->
@@ -360,14 +363,6 @@ ESCLUSI DA DATA:
       expandSC: "false",
       h: "80px",
       cab: "AncAppBarE cBE-Vis",
-      iconX: "mdi-menu",
-      //        iconC:"mdi-backburger",
-      //        iconO:"mdi-tray-full",
-      iconC: "mdi-dots-vertical",
-      iconO: "mdi-menu-up",
-
-      iconCdx: "mdi-menu-down",
-      iconOdx: "mdi-menu-up",
 
       rvt: 10,
       breweries: [],
@@ -401,7 +396,7 @@ ESCLUSI DA DATA:
     */ /*TODO: SOSTITUIRE CS CS [ PROP CON COMPUTED DA STORE ] */ /*TODO: SOSTITUIRE RCS RCD [ PROP CON COMPUTED DA STORE ] */ /*
     rcS: { type: String },
     rcD: { type: String },
-*/, //colBarEst: { type: String }, //colBarInt: { type: String }, // eslint-disable-next-line vue/no-dupe-keys
+*/ //colBarEst: { type: String }, //colBarInt: { type: String }, // eslint-disable-next-line vue/no-dupe-keys
 
     /*
 TODO:
@@ -417,12 +412,15 @@ TODO:
     requestUserBio: { type: String },
 */
 
-    /*TODO: SOSTITUIRE RCS RCD [ PROP CON COMPUTED DA STORE ] */ drawer: {
-      type: Boolean
-    },
+    /*TODO: SOSTITUIRE RCS RCD [ PROP CON COMPUTED DA STORE ] */
+
+    /*TODO: SOSTITUIRE drawer [ PROP CON COMPUTED DA STORE ] */
+    /*
+    drawer: { type: Boolean },
     drawerLeft: { type: Boolean },
     drawerRight: { type: Boolean },
     drawerSottocategoria: { type: Boolean }
+    */
   },
 
   computed: {
@@ -434,6 +432,35 @@ TODO:
     },
     languagesShow() {
       return this.$store.getters.getLanguagesShow;
+    },
+    /*  -----------------------------------------------------------------------   */
+    drawer() {
+      return this.$store.getters.getDrawer;
+    },
+    drawerLeft() {
+      return this.$store.getters.getDrawerLeft;
+    },
+    drawerRight() {
+      return this.$store.getters.getDrawerRight;
+    },
+    drawerSottocategoria() {
+      return this.$store.getters.getDrawerSottocategoria;
+    },
+    /*  -----------------------------------------------------------------------   */
+    iconX() {
+      return this.$store.getters.getIconX;
+    },
+    iconO() {
+      return this.$store.getters.getIconO;
+    },
+    iconOdx() {
+      return this.$store.getters.getIconOdx;
+    },
+    iconC() {
+      return this.$store.getters.getIconC;
+    },
+    iconCdx() {
+      return this.$store.getters.getIconCdx;
     },
     /*  -----------------------------------------------------------------------   */
     categorie() {
@@ -462,13 +489,9 @@ TODO:
     },
     requestToken() {
       return this.$store.getters.requestToken;
-    } /*TODO: SOSTITUIRE RCS RCD [ PROP CON COMPUTED DA STORE ] */ /*TODO: SOSTITUIRE RCS RCD [ PROP CON COMPUTED DA STORE ] */ /*
-    rcS: { type: String },
-    rcD: { type: String },
-    */,
-
-    /* TEST DINAMIC CSS */
-
+    },
+    /* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+    /* DINAMIC CSS */
     rcS() {
       return this.$store.getters.rcS;
     },
@@ -477,75 +500,33 @@ TODO:
     },
     rcU() {
       return this.$store.getters.rcU;
-    },
-
-    /* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
-
-    todoscomputed() {
-      return this.$store.state.todoscomputed;
-    },
-    todosDone() {
-      return this.$store.getters.todosDone;
     }
-
     /* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
   },
 
   methods: {
     gotoR(r) {
       this.expand = !this.expand;
+      this.$store.dispatch("setDF");
       this.$store.dispatch("gotoR", r);
-      /*console.log("AppBar B4LG rotta per...", r);
-      this.$emit("gotoR", r);
-      */
     },
-
     SDL() {
       /*Switch Drawer Language*/
       this.$store.dispatch("switchDrawerLang");
     },
     ScL(val) {
-      /*SET Current Language*/
+      /*Set Current Language*/
       this.$store.dispatch("setL", val);
     },
-
     DSCset(state) {
-      this.$emit("DSCset", state);
+      this.$store.dispatch("DSCset", state);
     },
-
     setD() {
-      let d = this.drawerLeft;
-      if (d === false) {
-        this.iconX = this.iconC;
-        console.log("d true");
-
-        this.$store.dispatch("setDLf");
-      } else {
-        this.iconX = this.iconO;
-        console.log("d false");
-      }
-      this.$emit("setD");
+      this.$store.dispatch("setD");
     },
     setDF() {
-      this.$emit("setDF");
+      this.$store.dispatch("setDF");
     }
-    /*
-    setcolor() {
-      var x = this;
-      //console.log("setcolor analizzo this.requestuserisstaff...", x.requestUserIsStaff);
-      if (x.requestUserIsStaff === true) {
-        //this.cab="AncAppBarE cBE-Staff";
-        this.nbc = "#80051c"; //dark-RED
-        this.AncRowBarColsssx = "AncRowBarColssx arbcs-Staff";
-        this.AncRowBarColdddx = "AncRowBarColddx arbcs-Staff";
-      } else {
-        //this.cab="AncAppBarE cBE-Socio"
-        this.nbc = "#38282b"; //dark-grey
-        this.AncRowBarColsssx = "AncRowBarColssx arbcs-Visitor";
-        this.AncRowBarColdddx = "AncRowBarColddx arbcs-Visitor";
-      }
-    }
-    */
   },
   updated() {
     /*this.setcolor();*/

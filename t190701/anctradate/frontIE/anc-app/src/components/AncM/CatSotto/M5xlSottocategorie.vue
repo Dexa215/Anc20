@@ -9,12 +9,10 @@
       v-show="categorie[C/10-1].sottocategorie.length > 1 && drawerSottocategoria"
       class="sottocategorieList mx-auto"
     >
-      <!--
       <v-col cols="1" class="sottocategorieListr1"></v-col>
-      -->
-      <v-col cols="7" class="sottocategorieListr2 rcLat_BC_Visitor">
+      <v-col cols="3" class="sottocategorieListr2 rcLat_BC_Visitor">
         <!-- Finestra sottocategorie -->
-        <v-col v-show="drawerSottocategoria" class="m4lgSottocategorie">
+        <v-col v-show="drawerSottocategoria" class="m5xlSottocategorie">
           <!-- -------------------------------------------------------------------------------------------------------------------------- -->
           <div class="box" @mouseleave="DSCset('false')">
             <v-list shaped dark class="ancM4l ancM4l_BC">
@@ -45,7 +43,7 @@
         </v-col>
         <!-- Finestra sottocategorie -->
       </v-col>
-      <v-col cols="5" class="sottocategorieListr3 rcLat_BC_Visitor"></v-col>
+      <v-col cols="8" class="sottocategorieListr3 rcLat_BC_Visitor"></v-col>
     </v-row>
   </transition>
 </template>
@@ -53,7 +51,7 @@
 import router from "@/router";
 
 export default {
-  name: "m4lgSottocategorie",
+  name: "m5xlSottocategorie",
 
   props: {},
 
@@ -107,44 +105,4 @@ export default {
 </script>
 
 <style media="screen" scoped>
-.sottocategorieList {
-  position: relative;
-  z-index: 3;
-  top: 60px;
-  left: 0px;
-  background-color: transparent !important;
-  height: 600px;
-  width: 100%;
-
-  border-radius: 0px 0px 0px 0px;
-}
-
-.sottocategorieListr1 {
-  position: relative;
-  z-index: 3;
-  background-color: transparent !important;
-  height: 600px;
-  border-radius: 0px 0px 0px 0px;
-}
-
-.sottocategorieListr2 {
-  position: relative;
-  z-index: 3;
-  height: 300px;
-  border-radius: 0px 0px 0px 250px;
-}
-
-.sottocategorieListr3 {
-  position: relative;
-  z-index: 3;
-  text-align: left;
-  /* background-color: green !important;*/
-  height: 300px;
-  border-radius: 0px 0px 0px 0px;
-}
 </style>
-
-
-
-
-

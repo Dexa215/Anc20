@@ -119,7 +119,7 @@
 
             <v-col class="icoSx iconavcS" cols="6">
               <v-row class="rIco" align="center">
-                <!-- Language... -->
+                <!-- Language... 
                 <v-expand-x-transition>
                   <v-btn
                     class="mx-1"
@@ -131,15 +131,18 @@
                     @click="SDL"
                   >
                     <v-img class="mx-1 AncIconLang" large dark :src="lang.icona"></v-img>
-                    <!-- TEST OK 2020 05 10-->
-                    <!--
+                -->
+                <!-- TEST OK 2020 05 10-->
+                <!--
                     {{lang.code}}
                     {{lang.icona}}
                     <v-img class="mx-3 AncIconLang" large dark :src="langIco"></v-img>
-                    -->
+                -->
+                <!--
+
                   </v-btn>
                 </v-expand-x-transition>
-                <!-- Language... -->
+                Language...-->
 
                 <!-- search... 
                 <v-expand-x-transition>
@@ -301,40 +304,25 @@ export default {
   methods: {
     gotoR(r) {
       this.expand = !this.expand;
+      this.$store.dispatch("setDF");
       this.$store.dispatch("gotoR", r);
-      /*console.log("AppBar B4LG rotta per...", r);
-      this.$emit("gotoR", r);
-      */
     },
-
     SDL() {
       /*Switch Drawer Language*/
       this.$store.dispatch("switchDrawerLang");
     },
     ScL(val) {
-      /*SET Current Language*/
+      /*Set Current Language*/
       this.$store.dispatch("setL", val);
     },
-
     DSCset(state) {
-      this.$emit("DSCset", state);
+      this.$store.dispatch("DSCset", state);
     },
-
     setD() {
-      let d = this.drawerLeft;
-      if (d === false) {
-        this.iconX = this.iconC;
-        console.log("d true");
-
-        this.$store.dispatch("setDLf");
-      } else {
-        this.iconX = this.iconO;
-        console.log("d false");
-      }
-      this.$emit("setD");
+      this.$store.dispatch("setD");
     },
     setDF() {
-      this.$emit("setDF");
+      this.$store.dispatch("setDF");
     }
   },
   updated() {

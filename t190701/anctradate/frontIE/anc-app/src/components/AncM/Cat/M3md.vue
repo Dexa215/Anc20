@@ -30,7 +30,7 @@
 import router from "@/router";
 
 export default {
-  name: "m4lg",
+  name: "m3md",
   components: {},
   props: {},
   computed: {

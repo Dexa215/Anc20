@@ -153,6 +153,16 @@ export default {
 </script>
 
 <style media="screen">
+.rmNews {
+  /* ... comunicazioni ...*/
+  position: absolute;
+  top: 80px;
+  z-index: 2;
+  height: 70px;
+  width: 100%;
+  background-color: rgb(146, 0, 0) !important; /*test*/
+}
+
 .container-fluid {
   /*    background-color:white;
 */

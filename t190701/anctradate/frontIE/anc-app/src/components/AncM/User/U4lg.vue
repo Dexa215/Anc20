@@ -1,5 +1,5 @@
 <template>
-  <div class="umenu mx-auto">
+  <div class="umenu4 mx-auto">
     <v-row id="ur4" class="mx-auto ur" align="center" justify="center">
       <v-col>
         <v-btn
@@ -126,15 +126,7 @@ import router from "@/router";
 export default {
   name: "u4lg",
 
-  props: {
-    /*
-    requestUser: { type: String },
-    requestUserIsStaff: { type: Boolean },
-    requestUserIsSuper: { type: Boolean },
-    requestUserAvatar: { type: String },
-    requestUserBio: { type: String }
-    */
-  },
+  props: {},
 
   data() {
     return {
@@ -152,6 +144,32 @@ export default {
   },
 
   computed: {
+    /*  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  */
+    drawer() {
+      return this.$store.getters.getDrawer;
+    },
+    drawerLeft() {
+      return this.$store.getters.getDrawerLeft;
+    },
+    drawerRight() {
+      return this.$store.getters.getDrawerRight;
+    },
+    drawerSottocategoria() {
+      return this.$store.getters.getDrawerSottocategoria;
+    },
+    /*  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  */
+
+    categorie() {
+      return this.$store.getters.categorie;
+    },
+
+    C() {
+      return this.$store.getters.getC;
+    },
+    CS() {
+      return this.$store.getters.getCS;
+    },
+
     requestUser() {
       return this.$store.getters.requestUser;
     },
@@ -169,49 +187,59 @@ export default {
     },
     requestToken() {
       return this.$store.getters.requestToken;
+    },
+    /* DINAMIC CSS */
+
+    rcS() {
+      return this.$store.getters.rcS;
+    },
+    rcD() {
+      return this.$store.getters.rcD;
+    },
+    rcU() {
+      return this.$store.getters.rcU;
     }
   },
 
   methods: {
     gotoR(r) {
-      this.drawerRight = false;
-      this.setDF();
-      console.log("U4lg rotta per...");
-      this.$emit("gotoR", r);
-    },
-    acs() {
-      this.$emit("adminCommandSwitch");
+      this.expand = !this.expand;
+      this.$store.dispatch("setDF");
+      this.$store.dispatch("gotoR", r);
     },
 
-    ctlD() {
-      let d = this.drawerRight;
-      console.log("d:", d);
-      if (d === false) {
-        this.$emit("setDF");
-      }
+    acs() {
+      this.$store.dispatch("adminCommandSwitch");
+      //this.$emit("adminCommandSwitch");
+    },
+
+    SDL() {
+      /*Switch Drawer Language*/
+      this.$store.dispatch("switchDrawerLang");
+    },
+    ScL(val) {
+      /*SET Current Language*/
+      this.$store.dispatch("setL", val);
+    },
+    DSCset(state) {
+      /*SC Sotto Categoria*/
+      this.$store.dispatch("DSCset", state);
     },
     setD() {
-      let d = this.drawerRight;
-      if (d === false) {
-        this.iconX = this.iconC;
-        console.log("d true");
-      } else {
-        this.iconX = this.iconO;
-        console.log("d false");
-      }
-      this.$emit("setD");
+      this.$store.dispatch("setD");
     },
     setDF() {
-      this.$emit("setDF");
+      this.$store.dispatch("setDF");
     }
   }
 };
 </script>
 
 <style media="screen">
-.umenu {
+.umenu4 {
   margin-left: 0px;
   margin-right: 0px;
+  background-color: pink !important;
 }
 
 .ur {

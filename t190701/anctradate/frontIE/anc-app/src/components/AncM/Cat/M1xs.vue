@@ -15,6 +15,7 @@
                 <v-list-item-title>{{ item.descrizione }}</v-list-item-title>
               </v-btn>
             </v-list-item-content>
+
             <v-list-item-icon>
               <v-icon>{{ item.icona }}</v-icon>
             </v-list-item-icon>
@@ -30,7 +31,7 @@
 import router from "@/router";
 
 export default {
-  name: "m4lg",
+  name: "m1xs",
   components: {},
   props: {},
   computed: {

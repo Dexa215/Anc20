@@ -401,7 +401,7 @@ ESCLUSI DA DATA:
     */ /*TODO: SOSTITUIRE CS CS [ PROP CON COMPUTED DA STORE ] */ /*TODO: SOSTITUIRE RCS RCD [ PROP CON COMPUTED DA STORE ] */ /*
     rcS: { type: String },
     rcD: { type: String },
-*/, //colBarEst: { type: String }, //colBarInt: { type: String }, // eslint-disable-next-line vue/no-dupe-keys
+*/ //colBarEst: { type: String }, //colBarInt: { type: String }, // eslint-disable-next-line vue/no-dupe-keys
 
     /*
 TODO:
@@ -417,14 +417,16 @@ TODO:
     requestUserBio: { type: String },
 */
 
-    /*TODO: SOSTITUIRE RCS RCD [ PROP CON COMPUTED DA STORE ] */ drawer: {
+    /*TODO: SOSTITUIRE RCS RCD [ PROP CON COMPUTED DA STORE ] */
+    /*
+    drawer: {
       type: Boolean
     },
     drawerLeft: { type: Boolean },
     drawerRight: { type: Boolean },
     drawerSottocategoria: { type: Boolean }
+    */
   },
-
   computed: {
     lang() {
       return this.$store.getters.getCurrentLanguage;
@@ -435,6 +437,49 @@ TODO:
     languagesShow() {
       return this.$store.getters.getLanguagesShow;
     },
+
+    /*  -----------------------------------------------------------------------   */
+    /*   
+    drawerLeft: { type: Boolean },
+    drawerRight: { type: Boolean },
+    drawerSottocategoria: { type: Boolean }
+    */
+
+    drawer() {
+      return this.$store.getters.getDrawer;
+    },
+    drawerLeft() {
+      return this.$store.getters.getDrawerLeft;
+    },
+    drawerRight() {
+      return this.$store.getters.getDrawerRight;
+    },
+    drawerSottocategoria() {
+      return this.$store.getters.getDrawerSottocategoria;
+    },
+    /*
+    iconX: "mdi-menu",
+    iconC: "mdi-dots-vertical",
+    iconO: "mdi-menu-up",
+    */
+    /*  ----  */
+    iconX() {
+      return this.$store.getters.getIconX;
+    },
+    iconO() {
+      return this.$store.getters.getIconO;
+    },
+    iconOdx() {
+      return this.$store.getters.getIconOdx;
+    },
+    iconC() {
+      return this.$store.getters.getIconC;
+    },
+    iconCdx() {
+      return this.$store.getters.getIconCdx;
+    },
+    /*  ----  */
+
     /*  -----------------------------------------------------------------------   */
     categorie() {
       return this.$store.getters.categorie;
@@ -462,14 +507,12 @@ TODO:
     },
     requestToken() {
       return this.$store.getters.requestToken;
-    } /*TODO: SOSTITUIRE RCS RCD [ PROP CON COMPUTED DA STORE ] */ /*TODO: SOSTITUIRE RCS RCD [ PROP CON COMPUTED DA STORE ] */ /*
+    } /*TODO: SOSTITUIRE RCS RCD [ PROP CON COMPUTED DA STORE ] */ /*
     rcS: { type: String },
     rcD: { type: String },
-    */,
+    */ /*TODO: SOSTITUIRE RCS RCD [ PROP CON COMPUTED DA STORE ] */,
 
-    /* TEST DINAMIC CSS */
-
-    rcS() {
+    /* TEST DINAMIC CSS */ rcS() {
       return this.$store.getters.rcS;
     },
     rcD() {
@@ -494,59 +537,28 @@ TODO:
   methods: {
     gotoR(r) {
       this.expand = !this.expand;
+      this.$store.dispatch("setDF");
       this.$store.dispatch("gotoR", r);
-      /*console.log("AppBar B4LG rotta per...", r);
-      this.$emit("gotoR", r);
-      */
     },
-
     SDL() {
       /*Switch Drawer Language*/
       this.$store.dispatch("switchDrawerLang");
     },
     ScL(val) {
-      /*SET Current Language*/
+      /*Set Current Language*/
       this.$store.dispatch("setL", val);
     },
-
     DSCset(state) {
-      this.$emit("DSCset", state);
+      this.$store.dispatch("DSCset", state);
     },
-
     setD() {
-      let d = this.drawerLeft;
-      if (d === false) {
-        this.iconX = this.iconC;
-        console.log("d true");
-
-        this.$store.dispatch("setDLf");
-      } else {
-        this.iconX = this.iconO;
-        console.log("d false");
-      }
-      this.$emit("setD");
+      this.$store.dispatch("setD");
     },
     setDF() {
-      this.$emit("setDF");
+      this.$store.dispatch("setDF");
     }
-    /*
-    setcolor() {
-      var x = this;
-      //console.log("setcolor analizzo this.requestuserisstaff...", x.requestUserIsStaff);
-      if (x.requestUserIsStaff === true) {
-        //this.cab="AncAppBarE cBE-Staff";
-        this.nbc = "#80051c"; //dark-RED
-        this.AncRowBarColsssx = "AncRowBarColssx arbcs-Staff";
-        this.AncRowBarColdddx = "AncRowBarColddx arbcs-Staff";
-      } else {
-        //this.cab="AncAppBarE cBE-Socio"
-        this.nbc = "#38282b"; //dark-grey
-        this.AncRowBarColsssx = "AncRowBarColssx arbcs-Visitor";
-        this.AncRowBarColdddx = "AncRowBarColddx arbcs-Visitor";
-      }
-    }
-    */
   },
+
   updated() {
     /*this.setcolor();*/
   },

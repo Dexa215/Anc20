@@ -29,10 +29,96 @@ export default {
 
   components: {},
 
+  computed: {
+    lang() {
+      return this.$store.getters.getCurrentLanguage;
+    },
+    languages() {
+      return this.$store.getters.getLanguages;
+    },
+    languagesShow() {
+      return this.$store.getters.getLanguagesShow;
+    },
+    /*  -----------------------------------------------------------------------   */
+    drawer() {
+      return this.$store.getters.getDrawer;
+    },
+    drawerLeft() {
+      return this.$store.getters.getDrawerLeft;
+    },
+    drawerRight() {
+      return this.$store.getters.getDrawerRight;
+    },
+    drawerSottocategoria() {
+      return this.$store.getters.getDrawerSottocategoria;
+    },
+    /*  -----------------------------------------------------------------------   */
+    iconX() {
+      return this.$store.getters.getIconX;
+    },
+    iconO() {
+      return this.$store.getters.getIconO;
+    },
+    iconOdx() {
+      return this.$store.getters.getIconOdx;
+    },
+    iconC() {
+      return this.$store.getters.getIconC;
+    },
+    iconCdx() {
+      return this.$store.getters.getIconCdx;
+    },
+    /*  -----------------------------------------------------------------------   */
+    categorie() {
+      return this.$store.getters.categorie;
+    },
+    C() {
+      return this.$store.getters.getC;
+    },
+    CS() {
+      return this.$store.getters.getCS;
+    },
+    requestUser() {
+      return this.$store.getters.requestUser;
+    },
+    requestUserIsStaff() {
+      return this.$store.getters.requestUserIsStaff;
+    },
+    requestUserIsSuper() {
+      return this.$store.getters.requestUserIsSuper;
+    },
+    requestUserAvatar() {
+      return this.$store.getters.requestUserAvatar;
+    },
+    requestUserBio() {
+      return this.$store.getters.requestUserBio;
+    },
+    requestToken() {
+      return this.$store.getters.requestToken;
+    },
+    /* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+    /* DINAMIC CSS */
+    rcS() {
+      return this.$store.getters.rcS;
+    },
+    rcD() {
+      return this.$store.getters.rcD;
+    },
+    rcU() {
+      return this.$store.getters.rcU;
+    },
+    /* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+    admincommands() {
+      return this.$store.getters.admincommands;
+    }
+  },
+
   props: {
+    /*
     C: { type: Number },
     CS: { type: Number },
     categorie: { type: Array }
+    */
   },
 
   data() {
@@ -42,14 +128,12 @@ export default {
   },
   methods: {
     gotoR(r) {
-      this.drawerRight = false;
-      this.setDF();
-      console.log("M4lg rotta per...");
-      /*TODO: fare scomparire il menu...*/
-      this.$emit("gotoR", r);
+      this.$store.dispatch("setDF");
+      this.$store.dispatch("gotoR", r);
     },
     setDF() {
-      this.$emit("setDF");
+      this.$store.dispatch("setDF");
+      //this.$emit("setDF");
     }
   }
 };
