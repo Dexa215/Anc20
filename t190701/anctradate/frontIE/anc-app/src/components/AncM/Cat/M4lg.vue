@@ -14,6 +14,7 @@
             link
           >
             <!-- desel -->
+
             <v-list-item-content v-if="item.n!=Cs" class="CclDESEL">
               <v-btn>
                 <v-icon class="caticon" @click="gotoR(item.link)">{{ item.icona }}</v-icon>
@@ -28,11 +29,13 @@
                 </v-list-item-icon>
               </v-btn>
             </v-list-item-content>
+
             <!-- open 
             -:class="CatCL"
             -->
             <v-list-item-content v-else-if="drawerSCM" class="CclOPEN">
               <!-- pulsante categoria-->
+
               <v-btn @click="selectR(item.link,item.n)">
                 <v-icon class="caticon" @click="gotoR(item.link)">{{ item.icona }}</v-icon>
                 <!--descrizione categoria-->
@@ -50,22 +53,17 @@
             -->
             <v-list-item-content v-else class="CclSEL">
               <!-- pulsante categoria-->
+
               <v-btn @click="selectR(item.link,item.n)">
                 <v-icon class="caticon" @click="gotoR(item.link)">{{ item.icona }}</v-icon>
                 <!--descrizione categoria-->
                 <v-list-item-title>{{ item.descrizione }}</v-list-item-title>
                 <!--icona categoria-->
                 <v-list-item-icon class="tileM4icon">
-                  <transition
-                    name="custom-classes-transition"
-                    enter-active-class="animated fadeInDown"
-                    leave-active-class="animated fadeOutUp"
-                  >
-                    <v-icon
-                      v-show="categorie[Cs / 10 - 1].sottocategorie.length > 1"
-                      class="caticon"
-                    >mdi-plus-circle</v-icon>
-                  </transition>
+                  <v-icon
+                    v-show="categorie[Cs / 10 - 1].sottocategorie.length > 1"
+                    class="caticon"
+                  >mdi-plus-circle</v-icon>
                 </v-list-item-icon>
               </v-btn>
             </v-list-item-content>
@@ -295,6 +293,7 @@ export default {
 </script>
 
 <style media="screen">
+/*
 .selezionato {
   height: 200px;
   background-color: chartreuse;
@@ -303,7 +302,7 @@ export default {
 .sottotest {
   background-color: yellowgreen;
 }
-
+*/
 /* 8888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888  */
 .CclDESEL {
   margin: 5px;
@@ -316,22 +315,33 @@ export default {
 }
 .CclSEL {
   margin: 5px;
-  border-radius: 20px;
+  border-radius: 4px;
   color: lightcoral;
   width: 100%;
   height: 50px;
   /*transform: scale(1, 1);*/
   background-color: lightcoral;
+  /*transform: rotate(0deg);*/
+  transition: height 0.5s;
 }
 .CclOPEN {
-  margin: 15px;
+  margin: 5px;
   border-radius: 4px;
   color: aqua;
   width: 100%;
   height: 220px;
   /*transform: scale(1, 1);*/
   background-color: aquamarine;
+  /*
+  transform: rotate(20deg);
+  transform: translateX(50px);
+  */
+  transition: height 0.5s;
 }
+.CclOPEN:active {
+  height: 50px;
+}
+
 /* 8888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888  */
 
 .tileM4 {
