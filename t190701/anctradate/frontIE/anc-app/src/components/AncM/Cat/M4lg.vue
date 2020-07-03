@@ -1,39 +1,139 @@
 <template>
   <div>
     <v-row class="mr mx-auto">
+      <a>DRAWER SCM: {{drawerSCM}}</a>
       <v-col @mouseenter="DSCset('false')" @mouseleave="DSCset('true')">
         <v-list shaped dark class="ancM4l ancM4l_BC">
+          <!-- * -->
+
           <v-list-item
-            class="tileM"
+            @mouseover="selectBtn(item.n)"
+            @mouseleave="deselectBtn(item.n)"
             v-for="item in categorie"
             :key="item.n"
             link
-            @click="gotoR(item.link)"
           >
-            <v-list-item-content>
-              <v-btn rounded>
+            <!-- desel -->
+            <v-list-item-content v-if="item.n!=Cs" class="CclDESEL">
+              <v-btn>
+                <v-icon class="caticon" @click="gotoR(item.link)">{{ item.icona }}</v-icon>
+
                 <v-list-item-title>{{ item.descrizione }}</v-list-item-title>
+                <!--icona categoria-->
+                <v-list-item-icon class="tileM4icon">
+                  <!--  
+                  <v-icon class="caticon"></v-icon>
+                  <v-icon class="caticon">{{ item.icona }}</v-icon>
+                  -->
+                </v-list-item-icon>
               </v-btn>
             </v-list-item-content>
-            <v-list-item-icon>
-              <v-icon>{{ item.icona }}</v-icon>
-            </v-list-item-icon>
+            <!-- open 
+            -:class="CatCL"
+            -->
+            <v-list-item-content v-else-if="drawerSCM" class="CclOPEN">
+              <!-- pulsante categoria-->
+              <v-btn @click="selectR(item.link,item.n)">
+                <v-icon class="caticon" @click="gotoR(item.link)">{{ item.icona }}</v-icon>
+                <!--descrizione categoria-->
+                <v-list-item-title>{{ item.descrizione }}</v-list-item-title>
+                <!--icona categoria-->
+                <v-list-item-icon class="tileM4icon">
+                  <v-icon class="caticon">mdi-minus-circle</v-icon>
+                </v-list-item-icon>
+              </v-btn>
+
+              <SCs></SCs>
+            </v-list-item-content>
+            <!-- Selected 
+            -:class="CatCL"
+            -->
+            <v-list-item-content v-else class="CclSEL">
+              <!-- pulsante categoria-->
+              <v-btn @click="selectR(item.link,item.n)">
+                <v-icon class="caticon" @click="gotoR(item.link)">{{ item.icona }}</v-icon>
+                <!--descrizione categoria-->
+                <v-list-item-title>{{ item.descrizione }}</v-list-item-title>
+                <!--icona categoria-->
+                <v-list-item-icon class="tileM4icon">
+                  <transition
+                    name="custom-classes-transition"
+                    enter-active-class="animated fadeInDown"
+                    leave-active-class="animated fadeOutUp"
+                  >
+                    <v-icon
+                      v-show="categorie[Cs / 10 - 1].sottocategorie.length > 1"
+                      class="caticon"
+                    >mdi-plus-circle</v-icon>
+                  </transition>
+                </v-list-item-icon>
+              </v-btn>
+            </v-list-item-content>
+
+            <!-- -->
           </v-list-item>
+
+          <!-- * -->
         </v-list>
       </v-col>
     </v-row>
+    <a style="color:yellow">in selezione $store > Cs Categoria ... {{ Cs }}</a>
+    <a style="color:yellow">in selezione CSs SottoCategoria ... {{ CSs }}</a>
+    <a>in selezione... {{ btnsel }}</a>
+    <a>{{ btnsel }}</a>
     <v-row class="mx-auto" style="background-color: red"></v-row>
   </div>
 </template>
 
 <script>
 import router from "@/router";
+import SCs from "@/components/AncM/CatSotto/M4lgSottocategorieSel.vue";
 
 export default {
   name: "m4lg",
-  components: {},
+  components: {
+    SCs
+  },
+
   props: {},
   computed: {
+    catCL() {
+      return this.$store.getters.catCL;
+    },
+
+    /*Selezione nel menu  +++++++++++++++++++++++++++++++++++++++++++++ */
+    CatCL() {
+      /*Categoria selezionata nel menu --> Classe per CSS DINAMICO <-- */
+      return this.$store.getters.CatCL;
+    },
+    Cs() {
+      /*Categoria*/
+      return this.$store.getters.getCs;
+    },
+    CSs() {
+      /*SottoCategoria*/
+      return this.$store.getters.getCSs;
+    },
+    /*Selezione nel menu  +++++++++++++++++++++++++++++++++++++++++++++ */
+
+    requestUser() {
+      return this.$store.getters.requestUser;
+    },
+    requestUserIsStaff() {
+      return this.$store.getters.requestUserIsStaff;
+    },
+    requestUserIsSuper() {
+      return this.$store.getters.requestUserIsSuper;
+    },
+    requestUserAvatar() {
+      return this.$store.getters.requestUserAvatar;
+    },
+    requestUserBio() {
+      return this.$store.getters.requestUserBio;
+    },
+    requestToken() {
+      return this.$store.getters.requestToken;
+    },
     /*  -----------------------------------------------------------------------   */
     drawer() {
       return this.$store.getters.getDrawer;
@@ -46,6 +146,9 @@ export default {
     },
     drawerSottocategoria() {
       return this.$store.getters.getDrawerSottocategoria;
+    },
+    drawerSCM() {
+      return this.$store.getters.drawerSCMget;
     },
     /*  -----------------------------------------------------------------------   */
     iconX() {
@@ -73,24 +176,14 @@ export default {
     CS() {
       return this.$store.getters.getCS;
     },
-    requestUser() {
-      return this.$store.getters.requestUser;
+    /*In selezione nel menu...*/
+    Cs() {
+      return this.$store.getters.getCs;
     },
-    requestUserIsStaff() {
-      return this.$store.getters.requestUserIsStaff;
+    CSs() {
+      return this.$store.getters.getCSs;
     },
-    requestUserIsSuper() {
-      return this.$store.getters.requestUserIsSuper;
-    },
-    requestUserAvatar() {
-      return this.$store.getters.requestUserAvatar;
-    },
-    requestUserBio() {
-      return this.$store.getters.requestUserBio;
-    },
-    requestToken() {
-      return this.$store.getters.requestToken;
-    },
+
     /* DINAMIC CSS */
     rcS() {
       return this.$store.getters.rcS;
@@ -105,6 +198,7 @@ export default {
 
   data() {
     return {
+      btnsel: 10,
       dark: "true",
       rgb1: "rgb(56, 25, 7)",
       mini: true,
@@ -137,6 +231,47 @@ export default {
       this.$store.dispatch("setDF");
       this.$store.dispatch("gotoR", r);
     },
+
+    /*2020 06 27*/
+    selectBtn(ncat) {
+      this.btnsel = ncat;
+
+      /*  setta in Cs Categoria dell'item selezionato nel menu  */
+      this.$store.dispatch("selectncat", ncat);
+
+      if (
+        this.drawerSCM &&
+        this.categorie[this.Cs / 10 - 1].sottocategorie.length > 1
+      ) {
+        this.$store.dispatch("setCatcl", "open");
+        /*  setta in moduleA/CatCL : CclSEL  */
+      } else {
+        this.$store.dispatch("setCatcl", "sel");
+        /*  setta in moduleA/CatCL : CclSEL  */
+      }
+    },
+
+    deselectBtn(ncat) {
+      this.btnsel = ncat;
+      this.$store.dispatch("selectncat", 0);
+      this.$store.dispatch("setCatcl", "desel");
+      /*  setta in moduleA/CatCL : CclDESEL  */
+    },
+
+    selectR(r, ncat) {
+      this.$store.dispatch("selectncat", ncat);
+      this.$store.dispatch("selectR", r);
+
+      //this.$store.dispatch("switchDrawerSottocategoriaSelezione");
+      /* SE LA CAT SELEZIONATA CONTIENE SUB MENU */
+      if (this.categorie[this.Cs / 10 - 1].sottocategorie.length > 1) {
+        this.$store.dispatch("drawerSCMswitch");
+      }
+    },
+    setcatCL(val) {
+      this.$store.dispatch("setcatCL", val);
+    },
+
     SDL() {
       /*Switch Drawer Language*/
       this.$store.dispatch("switchDrawerLang");
@@ -160,16 +295,71 @@ export default {
 </script>
 
 <style media="screen">
-.tileM {
+.selezionato {
+  height: 200px;
+  background-color: chartreuse;
+}
+
+.sottotest {
+  background-color: yellowgreen;
+}
+
+/* 8888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888  */
+.CclDESEL {
   margin: 5px;
   border-radius: 4px;
   color: khaki;
   width: 100%;
+  height: 50px;
+  /*transform: scale(1, 1);*/
+  /*background-color: khaki;*/
 }
-.tileM:hover {
-  background: #1f1401;
+.CclSEL {
+  margin: 5px;
+  border-radius: 20px;
+  color: lightcoral;
+  width: 100%;
+  height: 50px;
+  /*transform: scale(1, 1);*/
+  background-color: lightcoral;
 }
-.tileM:active {
+.CclOPEN {
+  margin: 15px;
+  border-radius: 4px;
+  color: aqua;
+  width: 100%;
+  height: 220px;
+  /*transform: scale(1, 1);*/
+  background-color: aquamarine;
+}
+/* 8888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888  */
+
+.tileM4 {
+  margin: 5px;
+  border-radius: 4px;
+  color: khaki;
+  width: 100%;
+  height: 40px;
+  /*transform: scale(1, 1);*/
+}
+.tileM4sel {
+  margin: 15px;
+  border-radius: 4px;
+  color: lightcoral;
+  width: 100%;
+  height: 220px;
+
+  /*transform: scale(1, 1);*/
+}
+/*
+.tileM4:hover {
+  background: rgb(160, 108, 11);
+  height: 150px;
+}*/
+/*transform: scale(1, 10);*/
+/*background: #1f1401;*/
+
+.tileM4:active {
   background: #ffbe4d;
 }
 .d1int {
@@ -221,6 +411,7 @@ export default {
 .ancM4l {
   position: relative;
   z-index: 2;
+
   /*list*/
 }
 .ancM4l_BC {
@@ -233,6 +424,13 @@ export default {
 }
 .mr {
   background-color: transparent !important;
+}
+
+.caticon {
+  transform: scale(1, 1);
+}
+.caticon:hover {
+  transform: scale(1.5, 1.5);
 }
 </style>
 

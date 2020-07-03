@@ -7,15 +7,35 @@
   >
     <v-row
       v-show="categorie[C/10-1].sottocategorie.length > 1 && drawerSottocategoria"
-      class="sottocategorieList mx-auto"
+      class="sottocategorieList4 mx-auto"
     >
       <!--
       <v-col cols="1" class="sottocategorieListr1"></v-col>
       -->
-      <v-col cols="7" class="sottocategorieListr2 rcLat_BC_Visitor">
+      <v-col cols="4" class="sottocategorieListr2 rcLat_BC_Visitor">
         <!-- Finestra sottocategorie -->
         <v-col v-show="drawerSottocategoria" class="m4lgSottocategorie">
+          <v-row class="text-center">
+            <!-- chip -->
+            <v-chip
+              v-for="item in categorie[C/10-1].sottocategorie"
+              :key="item.n"
+              @click="gotoR(item.link)"
+              link
+              class="ma-2"
+              color="indigo"
+              text-color="white"
+            >
+              <v-avatar left>
+                <v-icon>{{item.icona}}</v-icon>
+              </v-avatar>
+              {{ item.descrizione }}
+            </v-chip>
+            <!-- chip -->
+          </v-row>
+
           <!-- -------------------------------------------------------------------------------------------------------------------------- -->
+
           <div class="box" @mouseleave="DSCset('false')">
             <v-list shaped dark class="ancM4l ancM4l_BC">
               <!-- color="rgb(36, 17, 6)" -->
@@ -107,10 +127,10 @@ export default {
 </script>
 
 <style media="screen" scoped>
-.sottocategorieList {
+.sottocategorieList4 {
   position: relative;
   z-index: 3;
-  top: 60px;
+  top: 150px;
   left: 0px;
   background-color: transparent !important;
   height: 600px;

@@ -176,6 +176,7 @@ export default {
 .ancNewsr {
   background-color: transparent !important;
   align-content: center;
+  width: 100%;
 }
 
 .t_BC {

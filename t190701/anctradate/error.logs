@@ -1,98 +1,8 @@
-06/09/2020 11:43:38 PM INFO autoreload 10636 632 Watching for file changes with StatReloader
-06/09/2020 11:48:30 PM WARNING log 10636 7808 Not Found: /media/images/preview/7_poppy2gif.gif
-06/09/2020 11:48:30 PM WARNING log 10636 3704 Not Found: /media/images/preview/mugatu-s-l640.jpg
-06/09/2020 11:48:43 PM WARNING log 10636 5328 Not Found: /media/images/preview/7_poppy2gif.gif
-06/09/2020 11:48:43 PM WARNING log 10636 5328 Not Found: /media/images/preview/mugatu-s-l640.jpg
-06/09/2020 11:48:43 PM WARNING log 10636 5328 Not Found: /media/images/preview/slack-django-large2.jpg
-06/09/2020 11:48:43 PM WARNING log 10636 5328 Not Found: /media/images/preview/7_poppy.gif
-06/09/2020 11:48:52 PM WARNING log 10636 5328 Not Found: /media/images/preview/7_poppy.gif
-06/09/2020 11:48:52 PM WARNING log 10636 5328 Not Found: /media/images/preview/slack-django-large2.jpg
-06/09/2020 11:48:52 PM WARNING log 10636 5328 Not Found: /media/images/preview/mugatu-s-l640.jpg
-06/09/2020 11:48:52 PM WARNING log 10636 5328 Not Found: /media/images/preview/7_poppy2gif.gif
-06/09/2020 11:48:57 PM WARNING log 10636 5328 Not Found: /media/images/preview/7_poppy2gif.gif
-06/13/2020 10:41:11 AM WARNING log 10636 14740 Not Found: /media/images/preview/mugatu-s-l640.jpg
-06/13/2020 10:41:11 AM WARNING log 10636 12932 Not Found: /media/images/preview/7_poppy2gif.gif
-06/13/2020 10:41:19 AM WARNING log 10636 12932 Not Found: /media/images/preview/7_poppy2gif.gif
-06/14/2020 12:30:14 AM ERROR log 10636 3984 Internal Server Error: /chisiamo
-Traceback (most recent call last):
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
-    response = get_response(request)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\core\handlers\base.py", line 145, in _get_response
-    response = self.process_exception_by_middleware(e, request)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\core\handlers\base.py", line 143, in _get_response
-    response = response.render()
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\response.py", line 106, in render
-    self.content = self.rendered_content
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\response.py", line 83, in rendered_content
-    content = template.render(context, self._request)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\backends\django.py", line 61, in render
-    return self.template.render(context)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\base.py", line 171, in render
-    return self._render(context)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\base.py", line 163, in _render
-    return self.nodelist.render(context)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\base.py", line 937, in render
-    bit = node.render_annotated(context)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\base.py", line 904, in render_annotated
-    return self.render(context)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\loader_tags.py", line 150, in render
-    return compiled_parent._render(context)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\base.py", line 163, in _render
-    return self.nodelist.render(context)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\base.py", line 937, in render
-    bit = node.render_annotated(context)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\base.py", line 904, in render_annotated
-    return self.render(context)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\loader_tags.py", line 62, in render
-    result = block.nodelist.render(context)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\base.py", line 937, in render
-    bit = node.render_annotated(context)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\base.py", line 904, in render_annotated
-    return self.render(context)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\library.py", line 192, in render
-    output = self.func(*resolved_args, **resolved_kwargs)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\webpack_loader\templatetags\webpack_loader.py", line 12, in render_bundle
-    tags = utils.get_as_tags(bundle_name, extension=extension, config=config, attrs=attrs)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\webpack_loader\utils.py", line 45, in get_as_tags
-    bundle = _get_bundle(bundle_name, extension, config)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\webpack_loader\utils.py", line 23, in _get_bundle
-    bundle = get_loader(config).get_bundle(bundle_name)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\webpack_loader\loader.py", line 72, in get_bundle
-    assets = self.get_assets()
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\webpack_loader\loader.py", line 39, in get_assets
-    return self._load_assets()
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\webpack_loader\loader.py", line 27, in _load_assets
-    return json.load(f)
-  File "C:\Users\dexa\AppData\Local\Programs\Python\Python37\lib\json\__init__.py", line 296, in load
-    parse_constant=parse_constant, object_pairs_hook=object_pairs_hook, **kw)
-  File "C:\Users\dexa\AppData\Local\Programs\Python\Python37\lib\json\__init__.py", line 348, in loads
-    return _default_decoder.decode(s)
-  File "C:\Users\dexa\AppData\Local\Programs\Python\Python37\lib\json\decoder.py", line 337, in decode
-    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
-  File "C:\Users\dexa\AppData\Local\Programs\Python\Python37\lib\json\decoder.py", line 355, in raw_decode
-    raise JSONDecodeError("Expecting value", s, err.value) from None
-json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
-06/15/2020 09:43:38 PM WARNING log 10636 18112 Not Found: /media/images/preview/7_poppy2gif.gif
-06/15/2020 09:43:38 PM WARNING log 10636 19368 Not Found: /media/images/preview/slack-django-large2.jpg
-06/15/2020 09:43:38 PM WARNING log 10636 22696 Not Found: /media/images/preview/7_poppy.gif
-06/15/2020 09:43:38 PM WARNING log 10636 19368 Not Found: /media/images/preview/mugatu-s-l640.jpg
-06/15/2020 10:11:20 PM WARNING log 10636 22800 Not Found: /media/images/preview/mugatu-s-l640.jpg
-06/15/2020 10:11:20 PM WARNING log 10636 18516 Not Found: /media/images/preview/7_poppy.gif
-06/15/2020 10:11:20 PM WARNING log 10636 19816 Not Found: /media/images/preview/7_poppy2gif.gif
-06/15/2020 10:11:20 PM WARNING log 10636 22800 Not Found: /media/images/preview/slack-django-large2.jpg
-06/15/2020 10:11:43 PM WARNING log 10636 18516 Not Found: /media/images/preview/7_poppy.gif
-06/15/2020 10:11:43 PM WARNING log 10636 19816 Not Found: /media/images/preview/slack-django-large2.jpg
-06/15/2020 10:11:43 PM WARNING log 10636 22800 Not Found: /media/images/preview/mugatu-s-l640.jpg
-06/15/2020 10:11:43 PM WARNING log 10636 18516 Not Found: /media/images/preview/7_poppy2gif.gif
-06/15/2020 10:14:14 PM WARNING log 10636 18516 Not Found: /media/images/preview/slack-django-large2.jpg
-06/15/2020 10:14:14 PM WARNING log 10636 22800 Not Found: /media/images/preview/7_poppy.gif
-06/15/2020 10:14:14 PM WARNING log 10636 19816 Not Found: /media/images/preview/7_poppy2gif.gif
-06/15/2020 10:14:14 PM WARNING log 10636 18516 Not Found: /media/images/preview/mugatu-s-l640.jpg
-06/15/2020 10:26:54 PM WARNING log 10636 9468 Not Found: /media/images/preview/7_poppy2gif.gif
-06/15/2020 10:26:54 PM WARNING log 10636 19332 Not Found: /media/images/preview/slack-django-large2.jpg
-06/15/2020 10:26:54 PM WARNING log 10636 9468 Not Found: /media/images/preview/mugatu-s-l640.jpg
-06/15/2020 10:26:54 PM WARNING log 10636 19332 Not Found: /media/images/preview/7_poppy.gif
-06/16/2020 12:49:04 AM ERROR log 10636 12084 Internal Server Error: /chisiamosoci
+06/21/2020 10:20:45 PM INFO autoreload 15984 6904 Watching for file changes with StatReloader
+06/23/2020 07:05:54 AM WARNING log 15984 6668 Not Found: /media/images/preview/slack-django-large2.jpg
+06/23/2020 07:05:54 AM WARNING log 15984 3528 Not Found: /media/images/preview/7_poppy2gif.gif
+06/23/2020 07:05:54 AM WARNING log 15984 6668 Not Found: /media/images/preview/mugatu-s-l640.jpg
+06/30/2020 05:42:28 PM ERROR log 15984 2176 Internal Server Error: /sede
 Traceback (most recent call last):
   File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
     response = get_response(request)
@@ -139,377 +49,184 @@ Traceback (most recent call last):
   File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\webpack_loader\loader.py", line 97, in get_bundle
     raise WebpackError(error)
 webpack_loader.exceptions.WebpackError: 
-            ModuleNotFoundError in 
-            Module not found: Error: [CaseSensitivePathsPlugin] `c:\projects\GIT\online\Anc20\t190701\anctradate\frontIE\anc-app\src\components\AncM\CatSotto\MenuSottocategorie.vue` does not match the corresponding path on disk `MenuSottoCategorie.vue`.
-            
-06/16/2020 12:50:23 AM ERROR log 10636 12084 Internal Server Error: /chisiamosoci
-Traceback (most recent call last):
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
-    response = get_response(request)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\core\handlers\base.py", line 145, in _get_response
-    response = self.process_exception_by_middleware(e, request)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\core\handlers\base.py", line 143, in _get_response
-    response = response.render()
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\response.py", line 106, in render
-    self.content = self.rendered_content
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\response.py", line 83, in rendered_content
-    content = template.render(context, self._request)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\backends\django.py", line 61, in render
-    return self.template.render(context)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\base.py", line 171, in render
-    return self._render(context)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\base.py", line 163, in _render
-    return self.nodelist.render(context)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\base.py", line 937, in render
-    bit = node.render_annotated(context)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\base.py", line 904, in render_annotated
-    return self.render(context)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\loader_tags.py", line 150, in render
-    return compiled_parent._render(context)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\base.py", line 163, in _render
-    return self.nodelist.render(context)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\base.py", line 937, in render
-    bit = node.render_annotated(context)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\base.py", line 904, in render_annotated
-    return self.render(context)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\loader_tags.py", line 62, in render
-    result = block.nodelist.render(context)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\base.py", line 937, in render
-    bit = node.render_annotated(context)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\base.py", line 904, in render_annotated
-    return self.render(context)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\library.py", line 192, in render
-    output = self.func(*resolved_args, **resolved_kwargs)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\webpack_loader\templatetags\webpack_loader.py", line 12, in render_bundle
-    tags = utils.get_as_tags(bundle_name, extension=extension, config=config, attrs=attrs)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\webpack_loader\utils.py", line 45, in get_as_tags
-    bundle = _get_bundle(bundle_name, extension, config)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\webpack_loader\utils.py", line 23, in _get_bundle
-    bundle = get_loader(config).get_bundle(bundle_name)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\webpack_loader\loader.py", line 97, in get_bundle
-    raise WebpackError(error)
-webpack_loader.exceptions.WebpackError: 
-            ModuleNotFoundError in 
-            Module not found: Error: [CaseSensitivePathsPlugin] `c:\projects\GIT\online\Anc20\t190701\anctradate\frontIE\anc-app\src\components\AncM\CatSotto\MenuSottocategorie.vue` does not match the corresponding path on disk `MenuSottoCategorie.vue`.
-            
-06/16/2020 12:51:18 AM ERROR log 10636 12084 Internal Server Error: /chisiamosoci
-Traceback (most recent call last):
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
-    response = get_response(request)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\core\handlers\base.py", line 145, in _get_response
-    response = self.process_exception_by_middleware(e, request)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\core\handlers\base.py", line 143, in _get_response
-    response = response.render()
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\response.py", line 106, in render
-    self.content = self.rendered_content
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\response.py", line 83, in rendered_content
-    content = template.render(context, self._request)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\backends\django.py", line 61, in render
-    return self.template.render(context)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\base.py", line 171, in render
-    return self._render(context)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\base.py", line 163, in _render
-    return self.nodelist.render(context)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\base.py", line 937, in render
-    bit = node.render_annotated(context)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\base.py", line 904, in render_annotated
-    return self.render(context)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\loader_tags.py", line 150, in render
-    return compiled_parent._render(context)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\base.py", line 163, in _render
-    return self.nodelist.render(context)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\base.py", line 937, in render
-    bit = node.render_annotated(context)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\base.py", line 904, in render_annotated
-    return self.render(context)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\loader_tags.py", line 62, in render
-    result = block.nodelist.render(context)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\base.py", line 937, in render
-    bit = node.render_annotated(context)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\base.py", line 904, in render_annotated
-    return self.render(context)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\library.py", line 192, in render
-    output = self.func(*resolved_args, **resolved_kwargs)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\webpack_loader\templatetags\webpack_loader.py", line 12, in render_bundle
-    tags = utils.get_as_tags(bundle_name, extension=extension, config=config, attrs=attrs)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\webpack_loader\utils.py", line 45, in get_as_tags
-    bundle = _get_bundle(bundle_name, extension, config)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\webpack_loader\utils.py", line 23, in _get_bundle
-    bundle = get_loader(config).get_bundle(bundle_name)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\webpack_loader\loader.py", line 97, in get_bundle
-    raise WebpackError(error)
-webpack_loader.exceptions.WebpackError: 
-            ModuleNotFoundError in 
-            Module not found: Error: [CaseSensitivePathsPlugin] `c:\projects\GIT\online\Anc20\t190701\anctradate\frontIE\anc-app\src\components\AncM\CatSotto\MenuSottocategorie.vue` does not match the corresponding path on disk `MenuSottoCategorie.vue`.
-            
-06/16/2020 12:51:51 AM ERROR log 10636 12084 Internal Server Error: /chisiamosoci
-Traceback (most recent call last):
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
-    response = get_response(request)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\core\handlers\base.py", line 145, in _get_response
-    response = self.process_exception_by_middleware(e, request)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\core\handlers\base.py", line 143, in _get_response
-    response = response.render()
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\response.py", line 106, in render
-    self.content = self.rendered_content
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\response.py", line 83, in rendered_content
-    content = template.render(context, self._request)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\backends\django.py", line 61, in render
-    return self.template.render(context)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\base.py", line 171, in render
-    return self._render(context)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\base.py", line 163, in _render
-    return self.nodelist.render(context)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\base.py", line 937, in render
-    bit = node.render_annotated(context)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\base.py", line 904, in render_annotated
-    return self.render(context)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\loader_tags.py", line 150, in render
-    return compiled_parent._render(context)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\base.py", line 163, in _render
-    return self.nodelist.render(context)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\base.py", line 937, in render
-    bit = node.render_annotated(context)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\base.py", line 904, in render_annotated
-    return self.render(context)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\loader_tags.py", line 62, in render
-    result = block.nodelist.render(context)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\base.py", line 937, in render
-    bit = node.render_annotated(context)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\base.py", line 904, in render_annotated
-    return self.render(context)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\library.py", line 192, in render
-    output = self.func(*resolved_args, **resolved_kwargs)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\webpack_loader\templatetags\webpack_loader.py", line 12, in render_bundle
-    tags = utils.get_as_tags(bundle_name, extension=extension, config=config, attrs=attrs)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\webpack_loader\utils.py", line 45, in get_as_tags
-    bundle = _get_bundle(bundle_name, extension, config)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\webpack_loader\utils.py", line 23, in _get_bundle
-    bundle = get_loader(config).get_bundle(bundle_name)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\webpack_loader\loader.py", line 97, in get_bundle
-    raise WebpackError(error)
-webpack_loader.exceptions.WebpackError: 
-            ModuleNotFoundError in 
-            Module not found: Error: [CaseSensitivePathsPlugin] `c:\projects\GIT\online\Anc20\t190701\anctradate\frontIE\anc-app\src\components\AncM\CatSotto\MenuSottocategorie.vue` does not match the corresponding path on disk `MenuSottoCategorie.vue`.
-            
-06/16/2020 09:29:20 AM WARNING log 10636 22412 Not Found: /media/images/preview/slack-django-large2.jpg
-06/16/2020 09:29:20 AM WARNING log 10636 22412 Not Found: /media/images/preview/mugatu-s-l640.jpg
-06/16/2020 09:29:20 AM WARNING log 10636 22412 Not Found: /media/images/preview/7_poppy.gif
-06/16/2020 09:29:20 AM WARNING log 10636 22412 Not Found: /media/images/preview/7_poppy2gif.gif
-06/16/2020 09:39:59 AM WARNING log 10636 23720 Not Found: /media/images/preview/7_poppy.gif
-06/16/2020 09:39:59 AM WARNING log 10636 23720 Not Found: /media/images/preview/mugatu-s-l640.jpg
-06/16/2020 09:39:59 AM WARNING log 10636 23720 Not Found: /media/images/preview/slack-django-large2.jpg
-06/16/2020 09:39:59 AM WARNING log 10636 14672 Not Found: /media/images/preview/7_poppy2gif.gif
-06/16/2020 11:14:15 PM ERROR log 10636 24176 Internal Server Error: /tesseramento
-Traceback (most recent call last):
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
-    response = get_response(request)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\core\handlers\base.py", line 145, in _get_response
-    response = self.process_exception_by_middleware(e, request)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\core\handlers\base.py", line 143, in _get_response
-    response = response.render()
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\response.py", line 106, in render
-    self.content = self.rendered_content
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\response.py", line 83, in rendered_content
-    content = template.render(context, self._request)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\backends\django.py", line 61, in render
-    return self.template.render(context)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\base.py", line 171, in render
-    return self._render(context)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\base.py", line 163, in _render
-    return self.nodelist.render(context)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\base.py", line 937, in render
-    bit = node.render_annotated(context)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\base.py", line 904, in render_annotated
-    return self.render(context)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\loader_tags.py", line 150, in render
-    return compiled_parent._render(context)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\base.py", line 163, in _render
-    return self.nodelist.render(context)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\base.py", line 937, in render
-    bit = node.render_annotated(context)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\base.py", line 904, in render_annotated
-    return self.render(context)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\loader_tags.py", line 62, in render
-    result = block.nodelist.render(context)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\base.py", line 937, in render
-    bit = node.render_annotated(context)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\base.py", line 904, in render_annotated
-    return self.render(context)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\library.py", line 192, in render
-    output = self.func(*resolved_args, **resolved_kwargs)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\webpack_loader\templatetags\webpack_loader.py", line 12, in render_bundle
-    tags = utils.get_as_tags(bundle_name, extension=extension, config=config, attrs=attrs)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\webpack_loader\utils.py", line 45, in get_as_tags
-    bundle = _get_bundle(bundle_name, extension, config)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\webpack_loader\utils.py", line 23, in _get_bundle
-    bundle = get_loader(config).get_bundle(bundle_name)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\webpack_loader\loader.py", line 97, in get_bundle
-    raise WebpackError(error)
-webpack_loader.exceptions.WebpackError: 
-            ModuleBuildError in 
-            Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):
-ModuleBuildError: Module build failed (from ./node_modules/postcss-loader/src/index.js):
-SyntaxError
+            ModuleError in 
+            Module Error (from ./node_modules/vue-loader/lib/loaders/templateLoader.js):
+(Emitted value instead of an instance of Error) 
 
-(166:1) Unclosed block
+  Errors compiling template:
 
-  164 | }
-  165 | 
-> 166 | .ur {
-      | ^
-  167 |   height: 70px;
-  168 |   text-align: start;
+  tag <v-list-item> has no matching end tag.
 
-    at c:\Projects\GIT\online\Anc20\t190701\anctradate\frontIE\anc-app\node_modules\webpack\lib\NormalModule.js:316:20
-    at c:\Projects\GIT\online\Anc20\t190701\anctradate\frontIE\anc-app\node_modules\loader-runner\lib\LoaderRunner.js:367:11
-    at c:\Projects\GIT\online\Anc20\t190701\anctradate\frontIE\anc-app\node_modules\loader-runner\lib\LoaderRunner.js:233:18
-    at context.callback (c:\Projects\GIT\online\Anc20\t190701\anctradate\frontIE\anc-app\node_modules\loader-runner\lib\LoaderRunner.js:111:13)
-    at c:\projects\GIT\online\Anc20\t190701\anctradate\frontIE\anc-app\node_modules\postcss-loader\src\index.js:207:9
+  7  |          <!-- * -->
+  8  |  
+  9  |          <v-list-item
+     |          ^^^^^^^^^^^^
+  10 |            @mouseover="selectBtn(item.n)"
+     |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  11 |            @mouseleave="deselectBtn(item.n)"
+     |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  12 |            v-for="item in categorie"
+     |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  13 |            :key="item.n"
+     |  ^^^^^^^^^^^^^^^^^^^^^^^
+  14 |            link
+     |  ^^^^^^^^^^^^^^
+  15 |          >
+     |  ^^^^^^^^^
+
+  tag <v-list> has no matching end tag.
+
+  4  |      <a>DRAWER SCM: {{drawerSCM}}</a>
+  5  |      <v-col @mouseenter="DSCset('false')" @mouseleave="DSCset('true')">
+  6  |        <v-list shaped dark class="ancM4l ancM4l_BC">
+     |        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  7  |          <!-- * -->
+  8  |  
+
+  tag <v-col> has no matching end tag.
+
+  3  |    <v-row class="mr mx-auto">
+  4  |      <a>DRAWER SCM: {{drawerSCM}}</a>
+  5  |      <v-col @mouseenter="DSCset('false')" @mouseleave="DSCset('true')">
+     |      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6  |        <v-list shaped dark class="ancM4l ancM4l_BC">
+  7  |          <!-- * -->
+
+  tag <v-row> has no matching end tag.
+
+  1  |  
+  2  |  <div>
+  3  |    <v-row class="mr mx-auto">
+     |    ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  4  |      <a>DRAWER SCM: {{drawerSCM}}</a>
+  5  |      <v-col @mouseenter="DSCset('false')" @mouseleave="DSCset('true')">
+
+  Component template should contain exactly one root element. If you are using v-if on multiple elements, use v-else-if to chain them instead.
+
+  36 |            </div>
+  37 |            <!-- -->
+  38 |            <div v-else>
+     |            ^^^^^^^^^^^^
+  39 |              selected
+     |  ^^^^^^^^^^^^^^^^^^^^
+  40 |              <v-list-item-content>
+     |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  41 |                <v-btn>
+     |  ^^^^^^^^^^^^^^^^^^^^^
+  42 |                  <v-icon class="caticon" @click="selectR(item.link,item.n)">{{ item.icona }}</v-icon>
+     |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  43 |                  <v-list-item-title>{{ item.descrizione }}</v-list-item-title>
+     |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  44 |                  <!--icona categoria-->
+     |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  45 |                  <v-list-item-icon class="tileM4icon">
+     |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  46 |                    <v-icon class="caticon" @click="gotoR(item.link)">{{ item.icona }}</v-icon>
+     |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  47 |                  </v-list-item-icon>
+     |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  48 |                </v-btn>
+     |  ^^^^^^^^^^^^^^^^^^^^^^
+  49 |              </v-list-item-content>
+     |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  50 |            </div>
+     |  ^^^^^^^^^^^^^^^^
+  51 |  
+     |  
+  52 |            <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+     |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  53 |            <!--
+     |  ^^^^^^^^^^^^^^
+  54 |            
+     |  ^^^^^^^^^^
+  55 |            -->
+     |  ^^^^^^^^^^^^^
+  56 |            <!--
+     |  ^^^^^^^^^^^^^^
+  57 |  
+     |  
+  58 |                :class="catCL"
+     |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  59 |                class="tileM4content"
+     |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  60 |                v-btn @click="DSCset('x')" rounded
+     |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  61 |            -->
+     |  ^^^^^^^^^^^^^
+  62 |  
+     |  
+  63 |            <!--
+     |  ^^^^^^^^^^^^^^
+  64 |                <v-icon class="caticon" @click="gotoR(item.link)">{{ item.icona }}</v-icon>
+     |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  65 |            -->
+     |  ^^^^^^^^^^^^^
+  66 |  
+     |  
+  67 |            <!-- :btnsel="item.n "-->
+     |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  68 |  
+     |  
+  69 |            <!--v-if="item.n==Cs && drawerSCM"-->
+     |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  70 |  
+     |  
+  71 |            <!-- TODO: REINTEGRA -->
+     |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  72 |            <!-- SCs v-if="drawerSCM"></SCs>
+     |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  73 |            <!-- TODO: REINTEGRA-->
+     |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  74 |  
+     |  
+  75 |            <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+     |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  76 |  
+     |  
+  77 |            <!-- * -->
+     |  ^^^^^^^^^^^^^^^^^^^^
+  78 |            <v-row
+     |  ^^^^^^^^^^^^^^^^
+  79 |              class="mr mx-auto selezionato"
+     |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  80 |              v-if="item.n==Cs && categorie[Cs/10-1].sottocategorie.length > 1"
+     |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  81 |            >
+     |  ^^^^^^^^^^^
+  82 |              <!-- riquadro - selezionato {{item.n}}{{drawerSCM}}-->
+     |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  83 |              <SCs></SCs>
+     |  ^^^^^^^^^^^^^^^^^^^^^^^
+  84 |            </v-row>
+     |  ^^^^^^^^^^^^^^^^^^
+  85 |  
+     |  
+  86 |            <!-- * -->
+     |  ^^^^^^^^^^^^^^^^^^^^
+  87 |          </v-list-item>
+     |  ^^^^^^^^^^^^^^^^^^^^^^
+  88 |  
+     |  
+  89 |          <!-- * -->
+     |  ^^^^^^^^^^^^^^^^^^
+  90 |        </v-list>
+     |  ^^^^^^^^^^^^^^^
+  91 |      </v-col>
+     |  ^^^^^^^^^^^^
+  92 |    </v-row>
+     |  ^^^^^^^^^^
+  93 |    <a style="color:yellow">in selezione Cs Categoria ... {{ Cs }}</a>
+     |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  94 |    <a style="color:yellow">in selezione CSs SottoCategoria ... {{ CSs }}</a>
+     |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  95 |    <a>in selezione... {{ btnsel }}</a>
+     |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  96 |    <a>{{ btnsel }}</a>
+     |  ^^^^^^^^^^^^^^^^^^^^^
+  97 |    <v-row class="mx-auto" style="background-color: red"></v-row>
+     |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  98 |  </div>
+     |  ^^^^^^
+
             
-06/16/2020 11:52:51 PM ERROR log 10636 10812 Internal Server Error: /chisiamo
-Traceback (most recent call last):
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
-    response = get_response(request)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\core\handlers\base.py", line 145, in _get_response
-    response = self.process_exception_by_middleware(e, request)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\core\handlers\base.py", line 143, in _get_response
-    response = response.render()
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\response.py", line 106, in render
-    self.content = self.rendered_content
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\response.py", line 83, in rendered_content
-    content = template.render(context, self._request)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\backends\django.py", line 61, in render
-    return self.template.render(context)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\base.py", line 171, in render
-    return self._render(context)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\base.py", line 163, in _render
-    return self.nodelist.render(context)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\base.py", line 937, in render
-    bit = node.render_annotated(context)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\base.py", line 904, in render_annotated
-    return self.render(context)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\loader_tags.py", line 150, in render
-    return compiled_parent._render(context)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\base.py", line 163, in _render
-    return self.nodelist.render(context)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\base.py", line 937, in render
-    bit = node.render_annotated(context)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\base.py", line 904, in render_annotated
-    return self.render(context)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\loader_tags.py", line 62, in render
-    result = block.nodelist.render(context)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\base.py", line 937, in render
-    bit = node.render_annotated(context)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\base.py", line 904, in render_annotated
-    return self.render(context)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\library.py", line 192, in render
-    output = self.func(*resolved_args, **resolved_kwargs)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\webpack_loader\templatetags\webpack_loader.py", line 12, in render_bundle
-    tags = utils.get_as_tags(bundle_name, extension=extension, config=config, attrs=attrs)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\webpack_loader\utils.py", line 45, in get_as_tags
-    bundle = _get_bundle(bundle_name, extension, config)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\webpack_loader\utils.py", line 23, in _get_bundle
-    bundle = get_loader(config).get_bundle(bundle_name)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\webpack_loader\loader.py", line 97, in get_bundle
-    raise WebpackError(error)
-webpack_loader.exceptions.WebpackError: 
-            ModuleNotFoundError in 
-            Module not found: Error: Can't resolve '@/components/AncM/Cat/M5xl.vue' in 'c:\projects\GIT\online\Anc20\t190701\anctradate\frontIE\anc-app\src\components\AncM\MenuS'
-            
-06/16/2020 11:52:57 PM ERROR log 10636 10812 Internal Server Error: /chisiamo
-Traceback (most recent call last):
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
-    response = get_response(request)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\core\handlers\base.py", line 145, in _get_response
-    response = self.process_exception_by_middleware(e, request)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\core\handlers\base.py", line 143, in _get_response
-    response = response.render()
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\response.py", line 106, in render
-    self.content = self.rendered_content
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\response.py", line 83, in rendered_content
-    content = template.render(context, self._request)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\backends\django.py", line 61, in render
-    return self.template.render(context)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\base.py", line 171, in render
-    return self._render(context)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\base.py", line 163, in _render
-    return self.nodelist.render(context)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\base.py", line 937, in render
-    bit = node.render_annotated(context)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\base.py", line 904, in render_annotated
-    return self.render(context)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\loader_tags.py", line 150, in render
-    return compiled_parent._render(context)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\base.py", line 163, in _render
-    return self.nodelist.render(context)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\base.py", line 937, in render
-    bit = node.render_annotated(context)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\base.py", line 904, in render_annotated
-    return self.render(context)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\loader_tags.py", line 62, in render
-    result = block.nodelist.render(context)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\base.py", line 937, in render
-    bit = node.render_annotated(context)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\base.py", line 904, in render_annotated
-    return self.render(context)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\library.py", line 192, in render
-    output = self.func(*resolved_args, **resolved_kwargs)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\webpack_loader\templatetags\webpack_loader.py", line 12, in render_bundle
-    tags = utils.get_as_tags(bundle_name, extension=extension, config=config, attrs=attrs)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\webpack_loader\utils.py", line 45, in get_as_tags
-    bundle = _get_bundle(bundle_name, extension, config)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\webpack_loader\utils.py", line 23, in _get_bundle
-    bundle = get_loader(config).get_bundle(bundle_name)
-  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\webpack_loader\loader.py", line 97, in get_bundle
-    raise WebpackError(error)
-webpack_loader.exceptions.WebpackError: 
-            ModuleNotFoundError in 
-            Module not found: Error: Can't resolve '@/components/AncM/Cat/M5xl.vue' in 'c:\projects\GIT\online\Anc20\t190701\anctradate\frontIE\anc-app\src\components\AncM\MenuS'
-            
-06/16/2020 11:57:14 PM WARNING log 10636 10812 Not Found: /media/images/preview/7_poppy2gif.gif
-06/16/2020 11:57:14 PM WARNING log 10636 10812 Not Found: /media/images/preview/mugatu-s-l640.jpg
-06/16/2020 11:57:15 PM WARNING log 10636 10812 Not Found: /media/images/preview/slack-django-large2.jpg
-06/16/2020 11:57:15 PM WARNING log 10636 10812 Not Found: /media/images/preview/7_poppy.gif
-06/16/2020 11:57:16 PM WARNING log 10636 10812 Not Found: /media/images/preview/2014-11-30_13.16.56.jpg
-06/17/2020 12:17:52 AM WARNING log 10636 10812 Not Found: /media/images/preview/7_poppy2gif.gif
-06/17/2020 12:17:52 AM WARNING log 10636 16968 Not Found: /media/images/preview/mugatu-s-l640.jpg
-06/17/2020 12:17:55 AM WARNING log 10636 16968 Not Found: /media/images/preview/slack-django-large2.jpg
-06/17/2020 12:17:56 AM WARNING log 10636 16968 Not Found: /media/images/preview/7_poppy.gif
-06/17/2020 12:19:41 AM WARNING log 10636 10812 Not Found: /media/images/preview/7_poppy.gif
-06/17/2020 12:19:42 AM WARNING log 10636 16968 Not Found: /media/images/preview/slack-django-large2.jpg
-06/17/2020 12:19:42 AM WARNING log 10636 10812 Not Found: /media/images/preview/mugatu-s-l640.jpg
-06/17/2020 12:19:43 AM WARNING log 10636 10812 Not Found: /media/images/preview/7_poppy2gif.gif
-06/17/2020 12:19:56 AM WARNING log 10636 10812 Not Found: /media/images/preview/7_poppy2gif.gif
-06/17/2020 12:19:56 AM WARNING log 10636 10812 Not Found: /media/images/preview/mugatu-s-l640.jpg
-06/17/2020 12:19:57 AM WARNING log 10636 10812 Not Found: /media/images/preview/slack-django-large2.jpg
-06/17/2020 12:19:58 AM WARNING log 10636 10812 Not Found: /media/images/preview/7_poppy.gif
-06/17/2020 12:20:01 AM WARNING log 10636 10812 Not Found: /media/images/preview/7_poppy.gif
-06/17/2020 12:20:02 AM WARNING log 10636 10812 Not Found: /media/images/preview/7_poppy2gif.gif
-06/17/2020 12:20:06 AM WARNING log 10636 10812 Not Found: /media/images/preview/7_poppy2gif.gif
-06/17/2020 12:20:07 AM WARNING log 10636 10812 Not Found: /media/images/preview/mugatu-s-l640.jpg
-06/17/2020 12:24:04 AM WARNING log 10636 10812 Not Found: /media/images/preview/7_poppy2gif.gif
-06/17/2020 12:24:05 AM WARNING log 10636 10812 Not Found: /media/images/preview/mugatu-s-l640.jpg
-06/17/2020 12:24:05 AM WARNING log 10636 10812 Not Found: /media/images/preview/slack-django-large2.jpg
-06/17/2020 12:24:06 AM WARNING log 10636 10812 Not Found: /media/images/preview/7_poppy.gif
-06/17/2020 12:24:14 AM WARNING log 10636 10812 Not Found: /media/images/preview/7_poppy.gif
-06/17/2020 12:24:17 AM WARNING log 10636 10812 Not Found: /media/images/preview/7_poppy2gif.gif
-06/17/2020 12:24:21 AM WARNING log 10636 10812 Not Found: /media/images/preview/7_poppy.gif
-06/17/2020 12:24:22 AM WARNING log 10636 10812 Not Found: /media/images/preview/7_poppy2gif.gif
-06/17/2020 12:26:49 AM WARNING log 10636 10072 Not Found: /media/images/preview/7_poppy2gif.gif
-06/17/2020 12:26:50 AM WARNING log 10636 10072 Not Found: /media/images/preview/mugatu-s-l640.jpg
-06/17/2020 12:26:50 AM WARNING log 10636 10072 Not Found: /media/images/preview/slack-django-large2.jpg
-06/17/2020 12:26:54 AM WARNING log 10636 10072 Not Found: /media/images/preview/7_poppy.gif
-06/17/2020 12:26:56 AM WARNING log 10636 10072 Not Found: /media/images/preview/slack-django-large2.jpg
-06/17/2020 12:26:56 AM WARNING log 10636 10072 Not Found: /media/images/preview/mugatu-s-l640.jpg
-06/17/2020 12:26:57 AM WARNING log 10636 10072 Not Found: /media/images/preview/7_poppy2gif.gif
-06/17/2020 12:27:01 AM WARNING log 10636 10072 Not Found: /media/images/preview/7_poppy.gif
-06/17/2020 12:27:01 AM WARNING log 10636 10072 Not Found: /media/images/preview/mugatu-s-l640.jpg
-06/17/2020 12:27:01 AM WARNING log 10636 10072 Not Found: /media/images/preview/7_poppy2gif.gif
-06/17/2020 12:27:10 AM WARNING log 10636 10072 Not Found: /media/images/preview/slack-django-large2.jpg
-06/17/2020 12:27:15 AM WARNING log 10636 10072 Not Found: /media/images/preview/slack-django-large2.jpg
-06/17/2020 12:27:43 AM WARNING log 10636 10072 Not Found: /media/images/preview/7_poppy2gif.gif
-06/17/2020 12:27:44 AM WARNING log 10636 10072 Not Found: /media/images/preview/mugatu-s-l640.jpg
-06/17/2020 12:27:45 AM WARNING log 10636 10072 Not Found: /media/images/preview/slack-django-large2.jpg
-06/17/2020 12:27:45 AM WARNING log 10636 10072 Not Found: /media/images/preview/7_poppy.gif
-06/17/2020 12:27:45 AM WARNING log 10636 10072 Not Found: /media/images/preview/7_poppy2gif.gif
+06/30/2020 05:42:33 PM WARNING log 15984 2176 Not Found: /favicon.ico

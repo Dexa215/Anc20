@@ -7,114 +7,90 @@
       leave-active-class="animated fadeOutUp"
     >
       <!--  -->
-      <v-row v-show="drawerLeft" class="rmvrow" text-align="center">
-        <!-- menu sottocategorie... -->
 
-        <v-col class="rmH0" cols="4"></v-col>
+      <!--
+        <v-col v-if="currentres != 'xs'" class="rmH0" cols="4"></v-col>
+      -->
 
-        <!--  finestra comandi amministatore **************************************************** -->
-        <transition
-          name="custom-classes-transition2"
-          enter-active-class="animated bounceInLeft"
-          leave-active-class="animated bounceOutLeft"
-        >
-          <v-col
-            v-show="this.$store.getters.requestUserIsSuper & admincommands"
-            class="rmvcolSadmin rmH"
-            cols="12"
-          >
-            <!-- Admin Menu -->
-            <div v-if="currentres == 'xs'"></div>
-            <div v-else-if="currentres == 'sm'"></div>
-            <div v-else-if="currentres == 'md'"></div>
-            <div v-else-if="currentres == 'lg'">
-              <m4lgAdmin></m4lgAdmin>
-            </div>
-            <div v-else-if="currentres == 'xl'"></div>
-            <!-- / Admin Menu -->
-          </v-col>
-        </transition>
+      <menu1xs v-if="currentres == 'xs'"></menu1xs>
+      <menu2sm v-if="currentres == 'sm'"></menu2sm>
+      <menu3md v-if="currentres == 'md'"></menu3md>
+      <menu4lg v-if="currentres == 'lg'"></menu4lg>
+      <menu5xl v-if="currentres == 'xl'"></menu5xl>
 
-        <!--  finestra USER dati **************************************************** -->
-        <!-- User Menu -->
+      <!--
+        <div v-if ="currentres == 'xs'"></div>
+        <div v-else-if="currentres == 'sm'"></div>
+        ...
+      -->
 
-        <!-- xs -->
-        <!--
+      <!--  finestra USER dati **************************************************** -->
+      <!-- User Menu -->
+
+      <!-- xs -->
+      <!--
         <v-col v-if="currentres == 'xs'" class="rmvcolC1 rmH1 rcC_BC" cols="4">
           <div style="color:white">
             <u1xs></u1xs>
           </div>
         </v-col>
-        -->
-        <v-col v-if="currentres == 'xs'" class="rmvcolC1-m rmH1-m rcC_BC">
-          <m1xs></m1xs>
-        </v-col>
+      -->
 
-        <v-col v-if="currentres == 'xs'" class="rmvcolC1 rmH1 rcC_BC my-4" cols="12">
-          <u1xs></u1xs>
-        </v-col>
+      <v-col v-else-if="currentres == 'sm'" class="rmvcolC2 rmH rcC_BC" cols="4">
+        <div>
+          <u2sm></u2sm>
+        </div>
+      </v-col>
 
-        <v-col v-if="currentres == 'xs'" class="rmvcolC1-l rmH1-l rcC_BC my-4" cols="12">
-          <!-- Language... -->
-          <h3 style="color:white" v-show="drawerLeft && !languagesShow">Lingua corrente:</h3>
-          <v-expand-x-transition>
-            <v-btn
-              class="mx-1"
-              icon
-              v-show="drawerLeft && !languagesShow"
-              fab
-              rounded
-              style="background-color: transparent"
-              @click="SDL"
-            >
-              <v-img class="mx-1 AncIconLang" large dark :src="lang.icona"></v-img>
-            </v-btn>
-          </v-expand-x-transition>
-
-          <h3 style="color:white" v-show="drawerLeft && languagesShow">Seleziona:</h3>
-
-          <v-btn
-            v-show="drawerLeft && languagesShow"
-            v-for="lang in languages"
-            :key="lang.pk"
-            class="mx-1 AncBtnLanguages"
-            icon
-            fab
-            rounded
-            @click="ScL(lang.code)"
-          >
-            <v-img class="mx-1 AncIconLang" large dark :src="lang.icona"></v-img>
-          </v-btn>
-        </v-col>
-
-        <v-col v-else-if="currentres == 'sm'" class="rmvcolC2 rmH rcC_BC" cols="4">
-          <div>
-            <u2sm></u2sm>
-          </div>
-        </v-col>
-
-        <v-col v-else-if="currentres == 'md'" class="rmvcolC3 rmH rcC_BC" cols="4">
-          <div>
-            <u3md></u3md>
-          </div>
-        </v-col>
-
+      <v-col v-else-if="currentres == 'md'" class="rmvcolC3 rmH rcC_BC" cols="4">
+        <div>
+          <u3md></u3md>
+        </div>
+      </v-col>
+      <!--
         <v-col v-else-if="currentres == 'lg'" class="rmvcolC4 rmH rcC_BC" cols="4">
           <div>
             <u4lg></u4lg>
           </div>
         </v-col>
+
         <v-col v-if="currentres == 'lg'" :class="rcU">
           <m4lg></m4lg>
         </v-col>
+      -->
+      <v-col v-else-if="currentres == 'xl'" class="rmvcolC5 rmH rcC_BC" cols="4">
+        <!--<u4lg @adminCommandSwitch="adminCommandSwitch" @gotoR="gotoR"></u4lg>-->
+        <div>
+          <u5xl></u5xl>
+        </div>
+      </v-col>
 
-        <v-col v-else-if="currentres == 'xl'" class="rmvcolC5 rmH rcC_BC" cols="4">
-          <!--<u4lg @adminCommandSwitch="adminCommandSwitch" @gotoR="gotoR"></u4lg>-->
-          <div>
-            <u5xl></u5xl>
+      <!--  finestra comandi amministatore **************************************************** -->
+      <transition
+        name="custom-classes-transition2"
+        enter-active-class="animated bounceInLeft"
+        leave-active-class="animated bounceOutLeft"
+      >
+        <v-col
+          v-show="this.$store.getters.requestUserIsSuper & admincommands"
+          class="rmvcolSadmin rmH"
+          cols="12"
+        >
+          <!-- Admin Menu -->
+          <div v-if="currentres == 'xs'"></div>
+          <div v-else-if="currentres == 'sm'"></div>
+          <div v-else-if="currentres == 'md'"></div>
+
+          <!--
+          <div v-else-if="currentres == 'lg'">
+            <m4lgAdmin></m4lgAdmin>
           </div>
+          -->
+
+          <div v-else-if="currentres == 'xl'"></div>
+          <!-- / Admin Menu -->
         </v-col>
-      </v-row>
+      </transition>
     </transition>
     <!-- ****************************************************************** -->
   </div>
@@ -131,6 +107,13 @@ import b3md from "@/components/AncAppBars/B3md.vue";
 import b4lg from "@/components/AncAppBars/B4lg.vue";
 import b5xl from "@/components/AncAppBars/B5xl.vue";
 /* Transitions */
+
+/*Res Menu*/
+import menu1xs from "@/components/AncM/MenuS/Menu1xs.vue";
+import menu2sm from "@/components/AncM/MenuS/Menu2sm.vue";
+import menu3md from "@/components/AncM/MenuS/Menu3md.vue";
+import menu4lg from "@/components/AncM/MenuS/Menu4lg.vue";
+import menu5xl from "@/components/AncM/MenuS/Menu5xl.vue";
 
 /*User Menu*/
 import u1xs from "@/components/AncM/User/U1xs.vue";
@@ -157,6 +140,13 @@ export default {
     b3md,
     b4lg,
     b5xl,
+
+    /*menu res*/
+    menu1xs,
+    menu2sm,
+    menu3md,
+    menu4lg,
+    menu5xl,
 
     /*user*/
     u1xs,
@@ -318,6 +308,43 @@ export default {
 
 
 <style media="screen">
+.menuS {
+  position: relative;
+  z-index: 4;
+  background-color: yellow !important;
+  height: 1px;
+  /*
+  padding-left: 15px;
+  padding-right: 15px;
+  */
+}
+.rmvrow {
+  /*inizia row sotto la barra*/
+  top: 80px; /*width: 578px; */
+
+  position: relative;
+  z-index: 3;
+  height: 250px;
+
+  margin-left: 0px;
+  margin-right: 0px;
+
+  text-align: center;
+  text-justify: center;
+  border-radius: 0px 0px 0px 5px;
+
+  /*background-image: url("/static/images/HomePageCarousel/dsc32.jpg");*/
+
+  background-color: green !important;
+
+  /*background-color: transparent !important;*/
+
+  /*
+  padding-left: 15px;
+  padding-right: 15px;
+  */
+}
+
 .avatar {
   z-index: 5;
   transform: scale(1, 1);
@@ -326,38 +353,20 @@ export default {
   transform: scale(1.1, 1.1);
 }
 
+/* MENU SOTTOCATEGORIE */
+.menuSC {
+  position: relative;
+  z-index: 3;
+  /*background-color: greenyellow !important;*/
+  background-color: transparent !important;
+  height: 200px;
+  width: 100%;
+}
 /*  xs  */
 .rmH1 {
   position: relative;
-  height: 350px;
 }
-.rmvcolC1 {
-  position: relative;
-  z-index: 3;
-  opacity: 0.9;
-  border-radius: 280px 280px 50px 50px;
-}
-.rmH1-m {
-  position: relative;
-  height: 700px;
-}
-.rmvcolC1-m {
-  position: relative;
-  z-index: 3;
-  opacity: 0.9;
-  border-radius: 50px 50px 250px 250px;
-}
-.rmH1-l {
-  position: relative;
-  height: 200px;
-}
-.rmvcolC1-l {
-  position: relative;
-  z-index: 3;
-  opacity: 0.9;
-  padding-top: 30px;
-  border-radius: 100px;
-}
+
 /*  sm  */
 .rmvcolC2 {
   position: relative;
@@ -373,13 +382,7 @@ export default {
   /* background-color: transparent !important; */
   border-radius: 0px 0px 0px 648px;
 }
-.rmvcolC4 {
-  position: relative;
-  z-index: 3;
-  opacity: 0.9;
-  /* background-color: transparent !important; */
-  border-radius: 0px 0px 0px 648px;
-}
+
 .rmvcolC5 {
   position: relative;
   z-index: 3;

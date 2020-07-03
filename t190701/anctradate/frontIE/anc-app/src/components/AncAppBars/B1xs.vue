@@ -221,7 +221,8 @@ export default {
     height: { type: Number },
     nbc: { type: String },
     colBarEst: { type: String },
-    colBarInt: { type: String },
+    colBarInt: { type: String }
+    /*
     requestUser: { type: String },
     requestUserIsStaff: { type: Boolean },
     requestUserIsSuper: { type: Boolean },
@@ -233,6 +234,7 @@ export default {
     drawer: { type: Boolean },
     drawerLeft: { type: Boolean },
     drawerRight: { type: Boolean }
+    */
   },
 
   computed: {

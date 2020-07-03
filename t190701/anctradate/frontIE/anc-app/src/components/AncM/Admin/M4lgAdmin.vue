@@ -1,26 +1,49 @@
 <template>
-  <v-row class="rmvcolrSadmin">
-    <v-col class="cPAdmin-pre" cols="8">{{admincommands}}</v-col>
-    <v-col class="cPAdmin">
-      <v-list shaped dark class="ancM4l ancM4l_BC">
-        <!--
+  <!--  finestra comandi amministatore **************************************************** -->
+  <transition
+    name="custom-classes-transition2"
+    enter-active-class="animated bounceInLeft"
+    leave-active-class="animated bounceOutLeft"
+  >
+    <!--
+    <v-col
+      v-show="this.$store.getters.requestUserIsSuper & admincommands"
+      class="rmvcolSadmin rmH"
+      cols="12"
+    >
+    -->
+    <!-- 
+        /*row admin*/
+    -->
+    <v-row v-show="this.$store.getters.requestUserIsSuper & admincommands" class="rmvcolrSadmin4">
+      <v-col class="cPAdmin-pre" cols="8">{{admincommands}}</v-col>
+      <v-col class="cPAdmin">
+        <v-list shaped dark class="ancM4l ancM4l_BC">
+          <!--
       <v-list dark shaped class="adminList">
-        -->
-        <div class="display-1">
-          <a>Comandi Amministratore</a>
-        </div>
-        <v-list-item class="tile" @click="gotoR('event/')">
-          <v-list-item-content>
-            <v-list-item-title>Nuovo Evento</v-list-item-title>
-          </v-list-item-content>
+          -->
+          <div class="display-1">
+            <a>Comandi Amministratore</a>
+          </div>
+          <v-list-item class="tile" @click="gotoR('event/')">
+            <v-list-item-content>
+              <v-list-item-title>Nuovo Evento</v-list-item-title>
+            </v-list-item-content>
 
-          <v-list-item-icon>
-            <v-icon>mdi-timeline-plus</v-icon>
-          </v-list-item-icon>
-        </v-list-item>
-      </v-list>
+            <v-list-item-icon>
+              <v-icon>mdi-timeline-plus</v-icon>
+            </v-list-item-icon>
+          </v-list-item>
+        </v-list>
+      </v-col>
+    </v-row>
+    <!--
+        /*row admin*/
+    -->
+    <!--
     </v-col>
-  </v-row>
+    -->
+  </transition>
 </template>
 
 <script>
@@ -140,16 +163,37 @@ export default {
 </script>
 
 <style media="screen">
+.rmvcolrSadmin4 {
+  position: absolute;
+  text-align: center;
+  text-justify: center;
+  z-index: 6;
+
+  padding-left: 0px;
+  padding-right: 1px;
+  padding-bottom: 1px;
+
+  width: 100%;
+  /*
+  height: 100%;
+*/
+
+  /*background-color: transparent !important;*/
+}
+
 .cPAdmin-pre {
-  background-color: transparent !important;
+  /*background-color: green !important;*/
 }
 .cPAdmin {
-  padding-top: 20px;
-  padding-left: 20px;
-  padding-right: 20px;
-  background-color: rgb(7, 14, 85);
+  margin-left: 14px;
+  margin-right: 0px;
+  margin-bottom: 2px;
+
+  padding-top: 35px;
+
+  background-color: rgb(131, 32, 48);
   height: 600px;
-  border-radius: 0px 15px 15px 15px;
+  border-radius: 0px 0px 350px 0px;
 }
 </style>
 

@@ -6,7 +6,7 @@
     -->
     <marquee align="center" justify="center" behavior="scroll" direction="left" scrolldelay="0">
       <div
-        class="display-4 font-weight-bold AncTitleColorDark"
+        class="display-2 font-weight-bold AncTitleColorDark"
         style="color:yellow; background-color:transparent;"
       >{{Titolone}}</div>
     </marquee>

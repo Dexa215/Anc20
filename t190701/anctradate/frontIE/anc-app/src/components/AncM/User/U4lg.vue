@@ -1,6 +1,7 @@
 <template>
-  <div class="umenu4 mx-auto">
-    <v-row id="ur4" class="mx-auto ur" align="center" justify="center">
+  <div class="u4menu mx-auto">
+    <!--  User RANK / RANGO  -->
+    <v-row id="u4r4" class="mx-auto">
       <v-col>
         <v-btn
           v-if="requestUserIsSuper"
@@ -31,17 +32,20 @@
       </v-col>
     </v-row>
 
-    <v-row id="ur1" class="mx-auto ur" align="center" justify="center">
+    <!--  User AVATAR  -->
+    <v-row id="u4r1" class="mx-auto" align="center" justify="center">
       <img class="uimg" :src="ico" />
     </v-row>
 
-    <v-row class="mx-auto ur" id="ur2" align="center" justify="center">
+    <!--  User NAME  -->
+    <v-row id="u4r2" class="mx-auto" align="center" justify="center">
       <v-col>
         <h2 class>Ciao {{ requestUser }} !!</h2>
       </v-col>
     </v-row>
 
-    <v-row class="mx-auto ur" id="ur3" align="center" justify="center">
+    <!--  User LOGOUT  -->
+    <v-row id="u4r3" class="mx-auto" align="center" justify="center">
       <v-col>
         <v-btn class="ma-2" rounded outlined large color="rgb(245, 244, 228)">
           <span v-if="requestUser">
@@ -54,69 +58,6 @@
         </v-btn>
       </v-col>
     </v-row>
-
-    <!--
-
-    <v-card>
-      <v-list-item two-line>
-        <v-list-item-avatar>
-          <img class="uimg" :src="ico" />
-        </v-list-item-avatar>
-
-        <v-list-item-content>
-          <v-row
-            dense
-            class="row mx-2 pa-2"
-            style="background-color: transparent !important;"
-            align="start"
-            justify="center"
-          >
-            <v-col
-              class="pa-1"
-              style="background-color: transparent !important;"
-              align="start"
-              justify="center"
-            >
-              <v-list-item-title class="my-1">Ciao {{ requestUser }} !</v-list-item-title>
-
-              <v-list-item-subtitle
-                v-if="requestUserIsSuper"
-                class="my-1"
-                style="color:red;"
-              >SuperUser</v-list-item-subtitle>
-
-              <v-list-item-subtitle
-                v-else-if="requestUserIsStaff"
-                class="my-1"
-                style="color:blue;"
-              >Staff</v-list-item-subtitle>
-
-              <v-list-item-subtitle v-else class="my-1" style="color:grey;">User</v-list-item-subtitle>
-
-              <v-list-item-subtitle class="my-1">
-                <span v-if="requestUser">
-                  <a class="my-1 btn btn-sm btn-outline-secondary" href="/accounts/logout/">Logout</a>
-                </span>
-              </v-list-item-subtitle>
-            </v-col>
-          </v-row>
-        </v-list-item-content>
-      </v-list-item>
-
-      <v-divider></v-divider>
-
-      <v-list shaped>
-        <v-list-item class="tile" v-if="requestUserIsStaff" @click="gotoR('event/')">
-          <v-list-item-icon>
-            <v-icon>mdi-timeline-plus</v-icon>
-          </v-list-item-icon>
-          <v-list-item-content>
-            <v-list-item-title>Nuovo Evento</v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
-      </v-list>
-    </v-card>
-    -->
   </div>
 </template>
 
@@ -236,46 +177,64 @@ export default {
 </script>
 
 <style media="screen">
-.umenu4 {
+.u4menu {
+  /* div  */
   margin-left: 0px;
   margin-right: 0px;
-  background-color: pink !important;
+  background-color: transparent !important;
+  /*background-color: YELLOW !important;*/
 }
 
-.ur {
+.u4r {
   height: 70px;
   text-align: center;
   text-justify: auto;
-  background-color: transparent !important;
 }
-#ur1 {
-  background-color: lawngreen;
-  height: 100px;
-  margin-top: 20px;
-  margin-bottom: 10px;
-}
-#ur2 {
-  background-color: lightskyblue;
-  margin-top: 10px;
-  margin-bottom: 5px;
-  text-align: center;
-  text-justify: auto;
-}
-#ur3 {
-  background-color: lightcoral;
-  margin-top: 5px;
-  margin-bottom: 10px;
-}
-#ur4 {
-  margin-top: 50px;
-  margin-bottom: 10px;
-}
+
+/*  AVATAR  immagine                  */
 .uimg {
   /*  size: 100px; */
   height: 100px;
   width: 100px;
   border-radius: 50px;
 }
+
+/*  rows...                           */
+
+/*  User AVATAR  -->                  */
+#u4r1 {
+  height: 120px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+  text-justify: center;
+  /*background-color: lawngreen;*/
+}
+#u4r2 {
+  /*  CIAO USERNAME                   */
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+  text-justify: center;
+  /*background-color: lightskyblue;*/
+}
+#u4r3 {
+  /*  Logout                          */
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+  text-justify: center;
+  /*background-color: lightcoral;*/
+}
+#u4r4 {
+  /*  User RANK / RANGO  -->          */
+  margin-top: 10px;
+  margin-bottom: 20px;
+  text-align: center;
+  text-justify: center;
+  /*background-color: lightcoral !important;*/
+}
+
 h2 {
   color: rgb(245, 244, 228);
 }

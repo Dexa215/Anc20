@@ -3,7 +3,6 @@ import Vuex from 'vuex'
 import router from "@/router";
 //import moduleC from "./modCategorie"
 // @ resolve src
-
 import { apiService } from "@/common/api.service";
 import { axiosService } from "@/common/axios_calls";
 import menuT from "@/common/menuTime.js";
@@ -24,6 +23,11 @@ const moduleA = {
         rcS: "rcS rcX rcLat rcLat_BC_Visitor",
         rcD: "rcD rcX rcLat rcLat_BC_Visitor",
         rcU: "rmvcolD rmH   rcLat_BC_Visitor",
+
+        catCL: "tileM4",        /*Default item cat riposo*/
+
+        CatCL: "CclDESEL",      /*Default item cat riposo*/
+
         count: 3,
     },
     mutations: {
@@ -39,10 +43,53 @@ const moduleA = {
         },
         set_rcU (state, val) {
             state.rcU = val;
+        },
+        set_catCL (state, val) {
+            state.catCL = val;
+        },
+        set_CatCL (state, val) {
+            state.CatCL = val;
         }
 
     },
     actions: {
+        setcatCL (context, val) {
+
+            if (val === "sel") {
+                context.commit("set_catCL", "tileM4sel");
+            } else {
+                context.commit("set_catCL", "tileM4");
+            }
+        },
+
+        /*test 2020 06 27*/
+        setCatcl (context, val) { /*set Categories class*/
+
+            switch (val) {
+
+                case "desel":
+                    context.commit("set_CatCL", "CclDESEL");
+                    context.commit("drawerSCMset", false);
+
+                    break;
+
+                case "sel":
+                    context.commit("set_CatCL", "CclSEL");
+
+                    break;
+
+                case "open":
+                    context.commit("set_CatCL", "CclOPEN");
+                    break;
+
+                /**/
+                default:
+                    /*DESEL*/
+                    context.commit("set_CatCL", "CclDESEL");
+            }
+        },
+
+
         setcolor (context) {
 
             var x = this;
@@ -99,6 +146,11 @@ const moduleA = {
         rcS (state) { return state.rcS },
         rcD (state) { return state.rcD },
         rcU (state) { return state.rcU },
+
+        catCL (state) { return state.catCL },
+
+        CatCL (state) { return state.CatCL },
+        CatCLunsel (state) { return state.CatCLunsel },
 
     },
 
@@ -423,6 +475,8 @@ const moduleD = {
         drawerLeft: false,
         drawerRight: false,
         drawerSottocategoria: false,
+        drawerSottocategoriaSelezione: false,
+        drawerSCM: false,
 
         admin: false,
         admincommands: false,
@@ -452,6 +506,18 @@ const moduleD = {
         },
         setDrawerSottocategoria (state, val) {
             state.drawerSottocategoria = val;
+        },
+
+        /*  Menu delle sottocategorie   */
+        DrSCMset (state, val) {
+            state.drawerSottocategoriaSelezione = val;
+        },
+        DrSCMswitch (state) {
+            if (state.drawerSottocategoriaSelezione === true) {
+                state.drawerSottocategoriaSelezione = false
+            } else {
+                state.drawerSottocategoriaSelezione = true;
+            }
         },
 
         setDSC (state, val) {
@@ -487,6 +553,9 @@ const moduleD = {
             state.admincommands = !state.admincommands;
         },
 
+        drawerSCMset (state, val) { state.drawerSCM = val },
+        drawerSCMswitch (state) { state.drawerSCM = !state.drawerSCM; },
+
 
 
     },
@@ -512,6 +581,15 @@ const moduleD = {
             context.commit('adminCommandSwitch');
         },
 
+        /*  menu sottocategorie */
+        drawerSCMset (context, val) {
+            context.commit('drawerSCMset', val);
+        },
+        drawerSCMswitch (context) {
+            context.commit('drawerSCMswitch');
+        },
+        /*  menu sottocategorie */
+
     },
 
     getters: {
@@ -527,6 +605,14 @@ const moduleD = {
         getDrawerSottocategoria: (state) => {
             return state.drawerSottocategoria;
         },
+
+        /* menu sottocategorie  */
+        drawerSCMget: (state) => {
+            return state.drawerSCM;
+        },
+
+
+
         getIconX: (state) => {
             return state.iconX;
         },
@@ -1205,22 +1291,6 @@ const moduleL = {
             return state.monthArr[idl].mesi.find(m => m.idmonth === id)
 
 
-            switch (lang) {
-
-
-                case "it":
-                    return state.monthArr[0].find(month => month.id === id)
-                    break;
-                case "sp":
-                    return state.monthArr[2].find(month => month.id === id)
-                    break;
-                case "fr":
-                    return state.monthArr[4].find(month => month.id === id)
-                    break;
-                default:
-                    return state.monthArr[1].find(month => month.id === id)
-                    break;
-            }
         },
 
         /*test NG TODO: RIVEDERE */
@@ -1239,13 +1309,10 @@ const moduleL = {
             switch (lang) {
                 case "it":
                     return state.monthArr[0];
-                    break;
                 case "sp":
                     return state.monthArr[1];
-                    break;
                 default:
                     return state.monthArr[2];   /*english*/
-                    break;
             }
         },
 
@@ -1270,17 +1337,20 @@ const moduleL = {
     },
 
 }
-
-
-
-
 //      Module R: Router, internal coding of the call - [ C - CS ] 
 const moduleR = {
     state: {
+        /*PAGINA CORRENTE*/
         calculatingC: "false",
         calculatingCS: "false",
         C: 10, // start with HOME
         CS: 0, // start with HOME
+
+        /*Selezione da Menu*/
+        calculatingCs: "false",
+        calculatingCSs: "false",
+        Cs: 0, // start with HOME
+        CSs: 0, // start with HOME
     },
 
     mutations: {
@@ -1307,16 +1377,37 @@ const moduleR = {
             console.log("!! store aggiornamento....");
             state.calculatingC = true;
             state.calculatingCS = true;
+        },
+        /*      *******************************************************************     */
+        /*In selezione da Menu Categorie*/
+        aggiornaCs (state, c) {
+            state.Cs = c;
+            state.calculatingCs = false;
+        },
+        aggiornaCSs (state, cs) {
+            state.CSs = cs;
+            state.calculatingCSs = false;
+        },
+
+
+        aggiornaCCSs (state, cat) {
+            /* SETTA cat come categoria selezionata nel menu categorie*/
+
+            //state.Cs = cat;
+            state.Cs = cat[0];
+            //console.log("!! store aggiornaCCS cat: ", cat[0], cat[1])
+
+            state.CSs = cat[1];
+            state.calculatingCs = false;
+            state.calculatingCSs = false;
+        },
+        aggiornamentos (state) {
+            console.log("!! store aggiornamento....");
+            state.calculatingCs = true;
+            state.calculatingCSs = true;
         }
     },
     actions: {
-
-        //console.log("!! store ROTTA r: ", r);
-        //console.log("!! store calculatingC", context.state.calculatingC)
-        //console.log("!! store calculatingCS", context.state.calculatingCS)
-        //console.log("!! store attesa ok su calculating C e CS ...")
-        //console.log("!! store gotor /// fine attesa...");
-
 
         /* TEST 2020 05 03 OK */
         gotoR (context, r) {
@@ -1330,6 +1421,28 @@ const moduleR = {
             })
                 .catch((error) => { console.log(error.response.data.errors) });
         },
+
+        /* TEST 2020 06 19 OK */
+        selectR (context, r) {
+            context.commit('aggiornamentos');
+            store.dispatch('setCSs', r).then(() => {//Attesa assegnazione codice pagina corrente
+                if ((context.state.calculatingCs || context.state.calculatingCSs)) {
+                    setTimeout(100);
+                }
+            })
+                .catch((error) => { console.log(error.response.data.errors) });
+
+        },
+
+
+        /* TEST 2020 06 27 */
+        /* SETTA ncat come categoria selezionata nel menu categorie*/
+        selectncat (context, ncat) {
+            var cat = [];
+            cat[0] = ncat;
+            context.commit('aggiornaCCSs', cat);
+        },
+
 
         setCS (context, r) {                    /*  CODE THE CALL    */
             var cat = [];
@@ -1358,11 +1471,43 @@ const moduleR = {
             console.log("!! store moduleR setCS --> FINE valutazione r: ", r, "C: ", cat[0], "CS: ", cat[1]);
             return;
         },
+        /*  Destinazione in selezione   */
+        setCSs (context, r) {                    /*  CODE THE CALL    */
+            var cat = [];
+            //console.log("!! store setCS --> RATING r: ", r);
+            switch (r) {
+                case "": cat = [0, 0]; break;
+                case "/": cat = [10, 0]; break;
+                case "/sede": cat = [20, 21]; break;
+                case "/sedeOrari": cat = [20, 22]; break;
+                case "/contatti": cat = [30, 0]; break;
+                case "/chisiamo": cat = [40, 0]; break;
+                case "/chisiamodirettivo": cat = [40, 41]; break;
+                case "/chisiamosoci": cat = [40, 42]; break;
+                case "/chisiamobenemerite": cat = [40, 43]; break;
+                case "/chisiamosimpatizzanti": cat = [40, 44]; break;
+                case "/agenda": cat = [50, 0]; break;
+                case "/archivio": cat = [60, 0]; break;
+                case "/event": cat = [60, 68]; break;//crea 
+                case "/event/": cat = [60, 68]; break;//crea  
+                case "/event/:slug": cat = [60, 69]; break;//modifica 
+                case "/tesseramento": cat = [70, 0]; break;
+                case "/links": cat = [80, 0]; break;
+                default: cat = [10, 0]; break;//HOME...
+            };
+            context.commit('aggiornaCCSs', cat);
+            console.log("!! store moduleR setCSs --> FINE valutazione r: ", r, "C: ", cat[0], "CS: ", cat[1]);
+            return;
+        },
 
     },
     getters: {
+        /*Correnti*/
         getC: state => { return state.C },
         getCS: state => { return state.CS },
+        /*In Selezione nel menu*/
+        getCs: state => { return state.Cs },
+        getCSs: state => { return state.CSs },
     }
 
 }

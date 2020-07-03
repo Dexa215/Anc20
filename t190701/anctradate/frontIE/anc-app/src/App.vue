@@ -1,22 +1,23 @@
 <template>
   <v-app id="anc">
+    <ancAppBar></ancAppBar>
+
     <!-- Delegate a $store 
       :C="C"
       :CS="CS"
       :categorie="categorie"    
-       @gotoR="gotoR"  
-    -->
-    <ancAppBar
       :iconX="iconX"
-      @setD="setD"
-      @setDF="setDF"
-      @mouseover="setDF()"
-      @DSCset="DSCset"
       :drawer="drawer"
       :drawerLeft="drawerLeft"
       :drawerRight="drawerRight"
       :drawerSottocategoria="drawerSottocategoria"
-    ></ancAppBar>
+      @gotoR="gotoR" 
+      @setD="setD"
+      @setDF="setDF"
+      @mouseover="setDF()"
+      @DSCset="DSCset" 
+    -->
+
     <!--
     <ancDrawer
       :requestUser="requestUser"

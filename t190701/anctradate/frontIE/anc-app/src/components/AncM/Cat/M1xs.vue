@@ -161,6 +161,11 @@ export default {
 </script>
 
 <style media="screen">
+.mw100 {
+  width: 100%;
+  background-color: pink;
+}
+
 .tileM {
   margin: 5px;
   border-radius: 4px;

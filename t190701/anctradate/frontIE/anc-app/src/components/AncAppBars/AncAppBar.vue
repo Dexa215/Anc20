@@ -1,27 +1,10 @@
 <template>
-  <div>
+  <div class>
     <!-- @@@ -->
     <div v-if="currentres == 'xs'">
-      <b1xs
-        :height="hsm"
-        :requestUser="requestUser"
-        :requestUserIsStaff="requestUserIsStaff"
-        :requestUserIsSuper="requestUserIsSuper"
-        :requestUserAvatar="requestUserAvatar"
-        :requestUserBio="requestUserBio"
-        :C="C"
-        :CS="CS"
-        :categorie="categorie"
-        :drawer="drawer"
-        :drawerLeft="drawerLeft"
-        :drawerRight="drawerRight"
-        :iconX="iconX"
-        @gotoR="gotoR"
-        @setD="setD"
-        @setDF="setDF"
-        @mouseover="setDF()"
-      ></b1xs>
+      <b1xs :height="hsm"></b1xs>
     </div>
+
     <div v-else-if="currentres == 'sm'">
       <b2sm
         :height="hsm"
@@ -470,27 +453,17 @@ export default {
 </script>
 
 <style media="screen">
+.testx2 {
+  background-color: yellow !important;
+  height: 800px;
+  width: 100%;
+}
 .Mx1 {
   /* menuSC */
   position: relative;
   z-index: 2;
   background-color: green !important;
   height: 400px;
-}
-
-/* MENU LINKS - UTENTE */
-.menuS {
-  position: relative;
-  z-index: 4;
-}
-/* MENU SOTTOCATEGORIE */
-.menuSC {
-  position: relative;
-  z-index: 3;
-  /*background-color: greenyellow !important;*/
-  background-color: transparent !important;
-  height: 200px;
-  width: 100%;
 }
 
 .AncAppBarE {
@@ -540,30 +513,14 @@ export default {
 /*Menu*/
 .rmH0 {
   position: relative;
-  height: 1px;
+  height: 400px;
+  background-color: grey !important;
 }
 .rmH {
   position: relative;
   height: 600px;
 }
-.rmvrow {
-  position: relative;
-  z-index: 3;
-  height: 10px;
 
-  margin-left: 25px;
-  margin-right: 25px;
-  text-align: center;
-  text-justify: center;
-  border-radius: 0px 0px 50px 50px;
-
-  /*background-image: url("/static/images/HomePageCarousel/dsc32.jpg");*/
-
-  background-color: green !important;
-
-  /*background-color: transparent !important;*/
-  top: 70px; /*width: 578px; */
-}
 .rmvcolS {
   margin-left: 0px;
   margin-right: 0px;
@@ -578,7 +535,7 @@ export default {
   text-justify: center;
   z-index: 7;
   width: 100%;
-  height: 95%;
+  height: 100%;
   background-color: transparent !important;
 }
 .rmvcolSadmin {
@@ -593,10 +550,12 @@ export default {
   background-color: transparent !important;
 }
 
+/*    colonna categorie   */
 .rmvcolD {
   margin-left: 0px;
   margin-right: 0px;
-  opacity: 0.9;
+  /*opacity: 0.9;*/
+  opacity: 1;
   background-color: yellow !important; /*test*/
   /*background-color: transparent !important;*/
   border-radius: 0px 0px 25px 0px;

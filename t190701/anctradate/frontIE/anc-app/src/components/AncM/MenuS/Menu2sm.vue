@@ -1,42 +1,11 @@
 <template>
-  <div>
-    <transition
-      name="custom-classes-transition"
-      enter-active-class="animated fadeInDown"
-      leave-active-class="animated fadeOutUp"
-    >
-      <v-row v-show="drawerLeft" class="m4r" text-align="center">
-        <!-- /*lg*/ -->
-        <v-col class="m4c m4cL" cols="4"></v-col>
-
-        <!-- rmvcolC4 -->
-
-        <!-- user data -->
-        <v-col class="m4c m4cC rmH rcC_BC" cols="4">
-          <u4lg></u4lg>
-        </v-col>
-
-        <!-- cats menu -->
-        <v-col :class="rcU" cols="4">
-          <m4lg></m4lg>
-        </v-col>
-        <!-- admin commands -->
-        <m4lgAdmin></m4lgAdmin>
-        <!-- admin commands -->
-      </v-row>
-    </transition>
-  </div>
+  <div>menu2sm</div>
 </template>
 
 <script>
 import { apiService } from "@/common/api.service";
 import router from "@/router";
 
-import b1xs from "@/components/AncAppBars/B1xs.vue";
-import b2sm from "@/components/AncAppBars/B2sm.vue";
-import b3md from "@/components/AncAppBars/B3md.vue";
-import b4lg from "@/components/AncAppBars/B4lg.vue";
-import b5xl from "@/components/AncAppBars/B5xl.vue";
 /* Transitions */
 
 /*User Menu*/
@@ -56,15 +25,9 @@ import m4lgSottocategorie from "@/components/AncM/CatSotto/M4lgSottocategorie.vu
 import m4lgAdmin from "@/components/AncM/Admin/M4lgAdmin.vue";
 
 export default {
-  name: "menu4lg",
+  name: "menu2sm",
 
   components: {
-    b1xs,
-    b2sm,
-    b3md,
-    b4lg,
-    b5xl,
-
     /*user*/
     u1xs,
     u2sm,
@@ -225,45 +188,4 @@ export default {
 
 
 <style media="screen">
-.m4r {
-  position: relative;
-  height: 0px;
-  z-index: 7;
-  opacity: 0.96;
-  /* background-color: transparent !important; */
-  border-radius: 0px 0px 5px 5px;
-  /*inizia row sotto la barra*/
-  top: 80px; /*width: 578px; */
-  margin-left: 26px;
-  margin-right: 26px;
-
-  padding-left: 0px;
-  padding-right: 0px;
-
-  background-color: orangered !important;
-}
-.m4c {
-  position: relative;
-  z-index: 7;
-  height: 400px;
-}
-
-.m4cL {
-  /*menu 4 - lg - Column Left - Servizio*/
-  position: relative;
-  height: 10px;
-  /* srv... */
-  /*height: 400px;*/
-  /*background-color: cyan !important;*/
-}
-.m4cC {
-  /*menu 4 - lg - Column Central - User*/
-  background-color: grey !important;
-  border-radius: 0px 0px 0px 450px;
-}
-.m4cR {
-  /*menu 4 - lg - Column Right - Menu Categorie */
-  background-color: black !important;
-  border-radius: 0px 0px 25px 0px;
-}
 </style>
