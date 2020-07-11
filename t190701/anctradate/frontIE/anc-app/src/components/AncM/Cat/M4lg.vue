@@ -1,7 +1,13 @@
 <template>
   <div>
+    <a style="color:yellow">in selezione $store > Cs Categoria ... {{ Cs }}</a>
+    <a style="color:yellow">in selezione CSs SottoCategoria ... {{ CSs }}</a>
+    <a>in selezione... {{ btnsel }}</a>
+    <a>{{ btnsel }}</a>
+    <a>DRAWER SCM: {{drawerSCM}}</a>
+    <v-row class="mx-auto" style="background-color: red"></v-row>
+
     <v-row class="mr mx-auto">
-      <a>DRAWER SCM: {{drawerSCM}}</a>
       <v-col @mouseenter="DSCset('false')" @mouseleave="DSCset('true')">
         <v-list shaped dark class="ancM4l ancM4l_BC">
           <!-- * -->
@@ -12,14 +18,18 @@
             v-for="item in categorie"
             :key="item.n"
             link
+            class="vlistitem"
           >
-            <!-- desel -->
+            <!-- desel ----------------------------------------------------------------------------
+            -->
 
-            <v-list-item-content v-if="item.n!=Cs" class="CclDESEL">
+            <v-list-item-content v-if="item.n!=Cs" class="CclDESEL CcB">
               <v-btn>
-                <v-icon class="caticon" @click="gotoR(item.link)">{{ item.icona }}</v-icon>
-
+                <v-list-item-icon @click="gotoR(item.link)" class="tileM4icon">
+                  <v-icon class="caticon">{{ item.icona }}</v-icon>
+                </v-list-item-icon>
                 <v-list-item-title>{{ item.descrizione }}</v-list-item-title>
+
                 <!--icona categoria-->
                 <v-list-item-icon class="tileM4icon">
                   <!--  
@@ -30,36 +40,48 @@
               </v-btn>
             </v-list-item-content>
 
-            <!-- open 
+            <!-- open ----------------------------------------------------------------------------
             -:class="CatCL"
             -->
-            <v-list-item-content v-else-if="drawerSCM" class="CclOPEN">
+            <v-list-item-content v-else-if="drawerSCM" class="CclOPEN CcB">
               <!-- pulsante categoria-->
 
               <v-btn @click="selectR(item.link,item.n)">
-                <v-icon class="caticon" @click="gotoR(item.link)">{{ item.icona }}</v-icon>
+                <v-list-item-icon @click="gotoR(item.link)" class="tileM4icon">
+                  <v-icon class="caticon" @click="gotoR(item.link)">{{ item.icona }}</v-icon>
+                </v-list-item-icon>
                 <!--descrizione categoria-->
+
                 <v-list-item-title>{{ item.descrizione }}</v-list-item-title>
+
                 <!--icona categoria-->
-                <v-list-item-icon class="tileM4icon">
+                <v-list-item-icon class="tileM4icon" @click="drawerSCMswitch()">
                   <v-icon class="caticon">mdi-minus-circle</v-icon>
                 </v-list-item-icon>
               </v-btn>
 
               <SCs></SCs>
             </v-list-item-content>
-            <!-- Selected 
+            <!-- Selected ----------------------------------------------------------------------------
             -:class="CatCL"
             -->
-            <v-list-item-content v-else class="CclSEL">
+            <v-list-item-content v-else class="CclSEL CcB">
               <!-- pulsante categoria-->
 
-              <v-btn @click="selectR(item.link,item.n)">
-                <v-icon class="caticon" @click="gotoR(item.link)">{{ item.icona }}</v-icon>
-                <!--descrizione categoria-->
-                <v-list-item-title>{{ item.descrizione }}</v-list-item-title>
+              <!--@click="selectR(item.link,item.n)"-->
+
+              <v-btn>
                 <!--icona categoria-->
-                <v-list-item-icon class="tileM4icon">
+                <v-list-item-icon @click="gotoR(item.link)" class="tileM4icon">
+                  <v-icon class="caticon">{{ item.icona }}</v-icon>
+                </v-list-item-icon>
+
+                <!--descrizione categoria-->
+
+                <v-list-item-title>{{ item.descrizione }}</v-list-item-title>
+
+                <!--icona sottomenu-->
+                <v-list-item-icon class="tileM4icon" @click="drawerSCMswitch()">
                   <v-icon
                     v-show="categorie[Cs / 10 - 1].sottocategorie.length > 1"
                     class="caticon"
@@ -75,11 +97,6 @@
         </v-list>
       </v-col>
     </v-row>
-    <a style="color:yellow">in selezione $store > Cs Categoria ... {{ Cs }}</a>
-    <a style="color:yellow">in selezione CSs SottoCategoria ... {{ CSs }}</a>
-    <a>in selezione... {{ btnsel }}</a>
-    <a>{{ btnsel }}</a>
-    <v-row class="mx-auto" style="background-color: red"></v-row>
   </div>
 </template>
 
@@ -235,17 +252,16 @@ export default {
       this.btnsel = ncat;
 
       /*  setta in Cs Categoria dell'item selezionato nel menu  */
+      console.log("!! M4lg selectBtn - ncat : ", this.btnsel, ncat);
       this.$store.dispatch("selectncat", ncat);
 
       if (
-        this.drawerSCM &&
+        //this.drawerSCM &&
         this.categorie[this.Cs / 10 - 1].sottocategorie.length > 1
       ) {
-        this.$store.dispatch("setCatcl", "open");
-        /*  setta in moduleA/CatCL : CclSEL  */
+        this.$store.dispatch("setCatcl", "open"); //  setta in moduleA/CatCL : CclSEL
       } else {
-        this.$store.dispatch("setCatcl", "sel");
-        /*  setta in moduleA/CatCL : CclSEL  */
+        this.$store.dispatch("setCatcl", "sel"); //  setta in moduleA/CatCL : CclSEL
       }
     },
 
@@ -256,15 +272,18 @@ export default {
       /*  setta in moduleA/CatCL : CclDESEL  */
     },
 
+    drawerSCMswitch() {
+      if (this.categorie[this.Cs / 10 - 1].sottocategorie.length > 1) {
+        this.$store.dispatch("drawerSCMswitch");
+      }
+    },
+
     selectR(r, ncat) {
       this.$store.dispatch("selectncat", ncat);
       this.$store.dispatch("selectR", r);
 
       //this.$store.dispatch("switchDrawerSottocategoriaSelezione");
       /* SE LA CAT SELEZIONATA CONTIENE SUB MENU */
-      if (this.categorie[this.Cs / 10 - 1].sottocategorie.length > 1) {
-        this.$store.dispatch("drawerSCMswitch");
-      }
     },
     setcatCL(val) {
       this.$store.dispatch("setcatCL", val);
@@ -304,43 +323,57 @@ export default {
 }
 */
 /* 8888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888  */
+.CcB {
+  margin-top: 1px;
+  margin-bottom: 1px;
+  margin-left: 5px;
+  margin-right: 5px;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-radius: 1px 1px 1px 1px;
+}
 .CclDESEL {
-  margin: 5px;
-  border-radius: 4px;
-  color: khaki;
+  background-color: khaki;
   width: 100%;
-  height: 50px;
+  height: 45px;
   /*transform: scale(1, 1);*/
   /*background-color: khaki;*/
+  /*transition-property: width, height;*/
+  transition-property: height;
+  transition-duration: 0.25s;
 }
 .CclSEL {
-  margin: 5px;
-  border-radius: 4px;
   color: lightcoral;
   width: 100%;
-  height: 50px;
+  height: 45px;
   /*transform: scale(1, 1);*/
   background-color: lightcoral;
   /*transform: rotate(0deg);*/
-  transition: height 0.5s;
+  /*transition-property: width, height;*/
+  transition-property: height;
+  transition-duration: 0.5s;
 }
 .CclOPEN {
-  margin: 5px;
-  border-radius: 4px;
   color: aqua;
-  width: 100%;
-  height: 220px;
+  width: 60%;
+  height: 160px;
   /*transform: scale(1, 1);*/
   background-color: aquamarine;
   /*
   transform: rotate(20deg);
   transform: translateX(50px);
   */
-  transition: height 0.5s;
+  /*transition-property: width, height;*/
+  transition-property: height;
+  transition-duration: 0.8s;
 }
+/*
 .CclOPEN:active {
   height: 50px;
 }
+*/
 
 /* 8888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888  */
 
@@ -371,6 +404,7 @@ export default {
 
 .tileM4:active {
   background: #ffbe4d;
+  background-color: peru;
 }
 .d1int {
   height: 85px;
@@ -424,9 +458,11 @@ export default {
 
   /*list*/
 }
+
 .ancM4l_BC {
   background-color: transparent !important;
 }
+
 .McU {
   /* Menu column User...*/
   padding-left: 0px;
@@ -440,7 +476,19 @@ export default {
   transform: scale(1, 1);
 }
 .caticon:hover {
+  transform: scale(1.7, 1.7);
+}
+
+.catdescrizione {
+  transform: scale(1, 1);
+}
+.catdescrizione:hover {
   transform: scale(1.5, 1.5);
+}
+.vlistitem {
+}
+.vlistitem:hover {
+  background-color: peru;
 }
 </style>
 

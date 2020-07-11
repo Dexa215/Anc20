@@ -1395,9 +1395,12 @@ const moduleR = {
 
             //state.Cs = cat;
             state.Cs = cat[0];
-            //console.log("!! store aggiornaCCS cat: ", cat[0], cat[1])
 
-            state.CSs = cat[1];
+            console.log("!! store aggiornaCCS cat: ", cat[0])
+            console.log("!! store Cs: ", state.Cs)
+
+            //state.CSs = cat[1];
+
             state.calculatingCs = false;
             state.calculatingCSs = false;
         },
@@ -1440,6 +1443,7 @@ const moduleR = {
         selectncat (context, ncat) {
             var cat = [];
             cat[0] = ncat;
+            //cat[1] = 0;
             context.commit('aggiornaCCSs', cat);
         },
 

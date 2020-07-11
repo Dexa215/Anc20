@@ -230,3 +230,93 @@ webpack_loader.exceptions.WebpackError:
 
             
 06/30/2020 05:42:33 PM WARNING log 15984 2176 Not Found: /favicon.ico
+07/04/2020 12:03:58 AM ERROR log 15984 22108 Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\core\handlers\base.py", line 145, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\core\handlers\base.py", line 143, in _get_response
+    response = response.render()
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\response.py", line 106, in render
+    self.content = self.rendered_content
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\response.py", line 83, in rendered_content
+    content = template.render(context, self._request)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\django\template\library.py", line 192, in render
+    output = self.func(*resolved_args, **resolved_kwargs)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\webpack_loader\templatetags\webpack_loader.py", line 12, in render_bundle
+    tags = utils.get_as_tags(bundle_name, extension=extension, config=config, attrs=attrs)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\webpack_loader\utils.py", line 45, in get_as_tags
+    bundle = _get_bundle(bundle_name, extension, config)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\webpack_loader\utils.py", line 23, in _get_bundle
+    bundle = get_loader(config).get_bundle(bundle_name)
+  File "C:\Projects\DjangoREST\T190530\venv\lib\site-packages\webpack_loader\loader.py", line 97, in get_bundle
+    raise WebpackError(error)
+webpack_loader.exceptions.WebpackError: 
+            ModuleError in 
+            Module Error (from ./node_modules/vue-loader/lib/loaders/templateLoader.js):
+(Emitted value instead of an instance of Error) 
+
+  Errors compiling template:
+
+  v-else-if="drawerSCM" used on element <v-list-item-content> without corresponding v-if.
+
+  38 |            -:class="CatCL"
+  39 |            -->
+  40 |            <v-list-item-content v-else-if="drawerSCM" class="CclOPEN">
+     |                                 ^^^^^^^^^^^^^^^^^^^^^
+  41 |              <!-- pulsante categoria-->
+  42 |              <v-btn @click="selectR(item.link,item.n)">
+
+  v-else used on element <v-list-item-content> without corresponding v-if.
+
+  55 |            -:class="CatCL"
+  56 |            -->
+  57 |            <v-list-item-content v-else class="CclSEL">
+     |                                 ^^^^^^
+  58 |              <!-- pulsante categoria-->
+  59 |              <v-btn @click="selectR(item.link,item.n)">
+
+            
+07/04/2020 12:54:06 AM WARNING log 15984 13120 Not Found: /media/images/preview/7_poppy2gif.gif
+07/04/2020 12:54:06 AM WARNING log 15984 2228 Not Found: /media/images/preview/mugatu-s-l640.jpg
+07/04/2020 12:58:29 AM WARNING log 15984 13120 Not Found: /media/images/preview/mugatu-s-l640.jpg
+07/04/2020 12:58:29 AM WARNING log 15984 2228 Not Found: /media/images/preview/7_poppy2gif.gif
+07/04/2020 12:58:50 AM WARNING log 15984 6088 Not Found: /media/images/preview/mugatu-s-l640.jpg
+07/04/2020 12:58:50 AM WARNING log 15984 2228 Not Found: /media/images/preview/7_poppy2gif.gif
+07/04/2020 12:59:29 AM WARNING log 15984 13120 Not Found: /media/images/preview/mugatu-s-l640.jpg
+07/04/2020 12:59:29 AM WARNING log 15984 2228 Not Found: /media/images/preview/7_poppy2gif.gif
+07/04/2020 01:00:38 AM WARNING log 15984 2228 Not Found: /media/images/preview/mugatu-s-l640.jpg
+07/04/2020 01:00:38 AM WARNING log 15984 13120 Not Found: /media/images/preview/7_poppy2gif.gif
+07/04/2020 07:40:13 AM WARNING log 15984 14344 Not Found: /media/images/preview/slack-django-large2.jpg
+07/04/2020 07:40:13 AM WARNING log 15984 19596 Not Found: /media/images/preview/7_poppy.gif
+07/05/2020 08:20:52 AM WARNING log 15984 23200 Not Found: /media/images/preview/7_poppy2gif.gif
+07/05/2020 08:20:52 AM WARNING log 15984 16700 Not Found: /media/images/preview/mugatu-s-l640.jpg
+07/11/2020 08:03:02 AM WARNING log 15984 25904 Not Found: /media/images/preview/7_poppy2gif.gif
+07/11/2020 08:03:02 AM WARNING log 15984 25504 Not Found: /media/images/preview/7_poppy.gif
+07/11/2020 08:03:02 AM WARNING log 15984 11516 Not Found: /media/images/preview/mugatu-s-l640.jpg
+07/11/2020 08:03:02 AM WARNING log 15984 25904 Not Found: /media/images/preview/slack-django-large2.jpg

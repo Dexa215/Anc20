@@ -1,0 +1,71 @@
+<div v-if="item.n!=Cs">deselect</div>
+            <div v-else-if="drawerSCM">open</div>
+
+            <!-- -->
+            <div v-else-if="false">
+              open
+              <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+              <v-list-item-content :class="CatCL">
+                <!-- pulsante categoria-->
+                <v-btn @click="selectR(item.link,item.n)">
+                  <!--descrizione categoria-->
+                  <v-list-item-title>{{ item.descrizione }}</v-list-item-title>
+                  <!--icona categoria-->
+                  <v-list-item-icon class="tileM4icon">
+                    <v-icon class="caticon" @click="gotoR(item.link)">{{ item.icona }}</v-icon>
+                  </v-list-item-icon>
+                </v-btn>
+              </v-list-item-content>
+              <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+              <SCs></SCs>
+            </div>
+            <!-- -->
+            <div v-else>
+              selected
+              <v-list-item-content>
+                <v-btn>
+                  <v-icon class="caticon" @click="selectR(item.link,item.n)">{{ item.icona }}</v-icon>
+                  <v-list-item-title>{{ item.descrizione }}</v-list-item-title>
+                  <!--icona categoria-->
+                  <v-list-item-icon class="tileM4icon">
+                    <v-icon class="caticon" @click="gotoR(item.link)">{{ item.icona }}</v-icon>
+                  </v-list-item-icon>
+                </v-btn>
+              </v-list-item-content>
+            </div>
+
+            <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+            <!--
+            
+            -->
+            <!--
+
+                :class="catCL"
+                class="tileM4content"
+                v-btn @click="DSCset('x')" rounded
+            -->
+
+            <!--
+                <v-icon class="caticon" @click="gotoR(item.link)">{{ item.icona }}</v-icon>
+            -->
+
+            <!-- :btnsel="item.n "-->
+
+            <!--v-if="item.n==Cs && drawerSCM"-->
+
+            <!-- TODO: REINTEGRA -->
+            <!-- SCs v-if="drawerSCM"></SCs>
+            <!-- TODO: REINTEGRA-->
+
+            <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+
+            <!-- * -->
+            <v-row
+              class="mr mx-auto selezionato"
+              v-if="item.n==Cs && categorie[Cs/10-1].sottocategorie.length > 1"
+            >
+              <!-- riquadro - selezionato {{item.n}}{{drawerSCM}}-->
+              <SCs></SCs>
+            </v-row>
+
+            <!-- * -->
