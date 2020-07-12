@@ -1,16 +1,9 @@
 <template>
   <div>
-    <a style="color:yellow">in selezione $store > Cs Categoria ... {{ Cs }}</a>
-    <a style="color:yellow">in selezione CSs SottoCategoria ... {{ CSs }}</a>
-    <a>in selezione... {{ btnsel }}</a>
-    <a>{{ btnsel }}</a>
-    <a>DRAWER SCM: {{drawerSCM}}</a>
-    <v-row class="mx-auto" style="background-color: red"></v-row>
-
     <v-row class="mr mx-auto">
       <v-col @mouseenter="DSCset('false')" @mouseleave="DSCset('true')">
-        <v-list shaped dark class="ancM4l ancM4l_BC">
-          <!-- * -->
+        <v-list dark shaped class="ancM4l ancM4l_BC">
+          <!-- * shaped  -->
 
           <v-list-item
             @mouseover="selectBtn(item.n)"
@@ -22,9 +15,8 @@
           >
             <!-- desel ----------------------------------------------------------------------------
             -->
-
-            <v-list-item-content v-if="item.n!=Cs" class="CclDESEL CcB">
-              <v-btn>
+            <v-list-item-content v-if="item.n!=Cs" class="CcB CclDESEL">
+              <v-btn class="mbtn" color="transparent">
                 <v-list-item-icon @click="gotoR(item.link)" class="tileM4icon">
                   <v-icon class="caticon">{{ item.icona }}</v-icon>
                 </v-list-item-icon>
@@ -43,10 +35,10 @@
             <!-- open ----------------------------------------------------------------------------
             -:class="CatCL"
             -->
-            <v-list-item-content v-else-if="drawerSCM" class="CclOPEN CcB">
+            <v-list-item-content v-else-if="drawerSCM" class="CcB CclOPEN">
               <!-- pulsante categoria-->
 
-              <v-btn @click="selectR(item.link,item.n)">
+              <v-btn @click="selectR(item.link,item.n)" class="mbtn" color="transparent">
                 <v-list-item-icon @click="gotoR(item.link)" class="tileM4icon">
                   <v-icon class="caticon" @click="gotoR(item.link)">{{ item.icona }}</v-icon>
                 </v-list-item-icon>
@@ -62,15 +54,14 @@
 
               <SCs></SCs>
             </v-list-item-content>
+
             <!-- Selected ----------------------------------------------------------------------------
             -:class="CatCL"
             -->
-            <v-list-item-content v-else class="CclSEL CcB">
+            <v-list-item-content v-else class="CcB CclSEL">
               <!-- pulsante categoria-->
-
               <!--@click="selectR(item.link,item.n)"-->
-
-              <v-btn>
+              <v-btn class="mbtn" color="transparent">
                 <!--icona categoria-->
                 <v-list-item-icon @click="gotoR(item.link)" class="tileM4icon">
                   <v-icon class="caticon">{{ item.icona }}</v-icon>
@@ -97,6 +88,12 @@
         </v-list>
       </v-col>
     </v-row>
+    <a style="color:yellow">in selezione $store > Cs Categoria ... {{ Cs }}</a>
+    <a style="color:yellow">in selezione CSs SottoCategoria ... {{ CSs }}</a>
+    <a>in selezione... {{ btnsel }}</a>
+    <a>{{ btnsel }}</a>
+    <a>DRAWER SCM: {{drawerSCM}}</a>
+    <v-row class="mx-auto" style="background-color: red"></v-row>
   </div>
 </template>
 
@@ -324,18 +321,27 @@ export default {
 */
 /* 8888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888  */
 .CcB {
+  align-content: flex-start;
+
   margin-top: 1px;
   margin-bottom: 1px;
   margin-left: 5px;
   margin-right: 5px;
+
   padding-top: 1px;
   padding-bottom: 1px;
   padding-left: 5px;
   padding-right: 5px;
+
   border-radius: 1px 1px 1px 1px;
+  text-align: start;
+  justify-content: start;
 }
 .CclDESEL {
-  background-color: khaki;
+  /*background-color: khaki;*/
+  /*rcC_BC */
+  background-color: rgb(4, 11, 46) !important;
+  border-radius: 25px 25px 25px 25px;
   width: 100%;
   height: 45px;
   /*transform: scale(1, 1);*/
@@ -346,10 +352,13 @@ export default {
 }
 .CclSEL {
   color: lightcoral;
+  border-radius: 25px 25px 25px 25px;
+
   width: 100%;
   height: 45px;
   /*transform: scale(1, 1);*/
-  background-color: lightcoral;
+  /*background-color: lightcoral;*/
+  background-color: #083b8c;
   /*transform: rotate(0deg);*/
   /*transition-property: width, height;*/
   transition-property: height;
@@ -357,10 +366,12 @@ export default {
 }
 .CclOPEN {
   color: aqua;
+  border-radius: 25px 25px 25px 25px;
   width: 60%;
   height: 160px;
   /*transform: scale(1, 1);*/
-  background-color: aquamarine;
+  /*background-color: aquamarine;*/
+  background-color: #083b8c;
   /*
   transform: rotate(20deg);
   transform: translateX(50px);
@@ -403,8 +414,10 @@ export default {
 /*background: #1f1401;*/
 
 .tileM4:active {
+  /*
   background: #ffbe4d;
   background-color: peru;
+  */
 }
 .d1int {
   height: 85px;
@@ -486,9 +499,21 @@ export default {
   transform: scale(1.5, 1.5);
 }
 .vlistitem {
+  background-color: transparent;
+  border-radius: 20px 20px 20px 20px;
 }
 .vlistitem:hover {
-  background-color: peru;
+  background-color: transparent;
+  border-radius: 20px 20px 20px 20px;
+}
+.mbtn {
+  border-radius: 20px 20px 20px 20px;
+  background-color: transparent;
+  margin: 1px;
+}
+.mbtn:hover {
+  margin: 1px;
+  background-color: mediumturquoise;
 }
 </style>
 

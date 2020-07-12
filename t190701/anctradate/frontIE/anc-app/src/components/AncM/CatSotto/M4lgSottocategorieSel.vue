@@ -15,7 +15,7 @@
           :key="item.n"
           @click="gotoR(item.link)"
           link
-          class="ma-2"
+          class="ma-1"
           color="indigo"
           text-color="white"
         >
@@ -106,12 +106,13 @@ export default {
   z-index: 3;
   /*top: 150px;*/
   left: 0px;
-  background-color: blue !important;
-  height: 90%;
+  background-color: rgb(4, 11, 46) !important;
+  /*background-color: blue !important;*/
+  height: 115px;
   width: 90%;
-  margin: 10px;
+  margin: 2px;
 
-  border-radius: 5px 5px 5px 5px;
+  border-radius: 25px 25px 25px 25px;
 }
 
 .sottocategorieListr1 {
