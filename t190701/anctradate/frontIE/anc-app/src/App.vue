@@ -2,6 +2,13 @@
   <v-app id="anc">
     <ancAppBar></ancAppBar>
 
+    <!-- test 2020 07 15 -->
+    <!-- sgravare ancappbar -->
+    <menuS></menuS>
+    <menuSC class="Mx1"></menuSC>
+    <ancNews></ancNews>
+    <!-- test 2020 07 15 -->
+
     <!-- Delegate a $store 
       :C="C"
       :CS="CS"
@@ -138,6 +145,10 @@ import ancDrawer from "./components/AncAppDrawers/AncDrawer.vue";
 import ancSystem from "./components/AncSystem";
 import router from "./router";
 
+import menuS from "@/components/AncM/MenuS/MenuS.vue";
+import menuSC from "@/components/AncM/CatSotto/MenuSottoCategorie.vue";
+import ancNews from "@/components/AncNews/AncNews.vue";
+
 import { apiService } from "./common/api.service";
 import { CSRF_TOKEN } from "./common/csrf_token";
 import { getCat } from "./common/menu";
@@ -160,7 +171,10 @@ export default {
     ancAppDrawerLeft,
     ancAppDrawerRight,
 
-    ancDrawer /*test 2020 03 18*/
+    ancDrawer /*test 2020 03 18*/,
+    menuS /*test 2020 07 14*/,
+    menuSC,
+    ancNews
   },
 
   props: {

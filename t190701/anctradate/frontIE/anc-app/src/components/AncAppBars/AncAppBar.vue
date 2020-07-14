@@ -112,10 +112,13 @@
 
     <!-- TODO: computed su store <ancNews :C="C" :CS="CS" :categorie="categorie"></ancNews>-->
 
+    <!-- 2020 07 15 -- TODO: RIPRISTINARE SE TEST NG-->
+    <!--
     <menuS></menuS>
     <menuSC class="Mx1"></menuSC>
-
     <ancNews></ancNews>
+    -->
+    <!-- 2020 07 15 -- TODO: RIPRISTINARE SE TEST NG-->
 
     <!-- menu Sottocategorie 
       :C="C"
