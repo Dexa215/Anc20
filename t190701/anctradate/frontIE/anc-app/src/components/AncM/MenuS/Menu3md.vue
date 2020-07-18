@@ -1,5 +1,30 @@
 <template>
-  <div>menu3md</div>
+  <div>
+    <transition
+      name="custom-classes-transition"
+      enter-active-class="animated fadeInDown"
+      leave-active-class="animated fadeOutUp"
+    >
+      <v-row v-show="drawerLeft" class="m3r" text-align="center">
+        <!-- /*lg*/ system... -->
+        <v-col class="rmH3 m3cL" cols="4"></v-col>
+        <!-- user -->
+        <v-col class="rmH3 m3cC rcC_BC" cols="4">
+          <u3md></u3md>
+        </v-col>
+        <!-- cats menu -->
+        <v-col class="rmH3 m3cR" cols="4">
+          <div :class="rcU">
+            <m3md></m3md>
+          </div>
+        </v-col>
+
+        <!-- admin commands -->
+        <m4lgAdmin></m4lgAdmin>
+        <!-- admin commands -->
+      </v-row>
+    </transition>
+  </div>
 </template>
 
 <script>
@@ -9,17 +34,12 @@ import router from "@/router";
 /* Transitions */
 
 /*User Menu*/
-import u1xs from "@/components/AncM/User/U1xs.vue";
-import u2sm from "@/components/AncM/User/U2sm.vue";
+
 import u3md from "@/components/AncM/User/U3md.vue";
-import u4lg from "@/components/AncM/User/U4lg.vue";
-import u5xl from "@/components/AncM/User/U5xl.vue";
+
 /*Categorie*/
-import m1xs from "@/components/AncM/Cat/M1xs.vue";
-import m2sm from "@/components/AncM/Cat/M2sm.vue";
+
 import m3md from "@/components/AncM/Cat/M3md.vue";
-import m4lg from "@/components/AncM/Cat/M4lg.vue";
-import m5xl from "@/components/AncM/Cat/M5xl.vue";
 
 import m4lgSottocategorie from "@/components/AncM/CatSotto/M4lgSottocategorie.vue";
 import m4lgAdmin from "@/components/AncM/Admin/M4lgAdmin.vue";
@@ -29,19 +49,9 @@ export default {
 
   components: {
     /*user*/
-    u1xs,
-    u2sm,
     u3md,
-    u4lg,
-    u5xl,
-
     /*cat*/
-    m1xs,
-    m2sm,
     m3md,
-    m4lg,
-    m5xl,
-
     m4lgSottocategorie,
     m4lgAdmin
   },
@@ -188,4 +198,49 @@ export default {
 
 
 <style media="screen">
+.rmH3 {
+  position: relative;
+  z-index: 7;
+  height: 420px;
+}
+
+.m3r {
+  position: relative;
+  height: 0px;
+  z-index: 7;
+  opacity: 0.96;
+  /* background-color: transparent !important; */
+  border-radius: 0px 0px 5px 5px;
+  /*inizia row sotto la barra*/
+  top: 80px; /*width: 578px; */
+  margin-left: 26px;
+  margin-right: 26px;
+
+  padding-left: 0px;
+  padding-right: 0px;
+
+  background-color: orangered !important;
+}
+
+.m3cL {
+  /*menu 4 - lg - Column Left - Servizio*/
+  position: relative;
+  height: 10px;
+  /* srv... */
+  /*height: 400px;*/
+  /*background-color: cyan !important;*/
+}
+.m3cC {
+  /*menu 4 - lg - Column Central - User*/
+  background-color: grey !important;
+  border-radius: 0px 0px 0px 450px;
+}
+.m3cR {
+  position: relative;
+  z-index: 3;
+  /*menu 4 - lg - Column Right - Menu Categorie */
+  background-color: black !important;
+  border-radius: 0px 0px 25px 0px;
+  padding: 0px;
+}
 </style>

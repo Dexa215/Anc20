@@ -1,50 +1,61 @@
 <template>
-  <div class="umenu5 mx-auto">
-    <v-row id="ur4" class="mx-auto mu-1 ur" align="start" justify="center">
-      <v-btn
-        v-if="requestUserIsSuper"
-        class="ma-1"
-        rounded
-        outlined
-        large
-        color="rgb(245, 244, 228)"
-        @click="acs"
-      >
-        <a style="color:red;">Admin</a>
-      </v-btn>
-      <!-- -->
+  <div class="u5menu mx-auto">
+    <!--  User NAME  -->
+    <v-row id="u5r2" class="mx-auto" align="center" justify="center">
+      <v-col>
+        <h2 class>Ciao {{ requestUser }} !!</h2>
+      </v-col>
+    </v-row>
+    <!--  User RANK / RANGO  -->
+    <v-row id="u5r4" class="mx-auto">
+      <v-col>
+        <v-btn
+          v-if="requestUserIsSuper"
+          class="ma-2"
+          rounded
+          outlined
+          large
+          color="rgb(245, 244, 228)"
+          @click="acs"
+        >
+          <a style="color:red;">Amministratore</a>
+        </v-btn>
 
-      <v-btn
-        v-else-if="requestUserIsStaff"
-        class="ma-1"
-        rounded
-        outlined
-        large
-        color="rgb(245, 244, 228)"
-      >
-        <a style="color:blue;">Staff</a>
-      </v-btn>
-      <!-- -->
+        <v-btn
+          v-else-if="requestUserIsStaff"
+          class="ma-2"
+          rounded
+          outlined
+          large
+          color="rgb(245, 244, 228)"
+        >
+          <a style="color:blue;">Consigliere</a>
+        </v-btn>
 
-      <v-btn v-else class="ma-1" rounded outlined large color="rgb(245, 244, 228)">
-        <a style="color:brown;">Socio</a>
-      </v-btn>
-      <!-- -->
+        <v-btn v-else class="ma-2" rounded outlined large color="rgb(245, 244, 228)">
+          <a style="color:brown;">Socio</a>
+        </v-btn>
+      </v-col>
     </v-row>
 
-    <v-row id="ur1" class="mx-auto ur" align="center" justify="center">
-      <img class="uimg1" :src="ico" />
+    <!--  User AVATAR  -->
+    <v-row id="u5r1" class="mx-auto" align="center" justify="center">
+      <img class="uimg" :src="ico" />
     </v-row>
 
-    <v-row id="ur2" class="mx-auto ur" align="center" justify="center">
-      <h2 class>Ciao {{ requestUser }} !!</h2>
-    </v-row>
-    <v-row id="ur3" class="mx-auto ur" align="center" justify="center">
-      <v-btn class="ma-1" rounded outlined large color="rgb(245, 244, 228)">
-        <span v-if="requestUser">
-          <a class="my-1 logout" href="/accounts/logout/">Logout</a>
-        </span>
-      </v-btn>
+    <!--  User LOGOUT  -->
+    <v-row id="u5r3" class="mx-auto" align="center" justify="center">
+      <v-col>
+        <v-btn class="ma-2" rounded outlined large color="rgb(245, 244, 228)">
+          <span v-if="requestUser">
+            <!--
+            <a @click="gotoR('/')">test logout...</a>
+            <spacer type="horizontal" width="100" height="100">♢</spacer>
+            -->
+            <a class="my-1 logout" href="/accounts/logout/">Logout</a>
+          </span>
+        </v-btn>
+      </v-col>
     </v-row>
   </div>
 </template>
@@ -54,7 +65,9 @@ import router from "@/router";
 
 export default {
   name: "u5xl",
+
   props: {},
+
   data() {
     return {
       mini: true,
@@ -156,47 +169,58 @@ export default {
 </script>
 
 <style media="screen">
-.umenu5 {
+.u5menu {
+  /* div  */
   margin-left: 0px;
   margin-right: 0px;
-  background-color: violet !important;
+  background-color: transparent !important;
+  /*background-color: YELLOW !important;*/
 }
 
-.ur {
-  height: 70px;
-  text-align: start;
-  text-justify: auto;
-  /*background-color: transparent !important;*/
-  background-color: black !important;
-}
-#ur1 {
-  background-color: lawngreen;
+/*  AVATAR  immagine                  */
+.uimg {
+  /*  size: 100px; */
   height: 100px;
-  margin-top: 20px;
-  margin-bottom: 10px;
+  width: 100px;
+  border-radius: 50px;
 }
-#ur2 {
-  background-color: lightskyblue;
-  margin-top: 10px;
+
+/*  rows...                           */
+
+/*  User AVATAR  -->                  */
+#u5r1 {
+  height: 120px;
+  margin-top: 5px;
   margin-bottom: 5px;
   text-align: center;
-  text-justify: auto;
+  text-justify: center;
+  /*background-color: lawngreen;*/
 }
-#ur3 {
-  background-color: lightcoral;
+#u5r2 {
+  /*  CIAO USERNAME                   */
   margin-top: 5px;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
+  text-align: center;
+  text-justify: center;
+  /*background-color: lightskyblue;*/
 }
-#ur4 {
-  margin-top: 20px;
-  margin-bottom: 10px;
+#u5r3 {
+  /*  Logout                          */
+  margin-top: 5px;
+  margin-bottom: 5px;
+  text-align: center;
+  text-justify: center;
+  /*background-color: lightcoral;*/
 }
-.uimg1 {
-  /*  size: 100px; */
-  height: 70px;
-  width: 70px;
-  border-radius: 35px;
+#u5r4 {
+  /*  User RANK / RANGO  -->          */
+  margin-top: 10px;
+  margin-bottom: 20px;
+  text-align: center;
+  text-justify: center;
+  /*background-color: lightcoral !important;*/
 }
+
 h2 {
   color: rgb(245, 244, 228);
 }

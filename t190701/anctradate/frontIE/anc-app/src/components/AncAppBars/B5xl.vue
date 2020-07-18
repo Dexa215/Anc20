@@ -117,7 +117,7 @@
           <!--v-expand-transition v-show="!drawerLeft" -->
           <v-row class="rcCr rcCr_BC" align="center" justify="center" dense style="z-index: 2">
             <v-col class="rcCrcS rcCrcLat_BC">
-              <div>XL - ANC</div>
+              <div>ANC</div>
             </v-col>
 
             <v-col class="rcCrcC rcCrcX rcCrcC_BC">
@@ -192,6 +192,8 @@
                 <v-btn v-show="!languagesShow && drawerLeft" class="mx-3" icon @click="gotoR('/')">
                   <v-icon class="mx-3 AncIconLang" large dark>mdi-bank</v-icon>
                 </v-btn>
+
+                <!--v-btn v-show="!languagesShow && !drawerLeft" class="mx-3" icon>XL</v-btn-->
 
                 <!-- Language btn ...
                 <v-expand-x-transition>
@@ -319,7 +321,10 @@
 
             <v-col v-if="!languagesShow" class="icoSx iconavcDD" cols="3">
               <v-row class="rIco" justify="end" align="center">
-                <!-- BUTTON HOME... -->
+                <!-- BUTTON MENU... -->
+                <v-btn icon>
+                  <a>XL</a>
+                </v-btn>
                 <v-btn icon v-model="iconX" @click.stop="setD">
                   <v-icon v-if="drawerLeft" large>{{ iconO }}</v-icon>
                   <v-icon v-else large>{{ iconC }}</v-icon>

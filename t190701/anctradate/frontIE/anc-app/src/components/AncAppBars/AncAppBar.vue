@@ -82,29 +82,6 @@
     </div>
 
     <div v-else-if="currentres == 'lg'">
-      <!--div class="rmblock">ciao</div
-        DELEGATE A $STORE
-        :requestUser="requestUser"
-        :requestUserIsStaff="requestUserIsStaff"
-        :requestUserIsSuper="requestUserIsSuper"
-        :requestUserAvatar="requestUserAvatar"
-        :requestUserBio="requestUserBio"      
-        :C="C"
-        :CS="CS"
-        :categorie="categorie"
-        :rcS="rcS"
-        :rcD="rcD"      
-        :drawer="drawer"
-        :drawerLeft="drawerLeft"
-        :drawerRight="drawerRight"
-        :drawerSottocategoria="drawerSottocategoria"
-        :iconX="iconX"
-        @gotoR="gotoR"
-        @setD="setD" 
-        @setDF="setDF"
-        @DSCset="DSCset"
-      -->
-
       <b4lg :height="hlg" @mouseover="setDF()"></b4lg>
     </div>
 
@@ -519,10 +496,6 @@ export default {
   height: 400px;
   background-color: grey !important;
 }
-.rmH {
-  position: relative;
-  height: 600px;
-}
 
 .rmvcolS {
   margin-left: 0px;
@@ -554,14 +527,22 @@ export default {
 }
 
 /*    colonna categorie   */
+
 .rmvcolD {
+  /*test 2020 07 18 */
+  width: 100%;
+  height: 100%;
+
   margin-left: 0px;
   margin-right: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+
   /*opacity: 0.9;*/
   opacity: 1;
   background-color: yellow !important; /*test*/
   /*background-color: transparent !important;*/
-  border-radius: 0px 0px 25px 0px;
+  border-radius: 0px 0px 50px 0px;
 }
 .rmvcolC {
   position: relative;

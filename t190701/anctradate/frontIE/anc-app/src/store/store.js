@@ -22,7 +22,7 @@ const moduleA = {
     state: {
         rcS: "rcS rcX rcLat rcLat_BC_Visitor",
         rcD: "rcD rcX rcLat rcLat_BC_Visitor",
-        rcU: "rmvcolD rmH   rcLat_BC_Visitor",
+        rcU: "rmvcolD rcLat_BC_Visitor",    /* rmH */
 
         catCL: "tileM4",        /*Default item cat riposo*/
 

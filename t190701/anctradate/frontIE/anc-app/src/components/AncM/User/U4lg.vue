@@ -1,5 +1,11 @@
 <template>
   <div class="u4menu mx-auto">
+    <!--  User NAME  -->
+    <v-row id="u4r2" class="mx-auto" align="center" justify="center">
+      <v-col>
+        <h2 class>Ciao {{ requestUser }} !!</h2>
+      </v-col>
+    </v-row>
     <!--  User RANK / RANGO  -->
     <v-row id="u4r4" class="mx-auto">
       <v-col>
@@ -35,13 +41,6 @@
     <!--  User AVATAR  -->
     <v-row id="u4r1" class="mx-auto" align="center" justify="center">
       <img class="uimg" :src="ico" />
-    </v-row>
-
-    <!--  User NAME  -->
-    <v-row id="u4r2" class="mx-auto" align="center" justify="center">
-      <v-col>
-        <h2 class>Ciao {{ requestUser }} !!</h2>
-      </v-col>
     </v-row>
 
     <!--  User LOGOUT  -->
@@ -204,32 +203,32 @@ export default {
 /*  User AVATAR  -->                  */
 #u4r1 {
   height: 120px;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin-top: 5px;
+  margin-bottom: 5px;
   text-align: center;
   text-justify: center;
   /*background-color: lawngreen;*/
 }
 #u4r2 {
   /*  CIAO USERNAME                   */
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin-top: 5px;
+  margin-bottom: 5px;
   text-align: center;
   text-justify: center;
   /*background-color: lightskyblue;*/
 }
 #u4r3 {
   /*  Logout                          */
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin-top: 5px;
+  margin-bottom: 5px;
   text-align: center;
   text-justify: center;
   /*background-color: lightcoral;*/
 }
 #u4r4 {
   /*  User RANK / RANGO  -->          */
-  margin-top: 10px;
-  margin-bottom: 20px;
+  margin-top: 5px;
+  margin-bottom: 5px;
   text-align: center;
   text-justify: center;
   /*background-color: lightcoral !important;*/

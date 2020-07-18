@@ -1,98 +1,10 @@
 <template>
   <div class="menuS">
-    <!-- div BLOCCO MENU -->
-    <transition
-      name="custom-classes-transition"
-      enter-active-class="animated fadeInDown"
-      leave-active-class="animated fadeOutUp"
-    >
-      <!--  -->
-
-      <!--
-        <v-col v-if="currentres != 'xs'" class="rmH0" cols="4"></v-col>
-      -->
-
-      <menu1xs v-if="currentres == 'xs'"></menu1xs>
-      <menu2sm v-if="currentres == 'sm'"></menu2sm>
-      <menu3md v-if="currentres == 'md'"></menu3md>
-      <menu4lg v-if="currentres == 'lg'"></menu4lg>
-      <menu5xl v-if="currentres == 'xl'"></menu5xl>
-
-      <!--
-        <div v-if ="currentres == 'xs'"></div>
-        <div v-else-if="currentres == 'sm'"></div>
-        ...
-      -->
-
-      <!--  finestra USER dati **************************************************** -->
-      <!-- User Menu -->
-
-      <!-- xs -->
-      <!--
-        <v-col v-if="currentres == 'xs'" class="rmvcolC1 rmH1 rcC_BC" cols="4">
-          <div style="color:white">
-            <u1xs></u1xs>
-          </div>
-        </v-col>
-      -->
-
-      <v-col v-else-if="currentres == 'sm'" class="rmvcolC2 rmH rcC_BC" cols="4">
-        <div>
-          <u2sm></u2sm>
-        </div>
-      </v-col>
-
-      <v-col v-else-if="currentres == 'md'" class="rmvcolC3 rmH rcC_BC" cols="4">
-        <div>
-          <u3md></u3md>
-        </div>
-      </v-col>
-      <!--
-        <v-col v-else-if="currentres == 'lg'" class="rmvcolC4 rmH rcC_BC" cols="4">
-          <div>
-            <u4lg></u4lg>
-          </div>
-        </v-col>
-
-        <v-col v-if="currentres == 'lg'" :class="rcU">
-          <m4lg></m4lg>
-        </v-col>
-      -->
-      <v-col v-else-if="currentres == 'xl'" class="rmvcolC5 rmH rcC_BC" cols="4">
-        <!--<u4lg @adminCommandSwitch="adminCommandSwitch" @gotoR="gotoR"></u4lg>-->
-        <div>
-          <u5xl></u5xl>
-        </div>
-      </v-col>
-
-      <!--  finestra comandi amministatore **************************************************** -->
-      <transition
-        name="custom-classes-transition2"
-        enter-active-class="animated bounceInLeft"
-        leave-active-class="animated bounceOutLeft"
-      >
-        <v-col
-          v-show="this.$store.getters.requestUserIsSuper & admincommands"
-          class="rmvcolSadmin rmH"
-          cols="12"
-        >
-          <!-- Admin Menu -->
-          <div v-if="currentres == 'xs'"></div>
-          <div v-else-if="currentres == 'sm'"></div>
-          <div v-else-if="currentres == 'md'"></div>
-
-          <!--
-          <div v-else-if="currentres == 'lg'">
-            <m4lgAdmin></m4lgAdmin>
-          </div>
-          -->
-
-          <div v-else-if="currentres == 'xl'"></div>
-          <!-- / Admin Menu -->
-        </v-col>
-      </transition>
-    </transition>
-    <!-- ****************************************************************** -->
+    <menu1xs v-if="currentres == 'xs'"></menu1xs>
+    <menu2sm v-if="currentres == 'sm'"></menu2sm>
+    <menu3md v-if="currentres == 'md'"></menu3md>
+    <menu4lg v-if="currentres == 'lg'"></menu4lg>
+    <menu5xl v-if="currentres == 'xl'"></menu5xl>
   </div>
   <!-- @@@ -->
 </template>
@@ -100,12 +12,13 @@
 <script>
 import { apiService } from "@/common/api.service";
 import router from "@/router";
-
+/*
 import b1xs from "@/components/AncAppBars/B1xs.vue";
 import b2sm from "@/components/AncAppBars/B2sm.vue";
 import b3md from "@/components/AncAppBars/B3md.vue";
 import b4lg from "@/components/AncAppBars/B4lg.vue";
 import b5xl from "@/components/AncAppBars/B5xl.vue";
+*/
 /* Transitions */
 
 /*Res Menu*/
@@ -116,17 +29,21 @@ import menu4lg from "@/components/AncM/MenuS/Menu4lg.vue";
 import menu5xl from "@/components/AncM/MenuS/Menu5xl.vue";
 
 /*User Menu*/
+/*
 import u1xs from "@/components/AncM/User/U1xs.vue";
 import u2sm from "@/components/AncM/User/U2sm.vue";
 import u3md from "@/components/AncM/User/U3md.vue";
 import u4lg from "@/components/AncM/User/U4lg.vue";
 import u5xl from "@/components/AncM/User/U5xl.vue";
+*/
 /*Categorie*/
+/*
 import m1xs from "@/components/AncM/Cat/M1xs.vue";
 import m2sm from "@/components/AncM/Cat/M2sm.vue";
 import m3md from "@/components/AncM/Cat/M3md.vue";
 import m4lg from "@/components/AncM/Cat/M4lg.vue";
 import m5xl from "@/components/AncM/Cat/M5xl.vue";
+*/
 
 import m4lgSottocategorie from "@/components/AncM/CatSotto/M4lgSottocategorie.vue";
 import m4lgAdmin from "@/components/AncM/Admin/M4lgAdmin.vue";
@@ -135,35 +52,40 @@ export default {
   name: "menuS",
 
   components: {
+    /*
     b1xs,
     b2sm,
     b3md,
     b4lg,
     b5xl,
-
+*/
     /*menu res*/
     menu1xs,
     menu2sm,
     menu3md,
     menu4lg,
-    menu5xl,
+    menu5xl
 
     /*user*/
+    /*
     u1xs,
     u2sm,
     u3md,
     u4lg,
     u5xl,
-
+    */
     /*cat*/
+    /*
     m1xs,
     m2sm,
     m3md,
     m4lg,
     m5xl,
-
+    */
+    /*
     m4lgSottocategorie,
     m4lgAdmin
+*/
   },
 
   props: {},
@@ -359,12 +281,16 @@ export default {
   z-index: 3;
   /*background-color: greenyellow !important;*/
   background-color: transparent !important;
-  height: 200px;
   width: 100%;
 }
+
 /*  xs  */
 .rmH1 {
   position: relative;
+}
+.rmH {
+  position: relative;
+  height: 540px;
 }
 
 /*  sm  */
@@ -389,5 +315,201 @@ export default {
   opacity: 0.9;
   /* background-color: transparent !important; */
   border-radius: 0px 0px 0px 648px;
+}
+
+.CcB {
+  align-content: flex-start;
+
+  margin-top: 1px;
+  margin-bottom: 1px;
+  margin-left: 5px;
+  margin-right: 5px;
+
+  padding-top: 1px;
+  padding-bottom: 1px;
+  padding-left: 5px;
+  padding-right: 5px;
+
+  border-radius: 15;
+  text-align: start;
+  justify-content: start;
+}
+.CclDESEL {
+  /*background-color: khaki;*/
+  /*rcC_BC */
+  background-color: rgb(4, 11, 46) !important;
+  border-radius: 25px 25px 25px 25px;
+  width: 100%;
+  height: 45px;
+  /*transform: scale(1, 1);*/
+  /*background-color: khaki;*/
+  /*transition-property: width, height;*/
+  transition-property: height;
+  transition-duration: 0.25s;
+}
+.CclSEL {
+  color: lightcoral;
+  border-radius: 25px 25px 25px 25px;
+
+  width: 100%;
+  height: 45px;
+  /*transform: scale(1, 1);*/
+  /*background-color: lightcoral;*/
+  background-color: #083b8c;
+  /*transform: rotate(0deg);*/
+  /*transition-property: width, height;*/
+  transition-property: height;
+  transition-duration: 0.5s;
+}
+.CclOPEN {
+  color: aqua;
+  border-radius: 25px 25px 25px 25px;
+  width: 60%;
+  height: 160px;
+  /*transform: scale(1, 1);*/
+  /*background-color: aquamarine;*/
+  background-color: #083b8c;
+  /*
+  transform: rotate(20deg);
+  transform: translateX(50px);
+  */
+  /*transition-property: width, height;*/
+  transition-property: height;
+  transition-duration: 0.8s;
+}
+/*
+.CclOPEN:active {
+  height: 50px;
+}
+*/
+
+/* 8888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888  */
+
+.tileM4 {
+  margin: 5px;
+  border-radius: 4px;
+  color: khaki;
+  width: 100%;
+  height: 40px;
+  /*transform: scale(1, 1);*/
+}
+.tileM4sel {
+  margin: 15px;
+  border-radius: 4px;
+  color: lightcoral;
+  width: 100%;
+  height: 220px;
+
+  /*transform: scale(1, 1);*/
+}
+/*
+.tileM4:hover {
+  background: rgb(160, 108, 11);
+  height: 150px;
+}*/
+/*transform: scale(1, 10);*/
+/*background: #1f1401;*/
+
+.tileM4:active {
+  /*
+  background: #ffbe4d;
+  background-color: peru;
+  */
+}
+.d1int {
+  height: 85px;
+  background-color: green;
+}
+.d1 {
+  height: 80px;
+  /*        background-color:   rgb(15, 10, 0);
+*/
+  padding-top: 20px;
+  text-align: center;
+  text-justify: center;
+}
+.dr1 {
+  opacity: 0.9;
+  margin-left: 20px;
+  min-height: 30px;
+  max-height: 700px;
+  width: 70%;
+  /*background-color:   rgb(29, 20, 6);*/
+}
+.drawercard {
+  border-radius: 0px 50px 50px 5px;
+}
+.x {
+  text-align: center;
+  text-justify: center;
+}
+.ancM4 {
+  position: fixed;
+  z-index: 1;
+  opacity: 0.95;
+  padding-top: 20px;
+  margin-top: 0px;
+  border-radius: 0px 0px 50px 50px;
+  height: 600px;
+  width: 100%;
+  /*width: 368px;*/
+  /*background-image: url("/static/images/HomePageCarousel/dsc32.jpg");*/
+}
+.ancM4r {
+  position: relative;
+  z-index: 1;
+  margin-top: 0px;
+  text-align: center;
+  text-justify: center;
+}
+.ancM4l {
+  position: relative;
+  z-index: 2;
+
+  /*list*/
+}
+
+.ancM4l_BC {
+  background-color: transparent !important;
+}
+
+.McU {
+  /* Menu column User...*/
+  padding-left: 0px;
+  padding-right: 0px;
+}
+.mr {
+  background-color: transparent !important;
+}
+
+.caticon {
+  transform: scale(1, 1);
+}
+.caticon:hover {
+  transform: scale(1.7, 1.7);
+}
+
+.catdescrizione {
+  transform: scale(1, 1);
+}
+.catdescrizione:hover {
+  transform: scale(1.5, 1.5);
+}
+.vlistitem {
+  background-color: transparent;
+  border-radius: 20px 20px 20px 20px;
+}
+.vlistitem:hover {
+  background-color: transparent;
+  border-radius: 20px 20px 20px 20px;
+}
+.mbtn {
+  border-radius: 20px 20px 20px 20px;
+  background-color: transparent;
+  margin: 1px;
+}
+.mbtn:hover {
+  margin: 1px;
+  background-color: mediumturquoise;
 }
 </style>

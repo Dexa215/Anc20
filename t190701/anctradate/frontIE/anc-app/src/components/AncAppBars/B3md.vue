@@ -239,7 +239,7 @@
               </v-row>
             </v-col>
 
-            <v-col class="icoSx iconavcS" cols="6">
+            <v-col class="icoSx iconavcS" cols="5">
               <!--
               <div class="xxx">
                 <v-icon
@@ -298,10 +298,17 @@
                 <!-- TEST OK -->
               </v-row>
             </v-col>
-
-            <v-col v-if="!languagesShow" class="icoSx iconavcDD" cols="3">
+            <v-col v-if="!languagesShow" class="icoSx iconavcDD" cols="1">
+              <v-row class="rIco" justify="center" align="center">
+                <v-btn icon>
+                  <a style="color: antiquewhite">MD</a>
+                </v-btn>
+              </v-row>
+            </v-col>
+            <v-col v-if="!languagesShow" class="icoSx iconavcDD" cols="2">
               <v-row class="rIco" justify="end" align="center">
-                <!-- BUTTON HOME... -->
+                <!-- BUTTON MENU... -->
+
                 <v-btn icon v-model="iconX" @click.stop="setD">
                   <v-icon v-if="drawerLeft" large>{{ iconO }}</v-icon>
                   <v-icon v-else large>{{ iconC }}</v-icon>
@@ -572,7 +579,7 @@ TODO:
 }
 .ct {
   position: relative;
-  background-color: aqua;
+  background-color: antiquewhite;
   height: 100%;
 }
 </style>

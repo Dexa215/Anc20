@@ -6,20 +6,19 @@
       leave-active-class="animated fadeOutUp"
     >
       <v-row v-show="drawerLeft" class="m4r" text-align="center">
-        <!-- /*lg*/ -->
-        <v-col class="m4c m4cL" cols="4"></v-col>
-
-        <!-- rmvcolC4 -->
-
-        <!-- user data -->
-        <v-col class="m4c m4cC rmH rcC_BC" cols="4">
+        <!-- /*lg*/ system... -->
+        <v-col class="rmH4 m4cL" cols="4"></v-col>
+        <!-- user -->
+        <v-col class="rmH4 m4cC rcC_BC" cols="4">
           <u4lg></u4lg>
         </v-col>
-
         <!-- cats menu -->
-        <v-col :class="rcU" cols="4">
-          <m4lg></m4lg>
+        <v-col class="rmH4 m4cR" cols="4">
+          <div :class="rcU">
+            <m4lg></m4lg>
+          </div>
         </v-col>
+
         <!-- admin commands -->
         <m4lgAdmin></m4lgAdmin>
         <!-- admin commands -->
@@ -225,6 +224,12 @@ export default {
 
 
 <style media="screen">
+.rmH4 {
+  position: relative;
+  z-index: 7;
+  height: 540px;
+}
+
 .m4r {
   position: relative;
   height: 0px;
@@ -242,11 +247,6 @@ export default {
 
   background-color: orangered !important;
 }
-.m4c {
-  position: relative;
-  z-index: 7;
-  height: 400px;
-}
 
 .m4cL {
   /*menu 4 - lg - Column Left - Servizio*/
@@ -262,8 +262,11 @@ export default {
   border-radius: 0px 0px 0px 450px;
 }
 .m4cR {
+  position: relative;
+  z-index: 3;
   /*menu 4 - lg - Column Right - Menu Categorie */
   background-color: black !important;
   border-radius: 0px 0px 25px 0px;
+  padding: 0px;
 }
 </style>

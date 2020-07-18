@@ -88,12 +88,14 @@
         </v-list>
       </v-col>
     </v-row>
+    <!--
     <a style="color:yellow">in selezione $store > Cs Categoria ... {{ Cs }}</a>
     <a style="color:yellow">in selezione CSs SottoCategoria ... {{ CSs }}</a>
     <a>in selezione... {{ btnsel }}</a>
     <a>{{ btnsel }}</a>
     <a>DRAWER SCM: {{drawerSCM}}</a>
     <v-row class="mx-auto" style="background-color: red"></v-row>
+    -->
   </div>
 </template>
 
@@ -320,201 +322,6 @@ export default {
 }
 */
 /* 8888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888  */
-.CcB {
-  align-content: flex-start;
-
-  margin-top: 1px;
-  margin-bottom: 1px;
-  margin-left: 5px;
-  margin-right: 5px;
-
-  padding-top: 1px;
-  padding-bottom: 1px;
-  padding-left: 5px;
-  padding-right: 5px;
-
-  border-radius: 1px 1px 1px 1px;
-  text-align: start;
-  justify-content: start;
-}
-.CclDESEL {
-  /*background-color: khaki;*/
-  /*rcC_BC */
-  background-color: rgb(4, 11, 46) !important;
-  border-radius: 25px 25px 25px 25px;
-  width: 100%;
-  height: 45px;
-  /*transform: scale(1, 1);*/
-  /*background-color: khaki;*/
-  /*transition-property: width, height;*/
-  transition-property: height;
-  transition-duration: 0.25s;
-}
-.CclSEL {
-  color: lightcoral;
-  border-radius: 25px 25px 25px 25px;
-
-  width: 100%;
-  height: 45px;
-  /*transform: scale(1, 1);*/
-  /*background-color: lightcoral;*/
-  background-color: #083b8c;
-  /*transform: rotate(0deg);*/
-  /*transition-property: width, height;*/
-  transition-property: height;
-  transition-duration: 0.5s;
-}
-.CclOPEN {
-  color: aqua;
-  border-radius: 25px 25px 25px 25px;
-  width: 60%;
-  height: 160px;
-  /*transform: scale(1, 1);*/
-  /*background-color: aquamarine;*/
-  background-color: #083b8c;
-  /*
-  transform: rotate(20deg);
-  transform: translateX(50px);
-  */
-  /*transition-property: width, height;*/
-  transition-property: height;
-  transition-duration: 0.8s;
-}
-/*
-.CclOPEN:active {
-  height: 50px;
-}
-*/
-
-/* 8888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888  */
-
-.tileM4 {
-  margin: 5px;
-  border-radius: 4px;
-  color: khaki;
-  width: 100%;
-  height: 40px;
-  /*transform: scale(1, 1);*/
-}
-.tileM4sel {
-  margin: 15px;
-  border-radius: 4px;
-  color: lightcoral;
-  width: 100%;
-  height: 220px;
-
-  /*transform: scale(1, 1);*/
-}
-/*
-.tileM4:hover {
-  background: rgb(160, 108, 11);
-  height: 150px;
-}*/
-/*transform: scale(1, 10);*/
-/*background: #1f1401;*/
-
-.tileM4:active {
-  /*
-  background: #ffbe4d;
-  background-color: peru;
-  */
-}
-.d1int {
-  height: 85px;
-  background-color: green;
-}
-.d1 {
-  height: 80px;
-  /*        background-color:   rgb(15, 10, 0);
-*/
-  padding-top: 20px;
-  text-align: center;
-  text-justify: center;
-}
-.dr1 {
-  opacity: 0.9;
-  margin-left: 20px;
-  min-height: 30px;
-  max-height: 700px;
-  width: 70%;
-  /*background-color:   rgb(29, 20, 6);*/
-}
-.drawercard {
-  border-radius: 0px 50px 50px 5px;
-}
-.x {
-  text-align: center;
-  text-justify: center;
-}
-.ancM4 {
-  position: fixed;
-  z-index: 1;
-  opacity: 0.95;
-  padding-top: 20px;
-  margin-top: 0px;
-  border-radius: 0px 0px 50px 50px;
-  height: 600px;
-  width: 100%;
-  /*width: 368px;*/
-  /*background-image: url("/static/images/HomePageCarousel/dsc32.jpg");*/
-}
-.ancM4r {
-  position: relative;
-  z-index: 1;
-  margin-top: 0px;
-  text-align: center;
-  text-justify: center;
-}
-.ancM4l {
-  position: relative;
-  z-index: 2;
-
-  /*list*/
-}
-
-.ancM4l_BC {
-  background-color: transparent !important;
-}
-
-.McU {
-  /* Menu column User...*/
-  padding-left: 0px;
-  padding-right: 0px;
-}
-.mr {
-  background-color: transparent !important;
-}
-
-.caticon {
-  transform: scale(1, 1);
-}
-.caticon:hover {
-  transform: scale(1.7, 1.7);
-}
-
-.catdescrizione {
-  transform: scale(1, 1);
-}
-.catdescrizione:hover {
-  transform: scale(1.5, 1.5);
-}
-.vlistitem {
-  background-color: transparent;
-  border-radius: 20px 20px 20px 20px;
-}
-.vlistitem:hover {
-  background-color: transparent;
-  border-radius: 20px 20px 20px 20px;
-}
-.mbtn {
-  border-radius: 20px 20px 20px 20px;
-  background-color: transparent;
-  margin: 1px;
-}
-.mbtn:hover {
-  margin: 1px;
-  background-color: mediumturquoise;
-}
 </style>
 
 

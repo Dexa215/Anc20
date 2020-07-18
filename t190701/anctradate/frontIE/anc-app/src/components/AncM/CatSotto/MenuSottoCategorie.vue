@@ -1,9 +1,16 @@
 <template>
   <!-- @@@ -->
   <!-- Selezione Sottocategoria -->
+
+  <!--  
   <div class="menuSC" v-if="currentres == 'xs'">
     <m1xsSottocategorie></m1xsSottocategorie>
   </div>
+  -->
+  <div class="menuSC" v-if="currentres == 'xs'">
+    <m1xsSottocategorie></m1xsSottocategorie>
+  </div>
+
   <div class="menuSC" v-else-if="currentres == 'sm'">
     <m2smSottocategorie></m2smSottocategorie>
   </div>

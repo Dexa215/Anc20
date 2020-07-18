@@ -322,7 +322,10 @@
 
             <v-col v-if="!languagesShow" class="icoSx iconavcDD" cols="3">
               <v-row class="rIco" justify="end" align="center">
-                <!-- BUTTON HOME... -->
+                <!-- BUTTON MENU... -->
+                <v-btn icon>
+                  <a>LG</a>
+                </v-btn>
                 <v-btn icon v-model="iconX" @click.stop="setD">
                   <v-icon v-if="drawerLeft" large>{{ iconO }}</v-icon>
                   <v-icon v-else large>{{ iconC }}</v-icon>

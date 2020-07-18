@@ -9,6 +9,7 @@
       v-show="categorie[C/10-1].sottocategorie.length > 1 && drawerSottocategoria"
       class="sottocategorieList"
     >
+      MD
       <v-col cols="1" class="sottocategorieListr1"></v-col>
 
       <v-col cols="3" class="sottocategorieListr2 rcLat_BC_Visitor">
@@ -16,7 +17,7 @@
         <v-col v-show="drawerSottocategoria" class="m4lgSottocategorie">
           <!-- -------------------------------------------------------------------------------------------------------------------------- -->
 
-          <div class="box" @mouseleave="DSCset('false')">
+          <div class="box3" @mouseleave="DSCset('false')">
             <v-list shaped dark class="ancM4l ancM4l_BC">
               <!-- color="rgb(36, 17, 6)" -->
               <v-list-item
@@ -165,9 +166,9 @@ export default {
 
 
 <style media="screen">
-.box {
+.box3 {
   position: absolute;
-  height: 200px;
+  height: 250px;
   text-align: right;
   padding-left: 70px;
   padding-right: 0px;
