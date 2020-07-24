@@ -6,7 +6,7 @@
   >
     <v-row
       v-show="categorie[Cs/10-1].sottocategorie.length > 1 && drawerSCM"
-      class="scList2 mx-auto"
+      class="scList3 mx-auto"
     >
       <v-col cols="12">
         <!-- chip -->
@@ -101,14 +101,14 @@ export default {
 </script>
 
 <style media="screen" scoped>
-.scList2 {
+.scList3 {
   position: relative;
   z-index: 3;
   /*top: 150px;*/
   left: 0px;
   background-color: rgb(4, 11, 46) !important;
   /*background-color: blue !important;*/
-  height: 150px;
+  height: 175px;
   width: 90%;
   margin: 2px;
   border-radius: 25px 25px 25px 25px;

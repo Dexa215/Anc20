@@ -634,6 +634,10 @@ categorie:[
       /*TODO: test ... da ripristinare */
     },
 
+    getEvidenza() {
+      this.$store.dispatch("getEvidenza");
+    },
+
     T(c) {
       console.log("App --> RICEVUTO emit su T ", c); //set parameters
     },
@@ -798,16 +802,18 @@ categorie:[
 
     this.getCat(); // test 2020 02 07
 
-    /*TODO: RIPRISTINARE */
-    /*
-     */
-    /*TODO: RIPRISTINARE */
-
-    /* GIA ESCLUSE AL 2/5/2020 */
-    //this.setCat();  //modulo menu.js
-    //this.menu();
-    /* GIA ESCLUSE AL 2/5/2020 */
+    this.getEvidenza(); // !!store - moduleE --> Events...
   }
+
+  /*TODO: RIPRISTINARE */
+  /*
+   */
+  /*TODO: RIPRISTINARE */
+
+  /* GIA ESCLUSE AL 2/5/2020 */
+  //this.setCat();  //modulo menu.js
+  //this.menu();
+  /* GIA ESCLUSE AL 2/5/2020 */
 };
 </script>
 

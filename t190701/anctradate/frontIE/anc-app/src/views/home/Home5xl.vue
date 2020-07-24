@@ -1,29 +1,57 @@
-<template>
-  <div>
-    <transition
-      name="custom-classes-transition"
-      enter-active-class="animated fadeInDown"
-      leave-active-class="animated fadeOutUp"
-    >
-      <v-row v-show="drawerLeft" class="m2r" text-align="center">
-        <!-- /*lg*/ system... -->
-        <v-col class="rmH2 m2cL" cols="4"></v-col>
-        <!-- user -->
-        <v-col class="rmH2 m2cC rcC_BC" cols="4">
-          <u2sm></u2sm>
-        </v-col>
-        <!-- cats menu -->
-        <v-col class="rmH2 m2cR" cols="4">
-          <div :class="rcU">
-            <m2sm></m2sm>
-          </div>
-        </v-col>
+{% load l10n %}
 
-        <!-- admin commands -->
-        <m4lgAdmin></m4lgAdmin>
-        <!-- admin commands -->
-      </v-row>
-    </transition>
+  <template>
+  <div class="SfBase">
+    <v-row class="AncTrasparenza" v-show="drawerLeft"></v-row>
+    <div class="SfSpazio SfShUp AncAppBar_BC">spazio Up</div>
+    <v-row
+      justify="center"
+      align="center"
+      class="anchomer mx-auto"
+      style="height:600px; width:100%; background-color:transparent; "
+    >
+      <!--sx-->
+      <carP :Pevents="Pevents" :Pnext="Pnext" :PloadingEvents="PloadingEvents"></carP>
+      <!--sx-->
+
+      <!--cx-->
+      <ancClock></ancClock>
+      <!--cx-->
+
+      <!--dx-->
+      <carF
+        :Fevents="Fevents"
+        :Fnext="Fnext"
+        :FloadingEvents="FloadingEvents"
+        clFcard="grey lighten-4"
+        clFtitle="grey lighten-4 "
+        clFevent="grey lighten-3 "
+        clFeventInt="grey lighten-4 "
+      ></carF>
+      <!--dx-->
+    </v-row>
+    <!--
+      <v-col cols="4" style="height:500px; background-color:blue; "></v-col>
+    <dx-->
+
+    <v-parallax class="SfParallax" src="/static/images/bg/bg8.jpg" height="650"></v-parallax>
+
+    <!-- <span>spiegone:</span>-->
+
+    <span v-if="CS==0">{{ categorie[(C/10)-1].descrizione }}</span>
+    <span v-else>{{ categorie[(C/10)-1].sottocategorie[(CS-C)-1].descrizione }}</span>
+
+    <!--
+    <div class="SfImmagine">sfondo Immagine</div>
+    -->
+    <div class="container-fluid text-center">
+      <AncIntestazioneFine :C="C" :CS="CS" :categorie="categorie" @gotoR="gotoR"></AncIntestazioneFine>
+    </div>
+    <div class="SfSpazio SfShDown AncAppBar_BC">spazio Down</div>
+
+    <!--
+/* ********************************************************************************************************** */
+    -->
   </div>
 </template>
 
@@ -31,44 +59,31 @@
 import { apiService } from "@/common/api.service";
 import router from "@/router";
 
-/* Transitions */
-
-/*User Menu*/
-import u1xs from "@/components/AncM/User/U1xs.vue";
-import u2sm from "@/components/AncM/User/U2sm.vue";
-import u3md from "@/components/AncM/User/U3md.vue";
-import u4lg from "@/components/AncM/User/U4lg.vue";
-import u5xl from "@/components/AncM/User/U5xl.vue";
-/*Categorie*/
-import m1xs from "@/components/AncM/Cat/M1xs.vue";
-import m2sm from "@/components/AncM/Cat/M2sm.vue";
-import m3md from "@/components/AncM/Cat/M3md.vue";
-import m4lg from "@/components/AncM/Cat/M4lg.vue";
-import m5xl from "@/components/AncM/Cat/M5xl.vue";
+/*home.vue*/
+import ancEventsPast from "@/components/AncEventsPast";
+import ancEventsFuture from "@/components/AncEventsFuture";
+import AncIntestazioneHome from "@/components/AncIntestazioneHome.vue";
+import AncIntestazioneFine from "@/components/AncIntestazioneFine.vue";
+import AncCard from "@/components/AncCard.vue";
+import carP from "@/components/AncCarousels/Past/Car.vue";
+import carF from "@/components/AncCarousels/Future/Car.vue";
+import ancClock from "@/components/AncObjects/AncClock.vue";
 
 import m4lgSottocategorie from "@/components/AncM/CatSotto/M4lgSottocategorie.vue";
 import m4lgAdmin from "@/components/AncM/Admin/M4lgAdmin.vue";
 
 export default {
-  name: "menu2sm",
+  name: "home4lg",
 
   components: {
-    /*user*/
-    u1xs,
-    u2sm,
-    u3md,
-    u4lg,
-    u5xl,
-
-    /*cat*/
-    m1xs,
-    m2sm,
-    m3md,
-    m4lg,
-    m5xl,
-
-    m4lgSottocategorie,
-    m4lgAdmin
+    ancEventsPast,
+    ancEventsFuture,
+    AncIntestazioneHome,
+    AncIntestazioneFine,
+    AncCard,
+    carP,
+    carF,
+    ancClock
   },
 
   props: {},
@@ -211,51 +226,105 @@ export default {
 };
 </script>
 
-
 <style media="screen">
-.rmH2 {
+.anchome {
+  background-color: blue !important;
+  background-image: url("~@/assets/images/bg/bg7.jpg");
+  opacity: 0.3;
+}
+.SfParallax {
+  /* Sfondo Parallax */
   position: relative;
-  z-index: 7;
-  height: 420px;
+  z-index: 1;
+  opacity: 0.15;
+  height: 600px;
+  width: 100%;
+}
+.anchomer {
+  position: absolute;
+  z-index: 5;
 }
 
-.m2r {
+.home-view {
   position: relative;
-  height: 0px;
-  z-index: 7;
-  opacity: 0.96;
-  /* background-color: transparent !important; */
-  border-radius: 0px 0px 5px 5px;
-  /*inizia row sotto la barra*/
-  top: 80px; /*width: 578px; */
-  margin-left: 26px;
-  margin-right: 26px;
-
-  padding-left: 0px;
-  padding-right: 0px;
-
-  background-color: orangered !important;
+  z-index: 1;
 }
 
-.m2cL {
-  /*menu 4 - lg - Column Left - Servizio*/
-  position: relative;
-  height: 10px;
-  /* srv... */
-  /*height: 400px;*/
-  /*background-color: cyan !important;*/
+.author-name {
+  font-weight: bold;
+  color: #dc3545;
 }
-.m2cC {
-  /*menu 4 - lg - Column Central - User*/
-  background-color: grey !important;
-  border-radius: 0px 0px 0px 450px;
+.event-link {
+  font-weight: bold;
+  color: black;
 }
-.m2cR {
+.event-link:hover {
+  color: cadetblue !important;
+  text-decoration: none;
+}
+.group {
+  display: flex;
+  flex: 1;
+  justify-content: space-around;
+}
+
+.imgop {
+  /*opacity: 0.4;*/
+}
+
+.bg {
+  background-image: url("~@/assets/images/bg/bg8.jpg");
+  opacity: 0.3;
+  /*
+  background-image: url("../assets/images/bg/bg1.jpg");
+  background-image: url("~@/assets/images/bg/bg8.jpg");
+  */
+}
+
+/* -------------------------------------------------------------------- 2020 04 22 */
+
+.q {
+  height: 50px;
+}
+
+.qd2 {
+  /*finestra contenuto*/
+  position: absolute;
+  top: 300px;
+  z-index: 4;
+  opacity: 1;
+
+  width: 80%;
+}
+.qd3 {
   position: relative;
   z-index: 3;
-  /*menu 4 - lg - Column Right - Menu Categorie */
-  background-color: black !important;
-  border-radius: 0px 0px 25px 0px;
-  padding: 0px;
+  opacity: 1;
+  background-color: green;
+  width: 100px;
+}
+.qd4 {
+  position: relative;
+  z-index: 4;
+  opacity: 1;
+  background-color: cyan;
+  width: 100px;
+}
+
+.qdcrhome {
+  position: absolute;
+  top: 140px;
+  z-index: 4;
+  opacity: 1;
+  width: 100%;
+  height: 100%;
+  background-color: yellow;
+}
+.qdcchome {
+  position: relative;
+  width: 100px;
+  height: 100%;
+  /* background-color: orange;*/
+  background-color: transparent;
 }
 </style>

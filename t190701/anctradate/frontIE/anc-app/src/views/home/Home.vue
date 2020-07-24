@@ -1,10 +1,10 @@
 <template>
   <div class="menuS">
-    <menu1xs v-if="currentres == 'xs'"></menu1xs>
-    <menu2sm v-if="currentres == 'sm'"></menu2sm>
-    <menu3md v-if="currentres == 'md'"></menu3md>
-    <menu4lg v-if="currentres == 'lg'"></menu4lg>
-    <menu5xl v-if="currentres == 'xl'"></menu5xl>
+    <home1xs v-if="currentres == 'xs'"></home1xs>
+    <home2sm v-if="currentres == 'sm'"></home2sm>
+    <home3md v-if="currentres == 'md'"></home3md>
+    <home4lg v-if="currentres == 'lg'"></home4lg>
+    <home5xl v-if="currentres == 'xl'"></home5xl>
   </div>
   <!-- @@@ -->
 </template>
@@ -12,80 +12,25 @@
 <script>
 import { apiService } from "@/common/api.service";
 import router from "@/router";
-/*
-import b1xs from "@/components/AncAppBars/B1xs.vue";
-import b2sm from "@/components/AncAppBars/B2sm.vue";
-import b3md from "@/components/AncAppBars/B3md.vue";
-import b4lg from "@/components/AncAppBars/B4lg.vue";
-import b5xl from "@/components/AncAppBars/B5xl.vue";
-*/
 /* Transitions */
 
 /*Res Menu*/
-import menu1xs from "@/components/AncM/MenuS/Menu1xs.vue";
-import menu2sm from "@/components/AncM/MenuS/Menu2sm.vue";
-import menu3md from "@/components/AncM/MenuS/Menu3md.vue";
-import menu4lg from "@/components/AncM/MenuS/Menu4lg.vue";
-import menu5xl from "@/components/AncM/MenuS/Menu5xl.vue";
-
-/*User Menu*/
-/*
-import u1xs from "@/components/AncM/User/U1xs.vue";
-import u2sm from "@/components/AncM/User/U2sm.vue";
-import u3md from "@/components/AncM/User/U3md.vue";
-import u4lg from "@/components/AncM/User/U4lg.vue";
-import u5xl from "@/components/AncM/User/U5xl.vue";
-*/
-/*Categorie*/
-/*
-import m1xs from "@/components/AncM/Cat/M1xs.vue";
-import m2sm from "@/components/AncM/Cat/M2sm.vue";
-import m3md from "@/components/AncM/Cat/M3md.vue";
-import m4lg from "@/components/AncM/Cat/M4lg.vue";
-import m5xl from "@/components/AncM/Cat/M5xl.vue";
-*/
-
-import m4lgSottocategorie from "@/components/AncM/CatSotto/M4lgSottocategorie.vue";
-import m4lgAdmin from "@/components/AncM/Admin/M4lgAdmin.vue";
+import home1xs from "@/views/home/Home1xs.vue";
+import home2sm from "@/views/home/Home1xs.vue";
+import home3md from "@/views/home/Home1xs.vue";
+import home4lg from "@/views/home/Home1xs.vue";
+import home5xl from "@/views/home/Home1xs.vue";
 
 export default {
-  name: "menuS",
+  name: "homeS",
 
   components: {
-    /*
-    b1xs,
-    b2sm,
-    b3md,
-    b4lg,
-    b5xl,
-*/
     /*menu res*/
-    menu1xs,
-    menu2sm,
-    menu3md,
-    menu4lg,
-    menu5xl
-
-    /*user*/
-    /*
-    u1xs,
-    u2sm,
-    u3md,
-    u4lg,
-    u5xl,
-    */
-    /*cat*/
-    /*
-    m1xs,
-    m2sm,
-    m3md,
-    m4lg,
-    m5xl,
-    */
-    /*
-    m4lgSottocategorie,
-    m4lgAdmin
-*/
+    home1xs,
+    home2sm,
+    home3md,
+    home4lg,
+    home5xl
   },
 
   props: {},

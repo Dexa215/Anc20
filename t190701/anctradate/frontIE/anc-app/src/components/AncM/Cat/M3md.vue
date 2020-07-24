@@ -16,7 +16,7 @@
             <!-- desel ----------------------------------------------------------------------------
             -->
             <v-list-item-content v-if="item.n!=Cs" class="CcB CclDESEL">
-              <v-btn class="mbtn" color="transparent">
+              <v-btn class="mbtn3" color="transparent">
                 <!--
                 <v-list-item-icon @click="gotoR(item.link)" class="tileM4icon">
                   <v-icon class="caticon">{{ item.icona }}</v-icon>
@@ -40,7 +40,7 @@
             <v-list-item-content v-else-if="drawerSCM" class="CcB CclOPEN3">
               <!-- pulsante categoria-->
 
-              <v-btn @click="selectR(item.link,item.n)" class="mbtn" color="transparent">
+              <v-btn @click="selectR(item.link,item.n)" class="mbtn3" color="transparent">
                 <v-list-item-icon @click="gotoR(item.link)" class="tileM4icon">
                   <v-icon class="caticon" @click="gotoR(item.link)">{{ item.icona }}</v-icon>
                 </v-list-item-icon>
@@ -65,7 +65,7 @@
             <v-list-item-content v-else class="CcB CclSEL">
               <!-- pulsante categoria-->
               <!--@click="selectR(item.link,item.n)"-->
-              <v-btn class="mbtn" color="transparent">
+              <v-btn class="mbtn3" color="transparent">
                 <!--icona categoria-->
                 <!--
                 <v-list-item-icon @click="gotoR(item.link)" class="tileM4icon">
@@ -323,6 +323,18 @@ export default {
   background-color: #083b8c;
   transition-property: height;
   transition-duration: 0.8s;
+}
+CclSEL3 {
+}
+
+.mbtn3 {
+  margin: 1px;
+  border-radius: 20px 20px 20px 20px;
+  background-color: transparent;
+}
+.mbtn3:hover {
+  margin: 1px;
+  background-color: mediumturquoise;
 }
 </style>
 

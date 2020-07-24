@@ -1,50 +1,62 @@
 <template>
-  <div class="umenu2 mx-auto">
-    <v-row id="ur4" class="mx-auto mu-1 ur" align="start" justify="center">
-      <v-btn
-        v-if="requestUserIsSuper"
-        class="ma-1"
-        rounded
-        outlined
-        large
-        color="rgb(245, 244, 228)"
-        @click="acs"
-      >
-        <a style="color:red;">Admin</a>
-      </v-btn>
-      <!-- -->
+  <div class="u2menu mx-auto">
+    <!--  User NAME  -->
+    <v-row id="u2r2" class="mx-auto" align="center" justify="center">
+      <v-col>
+        <h4 class>Ciao {{ requestUser }} !!</h4>
+      </v-col>
+    </v-row>
+    <!--  User RANK / RANGO  -->
+    <v-row id="u2r4" class="mx-auto">
+      <v-col>
+        <!--LOGOUT-->
+        <v-btn class="ma-2" rounded outlined large color="rgb(245, 244, 228)">
+          <span v-if="requestUser">
+            <!--
+            <a @click="gotoR('/')">test logout...</a>
+            <spacer type="horizontal" width="100" height="100">♢</spacer>
+            -->
+            <a class="my-1 logout" href="/accounts/logout/">Logout</a>
+          </span>
+        </v-btn>
 
-      <v-btn
-        v-else-if="requestUserIsStaff"
-        class="ma-1"
-        rounded
-        outlined
-        large
-        color="rgb(245, 244, 228)"
-      >
-        <a style="color:blue;">Staff</a>
-      </v-btn>
-      <!-- -->
+        <v-btn
+          v-if="requestUserIsSuper"
+          class="ma-2"
+          rounded
+          outlined
+          large
+          color="rgb(245, 244, 228)"
+          @click="acs"
+        >
+          <a style="color:red;">Admin</a>
+        </v-btn>
 
-      <v-btn v-else class="ma-1" rounded outlined large color="rgb(245, 244, 228)">
-        <a style="color:brown;">Socio</a>
-      </v-btn>
-      <!-- -->
+        <v-btn
+          v-else-if="requestUserIsStaff"
+          class="ma-2"
+          rounded
+          outlined
+          large
+          color="rgb(245, 244, 228)"
+        >
+          <a style="color:blue;">Consigliere</a>
+        </v-btn>
+
+        <v-btn v-else class="ma-2" rounded outlined large color="rgb(245, 244, 228)">
+          <a style="color:brown;">Socio</a>
+        </v-btn>
+      </v-col>
     </v-row>
 
-    <v-row id="ur1" class="mx-auto ur" align="center" justify="center">
-      <img class="uimg1" :src="ico" />
+    <!--  User AVATAR  -->
+    <v-row id="u2r1" class="mx-auto" align="center" justify="center">
+      <img class="uimg" :src="ico" />
     </v-row>
 
-    <v-row id="ur2" class="mx-auto ur" align="center" justify="center">
-      <h2 class>Ciao {{ requestUser }} !!</h2>
-    </v-row>
-    <v-row id="ur3" class="mx-auto ur" align="center" justify="center">
-      <v-btn class="ma-1" rounded outlined large color="rgb(245, 244, 228)">
-        <span v-if="requestUser">
-          <a class="my-1 logout" href="/accounts/logout/">Logout</a>
-        </span>
-      </v-btn>
+    <!--  User LOGOUT  -->
+    <v-row id="u2r3" class="mx-auto" align="center" justify="center">
+      <v-col></v-col>
     </v-row>
   </div>
 </template>
@@ -54,19 +66,25 @@ import router from "@/router";
 
 export default {
   name: "u2sm",
+
   props: {},
+
   data() {
     return {
       mini: true,
-      ico: "/static/images/Icone/anclogo2012.gif"
+      ico: "/static/images/Icone/anclogo2012.gif",
+      iconX: "",
+      //      "mdi-alien-outline"
+      //        iconC:"mdi-backburger",
+      //        iconO:"mdi-tray-full",
+
+      iconC: "mdi-dots-vertical",
+      //iconO:"mdi-menu-up",
+      iconO: "mdi-close-circle"
     };
   },
 
   computed: {
-    /*  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  */
-    iconX() {
-      return this.$store.getters.getIconX;
-    },
     /*  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  */
     drawer() {
       return this.$store.getters.getDrawer;
@@ -130,9 +148,12 @@ export default {
       this.$store.dispatch("setDF");
       this.$store.dispatch("gotoR", r);
     },
+
     acs() {
       this.$store.dispatch("adminCommandSwitch");
+      //this.$emit("adminCommandSwitch");
     },
+
     SDL() {
       /*Switch Drawer Language*/
       this.$store.dispatch("switchDrawerLang");
@@ -156,48 +177,66 @@ export default {
 </script>
 
 <style media="screen">
-.umenu2 {
+.u2menu {
+  /* div  */
   margin-left: 0px;
   margin-right: 0px;
-  background-color: red !important;
+  background-color: transparent !important;
+  /*background-color: YELLOW !important;*/
 }
 
-.ur {
+.u2r {
   height: 70px;
-  text-align: start;
-  text-justify: auto;
-  /*background-color: transparent !important;*/
-  background-color: black !important;
-}
-#ur1 {
-  background-color: lawngreen;
-  height: 100px;
-  margin-top: 20px;
-  margin-bottom: 10px;
-}
-#ur2 {
-  background-color: lightskyblue;
-  margin-top: 10px;
-  margin-bottom: 5px;
   text-align: center;
   text-justify: auto;
 }
-#ur3 {
-  background-color: lightcoral;
-  margin-top: 5px;
-  margin-bottom: 10px;
-}
-#ur4 {
-  margin-top: 20px;
-  margin-bottom: 10px;
-}
-.uimg1 {
+
+/*  AVATAR  immagine                  */
+.uimg {
   /*  size: 100px; */
-  height: 70px;
-  width: 70px;
-  border-radius: 35px;
+  height: 100px;
+  width: 100px;
+  border-radius: 50px;
 }
-h2 {
+
+/*  rows...                           */
+
+/*  User AVATAR  -->                  */
+#u2r1 {
+  height: 120px;
+  margin-top: 2px;
+  margin-bottom: 2px;
+  text-align: center;
+  text-justify: center;
+  /*background-color: lawngreen;*/
+}
+#u2r2 {
+  /*  CIAO USERNAME                   */
+  margin-top: 2px;
+  margin-bottom: 2px;
+  text-align: center;
+  text-justify: center;
+  /*background-color: lightskyblue;*/
+}
+#u2r3 {
+  /*  Logout                          */
+  margin-top: 2px;
+  margin-bottom: 2px;
+  text-align: center;
+  text-justify: center;
+  /*background-color: lightcoral;*/
+}
+#u2r4 {
+  /*  User RANK / RANGO  -->          */
+  margin-top: 2px;
+  margin-bottom: 2px;
+  text-align: center;
+  text-justify: center;
+  /*background-color: lightcoral !important;*/
+}
+
+h2,
+h4 {
   color: rgb(245, 244, 228);
 }
 

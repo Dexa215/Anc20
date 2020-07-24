@@ -139,7 +139,11 @@ urlpatterns = [
          name="homepagetesseramento"),
     path("tesseramentoprassi",
          IndexTemplateView.as_view(),
-         name="homepagetesseramentoprassi")
+         name="homepagetesseramentoprassi"),
+
+    path("login",
+         IndexTemplateView.as_view(),
+         name="homepagelogin")
 
 ]
 

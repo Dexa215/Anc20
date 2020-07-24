@@ -433,6 +433,27 @@ export default {
 </script>
 
 <style media="screen">
+/*------------------------------------------------------------------------------------------------------*/
+/*color Background AR E */
+/*  Grigio scuro +4   .cBE-Vis    {  background-color: "#38282b" !important;}
+/*  Grigio scuro +4   .cBE-Socio  {  background-color: "green" !important; }
+/*  Grigio scuro +4   .cBE-Staff  {  background-color: "red" !important; }
+/*  Grigio scuro +6   .cBI        {  background-color: "#241b1d" !important; }*/
+/*------------------------------------------------------------------------------------------------------*/
+/* Background Colors    --T : Test   */
+/* ---------------------------------------------------------------------- */
+/* MdS> 
+*/
+/*------------------------------------------------------------------------------------------------------*/
+/*color Background AR E */
+/*  Grigio scuro +4   .cBE-Vis    {  background-color: "#38282b" !important;}
+/*  Grigio scuro +4   .cBE-Socio  {  background-color:  !important; }
+
+
+/*  Blue    scuro +5   .cBE-Staff  {  background-color: "rgb(4, 11, 46)" !important; } */ /* App bar
+
+/*  Blue    scuro +6   .cBI        {  background-color: "rgb(1, 4, 20)" !important; }*/ /* interno row */
+/*------------------------------------------------------------------------------------------------------*/
 .testx2 {
   background-color: yellow !important;
   height: 800px;
@@ -445,7 +466,6 @@ export default {
   background-color: green !important;
   height: 400px;
 }
-
 .AncAppBarE {
   position: fixed;
   z-index: 6;
@@ -456,10 +476,7 @@ export default {
   text-align: auto;
   text-justify: auto;
 }
-
-/* ---------------------------------------------------------------------- */
-/* MdS> 
-*/
+/* MdS ---------------------------------------------------------------------- */
 .r {
   /*.AncRowBarEst / ARBI */
   position: relative;
@@ -471,15 +488,10 @@ export default {
   text-justify: center;
   border-radius: 50px 50px 50px 50px;
 }
-
 .r_BC--T {
   background-color: ORANGE !important;
 }
-/* ---------------------------------------------------------------------- */
-
-/* ---------------------------------------------------------------------- */
-/* MdS> 
-*/
+/* MdS ---------------------------------------------------------------------- */
 .rm {
   /*menu a discesa*/
   position: fixed;
@@ -489,14 +501,12 @@ export default {
   height: 50px;
   /*width: 368px;*/
 }
-
 /*Menu*/
 .rmH0 {
   position: relative;
   height: 400px;
   background-color: grey !important;
 }
-
 .rmvcolS {
   margin-left: 0px;
   margin-right: 0px;
@@ -504,7 +514,6 @@ export default {
   opacity: 0.5;
   /*background-color: transparent !important;*/
 }
-
 .rmvcolrSadmin {
   position: absolute;
   text-align: center;
@@ -525,9 +534,7 @@ export default {
   border-radius: 0px 0px 0px 100px;
   background-color: transparent !important;
 }
-
 /*    colonna categorie   */
-
 .rmvcolD {
   /*test 2020 07 18 */
   width: 100%;
@@ -551,30 +558,6 @@ export default {
   /* background-color: transparent !important; */
   border-radius: 0px 0px 0px 648px;
 }
-
-/*------------------------------------------------------------------------------------------------------*/
-/*color Background AR E */
-/*  Grigio scuro +4   .cBE-Vis    {  background-color: "#38282b" !important;}
-/*  Grigio scuro +4   .cBE-Socio  {  background-color: "green" !important; }
-/*  Grigio scuro +4   .cBE-Staff  {  background-color: "red" !important; }
-/*  Grigio scuro +6   .cBI        {  background-color: "#241b1d" !important; }*/
-/*------------------------------------------------------------------------------------------------------*/
-/* Background Colors    --T : Test   */
-/* ---------------------------------------------------------------------- */
-/* MdS> 
-*/
-
-/*------------------------------------------------------------------------------------------------------*/
-/*color Background AR E */
-/*  Grigio scuro +4   .cBE-Vis    {  background-color: "#38282b" !important;}
-/*  Grigio scuro +4   .cBE-Socio  {  background-color:  !important; }
-
-
-/*  Blue    scuro +5   .cBE-Staff  {  background-color: "rgb(4, 11, 46)" !important; } */ /* App bar
-
-/*  Blue    scuro +6   .cBI        {  background-color: "rgb(1, 4, 20)" !important; }*/ /* interno row */
-/*------------------------------------------------------------------------------------------------------*/
-
 .rcX {
   position: relative;
   z-index: 8;
@@ -612,7 +595,6 @@ export default {
 .rcLat_BC--T {
   background-color: red !important;
 }
-
 /* TODO: Riordina classi
 
   /*------------------------------------------------------------------------------------------------------*/
@@ -687,14 +669,12 @@ export default {
   text-justify: auto;
 }
 /*------------------------------------------------------------------------------------------------------*/
-
 /*
 .rcCrcLat {
 }
 */
 /*    add:    rcCrcX  rcCrcLat_BC       */
 /*    per:    rcCrcS  / rcCrcD    */
-
 .rcCrcLat_BC {
   background-color: transparent !important;
 }
@@ -1130,4 +1110,66 @@ border-radius
     border-radius: 15px 50px;           TLBR-TRBL
     border-radius: 15px;                TLBRTRBL
 */
+
+/* classi necessarie al 2002 07 17 prelevate da B4lg */
+
+.AncIconLang {
+  height: 38px;
+  width: 38px;
+  transform: scale(1, 1);
+}
+.AncIconLang:hover {
+  transform: scale(1.2, 1.2);
+}
+.iconavR {
+  /*height: 1px;*/
+  height: 100%;
+  background-color: transparent !important;
+  /*
+  padding-top: 2px;
+  padding-bottom: 2px;
+  padding-left: 2px;
+  padding-right: 2px;
+  */
+}
+.rIco {
+  /* row - fila di icone parte sinistra */
+  height: 100%;
+  background-color: transparent !important;
+  /*background-color: black !important;*/
+}
+.icoSx {
+  position: relative;
+  height: 100%;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  /*padding-top: 5px;*/
+  background-color: transparent !important;
+}
+.iconavcSbassa {
+  /* background-color: yellow !important;*/
+  text-align: left;
+  padding-left: 5px;
+}
+.iconavcSbtnCategoriaCorrente {
+  /* background-color: burlywood !important; */
+  background-color: transparent !important;
+  text-align: center;
+}
+.iconavcSbtnMENU {
+  background-color: transparent !important;
+  text-align: center;
+}
+.iconavcS {
+  text-align: left;
+  padding-left: 15px;
+}
+.iconavcDD {
+  background-color: transparent !important;
+}
+.ct {
+  position: relative;
+  background-color: aqua;
+  height: 100%;
+}
 </style>

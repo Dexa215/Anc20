@@ -1,6 +1,12 @@
 import Vue from "vue";
 import Router from "vue-router";
-import Home from "./views/Home.vue";
+
+/*TODO: TEST 2020 07 24*/
+/*import Home from "./views/Home.vue";*/
+import Home from "@/views/home/Home.vue";
+
+
+
 //import Esempio from "./views/Esempio.vue";
 import Sede from "./views/Sede.vue";
 import SedeOrari from "./views/SedeOrari.vue";
@@ -28,7 +34,7 @@ import Agenda from "./views/Agenda.vue";
 import Archivio from "./views/Archivio.vue";
 import ArchivioAnno from "./views/ArchivioAnno.vue";
 
-
+import Login from "./views/Login.vue";
 
 
 Vue.use(Router);
@@ -155,6 +161,12 @@ export default new Router({
             path: "/archivioAnno",
             name: "archivioAnno",
             component: ArchivioAnno
+        },
+
+        {
+            path: "/login",
+            name: "login",
+            component: Login
         },
         /*
         {

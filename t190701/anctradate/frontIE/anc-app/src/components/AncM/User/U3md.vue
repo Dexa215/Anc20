@@ -3,7 +3,7 @@
     <!--  User NAME  -->
     <v-row id="u3r2" class="mx-auto" align="center" justify="center">
       <v-col>
-        <h2 class>Ciao {{ requestUser }} !!</h2>
+        <h3 class>Ciao {{ requestUser }} !!</h3>
       </v-col>
     </v-row>
     <!--  User RANK / RANGO  -->
@@ -235,7 +235,7 @@ export default {
   /*background-color: lightcoral !important;*/
 }
 
-h2 {
+h3 {
   color: rgb(245, 244, 228);
 }
 

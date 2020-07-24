@@ -36,13 +36,16 @@ export default {
       // * EVIDENZA
       Eevents: [],
       Enext: null,
-      EloadingEvents: false,
-      Titolone: null
+      EloadingEvents: false
+      //Titolone: null
     };
   },
   computed: {
     categorie() {
       return this.$store.getters.categorie;
+    },
+    Titolone() {
+      return this.$store.getters.get_Titolone;
     }
   },
 

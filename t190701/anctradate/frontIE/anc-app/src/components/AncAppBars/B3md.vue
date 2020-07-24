@@ -331,7 +331,7 @@ import router from "@/router";
 /*import m4lg from "@/components/AncM/M4lg.vue";*/
 
 export default {
-  name: "b4lg",
+  name: "b3md",
 
   components: {},
 
@@ -405,8 +405,9 @@ TODO:
     requestUserAvatar: { type: String },
     requestUserBio: { type: String },
 */
+    /*TODO: SOSTITUIRE RCS RCD [ PROP CON COMPUTED DA STORE ] */
 
-    /*TODO: SOSTITUIRE RCS RCD [ PROP CON COMPUTED DA STORE ] */ drawer: {
+    drawer: {
       type: Boolean
     },
     drawerLeft: { type: Boolean },
@@ -516,70 +517,4 @@ TODO:
 </script>
 
 <style media="screen">
-.AncIconLang {
-  height: 38px;
-  width: 38px;
-  transform: scale(1, 1);
-}
-
-.AncIconLang:hover {
-  transform: scale(1.2, 1.2);
-}
-
-.iconavR {
-  /*height: 1px;*/
-  height: 100%;
-  background-color: transparent !important;
-  /*
-  padding-top: 2px;
-  padding-bottom: 2px;
-  padding-left: 2px;
-  padding-right: 2px;
-  */
-}
-
-.rIco {
-  /* row - fila di icone parte sinistra */
-  height: 100%;
-  background-color: transparent !important;
-  /*background-color: black !important;*/
-}
-
-.icoSx {
-  position: relative;
-  height: 100%;
-  padding-top: 0px;
-  padding-bottom: 0px;
-  /*padding-top: 5px;*/
-  background-color: transparent !important;
-}
-
-.iconavcSbassa {
-  /* background-color: yellow !important;*/
-  text-align: left;
-  padding-left: 5px;
-}
-.iconavcSbtnCategoriaCorrente {
-  /* background-color: burlywood !important; */
-  background-color: transparent !important;
-  text-align: center;
-}
-.iconavcSbtnMENU {
-  background-color: transparent !important;
-  text-align: center;
-}
-
-.iconavcS {
-  text-align: left;
-  padding-left: 15px;
-}
-
-.iconavcDD {
-  background-color: transparent !important;
-}
-.ct {
-  position: relative;
-  background-color: antiquewhite;
-  height: 100%;
-}
 </style>

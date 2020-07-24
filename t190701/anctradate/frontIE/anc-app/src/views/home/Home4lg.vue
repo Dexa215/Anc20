@@ -56,26 +56,24 @@
 </template>
 
 <script>
-import { apiService } from "../common/api.service";
-import router from "../router";
-import ancEventsPast from "../components/AncEventsPast";
-import ancEventsFuture from "../components/AncEventsFuture";
+import { apiService } from "@/common/api.service";
+import router from "@/router";
+
+/*home.vue*/
+import ancEventsPast from "@/components/AncEventsPast";
+import ancEventsFuture from "@/components/AncEventsFuture";
 import AncIntestazioneHome from "@/components/AncIntestazioneHome.vue";
 import AncIntestazioneFine from "@/components/AncIntestazioneFine.vue";
 import AncCard from "@/components/AncCard.vue";
-
 import carP from "@/components/AncCarousels/Past/Car.vue";
 import carF from "@/components/AncCarousels/Future/Car.vue";
-
 import ancClock from "@/components/AncObjects/AncClock.vue";
 
-//import ancEventsPreview     from '../components/AncEventsPreview';
-
-//import HelloWorld           from '../components/HelloWorld';
-//import NavbarComponentDark  from '../components/NavbarDark';
+import m4lgSottocategorie from "@/components/AncM/CatSotto/M4lgSottocategorie.vue";
+import m4lgAdmin from "@/components/AncM/Admin/M4lgAdmin.vue";
 
 export default {
-  name: "home",
+  name: "home4lg",
 
   components: {
     ancEventsPast,
@@ -86,23 +84,9 @@ export default {
     carP,
     carF,
     ancClock
-
-    //  ancEventsPreview
-    //  NavbarComponentDark
-    //  HelloWorld
   },
 
-  props: {
-    requestUser: { type: String },
-    rvt: { type: Number },
-    evidenza: { type: String },
-
-    categorie: { type: Array },
-    C: { type: Number },
-    CS: { type: Number },
-
-    drawerLeft: { type: Boolean }
-  },
+  props: {},
 
   data() {
     return {
@@ -113,7 +97,8 @@ export default {
       Eevents: [],
       Enext: null,
       EloadingEvents: false,
-      Titolone: null,
+
+      //Computed: >>> Titolone: null,
 
       // * PAST
       Pevents: [],
@@ -122,74 +107,125 @@ export default {
       // * FUTURE
       Fevents: [],
       Fnext: null,
-      FloadingEvents: false,
-
-      d: null,
-      date: null,
-      year: null,
-      month: null,
-      monthArr: null,
-      displaydate: null,
-      clF: String,
-      clP: String,
-
-      menuCat: "Home",
-      menuSubCat: "Homepage",
-
-      intMsg: "Anc Tradate",
-      intMsgSubH: "Homepage",
-      intFMsg: "Anc Tradate F",
-      intFMsgSubH: "Homepage F",
-
-      linksFP: [
-        { descrizione: "Archivio Eventi", link: "archivio/" },
-        { descrizione: "Agenda", link: "agenda/" }
-      ]
+      FloadingEvents: false
     };
   },
 
-  methods: {
-    setMyPar() {
-      let myparam = {
-        Ccurrent: 10,
-        CScurrent: 0
-      };
-      this.$emit("spMC", myparam); //spMC -- > sAVE pARAMETER / menu Cat
+  computed: {
+    Titolone() {
+      return this.$store.getters.get_Titolone;
     },
-    /*
-    clock() {
-      this.d = new Date();
-      this.date = this.d.getDate();
-      this.year = this.d.getFullYear();
-      this.month = this.d.getMonth();
-      this.monthArr = [
-        "January",
-        "February",
-        "March",
-        "April",
-        "Maggio",
-        "June",
-        "July",
-        "August",
-        "September",
-        "October",
-        "November",
-        "December"
-      ];
-      this.month = this.monthArr[this.month];
 
-      this.displaydate = this.date + " " + this.month + ", " + this.year;
-      //            document.getElementById("date").innerHTML=this.date+" "+this.month+", "+this.year;
+    /*  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  */
+    lang() {
+      return this.$store.getters.getCurrentLanguage;
     },
-*/
+    languages() {
+      return this.$store.getters.getLanguages;
+    },
+    languagesShow() {
+      return this.$store.getters.getLanguagesShow;
+    },
+    /*  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  */
+    drawer() {
+      return this.$store.getters.getDrawer;
+    },
+    drawerLeft() {
+      return this.$store.getters.getDrawerLeft;
+    },
+    drawerRight() {
+      return this.$store.getters.getDrawerRight;
+    },
+    drawerSottocategoria() {
+      return this.$store.getters.getDrawerSottocategoria;
+    },
+    /*  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  */
+    iconX() {
+      return this.$store.getters.getIconX;
+    },
+    iconO() {
+      return this.$store.getters.getIconO;
+    },
+    iconOdx() {
+      return this.$store.getters.getIconOdx;
+    },
+    iconC() {
+      return this.$store.getters.getIconC;
+    },
+    iconCdx() {
+      return this.$store.getters.getIconCdx;
+    },
+    /*  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  */
+    categorie() {
+      return this.$store.getters.categorie;
+    },
+    C() {
+      return this.$store.getters.getC;
+    },
+    CS() {
+      return this.$store.getters.getCS;
+    },
+    /*  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  */
+    requestUser() {
+      return this.$store.getters.requestUser;
+    },
+    requestUserIsStaff() {
+      return this.$store.getters.requestUserIsStaff;
+    },
+    requestUserIsSuper() {
+      return this.$store.getters.requestUserIsSuper;
+    },
+    requestUserAvatar() {
+      return this.$store.getters.requestUserAvatar;
+    },
+    requestUserBio() {
+      return this.$store.getters.requestUserBio;
+    },
+    requestToken() {
+      return this.$store.getters.requestToken;
+    },
+    /*  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  */
+    rcS() {
+      return this.$store.getters.rcS;
+    },
+    rcD() {
+      return this.$store.getters.rcD;
+    },
+    rcU() {
+      return this.$store.getters.rcU;
+    },
+    /* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+    admin() {
+      return this.$store.getters.admin;
+    },
+    admincommands() {
+      return this.$store.getters.admincommands;
+    },
+    /* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+    currentres() {
+      switch (this.$vuetify.breakpoint.name) {
+        case "xs":
+          return "xs";
+        case "sm":
+          return "sm";
+        case "md":
+          return "md";
+        case "lg":
+          return "lg";
+        case "xl":
+          return "xl";
+      }
+    }
+  },
+
+  methods: {
     getEvidenza() {
       var x;
       let endpoint = "api/evidenza/";
       if (this.Enext) {
-        endpoint = this.Enext;
+        endpoint = this.Pnext;
       }
       this.EloadingEvents = true;
-
       apiService(endpoint).then(data => {
         console.log(data.results);
         this.Eevents.push(...data.results);
@@ -268,32 +304,31 @@ export default {
       });
     },
 
-    /*
-    getRequestUser() {
-      let endpoint = "api/profiles/getcurrentuser/";
-      apiService(endpoint).then(data => {
-        console.log("chiamata rest... user:", data);
-        console.log("chiamata rest... user:", data.us.name);
-        //              this.requestUser = data.us.name;
-      });
-    },
-    setRequestUser() {
-      this.requestUser = window.localStorage.getItem("username");
-    },
-*/
+    /*2020 06 16*/
     gotoR(r) {
-      console.log("APP gotoR", r);
+      this.expand = !this.expand;
+      this.$store.dispatch("setDF");
       this.$store.dispatch("gotoR", r);
+    },
+    SDL() {
+      /*Switch Drawer Language*/
+      this.$store.dispatch("switchDrawerLang");
+    },
+    ScL(val) {
+      /*SET Current Language*/
+      this.$store.dispatch("setL", val);
+    },
+    DSCset(state) {
+      /*SC Sotto Categoria*/
+      this.$store.dispatch("DSCset", state);
+    },
+    setD() {
+      this.$store.dispatch("setD");
+    },
+    setDF() {
+      this.$store.dispatch("setDF");
     }
-
-    /*old
-    gotoR(r) {
-      console.log("Home rotta per...", r);
-      this.$emit("gotoR", r);
-    }
-    */
   },
-
   created() {
     console.log("home oncreate --> start");
 
@@ -308,10 +343,10 @@ export default {
     this.clock();
     this.setMyPar();
   },
-  updated() {
-    this.clock();
-    //    this.getRequestUser();
-  }
+
+  updated() {},
+
+  mounted() {}
 };
 </script>
 
@@ -417,84 +452,3 @@ export default {
   background-color: transparent;
 }
 </style>
-
-<!--
-<v-parallax
-    height="300"
-    src="../assets/images/bg/bg1.jpg"
-></v-parallax>
--->
-
-
-        <!-- data oggi 555555555555555555555555555555555555555555555555555555555555  -->
-        <!--
-            <v-row class="todayCircle" align="center" justify="center">
-            <v-card
-              class="mx-auto my-4 text-center ma-2 grey lighten-5"
-              light
-              max-width="500"
-              outlined
-            >
-              <v-list-item three-line>
-                <v-list-item-content>
-                  <div class="overline ma-2"></div>
-                  <v-list-item-subtitle>OGGI...</v-list-item-subtitle>
-                  <v-list-item-title id="date" class="headline mb-1">
-                    <div>{{ displaydate }}</div>
-
-                  </v-list-item-title>
-                </v-list-item-content>
-              </v-list-item>
-            </v-card>
-        -->
-        <!--              
-                  {{ date }} {{month}} {{year}} 
-        -->
-        <!-- data oggi 555555555555555555555555555555555555555555555555555555555555  -->
-
-        <!--
-      <v-col
-        cols="3"
-        style="height:500px; background-color:transparent;"
-        align="center"
-        justify="center"
-      >
-        <!-- data oggi 555555555555555555555555555555555555555555555555555555555555  -->
-<!--        
-        <v-row class="todayCircle my-auto" align="center" justify="center">
-          <v-col cols="12" class="todayCircleText">
-            <v-row align="end">
-              <v-col cols="12" class="todaylineup headline mt-0">Oggi...</v-col>
-            </v-row>
-            <v-row align="start">
-              <v-col cols="12" class="todaylinedown headline mt-0">{{ displaydate }}</v-col>
-            </v-row>
-          </v-col>
-        </v-row>
-      </v-col>
--->
-
-
-<!--
-    <v-row class="qdcrhome" justify="center" align="center" style="background-color: transparent">
-      <v-col class="qdcchome" cols="12">
-        <v-row align="center" justify="center" style="background-color:transparent !important">
-          <v-col></v-col>
-          <!--
-          <v-col>
-            <ancEventsFuture
-              :Fevents="Fevents"
-              :Fnext="Fnext"
-              :FloadingEvents="FloadingEvents"
-              clFcard="grey lighten-3 mx-auto my-4"
-              clFtitle="grey lighten-4"
-              clFevent="grey lighten-2"
-              clFeventInt="grey lighten-4"
-            ></ancEventsFuture>
-          </v-col>
-
-         
-        </v-row>
-      </v-col>
-    </v-row>
-     -->

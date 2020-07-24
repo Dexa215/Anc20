@@ -10,6 +10,7 @@ import menuT from "@/common/menuTime.js";
 //Module A: General, dynamic assignment css
 //Module C: Categories
 //Module D: Drawers
+//Module E: Events
 //Module L: Languages
 //Module R: Router, internal coding of the call - [ C - CS ] 
 //Module U: User, retrieve informations of current user [ RANK ]
@@ -645,6 +646,158 @@ const moduleD = {
     },
 
 }
+
+//      Module E: Events
+const moduleE = {
+    state: {
+
+        // * EVIDENZA
+        Eevents: [],
+        Enext: null,
+        EloadingEvents: false,
+        EloadingPushData: false,/*accodamento dati*/
+
+        Titolone: null,
+        // * PAST
+        Pevents: [],
+        Pnext: null,
+        PloadingEvents: false,
+        // * FUTURE
+        Fevents: [],
+        Fnext: null,
+        FloadingEvents: false,
+
+        count: 3,
+    },
+    mutations: {
+        increment (state) {
+            // `state` is the local module state
+            state.count++
+        },
+
+        set_Titolone (state, val) {
+            state.Titolone = val;
+        },
+        // * EVIDENZA
+        set_Eevents (state, val) {
+            state.Eevents = val;
+        },
+        set_Enext (state, val) {
+            state.Enext = val;
+        },
+        set_EloadingEvents (state, val) {
+            state.EloadingEvents = val;
+        },
+        // * PAST
+        set_Pevents (state, val) {
+            state.Pevents = val;
+        },
+        set_Pnext (state, val) {
+            state.Pnext = val;
+        },
+        set_PloadingEvents (state, val) {
+            state.PloadingEvents = val;
+        },
+        // * FUTURE
+        set_Fevents (state, val) {
+            state.Fevents = val;
+        },
+        set_Fnext (state, val) {
+            state.Fnext = val;
+        },
+        set_FloadingEvents (state, val) {
+            state.FloadingEvents = val;
+        },
+
+
+    },
+
+    actions: {
+
+        /*
+                EeventsPushData (context, data) {
+                    //accoda dati eventi...
+                    context.state.EloadingPushData = true;
+                    context.state.Eevents.push(...data.results);
+                    context.state.EloadingPushData = false;
+        
+                    if (data.next) {
+                        context.state.Enext = data.next;
+                    } else {
+                        context.state.Enext = null;
+                    }
+                },
+        
+                EeventsCreaEvidenza (context) {
+                    //ciclo per creare titolo in evidenza...
+        
+                    if (context.state.Eevents.length == 0) {
+                        context.state.Titolone = "";
+                    } else {
+                        context.state.Titolone = "IN EVIDENZA: ";
+                        for (x of context.state.Eevents) {
+                            console.log(x.title);
+                            context.state.Titolone = context.state.Titolone + " - " + x.title + "   ";
+                        }
+                    }
+                },
+        */
+
+        /*-TODO: IN TEST 2020 07 24-*/
+        getEvidenza (context) {
+            var x;
+            let endpoint = "api/evidenza/";
+            if (context.state.Enext) {
+                endpoint = context.state.Enext;
+            }
+            context.state.EloadingEvents = true;
+
+            apiService(endpoint).then(data => {
+                console.log(data.results);
+                context.state.Eevents.push(...data.results);
+                context.state.EloadingEvents = false;
+                if (data.next) {
+                    context.state.Enext = data.next;
+                } else {
+                    context.state.Enext = null;
+                }
+
+                //ciclo per creare titolo in evidenza...
+                if (context.state.Eevents.length == 0) {
+                    context.state.Titolone = "";
+                } else {
+                    context.state.Titolone = "IN EVIDENZA: ";
+                    for (x of context.state.Eevents) {
+                        console.log(x.title);
+                        context.state.Titolone += (" - " + x.title + " - ");
+                    }
+                    console.log("$store/home/Titolone ottenuto: ", context.state.Titolone);
+                }
+            });
+        },
+
+
+
+
+    },
+    getters: {
+        /*Evidenza*/
+        get_Eevents (state) { return state.Eevents },
+        get_Enext (state) { return state.Enext },
+        get_EloadingEvents (state) { return state.EloadingEvents },
+        get_Titolone (state) { return state.Titolone },
+        /*Past*/
+        get_Pevents (state) { return state.Pevents },
+        get_Pnext (state) { return state.Pnext },
+        get_PloadingEvents (state) { return state.PloadingEvents },
+        /*Future*/
+        get_Fevents (state) { return state.Fevents },
+        get_Fnext (state) { return state.Fnext },
+        get_FloadingEvents (state) { return state.FloadingEvents },
+    },
+
+}
+
 //      Module L: Languages
 const moduleL = {
 
@@ -1630,6 +1783,7 @@ export const store = new Vuex.Store({
         a: moduleA,//General
         c: moduleC,//Categorie
         d: moduleD,//Drawers
+        e: moduleE,//Events
         l: moduleL,//Language [ test with Clock ]
         r: moduleR,//Router
         u: moduleU,//User
