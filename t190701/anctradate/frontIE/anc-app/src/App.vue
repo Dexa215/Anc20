@@ -802,7 +802,7 @@ categorie:[
 
     this.getCat(); // test 2020 02 07
 
-    this.getEvidenza(); // !!store - moduleE --> Events...
+    //this.getEvidenza(); // !!store - moduleE --> Events...
   }
 
   /*TODO: RIPRISTINARE */

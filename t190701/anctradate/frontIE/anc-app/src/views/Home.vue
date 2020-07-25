@@ -3,7 +3,7 @@
   <template>
   <div class="SfBase">
     <v-row class="AncTrasparenza" v-show="drawerLeft"></v-row>
-    <div class="SfSpazio SfShUp AncAppBar_BC">spazio Up</div>
+    <div class="SfSpazio SfShUp AncAppBar_BC">spazio Up OLD</div>
     <v-row
       justify="center"
       align="center"

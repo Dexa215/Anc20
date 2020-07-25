@@ -30,9 +30,6 @@
       ></carF>
       <!--dx-->
     </v-row>
-    <!--
-      <v-col cols="4" style="height:500px; background-color:blue; "></v-col>
-    <dx-->
 
     <v-parallax class="SfParallax" src="/static/images/bg/bg8.jpg" height="650"></v-parallax>
 
@@ -58,10 +55,7 @@
 <script>
 import { apiService } from "@/common/api.service";
 import router from "@/router";
-
 /*home.vue*/
-import ancEventsPast from "@/components/AncEventsPast";
-import ancEventsFuture from "@/components/AncEventsFuture";
 import AncIntestazioneHome from "@/components/AncIntestazioneHome.vue";
 import AncIntestazioneFine from "@/components/AncIntestazioneFine.vue";
 import AncCard from "@/components/AncCard.vue";
@@ -76,8 +70,6 @@ export default {
   name: "home1xs",
 
   components: {
-    ancEventsPast,
-    ancEventsFuture,
     AncIntestazioneHome,
     AncIntestazioneFine,
     AncCard,
@@ -91,26 +83,48 @@ export default {
   data() {
     return {
       scr: "",
-      focusOn: false,
-
-      // * EVIDENZA
-      Eevents: [],
-      Enext: null,
-      EloadingEvents: false,
-      Titolone: null,
-
-      // * PAST
-      Pevents: [],
-      Pnext: null,
-      PloadingEvents: false,
-      // * FUTURE
-      Fevents: [],
-      Fnext: null,
-      FloadingEvents: false
+      focusOn: false
     };
   },
 
   computed: {
+    Titolone() {
+      return this.$store.getters.get_Titolone;
+    },
+
+    // * EVIDENZA
+    Eevents() {
+      return this.$store.getters.get_Eevents;
+    },
+    Enext() {
+      return this.$store.getters.get_Enext;
+    },
+    EloadingEvents() {
+      return this.$store.getters.get_EloadingEvents;
+    },
+
+    // * PAST
+    Pevents() {
+      return this.$store.getters.get_Pevents;
+    },
+    Pnext() {
+      return this.$store.getters.get_Pnext;
+    },
+    PloadingEvents() {
+      return this.$store.getters.get_PloadingEvents;
+    },
+
+    // * FUTURE
+    Fevents() {
+      return this.$store.getters.get_Fevents;
+    },
+    Fnext() {
+      return this.$store.getters.get_Fnext;
+    },
+    FloadingEvents() {
+      return this.$store.getters.get_FloadingEvents;
+    },
+
     /*  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  */
     lang() {
       return this.$store.getters.getCurrentLanguage;
@@ -214,91 +228,6 @@ export default {
   },
 
   methods: {
-    getEvidenza() {
-      var x;
-      let endpoint = "api/evidenza/";
-      if (this.Enext) {
-        endpoint = this.Pnext;
-      }
-      this.EloadingEvents = true;
-      apiService(endpoint).then(data => {
-        console.log(data.results);
-        this.Eevents.push(...data.results);
-        this.EloadingEvents = false;
-        if (data.next) {
-          this.Enext = data.next;
-        } else {
-          this.Enext = null;
-        }
-
-        //ciclo per creare titolo in evidenza...
-        if (this.Eevents.length == 0) {
-          this.Titolone = "";
-        } else {
-          this.Titolone = "IN EVIDENZA: ";
-          for (x of this.Eevents) {
-            console.log(x.title);
-            this.Titolone = this.Titolone + " - " + x.title + "   ";
-          }
-        }
-      });
-    },
-
-    getEvents() {
-      let endpoint = "api/events/";
-      if (this.next) {
-        endpoint = this.next;
-      }
-      this.loadingEvents = true;
-      apiService(endpoint).then(data => {
-        console.log(data.results);
-
-        this.events.push(...data.results);
-        this.loadingEvents = false;
-        if (data.next) {
-          this.next = data.next;
-        } else {
-          this.next = null;
-        }
-      });
-    },
-
-    getEventsPast() {
-      let endpoint = "api/events/crud/listPast/";
-      if (this.Pnext) {
-        endpoint = this.Pnext;
-      }
-      this.PloadingEvents = true;
-      apiService(endpoint).then(data => {
-        console.log(data.results);
-        this.Pevents.push(...data.results);
-        this.PloadingEvents = false;
-        if (data.next) {
-          this.Pnext = data.next;
-        } else {
-          this.Pnext = null;
-        }
-      });
-    },
-
-    getEventsFuture() {
-      let endpoint = "api/events/crud/listFuture/";
-      if (this.Fnext) {
-        endpoint = this.Fnext;
-      }
-      this.FloadingEvents = true;
-      apiService(endpoint).then(data => {
-        console.log(data.results);
-        this.Fevents.push(...data.results);
-        this.FloadingEvents = false;
-        if (data.next) {
-          this.Fnext = data.next;
-        } else {
-          this.Fnext = null;
-        }
-      });
-    },
-
     /*2020 06 16*/
     gotoR(r) {
       this.expand = !this.expand;
@@ -322,27 +251,30 @@ export default {
     },
     setDF() {
       this.$store.dispatch("setDF");
+    },
+
+    // Events ...
+    getEventsPast() {
+      this.$store.dispatch("getEventsPast");
+    },
+    getEventsFuture() {
+      this.$store.dispatch("getEventsFuture");
     }
   },
   created() {
     console.log("home oncreate --> start");
-
-    //    this.getRequestUser();
-    //    this.getEvents();
-
-    //DA RIPRISTINARE
-
-    this.getEvidenza();
-    this.getEventsPast();
-    this.getEventsFuture();
-    this.clock();
-    this.setMyPar();
+    this.getEventsPast(); // !!store - moduleE
+    this.getEventsFuture(); // !!store - moduleE
   },
 
-  updated() {},
+  updated() {
+    this.getEventsPast(); // !!store - moduleE
+    this.getEventsFuture(); // !!store - moduleE
+  },
 
   mounted() {}
 };
 </script>
 
 <style media="screen">
+</style>

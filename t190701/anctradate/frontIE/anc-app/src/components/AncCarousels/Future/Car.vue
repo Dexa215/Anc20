@@ -26,7 +26,7 @@
         cycle
         continuous
         loader
-        show-arrows="false"
+        :show-arrows="sa"
         class="anccarousel mx-auto"
         hide-delimiter-background
         direction="up"
@@ -82,6 +82,10 @@
 <script>
 export default {
   name: "carF",
+
+  data: () => ({
+    sa: false
+  }),
 
   props: {
     Fevents: {

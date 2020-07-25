@@ -169,7 +169,9 @@ export default {
 
   updated() {},
 
-  mounted() {}
+  mounted() {},
+
+  created() {}
 };
 </script>
 

@@ -34,10 +34,10 @@ export default {
   data() {
     return {
       // * EVIDENZA
-      Eevents: [],
-      Enext: null,
-      EloadingEvents: false
-      //Titolone: null
+      //Computed: >>> Eevents: [],
+      //Computed: >>> Enext: null,
+      //Computed: >>> EloadingEvents: false
+      //Computed: >>> Titolone: null
     };
   },
   computed: {
@@ -46,10 +46,23 @@ export default {
     },
     Titolone() {
       return this.$store.getters.get_Titolone;
+    },
+    Eevents() {
+      return this.$store.getters.get_Eevents;
+    },
+    Enext() {
+      return this.$store.getters.get_Enext;
+    },
+    EloadingEvents() {
+      return this.$store.getters.get_EloadingEvents;
     }
   },
 
   methods: {
+    getEvidenza() {
+      this.$store.dispatch("getEvidenza");
+    }
+    /*
     getEvidenza() {
       var x;
       let endpoint = "api/evidenza/";
@@ -78,7 +91,11 @@ export default {
           }
         }
       });
-    }
+    }*/
+  },
+
+  beforecreated() {
+    //this.getEvidenza();
   },
   created() {
     this.getEvidenza();

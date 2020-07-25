@@ -22,17 +22,25 @@ export default {
       // * EVIDENZA
       Eevents: [],
       Enext: null,
-      EloadingEvents: false,
-      Titolone: null
+      EloadingEvents: false
+      //Titolone: null
     };
   },
   computed: {
+    Titolone() {
+      return this.$store.getters.get_Titolone;
+    },
     categorie() {
       return this.$store.getters.categorie;
     }
   },
 
   methods: {
+    getEvidenza() {
+      this.$store.dispatch("getEvidenza");
+    }
+
+    /*
     getEvidenza() {
       var x;
       let endpoint = "api/evidenza/";
@@ -61,13 +69,13 @@ export default {
           }
         }
       });
-    }
+    }*/
   },
   created() {
     this.getEvidenza();
   },
   updated() {
-    //this.getEvidenza();
+    this.getEvidenza();
   }
 };
 </script>

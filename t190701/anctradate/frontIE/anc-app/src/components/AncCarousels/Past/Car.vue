@@ -39,7 +39,7 @@ settaggi carousel:
         cycle
         continuous
         loader
-        show-arrows="false"
+        :show-arrows="sa"
         class="anccarousel mx-auto"
         hide-delimiter-background
         direction="up"
@@ -97,19 +97,18 @@ settaggi carousel:
 export default {
   name: "carP",
 
+  data: () => ({
+    sa: false,
+    clFcard: "grey darken-4",
+    clFtitle: "grey darken-4 ",
+    clFeventInt: "grey darken-4 ",
+    clFevent: "grey darken-3 "
+  }),
+
   props: {
     Pevents: { type: Array },
     Pnext: { type: String },
     PloadingEvents: { type: Boolean }
-  },
-
-  data() {
-    return {
-      clFcard: "grey darken-4",
-      clFtitle: "grey darken-4 ",
-      clFeventInt: "grey darken-4 ",
-      clFevent: "grey darken-3 "
-    };
   }
 };
 </script>

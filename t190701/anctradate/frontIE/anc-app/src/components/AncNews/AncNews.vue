@@ -113,6 +113,7 @@ export default {
   },
 
   methods: {
+    /*
     getEvidenza() {
       var x;
       let endpoint = "api/evidenza/";
@@ -141,10 +142,10 @@ export default {
           }
         }
       });
-    }
+    }*/
   },
   created() {
-    this.getEvidenza();
+    //this.getEvidenza();
   },
   updated() {
     //this.getEvidenza();

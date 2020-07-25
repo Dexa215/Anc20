@@ -745,14 +745,20 @@ const moduleE = {
 
         /*-TODO: IN TEST 2020 07 24-*/
         getEvidenza (context) {
+            console.log("$store getEvidenza");
             var x;
             let endpoint = "api/evidenza/";
             if (context.state.Enext) {
                 endpoint = context.state.Enext;
-            }
-            context.state.EloadingEvents = true;
+            } else {
 
+            }
+
+
+
+            context.state.EloadingEvents = true;
             apiService(endpoint).then(data => {
+                console.log("$store data result");
                 console.log(data.results);
                 context.state.Eevents.push(...data.results);
                 context.state.EloadingEvents = false;
@@ -761,7 +767,6 @@ const moduleE = {
                 } else {
                     context.state.Enext = null;
                 }
-
                 //ciclo per creare titolo in evidenza...
                 if (context.state.Eevents.length == 0) {
                     context.state.Titolone = "";
@@ -775,6 +780,65 @@ const moduleE = {
                 }
             });
         },
+
+        getEventsPast () {
+            let endpoint = "api/events/crud/listPast/";
+            if (context.state.Pnext) {
+                endpoint = context.state.Pnext;
+            }
+            context.state.PloadingEvents = true;
+            apiService(endpoint).then(data => {
+                console.log(data.results);
+                context.state.Pevents.push(...data.results);
+                context.state.PloadingEvents = false;
+                if (data.next) {
+                    context.state.Pnext = data.next;
+                } else {
+                    context.state.Pnext = null;
+                }
+            });
+        },
+
+        getEventsFuture () {
+            let endpoint = "api/events/crud/listFuture/";
+            if (context.state.Fnext) {
+                endpoint = context.state.Fnext;
+            }
+            context.state.FloadingEvents = true;
+            apiService(endpoint).then(data => {
+                console.log(data.results);
+                context.state.Fevents.push(...data.results);
+                context.state.FloadingEvents = false;
+                if (data.next) {
+                    context.state.Fnext = data.next;
+                } else {
+                    context.state.Fnext = null;
+                }
+            });
+        },
+
+        /*
+                getEvents () {
+                    let endpoint = "api/events/";
+                    if (this.next) {
+                        endpoint = this.next;
+                    }
+                    this.loadingEvents = true;
+                    apiService(endpoint).then(data => {
+                        console.log(data.results);
+        
+                        this.events.push(...data.results);
+                        this.loadingEvents = false;
+                        if (data.next) {
+                            this.next = data.next;
+                        } else {
+                            this.next = null;
+                        }
+                    });
+                },
+        */
+
+
 
 
 
