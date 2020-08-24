@@ -62,13 +62,11 @@ export default {
       }
     }
   },
-
   methods: {},
   updated() {},
   mounted() {}
 };
 </script>
-
 
 <style media="screen" scoped>
 .box {

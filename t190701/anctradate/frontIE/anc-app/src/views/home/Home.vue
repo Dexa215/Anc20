@@ -16,10 +16,10 @@ import router from "@/router";
 
 /*Res Menu*/
 import home1xs from "@/views/home/Home1xs.vue";
-import home2sm from "@/views/home/Home1xs.vue";
-import home3md from "@/views/home/Home1xs.vue";
-import home4lg from "@/views/home/Home1xs.vue";
-import home5xl from "@/views/home/Home1xs.vue";
+import home2sm from "@/views/home/Home2sm.vue";
+import home3md from "@/views/home/Home3md.vue";
+import home4lg from "@/views/home/Home4lg.vue";
+import home5xl from "@/views/home/Home5xl.vue";
 
 export default {
   name: "homeS",
@@ -177,11 +177,104 @@ export default {
 
 
 <style media="screen">
+.anchome {
+  background-color: blue !important;
+  background-image: url("~@/assets/images/bg/bg7.jpg");
+  opacity: 0.3;
+}
+.SfParallax {
+  /* Sfondo Parallax */
+  position: relative;
+  z-index: 1;
+  opacity: 0.15;
+  height: 600px;
+  width: 100%;
+}
+.anchomer {
+  position: absolute;
+  z-index: 5;
+}
+.home-view {
+  position: relative;
+  z-index: 1;
+}
+.author-name {
+  font-weight: bold;
+  color: #dc3545;
+}
+.event-link {
+  font-weight: bold;
+  color: black;
+}
+.event-link:hover {
+  color: cadetblue !important;
+  text-decoration: none;
+}
+.group {
+  display: flex;
+  flex: 1;
+  justify-content: space-around;
+}
+.imgop {
+  /*opacity: 0.4;*/
+}
+.bg {
+  background-image: url("~@/assets/images/bg/bg8.jpg");
+  opacity: 0.3;
+  /*
+  background-image: url("../assets/images/bg/bg1.jpg");
+  background-image: url("~@/assets/images/bg/bg8.jpg");
+  */
+}
+/* 2020 04 22 */
+.q {
+  height: 50px;
+}
+.qd2 {
+  /*finestra contenuto*/
+  position: absolute;
+  top: 300px;
+  z-index: 4;
+  opacity: 1;
+
+  width: 80%;
+}
+.qd3 {
+  position: relative;
+  z-index: 3;
+  opacity: 1;
+  background-color: green;
+  width: 100px;
+}
+.qd4 {
+  position: relative;
+  z-index: 4;
+  opacity: 1;
+  background-color: cyan;
+  width: 100px;
+}
+.qdcrhome {
+  position: absolute;
+  top: 140px;
+  z-index: 4;
+  opacity: 1;
+  width: 100%;
+  height: 100%;
+  background-color: yellow;
+}
+.qdcchome {
+  position: relative;
+  width: 100px;
+  height: 100%;
+  /* background-color: orange;*/
+  background-color: transparent;
+}
+
 .menuS {
   position: relative;
   z-index: 4;
   background-color: yellow !important;
-  height: 1px;
+  height: 105px;
   /*
   padding-left: 15px;
   padding-right: 15px;
@@ -232,12 +325,10 @@ export default {
 .rmH1 {
   position: relative;
 }
-
 .rmH {
   position: relative;
   height: 540px;
 }
-
 /*  sm  */
 .rmvcolC2 {
   position: relative;
@@ -253,7 +344,6 @@ export default {
   /* background-color: transparent !important; */
   border-radius: 0px 0px 0px 648px;
 }
-
 .rmvcolC5 {
   position: relative;
   z-index: 3;
@@ -261,7 +351,6 @@ export default {
   /* background-color: transparent !important; */
   border-radius: 0px 0px 0px 648px;
 }
-
 .CcB {
   align-content: flex-start;
 
@@ -327,9 +416,7 @@ export default {
   height: 50px;
 }
 */
-
 /* 8888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888  */
-
 .tileM4 {
   margin: 5px;
   border-radius: 4px;
@@ -415,11 +502,9 @@ export default {
 
   /*list*/
 }
-
 .ancM4l_BC {
   background-color: transparent !important;
 }
-
 .McU {
   /* Menu column User...*/
   padding-left: 0px;
@@ -428,14 +513,12 @@ export default {
 .mr {
   background-color: transparent !important;
 }
-
 .caticon {
   transform: scale(1, 1);
 }
 .caticon:hover {
   transform: scale(1.7, 1.7);
 }
-
 .catdescrizione {
   transform: scale(1, 1);
 }
@@ -458,5 +541,42 @@ export default {
 .mbtn:hover {
   margin: 1px;
   background-color: mediumturquoise;
+}
+
+.carcol {
+  position: relative;
+  z-index: 5;
+  height: 500px;
+  width: 100%;
+}
+
+/*  colonna sx eventi passati */
+.carcolsx {
+  background-color: transparent;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-radius: 25px 10px 10px 25px;
+}
+
+/*  colonna cx clock */
+.carcolcx {
+  background-color: transparent;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-radius: 25px;
+}
+
+/*  colonna dx eventi futuri */
+.carcoldx {
+  background-color: transparent;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-radius: 10px 25px 25px 10px;
 }
 </style>

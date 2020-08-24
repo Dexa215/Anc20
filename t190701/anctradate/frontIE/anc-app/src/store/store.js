@@ -753,9 +753,6 @@ const moduleE = {
             } else {
 
             }
-
-
-
             context.state.EloadingEvents = true;
             apiService(endpoint).then(data => {
                 console.log("$store data result");
@@ -781,7 +778,8 @@ const moduleE = {
             });
         },
 
-        getEventsPast () {
+        getEventsPast (context) {
+            console.log("$store getEventsPast");
             let endpoint = "api/events/crud/listPast/";
             if (context.state.Pnext) {
                 endpoint = context.state.Pnext;
@@ -799,7 +797,15 @@ const moduleE = {
             });
         },
 
-        getEventsFuture () {
+        getEventsPastClearData (context) {
+            console.log("$store getEventsPast-ClearData");
+            let arrayvuoto = [];
+            context.state.Pevents = arrayvuoto;
+        },
+
+
+        getEventsFuture (context) {
+            console.log("$store getEventsFuture");
             let endpoint = "api/events/crud/listFuture/";
             if (context.state.Fnext) {
                 endpoint = context.state.Fnext;
@@ -815,6 +821,12 @@ const moduleE = {
                     context.state.Fnext = null;
                 }
             });
+        },
+
+        getEventsFutureClearData (context) {
+            console.log("$store getEventsFuture-ClearData");
+            let arrayvuoto = [];
+            context.state.Fevents = arrayvuoto;
         },
 
         /*
@@ -1517,6 +1529,9 @@ const moduleL = {
             let cl = state.Currentlanguage;
             let langSel = state.monthArr.find(lS => lS.code === cl);
             return langSel.find(month => month.idmonth === id)
+
+
+
         },
 
 
@@ -1628,6 +1643,8 @@ const moduleR = {
         }
     },
     actions: {
+
+
 
         /* TEST 2020 05 03 OK */
         gotoR (context, r) {

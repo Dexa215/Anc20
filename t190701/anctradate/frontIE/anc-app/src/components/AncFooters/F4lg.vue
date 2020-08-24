@@ -11,16 +11,16 @@
         <!-- large -->
         <!-- class="hidden-md-and-down" -->
         <!-- large -->
-        <v-col class="hidden-md-and-down colFot" align="center" justify="center">
+        <v-col cols="5" class="hidden-md-and-down colFot" align="end" justify="center">
           <div class="grey--text">
-            <span class="font-weight-light mx-2">ANC</span>
-            <span>Sezione "C.Bergia" Tradate</span>
+            <span class="font-weight-light mx-2">Associazione Nazionale Carabinieri</span>
           </div>
         </v-col>
         <!-- large -->
 
         <!-- col2 CENTER -->
         <v-col
+          cols="2"
           style="background-color: transparent; 
                             max-height:150px "
           align="center"
@@ -53,17 +53,23 @@
         <!-- class="hidden-md-and-down" -->
         <!-- large -->
         <v-col
+          cols="5"
           class="colFot hidden-md-and-down"
           style="background-color: transparent; 
                             max-height:90px; "
-          align="center"
+          align="start"
           justify="center"
         >
           <div class="grey--text">
-            <span class="font-weight-light">CF:95066440124</span>
-            <span class="font-weight-light">/ Powered by</span>
-            <span>2Pi-NT &copy;</span>
-            <span class="font-weight-light">{{ new Date().getFullYear() }}</span>
+            <span>&nbsp;Sezione "C.Bergia" Tradate - &nbsp;</span>
+            <span class="font-weight-light">&nbsp;CF:95066440124 &nbsp;</span>
+
+            <span class="font-weight-light">&nbsp;-</span>
+            <span>
+              <a href="https:/www.2piict.it">&nbsp;2Pi-NT</a>
+            </span>
+            <span>&nbsp;&copy;&nbsp;</span>
+            <span class="font-weight-light">{{ new Date().getFullYear() }}&nbsp;</span>
           </div>
         </v-col>
         <!-- large -->
@@ -105,13 +111,10 @@ export default {
     gotoR(r) {
       this.expand = !this.expand;
       this.$store.dispatch("gotoR", r);
-      /*console.log("AppBar B4LG rotta per...", r);
-      this.$emit("gotoR", r);
-      */
     }
   }
 };
 </script>
 
-<style media="screen">
+<style media="screen" scoped>
 </style>

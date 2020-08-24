@@ -1,7 +1,7 @@
 <template>
   <!-- 
   <v-row align="center" justify="center" class="ancmenu4">
--->
+  -->
 
   <!--
         mx-auto
@@ -9,7 +9,7 @@
 
     <div class="d1int       mx-auto mu-auto"></div>
     <div class="d1          mx-auto mu-auto"></div>
--->
+  -->
   <!--
             <v-app-bar-nav-icon
                 style="z-index:5; "
@@ -20,11 +20,11 @@
                     <v-icon v-else              large>{{iconC}}</v-icon>
                 </v-btn>            
             </v-app-bar-nav-icon>
-            -->
+  -->
 
   <!--
     <v-card>
--->
+  -->
   <!--v-navigation-drawer
                 class="deep-purple accent-4"
                 dark
@@ -38,7 +38,7 @@
                 clipped                    
                 disable-route-watcher
                 src="/static/images/HomePageCarousel/dsc32.jpg"
-            -->
+  -->
 
   <!--
       <v-navigation-drawer 
@@ -49,7 +49,7 @@
         color="rgb(29, 20, 6)"
         dark
       >
--->
+  -->
   <v-row class="ancmenu4">
     <!-- TEST OK : bounce -  name="bounce" -->
     <!-- TEST OK : bounce -  name="bounce" -->
@@ -61,12 +61,7 @@
       enter-active-class="animated fadeInDown"
       leave-active-class="animated fadeOutUp"
     >
-      <v-card
-        height="800px"
-        width="306px"
-        v-show="drawerRight"
-        class="mx-auto ancmenu5"
-      >
+      <v-card height="800px" width="306px" v-show="drawerRight" class="mx-auto ancmenu5">
         <!--  -->
 
         <!--v-navigation-drawer
@@ -77,7 +72,7 @@
                     expand-on-hover
                     height="500px"
                     
-                -->
+        -->
         <template v-slot:append>
           <!-- template v-slot:prepend-->
           <v-list-item two-line>
@@ -98,33 +93,26 @@
                   align="start"
                   justify="center"
                 >
-                  <v-list-item-title class="my-1">
-                    {{ requestUser }}
-                  </v-list-item-title>
+                  <v-list-item-title class="my-1">{{ requestUser }}</v-list-item-title>
 
                   <v-list-item-subtitle
                     v-if="requestUserIsSuper"
                     class="my-1"
                     style="color:red;"
-                    >SuperUser</v-list-item-subtitle
-                  >
+                  >SuperUser</v-list-item-subtitle>
                   <v-list-item-subtitle
                     v-else-if="requestUserIsStaff"
                     class="my-1"
                     style="color:blue;"
-                    >Staff</v-list-item-subtitle
-                  >
-                  <v-list-item-subtitle v-else class="my-1" style="color:grey;"
-                    >User</v-list-item-subtitle
-                  >
+                  >Staff</v-list-item-subtitle>
+                  <v-list-item-subtitle v-else class="my-1" style="color:grey;">User</v-list-item-subtitle>
 
                   <v-list-item-subtitle class="my-1">
                     <span v-if="requestUser">
                       <a
                         class="my-1 btn btn-sm btn-outline-secondary"
                         href="/accounts/logout/"
-                        >Logout
-                      </a>
+                      >Logout</a>
                     </span>
                   </v-list-item-subtitle>
                 </v-col>
@@ -135,7 +123,7 @@
 
         <div class="d1 rgbMenuU mx-auto my-auto">
           <v-app-bar-nav-icon style="z-index:5; " @click.stop="setD">
-            <v-btn icon class="">
+            <v-btn icon class>
               <!--v-model="iconX"-->
               <v-icon v-if="drawerRight" large>{{ iconO }}</v-icon>
               <v-icon v-else large>{{ iconC }}</v-icon>
@@ -167,11 +155,7 @@
         <v-divider></v-divider>
 
         <v-list shaped>
-          <v-list-item
-            class="tile"
-            v-if="requestUserIsStaff"
-            @click="gotoR('event/')"
-          >
+          <v-list-item class="tile" v-if="requestUserIsStaff" @click="gotoR('event/')">
             <v-list-item-icon>
               <v-icon>mdi-timeline-plus</v-icon>
             </v-list-item-icon>
@@ -193,13 +177,12 @@
             style="background-color: transparent !important;"
             align="center"
             justify="center"
-          >
-          </v-col>
+          ></v-col>
         </v-row>
 
         <!--
       </v-row>
--->
+        -->
       </v-card>
     </transition>
 
@@ -208,7 +191,7 @@
     <!--
     </v-card>
 
--->
+    -->
   </v-row>
 </template>
 

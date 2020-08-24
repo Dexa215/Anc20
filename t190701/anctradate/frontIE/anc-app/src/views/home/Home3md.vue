@@ -3,7 +3,7 @@
   <template>
   <div class="SfBase">
     <v-row class="AncTrasparenza" v-show="drawerLeft"></v-row>
-    <div class="SfSpazio SfShUp AncAppBar_BC">spazio Up</div>
+    <div class="SfSpazio home3SfShUp AncAppBar_BC">spazio Up home3md</div>
     <v-row
       justify="center"
       align="center"
@@ -11,47 +11,28 @@
       style="height:600px; width:100%; background-color:transparent; "
     >
       <!--sx-->
-      <carP :Pevents="Pevents" :Pnext="Pnext" :PloadingEvents="PloadingEvents"></carP>
-      <!--sx-->
-
+      <v-col cols="4" class="carcol carcolsx">
+        <carP></carP>
+      </v-col>
       <!--cx-->
-      <ancClock></ancClock>
-      <!--cx-->
-
+      <v-col cols="4" class="carcol carcolcx">
+        <ancClock></ancClock>
+      </v-col>
       <!--dx-->
-      <carF
-        :Fevents="Fevents"
-        :Fnext="Fnext"
-        :FloadingEvents="FloadingEvents"
-        clFcard="grey lighten-4"
-        clFtitle="grey lighten-4 "
-        clFevent="grey lighten-3 "
-        clFeventInt="grey lighten-4 "
-      ></carF>
-      <!--dx-->
+      <v-col cols="4" class="carcol carcoldx">
+        <carF></carF>
+      </v-col>
     </v-row>
-    <!--
-      <v-col cols="4" style="height:500px; background-color:blue; "></v-col>
-    <dx-->
-
     <v-parallax class="SfParallax" src="/static/images/bg/bg8.jpg" height="650"></v-parallax>
-
     <!-- <span>spiegone:</span>-->
-
     <span v-if="CS==0">{{ categorie[(C/10)-1].descrizione }}</span>
     <span v-else>{{ categorie[(C/10)-1].sottocategorie[(CS-C)-1].descrizione }}</span>
-
-    <!--
-    <div class="SfImmagine">sfondo Immagine</div>
-    -->
+    <!--<div class="SfImmagine">sfondo Immagine</div>-->
     <div class="container-fluid text-center">
       <AncIntestazioneFine :C="C" :CS="CS" :categorie="categorie" @gotoR="gotoR"></AncIntestazioneFine>
     </div>
-    <div class="SfSpazio SfShDown AncAppBar_BC">spazio Down</div>
-
-    <!--
-/* ********************************************************************************************************** */
-    -->
+    <div class="SfSpazio home3SfShDown AncAppBar_BC">spazio Down</div>
+    <!--/* *** */-->
   </div>
 </template>
 
@@ -60,8 +41,8 @@ import { apiService } from "@/common/api.service";
 import router from "@/router";
 
 /*home.vue*/
-import ancEventsPast from "@/components/AncEventsPast";
-import ancEventsFuture from "@/components/AncEventsFuture";
+//import ancEventsPast from "@/components/AncEventsPast";
+//import ancEventsFuture from "@/components/AncEventsFuture";
 import AncIntestazioneHome from "@/components/AncIntestazioneHome.vue";
 import AncIntestazioneFine from "@/components/AncIntestazioneFine.vue";
 import AncCard from "@/components/AncCard.vue";
@@ -73,11 +54,11 @@ import m4lgSottocategorie from "@/components/AncM/CatSotto/M4lgSottocategorie.vu
 import m4lgAdmin from "@/components/AncM/Admin/M4lgAdmin.vue";
 
 export default {
-  name: "home4lg",
+  name: "home3md",
 
   components: {
-    ancEventsPast,
-    ancEventsFuture,
+    //ancEventsPast,
+    //ancEventsFuture,
     AncIntestazioneHome,
     AncIntestazioneFine,
     AncCard,
@@ -88,7 +69,12 @@ export default {
 
   props: {},
 
-  data: () => ({}),
+  data() {
+    return {
+      scr: "",
+      focusOn: false
+    };
+  },
 
   computed: {
     /*  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  */
@@ -217,114 +203,34 @@ export default {
     },
     setDF() {
       this.$store.dispatch("setDF");
+    },
+
+    // Events ...
+    getEventsPast() {
+      this.$store.dispatch("getEventsPast");
+    },
+    getEventsFuture() {
+      this.$store.dispatch("getEventsFuture");
     }
   },
+  created() {
+    console.log("home 5 xl oncreate --> start");
+  },
 
-  updated() {},
+  updated() {
+    //this.getEventsPast(); // !!store - moduleE
+    //this.getEventsFuture(); // !!store - moduleE
+  },
 
   mounted() {}
 };
 </script>
 
-<style media="screen">
-.anchome {
-  background-color: blue !important;
-  background-image: url("~@/assets/images/bg/bg7.jpg");
-  opacity: 0.3;
+<style media="screen" scoped>
+.home3SfShUp {
+  height: 150px;
 }
-.SfParallax {
-  /* Sfondo Parallax */
-  position: relative;
-  z-index: 1;
-  opacity: 0.15;
-  height: 600px;
-  width: 100%;
-}
-.anchomer {
-  position: absolute;
-  z-index: 5;
-}
-
-.home-view {
-  position: relative;
-  z-index: 1;
-}
-
-.author-name {
-  font-weight: bold;
-  color: #dc3545;
-}
-.event-link {
-  font-weight: bold;
-  color: black;
-}
-.event-link:hover {
-  color: cadetblue !important;
-  text-decoration: none;
-}
-.group {
-  display: flex;
-  flex: 1;
-  justify-content: space-around;
-}
-
-.imgop {
-  /*opacity: 0.4;*/
-}
-
-.bg {
-  background-image: url("~@/assets/images/bg/bg8.jpg");
-  opacity: 0.3;
-  /*
-  background-image: url("../assets/images/bg/bg1.jpg");
-  background-image: url("~@/assets/images/bg/bg8.jpg");
-  */
-}
-
-/* -------------------------------------------------------------------- 2020 04 22 */
-
-.q {
-  height: 50px;
-}
-
-.qd2 {
-  /*finestra contenuto*/
-  position: absolute;
-  top: 300px;
-  z-index: 4;
-  opacity: 1;
-
-  width: 80%;
-}
-.qd3 {
-  position: relative;
-  z-index: 3;
-  opacity: 1;
-  background-color: green;
-  width: 100px;
-}
-.qd4 {
-  position: relative;
-  z-index: 4;
-  opacity: 1;
-  background-color: cyan;
-  width: 100px;
-}
-
-.qdcrhome {
-  position: absolute;
-  top: 140px;
-  z-index: 4;
-  opacity: 1;
-  width: 100%;
-  height: 100%;
-  background-color: yellow;
-}
-.qdcchome {
-  position: relative;
-  width: 100px;
-  height: 100%;
-  /* background-color: orange;*/
-  background-color: transparent;
+.home3SfShDown {
+  height: 78px;
 }
 </style>

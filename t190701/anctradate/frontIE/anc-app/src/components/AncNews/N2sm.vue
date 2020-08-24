@@ -71,11 +71,14 @@ export default {
       });
     }*/
   },
+  beforecreated() {
+    //this.getEvidenza();
+  },
   created() {
     this.getEvidenza();
   },
   updated() {
-    this.getEvidenza();
+    //this.getEvidenza();
   }
 };
 </script>

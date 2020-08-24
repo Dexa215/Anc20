@@ -42,42 +42,15 @@ export default {
     getEvidenza() {
       this.$store.dispatch("getEvidenza");
     }
-    /*
-    getEvidenza() {
-      var x;
-      let endpoint = "api/evidenza/";
-      if (this.Enext) {
-        endpoint = this.Pnext;
-      }
-      this.EloadingEvents = true;
-      apiService(endpoint).then(data => {
-        console.log(data.results);
-        this.Eevents.push(...data.results);
-        this.EloadingEvents = false;
-        if (data.next) {
-          this.Enext = data.next;
-        } else {
-          this.Enext = null;
-        }
-
-        //ciclo per creare titolo in evidenza...
-        if (this.Eevents.length == 0) {
-          this.Titolone = "";
-        } else {
-          this.Titolone = "IN EVIDENZA: ";
-          for (x of this.Eevents) {
-            console.log(x.title);
-            this.Titolone = this.Titolone + " - " + x.title + "   ";
-          }
-        }
-      });
-    }*/
+  },
+  beforecreated() {
+    //this.getEvidenza();
   },
   created() {
     this.getEvidenza();
   },
   updated() {
-    this.getEvidenza();
+    //this.getEvidenza();
   }
 };
 </script>

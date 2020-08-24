@@ -322,7 +322,7 @@
 
             <v-col v-if="!languagesShow" class="icoSx iconavcDD" cols="3">
               <v-row class="rIco" justify="end" align="center">
-                <!-- BUTTON MENU... -->
+                <!-- BUTTON MENU on-off ... -->
                 <v-btn icon>
                   <a>LG</a>
                 </v-btn>

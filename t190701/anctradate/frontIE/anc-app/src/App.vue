@@ -1,11 +1,12 @@
 <template>
   <v-app id="anc">
-    <ancAppBar></ancAppBar>
+    <ancAppBar class="Mx6"></ancAppBar>
 
     <!-- test 2020 07 15 -->
     <!-- sgravare ancappbar -->
-    <menuS></menuS>
-    <menuSC class="Mx1"></menuSC>
+    <menuS class="Mx5"></menuS>
+    <menuSC class="Mx4"></menuSC>
+    <!--class="Mx1"-->
     <ancNews></ancNews>
     <!-- test 2020 07 15 -->
 
@@ -46,7 +47,7 @@
 
     <!-- :requestUser="requestUser" -->
 
-    <v-content>
+    <v-content class="Mx3">
       <router-view
         :rvt="rvt"
         @spMC="spMC"
@@ -937,6 +938,8 @@ Marrone scuro +4
   background-color: "rgb(19, 21, 36)";
 }
 
+/*  Contents class   */
+
 .SfBase {
   /* Sfondo Base */
   position: absolute;
@@ -970,5 +973,28 @@ Marrone scuro +4
 }
 .SfShDown {
   height: 78px;
+}
+.Mx1 {
+  /* menuSC */
+  position: relative;
+  z-index: 2;
+  background-color: transparent !important;
+  /* height: 400px; */
+}
+.Mx3 {
+  position: relative;
+  z-index: 3;
+}
+.Mx4 {
+  position: relative;
+  z-index: 4;
+}
+.Mx5 {
+  position: relative;
+  z-index: 5;
+}
+.Mx6 {
+  position: relative;
+  z-index: 6;
 }
 </style>

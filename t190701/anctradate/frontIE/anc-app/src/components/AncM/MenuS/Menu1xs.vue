@@ -1,47 +1,35 @@
 <template>
-  <div>
-    <!--  xs -->
-    <v-col v-if="currentres == 'xs'" class="xsEl xsElMenu rcC_BC" cols="12">
-      <m1xs></m1xs>
-    </v-col>
+  <!--  xs -->
+  <transition
+    name="custom-classes-transition4"
+    enter-active-class="animated fadeInDown"
+    leave-active-class="animated fadeOutUp"
+  >
+    <v-row v-show="drawerLeft" class="m4r" text-align="center">
+      <!-- /*xs*/ system... -->
 
-    <v-col v-if="currentres == 'xs'" class="xsEl xsElUtente rcC_BC my-4" cols="12">
-      <u1xs></u1xs>
-    </v-col>
+      <!--v-col class="rmH4 m4cL" cols="4"></v-col-->
 
-    <v-col v-if="currentres == 'xs'" class="xsEl xsElLingua rcC_BC my-4" cols="12">
-      <!-- Language... -->
-      <h3 style="color:white" v-show="drawerLeft && !languagesShow">Lingua corrente:</h3>
-      <v-expand-x-transition>
-        <v-btn
-          class="mx-1"
-          icon
-          v-show="drawerLeft && !languagesShow"
-          fab
-          rounded
-          style="background-color: transparent"
-          @click="SDL"
-        >
-          <v-img class="mx-1 AncIconLang" large dark :src="lang.icona"></v-img>
-        </v-btn>
-      </v-expand-x-transition>
+      <!-- cats menu -->
+      <v-col cols="2"></v-col>
+      <v-col class="rmH4 m4cR" cols="8">
+        <div :class="rcU">
+          <m1xs></m1xs>
+        </div>
+      </v-col>
+      <v-col cols="2"></v-col>
+      <!-- admin commands -->
+      <m4lgAdmin></m4lgAdmin>
+      <!-- admin commands -->
+    </v-row>
 
-      <h3 style="color:white" v-show="drawerLeft && languagesShow">Seleziona:</h3>
-      <v-btn
-        v-show="drawerLeft && languagesShow"
-        v-for="lang in languages"
-        :key="lang.pk"
-        class="mx-1 AncBtnLanguages"
-        icon
-        fab
-        rounded
-        @click="ScL(lang.code)"
-      >
-        <v-img class="mx-1 AncIconLang" large dark :src="lang.icona"></v-img>
-      </v-btn>
-    </v-col>
-  </div>
-
+    <v-row>
+      <!-- user -->
+      <v-col class="rmH4 m4cC rcC_BC" cols="8">
+        <u4lg></u4lg>
+      </v-col>
+    </v-row>
+  </transition>
   <!--  xs -->
 </template>
 

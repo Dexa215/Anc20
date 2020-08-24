@@ -3,7 +3,7 @@
   <template>
   <div class="SfBase">
     <v-row class="AncTrasparenza" v-show="drawerLeft"></v-row>
-    <div class="SfSpazio SfShUp AncAppBar_BC">spazio Up</div>
+    <div class="SfSpazio home4SfShUp AncAppBar_BC">spazio Up</div>
     <v-row
       justify="center"
       align="center"
@@ -11,44 +11,29 @@
       style="height:600px; width:100%; background-color:transparent; "
     >
       <!--sx-->
-      <carP :Pevents="Pevents" :Pnext="Pnext" :PloadingEvents="PloadingEvents"></carP>
-      <!--sx-->
-
+      <v-col cols="4" class="carcol carcolsx">
+        <carP></carP>
+      </v-col>
       <!--cx-->
-      <ancClock></ancClock>
-      <!--cx-->
-
+      <v-col cols="4" class="carcol carcolcx">
+        <ancClock></ancClock>
+      </v-col>
       <!--dx-->
-      <carF
-        :Fevents="Fevents"
-        :Fnext="Fnext"
-        :FloadingEvents="FloadingEvents"
-        clFcard="grey lighten-4"
-        clFtitle="grey lighten-4 "
-        clFevent="grey lighten-3 "
-        clFeventInt="grey lighten-4 "
-      ></carF>
-      <!--dx-->
+      <v-col cols="4" class="carcol carcoldx">
+        <carF></carF>
+      </v-col>
     </v-row>
 
     <v-parallax class="SfParallax" src="/static/images/bg/bg8.jpg" height="650"></v-parallax>
-
     <!-- <span>spiegone:</span>-->
-
     <span v-if="CS==0">{{ categorie[(C/10)-1].descrizione }}</span>
     <span v-else>{{ categorie[(C/10)-1].sottocategorie[(CS-C)-1].descrizione }}</span>
-
-    <!--
-    <div class="SfImmagine">sfondo Immagine</div>
-    -->
+    <!--<div class="SfImmagine">sfondo Immagine</div>-->
     <div class="container-fluid text-center">
       <AncIntestazioneFine :C="C" :CS="CS" :categorie="categorie" @gotoR="gotoR"></AncIntestazioneFine>
     </div>
-    <div class="SfSpazio SfShDown AncAppBar_BC">spazio Down</div>
-
-    <!--
-/* ********************************************************************************************************** */
-    -->
+    <div class="SfSpazio home4SfShDown AncAppBar_BC">spazio Down</div>
+    <!--/* *** */-->
   </div>
 </template>
 
@@ -75,7 +60,6 @@ export default {
   components: {
     //ancEventsPast,
     //ancEventsFuture,
-
     AncIntestazioneHome,
     AncIntestazioneFine,
     AncCard,
@@ -90,66 +74,10 @@ export default {
     return {
       scr: "",
       focusOn: false
-
-      // * EVIDENZA
-      //Computed: >>> Eevents: [],
-      //Computed: >>> Enext: null,
-      //Computed: >>> EloadingEvents: false,
-
-      //Computed: >>> Titolone: null,
-
-      // * PAST
-      //Computed: >>> Pevents: [],
-      //Computed: >>> Pnext: null,
-      //Computed: >>> PloadingEvents: false,
-
-      // * FUTURE
-      //Computed: >>> Fevents: [],
-      //Computed: >>> Fnext: null,
-      //Computed: >>> FloadingEvents: false
     };
   },
 
   computed: {
-    /*
-    Titolone() {
-      return this.$store.getters.get_Titolone;
-    },
-    */
-
-    // * EVIDENZA
-    Eevents() {
-      return this.$store.getters.get_Eevents;
-    },
-    Enext() {
-      return this.$store.getters.get_Enext;
-    },
-    EloadingEvents() {
-      return this.$store.getters.get_EloadingEvents;
-    },
-
-    // * PAST
-    Pevents() {
-      return this.$store.getters.get_Pevents;
-    },
-    Pnext() {
-      return this.$store.getters.get_Pnext;
-    },
-    PloadingEvents() {
-      return this.$store.getters.get_PloadingEvents;
-    },
-
-    // * FUTURE
-    Fevents() {
-      return this.$store.getters.get_Fevents;
-    },
-    Fnext() {
-      return this.$store.getters.get_Fnext;
-    },
-    FloadingEvents() {
-      return this.$store.getters.get_FloadingEvents;
-    },
-
     /*  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  */
     lang() {
       return this.$store.getters.getCurrentLanguage;
@@ -288,21 +216,16 @@ export default {
   },
   created() {
     console.log("home oncreate --> start");
-    this.getEventsPast(); // !!store - moduleE
-    this.getEventsFuture(); // !!store - moduleE
-
-    //    this.getRequestUser();
-    //    this.getEvents();
-
+    //this.getEventsPast(); // !!store - moduleE
+    //this.getEventsFuture(); // !!store - moduleE
+    //this.getRequestUser();
+    //this.getEvents();
     //DA RIPRISTINARE
-
-    /*
-    this.getEvidenza();
-    this.getEventsPast();
-    this.getEventsFuture();
-    this.clock();
-    this.setMyPar();
-    */
+    //this.getEvidenza();
+    //this.getEventsPast();
+    //this.getEventsFuture();
+    //this.clock();
+    //this.setMyPar();
   },
 
   updated() {
@@ -314,105 +237,85 @@ export default {
 };
 </script>
 
-<style media="screen">
-.anchome {
-  background-color: blue !important;
-  background-image: url("~@/assets/images/bg/bg7.jpg");
-  opacity: 0.3;
-}
-.SfParallax {
-  /* Sfondo Parallax */
-  position: relative;
-  z-index: 1;
-  opacity: 0.15;
-  height: 600px;
-  width: 100%;
-}
-.anchomer {
-  position: absolute;
-  z-index: 5;
-}
-
-.home-view {
-  position: relative;
-  z-index: 1;
-}
-
-.author-name {
-  font-weight: bold;
-  color: #dc3545;
-}
-.event-link {
-  font-weight: bold;
-  color: black;
-}
-.event-link:hover {
-  color: cadetblue !important;
-  text-decoration: none;
-}
-.group {
-  display: flex;
-  flex: 1;
-  justify-content: space-around;
-}
-
-.imgop {
-  /*opacity: 0.4;*/
-}
-
-.bg {
-  background-image: url("~@/assets/images/bg/bg8.jpg");
-  opacity: 0.3;
-  /*
-  background-image: url("../assets/images/bg/bg1.jpg");
-  background-image: url("~@/assets/images/bg/bg8.jpg");
-  */
-}
-
-/* -------------------------------------------------------------------- 2020 04 22 */
-
-.q {
-  height: 50px;
-}
-
-.qd2 {
-  /*finestra contenuto*/
-  position: absolute;
-  top: 300px;
-  z-index: 4;
-  opacity: 1;
-
-  width: 80%;
-}
-.qd3 {
-  position: relative;
-  z-index: 3;
-  opacity: 1;
-  background-color: green;
-  width: 100px;
-}
-.qd4 {
-  position: relative;
-  z-index: 4;
-  opacity: 1;
-  background-color: cyan;
-  width: 100px;
-}
-
-.qdcrhome {
-  position: absolute;
-  top: 140px;
-  z-index: 4;
-  opacity: 1;
-  width: 100%;
-  height: 100%;
-  background-color: yellow;
-}
-.qdcchome {
-  position: relative;
-  width: 100px;
-  height: 100%;
-  /* background-color: orange;*/
+<style media="screen" scoped>
+.home4SfShUp {
+  height: 350px;
   background-color: transparent;
 }
+.home4SfShDown {
+  height: 78px;
+}
 </style>
+
+
+      <!--
+        :Pevents="Pevents"
+        :Pnext="Pnext"
+        :PloadingEvents="PloadingEvents"
+      -->
+
+      <!--
+        :Fevents="Fevents"
+        :Fnext="Fnext"
+        :FloadingEvents="FloadingEvents"
+      -->
+
+      <!-- ex data
+            // * EVIDENZA
+      //Computed: >>> Eevents: [],
+      //Computed: >>> Enext: null,
+      //Computed: >>> EloadingEvents: false,
+      //Computed: >>> Titolone: null,
+      // * PAST
+      //Computed: >>> Pevents: [],
+      //Computed: >>> Pnext: null,
+      //Computed: >>> PloadingEvents: false,
+      // * FUTURE
+      //Computed: >>> Fevents: [],
+      //Computed: >>> Fnext: null,
+      //Computed: >>> FloadingEvents: false
+      -->
+
+      <!--
+          /*
+    Titolone() {
+      return this.$store.getters.get_Titolone;
+    },
+    */
+
+    // * EVIDENZA
+    Eevents() {
+      return this.$store.getters.get_Eevents;
+    },
+    Enext() {
+      return this.$store.getters.get_Enext;
+    },
+    EloadingEvents() {
+      return this.$store.getters.get_EloadingEvents;
+    },
+    -->
+
+    <!--
+        // * PAST
+    Pevents() {
+      return this.$store.getters.get_Pevents;
+    },
+    Pnext() {
+      return this.$store.getters.get_Pnext;
+    },
+    PloadingEvents() {
+      return this.$store.getters.get_PloadingEvents;
+    },
+
+    // * FUTURE
+    Fevents() {
+      return this.$store.getters.get_Fevents;
+    },
+    Fnext() {
+      return this.$store.getters.get_Fnext;
+    },
+    FloadingEvents() {
+      return this.$store.getters.get_FloadingEvents;
+    },
+    -->
+

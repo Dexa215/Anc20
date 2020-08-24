@@ -1,18 +1,17 @@
 <template>
   <div>
-    <v-footer fixed app color="dark-grey" class="grey--text" dark>
+    <v-footer fixed app :color="AncFooter_BC" class="grey--text" dark>
       <v-row
         dense
-        class="rowFot ma-1 pu-1"
-        style="background-color: red; 
-                          max-height:550px; "
+        class="AncFooter_r_BC ma-1 pu-1"
+        style="max-height:550px; background-color:rgb(11, 26, 14);"
         align="center"
         justify="start"
       >
         <!-- medium -->
-        <v-col class="colFot" align="center" justify="center">
+        <v-col cols="5" class="colFot" align="end" justify="center">
           <div class="grey--text">
-            <span class="font-weight-light">ANC</span>
+            <span class="font-weight-light">ANC&nbsp;|&nbsp;</span>
             <span>Sezione "C.Bergia" Tradate</span>
           </div>
         </v-col>
@@ -20,6 +19,7 @@
 
         <!-- col2 CENTER -->
         <v-col
+          cols="2"
           style="background-color: transparent; 
                             max-height:150px "
           align="center"
@@ -52,15 +52,16 @@
         <!-- v-if="currentres=='md'" -->
         <!-- medium -->
         <v-col
+          cols="5"
           class="colFot"
           style="background-color: transparent; 
                             max-height:90px; "
-          align="center"
+          align="start"
           justify="center"
         >
           <div class="grey--text">
             <span class="font-weight-light">CF:95066440124</span>
-            <span>/ 2Pi-NT &copy;</span>
+            <span>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; 2Pi-NT &copy;</span>
             <span class="font-weight-light">{{ new Date().getFullYear() }}</span>
           </div>
         </v-col>

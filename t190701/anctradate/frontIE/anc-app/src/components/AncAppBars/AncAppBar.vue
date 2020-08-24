@@ -5,84 +5,20 @@
       <b1xs :height="hsm"></b1xs>
     </div>
 
-    <div v-else-if="currentres == 'sm'">
-      <b2sm
-        :height="hsm"
-        :requestUser="requestUser"
-        :requestUserIsStaff="requestUserIsStaff"
-        :requestUserIsSuper="requestUserIsSuper"
-        :requestUserAvatar="requestUserAvatar"
-        :requestUserBio="requestUserBio"
-        :C="C"
-        :CS="CS"
-        :categorie="categorie"
-        :drawer="drawer"
-        :drawerLeft="drawerLeft"
-        :drawerRight="drawerRight"
-        :iconX="iconX"
-        @gotoR="gotoR"
-        @setD="setD"
-        @setDF="setDF"
-        @mouseover="setDF()"
-      ></b2sm>
-    </div>
-    <div v-else-if="currentres == 'md'">
-      <b3md
-        :height="hlg"
-        :requestUser="requestUser"
-        :requestUserIsStaff="requestUserIsStaff"
-        :requestUserIsSuper="requestUserIsSuper"
-        :requestUserAvatar="requestUserAvatar"
-        :requestUserBio="requestUserBio"
-        :C="C"
-        :CS="CS"
-        :categorie="categorie"
-        :drawer="drawer"
-        :drawerLeft="drawerLeft"
-        :drawerRight="drawerRight"
-        :iconX="iconX"
-        @gotoR="gotoR"
-        @setD="setD"
-        @setDF="setDF"
-        @mouseover="setDF()"
-      ></b3md>
+    <div v-if="currentres == 'sm'">
+      <b2sm :height="hsm"></b2sm>
     </div>
 
-    <div v-else-if="currentres == 'xl'">
-      <b5xl
-        :height="hlg"
-        :requestUser="requestUser"
-        :requestUserIsStaff="requestUserIsStaff"
-        :requestUserIsSuper="requestUserIsSuper"
-        :requestUserAvatar="requestUserAvatar"
-        :requestUserBio="requestUserBio"
-        :C="C"
-        :CS="CS"
-        :categorie="categorie"
-        :drawer="drawer"
-        :drawerLeft="drawerLeft"
-        :drawerRight="drawerRight"
-        :iconX="iconX"
-        @gotoR="gotoR"
-        @setD="setD"
-        @setDF="setDF"
-        @mouseover="setDF()"
-      ></b5xl>
-      <!--
-      <m4lgSottocategorie
-        :drawerRight="drawerRight"
-        :drawerSottocategoria="drawerSottocategoria"
-        @gotoR="gotoR"
-        @setD="setD"
-        @setDF="setDF"
-        @mouseover="setDF()"
-        @DSCset="DSCset"
-      ></m4lgSottocategorie>
-      -->
+    <div v-else-if="currentres == 'md'">
+      <b3md :height="hlg" @mouseover="setDF()"></b3md>
     </div>
 
     <div v-else-if="currentres == 'lg'">
       <b4lg :height="hlg" @mouseover="setDF()"></b4lg>
+    </div>
+
+    <div v-else-if="currentres == 'xl'">
+      <b5xl :height="hlg" @mouseover="setDF()"></b5xl>
     </div>
 
     <!-- INFO -- TEST 2020.04.20 -- *********************************************** -->
@@ -455,17 +391,11 @@ export default {
 /*  Blue    scuro +6   .cBI        {  background-color: "rgb(1, 4, 20)" !important; }*/ /* interno row */
 /*------------------------------------------------------------------------------------------------------*/
 .testx2 {
-  background-color: yellow !important;
+  background-color: pink !important;
   height: 800px;
   width: 100%;
 }
-.Mx1 {
-  /* menuSC */
-  position: relative;
-  z-index: 2;
-  background-color: green !important;
-  height: 400px;
-}
+
 .AncAppBarE {
   position: fixed;
   z-index: 6;

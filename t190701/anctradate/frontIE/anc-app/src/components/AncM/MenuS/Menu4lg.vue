@@ -1,30 +1,29 @@
 <template>
-  <div>
-    <transition
-      name="custom-classes-transition"
-      enter-active-class="animated fadeInDown"
-      leave-active-class="animated fadeOutUp"
-    >
-      <v-row v-show="drawerLeft" class="m4r" text-align="center">
-        <!-- /*lg*/ system... -->
-        <v-col class="rmH4 m4cL" cols="4"></v-col>
-        <!-- user -->
-        <v-col class="rmH4 m4cC rcC_BC" cols="4">
-          <u4lg></u4lg>
-        </v-col>
-        <!-- cats menu -->
-        <v-col class="rmH4 m4cR" cols="4">
-          <div :class="rcU">
-            <m4lg></m4lg>
-          </div>
-        </v-col>
-
-        <!-- admin commands -->
-        <m4lgAdmin></m4lgAdmin>
-        <!-- admin commands -->
-      </v-row>
-    </transition>
-  </div>
+  <transition
+    name="custom-classes-transition"
+    enter-active-class="animated fadeInDown"
+    leave-active-class="animated fadeOutUp"
+  >
+    <!--enter-active-class="animated fadeInDown"
+    -->
+    <v-row v-show="drawerLeft" class="m4r" text-align="center">
+      <!-- /*lg*/ system... -->
+      <v-col class="rmH4 m4cL" cols="4"></v-col>
+      <!-- user -->
+      <v-col class="rmH4 m4cC rcC_BC" cols="4">
+        <u4lg></u4lg>
+      </v-col>
+      <!-- cats menu -->
+      <v-col class="rmH4 m4cR" cols="4">
+        <div :class="rcU">
+          <m4lg></m4lg>
+        </div>
+      </v-col>
+      <!-- admin commands -->
+      <m4lgAdmin></m4lgAdmin>
+      <!-- admin commands -->
+    </v-row>
+  </transition>
 </template>
 
 <script>
@@ -56,7 +55,6 @@ import m4lgAdmin from "@/components/AncM/Admin/M4lgAdmin.vue";
 
 export default {
   name: "menu4lg",
-
   components: {
     b1xs,
     b2sm,
@@ -81,11 +79,8 @@ export default {
     m4lgSottocategorie,
     m4lgAdmin
   },
-
   props: {},
-
   data: () => ({}),
-
   computed: {
     /*  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  */
     lang() {
@@ -215,14 +210,10 @@ export default {
       this.$store.dispatch("setDF");
     }
   },
-
   updated() {},
-
   mounted() {}
 };
 </script>
-
-
 <style media="screen">
 .rmH4 {
   position: relative;

@@ -233,7 +233,7 @@ export default {
 .menuS {
   position: relative;
   z-index: 4;
-  background-color: yellow !important;
+  background-color: darkred !important;
   height: 1px;
   /*
   padding-left: 15px;

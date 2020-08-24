@@ -2,6 +2,7 @@
   <div>
     <v-row class="mr mx-auto">
       <v-col @mouseenter="DSCset('false')" @mouseleave="DSCset('true')">
+        <!--
         <v-list shaped dark class="ancM4l ancM4l_BC">
           <v-list-item
             class="tileM"
@@ -10,17 +11,37 @@
             link
             @click="gotoR(item.link)"
           >
+            
             <v-list-item-content>
               <v-btn rounded>
                 <v-list-item-title>{{ item.descrizione }}</v-list-item-title>
               </v-btn>
             </v-list-item-content>
-
+            
             <v-list-item-icon>
               <v-icon>{{ item.icona }}</v-icon>
             </v-list-item-icon>
+
           </v-list-item>
         </v-list>
+        -->
+
+        <!-- chip -->
+        <v-chip
+          v-for="item in categorie"
+          :key="item.n"
+          @click="gotoR(item.link)"
+          link
+          class="ma-1 w100"
+          color="indigo"
+          text-color="white"
+        >
+          <v-avatar>
+            <v-icon size="24">{{item.icona}}</v-icon>
+          </v-avatar>
+          {{ item.descrizione }}
+        </v-chip>
+        <!-- chip -->
       </v-col>
     </v-row>
     <v-row class="mx-auto" style="background-color: red"></v-row>
@@ -239,6 +260,9 @@ export default {
 }
 .mr {
   background-color: transparent !important;
+}
+.w100 {
+  width: 90%;
 }
 </style>
 

@@ -263,13 +263,13 @@ export default {
   },
   created() {
     console.log("home oncreate --> start");
-    this.getEventsPast(); // !!store - moduleE
-    this.getEventsFuture(); // !!store - moduleE
+    //this.getEventsPast(); // !!store - moduleE
+    //this.getEventsFuture(); // !!store - moduleE
   },
 
   updated() {
-    this.getEventsPast(); // !!store - moduleE
-    this.getEventsFuture(); // !!store - moduleE
+    //this.getEventsPast(); // !!store - moduleE
+    //this.getEventsFuture(); // !!store - moduleE
   },
 
   mounted() {}
@@ -277,4 +277,10 @@ export default {
 </script>
 
 <style media="screen">
+.home1SfShUp {
+  height: 150px;
+}
+.home1SfShDown {
+  height: 78px;
+}
 </style>

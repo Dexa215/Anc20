@@ -1,24 +1,25 @@
 <template>
-  <v-col cols="3" style="height:350px; " align="center" justify="center" class="ancClock">
-    <div class="cage r_BC">
-      <!-- data oggi 555555555555555555555555555555555555555555555555555555555555  -->
+  <v-row align="center" justify="center" style="height:100%">
+    <v-col cols="12" align="center" justify="center" class="ancClock">
+      <div class="cage r_BC">
+        <!-- data oggi 555555555555555555555555555555555555555555555555555555555555  -->
 
-      <v-row class="todayr" align="center" justify="center">
-        <v-row class="rup mx-auto" align="end">
-          <v-col cols="9" class="cup mx-auto display-2">{{lang.text1}}</v-col>
-        </v-row>
+        <v-row class="todayr" align="center" justify="center">
+          <v-row class="rup mx-auto" align="end">
+            <v-col cols="9" class="cup mx-auto display-2">{{lang.text1}}</v-col>
+          </v-row>
 
-        <v-row class="rdw mx-auto" align="start">
-          <v-col cols="9" class="cdw mx-auto">
-            <!-- test ok 
+          <v-row class="rdw mx-auto" align="start">
+            <v-col cols="9" class="cdw mx-auto">
+              <!-- test ok 
             <a class="title">{{ displaydate }}</a>
-            -->
-            <a class="title">{{ displayeddate }}</a>
-          </v-col>
+              -->
+              <a class="title">{{ displayeddate }}</a>
+            </v-col>
+          </v-row>
         </v-row>
-      </v-row>
 
-      <!--
+        <!--
       <v-col cols="12" class="todayCircleText">
         <v-row class="todayrowup" align="end">
           <v-col cols="12" class="todaylineup headline mt-0">Oggi...</v-col>
@@ -27,9 +28,10 @@
           <v-col cols="12" class="todaylinedown headline mt-0">{{ displaydate }}</v-col>
         </v-row>
       </v-col>
-      -->
-    </div>
-  </v-col>
+        -->
+      </div>
+    </v-col>
+  </v-row>
 </template>
 
 <script>
@@ -123,12 +125,11 @@ export default {
      /*test 2020 05 10*/
 
       /* TEST OK 2020 05 10 */
-      /* this.month = this.getmonthArrLang.nome; */
+      this.month = this.getmonthArrLang.nome;
 
       /* TEST ng TODO: RIVEDERE */
       /* TEST 2020 06 09 */
-
-      this.month = this.getmonthArrLanguage[this.month];
+      //this.month = this.getmonthArrLanguage[this.month];
 
       this.displaydate = this.date + " " + this.month + ", " + this.year;
       //            document.getElementById("date").innerHTML=this.date+" "+this.month+", "+this.year;
@@ -147,6 +148,8 @@ export default {
   position: relative;
   z-index: 4;
   background-color: transparent;
+  /*style="height:320px; "*/
+  height: 325px;
 }
 .cage {
   border-radius: 150px;
