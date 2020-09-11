@@ -1,7 +1,7 @@
 <template>
   <transition
     name="custom-classes-transition"
-    enter-active-class="animated fadeInDown"
+    enter-active-class="animated fadeInDownBig"
     leave-active-class="animated fadeOutUp"
   >
     <!--enter-active-class="animated fadeInDown"

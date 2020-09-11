@@ -172,8 +172,8 @@ export default {
     ancAppDrawerLeft,
     ancAppDrawerRight,
 
-    ancDrawer /*test 2020 03 18*/,
-    menuS /*test 2020 07 14*/,
+    ancDrawer   /*test 2020 03 18*/,
+    menuS       /*test 2020 07 14*/,
     menuSC,
     ancNews
   },

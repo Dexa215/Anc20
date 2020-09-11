@@ -166,6 +166,35 @@ const moduleC = {
                 {//cat1 10 home
                     n: "10",
                     descrizione: "Home",
+                    testi: [
+                        {
+                            langid: 0,/*    ITA     */
+                            testi: [
+                                { descrizione: "Home" },
+                                { titolo: "" },
+                                {},
+                                {}
+                            ]
+                        },
+                        {
+                            langid: 1,/*    ENG     */
+                            testi: [
+                                { descrizione: "Home" },
+                                { titolo: "" },
+                                {},
+                                {}
+                            ]
+                        },
+                        {
+                            langid: 2,/*    ESP     */
+                            testi: [
+                                { descrizione: "Home" },
+                                { titolo: "" },
+                                {},
+                                {}
+                            ]
+                        }
+                    ],
                     titolo: "",
                     //icona: "mdi-shield-half-full",
                     icona: "mdi-bank",
@@ -917,7 +946,8 @@ const moduleL = {
                             {
                                 id: 0, code: "AncIntestazioneFine", t: [
                                     { id: 0, code: "T1", text: "Per qualsiasi informazione non presente in questa pagina non esitare a contattarci" },
-                                    { id: 1, code: "T2", text: "Potrebbero interessarti..." }
+                                    { id: 1, code: "T2", text: "Potrebbero interessarti..." },
+                                    { id: 2, code: "T3", text: "Contatti" }
                                 ]
                             },
                             {
@@ -1095,7 +1125,8 @@ const moduleL = {
                             {
                                 id: 0, code: "AncIntestazioneFine", t: [
                                     { id: 0, code: "T1", text: "For any information not present on this page, do not hesitate to contact us" },
-                                    { id: 1, code: "T2", text: "You might be interested ..." }
+                                    { id: 1, code: "T2", text: "You might be interested ..." },
+                                    { id: 2, code: "T3", text: "Contacts" }
                                 ]
                             },
                             {
@@ -1275,7 +1306,8 @@ const moduleL = {
                             {
                                 id: 0, code: "AncIntestazioneFine", t: [
                                     { id: 0, code: "T1", text: "Para cualquier información no presente en esta página, no dude en contactarnos" },
-                                    { id: 1, code: "T2", text: "Te puede interesar ..." }
+                                    { id: 1, code: "T2", text: "Te puede interesar ..." },
+                                    { id: 3, code: "T3", text: "Contactos" }
                                 ]
                             },
                             {

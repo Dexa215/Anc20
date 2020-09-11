@@ -2,7 +2,7 @@
   <!--  xs -->
   <transition
     name="custom-classes-transition4"
-    enter-active-class="animated fadeInDown"
+    enter-active-class="animated fadeInDownBig"
     leave-active-class="animated fadeOutUp"
   >
     <v-row v-show="drawerLeft" class="m4r" text-align="center">

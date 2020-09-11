@@ -22,7 +22,8 @@
           {{lang.t[0].lista[0].t[0].text}}
           <br />
           <v-chip class="ma-4" color="red" text-color="white" @click="gotoR('contatti/')">
-            <a>Contatti</a>
+            <!--Contatti-->
+            <a>{{lang.t[0].lista[0].t[2].text}}</a>
           </v-chip>
           <!-- class="headline font-weight-bold" -->
         </p>
