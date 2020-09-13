@@ -2,14 +2,9 @@
 
   <template>
   <div class="SfBase">
-    <v-row class="AncTrasparenza" v-show="drawerLeft"></v-row>
+    <v-row class="AncTrasparenzaMD mx-auto" v-show="drawerLeft"></v-row>
     <div class="SfSpazio home3SfShUp AncAppBar_BC">spazio Up home3md</div>
-    <v-row
-      justify="center"
-      align="center"
-      class="anchomer mx-auto"
-      style="height:600px; width:100%; background-color:transparent; "
-    >
+    <v-row justify="center" align="center" class="anchomerMD mx-auto">
       <!--sx-->
       <v-col cols="4" class="carcol carcolsx">
         <carP></carP>
@@ -232,5 +227,20 @@ export default {
 }
 .home3SfShDown {
   height: 78px;
+}
+.anchomerMD {
+  position: absolute;
+  z-index: 5;
+  height: 600px;
+  width: 100%;
+  background-color: transparent;
+}
+.AncTrasparenzaMD {
+  position: absolute;
+  z-index: 6;
+  background-color: rgb(44, 3, 12) !important;
+  height: 3000px;
+  width: 100%;
+  opacity: 0.7;
 }
 </style>

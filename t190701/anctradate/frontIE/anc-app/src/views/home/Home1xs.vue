@@ -2,14 +2,9 @@
 
   <template>
   <div class="SfBase">
-    <v-row class="AncTrasparenza" v-show="drawerLeft"></v-row>
+    <v-row class="AncTrasparenzaXS mx-auto" v-show="drawerLeft"></v-row>
     <div class="SfSpazio SfShUp AncAppBar_BC">spazio Up</div>
-    <v-row
-      justify="center"
-      align="center"
-      class="anchomer mx-auto"
-      style="height:600px; width:100%; background-color:transparent; "
-    >
+    <v-row justify="center" align="center" class="anchomerXS mx-auto">
       <!--sx-->
       <carP :Pevents="Pevents" :Pnext="Pnext" :PloadingEvents="PloadingEvents"></carP>
       <!--sx-->
@@ -266,12 +261,10 @@ export default {
     //this.getEventsPast(); // !!store - moduleE
     //this.getEventsFuture(); // !!store - moduleE
   },
-
   updated() {
     //this.getEventsPast(); // !!store - moduleE
     //this.getEventsFuture(); // !!store - moduleE
   },
-
   mounted() {}
 };
 </script>
@@ -282,5 +275,27 @@ export default {
 }
 .home1SfShDown {
   height: 78px;
+}
+.anchomerXS {
+  position: relative;
+  z-index: 5;
+  height: 600px;
+  width: 100%;
+  background-color: transparent;
+}
+.anchomerXSnext {
+  position: relative;
+  z-index: 5;
+  height: 600px;
+  width: 100%;
+  background-color: transparent;
+}
+.AncTrasparenzaXS {
+  position: absolute;
+  z-index: 6;
+  background-color: rgb(44, 3, 12) !important;
+  height: 3000px;
+  width: 100%;
+  opacity: 0.7;
 }
 </style>

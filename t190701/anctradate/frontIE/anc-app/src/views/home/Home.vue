@@ -194,6 +194,15 @@ export default {
   position: absolute;
   z-index: 5;
 }
+
+.AncTrasparenza {
+  position: absolute;
+  z-index: 6;
+  background-color: rgb(44, 3, 12) !important;
+  height: 3000px;
+  width: 100%;
+  opacity: 0.7;
+}
 .home-view {
   position: relative;
   z-index: 1;

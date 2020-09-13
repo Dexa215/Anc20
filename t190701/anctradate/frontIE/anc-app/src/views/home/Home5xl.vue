@@ -2,14 +2,11 @@
 
   <template>
   <div class="SfBase">
-    <v-row class="AncTrasparenza" v-show="drawerLeft"></v-row>
+    <!---->
+
+    <v-row class="AncTrasparenzaXL mx-auto" v-show="drawerLeft"></v-row>
     <div class="SfSpazio home5SfShUp AncAppBar_BC">spazio Up</div>
-    <v-row
-      justify="center"
-      align="center"
-      class="anchomer mx-auto"
-      style="height:600px; width:100%; background-color:transparent; "
-    >
+    <v-row justify="center" align="center" class="anchomerXL mx-auto">
       <!--sx-->
       <v-col cols="4" class="carcol carcolsx">
         <carP></carP>
@@ -55,7 +52,6 @@ import m4lgAdmin from "@/components/AncM/Admin/M4lgAdmin.vue";
 
 export default {
   name: "home5xl",
-
   components: {
     //ancEventsPast,
     //ancEventsFuture,
@@ -66,16 +62,13 @@ export default {
     carF,
     ancClock
   },
-
   props: {},
-
   data() {
     return {
       scr: "",
       focusOn: false
     };
   },
-
   computed: {
     /*  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  */
     lang() {
@@ -178,7 +171,6 @@ export default {
       }
     }
   },
-
   methods: {
     /*2020 06 16*/
     gotoR(r) {
@@ -216,12 +208,10 @@ export default {
   created() {
     console.log("home 5 xl oncreate --> start");
   },
-
   updated() {
     //this.getEventsPast(); // !!store - moduleE
     //this.getEventsFuture(); // !!store - moduleE
   },
-
   mounted() {}
 };
 </script>
@@ -229,9 +219,25 @@ export default {
 <style media="screen" scoped>
 .home5SfShUp {
   height: 150px;
+  background-color: transparent;
 }
 .home5SfShDown {
   height: 78px;
+}
+.anchomerXL {
+  position: absolute;
+  z-index: 5;
+  height: 600px;
+  width: 100%;
+  background-color: transparent;
+}
+.AncTrasparenzaXL {
+  position: absolute;
+  z-index: 6;
+  background-color: rgb(44, 3, 12) !important;
+  height: 3000px;
+  width: 100%;
+  opacity: 0.7;
 }
 </style>
 

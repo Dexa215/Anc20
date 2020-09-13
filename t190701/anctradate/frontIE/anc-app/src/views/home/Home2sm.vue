@@ -2,18 +2,9 @@
 
   <template>
   <div class="SfBase">
-    <v-row class="AncTrasparenza" v-show="drawerLeft || drawerSottocategoria"></v-row>
-
-    <!-- div class="SfSpazio SfShUp AncAppBar_BC">spazio Up</div-->
-
-    <!--    class="anchomer mx-auto"      -->
-
-    <v-row
-      class="mx-auto"
-      justify="center"
-      align="center"
-      style="height:600px; width:100%; background-color:orange; "
-    >
+    <v-row class="AncTrasparenzaSM mx-auto" v-show="drawerLeft"></v-row>
+    <div class="SfSpazio home5SfShUp AncAppBar_BC">spazio Up</div>
+    <v-row justify="center" align="center" class="anchomerSM mx-auto">
       <v-col cols="12" justify="center" align="center">
         <!--cx-->
         <ancClock></ancClock>
@@ -22,7 +13,7 @@
     </v-row>
 
     <v-row
-      class="mx-auto"
+      class="anchomerSMnext mx-auto"
       justify="center"
       align="center"
       style="height:600px; width:100%; background-color:yellow; "
@@ -35,7 +26,7 @@
     </v-row>
 
     <v-row
-      class="mx-auto"
+      class="anchomerSMnext mx-auto"
       justify="center"
       align="center"
       style="height:600px; width:100%; background-color:red; "
@@ -102,11 +93,8 @@ export default {
     carF,
     ancClock
   },
-
   props: {},
-
   data: () => ({}),
-
   computed: {
     /*  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  */
     lang() {
@@ -236,9 +224,7 @@ export default {
       this.$store.dispatch("setDF");
     }
   },
-
   updated() {},
-
   mounted() {}
 };
 </script>
@@ -249,5 +235,27 @@ export default {
 }
 .home2SfShDown {
   height: 78px;
+}
+.anchomerSM {
+  position: relative;
+  z-index: 5;
+  height: 600px;
+  width: 100%;
+  background-color: transparent;
+}
+.anchomerSMnext {
+  position: relative;
+  z-index: 5;
+  height: 600px;
+  width: 100%;
+  background-color: transparent;
+}
+.AncTrasparenzaSM {
+  position: absolute;
+  z-index: 6;
+  background-color: rgb(44, 3, 12) !important;
+  height: 3000px;
+  width: 100%;
+  opacity: 0.7;
 }
 </style>
