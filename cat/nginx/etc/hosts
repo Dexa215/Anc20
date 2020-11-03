@@ -1,0 +1,12 @@
+127.0.0.1	localhost
+127.0.1.1	ubuntu
+
+# The following lines are desirable for IPv6 capable hosts
+::1     localhost ip6-localhost ip6-loopback
+ff02::1 ip6-allnodes
+ff02::2 ip6-allrouters
+
+80.211.234.218 2piUbuntu1
+#80.211.234.218 dexa215.it www.dexa215.it
+#80.211.234.218 dexa215.eu www.dexa215.eu
+#80.211.234.218 dexa215.online www.dexa215.online

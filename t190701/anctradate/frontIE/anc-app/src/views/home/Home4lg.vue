@@ -6,6 +6,7 @@
 
     <v-row class="AncTrasparenzaLG mx-auto" v-show="drawerLeft"></v-row>
     <div class="SfSpazio home4SfShUp AncAppBar_BC">spazio Up</div>
+
     <v-row justify="center" align="center" class="anchomerLG mx-auto">
       <!--sx-->
       <v-col cols="4" class="carcol carcolsx">
@@ -23,8 +24,11 @@
 
     <v-parallax class="SfParallax" src="/static/images/bg/bg8.jpg" height="650"></v-parallax>
     <!-- <span>spiegone:</span>-->
-    <span v-if="CS==0">{{ categorie[(C/10)-1].descrizione }}</span>
-    <span v-else>{{ categorie[(C/10)-1].sottocategorie[(CS-C)-1].descrizione }}</span>
+    <div class="container-fluid text-center" style="background-color:transparent ">
+      <span v-if="CS==0">{{ categorie[(C/10)-1].descrizione }}</span>
+      <span v-else>{{ categorie[(C/10)-1].sottocategorie[(CS-C)-1].descrizione }}</span>
+    </div>
+
     <!--<div class="SfImmagine">sfondo Immagine</div>-->
     <div class="container-fluid text-center">
       <AncIntestazioneFine :C="C" :CS="CS" :categorie="categorie" @gotoR="gotoR"></AncIntestazioneFine>
