@@ -11,6 +11,8 @@ BackEnd		Python 3	DJANGO-REST-Framework
 Contributors:
 dexa215
 dexamini
+
+Branch mini modifica
 	
 	
 
