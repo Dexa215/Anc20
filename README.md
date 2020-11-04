@@ -5,8 +5,8 @@ Associazione Nazionale Carabinieri
 Sezione di Tradate
 
 Tecnologie:
-FE VUE.JS 					--> 	Javascript
-BE DJANGO-REST-Framework	-->		Pthon 3
+FrontEnd	Javascript	VUE.JS 	
+BackEnd		Python 3	DJANGO-REST-Framework
 	
 	
 
