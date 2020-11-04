@@ -7,6 +7,10 @@ Sezione di Tradate
 Tecnologie:
 FrontEnd	Javascript	VUE.JS 	
 BackEnd		Python 3	DJANGO-REST-Framework
+
+Contributors:
+dexa215
+dexamini
 	
 	
 
