@@ -16,7 +16,7 @@ npm install --save vue-material-design-icons
 npm install --save vue-material-design-icons
 npm install -g npm@next
 npm install --save vue-auth-component
-npm install vue-cookies --save
+npm install vue-cookies --save                      //risolve problema con dexamini 2020.11.04
 npm install --save vue-authenticate-service
 npm install --save vue-auth
 npm install hamburgers
