@@ -186,7 +186,7 @@ const moduleC = {
                             ]
                         },
                         {
-                            langid: 2,/*    ESP     */
+                            langid: 2,/*    ESP       */
                             testi: [
                                 { descrizione: "Home" },
                                 { titolo: "" },
@@ -483,6 +483,22 @@ const moduleC = {
                             link: "contatti/"
                         },
                         ],
+                    linksAmici:
+                        [
+                            {
+                                descrizione: "Carabinieri",
+                                link: "https://www.carabinieri.it/",
+                                icon: "/static/categories/links/carabinieri.png",
+                            },
+                            {
+                                descrizione: "Associazione Nazionale Carabinieri",
+                                link: "https://assocarabinieri.it/",
+                                icon: "/static/categories/links/anc.png",
+                            },
+
+                        ],
+
+
 
                     sottocategorie: [
                     ]
@@ -675,7 +691,6 @@ const moduleD = {
     },
 
 }
-
 //      Module E: Events
 const moduleE = {
     state: {
@@ -902,7 +917,6 @@ const moduleE = {
     },
 
 }
-
 //      Module L: Languages
 const moduleL = {
 
@@ -1090,7 +1104,8 @@ const moduleL = {
                             },
                             {//cat8 80 links
                                 id: 80, nomecategoria: "links", t: [
-                                    { id: 0, code: "", text: "" }
+                                    { id: 0, code: "title1", text: "Collegamenti consigliati" },
+                                    { id: 1, code: "title2", text: "Siti amici..." },
                                 ]
                             },
                         ]
@@ -1269,7 +1284,8 @@ const moduleL = {
                             },
                             {//cat8 80 links
                                 id: 80, nomecategoria: "links", t: [
-                                    { id: 0, code: "", text: "" }
+                                    { id: 0, code: "title1", text: "Recommended links" },
+                                    { id: 1, code: "title2", text: "Friendly sites..." },
                                 ]
                             },
                         ]
@@ -1450,7 +1466,8 @@ const moduleL = {
                             },
                             {//cat8 80 links
                                 id: 80, nomecategoria: "links", t: [
-                                    { id: 0, code: "", text: "" }
+                                    { id: 0, code: "title1", text: "Enlaces recomendados" },
+                                    { id: 1, code: "title2", text: "Sitios amigables..." },
                                 ]
                             },
                         ]

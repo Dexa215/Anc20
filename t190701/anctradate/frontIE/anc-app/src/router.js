@@ -4,7 +4,8 @@ import Router from "vue-router";
 /*TODO: TEST 2020 07 24*/
 /*import Home from "./views/Home.vue";*/
 import Home from "@/views/home/Home.vue";
-
+/*import Links from "./views/Links.vue";*/
+import Links from "@/views/links/Links.vue";
 
 
 //import Esempio from "./views/Esempio.vue";
@@ -20,7 +21,7 @@ import ChisiamoDirettivo from "@/views/chisiamo/ChisiamoDirettivo.vue";
 import ChisiamoBenemerite from "@/views/chisiamo/ChisiamoBenemerite.vue";
 
 //import Eventi from "./views/Eventi.vue";
-import Links from "./views/Links.vue";
+
 import Bacheca from "./views/Bacheca.vue";
 
 import Tesseramentoprassi from "./views/Tesseramentoprassi.vue";

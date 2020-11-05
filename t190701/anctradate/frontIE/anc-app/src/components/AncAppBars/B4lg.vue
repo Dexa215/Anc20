@@ -166,9 +166,9 @@
                 <!-- -->
                 <v-btn @click="SDL" rounded v-show="languagesShow && !drawerLeft" class="mx-3">
                   {{lang.t[0].lista[2].t[0].text}}
-                  <!-- lang.t[0] == components-->
-                  <!-- lang.t[0].lista[2] == Menu Language-->
-                  <!-- lang.t[0].lista[2].t[0] == Menu Language testo 0 -->
+                  <!-- lang.t[0]                == components-->
+                  <!-- lang.t[0].lista[2]       == Menu Language-->
+                  <!-- lang.t[0].lista[2].t[0]  == Menu Language testo 0 -->
                 </v-btn>
                 <!-- -->
                 <v-btn
@@ -386,12 +386,12 @@ ESCLUSI DA DATA:
       shrinkOnScroll: true,
       extended: false,
 
-      AncAppBar_BC: "rgb(19, 21, 36)"
+      AncAppBar_BC: "rgb(19, 21, 36)",
     };
   },
   props: {
     height: {
-      type: String
+      type: String,
     } /*TODO: SOSTITUIRE CS CS categorie [ PROP CON COMPUTED DA STORE ] */ /*
     C:{type: Number},
     CS: { type: Number },
@@ -399,7 +399,7 @@ ESCLUSI DA DATA:
     */ /*TODO: SOSTITUIRE CS CS [ PROP CON COMPUTED DA STORE ] */ /*TODO: SOSTITUIRE RCS RCD [ PROP CON COMPUTED DA STORE ] */ /*
     rcS: { type: String },
     rcD: { type: String },
-*/ //colBarEst: { type: String }, //colBarInt: { type: String }, // eslint-disable-next-line vue/no-dupe-keys
+*/, //colBarEst: { type: String }, //colBarInt: { type: String }, // eslint-disable-next-line vue/no-dupe-keys
 
     /*
 TODO:
@@ -503,7 +503,7 @@ TODO:
     },
     rcU() {
       return this.$store.getters.rcU;
-    }
+    },
     /* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
   },
 
@@ -529,7 +529,7 @@ TODO:
     },
     setDF() {
       this.$store.dispatch("setDF");
-    }
+    },
   },
   updated() {
     /*this.setcolor();*/
@@ -538,7 +538,7 @@ TODO:
     /*this.setcolor();*/
     this.h = this.height;
     //console.log(this.$vuetify.breakpoint);
-  }
+  },
 };
 </script>
 
