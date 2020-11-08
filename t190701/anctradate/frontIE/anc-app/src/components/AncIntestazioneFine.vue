@@ -33,8 +33,12 @@
       <!-- links -->
       <v-layout justify-center text-center>
         <div>
-          <!-- Potrebbero interessarti... -->
-          <h3 class="headline font-weight-bold mb-3 text-center">{{lang.t[0].lista[0].t[1].text}}</h3>
+          <v-row justify="center" align="center" class="mx-auto">
+            <!-- Potrebbero interessarti... -->
+            <a class="text-center mb-3 headline font-weight-bold">{{lang.t[0].lista[0].t[1].text}}</a>
+            <!--h3 class="text-center">{{lang.t[0].lista[0].t[1].text}}</h3-->
+          </v-row>
+
           <a
             style="color:green"
             v-for="(link, i) in categorie[C/10-1].linksFP"
@@ -68,7 +72,7 @@ export default {
   props: {
     linksFP: { type: Array },
     alignment: { type: String },
-    justify: { type: String }
+    justify: { type: String },
     /*
     C: { type: Number },
     CS: { type: Number },
@@ -82,25 +86,25 @@ export default {
     importantLinks: [
       {
         text: "Documentation",
-        href: "https://vuetifyjs.com"
+        href: "https://vuetifyjs.com",
       },
       {
         text: "Chat",
-        href: "https://community.vuetifyjs.com"
+        href: "https://community.vuetifyjs.com",
       },
       {
         text: "Made with Vuetify",
-        href: "https://madewithvuetifyjs.com"
+        href: "https://madewithvuetifyjs.com",
       },
       {
         text: "Twitter",
-        href: "https://twitter.com/vuetifyjs"
+        href: "https://twitter.com/vuetifyjs",
       },
       {
         text: "Articles",
-        href: "https://medium.com/vuetify"
-      }
-    ]
+        href: "https://medium.com/vuetify",
+      },
+    ],
   }),
 
   computed: {
@@ -122,7 +126,7 @@ export default {
     },
     CS() {
       return this.$store.getters.getCS;
-    }
+    },
   },
 
   methods: {
@@ -133,8 +137,8 @@ export default {
     gotoR0(r) {
       console.log("intestazionefine goto ... ", r);
       this.$emit("gotoR", r);
-    }
-  }
+    },
+  },
 };
 </script>
 
