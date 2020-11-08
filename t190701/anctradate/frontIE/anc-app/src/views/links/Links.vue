@@ -1,5 +1,6 @@
 <template>
   <div class="menuS">
+    <!-- links1xs @vola="vola" v-if="currentres == 'xs'"></links1xs-->
     <links1xs v-if="currentres == 'xs'"></links1xs>
     <links2sm v-if="currentres == 'sm'"></links2sm>
     <links3md v-if="currentres == 'md'"></links3md>
@@ -146,6 +147,12 @@ export default {
       this.expand = !this.expand;
       this.$store.dispatch("setDF");
       this.$store.dispatch("gotoR", r);
+    },
+    /*2020 11 06 sostituito con store/dispatch*/
+    vola(link) {
+      location.href = link;
+      this.snackbar = !this.snackbar;
+      this.dialog = !this.dialog;
     },
     SDL() {
       /*Switch Drawer Language*/
@@ -587,5 +594,47 @@ export default {
   margin-top: 10px;
   margin-bottom: 10px;
   border-radius: 10px 25px 25px 10px;
+}
+/*icone a sx nei links*/
+.linkicon {
+  height: 50px;
+  width: 50px;
+}
+.linkiconsmall {
+  max-width: 25px;
+  max-height: 25px;
+}
+.links2smTitle {
+  background-color: transparent;
+  color: rgb(4, 25, 44);
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-radius: 10px 25px 25px 10px;
+}
+.links2smList {
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-radius: 10px 25px 25px 10px;
+}
+/*2020 11 08*/
+.links2smListGroup {
+  background-color: transparent;
+  color: wheat;
+}
+
+.linksmallTitle {
+  color: thistle;
+  font-family: Times;
+  border-radius: 50px 50px 5px 5px;
+}
+
+.linksmallSubTitle {
+  font-family: Times;
+  border-radius: 5px 5px 50px 50px;
+  background-color: rgb(211, 221, 192);
 }
 </style>

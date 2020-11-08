@@ -172,14 +172,14 @@ export default {
     ancAppDrawerLeft,
     ancAppDrawerRight,
 
-    ancDrawer   /*test 2020 03 18*/,
-    menuS       /*test 2020 07 14*/,
+    ancDrawer /*test 2020 03 18*/,
+    menuS /*test 2020 07 14*/,
     menuSC,
-    ancNews
+    ancNews,
   },
 
   props: {
-    source: String
+    source: String,
   },
 
   data: () => ({
@@ -264,20 +264,20 @@ export default {
         n: "1",
         img: "/static/images/Icone/bus.jpg",
         descrizione: "ASSOCIAZIONE NAZIONALE CARABINIERI 1",
-        link: "http://assocarabinieri.it/"
+        link: "http://assocarabinieri.it/",
       },
       {
         n: "2",
         img: "/static/images/Icone/bengradi.jpg",
         descrizione: "ASSOCIAZIONE NAZIONALE CARABINIERI 2",
-        link: "http://assocarabinieri.it/"
+        link: "http://assocarabinieri.it/",
       },
       {
         n: "3",
         img: "/static/images/Icone/cap.jpg",
         descrizione: "ASSOCIAZIONE NAZIONALE CARABINIERI 3",
-        link: "http://assocarabinieri.it/"
-      }
+        link: "http://assocarabinieri.it/",
+      },
     ],
 
     //Categorie
@@ -533,65 +533,65 @@ categorie:[
         n: "1",
         img: "/static/images/Icone/bus.jpg",
         descrizione: "Soci",
-        link: "/chisiamosoci"
+        link: "/chisiamosoci",
       },
       {
         n: "2",
         img: "/static/images/Icone/bengradi.jpg",
         descrizione: "Benemerite",
-        link: "/chisiamobenemerite"
+        link: "/chisiamobenemerite",
       },
       {
         n: "3",
         img: "/static/images/Icone/cap.jpg",
         descrizione: "Simpatizzanti",
-        link: "/chisiamosimpatizzanti"
-      }
+        link: "/chisiamosimpatizzanti",
+      },
     ],
     catsConsiglio: [
       {
         n: "1",
         img: "/static/images/Icone/bus.jpg",
         descrizione: "Soci Effettivi",
-        link: "/chisiamosoci"
+        link: "/chisiamosoci",
       },
       {
         n: "2",
         img: "/static/images/Icone/bus.jpg",
         descrizione: "Consigliere",
-        link: "/chisiamosoci"
+        link: "/chisiamosoci",
       },
       {
         n: "3",
         img: "/static/images/Icone/bus.jpg",
         descrizione: "Segretario",
-        link: "/chisiamosoci"
+        link: "/chisiamosoci",
       },
       {
         n: "4",
         img: "/static/images/Icone/bus.jpg",
         descrizione: "Revisore",
-        link: "/chisiamosoci"
+        link: "/chisiamosoci",
       },
       {
         n: "5",
         img: "/static/images/Icone/bus.jpg",
         descrizione: "Vice-Presidente",
-        link: "/chisiamosoci"
+        link: "/chisiamosoci",
       },
       {
         n: "6",
         img: "/static/images/Icone/bus.jpg",
         descrizione: "Presidente",
-        link: "/chisiamosoci"
+        link: "/chisiamosoci",
       },
       {
         n: "7",
         img: "/static/images/Icone/bus.jpg",
         descrizione: "Presidente-Onorario",
-        link: "/chisiamosoci"
-      }
-    ]
+        link: "/chisiamosoci",
+      },
+    ],
   }),
 
   methods: {
@@ -716,7 +716,7 @@ categorie:[
       console.log("navi click...");
     },
 
-    mouseOver: function() {
+    mouseOver: function () {
       this.Logoutbtn.color = "LightGoldenRodYellow";
     },
 
@@ -775,14 +775,14 @@ categorie:[
 
     setCat() {
       menuT.sem
-        .then(data => {
+        .then((data) => {
           console.log("setCat ...data:", data);
         })
-        .catch(error => console.log(error));
+        .catch((error) => console.log(error));
       //this.menucat    =  getCat();            //TEST OK
       //this.categorie  =  getCat();            //TEST OK - CORRENTE
       //this.categorie = menuT.retrieveMenu();  //TEST NG
-    }
+    },
 
     // --------------------------------------------------------------
   },
@@ -804,7 +804,7 @@ categorie:[
     this.getCat(); // test 2020 02 07
 
     //this.getEvidenza(); // !!store - moduleE --> Events...
-  }
+  },
 
   /*TODO: RIPRISTINARE */
   /*
@@ -819,6 +819,23 @@ categorie:[
 </script>
 
 <style media="screen">
+/*  ****************************************************  *\
+\*  Colori Globali                                        */
+.Anc_BC {
+  background-color: rgb(19, 21, 36);
+  color: antiquewhite;
+}
+.Anc_BC_Blue {
+  background-color: rgb(4, 11, 46);
+  color: aliceblue;
+}
+.Anc_BC_BlueDark {
+  background-color: rgb(1, 4, 20);
+  color: blanchedalmond;
+}
+/*  Colori Globali                                        *\
+\*  ****************************************************  */
+
 /*
 
 .row {
@@ -932,10 +949,6 @@ Marrone scuro +4
   height: 100%;
   width: 100%;
   opacity: 0.7;
-}
-
-.AncAppBar_BC {
-  background-color: "rgb(19, 21, 36)";
 }
 
 /*  Contents class   */

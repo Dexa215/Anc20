@@ -3,44 +3,46 @@
   <template>
   <div class="SfBase">
     <v-row class="AncTrasparenzaSM mx-auto" v-show="drawerLeft"></v-row>
-    <div class="SfSpazio home5SfShUp AncAppBar_BC">spazio Up</div>
+    <div class="SfSpazio home2SfShUp AncAppBar_BC">spazio Up</div>
+
     <v-row justify="center" align="center" class="anchomerSM mx-auto">
-      <v-col cols="12" justify="center" align="center">
-        <!--cx-->
-        <ancClock></ancClock>
-        <!--cx-->
-      </v-col>
-    </v-row>
+      <!--sx-->
+      <v-col cols="1" class="carcol carcolsx"></v-col>
+      <!--cx-->
+      <v-col cols="10" class="carcol carcolcx2sm">
+        <div class="links2smTitle">
+          <span>{{lang.t[1].lista[7].t[0].text}}</span>
+        </div>
+        <!-- LISTA LINK-->
+        <v-list class="links2smList" color="transparent" rounded>
+          <!--color="primary"-->
+          <v-list-item-group rounded v-model="selectedItem" class="links2smListGroup">
+            <v-list-item
+              class="Anc_BC"
+              v-for="(item, i) in categorie[(C/10)-1].linksAmici"
+              :key="i"
+            >
+              <v-list-item-icon>
+                <v-img @click="v(item.link)" class="linkiconsmall" small dark :src="item.icon"></v-img>
+              </v-list-item-icon>
 
-    <v-row
-      class="anchomerSMnext mx-auto"
-      justify="center"
-      align="center"
-      style="height:600px; width:100%; background-color:yellow; "
-    >
-      <v-col cols="12" justify="center" align="center">
-        <!--sx-->
-        <carP></carP>
-        <!--sx-->
-      </v-col>
-    </v-row>
+              <v-list-item-content>
+                <v-list-item-title
+                  @click="v(item.link)"
+                  class="linksmallTitle Anc_BC_BlueDark"
+                  v-text="item.descrizione"
+                ></v-list-item-title>
 
-    <v-row
-      class="anchomerSMnext mx-auto"
-      justify="center"
-      align="center"
-      style="height:600px; width:100%; background-color:red; "
-    >
-      <v-col cols="12" justify="center" align="center">
-        <!--dx-->
-        <carF></carF>
-        <!--dx-->
+                <v-list-item-subtitle class="linksmallSubTitle" v-text="item.link"></v-list-item-subtitle>
+              </v-list-item-content>
+            </v-list-item>
+          </v-list-item-group>
+        </v-list>
+        <!-- LISTA LINK-->
       </v-col>
+      <!--dx-->
+      <v-col cols="1" class="carcol carcoldx"></v-col>
     </v-row>
-
-    <!--
-      <v-col cols="4" style="height:500px; background-color:blue; "></v-col>
-    <dx-->
 
     <v-parallax class="SfParallax" src="/static/images/bg/bg8.jpg" height="650"></v-parallax>
 
@@ -73,15 +75,11 @@ import ancEventsFuture from "@/components/AncEventsFuture";
 import AncIntestazioneHome from "@/components/AncIntestazioneHome.vue";
 import AncIntestazioneFine from "@/components/AncIntestazioneFine.vue";
 import AncCard from "@/components/AncCard.vue";
-import carP from "@/components/AncCarousels/Past/Car.vue";
-import carF from "@/components/AncCarousels/Future/Car.vue";
-import ancClock from "@/components/AncObjects/AncClock.vue";
-
 import m4lgSottocategorie from "@/components/AncM/CatSotto/M4lgSottocategorie.vue";
 import m4lgAdmin from "@/components/AncM/Admin/M4lgAdmin.vue";
 
 export default {
-  name: "home4lg",
+  name: "link2sm",
 
   components: {
     ancEventsPast,
@@ -89,9 +87,6 @@ export default {
     AncIntestazioneHome,
     AncIntestazioneFine,
     AncCard,
-    carP,
-    carF,
-    ancClock
   },
   props: {},
   data: () => ({}),
@@ -195,7 +190,7 @@ export default {
         case "xl":
           return "xl";
       }
-    }
+    },
   },
 
   methods: {
@@ -222,22 +217,28 @@ export default {
     },
     setDF() {
       this.$store.dispatch("setDF");
-    }
+    },
+    // change href with link
+    v(link) {
+      this.$store.dispatch("vola", link);
+    },
   },
   updated() {},
-  mounted() {}
+  mounted() {},
 };
 </script>
 
 <style media="screen">
 .home2SfShUp {
   height: 150px;
+  background-color: transparent;
 }
 .home2SfShDown {
   height: 78px;
 }
 .anchomerSM {
-  position: relative;
+  position: absolute;
+  /*relative;*/
   z-index: 5;
   height: 600px;
   width: 100%;
@@ -257,5 +258,14 @@ export default {
   height: 3000px;
   width: 100%;
   opacity: 0.7;
+}
+
+.carcolcx2sm {
+  background-color: transparent;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-radius: 2px;
 }
 </style>

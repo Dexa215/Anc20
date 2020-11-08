@@ -2,45 +2,56 @@
 
   <template>
   <div class="SfBase">
-    <v-row class="AncTrasparenzaXS mx-auto" v-show="drawerLeft"></v-row>
-    <div class="SfSpazio SfShUp AncAppBar_BC">spazio Up</div>
-    <v-row justify="center" align="center" class="anchomerXS mx-auto">
+    <v-row class="AncTrasparenzaSM mx-auto" v-show="drawerLeft"></v-row>
+    <div class="SfSpazio home1SfShUp AncAppBar_BC">spazio Up</div>
+    <v-row justify="center" align="center" class="anchomerSM mx-auto">
       <!--sx-->
-      <carP :Pevents="Pevents" :Pnext="Pnext" :PloadingEvents="PloadingEvents"></carP>
-      <!--sx-->
+      <v-col cols="1" class="carcol carcolsx"></v-col>
+      <!--cx-- rcLat_BC_Visitor-->
+      <v-col cols="10" class="carcol carcolcx2sm">
+        <!--collegamenti consigliati...-->
+        <div class="links2smTitle">
+          <span>{{lang.t[1].lista[7].t[0].text}}</span>
+        </div>
 
-      <!--cx-->
-      <ancClock></ancClock>
-      <!--cx-->
+        <!-- LISTA LINK-->
+        <v-list class="links2smList" color="transparent" rounded>
+          <!--color="primary"-->
+          <v-list-item-group rounded v-model="selectedItem" class="links2smListGroup">
+            <v-list-item
+              class="Anc_BC"
+              v-for="(item, i) in categorie[(C/10)-1].linksAmici"
+              :key="i"
+            >
+              <v-list-item-icon>
+                <v-img @click="v(item.link)" class="linkiconsmall" small dark :src="item.icon"></v-img>
+              </v-list-item-icon>
 
+              <v-list-item-content>
+                <v-list-item-title
+                  @click="v(item.link)"
+                  class="linksmallTitle Anc_BC_BlueDark"
+                  v-text="item.descrizione"
+                ></v-list-item-title>
+
+                <v-list-item-subtitle class="linksmallSubTitle" v-text="item.link"></v-list-item-subtitle>
+              </v-list-item-content>
+            </v-list-item>
+          </v-list-item-group>
+        </v-list>
+        <!-- LISTA LINK-->
+      </v-col>
       <!--dx-->
-      <carF
-        :Fevents="Fevents"
-        :Fnext="Fnext"
-        :FloadingEvents="FloadingEvents"
-        clFcard="grey lighten-4"
-        clFtitle="grey lighten-4 "
-        clFevent="grey lighten-3 "
-        clFeventInt="grey lighten-4 "
-      ></carF>
-      <!--dx-->
+      <v-col cols="1" class="carcol carcoldx"></v-col>
     </v-row>
 
     <v-parallax class="SfParallax" src="/static/images/bg/bg8.jpg" height="650"></v-parallax>
-
-    <!-- <span>spiegone:</span>-->
-
     <span v-if="CS==0">{{ categorie[(C/10)-1].descrizione }}</span>
     <span v-else>{{ categorie[(C/10)-1].sottocategorie[(CS-C)-1].descrizione }}</span>
-
-    <!--
-    <div class="SfImmagine">sfondo Immagine</div>
-    -->
     <div class="container-fluid text-center">
       <AncIntestazioneFine :C="C" :CS="CS" :categorie="categorie" @gotoR="gotoR"></AncIntestazioneFine>
     </div>
     <div class="SfSpazio SfShDown AncAppBar_BC">spazio Down</div>
-
     <!--
 /* ********************************************************************************************************** */
     -->
@@ -54,23 +65,16 @@ import router from "@/router";
 import AncIntestazioneHome from "@/components/AncIntestazioneHome.vue";
 import AncIntestazioneFine from "@/components/AncIntestazioneFine.vue";
 import AncCard from "@/components/AncCard.vue";
-import carP from "@/components/AncCarousels/Past/Car.vue";
-import carF from "@/components/AncCarousels/Future/Car.vue";
-import ancClock from "@/components/AncObjects/AncClock.vue";
-
 import m4lgSottocategorie from "@/components/AncM/CatSotto/M4lgSottocategorie.vue";
 import m4lgAdmin from "@/components/AncM/Admin/M4lgAdmin.vue";
 
 export default {
-  name: "home1xs",
+  name: "links1xs",
 
   components: {
     AncIntestazioneHome,
     AncIntestazioneFine,
     AncCard,
-    carP,
-    carF,
-    ancClock
   },
 
   props: {},
@@ -78,7 +82,7 @@ export default {
   data() {
     return {
       scr: "",
-      focusOn: false
+      focusOn: false,
     };
   },
 
@@ -219,7 +223,7 @@ export default {
         case "xl":
           return "xl";
       }
-    }
+    },
   },
 
   methods: {
@@ -254,7 +258,11 @@ export default {
     },
     getEventsFuture() {
       this.$store.dispatch("getEventsFuture");
-    }
+    },
+    // change href with link
+    v(link) {
+      this.$store.dispatch("vola", link);
+    },
   },
   created() {
     console.log("home oncreate --> start");
@@ -265,13 +273,14 @@ export default {
     //this.getEventsPast(); // !!store - moduleE
     //this.getEventsFuture(); // !!store - moduleE
   },
-  mounted() {}
+  mounted() {},
 };
 </script>
 
 <style media="screen">
 .home1SfShUp {
   height: 150px;
+  background-color: transparent;
 }
 .home1SfShDown {
   height: 78px;

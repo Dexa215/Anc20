@@ -1693,8 +1693,6 @@ const moduleR = {
     },
     actions: {
 
-
-
         /* TEST 2020 05 03 OK */
         gotoR (context, r) {
             context.commit('aggiornamento');
@@ -1785,6 +1783,11 @@ const moduleR = {
             context.commit('aggiornaCCSs', cat);
             console.log("!! store moduleR setCSs --> FINE valutazione r: ", r, "C: ", cat[0], "CS: ", cat[1]);
             return;
+        },
+
+        /*2020 11 06*/
+        vola (context, link) {
+            location.href = link;
         },
 
     },

@@ -3,7 +3,6 @@
   <template>
   <div class="SfBase">
     <!---->
-
     <v-row class="AncTrasparenzaLG mx-auto" v-show="drawerLeft"></v-row>
     <div class="SfSpazio home4SfShUp AncAppBar_BC">spazio Up</div>
 
@@ -12,53 +11,28 @@
       <v-col cols="4" class="carcol carcolsx"></v-col>
       <!--cx-->
       <v-col cols="4" class="carcol carcolcx">
-        <!-- {{ categorie[(C/10)-1].linksAmici}}-->
-
-        <!--ancClock></ancClock-->
-        <!-- categoria
-        <span v-if="CS==0">{{ categorie[(C/10)-1].descrizione }}</span>
-        <span v-else>{{ categorie[(C/10)-1].sottocategorie[(CS-C)-1].descrizione }}</span>
-        -->
-
         <span>{{lang.t[1].lista[7].t[0].text}}</span>
-
-        <!-- TEST dialog 
-        <div class="text-center">
-          <v-dialog v-model="dialog" width="500">
-            <template v-slot:activator="{ on, attrs }">
-              <v-btn color="red lighten-2" dark v-bind="attrs" v-on="on">Click Me</v-btn>
-            </template>
-
-            <v-card>
-              <v-card-title class="headline grey lighten-2">Privacy Policy</v-card-title>
-
-              <v-card-text>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</v-card-text>
-
-              <v-divider></v-divider>
-
-              <v-card-actions>
-                <v-spacer></v-spacer>
-                <v-btn color="primary" text @click="dialog = false">I accept</v-btn>
-              </v-card-actions>
-            </v-card>
-          </v-dialog>
-        </div>
-        TEST dialog-->
-
         <!-- LISTA LINK-->
-        <v-list rounded>
-          <!-- {{lang.t[1].lista[80].t[0].text}} links, testo dipendente dalla lingua... -->
-          <!--v-subheader></v-subheader-->
-
-          <v-list-item-group v-model="selectedItem" color="primary">
-            <v-list-item v-for="(item, i) in categorie[(C/10)-1].linksAmici" :key="i">
+        <v-list class="links2smList" color="transparent" rounded>
+          <!--color="primary"-->
+          <v-list-item-group rounded v-model="selectedItem" class="links2smListGroup">
+            <v-list-item
+              class="Anc_BC"
+              v-for="(item, i) in categorie[(C/10)-1].linksAmici"
+              :key="i"
+            >
               <v-list-item-icon>
-                <v-img class="linkicon" small dark :src="item.icon"></v-img>
+                <v-img @click="v(item.link)" class="linkiconsmall" small dark :src="item.icon"></v-img>
               </v-list-item-icon>
 
               <v-list-item-content>
-                <v-list-item-title v-text="item.descrizione"></v-list-item-title>
-                <v-list-item-subtitle @click="vola(item.link)" v-text="item.link"></v-list-item-subtitle>
+                <v-list-item-title
+                  @click="v(item.link)"
+                  class="linksmallTitle Anc_BC_BlueDark"
+                  v-text="item.descrizione"
+                ></v-list-item-title>
+
+                <v-list-item-subtitle class="linksmallSubTitle" v-text="item.link"></v-list-item-subtitle>
               </v-list-item-content>
             </v-list-item>
           </v-list-item-group>
@@ -102,7 +76,6 @@ export default {
     AncIntestazioneHome,
     AncIntestazioneFine,
     AncCard,
-    ancClock,
   },
   props: {},
   data() {
@@ -249,11 +222,9 @@ export default {
     getEventsFuture() {
       this.$store.dispatch("getEventsFuture");
     },
-
-    vola(link) {
-      location.href = link;
-      this.snackbar = !this.snackbar;
-      this.dialog = !this.dialog;
+    v(link) {
+      /*this.$emit("vola", link);*/
+      this.$store.dispatch("vola", link);
     },
   },
   created() {
@@ -286,10 +257,6 @@ export default {
   height: 3000px;
   width: 100%;
   opacity: 0.7;
-}
-.linkicon {
-  height: 50px;
-  width: 50px;
 }
 </style>
 

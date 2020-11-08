@@ -4,31 +4,58 @@
   <div class="SfBase">
     <!---->
 
-    <v-row class="AncTrasparenzaXL mx-auto" v-show="drawerLeft"></v-row>
-    <div class="SfSpazio home5SfShUp AncAppBar_BC">spazio Up</div>
-    <v-row justify="center" align="center" class="anchomerXL mx-auto">
+    <v-row class="AncTrasparenzaLG mx-auto" v-show="drawerLeft"></v-row>
+    <div class="SfSpazio home4SfShUp AncAppBar_BC">spazio Up</div>
+
+    <v-row justify="center" align="center" class="anchomerLG mx-auto">
       <!--sx-->
-      <v-col cols="4" class="carcol carcolsx">
-        <carP></carP>
-      </v-col>
+      <v-col cols="4" class="carcol carcolsx"></v-col>
       <!--cx-->
       <v-col cols="4" class="carcol carcolcx">
-        <ancClock></ancClock>
+        <span>{{lang.t[1].lista[7].t[0].text}}</span>
+        <!-- LISTA LINK-->
+        <v-list class="links2smList" color="transparent" rounded>
+          <!--color="primary"-->
+          <v-list-item-group rounded v-model="selectedItem" class="links2smListGroup">
+            <v-list-item
+              class="Anc_BC"
+              v-for="(item, i) in categorie[(C/10)-1].linksAmici"
+              :key="i"
+            >
+              <v-list-item-icon>
+                <v-img @click="v(item.link)" class="linkiconsmall" small dark :src="item.icon"></v-img>
+              </v-list-item-icon>
+
+              <v-list-item-content>
+                <v-list-item-title
+                  @click="v(item.link)"
+                  class="linksmallTitle Anc_BC_BlueDark"
+                  v-text="item.descrizione"
+                ></v-list-item-title>
+
+                <v-list-item-subtitle class="linksmallSubTitle" v-text="item.link"></v-list-item-subtitle>
+              </v-list-item-content>
+            </v-list-item>
+          </v-list-item-group>
+        </v-list>
+        <!-- LISTA LINK-->
       </v-col>
       <!--dx-->
-      <v-col cols="4" class="carcol carcoldx">
-        <carF></carF>
-      </v-col>
+      <v-col cols="4" class="carcol carcoldx"></v-col>
     </v-row>
+
     <v-parallax class="SfParallax" src="/static/images/bg/bg8.jpg" height="650"></v-parallax>
     <!-- <span>spiegone:</span>-->
-    <span v-if="CS==0">{{ categorie[(C/10)-1].descrizione }}</span>
-    <span v-else>{{ categorie[(C/10)-1].sottocategorie[(CS-C)-1].descrizione }}</span>
+    <div class="container-fluid text-center" style="background-color:transparent ">
+      <span v-if="CS==0">{{ categorie[(C/10)-1].descrizione }}</span>
+      <span v-else>{{ categorie[(C/10)-1].sottocategorie[(CS-C)-1].descrizione }}</span>
+    </div>
+
     <!--<div class="SfImmagine">sfondo Immagine</div>-->
     <div class="container-fluid text-center">
       <AncIntestazioneFine :C="C" :CS="CS" :categorie="categorie" @gotoR="gotoR"></AncIntestazioneFine>
     </div>
-    <div class="SfSpazio home5SfShDown AncAppBar_BC">spazio Down</div>
+    <div class="SfSpazio home4SfShDown AncAppBar_BC">spazio Down</div>
     <!--/* *** */-->
   </div>
 </template>
@@ -36,37 +63,28 @@
 <script>
 import { apiService } from "@/common/api.service";
 import router from "@/router";
-
-/*home.vue*/
-//import ancEventsPast from "@/components/AncEventsPast";
-//import ancEventsFuture from "@/components/AncEventsFuture";
 import AncIntestazioneHome from "@/components/AncIntestazioneHome.vue";
 import AncIntestazioneFine from "@/components/AncIntestazioneFine.vue";
 import AncCard from "@/components/AncCard.vue";
-import carP from "@/components/AncCarousels/Past/Car.vue";
-import carF from "@/components/AncCarousels/Future/Car.vue";
-import ancClock from "@/components/AncObjects/AncClock.vue";
-
-import m4lgSottocategorie from "@/components/AncM/CatSotto/M4lgSottocategorie.vue";
+import m5xlSottocategorie from "@/components/AncM/CatSotto/M5xlSottocategorie.vue";
 import m4lgAdmin from "@/components/AncM/Admin/M4lgAdmin.vue";
 
 export default {
-  name: "home5xl",
+  name: "links5xl",
+
   components: {
-    //ancEventsPast,
-    //ancEventsFuture,
     AncIntestazioneHome,
     AncIntestazioneFine,
     AncCard,
-    carP,
-    carF,
-    ancClock
   },
   props: {},
   data() {
     return {
       scr: "",
-      focusOn: false
+      focusOn: false,
+      snackbar: true,
+      text: `Hello, I'm a snackbar`,
+      dialog: false,
     };
   },
   computed: {
@@ -169,7 +187,7 @@ export default {
         case "xl":
           return "xl";
       }
-    }
+    },
   },
   methods: {
     /*2020 06 16*/
@@ -203,41 +221,46 @@ export default {
     },
     getEventsFuture() {
       this.$store.dispatch("getEventsFuture");
-    }
+    },
+    // change href with link
+    v(link) {
+      this.$store.dispatch("vola", link);
+    },
   },
   created() {
-    console.log("home 5 xl oncreate --> start");
+    console.log("home oncreate --> start");
   },
-  updated() {
-    //this.getEventsPast(); // !!store - moduleE
-    //this.getEventsFuture(); // !!store - moduleE
-  },
-  mounted() {}
+  updated() {},
+  mounted() {},
 };
 </script>
 
 <style media="screen" scoped>
-.home5SfShUp {
+.home4SfShUp {
   height: 150px;
   background-color: transparent;
 }
-.home5SfShDown {
+.home4SfShDown {
   height: 78px;
 }
-.anchomerXL {
+.anchomerLG {
   position: absolute;
   z-index: 5;
   height: 600px;
   width: 100%;
   background-color: transparent;
 }
-.AncTrasparenzaXL {
+.AncTrasparenzaLG {
   position: absolute;
   z-index: 6;
   background-color: rgb(44, 3, 12) !important;
   height: 3000px;
   width: 100%;
   opacity: 0.7;
+}
+.linkicon {
+  height: 50px;
+  width: 50px;
 }
 </style>
 

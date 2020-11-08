@@ -6,17 +6,39 @@
     <div class="SfSpazio home3SfShUp AncAppBar_BC">spazio Up home3md</div>
     <v-row justify="center" align="center" class="anchomerMD mx-auto">
       <!--sx-->
-      <v-col cols="4" class="carcol carcolsx">
-        <carP></carP>
-      </v-col>
+      <v-col cols="2" class="carcol carcolsx"></v-col>
       <!--cx-->
-      <v-col cols="4" class="carcol carcolcx">
-        <ancClock></ancClock>
+      <v-col cols="8" class="carcol carcolcx">
+        <span>{{lang.t[1].lista[7].t[0].text}}</span>
+        <!-- LISTA LINK-->
+        <v-list class="links2smList" color="transparent" rounded>
+          <!--color="primary"-->
+          <v-list-item-group rounded v-model="selectedItem" class="links2smListGroup">
+            <v-list-item
+              class="Anc_BC"
+              v-for="(item, i) in categorie[(C/10)-1].linksAmici"
+              :key="i"
+            >
+              <v-list-item-icon>
+                <v-img @click="v(item.link)" class="linkiconsmall" small dark :src="item.icon"></v-img>
+              </v-list-item-icon>
+
+              <v-list-item-content>
+                <v-list-item-title
+                  @click="v(item.link)"
+                  class="linksmallTitle Anc_BC_BlueDark"
+                  v-text="item.descrizione"
+                ></v-list-item-title>
+
+                <v-list-item-subtitle class="linksmallSubTitle" v-text="item.link"></v-list-item-subtitle>
+              </v-list-item-content>
+            </v-list-item>
+          </v-list-item-group>
+        </v-list>
+        <!-- LISTA LINK-->
       </v-col>
       <!--dx-->
-      <v-col cols="4" class="carcol carcoldx">
-        <carF></carF>
-      </v-col>
+      <v-col cols="2" class="carcol carcoldx"></v-col>
     </v-row>
     <v-parallax class="SfParallax" src="/static/images/bg/bg8.jpg" height="650"></v-parallax>
     <!-- <span>spiegone:</span>-->
@@ -49,7 +71,7 @@ import m4lgSottocategorie from "@/components/AncM/CatSotto/M4lgSottocategorie.vu
 import m4lgAdmin from "@/components/AncM/Admin/M4lgAdmin.vue";
 
 export default {
-  name: "home3md",
+  name: "links3md",
 
   components: {
     //ancEventsPast,
@@ -57,9 +79,6 @@ export default {
     AncIntestazioneHome,
     AncIntestazioneFine,
     AncCard,
-    carP,
-    carF,
-    ancClock
   },
 
   props: {},
@@ -67,7 +86,7 @@ export default {
   data() {
     return {
       scr: "",
-      focusOn: false
+      focusOn: false,
     };
   },
 
@@ -171,7 +190,7 @@ export default {
         case "xl":
           return "xl";
       }
-    }
+    },
   },
 
   methods: {
@@ -206,7 +225,11 @@ export default {
     },
     getEventsFuture() {
       this.$store.dispatch("getEventsFuture");
-    }
+    },
+    // change href with link
+    v(link) {
+      this.$store.dispatch("vola", link);
+    },
   },
   created() {
     console.log("home 5 xl oncreate --> start");
@@ -217,7 +240,7 @@ export default {
     //this.getEventsFuture(); // !!store - moduleE
   },
 
-  mounted() {}
+  mounted() {},
 };
 </script>
 
