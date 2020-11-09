@@ -25,7 +25,10 @@ import ChisiamoBenemerite from "@/views/chisiamo/ChisiamoBenemerite.vue";
 import Bacheca from "./views/Bacheca.vue";
 
 import Tesseramentoprassi from "./views/Tesseramentoprassi.vue";
-import Tesseramento from "./views/Tesseramento.vue";
+
+//import Tesseramento from "./views/Tesseramento.vue";
+import Tesseramento from "./views/tesseramento/Tess.vue";
+
 import Event from "./views/Event.vue";
 import EventEditor from "./views/EventEditor.vue";
 
