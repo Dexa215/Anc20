@@ -10,32 +10,9 @@
       <!--cx-->
       <v-col cols="8" class="carcol carcolcx">
         <span>{{lang.t[1].lista[7].t[0].text}}</span>
-        <!-- LISTA LINK-->
-        <v-list class="links2smList" color="transparent" rounded>
-          <!--color="primary"-->
-          <v-list-item-group rounded v-model="selectedItem" class="links2smListGroup">
-            <v-list-item
-              class="Anc_BC"
-              v-for="(item, i) in categorie[(C/10)-1].linksAmici"
-              :key="i"
-            >
-              <v-list-item-icon>
-                <v-img @click="v(item.link)" class="linkiconsmall" small dark :src="item.icon"></v-img>
-              </v-list-item-icon>
-
-              <v-list-item-content>
-                <v-list-item-title
-                  @click="v(item.link)"
-                  class="linksmallTitle Anc_BC_BlueDark"
-                  v-text="item.descrizione"
-                ></v-list-item-title>
-
-                <v-list-item-subtitle class="linksmallSubTitle" v-text="item.link"></v-list-item-subtitle>
-              </v-list-item-content>
-            </v-list-item>
-          </v-list-item-group>
-        </v-list>
-        <!-- LISTA LINK-->
+        <!-- LISTA TESS-->
+        <div>test tesseramento MD</div>
+        <!-- LISTA TESS-->
       </v-col>
       <!--dx-->
       <v-col cols="2" class="carcol carcoldx"></v-col>

@@ -14,10 +14,11 @@
       <v-col cols="4" class="carcol carcolcx">
         <!---->
         <span>{{lang.t[1].lista[7].t[0].text}}</span>
-        <!-- LISTA LINK-->
-<div>test tesseramento xl</div>
-        <!-- LISTA LINK-->
-      </v-col><!--dx-->
+        <!-- LISTA TESS-->
+        <div>test tesseramento Xl</div>
+        <!-- LISTA TESS-->
+      </v-col>
+      <!--dx-->
       <v-col cols="4" class="carcol carcoldx"></v-col>
     </v-row>
 
