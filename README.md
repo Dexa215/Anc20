@@ -14,6 +14,8 @@ dexamini
 
 Branch mini modifica
 Branch dexa modifica
+
+test apertura con Acode
 	
 	
 
