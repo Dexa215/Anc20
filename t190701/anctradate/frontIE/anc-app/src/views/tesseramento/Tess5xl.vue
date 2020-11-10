@@ -13,7 +13,7 @@
       <!--cx-->
       <v-col cols="4" class="carcol carcolcx">
         <!---->
-        <span>{{lang.t[1].lista[7].t[0].text}}</span>
+        <span>{{lang.t[1].lista[6].t[0].text}}</span>
         <!-- LISTA TESS-->
         <div>test tesseramento Xl</div>
         <!-- LISTA TESS-->

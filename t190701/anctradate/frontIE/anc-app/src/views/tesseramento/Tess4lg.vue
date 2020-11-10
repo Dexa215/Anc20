@@ -12,9 +12,41 @@
       <!--cx-->
       <v-col cols="4" class="carcol carcolcx">
         <!---->
-        <span>{{lang.t[1].lista[7].t[0].text}}</span>
+        <span>
+          <h4 class="font-weight-thin colorBlue">{{lang.t[1].lista[6].t[0].text}}</h4>
+        </span>
         <!-- LISTA TESS-->
         <div>test tesseramento lg</div>
+
+        <!-- row 00 -->
+        <!-- Riassunto tesseramento -->
+        <v-row>
+          <v-col cols="12">
+            <v-card class="pa-4" light>
+              <v-row dense class="row ma-2 pa-2" align="center" justify="center">
+                <h3>Sei un collega in congedo e non ti sei ancora iscritto all'ANC?</h3>
+                <br />
+              </v-row>
+              <v-row dense class="row ma-2 pa-2" align="center" justify="center">
+                <h2 class="display-2 colorBlue">
+                  <strong>E cosa aspetti, la carrozza?</strong>
+                </h2>
+              </v-row>
+
+              <v-row dense class="row ma-2 pa-2" align="center" justify="center">
+                <v-img src="/static/images/Materiale/carrozza.png" max-width="250px"></v-img>
+              </v-row>
+              <v-row dense class="row ma-2 pa-2" align="center" justify="center">
+                <!--h3>Bastano 2 foto formato tessera. Facile no?</h3-->
+              </v-row>
+              <v-row dense class="row ma-2 pa-2" align="center" justify="center">
+                <v-btn @click="gotoR('/tesseramentoprassi')">Come fare</v-btn>
+              </v-row>
+            </v-card>
+          </v-col>
+        </v-row>
+        <!-- row 00 -->
+
         <!-- LISTA TESS-->
       </v-col>
       <!--dx-->
@@ -235,6 +267,9 @@ export default {
   height: 3000px;
   width: 100%;
   opacity: 0.7;
+}
+.h3 {
+  color: black;
 }
 </style>
 

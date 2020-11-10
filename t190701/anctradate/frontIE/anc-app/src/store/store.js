@@ -1099,7 +1099,8 @@ const moduleL = {
                             {//cat7 70 tesseramento
                                 id: 70, nomecategoria: "tesseramento",
                                 t: [
-                                    { id: 0, code: "", text: "" }
+                                    { id: 0, code: "title1", text: "Prassi per il Tesseramento" },
+                                    { id: 1, code: "title2", text: "" }
                                 ]
                             },
                             {//cat8 80 links

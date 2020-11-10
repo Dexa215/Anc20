@@ -820,19 +820,36 @@ categorie:[
 
 <style media="screen">
 /*  ****************************************************  *\
-\*  Colori Globali                                        */
+\*  Colori Globali
+
+
+
+                                        */
+/**/
+.colorBlueOpaque {
+  color: rgb(19, 21, 36);
+}
 .Anc_BC {
   background-color: rgb(19, 21, 36);
   color: antiquewhite;
+}
+/**/
+.colorBlue {
+  color: rgb(4, 11, 46);
 }
 .Anc_BC_Blue {
   background-color: rgb(4, 11, 46);
   color: aliceblue;
 }
+/**/
+.colorBlueDark {
+  color: rgb(1, 4, 20);
+}
 .Anc_BC_BlueDark {
   background-color: rgb(1, 4, 20);
   color: blanchedalmond;
 }
+
 /*  Colori Globali                                        *\
 \*  ****************************************************  */
 

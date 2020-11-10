@@ -11,11 +11,11 @@
       <v-col cols="10" class="carcol carcolcx2sm">
         <!--collegamenti consigliati...-->
         <div class="links2smTitle">
-          <span>{{lang.t[1].lista[7].t[0].text}}</span>
+          <span>{{lang.t[1].lista[6].t[0].text}}</span>
         </div>
 
         <!-- LISTA TESS-->
-        <div>test tesseramento XL</div>
+        <div>test tesseramento xs</div>
         <!-- LISTA TESS-->
       </v-col>
       <!--dx-->

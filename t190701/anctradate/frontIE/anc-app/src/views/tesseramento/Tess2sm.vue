@@ -11,7 +11,7 @@
       <!--cx-->
       <v-col cols="10" class="carcol carcolcx2sm">
         <div class="links2smTitle">
-          <span>{{lang.t[1].lista[7].t[0].text}}</span>
+          <span>{{lang.t[1].lista[6].t[0].text}}</span>
         </div>
         <!-- LISTA TESS-->
         <div>test tesseramento SM</div>
