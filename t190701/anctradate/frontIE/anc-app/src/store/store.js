@@ -1099,8 +1099,12 @@ const moduleL = {
                             {//cat7 70 tesseramento
                                 id: 70, nomecategoria: "tesseramento",
                                 t: [
-                                    { id: 0, code: "title1", text: "Prassi per il Tesseramento" },
-                                    { id: 1, code: "title2", text: "" }
+                                    { id: 0, code: "title1", text: "Prassi per il tesseramento" },
+                                    { id: 1, code: "title2", text: "Sei un collega in congedo e non ti sei ancora iscritto all'ANC?" },
+                                    { id: 2, code: "title3", text: "E cosa aspetti, la carrozza?" },
+                                    { id: 3, code: "title4", text: "Scopri come fare" },
+                                    { id: 4, code: "title5", text: "" }
+
                                 ]
                             },
                             {//cat8 80 links
@@ -1280,7 +1284,13 @@ const moduleL = {
                             {//cat7 70 tesseramento
                                 id: 70, nomecategoria: "tesseramento",
                                 t: [
-                                    { id: 0, code: "", text: "" }
+                                    { id: 0, code: "title1", text: "Practice for Membership" },
+                                    { id: 1, code: "title2", text: "Are you a retired colleague and have not yet joined the ANC?" },
+                                    { id: 2, code: "title3", text: "And what are you waiting for, the carriage?" },
+                                    { id: 3, code: "title4", text: "Find out how to register" },
+                                    { id: 4, code: "title5", text: "" }
+
+
                                 ]
                             },
                             {//cat8 80 links
@@ -1462,7 +1472,12 @@ const moduleL = {
                             {//cat7 70 tesseramento
                                 id: 70, nomecategoria: "tesseramento",
                                 t: [
-                                    { id: 0, code: "", text: "" }
+
+                                    { id: 0, code: "title1", text: "Práctica para la inscripción" },
+                                    { id: 1, code: "title2", text: "¿Es usted un colega jubilado y aún no se ha unido a la ANC?" },
+                                    { id: 2, code: "title3", text: "¿Y a qué esperas, el carruaje?" },
+                                    { id: 3, code: "title4", text: "Descubra cómo registrarse" },
+                                    { id: 4, code: "title5", text: "" }
                                 ]
                             },
                             {//cat8 80 links

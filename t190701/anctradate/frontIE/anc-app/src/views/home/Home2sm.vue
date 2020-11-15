@@ -2,7 +2,7 @@
 
   <template>
   <div class="SfBase">
-    <v-row class="AncTrasparenzaSM mx-auto" v-show="drawerLeft"></v-row>
+    <v-row class="rT rT_lv rThSM rTbg1 mx-auto" v-show="drawerLeft"></v-row>
     <div class="SfSpazio home5SfShUp AncAppBar_BC">spazio Up</div>
     <v-row justify="center" align="center" class="anchomerSM mx-auto">
       <v-col cols="12" justify="center" align="center">
@@ -91,7 +91,7 @@ export default {
     AncCard,
     carP,
     carF,
-    ancClock
+    ancClock,
   },
   props: {},
   data: () => ({}),
@@ -195,7 +195,7 @@ export default {
         case "xl":
           return "xl";
       }
-    }
+    },
   },
 
   methods: {
@@ -222,10 +222,10 @@ export default {
     },
     setDF() {
       this.$store.dispatch("setDF");
-    }
+    },
   },
   updated() {},
-  mounted() {}
+  mounted() {},
 };
 </script>
 
@@ -250,12 +250,10 @@ export default {
   width: 100%;
   background-color: transparent;
 }
-.AncTrasparenzaSM {
+
+.rT_lv {
+  /* row Transparent level  */
   position: absolute;
   z-index: 6;
-  background-color: rgb(44, 3, 12) !important;
-  height: 3000px;
-  width: 100%;
-  opacity: 0.7;
 }
 </style>

@@ -3,8 +3,7 @@
   <template>
   <div class="SfBase">
     <!---->
-
-    <v-row class="AncTrasparenzaLG mx-auto" v-show="drawerLeft"></v-row>
+    <v-row class="rT rT_lv rThXL rTbg2 mx-auto" v-show="drawerLeft"></v-row>
     <div class="SfSpazio home4SfShUp AncAppBar_BC">spazio Up</div>
 
     <v-row justify="center" align="center" class="anchomerLG mx-auto">
@@ -13,9 +12,50 @@
       <!--cx-->
       <v-col cols="4" class="carcol carcolcx">
         <!---->
-        <span>{{lang.t[1].lista[6].t[0].text}}</span>
-        <!-- LISTA TESS-->
-        <div>test tesseramento Xl</div>
+        <v-row>
+          <v-col cols="12">
+            <v-card class="pa-4 cardround" light>
+              <!--  * -->
+              <v-row dense class="row ma-2 pa-2" align="center" justify="center">
+                <!--h3>Sei un collega in congedo e non ti sei ancora iscritto all'ANC?</h3-->
+                <!--h3 class="font-weight-thin colorBlue"></h3-->
+                <h5 class="colorBlue">{{lang.t[1].lista[6].t[1].text}}</h5>
+                <br />
+              </v-row>
+              <!--  * -->
+              <!--  * -->
+              <v-row dense class="row ma-2 pa-2" align="center" justify="center">
+                <v-img src="/static/images/Materiale/carrozza.png" max-width="250px"></v-img>
+              </v-row>
+              <!--  * -->
+              <!--  * -->
+              <v-row dense class="row ma-2 pa-2" align="center" justify="center">
+                <h2 class="display-2 colorBlue">
+                  <!--strong>E cosa aspetti, la carrozza?</strong-->
+                  <strong>{{lang.t[1].lista[6].t[2].text}}</strong>
+                </h2>
+              </v-row>
+              <!--  * -->
+              <!--  * -->
+              <v-row dense class="row ma-2 pa-2" align="center" justify="center">
+                <!--h3>Bastano 2 foto formato tessera. Facile no?</h3-->
+              </v-row>
+              <v-row dense class="row ma-2 pa-2" align="center" justify="center">
+                <!--come fare-->
+                <!--raised outlined-->
+                <v-btn
+                  @click="gotoR('/tesseramentoprassi')"
+                  elevation="2"
+                  rounded
+                  color="success"
+                >{{lang.t[1].lista[6].t[3].text}}</v-btn>
+              </v-row>
+              <!--  * -->
+            </v-card>
+          </v-col>
+        </v-row>
+        <!-- row 00 -->
+
         <!-- LISTA TESS-->
       </v-col>
       <!--dx-->
@@ -24,10 +64,21 @@
 
     <v-parallax class="SfParallax" src="/static/images/bg/bg8.jpg" height="650"></v-parallax>
     <!-- <span>spiegone:</span>-->
-    <div class="container-fluid text-center" style="background-color:transparent ">
-      <span v-if="CS==0">{{ categorie[(C/10)-1].descrizione }}</span>
-      <span v-else>{{ categorie[(C/10)-1].sottocategorie[(CS-C)-1].descrizione }}</span>
-    </div>
+
+    <v-row justify="center" align="center" class="mx-auto">
+      <span>
+        <!--Prassi per il tesseramento-->
+        <h4 class="font-weight-thin colorBlue">{{lang.t[1].lista[6].t[0].text}}</h4>
+      </span>
+    </v-row>
+
+    <v-row>
+      <!-- <span>spiegone:</span>-->
+      <div class="container-fluid text-center" style="background-color:transparent ">
+        <span v-if="CS==0">{{ categorie[(C/10)-1].descrizione }}</span>
+        <span v-else>{{ categorie[(C/10)-1].sottocategorie[(CS-C)-1].descrizione }}</span>
+      </div>
+    </v-row>
 
     <!--<div class="SfImmagine">sfondo Immagine</div>-->
     <div class="container-fluid text-center">
@@ -228,17 +279,17 @@ export default {
   width: 100%;
   background-color: transparent;
 }
-.AncTrasparenzaLG {
-  position: absolute;
-  z-index: 6;
-  background-color: rgb(44, 3, 12) !important;
-  height: 3000px;
-  width: 100%;
-  opacity: 0.7;
-}
 .linkicon {
   height: 50px;
   width: 50px;
+}
+.rT_lv {
+  /* row Transparent level  */
+  position: absolute;
+  z-index: 6;
+}
+.cardround {
+  border-radius: 45px; /*TL-TR-BR-BL*/
 }
 </style>
 

@@ -82,11 +82,11 @@ export default {
     m4lg,
     m4lgSottocategorie,
     m4lgAdmin,
-    ancNews
+    ancNews,
   },
 
   props: {
-    iconX: { type: String }
+    iconX: { type: String },
     /*  2020 04 26 test sostituzione con computed su $store - TEST OK /*
     requestUser: { type: String },
     requestUserIsStaff: { type: Boolean },
@@ -126,7 +126,7 @@ export default {
 */
 
     admin: false,
-    admincommands: false
+    admincommands: false,
   }),
 
   computed: {
@@ -223,7 +223,7 @@ export default {
           //console.log("xl");
           return "xl";
       }
-    }
+    },
   },
 
   methods: {
@@ -329,7 +329,7 @@ export default {
 
     DSCset(state) {
       this.$emit("DSCset", state);
-    }
+    },
   },
 
   updated() {
@@ -341,7 +341,7 @@ export default {
 
     // eslint-disable-next-line no-console
     console.log(this.$vuetify.breakpoint);
-  }
+  },
 
   /*
   _computed: {  
@@ -417,6 +417,10 @@ export default {
   text-align: center;
   text-justify: center;
   border-radius: 50px 50px 50px 50px;
+}
+.r_BC {
+  /*ANC APP BAR Row                         */ /* AncColor Blue +6 */
+  background-color: rgb(4, 11, 46) !important;
 }
 .r_BC--T {
   background-color: ORANGE !important;
@@ -501,8 +505,8 @@ export default {
   margin-bottom: 1px;
 }
 .rcLat_BC {
-  background-color: rgb(1, 4, 20) !important; /* Blue */
-  /*  background-color: rgb(20, 9, 2) !important;*/
+  /*ANC APP BAR Row/Column Lateral          */ /* Blue */
+  background-color: rgb(1, 4, 20) !important;
 }
 .rcLat_BC_Visitor {
   /*    EX:   .arbcs-Visitor    */
@@ -528,6 +532,12 @@ export default {
 /* TODO: Riordina classi
 
   /*------------------------------------------------------------------------------------------------------*/
+
+.r_C {
+  /*ANC APP BAR Row/Column                  */
+  color: rgb(4, 11, 46) !important;
+}
+
 .rcS {
   /*    add:  rcX rcLat   */
   text-align: left;

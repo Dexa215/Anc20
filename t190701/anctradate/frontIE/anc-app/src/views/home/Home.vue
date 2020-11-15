@@ -30,7 +30,7 @@ export default {
     home2sm,
     home3md,
     home4lg,
-    home5xl
+    home5xl,
   },
 
   props: {},
@@ -137,7 +137,7 @@ export default {
         case "xl":
           return "xl";
       }
-    }
+    },
   },
 
   methods: {
@@ -164,14 +164,14 @@ export default {
     },
     setDF() {
       this.$store.dispatch("setDF");
-    }
+    },
   },
 
   updated() {},
 
   mounted() {},
 
-  created() {}
+  created() {},
 };
 </script>
 
@@ -195,14 +195,21 @@ export default {
   z-index: 5;
 }
 
-.AncTrasparenza {
+.AncTrasparenzaHOME {
+  /*
   position: absolute;
-  z-index: 6;
+  z-index: 6; 
+  */
   background-color: rgb(44, 3, 12) !important;
-  height: 3000px;
   width: 100%;
   opacity: 0.7;
 }
+.rT_HOME {
+  background-color: rgb(44, 3, 12) !important;
+  width: 100%;
+  opacity: 0.7;
+}
+
 .home-view {
   position: relative;
   z-index: 1;

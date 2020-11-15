@@ -2,20 +2,59 @@
 
   <template>
   <div class="SfBase">
-    <v-row class="AncTrasparenzaSM mx-auto" v-show="drawerLeft"></v-row>
+    <v-row class="rT rT_lv rThSM rTbg2 mx-auto" v-show="drawerLeft"></v-row>
     <div class="SfSpazio home2SfShUp AncAppBar_BC">spazio Up</div>
 
     <v-row justify="center" align="center" class="anchomerSM mx-auto">
       <!--sx-->
       <v-col cols="1" class="carcol carcolsx"></v-col>
       <!--cx-->
-      <v-col cols="10" class="carcol carcolcx2sm">
-        <div class="links2smTitle">
-          <span>{{lang.t[1].lista[6].t[0].text}}</span>
-        </div>
-        <!-- LISTA TESS-->
-        <div>test tesseramento SM</div>
-        <!-- LISTA TESS-->
+      <v-col cols="8" class="carcol carcolcx">
+        <!---->
+        <v-row>
+          <v-col cols="12">
+            <v-card class="pa-4 cardround" light>
+              <!--  * -->
+              <v-row dense class="row ma-2 pa-2" align="center" justify="center">
+                <!--h3>Sei un collega in congedo e non ti sei ancora iscritto all'ANC?</h3-->
+                <!--h3 class="font-weight-thin colorBlue"></h3-->
+                <h5 class="colorBlue">{{lang.t[1].lista[6].t[1].text}}</h5>
+                <br />
+              </v-row>
+              <!--  * -->
+              <!--  * -->
+              <v-row dense class="row ma-2 pa-2" align="center" justify="center">
+                <v-img src="/static/images/Materiale/carrozza.png" max-width="250px"></v-img>
+              </v-row>
+              <!--  * -->
+              <!--  * -->
+              <v-row dense class="row ma-2 pa-2" align="center" justify="center">
+                <h2 class="display-2 colorBlue">
+                  <!--strong>E cosa aspetti, la carrozza?</strong-->
+                  <strong>{{lang.t[1].lista[6].t[2].text}}</strong>
+                </h2>
+              </v-row>
+              <!--  * -->
+              <!--  * -->
+              <v-row dense class="row ma-2 pa-2" align="center" justify="center">
+                <!--h3>Bastano 2 foto formato tessera. Facile no?</h3-->
+              </v-row>
+              <v-row dense class="row ma-2 pa-2" align="center" justify="center">
+                <!--come fare-->
+                <!--raised outlined-->
+                <v-btn
+                  @click="gotoR('/tesseramentoprassi')"
+                  elevation="2"
+                  rounded
+                  color="success"
+                >{{lang.t[1].lista[6].t[3].text}}</v-btn>
+              </v-row>
+              <!--  * -->
+            </v-card>
+          </v-col>
+        </v-row>
+        <!-- row 00 -->
+        <!--cx-->
       </v-col>
       <!--dx-->
       <v-col cols="1" class="carcol carcoldx"></v-col>
@@ -169,7 +208,6 @@ export default {
       }
     },
   },
-
   methods: {
     /*2020 06 16*/
     gotoR(r) {
@@ -205,7 +243,7 @@ export default {
 };
 </script>
 
-<style media="screen">
+<style media="screen" scoped>
 .home2SfShUp {
   height: 150px;
   background-color: transparent;
@@ -228,14 +266,6 @@ export default {
   width: 100%;
   background-color: transparent;
 }
-.AncTrasparenzaSM {
-  position: absolute;
-  z-index: 6;
-  background-color: rgb(44, 3, 12) !important;
-  height: 3000px;
-  width: 100%;
-  opacity: 0.7;
-}
 
 .carcolcx2sm {
   background-color: transparent;
@@ -244,5 +274,13 @@ export default {
   margin-top: 10px;
   margin-bottom: 10px;
   border-radius: 2px;
+}
+.cardround {
+  border-radius: 45px 45px 45px 45px; /*TL-TR-BR-BL*/
+}
+.rT_lv {
+  /* row Transparent level  */
+  position: absolute;
+  z-index: 6;
 }
 </style>

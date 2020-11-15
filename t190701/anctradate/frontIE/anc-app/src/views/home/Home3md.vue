@@ -2,7 +2,7 @@
 
   <template>
   <div class="SfBase">
-    <v-row class="AncTrasparenzaMD mx-auto" v-show="drawerLeft"></v-row>
+    <v-row class="rT rT_lv rThMD rTbg1 mx-auto" v-show="drawerLeft"></v-row>
     <div class="SfSpazio home3SfShUp AncAppBar_BC">spazio Up home3md</div>
     <v-row justify="center" align="center" class="anchomerMD mx-auto">
       <!--sx-->
@@ -59,7 +59,7 @@ export default {
     AncCard,
     carP,
     carF,
-    ancClock
+    ancClock,
   },
 
   props: {},
@@ -67,7 +67,7 @@ export default {
   data() {
     return {
       scr: "",
-      focusOn: false
+      focusOn: false,
     };
   },
 
@@ -171,7 +171,7 @@ export default {
         case "xl":
           return "xl";
       }
-    }
+    },
   },
 
   methods: {
@@ -206,7 +206,7 @@ export default {
     },
     getEventsFuture() {
       this.$store.dispatch("getEventsFuture");
-    }
+    },
   },
   created() {
     console.log("home 5 xl oncreate --> start");
@@ -217,7 +217,7 @@ export default {
     //this.getEventsFuture(); // !!store - moduleE
   },
 
-  mounted() {}
+  mounted() {},
 };
 </script>
 
@@ -235,12 +235,10 @@ export default {
   width: 100%;
   background-color: transparent;
 }
-.AncTrasparenzaMD {
+
+.rT_lv {
+  /* row Transparent level  */
   position: absolute;
   z-index: 6;
-  background-color: rgb(44, 3, 12) !important;
-  height: 3000px;
-  width: 100%;
-  opacity: 0.7;
 }
 </style>
