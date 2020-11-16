@@ -23,7 +23,7 @@
               <!--  * -->
               <!--  * -->
               <v-row dense class="row ma-2 pa-2" align="center" justify="center">
-                <v-img src="/static/images/Materiale/carrozza.png" max-width="250px"></v-img>
+                <v-img src="/static/images/Materiale/carrozza.png" max-width="150px"></v-img>
               </v-row>
               <!--  * -->
               <!--  * -->
