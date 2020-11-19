@@ -48,7 +48,7 @@
                   elevation="2"
                   rounded
                   color="success"
-                >{{lang.t[1].lista[6].t[3].text}}</v-btn>
+                >{{lang.t[1].lista[6].t[0].text}}</v-btn>
               </v-row>
               <!--  * -->
             </v-card>
@@ -71,17 +71,22 @@
       </span>
     </v-row>
 
+
+    <!-- <span>spiegone:</span>-->
     <v-row>
-      <!-- <span>spiegone:</span>-->
       <div class="container-fluid text-center" style="background-color:transparent ">
         <span v-if="CS==0">{{ categorie[(C/10)-1].descrizione }}</span>
         <span v-else>{{ categorie[(C/10)-1].sottocategorie[(CS-C)-1].descrizione }}</span>
       </div>
     </v-row>
+
+
     <!--<div class="SfImmagine">sfondo Immagine</div>-->
     <div class="container-fluid text-center">
-      <AncIntestazioneFine :C="C" :CS="CS" :categorie="categorie" @gotoR="gotoR"></AncIntestazioneFine>
-    </div>
+      <AncIntestazioneFine></AncIntestazioneFine>
+      </div>
+      <!-- AncIntestazioneFine :C="C" :CS="CS" :categorie="categorie" @gotoR="gotoR"></AncIntestazioneFine-->
+    
     <div class="SfSpazio home4SfShDown AncAppBar_BC">spazio Down</div>
     <!--/* *** */-->
   </div>

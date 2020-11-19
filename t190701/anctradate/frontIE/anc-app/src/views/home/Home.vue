@@ -196,10 +196,7 @@ export default {
 }
 
 .AncTrasparenzaHOME {
-  /*
-  position: absolute;
-  z-index: 6; 
-  */
+  /*  position: absolute;  z-index: 6;   */
   background-color: rgb(44, 3, 12) !important;
   width: 100%;
   opacity: 0.7;

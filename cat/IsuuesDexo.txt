@@ -3,4 +3,7 @@
 server di sviluppo vue si attacca.
 disinstallare e bloccare servizio PEM HTTPD
 
+2.IIS disabilitare SERVER si pianta sulla 80
+ 
+
 

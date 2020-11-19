@@ -8,6 +8,8 @@
     <tess5xl v-if="currentres == 'xl'"></tess5xl>
   </div>
   <!-- @@@ -->
+  <!-- TEXT: {{lang.t[1].lista[6].t[0,2,3,4,5,...,N].text}}  -->
+
 </template>
 
 <script>
@@ -148,12 +150,20 @@ export default {
       this.$store.dispatch("setDF");
       this.$store.dispatch("gotoR", r);
     },
+
     /*2020 11 06 sostituito con store/dispatch*/
+    /*
     vola(link) {
       location.href = link;
       this.snackbar = !this.snackbar;
       this.dialog = !this.dialog;
     },
+    */
+    // change href with link
+    v(link) {
+      this.$store.dispatch("vola", link);
+    },
+
     SDL() {
       /*Switch Drawer Language*/
       this.$store.dispatch("switchDrawerLang");
@@ -202,10 +212,7 @@ export default {
   z-index: 5;
 }
 .AncTrasparenzaTESS {
-  /*
-  position: absolute;
-  z-index: 6;
-  */
+  /* position: absolute;  z-index: 6;  */
   background-color: rgb(3, 44, 3) !important;
   width: 100%;
   opacity: 0.7;
@@ -214,77 +221,7 @@ export default {
   position: relative;
   z-index: 1;
 }
-.author-name {
-  font-weight: bold;
-  color: #dc3545;
-}
-.event-link {
-  font-weight: bold;
-  color: black;
-}
-.event-link:hover {
-  color: cadetblue !important;
-  text-decoration: none;
-}
-.group {
-  display: flex;
-  flex: 1;
-  justify-content: space-around;
-}
-.imgop {
-  /*opacity: 0.4;*/
-}
-.bg {
-  background-image: url("~@/assets/images/bg/bg8.jpg");
-  opacity: 0.3;
-  /*
-  background-image: url("../assets/images/bg/bg1.jpg");
-  background-image: url("~@/assets/images/bg/bg8.jpg");
-  */
-}
-/* 2020 04 22 */
-.q {
-  height: 50px;
-}
-.qd2 {
-  /*finestra contenuto*/
-  position: absolute;
-  top: 300px;
-  z-index: 4;
-  opacity: 1;
-
-  width: 80%;
-}
-.qd3 {
-  position: relative;
-  z-index: 3;
-  opacity: 1;
-  background-color: green;
-  width: 100px;
-}
-.qd4 {
-  position: relative;
-  z-index: 4;
-  opacity: 1;
-  background-color: cyan;
-  width: 100px;
-}
-.qdcrtess {
-  position: absolute;
-  top: 140px;
-  z-index: 4;
-  opacity: 1;
-  width: 100%;
-  height: 100%;
-  background-color: yellow;
-}
-.qdcctess {
-  position: relative;
-  width: 100px;
-  height: 100%;
-  /* background-color: orange;*/
-  background-color: transparent;
-}
+/*    in controllo 2020 11 18   */
 
 .menuS {
   position: relative;
@@ -296,33 +233,7 @@ export default {
   padding-right: 15px;
   */
 }
-.rmvrow {
-  /*inizia row sotto la barra*/
-  top: 80px;
-  /*width: 578px; */
 
-  position: relative;
-  z-index: 3;
-  height: 250px;
-
-  margin-left: 0px;
-  margin-right: 0px;
-
-  text-align: center;
-  text-justify: center;
-  border-radius: 0px 0px 0px 5px;
-
-  /*background-image: url("/static/images/tessPageCarousel/dsc32.jpg");*/
-
-  background-color: green !important;
-
-  /*background-color: transparent !important;*/
-
-  /*
-  padding-left: 15px;
-  padding-right: 15px;
-  */
-}
 .avatar {
   z-index: 5;
   transform: scale(1, 1);
@@ -330,6 +241,7 @@ export default {
 .avatar:hover {
   transform: scale(1.1, 1.1);
 }
+
 /* MENU SOTTOCATEGORIE */
 .menuSC {
   position: relative;
@@ -492,110 +404,8 @@ export default {
   text-align: center;
   text-justify: center;
 }
-.ancM4 {
-  position: fixed;
-  z-index: 1;
-  opacity: 0.95;
-  padding-top: 20px;
-  margin-top: 0px;
-  border-radius: 0px 0px 50px 50px;
-  height: 600px;
-  width: 100%;
-  /*width: 368px;*/
-  /*background-image: url("/static/images/tessPageCarousel/dsc32.jpg");*/
-}
-.ancM4r {
-  position: relative;
-  z-index: 1;
-  margin-top: 0px;
-  text-align: center;
-  text-justify: center;
-}
-.ancM4l {
-  position: relative;
-  z-index: 2;
-  margin: 0px;
-  padding: 0px;
 
-  /*list*/
-}
-.ancM4l_BC {
-  background-color: transparent !important;
-}
-.McU {
-  /* Menu column User...*/
-  padding-left: 0px;
-  padding-right: 0px;
-}
-.mr {
-  background-color: transparent !important;
-}
-.caticon {
-  transform: scale(1, 1);
-}
-.caticon:hover {
-  transform: scale(1.7, 1.7);
-}
-.catdescrizione {
-  transform: scale(1, 1);
-}
-.catdescrizione:hover {
-  transform: scale(1.5, 1.5);
-}
-.vlistitem {
-  background-color: transparent;
-  border-radius: 20px 20px 20px 20px;
-}
-.vlistitem:hover {
-  background-color: transparent;
-  border-radius: 20px 20px 20px 20px;
-}
-.mbtn {
-  margin: 1px;
-  border-radius: 20px 20px 20px 20px;
-  background-color: transparent;
-}
-.mbtn:hover {
-  margin: 1px;
-  background-color: mediumturquoise;
-}
-
-.carcol {
-  position: relative;
-  z-index: 5;
-  height: 500px;
-  width: 100%;
-}
-
-/*  colonna sx eventi passati */
-.carcolsx {
-  background-color: transparent;
-  margin-left: 0px;
-  margin-right: 0px;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  border-radius: 25px 10px 10px 25px;
-}
-
-/*  colonna cx clock */
-.carcolcx {
-  background-color: transparent;
-  margin-left: 0px;
-  margin-right: 0px;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  border-radius: 25px;
-}
-
-/*  colonna dx eventi futuri */
-.carcoldx {
-  background-color: transparent;
-  margin-left: 0px;
-  margin-right: 0px;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  border-radius: 10px 25px 25px 10px;
-}
+/*2020 11 08  ----------------------------------------------------------------  */
 /*icone a sx nei tess*/
 .linkicon {
   height: 50px;
@@ -621,18 +431,16 @@ export default {
   margin-bottom: 10px;
   border-radius: 10px 25px 25px 10px;
 }
-/*2020 11 08*/
+/*2020 11 08  ----------------------------------------------------------------  */
 .tess2smListGroup {
   background-color: transparent;
   color: wheat;
 }
-
 .tessmallTitle {
   color: thistle;
   font-family: Times;
   border-radius: 50px 50px 5px 5px;
 }
-
 .tessmallSubTitle {
   font-family: Times;
   border-radius: 5px 5px 50px 50px;

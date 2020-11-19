@@ -46,7 +46,7 @@
                   elevation="2"
                   rounded
                   color="success"
-                >{{lang.t[1].lista[6].t[3].text}}</v-btn>
+                >{{lang.t[1].lista[6].t[0].text}}</v-btn>
               </v-row>
               <!--  * -->
             </v-card>
