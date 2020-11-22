@@ -1,8 +1,7 @@
 {% load l10n %}
 
-  <template>
+<template>
   <div class="SfBase">
-  
     <v-row class="rT rT_lv rThXS rTbg2 mx-auto" v-show="drawerLeft"></v-row>
     <div class="SfSpazio home1SfShUp AncAppBar_BC">spazio Up</div>
     <v-row justify="center" align="center" class="anchomerSM mx-auto">
@@ -18,37 +17,28 @@
               <v-row dense class="row ma-2 pa-2" align="center" justify="center">
                 <!--h3>Sei un collega in congedo e non ti sei ancora iscritto all'ANC?</h3-->
                 <!--h3 class="font-weight-thin colorBlue"></h3-->
-                <h5 class="colorBlue">{{lang.t[1].lista[6].t[1].text}}</h5>
+                <h5 class="colorBlue">{{ lang.t[1].lista[6].sc[0].t[0].text }}</h5>
+
+                <v-expansion-panels focusable inset>
+                  <!--v-expansion-panel v-for="(item, i) in 5" :key="i"-->
+                  <v-expansion-panel v-for="(item, i) in lang.t[1].lista[6].sc[0].steps" :key="i">
+                    <v-expansion-panel-header :expand-icon="item.icon">{{ item.title }}</v-expansion-panel-header>
+                    <v-expansion-panel-content>
+                      <!--v-row>{{ i }}</v-row-->
+                      <v-row class="ma-3">{{ item.text }}</v-row>
+                      <v-row class="ma-3" justify="center" align="center">
+                        <v-img
+                          :src="item.picture"
+                          max-height="250"
+                          max-width="150"
+                        >{{ i }}{{ item.picture }}</v-img>
+                      </v-row>
+                    </v-expansion-panel-content>
+                  </v-expansion-panel>
+                </v-expansion-panels>
                 <br />
               </v-row>
               <!--  * -->
-              <!--  * -->
-              <v-row dense class="row ma-2 pa-2" align="center" justify="center">
-                <v-img src="/static/images/Materiale/carrozza.png" max-width="150px"></v-img>
-              </v-row>
-              <!--  * -->
-              <!--  * -->
-              <v-row dense class="row ma-2 pa-2" align="center" justify="center">
-                <h2 class="display-2 colorBlue">
-                  <!--strong>E cosa aspetti, la carrozza?</strong-->
-                  <strong>{{lang.t[1].lista[6].t[2].text}}</strong>
-                </h2>
-              </v-row>
-              <!--  * -->
-              <!--  * -->
-              <v-row dense class="row ma-2 pa-2" align="center" justify="center">
-                <!--h3>Bastano 2 foto formato tessera. Facile no?</h3-->
-              </v-row>
-              <v-row dense class="row ma-2 pa-2" align="center" justify="center">
-                <!--come fare-->
-                <!--raised outlined-->
-                <v-btn
-                  @click="gotoR('/tesseramentoprassi')"
-                  elevation="2"
-                  rounded
-                  color="success"
-                >{{lang.t[1].lista[6].t[0].text}}</v-btn>
-              </v-row>
               <!--  * -->
             </v-card>
           </v-col>
@@ -61,8 +51,8 @@
     </v-row>
 
     <v-parallax class="SfParallax" src="/static/images/bg/bg8.jpg" height="650"></v-parallax>
-    <span v-if="CS==0">{{ categorie[(C/10)-1].descrizione }}</span>
-    <span v-else>{{ categorie[(C/10)-1].sottocategorie[(CS-C)-1].descrizione }}</span>
+    <span v-if="CS == 0">{{ categorie[C / 10 - 1].descrizione }}</span>
+    <span v-else>{{ categorie[C / 10 - 1].sottocategorie[CS - C - 1].descrizione }}</span>
     <div class="container-fluid text-center">
       <AncIntestazioneFine :C="C" :CS="CS" :categorie="categorie" @gotoR="gotoR"></AncIntestazioneFine>
     </div>
@@ -89,7 +79,7 @@ export default {
   components: {
     AncIntestazioneHome,
     AncIntestazioneFine,
-    AncCard,
+    AncCard
   },
 
   props: {},
@@ -97,7 +87,7 @@ export default {
   data() {
     return {
       scr: "",
-      focusOn: false,
+      focusOn: false
     };
   },
 
@@ -238,7 +228,7 @@ export default {
         case "xl":
           return "xl";
       }
-    },
+    }
   },
 
   methods: {
@@ -277,13 +267,13 @@ export default {
     // change href with link
     v(link) {
       this.$store.dispatch("vola", link);
-    },
+    }
   },
   created() {
     console.log("Tess1 oncreate --> start");
   },
   updated() {},
-  mounted() {},
+  mounted() {}
 };
 </script>
 

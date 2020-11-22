@@ -7,7 +7,6 @@ import Home from "@/views/home/Home.vue";
 /*import Links from "./views/Links.vue";*/
 import Links from "@/views/links/Links.vue";
 
-
 //import Esempio from "./views/Esempio.vue";
 import Sede from "./views/Sede.vue";
 import SedeOrari from "./views/SedeOrari.vue";
@@ -24,7 +23,8 @@ import ChisiamoBenemerite from "@/views/chisiamo/ChisiamoBenemerite.vue";
 
 import Bacheca from "./views/Bacheca.vue";
 
-import Tesseramentoprassi from "./views/Tesseramentoprassi.vue";
+//import Tesseramentoprassi from "./views/Tesseramentoprassi.vue";
+import TesseramentoPrassi from "./views/tesseramentoPrassi/TessP.vue";
 
 //import Tesseramento from "./views/Tesseramento.vue";
 import Tesseramento from "./views/tesseramento/Tess.vue";
@@ -40,13 +40,11 @@ import ArchivioAnno from "./views/ArchivioAnno.vue";
 
 import Login from "./views/Login.vue";
 
-
 Vue.use(Router);
 export default new Router({
-    mode: "history",      // # normalmente verrebbe usato l'hashtag
+    mode: "history", // # normalmente verrebbe usato l'hashtag
     // base: process.env.BASE_URL,
     // doppio percorso nella barra di navigazione
-
 
     routes: [
         {
@@ -56,8 +54,8 @@ export default new Router({
         },
         {
             path: "/",
-            name: "home",         //export default {  name: "home"
-            component: Home       //Home.vue
+            name: "home", //export default {  name: "home"
+            component: Home //Home.vue
         },
         {
             path: "/home",
@@ -65,11 +63,11 @@ export default new Router({
             component: Home
         },
         /*      {
-                  path: "/esempio",
-                  name: "esempio",
-                  component: Esempio
-              },
-        */
+                                  path: "/esempio",
+                                  name: "esempio",
+                                  component: Esempio
+                              },
+                        */
         {
             path: "/sede",
             name: "sede",
@@ -112,13 +110,12 @@ export default new Router({
             component: ChisiamoDirettivo
         },
 
-
         /*        {
-                    path: "/eventi",
-                    name: "eventi",
-                    component: Eventi
-                },
-         */
+                                    path: "/eventi",
+                                    name: "eventi",
+                                    component: Eventi
+                                },
+                         */
         {
             path: "/event/:slug",
             name: "event",
@@ -146,9 +143,9 @@ export default new Router({
             component: Tesseramento
         },
         {
-            path: "/tesseramentoprassi",
-            name: "tesseramentoprassi",
-            component: Tesseramentoprassi
+            path: "/tesseramentoPrassi",
+            name: "tesseramentoPrassi",
+            component: TesseramentoPrassi
         },
         {
             path: "/agenda",
@@ -171,19 +168,18 @@ export default new Router({
             path: "/login",
             name: "login",
             component: Login
-        },
+        }
         /*
-        {
-            path: "/about",
-            name: "about",
-            // route level code-splitting
-            // this generates a separate chunk (about.[hash].js) for this route
-            // which is lazy-loaded when the route is visited.
-            component: () =>
-              import(/* webpackChunkName: "about"  "./views/About.vue")
-    
-            },
-        */
-
+                        {
+                            path: "/about",
+                            name: "about",
+                            // route level code-splitting
+                            // this generates a separate chunk (about.[hash].js) for this route
+                            // which is lazy-loaded when the route is visited.
+                            component: () =>
+                              import(/* webpackChunkName: "about"  "./views/About.vue")
+                    
+                            },
+                        */
     ]
 });

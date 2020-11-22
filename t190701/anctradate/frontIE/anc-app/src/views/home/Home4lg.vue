@@ -2,6 +2,7 @@
 
   <template>
   <div class="SfBase">
+    <h1></h1>
     <!---->
     <v-row class="rT rT_lv rThLG rTbg1 mx-auto" v-show="drawerLeft"></v-row>
     <div class="SfSpazio home4SfShUp AncAppBar_BC">spazio Up</div>

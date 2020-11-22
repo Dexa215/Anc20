@@ -1,13 +1,14 @@
 {% load l10n %}
 
-  <template>
+<template>
   <div class="SfBase">
-  
-    <v-row class="rT rT_lv rThXS rTbg2 mx-auto" v-show="drawerLeft"></v-row>
-    <div class="SfSpazio home1SfShUp AncAppBar_BC">spazio Up</div>
-    <v-row justify="center" align="center" class="anchomerSM mx-auto">
+    <!---->
+    <v-row class="rT rT_lv rThLG rTbg2 mx-auto" v-show="drawerLeft"></v-row>
+    <div class="SfSpazio home4SfShUp AncAppBar_BC">spazio Up</div>
+
+    <v-row justify="center" align="center" class="anchomerLG mx-auto">
       <!--sx-->
-      <v-col cols="1" class="carcol carcolsx"></v-col>
+      <v-col cols="2" class="carcol carcolsx"></v-col>
       <!--cx-->
       <v-col cols="8" class="carcol carcolcx">
         <!---->
@@ -18,36 +19,30 @@
               <v-row dense class="row ma-2 pa-2" align="center" justify="center">
                 <!--h3>Sei un collega in congedo e non ti sei ancora iscritto all'ANC?</h3-->
                 <!--h3 class="font-weight-thin colorBlue"></h3-->
-                <h5 class="colorBlue">{{lang.t[1].lista[6].t[1].text}}</h5>
+                <h5 class="colorBlue">{{ lang.t[1].lista[6].sc[0].t[0].text }}</h5>
+
+                <v-expansion-panels focusable inset>
+                  <!--v-expansion-panel v-for="(item, i) in 5" :key="i"-->
+                  <v-expansion-panel v-for="(item, i) in lang.t[1].lista[6].sc[0].steps" :key="i">
+                    <v-expansion-panel-header :expand-icon="item.icon">
+                      {{
+                      item.title
+                      }}
+                    </v-expansion-panel-header>
+                    <v-expansion-panel-content>
+                      <!--v-row>{{ i }}</v-row-->
+                      <v-row class="ma-3">{{ item.text }}</v-row>
+                      <v-row class="ma-3" justify="center" align="center">
+                        <v-img
+                          :src="item.picture"
+                          max-height="250"
+                          max-width="150"
+                        >{{ i }}{{ item.picture }}</v-img>
+                      </v-row>
+                    </v-expansion-panel-content>
+                  </v-expansion-panel>
+                </v-expansion-panels>
                 <br />
-              </v-row>
-              <!--  * -->
-              <!--  * -->
-              <v-row dense class="row ma-2 pa-2" align="center" justify="center">
-                <v-img src="/static/images/Materiale/carrozza.png" max-width="150px"></v-img>
-              </v-row>
-              <!--  * -->
-              <!--  * -->
-              <v-row dense class="row ma-2 pa-2" align="center" justify="center">
-                <h2 class="display-2 colorBlue">
-                  <!--strong>E cosa aspetti, la carrozza?</strong-->
-                  <strong>{{lang.t[1].lista[6].t[2].text}}</strong>
-                </h2>
-              </v-row>
-              <!--  * -->
-              <!--  * -->
-              <v-row dense class="row ma-2 pa-2" align="center" justify="center">
-                <!--h3>Bastano 2 foto formato tessera. Facile no?</h3-->
-              </v-row>
-              <v-row dense class="row ma-2 pa-2" align="center" justify="center">
-                <!--come fare-->
-                <!--raised outlined-->
-                <v-btn
-                  @click="gotoR('/tesseramentoprassi')"
-                  elevation="2"
-                  rounded
-                  color="success"
-                >{{lang.t[1].lista[6].t[0].text}}</v-btn>
               </v-row>
               <!--  * -->
             </v-card>
@@ -57,88 +52,67 @@
         <!--cx-->
       </v-col>
       <!--dx-->
-      <v-col cols="1" class="carcol carcoldx"></v-col>
+      <v-col cols="2" class="carcol carcoldx"></v-col>
     </v-row>
 
-    <v-parallax class="SfParallax" src="/static/images/bg/bg8.jpg" height="650"></v-parallax>
-    <span v-if="CS==0">{{ categorie[(C/10)-1].descrizione }}</span>
-    <span v-else>{{ categorie[(C/10)-1].sottocategorie[(CS-C)-1].descrizione }}</span>
+    <v-parallax class="SfParallaxTess" src="/static/images/bg/bg8.jpg" height="1000"></v-parallax>
+    <!-- <span>spiegone:</span>-->
+
+    <v-row justify="center" align="center" class="mx-auto">
+      <span>
+        <!--Prassi per il tesseramento-->
+        <h4 class="font-weight-thin colorBlue">{{ lang.t[1].lista[6].t[0].text }}</h4>
+      </span>
+    </v-row>
+
+    <!-- <span>spiegone:</span>-->
+    <v-row>
+      <div class="container-fluid text-center" style="background-color:transparent ">
+        <span v-if="CS == 0">{{ categorie[C / 10 - 1].descrizione }}</span>
+        <span v-else>{{ categorie[C / 10 - 1].sottocategorie[CS - C - 1].descrizione }}</span>
+      </div>
+    </v-row>
+
+    <!--<div class="SfImmagine">sfondo Immagine</div>-->
     <div class="container-fluid text-center">
-      <AncIntestazioneFine :C="C" :CS="CS" :categorie="categorie" @gotoR="gotoR"></AncIntestazioneFine>
+      <AncIntestazioneFine></AncIntestazioneFine>
     </div>
-    <div class="SfSpazio SfShDown AncAppBar_BC">spazio Down</div>
-    <!--
-/* ********************************************************************************************************** */
-    -->
+    <!-- AncIntestazioneFine :C="C" :CS="CS" :categorie="categorie" @gotoR="gotoR"></AncIntestazioneFine-->
+
+    <div class="SfSpazio home4SfShDown AncAppBar_BC">spazio Down</div>
+    <!--/* *** */-->
   </div>
 </template>
 
 <script>
 import { apiService } from "@/common/api.service";
 import router from "@/router";
-/*home.vue*/
 import AncIntestazioneHome from "@/components/AncIntestazioneHome.vue";
 import AncIntestazioneFine from "@/components/AncIntestazioneFine.vue";
 import AncCard from "@/components/AncCard.vue";
 import m4lgSottocategorie from "@/components/AncM/CatSotto/M4lgSottocategorie.vue";
 import m4lgAdmin from "@/components/AncM/Admin/M4lgAdmin.vue";
+import ancClock from "@/components/AncObjects/AncClock.vue";
 
 export default {
-  name: "links1xs",
+  name: "links4lg",
 
   components: {
     AncIntestazioneHome,
     AncIntestazioneFine,
-    AncCard,
+    AncCard
   },
-
   props: {},
-
   data() {
     return {
       scr: "",
       focusOn: false,
+      snackbar: true,
+      text: `Hello, I'm a snackbar`,
+      dialog: false
     };
   },
-
   computed: {
-    Titolone() {
-      return this.$store.getters.get_Titolone;
-    },
-
-    // * EVIDENZA
-    Eevents() {
-      return this.$store.getters.get_Eevents;
-    },
-    Enext() {
-      return this.$store.getters.get_Enext;
-    },
-    EloadingEvents() {
-      return this.$store.getters.get_EloadingEvents;
-    },
-
-    // * PAST
-    Pevents() {
-      return this.$store.getters.get_Pevents;
-    },
-    Pnext() {
-      return this.$store.getters.get_Pnext;
-    },
-    PloadingEvents() {
-      return this.$store.getters.get_PloadingEvents;
-    },
-
-    // * FUTURE
-    Fevents() {
-      return this.$store.getters.get_Fevents;
-    },
-    Fnext() {
-      return this.$store.getters.get_Fnext;
-    },
-    FloadingEvents() {
-      return this.$store.getters.get_FloadingEvents;
-    },
-
     /*  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  */
     lang() {
       return this.$store.getters.getCurrentLanguage;
@@ -238,9 +212,8 @@ export default {
         case "xl":
           return "xl";
       }
-    },
+    }
   },
-
   methods: {
     /*2020 06 16*/
     gotoR(r) {
@@ -248,70 +221,43 @@ export default {
       this.$store.dispatch("setDF");
       this.$store.dispatch("gotoR", r);
     },
-    SDL() {
-      /*Switch Drawer Language*/
-      this.$store.dispatch("switchDrawerLang");
-    },
-    ScL(val) {
-      /*SET Current Language*/
-      this.$store.dispatch("setL", val);
-    },
-    DSCset(state) {
-      /*SC Sotto Categoria*/
-      this.$store.dispatch("DSCset", state);
-    },
-    setD() {
-      this.$store.dispatch("setD");
-    },
-    setDF() {
-      this.$store.dispatch("setDF");
-    },
-
-    // Events ...
-    getEventsPast() {
-      this.$store.dispatch("getEventsPast");
-    },
-    getEventsFuture() {
-      this.$store.dispatch("getEventsFuture");
-    },
-    // change href with link
     v(link) {
+      /*this.$emit("vola", link);*/
       this.$store.dispatch("vola", link);
-    },
+    }
   },
   created() {
-    console.log("Tess1 oncreate --> start");
+    // eslint-disable-next-line no-console
+    console.log("tess4lg oncreate --> start");
   },
   updated() {},
-  mounted() {},
+  mounted() {}
 };
 </script>
 
 <style media="screen" scoped>
-.home1SfShUp {
+.home4SfShUp {
   height: 150px;
   background-color: transparent;
 }
-.home1SfShDown {
+.home4SfShDown {
   height: 78px;
 }
-.anchomerXS {
-  position: relative;
+.anchomerLG {
+  position: absolute;
   z-index: 5;
-  height: 600px;
+  height: 300px;
   width: 100%;
   background-color: transparent;
 }
-.anchomerXSnext {
-  position: relative;
-  z-index: 5;
-  height: 600px;
-  width: 100%;
-  background-color: transparent;
+
+.h3 {
+  color: black;
 }
 .cardround {
   border-radius: 45px 45px 45px 45px; /*TL-TR-BR-BL*/
 }
+
 .rT_lv {
   /* row Transparent level  */
   position: absolute;

@@ -1,38 +1,40 @@
 <template>
   <div class="menuS">
     <!-- tess1xs @vola="vola" v-if="currentres == 'xs'"></tess1xs-->
-    <tess1xs v-if="currentres == 'xs'"></tess1xs>
-    <tess2sm v-if="currentres == 'sm'"></tess2sm>
-    <tess3md v-if="currentres == 'md'"></tess3md>
-    <tess4lg v-if="currentres == 'lg'"></tess4lg>
-    <tess5xl v-if="currentres == 'xl'"></tess5xl>
+    <tessP1xs v-if="currentres == 'xs'"></tessP1xs>
+    <tessP2sm v-if="currentres == 'sm'"></tessP2sm>
+    <tessP3md v-if="currentres == 'md'"></tessP3md>
+    <tessP4lg v-if="currentres == 'lg'"></tessP4lg>
+    <tessP5xl v-if="currentres == 'xl'"></tessP5xl>
   </div>
   <!-- @@@ -->
-  <!-- TEXT: {{lang.t[1].lista[6].t[0,2,3,4,5,...,N].text}}  -->
+  <!-- lista[6]>tesseramento sc[0]>prassi-->
+  <!-- TEXTS:  lang.t[1].lista[6].sc[0].t[0,2,3,4,5,...,N].text -->
 </template>
 
 <script>
 //import { apiService } from "@/common/api.service";
 //import router from "@/router";
+
 /* Transitions */
 
 /*Res Menu*/
-import tess1xs from "@/views/tesseramento/Tess1xs.vue";
-import tess2sm from "@/views/tesseramento/Tess2sm.vue";
-import tess3md from "@/views/tesseramento/Tess3md.vue";
-import tess4lg from "@/views/tesseramento/Tess4lg.vue";
-import tess5xl from "@/views/tesseramento/Tess5xl.vue";
+import tessP1xs from "@/views/tesseramentoPrassi/TessP1xs.vue";
+import tessP2sm from "@/views/tesseramentoPrassi/TessP2sm.vue";
+import tessP3md from "@/views/tesseramentoPrassi/TessP3md.vue";
+import tessP4lg from "@/views/tesseramentoPrassi/TessP4lg.vue";
+import tessP5xl from "@/views/tesseramentoPrassi/TessP5xl.vue";
 
 export default {
-  name: "tessS",
+  name: "tessP",
 
   components: {
     /*menu res*/
-    tess1xs,
-    tess2sm,
-    tess3md,
-    tess4lg,
-    tess5xl
+    tessP1xs,
+    tessP2sm,
+    tessP3md,
+    tessP4lg,
+    tessP5xl
   },
 
   props: {},
