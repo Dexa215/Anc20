@@ -77,11 +77,9 @@ urlpatterns = [
          dexo_current_datetime,
          name="dexotime"),
 
-
     path("test/",
          IndexTemplateViewTEST.as_view(),
          name="entry-point-start"),
-
 
     re_path(r"^event/.*$",
             IndexTemplateView.as_view(),
@@ -140,7 +138,6 @@ urlpatterns = [
     path("tesseramentoprassi",
          IndexTemplateView.as_view(),
          name="homepagetesseramentoprassi"),
-
     path("login",
          IndexTemplateView.as_view(),
          name="homepagelogin")

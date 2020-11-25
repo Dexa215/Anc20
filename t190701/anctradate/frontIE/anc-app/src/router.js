@@ -8,7 +8,10 @@ import Home from "@/views/home/Home.vue";
 import Links from "@/views/links/Links.vue";
 
 //import Esempio from "./views/Esempio.vue";
-import Sede from "./views/Sede.vue";
+
+//import Sede from "./views/Sede.vue";
+import Sede from "./views/sede/Sede.vue";
+
 import SedeOrari from "./views/SedeOrari.vue";
 import Contatti from "./views/Contatti.vue";
 
@@ -63,11 +66,11 @@ export default new Router({
             component: Home
         },
         /*      {
-                                  path: "/esempio",
-                                  name: "esempio",
-                                  component: Esempio
-                              },
-                        */
+                                          path: "/esempio",
+                                          name: "esempio",
+                                          component: Esempio
+                                      },
+                                */
         {
             path: "/sede",
             name: "sede",
@@ -111,11 +114,11 @@ export default new Router({
         },
 
         /*        {
-                                    path: "/eventi",
-                                    name: "eventi",
-                                    component: Eventi
-                                },
-                         */
+                                            path: "/eventi",
+                                            name: "eventi",
+                                            component: Eventi
+                                        },
+                                 */
         {
             path: "/event/:slug",
             name: "event",
@@ -170,16 +173,16 @@ export default new Router({
             component: Login
         }
         /*
-                        {
-                            path: "/about",
-                            name: "about",
-                            // route level code-splitting
-                            // this generates a separate chunk (about.[hash].js) for this route
-                            // which is lazy-loaded when the route is visited.
-                            component: () =>
-                              import(/* webpackChunkName: "about"  "./views/About.vue")
-                    
-                            },
-                        */
+                                {
+                                    path: "/about",
+                                    name: "about",
+                                    // route level code-splitting
+                                    // this generates a separate chunk (about.[hash].js) for this route
+                                    // which is lazy-loaded when the route is visited.
+                                    component: () =>
+                                      import(/* webpackChunkName: "about"  "./views/About.vue")
+                            
+                                    },
+                                */
     ]
 });

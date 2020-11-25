@@ -1,12 +1,11 @@
 {% load l10n %}
 
-<template>
+  <template>
   <div class="SfBase">
-    <!---->
-    <v-row class="rT rT_lv rThLG rTbg2 mx-auto" v-show="drawerLeft" height="1500"></v-row>
-    <div class="SfSpazio home4SfShUp AncAppBar_BC">spazio Up</div>
+    <v-row class="rT rT_lv rThMD rTbg2 mx-auto" v-show="drawerLeft"></v-row>
+    <div class="SfSpazio home3SfShUp AncAppBar_BC">spazio Up home3md</div>
 
-    <v-row justify="center" align="center" class="anchomerLG mx-auto">
+    <v-row justify="center" align="center" class="anchomerMD mx-auto">
       <!--sx-->
       <v-col cols="2" class="carcol carcolsx"></v-col>
       <!--cx-->
@@ -15,7 +14,7 @@
         <v-row>
           <v-col cols="12">
             <v-card class="pa-4 cardround" light>
-              <!--  * -->
+<!--  * -->
               <v-row dense class="row ma-2 pa-2" align="center" justify="center">
                 <!--h3>Sei un collega in congedo e non ti sei ancora iscritto all'ANC?</h3-->
                 <!--h3 class="font-weight-thin colorBlue"></h3-->
@@ -54,32 +53,15 @@
       <!--dx-->
       <v-col cols="2" class="carcol carcoldx"></v-col>
     </v-row>
-
-    <v-parallax class="SfParallaxTess" src="/static/images/bg/bg8.jpg" height="500"></v-parallax>
+    <v-parallax class="SfParallax" src="/static/images/bg/bg8.jpg" height="650"></v-parallax>
     <!-- <span>spiegone:</span>-->
-
-    <v-row justify="center" align="center" class="mx-auto">
-      <span>
-        <!--Prassi per il tesseramento-->
-        <h4 class="font-weight-thin colorBlue">{{ lang.t[1].lista[6].t[0].text }}</h4>
-      </span>
-    </v-row>
-
-    <!-- <span>spiegone:</span>-->
-    <v-row>
-      <div class="container-fluid text-center" style="background-color:transparent ">
-        <span v-if="CS == 0">{{ categorie[C / 10 - 1].descrizione }}</span>
-        <span v-else>{{ categorie[C / 10 - 1].sottocategorie[CS - C - 1].descrizione }}</span>
-      </div>
-    </v-row>
-
+    <span v-if="CS==0">{{ categorie[(C/10)-1].descrizione }}</span>
+    <span v-else>{{ categorie[(C/10)-1].sottocategorie[(CS-C)-1].descrizione }}</span>
     <!--<div class="SfImmagine">sfondo Immagine</div>-->
     <div class="container-fluid text-center">
-      <AncIntestazioneFine></AncIntestazioneFine>
+      <AncIntestazioneFine :C="C" :CS="CS" :categorie="categorie" @gotoR="gotoR"></AncIntestazioneFine>
     </div>
-    <!-- AncIntestazioneFine :C="C" :CS="CS" :categorie="categorie" @gotoR="gotoR"></AncIntestazioneFine-->
-
-    <div class="SfSpazio home4SfShDown AncAppBar_BC">spazio Down</div>
+    <div class="SfSpazio home3SfShDown AncAppBar_BC">spazio Down</div>
     <!--/* *** */-->
   </div>
 </template>
@@ -87,31 +69,40 @@
 <script>
 import { apiService } from "@/common/api.service";
 import router from "@/router";
+
+/*home.vue*/
+//import ancEventsPast from "@/components/AncEventsPast";
+//import ancEventsFuture from "@/components/AncEventsFuture";
 import AncIntestazioneHome from "@/components/AncIntestazioneHome.vue";
 import AncIntestazioneFine from "@/components/AncIntestazioneFine.vue";
 import AncCard from "@/components/AncCard.vue";
-import m4lgSottocategorie from "@/components/AncM/CatSotto/M4lgSottocategorie.vue";
-import m4lgAdmin from "@/components/AncM/Admin/M4lgAdmin.vue";
+import carP from "@/components/AncCarousels/Past/Car.vue";
+import carF from "@/components/AncCarousels/Future/Car.vue";
 import ancClock from "@/components/AncObjects/AncClock.vue";
 
+import m4lgSottocategorie from "@/components/AncM/CatSotto/M4lgSottocategorie.vue";
+import m4lgAdmin from "@/components/AncM/Admin/M4lgAdmin.vue";
+
 export default {
-  name: "links4lg",
+  name: "links3md",
 
   components: {
+    //ancEventsPast,
+    //ancEventsFuture,
     AncIntestazioneHome,
     AncIntestazioneFine,
-    AncCard
+    AncCard,
   },
+
   props: {},
+
   data() {
     return {
       scr: "",
       focusOn: false,
-      snackbar: true,
-      text: `Hello, I'm a snackbar`,
-      dialog: false
     };
   },
+
   computed: {
     /*  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  */
     lang() {
@@ -212,8 +203,9 @@ export default {
         case "xl":
           return "xl";
       }
-    }
+    },
   },
+
   methods: {
     /*2020 06 16*/
     gotoR(r) {
@@ -221,43 +213,63 @@ export default {
       this.$store.dispatch("setDF");
       this.$store.dispatch("gotoR", r);
     },
+    SDL() {
+      /*Switch Drawer Language*/
+      this.$store.dispatch("switchDrawerLang");
+    },
+    ScL(val) {
+      /*SET Current Language*/
+      this.$store.dispatch("setL", val);
+    },
+    DSCset(state) {
+      /*SC Sotto Categoria*/
+      this.$store.dispatch("DSCset", state);
+    },
+    setD() {
+      this.$store.dispatch("setD");
+    },
+    setDF() {
+      this.$store.dispatch("setDF");
+    },
+
+    // Events ...
+    getEventsPast() {
+      this.$store.dispatch("getEventsPast");
+    },
+    getEventsFuture() {
+      this.$store.dispatch("getEventsFuture");
+    },
+    // change href with link
     v(link) {
-      /*this.$emit("vola", link);*/
       this.$store.dispatch("vola", link);
-    }
+    },
   },
   created() {
-    // eslint-disable-next-line no-console
-    console.log("tess4lg oncreate --> start");
+    console.log("home 5 xl oncreate --> start");
   },
   updated() {},
-  mounted() {}
+
+  mounted() {},
 };
 </script>
 
 <style media="screen" scoped>
-.home4SfShUp {
+.home3SfShUp {
   height: 150px;
-  background-color: transparent;
 }
-.home4SfShDown {
+.home3SfShDown {
   height: 78px;
 }
-.anchomerLG {
+.anchomerMD {
   position: absolute;
   z-index: 5;
-  height: 300px;
+  height: 600px;
   width: 100%;
   background-color: transparent;
 }
-
-.h3 {
-  color: black;
-}
 .cardround {
-  border-radius: 45px 45px 45px 45px; /*TL-TR-BR-BL*/
+  border-radius: 25px; /*TL-TR-BR-BL*/
 }
-
 .rT_lv {
   /* row Transparent level  */
   position: absolute;

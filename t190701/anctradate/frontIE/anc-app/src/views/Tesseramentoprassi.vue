@@ -45,13 +45,13 @@
                 </v-stepper-step>
               </v-stepper-header>
 
-              <v-btn v-if="e6!=3" class="ma-4" color="#ffbe4d" @click="e6plus">Passo successivo</v-btn>
+              <v-btn v-if="e6 != 3" class="ma-4" color="#ffbe4d" @click="e6plus">Passo successivo</v-btn>
               <v-btn v-else class="ma-4" color="#ffbe4d" @click="e6plus">Torna all'inizio</v-btn>
 
               <v-stepper-content v-for="st in steps" :key="`${st.n}-step`" :step="st.n">
                 <v-card style="background-color:white;" class="pa-1 mb-1">
                   <v-card-content class="pa-1 mb-1">
-                    <div>{{st.descrizione}}</div>
+                    <div>{{ st.descrizione }}</div>
 
                     <v-img class="ma-4" :src="st.foto" width="100px" eight="150px"></v-img>
 
@@ -309,7 +309,6 @@ export default {
 };
 </script>
 
-
 <style media="screen">
 .tesseramentoprassi {
   background-color: pink;
@@ -327,5 +326,3 @@ export default {
   background-color: #ffecb3;
 }
 </style>
-
-

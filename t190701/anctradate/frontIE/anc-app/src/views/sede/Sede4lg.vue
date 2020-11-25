@@ -3,7 +3,7 @@
 <template>
   <div class="SfBase">
     <!---->
-    <v-row class="rT rT_lv rThLG rTbg2 mx-auto" v-show="drawerLeft" height="1500"></v-row>
+    <v-row class="rT rT_lv rThLG rTbg2 mx-auto" v-show="drawerLeft"></v-row>
     <div class="SfSpazio home4SfShUp AncAppBar_BC">spazio Up</div>
 
     <v-row justify="center" align="center" class="anchomerLG mx-auto">
@@ -16,34 +16,158 @@
           <v-col cols="12">
             <v-card class="pa-4 cardround" light>
               <!--  * -->
-              <v-row dense class="row ma-2 pa-2" align="center" justify="center">
-                <!--h3>Sei un collega in congedo e non ti sei ancora iscritto all'ANC?</h3-->
-                <!--h3 class="font-weight-thin colorBlue"></h3-->
-                <h5 class="colorBlue">{{ lang.t[1].lista[6].sc[0].t[0].text }}</h5>
 
-                <v-expansion-panels focusable inset>
-                  <!--v-expansion-panel v-for="(item, i) in 5" :key="i"-->
-                  <v-expansion-panel v-for="(item, i) in lang.t[1].lista[6].sc[0].steps" :key="i">
-                    <v-expansion-panel-header :expand-icon="item.icon">
-                      {{
-                      item.title
-                      }}
-                    </v-expansion-panel-header>
-                    <v-expansion-panel-content>
-                      <!--v-row>{{ i }}</v-row-->
-                      <v-row class="ma-3">{{ item.text }}</v-row>
-                      <v-row class="ma-3" justify="center" align="center">
-                        <v-img
-                          :src="item.picture"
-                          max-height="250"
-                          max-width="150"
-                        >{{ i }}{{ item.picture }}</v-img>
-                      </v-row>
-                    </v-expansion-panel-content>
-                  </v-expansion-panel>
-                </v-expansion-panels>
-                <br />
+              <!--v-row>sede ubicazione 2020 11 22</v-row-->
+
+              <v-row dense class="row ma-2 pa-2">
+                <!-- row 00 -->
+                <!-- Riassunto Sede -->
+                <v-col cols="12">
+                  <v-card color="rgb(19, 21, 36)" class="pa-4">
+                    <h2>
+                      {{ lang.t[1].lista[1].sc[0].t[0].text }}
+                      {{ lang.t[1].lista[1].sc[0].t[1].text }} /
+                      {{ lang.t[1].lista[1].sc[0].t[2].text }}
+                      {{ lang.t[1].lista[1].sc[0].t[3].text }}
+                    </h2>
+                  </v-card>
+                </v-col>
               </v-row>
+              <!-- row 00 -->
+              <!-- Riassunto Sede -->
+
+              <!-- row 06 -->
+              <!-- Cartina Google Maps -->
+
+              <v-row dense class="row ma-2 pa-2">
+                <v-col cols="12">
+                  <v-card class="pa-4">
+                    <iframe
+                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1663.15881154439!2d8.905701070027497!3d45.71332899343703!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x478685f126a1ea85%3A0x7c16b78535fb871a!2sVia%20Carlo%20de%20Simoni%2C%201%2C%2021049%20Tradate%20VA!5e0!3m2!1sit!2sit!4v1576285621978!5m2!1sit!2sit"
+                      width="100%"
+                      height="550"
+                      frameborder="0"
+                      style="border:0;"
+                      allowfullscreen="false"
+                    ></iframe>
+                  </v-card>
+                </v-col>
+
+                <!-- Cartina Google Maps -->
+              </v-row>
+              <!-- row 06 -->
+              <v-row dense class="row ma-2 pa-2">
+                <!-- row 01 -->
+                <!-- Descrizione Ubicazione -->
+                <!--h3>iframe [0] {{maps[0].src}}</h3-->
+                <v-col cols="12">
+                  <v-card class="pa-4">
+                    <blockquote>
+                      <P class="text-justify">
+                        {{ lang.t[1].lista[1].sc[0].t[4].text }}
+                        {{ lang.t[1].lista[1].sc[0].t[6].text }}
+                        <a
+                          href="http://www.comune.tradate.va.it/"
+                          style="color:green"
+                        >Comune di Tradate</a>.
+                      </P>
+                    </blockquote>
+
+                    <!--div class="column col-6 text-justify"></div-->
+                    <!--column-->
+                  </v-card>
+                </v-col>
+              </v-row>
+              <!-- row 01 -->
+              <!-- Descrizione Ubicazione -->
+
+              <v-row dense class="row ma-2 pa-2">
+                <!-- row 02 -->
+                <v-col cols="12">
+                  <v-card class="pa-4">
+                    <v-img id="c10img" width="100%" src="/static/images/Foto/tradatecomune.jpg"></v-img>
+                  </v-card>
+                </v-col>
+              </v-row>
+              <!-- row 02 -->
+
+              <v-row dense class="row ma-2 pa-2">
+                <!-- row 03 -->
+                <v-col cols="12">
+                  <v-card class="pa-4">
+                    <blockquote>
+                      <P class="text-justify">{{ lang.t[1].lista[1].sc[0].t[7].text }}</P>
+                    </blockquote>
+                  </v-card>
+                  <!--div class="column col-6 text-justify"></div-->
+                  <!--column-->
+                </v-col>
+              </v-row>
+              <!-- row 03 -->
+
+              <v-row dense class="row ma-2 pa-2">
+                <!-- row 04 -->
+                <v-col cols="12">
+                  <v-card class="pa-4">
+                    <iframe
+                      id="c1img"
+                      src="https://www.google.com/maps/embed?pb=!4v1576284624812!6m8!1m7!1sXkQU4fJD85BZziGDdsNGNw!2m2!1d45.71363123189879!2d8.906257580735!3f290.300251927189!4f2.186880441983959!5f1.1924812503605782"
+                      width="100%"
+                      height="550"
+                      frameborder="0"
+                      style="border:0;"
+                      allowfullscreen="false"
+                    ></iframe>
+                  </v-card>
+                </v-col>
+              </v-row>
+              <!-- row 04 -->
+
+              <v-row dense class="row ma-2 pa-2">
+                <!-- row 05 -->
+                <v-col cols="12">
+                  <v-card class="pa-4">
+                    <blockquote>
+                      <P class="text-justify">
+                        {{
+                        lang.t[1].lista[1].sc[0].t[8].text
+                        }}
+                      </P>
+                    </blockquote>
+                  </v-card>
+                </v-col>
+              </v-row>
+              <!-- row 05 -->
+
+              <v-row dense class="row ma-2 pa-2">
+                <!-- row 05 inps-->
+                <v-col cols="12">
+                  <v-card class="pa-4">
+                    <blockquote>
+                      <P class="text-justify">
+                        {{ lang.t[1].lista[1].sc[0].t[9].text }}
+                        <a
+                          style="color:green"
+                          href="https://www.inps.it/nuovoportaleinps/default.aspx"
+                        >INPS</a>
+                        . Gli orari di apertura sono garantiti dalla presenza di
+                        un Consigliere. Per ulteriori informazioni sugli
+                        <a
+                          @click="gotoR('sedeorari/')"
+                          style="color:green"
+                        >
+                          {{
+                          lang.t[1].lista[1].sc[0].t[5].text
+                          }}
+                        </a>
+                        visitate la pagina dedicata.
+                      </P>
+                    </blockquote>
+                  </v-card>
+                </v-col>
+              </v-row>
+              <!-- row 05 inps-->
+
               <!--  * -->
             </v-card>
           </v-col>
@@ -55,7 +179,7 @@
       <v-col cols="2" class="carcol carcoldx"></v-col>
     </v-row>
 
-    <v-parallax class="SfParallaxTess" src="/static/images/bg/bg8.jpg" height="500"></v-parallax>
+    <v-parallax class="SfParallaxSede" src="/static/images/bg/bg8.jpg" height="2000"></v-parallax>
     <!-- <span>spiegone:</span>-->
 
     <v-row justify="center" align="center" class="mx-auto">
