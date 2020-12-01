@@ -101,10 +101,10 @@ const moduleA = {
                 context.commit("set_rcU", "rmvcolD rmH   rcLat_BC_Admin"); //menu USER
 
                 /*
-                                                                                                                                                                                        state.nbc = "#212121"; //dark-grey
-                                                                                                                                                                                        state.rcU = "rmvcolD rmH   rcLat_BC_Admin"; //menu USER
-                                                                                                                                                                                        state.admin = true;
-                                                                                                                                                                                        */
+                                                                                                                                                                                                                                        state.nbc = "#212121"; //dark-grey
+                                                                                                                                                                                                                                        state.rcU = "rmvcolD rmH   rcLat_BC_Admin"; //menu USER
+                                                                                                                                                                                                                                        state.admin = true;
+                                                                                                                                                                                                                                        */
             } else {
                 if (context.getters.requestUserIsStaff === true) {
                     context.commit("set_rcS", "rcS rcX rcLat rcLat_BC_Staff");
@@ -112,11 +112,11 @@ const moduleA = {
                     context.commit("set_rcU", "rmvcolD rmH   rcLat_BC_Staff"); //menu USER
 
                     /*
-                                                                                                                                                                                                                                      state.rcS = "rcS rcX rcLat rcLat_BC_Staff";
-                                                                                                                                                                                                                                      state.rcD = "rcD rcX rcLat rcLat_BC_Staff";
-                                                                                                                                                                                                                                      state.nbc = "black";
-                                                                                                                                                                                                                                      state.admin = false;
-                                                                                                                                                                                                                                      */
+                                                                                                                                                                                                                                                                                                  state.rcS = "rcS rcX rcLat rcLat_BC_Staff";
+                                                                                                                                                                                                                                                                                                  state.rcD = "rcD rcX rcLat rcLat_BC_Staff";
+                                                                                                                                                                                                                                                                                                  state.nbc = "black";
+                                                                                                                                                                                                                                                                                                  state.admin = false;
+                                                                                                                                                                                                                                                                                                  */
                     /*state.rcU = "rmvcolD rmH   rcLat_BC_Staff"; /*menu USER*/
                 } else {
                     context.commit("set_rcS", "rcS rcX rcLat rcLat_BC_Visitor");
@@ -127,11 +127,11 @@ const moduleA = {
                     ); /*
                     state.rcU = "rmvcolD rmH   rcLat_BC_Visitor"; /*menu USER*/ //menu USER
                     /*
-                                                                                                                                                                                                                  state.rcS = "rcS rcX rcLat rcLat_BC_Visitor";
-                                                                                                                                                                                                                  state.rcD = "rcD rcX rcLat rcLat_BC_Visitor";
-                                                                                                                                                                                                                  state.nbc = "#212121"; //dark-grey
-                                                                                                                                                                                                                  state.admin = false;
-                                                                                                                                                                                                                  */
+                                                                                                                                                                                                                                                                              state.rcS = "rcS rcX rcLat rcLat_BC_Visitor";
+                                                                                                                                                                                                                                                                              state.rcD = "rcD rcX rcLat rcLat_BC_Visitor";
+                                                                                                                                                                                                                                                                              state.nbc = "#212121"; //dark-grey
+                                                                                                                                                                                                                                                                              state.admin = false;
+                                                                                                                                                                                                                                                                              */
                 }
             }
         }
@@ -517,9 +517,9 @@ const moduleD = {
 
         iconX: "mdi-menu",
         /* v 1.0
-                                                                                    iconO: "mdi-backburger",
-                                                                                    iconC: "mdi-menu",
-                                                                                    */
+                                                                                                            iconO: "mdi-backburger",
+                                                                                                            iconC: "mdi-menu",
+                                                                                                            */
         /* v 2.0 */
         iconC: "mdi-dots-vertical",
         iconO: "mdi-menu-up",
@@ -731,33 +731,33 @@ const moduleE = {
 
     actions: {
         /*
-                                                                                            EeventsPushData (context, data) {
-                                                                                                //accoda dati eventi...
-                                                                                                context.state.EloadingPushData = true;
-                                                                                                context.state.Eevents.push(...data.results);
-                                                                                                context.state.EloadingPushData = false;
-
-                                                                                                if (data.next) {
-                                                                                                    context.state.Enext = data.next;
-                                                                                                } else {
-                                                                                                    context.state.Enext = null;
-                                                                                                }
-                                                                                            },
-
-                                                                                            EeventsCreaEvidenza (context) {
-                                                                                                //ciclo per creare titolo in evidenza...
-
-                                                                                                if (context.state.Eevents.length == 0) {
-                                                                                                    context.state.Titolone = "";
-                                                                                                } else {
-                                                                                                    context.state.Titolone = "IN EVIDENZA: ";
-                                                                                                    for (x of context.state.Eevents) {
-                                                                                                        console.log(x.title);
-                                                                                                        context.state.Titolone = context.state.Titolone + " - " + x.title + "   ";
-                                                                                                    }
-                                                                                                }
-                                                                                            },
-                                                                                    */
+                                                                                                                    EeventsPushData (context, data) {
+                                                                                                                        //accoda dati eventi...
+                                                                                                                        context.state.EloadingPushData = true;
+                                                                                                                        context.state.Eevents.push(...data.results);
+                                                                                                                        context.state.EloadingPushData = false;
+                        
+                                                                                                                        if (data.next) {
+                                                                                                                            context.state.Enext = data.next;
+                                                                                                                        } else {
+                                                                                                                            context.state.Enext = null;
+                                                                                                                        }
+                                                                                                                    },
+                        
+                                                                                                                    EeventsCreaEvidenza (context) {
+                                                                                                                        //ciclo per creare titolo in evidenza...
+                        
+                                                                                                                        if (context.state.Eevents.length == 0) {
+                                                                                                                            context.state.Titolone = "";
+                                                                                                                        } else {
+                                                                                                                            context.state.Titolone = "IN EVIDENZA: ";
+                                                                                                                            for (x of context.state.Eevents) {
+                                                                                                                                console.log(x.title);
+                                                                                                                                context.state.Titolone = context.state.Titolone + " - " + x.title + "   ";
+                                                                                                                            }
+                                                                                                                        }
+                                                                                                                    },
+                                                                                                            */
 
         /*-TODO: IN TEST 2020 07 24-*/
         getEvidenza (context) {
@@ -847,25 +847,25 @@ const moduleE = {
         }
 
         /*
-                                                                                            getEvents () {
-                                                                                                let endpoint = "api/events/";
-                                                                                                if (this.next) {
-                                                                                                    endpoint = this.next;
-                                                                                                }
-                                                                                                this.loadingEvents = true;
-                                                                                                apiService(endpoint).then(data => {
-                                                                                                    console.log(data.results);
-
-                                                                                                    this.events.push(...data.results);
-                                                                                                    this.loadingEvents = false;
-                                                                                                    if (data.next) {
-                                                                                                        this.next = data.next;
-                                                                                                    } else {
-                                                                                                        this.next = null;
-                                                                                                    }
-                                                                                                });
-                                                                                            },
-                                                                                    */
+                                                                                                                    getEvents () {
+                                                                                                                        let endpoint = "api/events/";
+                                                                                                                        if (this.next) {
+                                                                                                                            endpoint = this.next;
+                                                                                                                        }
+                                                                                                                        this.loadingEvents = true;
+                                                                                                                        apiService(endpoint).then(data => {
+                                                                                                                            console.log(data.results);
+                        
+                                                                                                                            this.events.push(...data.results);
+                                                                                                                            this.loadingEvents = false;
+                                                                                                                            if (data.next) {
+                                                                                                                                this.next = data.next;
+                                                                                                                            } else {
+                                                                                                                                this.next = null;
+                                                                                                                            }
+                                                                                                                        });
+                                                                                                                    },
+                                                                                                            */
     },
     getters: {
         /*Evidenza*/
@@ -974,6 +974,19 @@ const moduleL = {
                                 id: 2,
                                 code: "MenuLanguage",
                                 t: [{ id: 0, code: "T1", text: "Lingua" }]
+                            },
+                            {
+                                id: 3,
+                                code: "General",
+                                t: [
+                                    { id: 0, code: "T1", text: "Nome" },
+                                    { id: 1, code: "T2", text: "Cognome" },
+                                    { id: 2, code: "T3", text: "Email" },
+                                    { id: 3, code: "T4", text: "Titolo" },
+                                    { id: 4, code: "T5", text: "Indirizzo" },
+                                    { id: 5, code: "T6", text: "Visualizzato" },
+                                    { id: 6, code: "T7", text: "Note" }
+                                ]
                             }
                         ]
                     },
@@ -1022,8 +1035,18 @@ const moduleL = {
                                                 text:
                                                     "Prendendo come riferimento l'ingresso principale del Comune di Tradate, lato giardini pubblici, l'ingresso per la sede si trova nel lato opposto dello stabile del Comune."
                                             },
-                                            { id: 8, code: "", text: "Una volta entrati, per arrivare al 2º piano ci sono le scale oppure l'ascensore. Arrivati al piano, la sede si trova sulla destra; " },
-                                            { id: 9, code: "", text: "come riferimento visivo sulla sinistra si vede l'ingresso dell'" },
+                                            {
+                                                id: 8,
+                                                code: "",
+                                                text:
+                                                    "Una volta entrati, per arrivare al 2º piano ci sono le scale oppure l'ascensore. Arrivati al piano, la sede si trova sulla destra; "
+                                            },
+                                            {
+                                                id: 9,
+                                                code: "",
+                                                text:
+                                                    "come riferimento visivo sulla sinistra si vede l'ingresso dell'"
+                                            },
                                             { id: 10, code: "", text: "" },
                                             { id: 11, code: "", text: "" },
                                             { id: 12, code: "", text: "" },
@@ -1264,6 +1287,19 @@ const moduleL = {
                                 id: 2,
                                 code: "MenuLanguage",
                                 t: [{ id: 0, code: "T1", text: "Language" }]
+                            },
+                            {
+                                id: 3,
+                                code: "General",
+                                t: [
+                                    { id: 0, code: "T1", text: "First name" },
+                                    { id: 1, code: "T2", text: "Surname" },
+                                    { id: 2, code: "T3", text: "Email" },
+                                    { id: 3, code: "T4", text: "Title" },
+                                    { id: 4, code: "T5", text: "Address" },
+                                    { id: 5, code: "T6", text: "displayed" },
+                                    { id: 6, code: "T7", text: "note" }
+                                ]
                             }
                         ]
                     },
@@ -1393,6 +1429,66 @@ const moduleL = {
                                     },
                                     { id: 3, code: "title4", text: "Find out how to register" },
                                     { id: 4, code: "title5", text: "" }
+                                ],
+                                sc: [
+                                    {
+                                        id: 71,
+                                        nome: "Prassi",
+                                        t: [
+                                            {
+                                                id: 0,
+                                                code: "title1",
+                                                text: "Prassi per il tesseramento / steps"
+                                            },
+                                            { id: 1, code: "title2", text: "" },
+                                            { id: 2, code: "title3", text: "" },
+                                            { id: 3, code: "title4", text: "" }
+                                        ],
+                                        steps: [
+                                            {
+                                                id: 0,
+                                                code: "step1",
+                                                n: "1",
+                                                icon: "mdi-animation",
+                                                picture: "/static/images/Materiale/congedo.jpg",
+                                                title: "Application submission",
+                                                text: `
+                                                              To apply for registration, 2 photographs in "passport size" format are required.
+                                                               the aspirant must complete a simple form.
+                                                               If the application for membership comes from a military man who wishes to become a member
+                                                               effective, a copy of the discharge will also be required.
+                                                            `
+                                            },
+                                            {
+                                                id: 1,
+                                                code: "step2",
+                                                n: "2",
+                                                icon: "mdi-checkbox-marked-circle",
+                                                picture: "/static/images/Materiale/roma.jpg",
+                                                title: "Verification of requirements",
+                                                text: `
+                                                            Following the verification of the requirements,
+                                                             in the first useful section board is voted
+                                                             the question.
+                                                             Once the approval of the council has been obtained, the application is forwarded to the Rome office for final approval.
+                                                            `
+                                            },
+                                            {
+                                                id: 2,
+                                                code: "step3",
+                                                n: "3",
+                                                icon: "mdi-credit-card",
+                                                picture: "/static/images/Materiale/tesserino.jpg",
+                                                title: "Delivery of the card",
+                                                text: `
+                                                            The card is packaged and delivered.
+                                                             The member is obliged to affix the validation sticker every year on the card,
+                                                             possible following the payment of the fee for the annual renewal of your ANC membership.
+                                                             The renewal period begins at the end of December.
+                                                            `
+                                            }
+                                        ]
+                                    }
                                 ]
                             },
                             {
@@ -1462,6 +1558,23 @@ const moduleL = {
                                 id: 2,
                                 code: "MenuLanguage",
                                 t: [{ id: 0, code: "T1", text: "idioma" }]
+                            },
+                            {
+                                id: 3,
+                                code: "General",
+                                t: [
+                                    { id: 0, code: "T1", text: "First name" },
+                                    { id: 1, code: "T2", text: "Surname" },
+                                    {
+                                        id: 2,
+                                        code: "T3",
+                                        text: "dirección de correo electrónico"
+                                    },
+                                    { id: 3, code: "T4", text: "Title" },
+                                    { id: 4, code: "T5", text: "habla a" },
+                                    { id: 5, code: "T6", text: "desplegado" },
+                                    { id: 6, code: "T7", text: "nota" }
+                                ]
                             }
                         ]
                     },
@@ -1595,6 +1708,63 @@ const moduleL = {
                                     },
                                     { id: 3, code: "title4", text: "Descubra cómo registrarse" },
                                     { id: 4, code: "title5", text: "" }
+                                ],
+                                sc: [
+                                    {
+                                        id: 71,
+                                        nome: "Práctica",
+                                        t: [
+                                            {
+                                                id: 0,
+                                                code: "title1",
+                                                text: "Práctica para la inscripción / steps"
+                                            },
+                                            { id: 1, code: "title2", text: "" },
+                                            { id: 2, code: "title3", text: "" },
+                                            { id: 3, code: "title4", text: "" }
+                                        ],
+                                        steps: [
+                                            {
+                                                id: 0,
+                                                code: "step1",
+                                                n: "1",
+                                                icon: "mdi-animation",
+                                                picture: "/static/images/Materiale/congedo.jpg",
+                                                title: "Envío de solicitud",
+                                                text: `
+                                                              Para solicitar el registro, se requieren 2 fotografías en formato "pasaporte".
+                                                              El aspirante debe completar un formulario simple. 
+                                                              Si la solicitud de membresía proviene de un militar que desea convertirse en miembro efectivo, también se requerirá una copia de la descarga.
+                                                            `
+                                            },
+                                            {
+                                                id: 1,
+                                                code: "step2",
+                                                n: "2",
+                                                icon: "mdi-checkbox-marked-circle",
+                                                picture: "/static/images/Materiale/roma.jpg",
+                                                title: "Verificación de requisitos",
+                                                text: `
+                                                            Tras la verificación de los requisitos, en la primera sección útil se vota el tablero la pregunta.
+                                                            Una vez que se ha obtenido la aprobación del consejo, la solicitud se envía a la oficina de Roma para su aprobación final.
+                                                            `
+                                            },
+                                            {
+                                                id: 2,
+                                                code: "step3",
+                                                n: "3",
+                                                icon: "mdi-credit-card",
+                                                picture: "/static/images/Materiale/tesserino.jpg",
+                                                title: "Entrega de la tarjeta",
+                                                text: `
+                                                            La tarjeta está empaquetada y entregada.
+                                                            El miembro está obligado a colocar la etiqueta de validación en la tarjeta todos los años,
+                                                            posible tras el pago de la tasa de renovación anual de su membresía ANC.
+                                                            El período de renovación comienza a finales de diciembre..
+                                                            `
+                                            }
+                                        ]
+                                    }
                                 ]
                             },
                             {
@@ -2106,36 +2276,36 @@ const moduleU = {
                     console.log("!! STORE Err ... ", error);
                     context.commit("SET_LOADING_STATUS", "NOT loading");
                     /*TODO:
-                                                                                                                                                                                                              funzione SOS da studiare...
-                                                                                                                                                                                                              */
+                                                                                                                                                                                                                                                                          funzione SOS da studiare...
+                                                                                                                                                                                                                                                                          */
                 });
         },
 
         setUSER (context) {
             /* test ok */
             /*
-                                                                                                                                          context.commit('SET_LOADING_STATUS_user', 'loading')
-                                                                                                                                          const axios = require('axios');
-                                                                                                                                          let endpoint = "api/profiles/getcurrentuser/";
-                                                                                                                                          axios.get(endpoint).then(response => {
-                                                                                                                                              console.log("Store... axios... setUSER...");
-                                                                                                                                              console.log("RESPONSE: ", response);
-                                                                                                                                              console.log("RESPONSE headers: ", response.headers);
-                                                                                                                                              console.log("RESPONSE status: ", response.status);
-                                                                                                                                              console.log("RESPONSE url: ", response.url);
-                                                                                                                                              context.commit('SET_LOADING_STATUS_user', 'finish loading')
-                                                                                                                                              context.commit('SET_TODOS', response.data.results)
-                                                                                                                                              context.commit('setuser', response.data.us.name)
-                                                                                                                                              context.commit('setuserIsStaff', data.us.staff)
-                                                                                                                                              context.commit('setuserIsSuper', data.us.superuser)
-                                                                                                                                              //context.commit('setuserAvatar', data.us.avatar)
-                                                                                                                                              context.commit('setuserBio', data.us.bio)
-                                                                                                                                              context.commit('SET_LOADING_STATUS_user', 'loading')
-                                                                                                                                          }).catch(error => {
-                                                                                                                                              console.log(error)
-                                                                                                                                              context.commit('SET_LOADING_STATUS_user', 'NOT loading')
-                                                                                                                                          });;
-                                                                                                                                */
+                                                                                                                                                                              context.commit('SET_LOADING_STATUS_user', 'loading')
+                                                                                                                                                                              const axios = require('axios');
+                                                                                                                                                                              let endpoint = "api/profiles/getcurrentuser/";
+                                                                                                                                                                              axios.get(endpoint).then(response => {
+                                                                                                                                                                                  console.log("Store... axios... setUSER...");
+                                                                                                                                                                                  console.log("RESPONSE: ", response);
+                                                                                                                                                                                  console.log("RESPONSE headers: ", response.headers);
+                                                                                                                                                                                  console.log("RESPONSE status: ", response.status);
+                                                                                                                                                                                  console.log("RESPONSE url: ", response.url);
+                                                                                                                                                                                  context.commit('SET_LOADING_STATUS_user', 'finish loading')
+                                                                                                                                                                                  context.commit('SET_TODOS', response.data.results)
+                                                                                                                                                                                  context.commit('setuser', response.data.us.name)
+                                                                                                                                                                                  context.commit('setuserIsStaff', data.us.staff)
+                                                                                                                                                                                  context.commit('setuserIsSuper', data.us.superuser)
+                                                                                                                                                                                  //context.commit('setuserAvatar', data.us.avatar)
+                                                                                                                                                                                  context.commit('setuserBio', data.us.bio)
+                                                                                                                                                                                  context.commit('SET_LOADING_STATUS_user', 'loading')
+                                                                                                                                                                              }).catch(error => {
+                                                                                                                                                                                  console.log(error)
+                                                                                                                                                                                  context.commit('SET_LOADING_STATUS_user', 'NOT loading')
+                                                                                                                                                                              });;
+                                                                                                                                                                    */
         }
     },
     getters: {
@@ -2173,13 +2343,13 @@ export const store = new Vuex.Store({
     state: {
         /* ---- module U ---- */
         /*
-                                                                                    requestUser: "Visitatore",
-                                                                                    requestUserIsStaff: false,
-                                                                                    requestUserIsSuper: false,
-                                                                                    requestUserAvatar: null,
-                                                                                    requestUserBio: null,
-                                                                                    requestToken: "",
-                                                                                    */
+                                                                                                            requestUser: "Visitatore",
+                                                                                                            requestUserIsStaff: false,
+                                                                                                            requestUserIsSuper: false,
+                                                                                                            requestUserAvatar: null,
+                                                                                                            requestUserBio: null,
+                                                                                                            requestToken: "",
+                                                                                                            */
         /* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ css */
         language: "it",
         flavor: "pippo",
@@ -2213,18 +2383,18 @@ export const store = new Vuex.Store({
             state.todos = todos;
         }
         /*
-                                                                                    SET_requestUser (state, us) {
-                                                                                        console.log("!! STORE --> MUTATION name: ", us.name);
-                                                                                        console.log("!! STORE --> MUTATION staff: ", us.staff);
-                                                                                        console.log("!! STORE --> MUTATION super: ", us.superuser);
-                                                                                        console.log("!! STORE --> MUTATION bio: ", us.bio);
-                                                                                        state.requestUser = us.name;
-                                                                                        state.requestUserIsStaff = us.staff;
-                                                                                        state.requestUserIsSuper = us.superuser;
-                                                                                        state.requestUserBio = us.bio;
-
-                                                                                    }
-                                                                                    */
+                                                                                                            SET_requestUser (state, us) {
+                                                                                                                console.log("!! STORE --> MUTATION name: ", us.name);
+                                                                                                                console.log("!! STORE --> MUTATION staff: ", us.staff);
+                                                                                                                console.log("!! STORE --> MUTATION super: ", us.superuser);
+                                                                                                                console.log("!! STORE --> MUTATION bio: ", us.bio);
+                                                                                                                state.requestUser = us.name;
+                                                                                                                state.requestUserIsStaff = us.staff;
+                                                                                                                state.requestUserIsSuper = us.superuser;
+                                                                                                                state.requestUserBio = us.bio;
+                        
+                                                                                                            }
+                                                                                                            */
     },
     actions: {
         ancAction2 (context) {
@@ -2235,10 +2405,10 @@ export const store = new Vuex.Store({
                 .get("api/events")
                 .then(response => {
                     /*  console.log("apiService valutazione getJSON response");
-                                                                                                                                                                                                                  console.log("RESPONSE: ", response);
-                                                                                                                                                                                                                  console.log("RESPONSE headers: ", response.headers);
-                                                                                                                                                                                                                  console.log("RESPONSE status: ", response.status);
-                                                                                                                                                                                                                  console.log("RESPONSE url: ", response.url);    */
+                                                                                                                                                                                                                                                                              console.log("RESPONSE: ", response);
+                                                                                                                                                                                                                                                                              console.log("RESPONSE headers: ", response.headers);
+                                                                                                                                                                                                                                                                              console.log("RESPONSE status: ", response.status);
+                                                                                                                                                                                                                                                                              console.log("RESPONSE url: ", response.url);    */
                     context.commit("SET_LOADING_STATUS", "finish loading");
                     context.commit("SET_TODOS", response.data.results);
                 })
@@ -2248,27 +2418,27 @@ export const store = new Vuex.Store({
                 });
         }
         /*
-                                                                                            getToken () {
-                                                                                                //test OK
-                                                                                                console.log("cookies.get(CSRF_TOKEN)", $cookies.get("csrftoken"));
-                                                                                                this.requestToken = $cookies.get("csrftoken");
-                                                                                            },
-                                                                                    */
+                                                                                                                    getToken () {
+                                                                                                                        //test OK
+                                                                                                                        console.log("cookies.get(CSRF_TOKEN)", $cookies.get("csrftoken"));
+                                                                                                                        this.requestToken = $cookies.get("csrftoken");
+                                                                                                                    },
+                                                                                                            */
 
         /* TEST OK
-                                                                                    getRequestUser (context) {
-                                                                                        let endpoint = "api/profiles/getcurrentuser/";
-                                                                                        apiService(endpoint).then(data => {
-                                                                                            console.log("!! STORE --> chiamata rest... data:", data.us.name);
-                                                                                            context.commit('SET_LOADING_STATUS', 'finish loading')
-                                                                                            context.commit('SET_requestUser', data.us)
-
-                                                                                        }).catch(error => {
-                                                                                            console.log("!! STORE Err ... ", error)
-                                                                                            context.commit('SET_LOADING_STATUS', 'NOT loading')
-                                                                                        });
-                                                                                    },
-                                                                                    */
+                                                                                                            getRequestUser (context) {
+                                                                                                                let endpoint = "api/profiles/getcurrentuser/";
+                                                                                                                apiService(endpoint).then(data => {
+                                                                                                                    console.log("!! STORE --> chiamata rest... data:", data.us.name);
+                                                                                                                    context.commit('SET_LOADING_STATUS', 'finish loading')
+                                                                                                                    context.commit('SET_requestUser', data.us)
+                        
+                                                                                                                }).catch(error => {
+                                                                                                                    console.log("!! STORE Err ... ", error)
+                                                                                                                    context.commit('SET_LOADING_STATUS', 'NOT loading')
+                                                                                                                });
+                                                                                                            },
+                                                                                                            */
     },
     getters: {
         flavor: state => state.flavor,
@@ -2281,10 +2451,10 @@ export const store = new Vuex.Store({
         },
         todoscomputed: state => state.todoscomputed
         /*
-                                                                                    todoById: (state) => (id) => {
-                                                                                        return state.todos.find(todo => todo.id === id)
-                                                                                    },
-                                                                                    */
+                                                                                                            todoById: (state) => (id) => {
+                                                                                                                return state.todos.find(todo => todo.id === id)
+                                                                                                            },
+                                                                                                            */
     }
 });
 

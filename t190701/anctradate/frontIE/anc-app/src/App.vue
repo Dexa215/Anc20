@@ -2,7 +2,7 @@
   <v-app id="anc">
     <ancAppBar class="Mx6"></ancAppBar>
     <menuS class="Mx5"></menuS>
-    <menuSC class="Mx4"></menuSC>
+    <!--menuSC class="Mx4"></menuSC-->
     <ancNews></ancNews>
 
     <v-content class="Mx3">
@@ -19,7 +19,13 @@
       ></router-view>
     </v-content>
 
-    <ancFooter :footercolor="footercolor" :C="C" :CS="CS" :categorie="categorie" @gotoR="gotoR"></ancFooter>
+    <ancFooter
+      :footercolor="footercolor"
+      :C="C"
+      :CS="CS"
+      :categorie="categorie"
+      @gotoR="gotoR"
+    ></ancFooter>
   </v-app>
 </template>
 
@@ -55,11 +61,11 @@ export default {
     ancDrawer /*test 2020 03 18*/,
     menuS /*test 2020 07 14*/,
     menuSC,
-    ancNews,
+    ancNews
   },
 
   props: {
-    source: String,
+    source: String
   },
 
   data: () => ({
@@ -121,92 +127,92 @@ export default {
         n: "1",
         img: "/static/images/Icone/bus.jpg",
         descrizione: "Soci",
-        link: "/chisiamosoci",
+        link: "/chisiamosoci"
       },
       {
         n: "2",
         img: "/static/images/Icone/bengradi.jpg",
         descrizione: "Benemerite",
-        link: "/chisiamobenemerite",
+        link: "/chisiamobenemerite"
       },
       {
         n: "3",
         img: "/static/images/Icone/cap.jpg",
         descrizione: "Simpatizzanti",
-        link: "/chisiamosimpatizzanti",
-      },
+        link: "/chisiamosimpatizzanti"
+      }
     ],
     catsConsiglio: [
       {
         n: "1",
         img: "/static/images/Icone/bus.jpg",
         descrizione: "Soci Effettivi",
-        link: "/chisiamosoci",
+        link: "/chisiamosoci"
       },
       {
         n: "2",
         img: "/static/images/Icone/bus.jpg",
         descrizione: "Consigliere",
-        link: "/chisiamosoci",
+        link: "/chisiamosoci"
       },
       {
         n: "3",
         img: "/static/images/Icone/bus.jpg",
         descrizione: "Segretario",
-        link: "/chisiamosoci",
+        link: "/chisiamosoci"
       },
       {
         n: "4",
         img: "/static/images/Icone/bus.jpg",
         descrizione: "Revisore",
-        link: "/chisiamosoci",
+        link: "/chisiamosoci"
       },
       {
         n: "5",
         img: "/static/images/Icone/bus.jpg",
         descrizione: "Vice-Presidente",
-        link: "/chisiamosoci",
+        link: "/chisiamosoci"
       },
       {
         n: "6",
         img: "/static/images/Icone/bus.jpg",
         descrizione: "Presidente",
-        link: "/chisiamosoci",
+        link: "/chisiamosoci"
       },
       {
         n: "7",
         img: "/static/images/Icone/bus.jpg",
         descrizione: "Presidente-Onorario",
-        link: "/chisiamosoci",
-      },
-    ],
+        link: "/chisiamosoci"
+      }
+    ]
   }),
 
   methods: {
-    getToken() {
+    getToken () {
       //test OK
       console.log("cookies.get(CSRF_TOKEN)", $cookies.get("csrftoken"));
       this.requestToken = $cookies.get("csrftoken");
     },
 
-    getRequestUser() {
+    getRequestUser () {
       this.$store.dispatch("getRequestUser");
     },
 
-    getEvidenza() {
+    getEvidenza () {
       this.$store.dispatch("getEvidenza");
     },
 
-    T(c) {
+    T (c) {
       console.log("App --> RICEVUTO emit su T ", c); //set parameters
     },
 
-    spMC(P) {
+    spMC (P) {
       this.Ccurrent = P.Ccurrent;
       this.CScurrent = P.CScurrent;
     },
 
-    setD() {
+    setD () {
       this.drawerLeft = !this.drawerLeft;
       if (this.drawerLeft == false) {
         this.setDF();
@@ -216,7 +222,7 @@ export default {
     },
 
     /* Drawer SottoCategoria */
-    DSCset(state) {
+    DSCset (state) {
       switch (state) {
         case "true":
           this.drawerSottocategoria = true;
@@ -229,26 +235,26 @@ export default {
           break;
       }
     },
-    setDF() {
+    setDF () {
       this.drawerLeft = false;
       this.drawerRight = false;
       this.iconX = this.iconC;
     },
-    setDT() {
+    setDT () {
       this.drawerLeft = true;
       this.drawerRight = true;
       this.iconX = this.iconO;
     },
 
-    setDLf() {
+    setDLf () {
       this.$store.dispatch("setDLf");
     },
 
-    setColor() {
+    setColor () {
       this.$store.dispatch("setcolor");
     },
 
-    navi() {
+    navi () {
       console.log("navi click...");
     },
 
@@ -257,13 +263,13 @@ export default {
     },
 
     /* TEST OK 2020 05 03 */
-    gotoR(r) {
+    gotoR (r) {
       console.log("APP gotoR", r);
       this.$store.dispatch("gotoR", r);
     },
 
     /* TODO: RIPRISTINARE DOPO IL TEST COME GOTOR */
-    gotoR1(r) {
+    gotoR1 (r) {
       var m = menuT;
       m.goto(r);
       (this.C = m.currentcat[0]),
@@ -276,7 +282,7 @@ export default {
       //router.push(r);
     },
 
-    getCat() {
+    getCat () {
       var set = false;
       var count = 0;
       var m = menuT;
@@ -309,16 +315,16 @@ export default {
       console.log("App getCat FINEWHILE");
     },
 
-    setCat() {
+    setCat () {
       menuT.sem
-        .then((data) => {
+        .then(data => {
           console.log("setCat ...data:", data);
         })
-        .catch((error) => console.log(error));
+        .catch(error => console.log(error));
       //this.menucat    =  getCat();            //TEST OK
       //this.categorie  =  getCat();            //TEST OK - CORRENTE
       //this.categorie = menuT.retrieveMenu();  //TEST NG
-    },
+    }
 
     // --------------------------------------------------------------
   },
@@ -327,9 +333,9 @@ export default {
 
   // Hooks ---------------------------------------------------------
 
-  beforecreated() {},
+  beforecreated () { },
 
-  created() {
+  created () {
     document.title = "ANC Tradate";
     this.setDLf();
     this.getToken();
@@ -337,7 +343,7 @@ export default {
     this.getCat(); // test 2020 02 07
     //this.setColor(); // TODO: SPOSTARE SU !!store - moduleA
     //this.getEvidenza(); // !!store - moduleE --> Events...
-  },
+  }
 
   /* GIA ESCLUSE AL 2/5/2020 */
   //this.setCat();  //modulo menu.js
@@ -485,6 +491,11 @@ Con Sottoclassi in ogni view di definizione risoluzione:
 .SfShDown {
   height: 78px;
 }
+
+.M {
+  position: relative;
+}
+
 .Mx1 {
   /* menuSC */
   position: relative;

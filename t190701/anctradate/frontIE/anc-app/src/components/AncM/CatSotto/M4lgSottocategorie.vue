@@ -6,19 +6,27 @@
     leave-active-class="animated fadeOutRight"
   >
     <v-row
-      v-show="categorie[C/10-1].sottocategorie.length > 1 && drawerSottocategoria"
+      v-show="
+        categorie[C / 10 - 1].sottocategorie.length > 1 && drawerSottocategoria
+      "
       class="sottocategorieList4 mx-auto"
     >
       <!--
       <v-col cols="1" class="sottocategorieListr1"></v-col>
       -->
-      <v-col cols="4" class="sottocategorieListr2 rcLat_BC_Visitor">
+      <v-col
+        cols="4"
+        class="sottocategorieListr2 rcLat_BC_Visitor"
+      >
         <!-- Finestra sottocategorie -->
-        <v-col v-show="drawerSottocategoria" class="m4lgSottocategorie">
+        <v-col
+          v-show="drawerSottocategoria"
+          class="m4lgSottocategorie"
+        >
           <v-row class="text-center">
             <!-- chip -->
             <v-chip
-              v-for="item in categorie[C/10-1].sottocategorie"
+              v-for="item in categorie[C / 10 - 1].sottocategorie"
               :key="item.n"
               @click="gotoR(item.link)"
               link
@@ -27,7 +35,7 @@
               text-color="white"
             >
               <v-avatar left>
-                <v-icon>{{item.icona}}</v-icon>
+                <v-icon>{{ item.icona }}</v-icon>
               </v-avatar>
               {{ item.descrizione }}
             </v-chip>
@@ -36,19 +44,28 @@
 
           <!-- -------------------------------------------------------------------------------------------------------------------------- -->
 
-          <div class="box" @mouseleave="DSCset('false')">
-            <v-list shaped dark class="ancM4l ancM4l_BC">
+          <div
+            class="box"
+            @mouseleave="DSCset('false')"
+          >
+            <v-list
+              shaped
+              dark
+              class="ancM4l ancM4l_BC"
+            >
               <!-- color="rgb(36, 17, 6)" -->
               <v-list-item
                 class="tileM listSC"
-                v-for="item in categorie[C/10-1].sottocategorie"
+                v-for="item in categorie[C / 10 - 1].sottocategorie"
                 :key="item.n"
                 @click="gotoR(item.link)"
                 link
               >
                 <v-list-item-content class="itemSC">
                   <v-btn rounded>
-                    <v-list-item-title>{{ item.descrizione }}</v-list-item-title>
+                    <v-list-item-title>{{
+                      item.descrizione
+                    }}</v-list-item-title>
                   </v-btn>
                 </v-list-item-content>
                 <v-icon
@@ -57,7 +74,7 @@
                   dark
                   @click="gotoR(item.link)"
                   style="height: 30px;"
-                >{{item.icona}}</v-icon>
+                >{{ item.icona }}</v-icon>
               </v-list-item>
             </v-list>
           </div>
@@ -65,7 +82,10 @@
         </v-col>
         <!-- Finestra sottocategorie -->
       </v-col>
-      <v-col cols="5" class="sottocategorieListr3 rcLat_BC_Visitor"></v-col>
+      <v-col
+        cols="5"
+        class="sottocategorieListr3 rcLat_BC_Visitor"
+      ></v-col>
     </v-row>
   </transition>
 </template>
@@ -78,48 +98,48 @@ export default {
   props: {},
 
   computed: {
-    drawerSottocategoria() {
+    drawerSottocategoria () {
       return this.$store.getters.getDrawerSottocategoria;
     },
-    drawerRight() {
+    drawerRight () {
       return this.$store.getters.getDrawerRight;
     },
-    categorie() {
+    categorie () {
       return this.$store.getters.categorie;
     },
-    C() {
+    C () {
       return this.$store.getters.getC;
     },
-    CS() {
+    CS () {
       return this.$store.getters.getCS;
     }
   },
-  data() {
+  data () {
     return {};
   },
   methods: {
     /*2020 06 16*/
-    gotoR(r) {
+    gotoR (r) {
       this.expand = !this.expand;
       this.$store.dispatch("setDF");
       this.$store.dispatch("gotoR", r);
     },
-    SDL() {
+    SDL () {
       /*Switch Drawer Language*/
       this.$store.dispatch("switchDrawerLang");
     },
-    ScL(val) {
+    ScL (val) {
       /*SET Current Language*/
       this.$store.dispatch("setL", val);
     },
-    DSCset(state) {
+    DSCset (state) {
       /*SC Sotto Categoria*/
       this.$store.dispatch("DSCset", state);
     },
-    setD() {
+    setD () {
       this.$store.dispatch("setD");
     },
-    setDF() {
+    setDF () {
       this.$store.dispatch("setDF");
     }
   }
@@ -163,8 +183,3 @@ export default {
   border-radius: 0px 0px 0px 0px;
 }
 </style>
-
-
-
-
-

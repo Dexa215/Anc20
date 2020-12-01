@@ -4,6 +4,7 @@
   <div class="SfBase">
     <!---->
     <v-row class="rT rT_lv rThLG rTbg2 mx-auto" v-show="drawerLeft"></v-row>
+    
     <div class="SfSpazio home4SfShUp AncAppBar_BC">spazio Up</div>
 
     <v-row justify="center" align="center" class="anchomerLG mx-auto">

@@ -15,7 +15,6 @@
 //import { apiService } from "@/common/api.service";
 //import router from "@/router";
 /* Transitions */
-
 /*Res Menu*/
 import tess1xs from "@/views/tesseramento/Tess1xs.vue";
 import tess2sm from "@/views/tesseramento/Tess2sm.vue";
@@ -25,7 +24,6 @@ import tess5xl from "@/views/tesseramento/Tess5xl.vue";
 
 export default {
   name: "tessS",
-
   components: {
     /*menu res*/
     tess1xs,
@@ -34,99 +32,113 @@ export default {
     tess4lg,
     tess5xl
   },
-
   props: {},
-
   data: () => ({}),
-
   computed: {
-    /*  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  */
-    lang() {
+    /*
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+    lang () {
       return this.$store.getters.getCurrentLanguage;
     },
-    languages() {
-      return this.$store.getters.getLanguages;
+    languages () {
+      return;
+      this.$store.getters.getLanguages;
     },
-    languagesShow() {
-      return this.$store.getters.getLanguagesShow;
-    },
-    /*  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  */
-    drawer() {
+    languagesShow () {
+      return;
+      this.$store.getters.getLanguagesShow;
+    } /*
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */,
+    drawer () {
       return this.$store.getters.getDrawer;
     },
-    drawerLeft() {
-      return this.$store.getters.getDrawerLeft;
+    drawerLeft () {
+      return;
+      this.$store.getters.getDrawerLeft;
     },
-    drawerRight() {
-      return this.$store.getters.getDrawerRight;
+    drawerRight () {
+      return;
+      this.$store.getters.getDrawerRight;
     },
-    drawerSottocategoria() {
-      return this.$store.getters.getDrawerSottocategoria;
-    },
-    /*  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  */
-    iconX() {
+    drawerSottocategoria () {
+      return;
+      this.$store.getters.getDrawerSottocategoria;
+    } /*
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */,
+    iconX () {
       return this.$store.getters.getIconX;
     },
-    iconO() {
-      return this.$store.getters.getIconO;
+    iconO () {
+      return;
+      this.$store.getters.getIconO;
     },
-    iconOdx() {
-      return this.$store.getters.getIconOdx;
+    iconOdx () {
+      return;
+      this.$store.getters.getIconOdx;
     },
-    iconC() {
-      return this.$store.getters.getIconC;
+    iconC () {
+      return;
+      this.$store.getters.getIconC;
     },
-    iconCdx() {
-      return this.$store.getters.getIconCdx;
-    },
-    /*  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  */
-    categorie() {
+    iconCdx () {
+      return;
+      this.$store.getters.getIconCdx;
+    } /*
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */,
+    categorie () {
       return this.$store.getters.categorie;
     },
-    C() {
-      return this.$store.getters.getC;
+    C () {
+      return;
+      this.$store.getters.getC;
     },
-    CS() {
+    CS () {
       return this.$store.getters.getCS;
-    },
-    /*  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  */
-    requestUser() {
+    } /*
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */,
+    requestUser () {
       return this.$store.getters.requestUser;
     },
-    requestUserIsStaff() {
+    requestUserIsStaff () {
       return this.$store.getters.requestUserIsStaff;
     },
-    requestUserIsSuper() {
+    requestUserIsSuper () {
       return this.$store.getters.requestUserIsSuper;
     },
-    requestUserAvatar() {
-      return this.$store.getters.requestUserAvatar;
+    requestUserAvatar () {
+      return;
+      this.$store.getters.requestUserAvatar;
     },
-    requestUserBio() {
-      return this.$store.getters.requestUserBio;
+    requestUserBio () {
+      return;
+      this.$store.getters.requestUserBio;
     },
-    requestToken() {
-      return this.$store.getters.requestToken;
-    },
-    /*  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  */
-    rcS() {
+    requestToken () {
+      return;
+      this.$store.getters.requestToken;
+    } /*
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */,
+    rcS () {
       return this.$store.getters.rcS;
     },
-    rcD() {
-      return this.$store.getters.rcD;
+    rcD () {
+      return;
+      this.$store.getters.rcD;
     },
-    rcU() {
+    rcU () {
       return this.$store.getters.rcU;
     },
-    /* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
-    admin() {
+    /*
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+    admin () {
       return this.$store.getters.admin;
     },
-    admincommands() {
-      return this.$store.getters.admincommands;
-    },
-    /* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
-    currentres() {
+    admincommands () {
+      return;
+      this.$store.getters.admincommands;
+    } /*
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */,
+    currentres () {
       switch (this.$vuetify.breakpoint.name) {
         case "xs":
           return "xs";
@@ -141,53 +153,42 @@ export default {
       }
     }
   },
-
   methods: {
     /*2020 06 16*/
-    gotoR(r) {
+
+    gotoR (r) {
       this.expand = !this.expand;
       this.$store.dispatch("setDF");
       this.$store.dispatch("gotoR", r);
     },
-
     /*2020 11 06 sostituito con store/dispatch*/
-    /*
-    vola(link) {
-      location.href = link;
-      this.snackbar = !this.snackbar;
-      this.dialog = !this.dialog;
-    },
-    */
-    // change href with link
-    v(link) {
+
+    /* vola(link) { location.href = link; this.snackbar = !this.snackbar; this.dialog = !this.dialog; }, */
+
+    //change href with link
+
+    v (link) {
       this.$store.dispatch("vola", link);
     },
-
-    SDL() {
-      /*Switch Drawer Language*/
-      this.$store.dispatch("switchDrawerLang");
+    SDL () {
+      /*Switch Drawer Language*/ this.$store.dispatch("switchDrawerLang");
     },
-    ScL(val) {
-      /*SET Current Language*/
-      this.$store.dispatch("setL", val);
+    ScL (val) {
+      /*SET Current Language*/ this.$store.dispatch("setL", val);
     },
-    DSCset(state) {
-      /*SC Sotto Categoria*/
-      this.$store.dispatch("DSCset", state);
+    DSCset (state) {
+      /*SC Sotto Categoria*/ this.$store.dispatch("DSCset", state);
     },
-    setD() {
+    setD () {
       this.$store.dispatch("setD");
     },
-    setDF() {
+    setDF () {
       this.$store.dispatch("setDF");
     }
   },
-
-  updated() {},
-
-  mounted() {},
-
-  created() {}
+  updated () { },
+  mounted () { },
+  created () { }
 };
 </script>
 

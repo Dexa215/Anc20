@@ -3,36 +3,68 @@
 <template>
   <div class="SfBase">
     <!---->
-    <v-row class="rT rT_lv rThLG rTbg2 mx-auto" v-show="drawerLeft" height="1500"></v-row>
+    <v-row
+      class="rT rT_lv rThLG rTbg2 mx-auto"
+      v-show="drawerLeft"
+      height="1500"
+    ></v-row>
     <div class="SfSpazio home4SfShUp AncAppBar_BC">spazio Up</div>
 
-    <v-row justify="center" align="center" class="anchomerLG mx-auto">
+    <v-row
+      justify="center"
+      align="center"
+      class="anchomerLG mx-auto"
+    >
       <!--sx-->
-      <v-col cols="2" class="carcol carcolsx"></v-col>
+      <v-col
+        cols="2"
+        class="carcol carcolsx"
+      ></v-col>
       <!--cx-->
-      <v-col cols="8" class="carcol carcolcx">
+      <v-col
+        cols="8"
+        class="carcol carcolcx"
+      >
         <!---->
         <v-row>
           <v-col cols="12">
-            <v-card class="pa-4 cardround" light>
+            <v-card
+              class="pa-4 cardround"
+              light
+            >
               <!--  * -->
-              <v-row dense class="row ma-2 pa-2" align="center" justify="center">
+              <v-row
+                dense
+                class="row ma-2 pa-2"
+                align="center"
+                justify="center"
+              >
                 <!--h3>Sei un collega in congedo e non ti sei ancora iscritto all'ANC?</h3-->
                 <!--h3 class="font-weight-thin colorBlue"></h3-->
-                <h5 class="colorBlue">{{ lang.t[1].lista[6].sc[0].t[0].text }}</h5>
+                <h5 class="colorBlue">
+                  {{ lang.t[1].lista[6].sc[0].t[0].text }}
+                </h5>
 
-                <v-expansion-panels focusable inset>
+                <v-expansion-panels
+                  focusable
+                  inset
+                >
                   <!--v-expansion-panel v-for="(item, i) in 5" :key="i"-->
-                  <v-expansion-panel v-for="(item, i) in lang.t[1].lista[6].sc[0].steps" :key="i">
-                    <v-expansion-panel-header :expand-icon="item.icon">
-                      {{
+                  <v-expansion-panel
+                    v-for="(item, i) in lang.t[1].lista[6].sc[0].steps"
+                    :key="i"
+                  >
+                    <v-expansion-panel-header :expand-icon="item.icon">{{
                       item.title
-                      }}
-                    </v-expansion-panel-header>
+                    }}</v-expansion-panel-header>
                     <v-expansion-panel-content>
                       <!--v-row>{{ i }}</v-row-->
                       <v-row class="ma-3">{{ item.text }}</v-row>
-                      <v-row class="ma-3" justify="center" align="center">
+                      <v-row
+                        class="ma-3"
+                        justify="center"
+                        align="center"
+                      >
                         <v-img
                           :src="item.picture"
                           max-height="250"
@@ -52,24 +84,42 @@
         <!--cx-->
       </v-col>
       <!--dx-->
-      <v-col cols="2" class="carcol carcoldx"></v-col>
+      <v-col
+        cols="2"
+        class="carcol carcoldx"
+      ></v-col>
     </v-row>
 
-    <v-parallax class="SfParallaxTess" src="/static/images/bg/bg8.jpg" height="500"></v-parallax>
+    <v-parallax
+      class="SfParallaxTess"
+      src="/static/images/bg/bg8.jpg"
+      height="500"
+    ></v-parallax>
     <!-- <span>spiegone:</span>-->
 
-    <v-row justify="center" align="center" class="mx-auto">
+    <v-row
+      justify="center"
+      align="center"
+      class="mx-auto"
+    >
       <span>
         <!--Prassi per il tesseramento-->
-        <h4 class="font-weight-thin colorBlue">{{ lang.t[1].lista[6].t[0].text }}</h4>
+        <h4 class="font-weight-thin colorBlue">
+          {{ lang.t[1].lista[6].t[0].text }}
+        </h4>
       </span>
     </v-row>
 
     <!-- <span>spiegone:</span>-->
     <v-row>
-      <div class="container-fluid text-center" style="background-color:transparent ">
+      <div
+        class="container-fluid text-center"
+        style="background-color:transparent "
+      >
         <span v-if="CS == 0">{{ categorie[C / 10 - 1].descrizione }}</span>
-        <span v-else>{{ categorie[C / 10 - 1].sottocategorie[CS - C - 1].descrizione }}</span>
+        <span v-else>
+          {{ categorie[C / 10 - 1].sottocategorie[CS - C - 1].descrizione }}
+        </span>
       </div>
     </v-row>
 
@@ -85,25 +135,16 @@
 </template>
 
 <script>
-import { apiService } from "@/common/api.service";
-import router from "@/router";
-import AncIntestazioneHome from "@/components/AncIntestazioneHome.vue";
 import AncIntestazioneFine from "@/components/AncIntestazioneFine.vue";
-import AncCard from "@/components/AncCard.vue";
-import m4lgSottocategorie from "@/components/AncM/CatSotto/M4lgSottocategorie.vue";
-import m4lgAdmin from "@/components/AncM/Admin/M4lgAdmin.vue";
-import ancClock from "@/components/AncObjects/AncClock.vue";
 
 export default {
   name: "links4lg",
-
   components: {
-    AncIntestazioneHome,
-    AncIntestazioneFine,
-    AncCard
+    AncIntestazioneFine
   },
+
   props: {},
-  data() {
+  data () {
     return {
       scr: "",
       focusOn: false,
@@ -113,93 +154,94 @@ export default {
     };
   },
   computed: {
-    /*  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  */
-    lang() {
+    /*
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+    lang () {
       return this.$store.getters.getCurrentLanguage;
     },
-    languages() {
+    languages () {
       return this.$store.getters.getLanguages;
     },
-    languagesShow() {
+    languagesShow () {
       return this.$store.getters.getLanguagesShow;
-    },
-    /*  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  */
-    drawer() {
+    } /*
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */,
+    drawer () {
       return this.$store.getters.getDrawer;
     },
-    drawerLeft() {
+    drawerLeft () {
       return this.$store.getters.getDrawerLeft;
     },
-    drawerRight() {
+    drawerRight () {
       return this.$store.getters.getDrawerRight;
     },
-    drawerSottocategoria() {
+    drawerSottocategoria () {
       return this.$store.getters.getDrawerSottocategoria;
-    },
-    /*  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  */
-    iconX() {
+    } /*
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */,
+    iconX () {
       return this.$store.getters.getIconX;
     },
-    iconO() {
+    iconO () {
       return this.$store.getters.getIconO;
     },
-    iconOdx() {
+    iconOdx () {
       return this.$store.getters.getIconOdx;
     },
-    iconC() {
+    iconC () {
       return this.$store.getters.getIconC;
     },
-    iconCdx() {
+    iconCdx () {
       return this.$store.getters.getIconCdx;
-    },
-    /*  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  */
-    categorie() {
+    } /*
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */,
+    categorie () {
       return this.$store.getters.categorie;
     },
-    C() {
+    C () {
       return this.$store.getters.getC;
     },
-    CS() {
+    CS () {
       return this.$store.getters.getCS;
-    },
-    /*  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  */
-    requestUser() {
+    } /*
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */,
+    requestUser () {
       return this.$store.getters.requestUser;
     },
-    requestUserIsStaff() {
+    requestUserIsStaff () {
       return this.$store.getters.requestUserIsStaff;
     },
-    requestUserIsSuper() {
+    requestUserIsSuper () {
       return this.$store.getters.requestUserIsSuper;
     },
-    requestUserAvatar() {
+    requestUserAvatar () {
       return this.$store.getters.requestUserAvatar;
     },
-    requestUserBio() {
+    requestUserBio () {
       return this.$store.getters.requestUserBio;
     },
-    requestToken() {
+    requestToken () {
       return this.$store.getters.requestToken;
-    },
-    /*  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  */
-    rcS() {
+    } /*
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */,
+    rcS () {
       return this.$store.getters.rcS;
     },
-    rcD() {
+    rcD () {
       return this.$store.getters.rcD;
     },
-    rcU() {
+    rcU () {
       return this.$store.getters.rcU;
     },
-    /* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
-    admin() {
+    /*
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */ admin () {
       return this.$store.getters.admin;
     },
-    admincommands() {
+    admincommands () {
       return this.$store.getters.admincommands;
-    },
-    /* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
-    currentres() {
+    } /*
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */,
+    currentres () {
       switch (this.$vuetify.breakpoint.name) {
         case "xs":
           return "xs";
@@ -214,24 +256,28 @@ export default {
       }
     }
   },
+
   methods: {
     /*2020 06 16*/
-    gotoR(r) {
+
+    gotoR (r) {
       this.expand = !this.expand;
       this.$store.dispatch("setDF");
       this.$store.dispatch("gotoR", r);
     },
-    v(link) {
+    v (link) {
       /*this.$emit("vola", link);*/
+
       this.$store.dispatch("vola", link);
     }
   },
-  created() {
+
+  created () {
     // eslint-disable-next-line no-console
-    console.log("tess4lg oncreate --> start");
+    console.log("'tess4lg oncreate-- > start'");
   },
-  updated() {},
-  mounted() {}
+  updated () { },
+  mounted () { }
 };
 </script>
 
