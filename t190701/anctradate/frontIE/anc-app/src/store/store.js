@@ -101,10 +101,10 @@ const moduleA = {
                 context.commit("set_rcU", "rmvcolD rmH   rcLat_BC_Admin"); //menu USER
 
                 /*
-                                                                                                                                                                                                                                        state.nbc = "#212121"; //dark-grey
-                                                                                                                                                                                                                                        state.rcU = "rmvcolD rmH   rcLat_BC_Admin"; //menu USER
-                                                                                                                                                                                                                                        state.admin = true;
-                                                                                                                                                                                                                                        */
+                                                                                                                                                                                                                                                                                                                        state.nbc = "#212121"; //dark-grey
+                                                                                                                                                                                                                                                                                                                        state.rcU = "rmvcolD rmH   rcLat_BC_Admin"; //menu USER
+                                                                                                                                                                                                                                                                                                                        state.admin = true;
+                                                                                                                                                                                                                                                                                                                        */
             } else {
                 if (context.getters.requestUserIsStaff === true) {
                     context.commit("set_rcS", "rcS rcX rcLat rcLat_BC_Staff");
@@ -112,11 +112,11 @@ const moduleA = {
                     context.commit("set_rcU", "rmvcolD rmH   rcLat_BC_Staff"); //menu USER
 
                     /*
-                                                                                                                                                                                                                                                                                                  state.rcS = "rcS rcX rcLat rcLat_BC_Staff";
-                                                                                                                                                                                                                                                                                                  state.rcD = "rcD rcX rcLat rcLat_BC_Staff";
-                                                                                                                                                                                                                                                                                                  state.nbc = "black";
-                                                                                                                                                                                                                                                                                                  state.admin = false;
-                                                                                                                                                                                                                                                                                                  */
+                                                                                                                                                                                                                                                                                                                                                                                                      state.rcS = "rcS rcX rcLat rcLat_BC_Staff";
+                                                                                                                                                                                                                                                                                                                                                                                                      state.rcD = "rcD rcX rcLat rcLat_BC_Staff";
+                                                                                                                                                                                                                                                                                                                                                                                                      state.nbc = "black";
+                                                                                                                                                                                                                                                                                                                                                                                                      state.admin = false;
+                                                                                                                                                                                                                                                                                                                                                                                                      */
                     /*state.rcU = "rmvcolD rmH   rcLat_BC_Staff"; /*menu USER*/
                 } else {
                     context.commit("set_rcS", "rcS rcX rcLat rcLat_BC_Visitor");
@@ -127,11 +127,11 @@ const moduleA = {
                     ); /*
                     state.rcU = "rmvcolD rmH   rcLat_BC_Visitor"; /*menu USER*/ //menu USER
                     /*
-                                                                                                                                                                                                                                                                              state.rcS = "rcS rcX rcLat rcLat_BC_Visitor";
-                                                                                                                                                                                                                                                                              state.rcD = "rcD rcX rcLat rcLat_BC_Visitor";
-                                                                                                                                                                                                                                                                              state.nbc = "#212121"; //dark-grey
-                                                                                                                                                                                                                                                                              state.admin = false;
-                                                                                                                                                                                                                                                                              */
+                                                                                                                                                                                                                                                                                                                                                                                  state.rcS = "rcS rcX rcLat rcLat_BC_Visitor";
+                                                                                                                                                                                                                                                                                                                                                                                  state.rcD = "rcD rcX rcLat rcLat_BC_Visitor";
+                                                                                                                                                                                                                                                                                                                                                                                  state.nbc = "#212121"; //dark-grey
+                                                                                                                                                                                                                                                                                                                                                                                  state.admin = false;
+                                                                                                                                                                                                                                                                                                                                                                                  */
                 }
             }
         }
@@ -487,6 +487,11 @@ const moduleC = {
                         descrizione: "Associazione Nazionale Carabinieri",
                         link: "https://assocarabinieri.it/",
                         icon: "/static/categories/links/anc.png"
+                    },
+                    {
+                        descrizione: "Comune di Tradate",
+                        link: "http://www.comune.tradate.va.it/",
+                        icon: "/static/categories/links/comuneditradate.png"
                     }
                 ],
 
@@ -517,9 +522,9 @@ const moduleD = {
 
         iconX: "mdi-menu",
         /* v 1.0
-                                                                                                            iconO: "mdi-backburger",
-                                                                                                            iconC: "mdi-menu",
-                                                                                                            */
+                                                                                                                                                    iconO: "mdi-backburger",
+                                                                                                                                                    iconC: "mdi-menu",
+                                                                                                                                                    */
         /* v 2.0 */
         iconC: "mdi-dots-vertical",
         iconO: "mdi-menu-up",
@@ -731,33 +736,33 @@ const moduleE = {
 
     actions: {
         /*
-                                                                                                                    EeventsPushData (context, data) {
-                                                                                                                        //accoda dati eventi...
-                                                                                                                        context.state.EloadingPushData = true;
-                                                                                                                        context.state.Eevents.push(...data.results);
-                                                                                                                        context.state.EloadingPushData = false;
-                        
-                                                                                                                        if (data.next) {
-                                                                                                                            context.state.Enext = data.next;
-                                                                                                                        } else {
-                                                                                                                            context.state.Enext = null;
-                                                                                                                        }
-                                                                                                                    },
-                        
-                                                                                                                    EeventsCreaEvidenza (context) {
-                                                                                                                        //ciclo per creare titolo in evidenza...
-                        
-                                                                                                                        if (context.state.Eevents.length == 0) {
-                                                                                                                            context.state.Titolone = "";
-                                                                                                                        } else {
-                                                                                                                            context.state.Titolone = "IN EVIDENZA: ";
-                                                                                                                            for (x of context.state.Eevents) {
-                                                                                                                                console.log(x.title);
-                                                                                                                                context.state.Titolone = context.state.Titolone + " - " + x.title + "   ";
-                                                                                                                            }
-                                                                                                                        }
-                                                                                                                    },
-                                                                                                            */
+                                                                                                                                                            EeventsPushData (context, data) {
+                                                                                                                                                                //accoda dati eventi...
+                                                                                                                                                                context.state.EloadingPushData = true;
+                                                                                                                                                                context.state.Eevents.push(...data.results);
+                                                                                                                                                                context.state.EloadingPushData = false;
+                                                                
+                                                                                                                                                                if (data.next) {
+                                                                                                                                                                    context.state.Enext = data.next;
+                                                                                                                                                                } else {
+                                                                                                                                                                    context.state.Enext = null;
+                                                                                                                                                                }
+                                                                                                                                                            },
+                                                                
+                                                                                                                                                            EeventsCreaEvidenza (context) {
+                                                                                                                                                                //ciclo per creare titolo in evidenza...
+                                                                
+                                                                                                                                                                if (context.state.Eevents.length == 0) {
+                                                                                                                                                                    context.state.Titolone = "";
+                                                                                                                                                                } else {
+                                                                                                                                                                    context.state.Titolone = "IN EVIDENZA: ";
+                                                                                                                                                                    for (x of context.state.Eevents) {
+                                                                                                                                                                        console.log(x.title);
+                                                                                                                                                                        context.state.Titolone = context.state.Titolone + " - " + x.title + "   ";
+                                                                                                                                                                    }
+                                                                                                                                                                }
+                                                                                                                                                            },
+                                                                                                                                                    */
 
         /*-TODO: IN TEST 2020 07 24-*/
         getEvidenza (context) {
@@ -847,25 +852,25 @@ const moduleE = {
         }
 
         /*
-                                                                                                                    getEvents () {
-                                                                                                                        let endpoint = "api/events/";
-                                                                                                                        if (this.next) {
-                                                                                                                            endpoint = this.next;
-                                                                                                                        }
-                                                                                                                        this.loadingEvents = true;
-                                                                                                                        apiService(endpoint).then(data => {
-                                                                                                                            console.log(data.results);
-                        
-                                                                                                                            this.events.push(...data.results);
-                                                                                                                            this.loadingEvents = false;
-                                                                                                                            if (data.next) {
-                                                                                                                                this.next = data.next;
-                                                                                                                            } else {
-                                                                                                                                this.next = null;
-                                                                                                                            }
-                                                                                                                        });
-                                                                                                                    },
-                                                                                                            */
+                                                                                                                                                            getEvents () {
+                                                                                                                                                                let endpoint = "api/events/";
+                                                                                                                                                                if (this.next) {
+                                                                                                                                                                    endpoint = this.next;
+                                                                                                                                                                }
+                                                                                                                                                                this.loadingEvents = true;
+                                                                                                                                                                apiService(endpoint).then(data => {
+                                                                                                                                                                    console.log(data.results);
+                                                                
+                                                                                                                                                                    this.events.push(...data.results);
+                                                                                                                                                                    this.loadingEvents = false;
+                                                                                                                                                                    if (data.next) {
+                                                                                                                                                                        this.next = data.next;
+                                                                                                                                                                    } else {
+                                                                                                                                                                        this.next = null;
+                                                                                                                                                                    }
+                                                                                                                                                                });
+                                                                                                                                                            },
+                                                                                                                                                    */
     },
     getters: {
         /*Evidenza*/
@@ -1027,7 +1032,7 @@ const moduleL = {
                                                 id: 6,
                                                 code: "",
                                                 text:
-                                                    "Per accedere in sede l'ingresso si trova al civico n.1 di via De Simoni, una delle quattro vie che circoscrivono il"
+                                                    "Per accedere in sede l'ingresso si trova al civico n.1 di via De Simoni, "
                                             },
                                             {
                                                 id: 7,
@@ -1039,7 +1044,7 @@ const moduleL = {
                                                 id: 8,
                                                 code: "",
                                                 text:
-                                                    "Una volta entrati, per arrivare al 2º piano ci sono le scale oppure l'ascensore. Arrivati al piano, la sede si trova sulla destra; "
+                                                    "Una volta entrati, per arrivare al 2º piano ci sono le scale oppure l'ascensore."
                                             },
                                             {
                                                 id: 9,
@@ -1047,12 +1052,40 @@ const moduleL = {
                                                 text:
                                                     "come riferimento visivo sulla sinistra si vede l'ingresso dell'"
                                             },
-                                            { id: 10, code: "", text: "" },
-                                            { id: 11, code: "", text: "" },
-                                            { id: 12, code: "", text: "" },
-                                            { id: 13, code: "", text: "" },
-                                            { id: 14, code: "", text: "" },
-                                            { id: 15, code: "", text: "" }
+                                            {
+                                                id: 10,
+                                                code: "",
+                                                text: "Comune di Tradate"
+                                            },
+                                            {
+                                                id: 11,
+                                                code: "",
+                                                text: "http://www.comune.tradate.va.it/"
+                                            },
+                                            { id: 12, code: "", text: "INPS" },
+                                            {
+                                                id: 13,
+                                                code: "",
+                                                text:
+                                                    "Gli orari di apertura sono garantiti dalla presenza di un Consigliere."
+                                            },
+                                            {
+                                                id: 14,
+                                                code: "",
+                                                text:
+                                                    "Per ulteriori informazioni sugli orari visitate la pagina dedicata."
+                                            },
+                                            {
+                                                id: 15,
+                                                code: "",
+                                                text:
+                                                    "Arrivati al piano, la sede si trova sulla destra;"
+                                            },
+                                            {
+                                                id: 16,
+                                                code: "",
+                                                text: "una delle quattro vie che circoscrivono il"
+                                            }
                                         ]
                                     },
                                     {
@@ -2276,36 +2309,36 @@ const moduleU = {
                     console.log("!! STORE Err ... ", error);
                     context.commit("SET_LOADING_STATUS", "NOT loading");
                     /*TODO:
-                                                                                                                                                                                                                                                                          funzione SOS da studiare...
-                                                                                                                                                                                                                                                                          */
+                                                                                                                                                                                                                                                                                                                                                                              funzione SOS da studiare...
+                                                                                                                                                                                                                                                                                                                                                                              */
                 });
         },
 
         setUSER (context) {
             /* test ok */
             /*
-                                                                                                                                                                              context.commit('SET_LOADING_STATUS_user', 'loading')
-                                                                                                                                                                              const axios = require('axios');
-                                                                                                                                                                              let endpoint = "api/profiles/getcurrentuser/";
-                                                                                                                                                                              axios.get(endpoint).then(response => {
-                                                                                                                                                                                  console.log("Store... axios... setUSER...");
-                                                                                                                                                                                  console.log("RESPONSE: ", response);
-                                                                                                                                                                                  console.log("RESPONSE headers: ", response.headers);
-                                                                                                                                                                                  console.log("RESPONSE status: ", response.status);
-                                                                                                                                                                                  console.log("RESPONSE url: ", response.url);
-                                                                                                                                                                                  context.commit('SET_LOADING_STATUS_user', 'finish loading')
-                                                                                                                                                                                  context.commit('SET_TODOS', response.data.results)
-                                                                                                                                                                                  context.commit('setuser', response.data.us.name)
-                                                                                                                                                                                  context.commit('setuserIsStaff', data.us.staff)
-                                                                                                                                                                                  context.commit('setuserIsSuper', data.us.superuser)
-                                                                                                                                                                                  //context.commit('setuserAvatar', data.us.avatar)
-                                                                                                                                                                                  context.commit('setuserBio', data.us.bio)
-                                                                                                                                                                                  context.commit('SET_LOADING_STATUS_user', 'loading')
-                                                                                                                                                                              }).catch(error => {
-                                                                                                                                                                                  console.log(error)
-                                                                                                                                                                                  context.commit('SET_LOADING_STATUS_user', 'NOT loading')
-                                                                                                                                                                              });;
-                                                                                                                                                                    */
+                                                                                                                                                                                                                                          context.commit('SET_LOADING_STATUS_user', 'loading')
+                                                                                                                                                                                                                                          const axios = require('axios');
+                                                                                                                                                                                                                                          let endpoint = "api/profiles/getcurrentuser/";
+                                                                                                                                                                                                                                          axios.get(endpoint).then(response => {
+                                                                                                                                                                                                                                              console.log("Store... axios... setUSER...");
+                                                                                                                                                                                                                                              console.log("RESPONSE: ", response);
+                                                                                                                                                                                                                                              console.log("RESPONSE headers: ", response.headers);
+                                                                                                                                                                                                                                              console.log("RESPONSE status: ", response.status);
+                                                                                                                                                                                                                                              console.log("RESPONSE url: ", response.url);
+                                                                                                                                                                                                                                              context.commit('SET_LOADING_STATUS_user', 'finish loading')
+                                                                                                                                                                                                                                              context.commit('SET_TODOS', response.data.results)
+                                                                                                                                                                                                                                              context.commit('setuser', response.data.us.name)
+                                                                                                                                                                                                                                              context.commit('setuserIsStaff', data.us.staff)
+                                                                                                                                                                                                                                              context.commit('setuserIsSuper', data.us.superuser)
+                                                                                                                                                                                                                                              //context.commit('setuserAvatar', data.us.avatar)
+                                                                                                                                                                                                                                              context.commit('setuserBio', data.us.bio)
+                                                                                                                                                                                                                                              context.commit('SET_LOADING_STATUS_user', 'loading')
+                                                                                                                                                                                                                                          }).catch(error => {
+                                                                                                                                                                                                                                              console.log(error)
+                                                                                                                                                                                                                                              context.commit('SET_LOADING_STATUS_user', 'NOT loading')
+                                                                                                                                                                                                                                          });;
+                                                                                                                                                                                                                                */
         }
     },
     getters: {
@@ -2343,13 +2376,13 @@ export const store = new Vuex.Store({
     state: {
         /* ---- module U ---- */
         /*
-                                                                                                            requestUser: "Visitatore",
-                                                                                                            requestUserIsStaff: false,
-                                                                                                            requestUserIsSuper: false,
-                                                                                                            requestUserAvatar: null,
-                                                                                                            requestUserBio: null,
-                                                                                                            requestToken: "",
-                                                                                                            */
+                                                                                                                                                    requestUser: "Visitatore",
+                                                                                                                                                    requestUserIsStaff: false,
+                                                                                                                                                    requestUserIsSuper: false,
+                                                                                                                                                    requestUserAvatar: null,
+                                                                                                                                                    requestUserBio: null,
+                                                                                                                                                    requestToken: "",
+                                                                                                                                                    */
         /* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ css */
         language: "it",
         flavor: "pippo",
@@ -2383,18 +2416,18 @@ export const store = new Vuex.Store({
             state.todos = todos;
         }
         /*
-                                                                                                            SET_requestUser (state, us) {
-                                                                                                                console.log("!! STORE --> MUTATION name: ", us.name);
-                                                                                                                console.log("!! STORE --> MUTATION staff: ", us.staff);
-                                                                                                                console.log("!! STORE --> MUTATION super: ", us.superuser);
-                                                                                                                console.log("!! STORE --> MUTATION bio: ", us.bio);
-                                                                                                                state.requestUser = us.name;
-                                                                                                                state.requestUserIsStaff = us.staff;
-                                                                                                                state.requestUserIsSuper = us.superuser;
-                                                                                                                state.requestUserBio = us.bio;
-                        
-                                                                                                            }
-                                                                                                            */
+                                                                                                                                                    SET_requestUser (state, us) {
+                                                                                                                                                        console.log("!! STORE --> MUTATION name: ", us.name);
+                                                                                                                                                        console.log("!! STORE --> MUTATION staff: ", us.staff);
+                                                                                                                                                        console.log("!! STORE --> MUTATION super: ", us.superuser);
+                                                                                                                                                        console.log("!! STORE --> MUTATION bio: ", us.bio);
+                                                                                                                                                        state.requestUser = us.name;
+                                                                                                                                                        state.requestUserIsStaff = us.staff;
+                                                                                                                                                        state.requestUserIsSuper = us.superuser;
+                                                                                                                                                        state.requestUserBio = us.bio;
+                                                                
+                                                                                                                                                    }
+                                                                                                                                                    */
     },
     actions: {
         ancAction2 (context) {
@@ -2405,10 +2438,10 @@ export const store = new Vuex.Store({
                 .get("api/events")
                 .then(response => {
                     /*  console.log("apiService valutazione getJSON response");
-                                                                                                                                                                                                                                                                              console.log("RESPONSE: ", response);
-                                                                                                                                                                                                                                                                              console.log("RESPONSE headers: ", response.headers);
-                                                                                                                                                                                                                                                                              console.log("RESPONSE status: ", response.status);
-                                                                                                                                                                                                                                                                              console.log("RESPONSE url: ", response.url);    */
+                                                                                                                                                                                                                                                                                                                                                                                  console.log("RESPONSE: ", response);
+                                                                                                                                                                                                                                                                                                                                                                                  console.log("RESPONSE headers: ", response.headers);
+                                                                                                                                                                                                                                                                                                                                                                                  console.log("RESPONSE status: ", response.status);
+                                                                                                                                                                                                                                                                                                                                                                                  console.log("RESPONSE url: ", response.url);    */
                     context.commit("SET_LOADING_STATUS", "finish loading");
                     context.commit("SET_TODOS", response.data.results);
                 })
@@ -2418,27 +2451,27 @@ export const store = new Vuex.Store({
                 });
         }
         /*
-                                                                                                                    getToken () {
-                                                                                                                        //test OK
-                                                                                                                        console.log("cookies.get(CSRF_TOKEN)", $cookies.get("csrftoken"));
-                                                                                                                        this.requestToken = $cookies.get("csrftoken");
-                                                                                                                    },
-                                                                                                            */
+                                                                                                                                                            getToken () {
+                                                                                                                                                                //test OK
+                                                                                                                                                                console.log("cookies.get(CSRF_TOKEN)", $cookies.get("csrftoken"));
+                                                                                                                                                                this.requestToken = $cookies.get("csrftoken");
+                                                                                                                                                            },
+                                                                                                                                                    */
 
         /* TEST OK
-                                                                                                            getRequestUser (context) {
-                                                                                                                let endpoint = "api/profiles/getcurrentuser/";
-                                                                                                                apiService(endpoint).then(data => {
-                                                                                                                    console.log("!! STORE --> chiamata rest... data:", data.us.name);
-                                                                                                                    context.commit('SET_LOADING_STATUS', 'finish loading')
-                                                                                                                    context.commit('SET_requestUser', data.us)
-                        
-                                                                                                                }).catch(error => {
-                                                                                                                    console.log("!! STORE Err ... ", error)
-                                                                                                                    context.commit('SET_LOADING_STATUS', 'NOT loading')
-                                                                                                                });
-                                                                                                            },
-                                                                                                            */
+                                                                                                                                                    getRequestUser (context) {
+                                                                                                                                                        let endpoint = "api/profiles/getcurrentuser/";
+                                                                                                                                                        apiService(endpoint).then(data => {
+                                                                                                                                                            console.log("!! STORE --> chiamata rest... data:", data.us.name);
+                                                                                                                                                            context.commit('SET_LOADING_STATUS', 'finish loading')
+                                                                                                                                                            context.commit('SET_requestUser', data.us)
+                                                                
+                                                                                                                                                        }).catch(error => {
+                                                                                                                                                            console.log("!! STORE Err ... ", error)
+                                                                                                                                                            context.commit('SET_LOADING_STATUS', 'NOT loading')
+                                                                                                                                                        });
+                                                                                                                                                    },
+                                                                                                                                                    */
     },
     getters: {
         flavor: state => state.flavor,
@@ -2451,10 +2484,10 @@ export const store = new Vuex.Store({
         },
         todoscomputed: state => state.todoscomputed
         /*
-                                                                                                            todoById: (state) => (id) => {
-                                                                                                                return state.todos.find(todo => todo.id === id)
-                                                                                                            },
-                                                                                                            */
+                                                                                                                                                    todoById: (state) => (id) => {
+                                                                                                                                                        return state.todos.find(todo => todo.id === id)
+                                                                                                                                                    },
+                                                                                                                                                    */
     }
 });
 

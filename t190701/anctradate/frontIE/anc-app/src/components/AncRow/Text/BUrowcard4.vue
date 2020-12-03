@@ -6,31 +6,39 @@
       dense
       class="row ma-2 pa-2"
     >
-      <!-- 2020 12 01 test OK -->
       <!-- row 00 -->
       <v-col cols="12">
         <v-card class="pa-4  cTop Anc_BC">
-          <!--    TEST OK 2020 12 01 
-                  <h2>  {{ c_langt }} tipo {{ lang.t[c_langt].tipo }}</h2>
-                  <h2>  {{ c_lista }} cat {{ lang.t[c_langt].lista[c_lista].nomecategoria }}</h2>
-                  {{ c_sc }}    -->
-          <!--    TEST NG 2020 12 01 
-          <h2 v-if="c_sc != 0">{{ lang.t[c_langt].lista[c_lista].sc[c_sc].t[tn[0].id].text }}</h2>
-          <h2 v-else>{{ lang.t[c_langt].lista[c_lista].t[tn[0].id].text }}</h2>
-          -->
+          <h2 v-if="c_sc == 0">
+            sc==0
+            {{ lang.t[c_langt].lista[c_lista].t[tn[0].id].text }}
+          </h2>
+          <h2 v-else>
+            sc<>0
+              {{ lang.t[c_langt].lista[c_lista].sc[c_sc].t[tn[0].id].text }}
+          </h2>
 
-          <h2>{{ t1 }}</h2>
+          <!-- 2020 12 01 test OK -->
+          <!--
+          <h2>langCode{{ langCode }}</h2>
+          <h2>langt {{ parseInt(langCode / 100) }}</h2>
+          <h2>lista {{ parseInt((langCode % 100) / 10) }}</h2>
+          <h2>sc {{ parseInt(langCode % 10) }}</h2>
+          <h2>c_langt {{ c_langt }}</h2>
+          <h2>c_lista {{ c_lista }}</h2>
+          <h2>c_sc {{ c_sc }}</h2>
+          -->
+          <!-- 2020 12 01 test OK -->
         </v-card>
         <v-card class="pa-4 cBottom Anc_BC">
-          <h2>{{ t2 }}</h2>
-          <h2>{{ t3 }}</h2>
-          <h2>{{ t4 }}</h2>
-          <!--
+          <h2>
+            <h2>
               {{ lang.t[c_langt].lista[c_lista].sc[c_sc].t[tn[1].id].text }}
               -
               {{ lang.t[c_langt].lista[c_lista].sc[c_sc].t[tn[2].id].text }}
               {{ lang.t[c_langt].lista[c_lista].sc[c_sc].t[tn[3].id].text }}
-            -->
+            </h2>
+          </h2>
         </v-card>
       </v-col>
     </v-row>
@@ -56,12 +64,12 @@ export default {
     /*  decodifica codice identificativo stringa di testo                   */
     /*  esempio:                                                            */
 
-    /*  langCode: 110                                                      */
-    /*            1    : t           Tipo:1      = views                   */
-    /*             1   : c_lista     id:1        = sede                    */
-    /*              0  : c_sc        sottocat/t  = t     [testi categoria] */
-    /*                                                                      */
-    /*                                                                      */
+    /*  langCode: 110                                                       */
+    /*            1   : c_lang t    Tipo:1      = views                     */
+    /*             1  : c_lista     id:1        = sede                      */
+    /*              0 : c_sc        sottocat/t  = t     [testi categoria]   */
+    /**/
+    /**/
     /*                                                                      */
     /*  +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++         */
     c_langt () {
@@ -73,40 +81,6 @@ export default {
     c_sc () {
       return parseInt(this.langCode % 10);
     },
-
-    t1 () {
-      var lang = this.$store.getters.getCurrentLanguage;
-      var t = this.c_langt;
-      var l = this.c_lista - 1;
-      var sc = this.c_sc - 1;
-      if (this.c_sc == 0) return lang.t[t].lista[l].t[this.tn[0].id].text;
-      else return lang.t[t].lista[l].sc[sc].t[this.tn[0].id].text;
-    },
-    t2 () {
-      var lang = this.$store.getters.getCurrentLanguage;
-      var t = this.c_langt;
-      var l = this.c_lista - 1;
-      var sc = this.c_sc - 1;
-      if (this.c_sc == 0) return lang.t[t].lista[l].t[this.tn[1].id].text;
-      else return lang.t[t].lista[l].sc[sc].t[this.tn[1].id].text;
-    },
-    t3 () {
-      var lang = this.$store.getters.getCurrentLanguage;
-      var t = this.c_langt;
-      var l = this.c_lista - 1;
-      var sc = this.c_sc - 1;
-      if (this.c_sc == 0) return lang.t[t].lista[l].t[this.tn[2].id].text;
-      else return lang.t[t].lista[l].sc[sc].t[this.tn[2].id].text;
-    },
-    t4 () {
-      var lang = this.$store.getters.getCurrentLanguage;
-      var t = this.c_langt;
-      var l = this.c_lista - 1;
-      var sc = this.c_sc - 1;
-      if (this.c_sc == 0) return lang.t[t].lista[l].t[this.tn[3].id].text;
-      else return lang.t[t].lista[l].sc[sc].t[this.tn[3].id].text;
-    },
-
     /*  +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 
     lang () {

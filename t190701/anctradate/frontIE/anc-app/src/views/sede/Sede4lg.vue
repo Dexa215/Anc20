@@ -23,7 +23,7 @@
       <v-col
         cols="2"
         class="carcol carcolsx"
-      >sx</v-col>
+      ></v-col>
       <!--sx-->
       <!--cx--  ----------------------------------------  cx-->
       <v-col
@@ -31,21 +31,89 @@
         class="sedecolcx"
       >
         <v-card class="sedecardcx Anc_BC_BlueDark">
-          <rowcard4
-            :langCode="110"
-            :t1="0"
-            :t2="1"
-            :t3="2"
-            :t4="3"
-          ></rowcard4>
+          <!-- -->
 
-          cx
+          <!--  indirizzo   -->
+          <rc3
+            :langCode="121"
+            :tn="[{ id: '0' }, { id: '1' }, { id: '2' }, { id: '3' }]"
+          ></rc3>
+
+          <!-- map satellite -->
+          <rc1Img
+            :imgtype="'iframe'"
+            :src="mappa1"
+            :height="550"
+          ></rc1Img>
+
+          <rc2pTOP
+            :langCode="121"
+            :tn="[{ id: '6' }, { id: '16' }]"
+          ></rc2pTOP>
+
+          <!--link comune-->
+          <rc1pBOTTOMlink
+            :langCode="121"
+            :tn="[{ id: '10' }]"
+            :link="link2"
+          ></rc1pBOTTOMlink>
+          <!--link comune-->
+
+          <!--  comune picture   -->
+          <rc1Img
+            :imgtype="'img'"
+            :src="img1"
+            :height="550"
+          ></rc1Img>
+
+          <rc1p
+            :langCode="121"
+            :tn="[{ id: '7' }]"
+          ></rc1p>
+
+          <!-- map enter -->
+          <rc1Img
+            :imgtype="'iframe'"
+            :src="mappa2"
+            :height="550"
+          ></rc1Img>
+          <!--<rc1p
+            :langCode="121"
+            :tn="[{ id: '8' }]"
+          ></rc1p>-->
+
+          <rc3pTOP
+            :langCode="121"
+            :tn="[{ id: '8' }, { id: '15' }, { id: '9' }]"
+          ></rc3pTOP>
+          <rc1pBOTTOMlink
+            :langCode="121"
+            :tn="[{ id: '12' }]"
+            :link="link1"
+          ></rc1pBOTTOMlink>
+
+          <!-- consigliere picture -->
+          <rc1Img
+            :imgtype="'imgSmall'"
+            :src="img3"
+            :height="250"
+            :width="250"
+          ></rc1Img>
+          <!-- consigliere -->
+          <rc1p
+            :langCode="121"
+            :tn="[{ id: '13' }]"
+          ></rc1p>
+
+          <!-- row 00 -->
+          <!-- Riassunto Sede -->
+
+          <!--
+            cx
           <v-row
             dense
             class="row ma-2 pa-2"
           >
-            <!-- row 00 -->
-            <!-- Riassunto Sede -->
             <v-col cols="12">
               <v-card class="pa-4  Anc_BC">
                 <h2>
@@ -61,15 +129,30 @@
               </v-card>
             </v-col>
           </v-row>
+          -->
           <!-- row 00 -->
         </v-card>
+
+        <!-- 666666666666666666666666666666666666666666666666666666 -->
+        <v-row>
+          <!--<div class="SfImmagine">sfondo Immagine</div>-->
+          <div class="container-fluid text-center">
+            <AncIntestazioneFine></AncIntestazioneFine>
+          </div>
+          <!-- AncIntestazioneFine :C="C" :CS="CS" :categorie="categorie" @gotoR="gotoR"></AncIntestazioneFine-->
+        </v-row>
+
+        <div class="SfSpazio home4SfShDown AncAppBar_BC">spazio Down</div>
+        <!--/* *** */-->
+
+        <!-- 666666666666666666666666666666666666666666666666666666 -->
       </v-col>
       <!--cx--  ----------------------------------------  cx-->
       <!--dx-->
       <v-col
         cols="2"
         class="carcol carcoldx"
-      >dx</v-col>
+      ></v-col>
       <!--dx-->
     </v-row>
 
@@ -80,14 +163,38 @@
 <script>
 import AncIntestazioneFine from "@/components/AncIntestazioneFine.vue";
 import ancClock from "@/components/AncObjects/AncClock.vue";
-import rowcard4 from "@/components/AncRow/Text/rowcard4.vue";
+import rc1Img from "@/components/AncRow/Text/rc1Img.vue";
+import rc1 from "@/components/AncRow/Text/rc1.vue";
+/**/
+import rc1p from "@/components/AncRow/Text/rc1p.vue";
+import rc1pTOP from "@/components/AncRow/Text/rc1pTOP.vue";
+import rc1pBOTTOM from "@/components/AncRow/Text/rc1pBOTTOM.vue";
+import rc1pBOTTOMlink from "@/components/AncRow/Text/rc1pBOTTOMlink.vue";
+/**/
+import rc2 from "@/components/AncRow/Text/rc2.vue";
+import rc2pTOP from "@/components/AncRow/Text/rc2pTOP.vue";
+
+import rc3 from "@/components/AncRow/Text/rc3.vue";
+import rc3pTOP from "@/components/AncRow/Text/rc3pTOP.vue";
+
+import rc4 from "@/components/AncRow/Text/rc4.vue";
 
 export default {
   name: "sedeubi4lg",
   components: {
     AncIntestazioneFine,
     ancClock,
-    rowcard4
+    rc1Img,
+    rc1,
+    rc1p,
+    rc1pTOP,
+    rc1pBOTTOM,
+    rc1pBOTTOMlink,
+    rc2,
+    rc2pTOP,
+    rc3,
+    rc3pTOP,
+    rc4
   },
 
   props: {},
@@ -99,12 +206,23 @@ export default {
       focusOn: false,
       snackbar: true,
       text: `Hello, I'm a snackbar`,
-      dilog: false
+      dilog: false,
+      tn1: [{ id: "0" }, { id: "1" }, { id: "2" }, { id: "3" }],
+      mappa1:
+        "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1663.15881154439!2d8.905701070027497!3d45.71332899343703!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x478685f126a1ea85%3A0x7c16b78535fb871a!2sVia%20Carlo%20de%20Simoni%2C%201%2C%2021049%20Tradate%20VA!5e0!3m2!1sit!2sit!4v1576285621978!5m2!1sit!2sit",
+      mappa2:
+        "https://www.google.com/maps/embed?pb=!4v1576284624812!6m8!1m7!1sXkQU4fJD85BZziGDdsNGNw!2m2!1d45.71363123189879!2d8.906257580735!3f290.300251927189!4f2.186880441983959!5f1.1924812503605782",
+      img1: "/static/images/Foto/tradatecomune.jpg",
+      img2: "/static/images/Foto/xxx.jpg",
+      img3: "/static/images/Foto/sopracolletto.jpg",
+
+      link1: "https://www.inps.it/nuovoportaleinps/default.aspx",
+      link2: "http://www.comune.tradate.va.it/"
     };
   },
   computed: {
     /*
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
     lang () {
       return this.$store.getters.getCurrentLanguage;
     },
@@ -324,5 +442,20 @@ export default {
 .Anc_BC_BlueDark {
   background-color: rgb(1, 4, 20);
   color: blanchedalmond;
+}
+.Anc_BC_Transparent {
+  background-color: transparent;
+  color: blanchedalmond;
+}
+
+/*Cards...*/
+.c {
+  border-radius: 45px; /*TL-TR-BR-BL*/
+}
+.cTop {
+  border-radius: 45px 45px 0px 0px; /*TL-TR-BR-BL*/
+}
+.cBottom {
+  border-radius: 0px 0px 45px 45px; /*TL-TR-BR-BL*/
 }
 </style>

@@ -6,41 +6,21 @@
       dense
       class="row ma-2 pa-2"
     >
-      <!-- 2020 12 01 test OK -->
-      <!-- row 00 -->
       <v-col cols="12">
         <v-card class="pa-4  cTop Anc_BC">
-          <!--    TEST OK 2020 12 01 
-                  <h2>  {{ c_langt }} tipo {{ lang.t[c_langt].tipo }}</h2>
-                  <h2>  {{ c_lista }} cat {{ lang.t[c_langt].lista[c_lista].nomecategoria }}</h2>
-                  {{ c_sc }}    -->
-          <!--    TEST NG 2020 12 01 
-          <h2 v-if="c_sc != 0">{{ lang.t[c_langt].lista[c_lista].sc[c_sc].t[tn[0].id].text }}</h2>
-          <h2 v-else>{{ lang.t[c_langt].lista[c_lista].t[tn[0].id].text }}</h2>
-          -->
-
-          <h2>{{ t1 }}</h2>
+          <h3>{{ t1 }}</h3>
         </v-card>
         <v-card class="pa-4 cBottom Anc_BC">
-          <h2>{{ t2 }}</h2>
-          <h2>{{ t3 }}</h2>
-          <h2>{{ t4 }}</h2>
-          <!--
-              {{ lang.t[c_langt].lista[c_lista].sc[c_sc].t[tn[1].id].text }}
-              -
-              {{ lang.t[c_langt].lista[c_lista].sc[c_sc].t[tn[2].id].text }}
-              {{ lang.t[c_langt].lista[c_lista].sc[c_sc].t[tn[3].id].text }}
-            -->
+          <h3>{{ t2 }}</h3>
         </v-card>
       </v-col>
     </v-row>
-    <!-- row 00 -->
   </div>
 </template>
 
 <script>
 export default {
-  name: "rowcard4",
+  name: "rc2",
   components: {},
 
   props: {
@@ -53,17 +33,6 @@ export default {
     };
   },
   computed: {
-    /*  decodifica codice identificativo stringa di testo                   */
-    /*  esempio:                                                            */
-
-    /*  langCode: 110                                                      */
-    /*            1    : t           Tipo:1      = views                   */
-    /*             1   : c_lista     id:1        = sede                    */
-    /*              0  : c_sc        sottocat/t  = t     [testi categoria] */
-    /*                                                                      */
-    /*                                                                      */
-    /*                                                                      */
-    /*  +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++         */
     c_langt () {
       return parseInt(this.langCode / 100);
     },
@@ -89,22 +58,6 @@ export default {
       var sc = this.c_sc - 1;
       if (this.c_sc == 0) return lang.t[t].lista[l].t[this.tn[1].id].text;
       else return lang.t[t].lista[l].sc[sc].t[this.tn[1].id].text;
-    },
-    t3 () {
-      var lang = this.$store.getters.getCurrentLanguage;
-      var t = this.c_langt;
-      var l = this.c_lista - 1;
-      var sc = this.c_sc - 1;
-      if (this.c_sc == 0) return lang.t[t].lista[l].t[this.tn[2].id].text;
-      else return lang.t[t].lista[l].sc[sc].t[this.tn[2].id].text;
-    },
-    t4 () {
-      var lang = this.$store.getters.getCurrentLanguage;
-      var t = this.c_langt;
-      var l = this.c_lista - 1;
-      var sc = this.c_sc - 1;
-      if (this.c_sc == 0) return lang.t[t].lista[l].t[this.tn[3].id].text;
-      else return lang.t[t].lista[l].sc[sc].t[this.tn[3].id].text;
     },
 
     /*  +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
