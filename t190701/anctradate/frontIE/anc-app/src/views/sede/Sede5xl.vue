@@ -2,77 +2,29 @@
 
 <template>
   <div class="SfBase">
-    <v-row v-show="drawerLeft" class="rT rT_lv rThXL rTbg2 mx-auto"></v-row>
+    <v-row v-show="drawerLeft" class="rT rT_lv rThXL rTbg2 mx-auto"></v-row><!--menu/txp-->
     <div class="SfSpazio home4SfShUp AncAppBar_BC">spazio Up</div>
-    <v-parallax class="SfParallaxSede"
-                src="/static/images/bg/bg8.jpg"
-                height="850"></v-parallax>
+    <v-parallax class="SfParallaxSede" src="/static/images/bg/bg8.jpg" height="850"></v-parallax>
     <v-row justify="start" align="start" class="ancsederLG mx-auto">
-      <!--sx--><v-col cols="2" class="carcol carcolsx"></v-col>
-      <!--cx--><v-col cols="8" class="sedecolcx">
+      <v-col cols="2" class="carcol carcolsx"></v-col><!--sx-->
+      <v-col cols="8" class="sedecolcx"><!--cx-->
         <v-card class="sedecardcx Anc_BC_BlueDark">
-          <rc3
-            :langCode="121"
-            :tn="[{ id: '0' }, { id: '1' }, { id: '2' }, { id: '3' }]"
-          ></rc3>
-         <rc1Img
-            :imgtype="'iframe'"
-            :src="mappa1"
-            :height="550"
-          ></rc1Img>
-          <rc2pTOP
-            :langCode="121"
-            :tn="[{ id: '6' }, { id: '16' }]"
-          ></rc2pTOP>
-          <rc1pBOTTOMlink
-            :langCode="121"
-            :tn="[{ id: '10' }]"
-            :link="link2"
-          ></rc1pBOTTOMlink>
-          <rc1Img
-            :imgtype="'img'"
-            :src="img1"
-            :height="550"
-          ></rc1Img>
-          <rc1p
-            :langCode="121"
-            :tn="[{ id: '7' }]"
-          ></rc1p>
-          <rc1Img
-            :imgtype="'iframe'"
-            :src="mappa2"
-            :height="550"
-          ></rc1Img>
-          <rc3pTOP
-            :langCode="121"
-            :tn="[{ id: '8' }, { id: '15' }, { id: '9' }]"
-          ></rc3pTOP>
-          <rc1pBOTTOMlink
-            :langCode="121"
-            :tn="[{ id: '12' }]"
-            :link="link1"
-          ></rc1pBOTTOMlink>
-          <rc1Img
-            :imgtype="'imgSmall'"
-            :src="img3"
-            :height="250"
-            :width="250"
-          ></rc1Img>
-          <rc1p
-            :langCode="121"
-            :tn="[{ id: '13' }]"
-          ></rc1p>
+          <rc3            :langCode="121"       :tn="[{ id: '0' }, { id: '1' }, { id: '2' }, { id: '3' }]"></rc3>
+          <rc1Img         :imgtype="'iframe'"   :src="mappa1" :height="550"></rc1Img>
+          <rc2pTOP        :langCode="121"       :tn="[{ id: '6' }, { id: '16' }]"></rc2pTOP>
+          <rc1pBOTTOMlink :langCode="121"       :tn="[{ id: '10' }]" :link="link2"></rc1pBOTTOMlink>
+          <rc1Img         :imgtype="'img'"      :src="img1"   :height="550"></rc1Img>
+          <rc1p           :langCode="121"       :tn="[{ id: '7' }]"></rc1p>
+          <rc1Img         :imgtype="'iframe'"   :src="mappa2" :height="550" ></rc1Img>
+          <rc3pTOP        :langCode="121"       :tn="[{ id: '8' }, { id: '15' }, { id: '9' }]"></rc3pTOP>
+          <rc1pBOTTOMlink :langCode="121"       :tn="[{ id: '12' }]" :link="link1"></rc1pBOTTOMlink>
+          <rc1Img         :imgtype="'imgSmall'" :src="img3"   :height="250" :width="250"></rc1Img>
+          <rc1p           :langCode="121"       :tn="[{ id: '13' }]" ></rc1p>
         </v-card>
-        <v-row>
-          <div class="container-fluid text-center">
-            <AncIntestazioneFine></AncIntestazioneFine>
-          </div>
-        </v-row>
+        <v-row><div class="container-fluid text-center"><AncIntestazioneFine></AncIntestazioneFine></div></v-row>
         <div class="SfSpazio home4SfShDown AncAppBar_BC">spazio Down</div>
-      </v-col>
-      <!--cx--  ----------------------------------------  cx-->
-      <!--dx-->
-      <v-col cols="2" class="carcol carcoldx" ></v-col>
+      </v-col><!--cx-->
+      <v-col cols="2" class="carcol carcoldx" ></v-col><!--dx-->
     </v-row>
   </div>
 </template>
@@ -80,20 +32,17 @@
 <script>
 import AncIntestazioneFine from "@/components/AncIntestazioneFine.vue";
 import ancClock from "@/components/AncObjects/AncClock.vue";
+/**/
 import rc1Img from "@/components/AncRow/Text/rc1Img.vue";
 import rc1 from "@/components/AncRow/Text/rc1.vue";
-/**/
 import rc1p from "@/components/AncRow/Text/rc1p.vue";
 import rc1pTOP from "@/components/AncRow/Text/rc1pTOP.vue";
 import rc1pBOTTOM from "@/components/AncRow/Text/rc1pBOTTOM.vue";
 import rc1pBOTTOMlink from "@/components/AncRow/Text/rc1pBOTTOMlink.vue";
-/**/
 import rc2 from "@/components/AncRow/Text/rc2.vue";
 import rc2pTOP from "@/components/AncRow/Text/rc2pTOP.vue";
-
 import rc3 from "@/components/AncRow/Text/rc3.vue";
 import rc3pTOP from "@/components/AncRow/Text/rc3pTOP.vue";
-
 import rc4 from "@/components/AncRow/Text/rc4.vue";
 
 export default {
