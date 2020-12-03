@@ -2,10 +2,11 @@
 
 <template>
   <div class="SfBase">
-    <v-row v-show="drawerLeft" class="rT rT_lv rThXL rTbg2 mx-auto"></v-row><!--menu/txp-->
+    <v-row class="rT rT_lv rThXL rTbg2 mx-auto" v-show="drawerLeft"></v-row><!--menu/txp-->
     <div class="SfSpazio home4SfShUp AncAppBar_BC">spazio Up</div>
     <v-parallax class="SfParallaxSede" src="/static/images/bg/bg8.jpg" height="850"></v-parallax>
-    <v-row justify="start" align="start" class="ancsederLG mx-auto">
+    <v-row class="ancsederLG mx-auto" justify="start" align="start">
+
       <v-col cols="2" class="carcol carcolsx"></v-col><!--sx-->
       <v-col cols="8" class="sedecolcx"><!--cx-->
         <v-card class="sedecardcx Anc_BC_BlueDark">
@@ -25,6 +26,7 @@
         <div class="SfSpazio home4SfShDown AncAppBar_BC">spazio Down</div>
       </v-col><!--cx-->
       <v-col cols="2" class="carcol carcoldx" ></v-col><!--dx-->
+      
     </v-row>
   </div>
 </template>
@@ -189,8 +191,6 @@ export default {
       this.$store.dispatch("gotoR", r);
     },
     v (link) {
-      /*tis.$emit("vola", link);*/
-
       this.$store.dispatch("vola", link);
     }
   },
@@ -255,34 +255,12 @@ export default {
   position: absolute;
   z-index: 6;
 }
+.Anc_BC_BlueDark {
+  background-color: rgb(1, 4, 20);
+  color: blanchedalmond;
+}
 
-
-.it {
-  height: 100%;
-}
-.it1 {
-  background-color: brown;
-}
-.it2 {
-  background-color: chartreuse;
-  height: 100%;
-}
-.it3 {
-  background-color: darkcyan;
-}
-.h1000 {
-  height: 1000px;
-}
-.h2000 {
-  height: 100%;
-}
-.rel1 {
-  position: relative;
-}
-.rel2 {
-  position: relative;
-}
-/*  Colori Globali        Background        */
+/*  Colori Globali        Background        
 .Anc_BC {
   background-color: rgb(19, 21, 36);
   color: antiquewhite;
@@ -299,5 +277,6 @@ export default {
   background-color: transparent;
   color: blanchedalmond;
 }
+*/
 </style>
 
