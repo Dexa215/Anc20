@@ -221,8 +221,7 @@ export default {
     };
   },
   computed: {
-    /*
-  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+    /*  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  */
     lang () {
       return this.$store.getters.getCurrentLanguage;
     },
@@ -231,8 +230,8 @@ export default {
     },
     languagesShow () {
       return this.$store.getters.getLanguagesShow;
-    } /*
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */,
+    },
+    /*  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  */
     drawer () {
       return this.$store.getters.getDrawer;
     },
@@ -244,8 +243,8 @@ export default {
     },
     drawerSottocategoria () {
       return this.$store.getters.getDrawerSottocategoria;
-    } /*
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */,
+    },
+    /*  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  */
     iconX () {
       return this.$store.getters.getIconX;
     },
@@ -260,28 +259,28 @@ export default {
     },
     iconCdx () {
       return this.$store.getters.getIconCdx;
-    } /*
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */,
-    caegorie () {
+    },
+    /*  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  */
+    categorie () {
       return this.$store.getters.categorie;
     },
     C () {
       return this.$store.getters.getC;
     },
     CS () {
-      return this.$stoe.getters.getCS;
-    } /*
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */,
+      return this.$store.getters.getCS;
+    },
+    /*  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  */
     requestUser () {
       return this.$store.getters.requestUser;
     },
-    requestUserIsStaf () {
+    requestUserIsStaff () {
       return this.$store.getters.requestUserIsStaff;
     },
-    requestUserIsSper () {
+    requestUserIsSuper () {
       return this.$store.getters.requestUserIsSuper;
     },
-    requestUserAatar () {
+    requestUserAvatar () {
       return this.$store.getters.requestUserAvatar;
     },
     requestUserBio () {
@@ -289,8 +288,8 @@ export default {
     },
     requestToken () {
       return this.$store.getters.requestToken;
-    } /*
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */,
+    },
+    /*  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  */
     rcS () {
       return this.$store.getters.rcS;
     },
@@ -300,14 +299,14 @@ export default {
     rcU () {
       return this.$store.getters.rcU;
     },
-    /*
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */ admin () {
+    /* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+    admin () {
       return this.$store.getters.admin;
     },
     admincommands () {
       return this.$store.getters.admincommands;
-    } /*
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */,
+    },
+    /* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
     currentres () {
       switch (this.$vuetify.breakpoint.name) {
         case "xs":
