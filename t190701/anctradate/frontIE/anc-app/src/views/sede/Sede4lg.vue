@@ -15,9 +15,9 @@
     ></v-parallax>
 
     <v-row
+      class="ancsederLG mx-auto"
       justify="start"
       align="start"
-      class="ancsederLG mx-auto"
     >
       <!--sx-->
       <v-col
@@ -346,6 +346,12 @@ export default {
 </script>
 
 <style media="screen" scoped>
+/* row Transparent level  */
+.rT_lv {
+  position: absolute;
+  z-index: 6;
+}
+
 .ancsederLG {
   position: absolute;
   z-index: 5;
@@ -358,6 +364,7 @@ export default {
   padding-top: 20px;
   padding-bottom: 20px;
 }
+
 .sedecolcx {
   background-color: transparent;
   opacity: 1;
@@ -383,7 +390,7 @@ export default {
   opacity: 0.15;
   width: 100%;
 }
-
+/*^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
 .home4SfShUp {
   height: 150px;
   background-color: transparent;
@@ -392,56 +399,33 @@ export default {
   height: 50px;
 }
 
+/*^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
+
 .h3 {
   color: black;
 }
+
 .cardround {
-  border-radius: 45px 45px 45px 45px; /*TL-TR-BR-BL*/
+  border-radius: 45px 45px 45px 45px;
+  /*TL-TR-BR-BL*/
 }
 
-.rT_lv {
-  /* row Transparent level  */
-  position: absolute;
-  z-index: 6;
-}
-.it {
-  height: 100%;
-}
-.it1 {
-  background-color: brown;
-}
-.it2 {
-  background-color: chartreuse;
-  height: 100%;
-}
-.it3 {
-  background-color: darkcyan;
-}
-.h1000 {
-  height: 1000px;
-}
-.h2000 {
-  height: 100%;
-}
-.rel1 {
-  position: relative;
-}
-.rel2 {
-  position: relative;
-}
 /*  Colori Globali        Background        */
 .Anc_BC {
   background-color: rgb(19, 21, 36);
   color: antiquewhite;
 }
+
 .Anc_BC_Blue {
   background-color: rgb(4, 11, 46);
   color: aliceblue;
 }
+
 .Anc_BC_BlueDark {
   background-color: rgb(1, 4, 20);
   color: blanchedalmond;
 }
+
 .Anc_BC_Transparent {
   background-color: transparent;
   color: blanchedalmond;
@@ -449,12 +433,17 @@ export default {
 
 /*Cards...*/
 .c {
-  border-radius: 45px; /*TL-TR-BR-BL*/
+  border-radius: 45px;
+  /*TL-TR-BR-BL*/
 }
+
 .cTop {
-  border-radius: 45px 45px 0px 0px; /*TL-TR-BR-BL*/
+  border-radius: 45px 45px 0px 0px;
+  /*TL-TR-BR-BL*/
 }
+
 .cBottom {
-  border-radius: 0px 0px 45px 45px; /*TL-TR-BR-BL*/
+  border-radius: 0px 0px 45px 45px;
+  /*TL-TR-BR-BL*/
 }
 </style>

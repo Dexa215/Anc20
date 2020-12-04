@@ -1,15 +1,15 @@
 {% load l10n %}
 
-  <template>
+<template>
   <div class="SfBase">
-    <v-row class="rT rT_lv rThMD rTbg2 mx-auto" v-show="drawerLeft"></v-row>
-    <div class="SfSpazio home3SfShUp AncAppBar_BC">spazio Up home3md</div>
-    <v-parallax class="SfParallaxSede" src="/static/images/bg/bg8.jpg" height="650"></v-parallax>
-    <v-row class="ancsederLG mx-auto" justify="start" align="start">
+    <v-row      class="rT rT_lv rThXL rTbg2 mx-auto" v-show="drawerLeft"></v-row><!--menu/txp-->
+    <div        class="r_main_hsUp_MD">spazio Up</div>
+    <v-parallax class="SfParallax" src="/static/images/bg/bg8.jpg" height="850"></v-parallax>
+    <v-row      class="r_main r_main_h_MD mx-auto" justify="start" align="start">
 
       <v-col cols="2" class="carcol carcolsx"></v-col><!--sx-->
-      <v-col cols="8" class="sedecolcx"><!--cx-->
-        <v-card class="sedecardcx Anc_BC_BlueDark">
+      <v-col cols="8" class="cx_main"><!--cx-->
+        <v-card class="card_main Anc_BC_BlueDark">
           <rc3            :langCode="121"       :tn="[{ id: '0' }, { id: '1' }, { id: '2' }, { id: '3' }]"></rc3>
           <rc1Img         :imgtype="'iframe'"   :src="mappa1" :height="550"></rc1Img>
           <rc2pTOP        :langCode="121"       :tn="[{ id: '6' }, { id: '16' }]"></rc2pTOP>
@@ -22,8 +22,8 @@
           <rc1Img         :imgtype="'imgSmall'" :src="img3"   :height="250" :width="250"></rc1Img>
           <rc1p           :langCode="121"       :tn="[{ id: '13' }]" ></rc1p>
         </v-card>
-        <v-row><div class="container-fluid text-center"><AncIntestazioneFine></AncIntestazioneFine></div></v-row>
-        <div class="SfSpazio home3SfShDown AncAppBar_BC">spazio Down</div>
+        <AncIntestazioneFine></AncIntestazioneFine>
+        <div class="r_main_hsDown_MD">spazio Down</div>
       </v-col><!--cx-->
       <v-col cols="2" class="carcol carcoldx" ></v-col><!--dx-->
 
@@ -32,23 +32,27 @@
 </template>
 
 <script>
-import { apiService } from "@/common/api.service";
-import router from "@/router";
+  import { apiService } from "@/common/api.service";
+  import router from "@/router";
 
-import AncIntestazioneFine from "@/components/AncIntestazioneFine.vue";
-import ancClock from "@/components/AncObjects/AncClock.vue";
-/**/
-import rc1Img from "@/components/AncRow/Text/rc1Img.vue";
-import rc1 from "@/components/AncRow/Text/rc1.vue";
-import rc1p from "@/components/AncRow/Text/rc1p.vue";
-import rc1pTOP from "@/components/AncRow/Text/rc1pTOP.vue";
-import rc1pBOTTOM from "@/components/AncRow/Text/rc1pBOTTOM.vue";
-import rc1pBOTTOMlink from "@/components/AncRow/Text/rc1pBOTTOMlink.vue";
-import rc2 from "@/components/AncRow/Text/rc2.vue";
-import rc2pTOP from "@/components/AncRow/Text/rc2pTOP.vue";
-import rc3 from "@/components/AncRow/Text/rc3.vue";
-import rc3pTOP from "@/components/AncRow/Text/rc3pTOP.vue";
-import rc4 from "@/components/AncRow/Text/rc4.vue";
+  import AncIntestazioneFine from "@/components/AncIntestazioneFine.vue";
+  import ancClock from "@/components/AncObjects/AncClock.vue";
+  /*Titles...*/
+  import rc1 from "@/components/AncRow/Text/rc1.vue";
+  import rc2 from "@/components/AncRow/Text/rc2.vue";
+  import rc3 from "@/components/AncRow/Text/rc3.vue";
+  import rc4 from "@/components/AncRow/Text/rc4.vue";
+  /*texts*/
+  import rc1p from "@/components/AncRow/Text/rc1p.vue";
+  /*Immages*/
+  import rc1Img from "@/components/AncRow/Text/rc1Img.vue";
+  /*Combinded...*/
+  import rc1pTOP from "@/components/AncRow/Text/rc1pTOP.vue";
+  import rc2pTOP from "@/components/AncRow/Text/rc2pTOP.vue";
+  import rc3pTOP from "@/components/AncRow/Text/rc3pTOP.vue";
+  import rc1pBOTTOM from "@/components/AncRow/Text/rc1pBOTTOM.vue";
+  import rc1pBOTTOMlink from "@/components/AncRow/Text/rc1pBOTTOMlink.vue";
+  
 
 export default {
   name: "sedeubi3md",
@@ -203,91 +207,38 @@ export default {
   },
   created () { },
   updated () {
-    console.log("tess4lg oncreate-- > start");
+    console.log("Sede3md oncreate-- > start");
   },
   mounted () { }
 };
 </script>
 
 <style media="screen" scoped>
-.home3SfShUp {
-  height: 150px;
-}
-.home3SfShDown {
-  height: 78px;
-}
-.anchomerMD {
-  position: absolute;
-  z-index: 5;
-  height: 600px;
-  width: 100%;
-  background-color: transparent;
-}
-.cardround {
-  border-radius: 25px; /*TL-TR-BR-BL*/
-}
-.rT_lv {
-  /* row Transparent level  */
-  position: absolute;
-  z-index: 6;
-}
-/**/
 
-.ancsederLG {
-  position: absolute;
-  z-index: 5;
-  /*height: 600px;*/
-  height: 1000px;
+/*20201204*/
+/*general...*/
+.rT_lv          {position: absolute;  z-index: 6;}/*Row semi-Transparent level on MENU */
+.SfParallax     {position: absolute;  z-index: 1; opacity: 0.15; width: 100%;}
+.r_main         {position: absolute;  z-index: 5; opacity: 1; background-color: transparent;
   width: 100%;
-  background-color: transparent;
-  opacity: 1;
-  /*transparent;*/
   padding-top: 20px;
-  padding-bottom: 20px;
-}
-.sedecolcx {
-  background-color: transparent;
-  opacity: 1;
+  padding-bottom: 20px;}
+.cx_main        {opacity: 1;  background-color: transparent;
   margin-top: 20px;
   margin-bottom: 20px;
-  border-radius: 15px;
-}
-.sedecardcx {
-  opacity: 0.8;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  border-radius: 15px;}
+.card_main      {opacity: 0.8;
   margin-top: 20px;
   margin-bottom: 20px;
-  border-radius: 45px;
-}
-.SfParallaxSede {
-  /* Sfondo Parallax */
-  position: absolute;
-  z-index: 1;
-  opacity: 0.15;
-  width: 100%;
-}
-.home4SfShUp {
-  height: 150px;
-  background-color: transparent;
-}
-.home4SfShDown {
-  height: 50px;
-}
-.h3 {
-  color: black;
-}
-.cardround {
-  border-radius: 45px 45px 45px 45px; /*TL-TR-BR-BL*/
-}
-.rT_lv {
-  /* row Transparent level  */
-  position: absolute;
-  z-index: 6;
-}
-.Anc_BC_BlueDark {
-  background-color: rgb(1, 4, 20);
-  color: blanchedalmond;
-}
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-radius: 45px;}
+
+/*responsive...*/
+.r_main_h_MD      {height: 600px;}
+.r_main_hsUp_MD   {height: 150px;}
+.r_main_hsDown_MD {height: 50px;}
+/**/
+.Anc_BC_BlueDark {background-color: rgb(1, 4, 20);color: blanchedalmond;}
 
 </style>
