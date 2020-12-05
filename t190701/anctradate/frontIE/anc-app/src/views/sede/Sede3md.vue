@@ -3,7 +3,7 @@
 <template>
   <div class="SfBase">
     <v-row      class="rT rT_lv rThXL rTbg2 mx-auto" v-show="drawerLeft"></v-row><!--menu/txp-->
-    <div        class="r_main_hsUp_MD">spazio Up</div>
+    <div        class="r_main_hsUp_MD">spazio Up md</div>
     <v-parallax class="SfParallax" src="/static/images/bg/bg8.jpg" height="850"></v-parallax>
     <v-row      class="r_main r_main_h_MD mx-auto" justify="start" align="start">
 
@@ -23,7 +23,7 @@
           <rc1p           :langCode="121"       :tn="[{ id: '13' }]" ></rc1p>
         </v-card>
         <AncIntestazioneFine></AncIntestazioneFine>
-        <div class="r_main_hsDown_MD">spazio Down</div>
+        <div class="r_main_hsDown_MD">spazio Down md</div>
       </v-col><!--cx-->
       <v-col cols="2" class="carcol carcoldx" ></v-col><!--dx-->
 

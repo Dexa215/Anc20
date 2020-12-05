@@ -3,7 +3,7 @@
 <template>
   <div class="SfBase">
     <v-row      class="rT rT_lv rThXL rTbg2 mx-auto" v-show="drawerLeft"></v-row><!--menu/txp-->
-    <div        class="r_main_hsUp_SM">spazio Up</div>
+    <div        class="r_main_hsUp_SM">spazio Up sm</div>
     <v-parallax class="SfParallax" src="/static/images/bg/bg8.jpg" height="850"></v-parallax>
     <v-row      class="r_main r_main_h_SM mx-auto" justify="start" align="start">
 
@@ -23,7 +23,7 @@
           <rc1p           :langCode="121"       :tn="[{ id: '13' }]" ></rc1p>
         </v-card>
         <AncIntestazioneFine></AncIntestazioneFine>
-        <div class="r_main_hsDown_SM">spazio Down</div>
+        <div class="r_main_hsDown_SM">spazio Down sm</div>
       </v-col><!--cx-->
       <v-col cols="2" class="carcol carcoldx" ></v-col><!--dx-->
 
@@ -215,30 +215,31 @@
 
 <style media="screen" scoped>
 /*20201204*/
+
 /*general...*/
-.rT_lv          {position: absolute;  z-index: 6;}/*Row semi-Transparent level on MENU */
-.SfParallax     {position: absolute;  z-index: 1; opacity: 0.15; width: 100%;}
-.r_main         {position: absolute;  z-index: 5; opacity: 1; background-color: transparent;
+.rT_lv            {position: absolute;  z-index: 6;}/*Row semi-Transparent level on MENU */
+.SfParallax       {position: absolute;  z-index: 1; opacity: 0.15; width: 100%;}
+.r_main           {position: absolute;  z-index: 5; opacity: 1; background-color: transparent;
   width: 100%;
   padding-top: 20px;
   padding-bottom: 20px;}
-.cx_main        {opacity: 1;  background-color: transparent;
+.cx_main          {opacity: 1;  background-color: transparent;
   margin-top: 20px;
   margin-bottom: 20px;
   border-radius: 15px;}
-.card_main      {opacity: 0.8;
+.card_main        {opacity: 0.8;
   margin-top: 20px;
   margin-bottom: 20px;
   padding-top: 20px;
   padding-bottom: 20px;
   border-radius: 45px;}
+.Anc_BC_BlueDark  {background-color: rgb(1, 4, 20);color: blanchedalmond;}
 
 /*responsive...*/
 .r_main_h_SM      {height: 600px;}
 .r_main_hsUp_SM   {height: 150px;}
 .r_main_hsDown_SM {height: 40px;}
 /**/
-.Anc_BC_BlueDark {background-color: rgb(1, 4, 20);color: blanchedalmond;}
 
 
 </style>
