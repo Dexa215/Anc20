@@ -3,9 +3,9 @@
 <template>
   <div class="SfBase">
     <v-row      class="rT rT_lv rThXL rTbg2 mx-auto" v-show="drawerLeft"></v-row><!--menu/txp-->
-    <div        class="r_main_hsUp_LG">spazio Up md</div>
+    <div        class="r_main_hsUp_XL">spazio Up</div>
     <v-parallax class="SfParallax" src="/static/images/bg/bg8.jpg" height="850"></v-parallax>
-    <v-row      class="r_main r_main_h_LG mx-auto" justify="start" align="start">
+    <v-row      class="r_main r_main_h_XL mx-auto" justify="start" align="start">
 
       <v-col cols="2" class="carcol carcolsx"></v-col><!--sx-->
       <v-col cols="8" class="cx_main"><!--cx-->
@@ -23,7 +23,7 @@
           <rc1p           :langCode="121"       :tn="[{ id: '13' }]" ></rc1p>
         </v-card>
         <AncIntestazioneFine></AncIntestazioneFine>
-        <div class="r_main_hsDown_LG">spazio Down md</div>
+        <div class="r_main_hsDown_XL">spazio Down</div>
       </v-col><!--cx-->
       <v-col cols="2" class="carcol carcoldx" ></v-col><!--dx-->
 
@@ -34,24 +34,25 @@
 <script>
   import AncIntestazioneFine from "@/components/AncIntestazioneFine.vue";
   import ancClock from "@/components/AncObjects/AncClock.vue";
-  import rc1Img from "@/components/AncRow/Text/rc1Img.vue";
+  /*Titles...*/
   import rc1 from "@/components/AncRow/Text/rc1.vue";
-  /**/
+  import rc2 from "@/components/AncRow/Text/rc2.vue";
+  import rc3 from "@/components/AncRow/Text/rc3.vue";
+  import rc4 from "@/components/AncRow/Text/rc4.vue";
+  /*texts*/
   import rc1p from "@/components/AncRow/Text/rc1p.vue";
+  /*Immages*/
+  import rc1Img from "@/components/AncRow/Text/rc1Img.vue";
+  /*Combinded...*/
   import rc1pTOP from "@/components/AncRow/Text/rc1pTOP.vue";
+  import rc2pTOP from "@/components/AncRow/Text/rc2pTOP.vue";
+  import rc3pTOP from "@/components/AncRow/Text/rc3pTOP.vue";
   import rc1pBOTTOM from "@/components/AncRow/Text/rc1pBOTTOM.vue";
   import rc1pBOTTOMlink from "@/components/AncRow/Text/rc1pBOTTOMlink.vue";
-  /**/
-  import rc2 from "@/components/AncRow/Text/rc2.vue";
-  import rc2pTOP from "@/components/AncRow/Text/rc2pTOP.vue";
-
-  import rc3 from "@/components/AncRow/Text/rc3.vue";
-  import rc3pTOP from "@/components/AncRow/Text/rc3pTOP.vue";
-
-  import rc4 from "@/components/AncRow/Text/rc4.vue";
-
+  
+  
   export default {
-    name: "sedeubi4lg",
+    name: "sedeorari5xl",
     components: {
       AncIntestazioneFine,
       ancClock,
@@ -67,18 +68,10 @@
       rc3pTOP,
       rc4
     },
-
     props: {},
     data() {
       return {
-        testo1: "testo 1 ...",
-        testo2: "testo 2 ...",
-        scr: "",
-        focusOn: false,
-        snackbar: true,
-        text: `Hello, I'm a snackbar`,
-        dilog: false,
-        tn1: [{ id: "0" }, { id: "1" }, { id: "2" }, { id: "3" }],
+        tn1: [],
         mappa1:
           "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1663.15881154439!2d8.905701070027497!3d45.71332899343703!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x478685f126a1ea85%3A0x7c16b78535fb871a!2sVia%20Carlo%20de%20Simoni%2C%201%2C%2021049%20Tradate%20VA!5e0!3m2!1sit!2sit!4v1576285621978!5m2!1sit!2sit",
         mappa2:
@@ -86,7 +79,6 @@
         img1: "/static/images/Foto/tradatecomune.jpg",
         img2: "/static/images/Foto/xxx.jpg",
         img3: "/static/images/Foto/sopracolletto.jpg",
-
         link1: "https://www.inps.it/nuovoportaleinps/default.aspx",
         link2: "http://www.comune.tradate.va.it/"
       };
@@ -191,147 +183,40 @@
           case "xl":
             return "xl";
         }
-      }
+      },
     },
-
     methods: {
       /*2020 06 16*/
 
-      gotoR(r) {
+      gotoR (r) {
         this.expand = !this.expand;
         this.$store.dispatch("setDF");
         this.$store.dispatch("gotoR", r);
       },
-      v(link) {
-        /*tis.$emit("vola", link);*/
-
+      v (link) {
         this.$store.dispatch("vola", link);
       }
     },
-    created() { },
-    updated() {
-      console.log("tess4lg oncreate-- > start");
-    },
-    mounted() { }
+    created () { },
+    updated () { console.log("sede ubi 5xl oncreate-- > start"); },
+    mounted () { }
   };
 </script>
 
-
-
 <style media="screen" scoped>
-
-    /* row Transparent level  */
-/*
-  .rT_lv {position: absolute;z-index: 6;}
-
-  .ancsederLG {
-    position: absolute;
-    z-index: 5;
-    //height: 600px;
-    height: 1000px;
-    width: 100%;
-    background-color: transparent;
-    opacity: 1;
-    //transparent;
-    padding-top: 20px;
-    padding-bottom: 20px;
-  }
-
-  .sedecolcx {
-    background-color: transparent;
-    opacity: 1;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    border-radius: 15px;
-  }
-
-  .sedecardcx {
-    opacity: 0.8;
-    padding-top: 20px;
-    padding-bottom: 20px;
-
-    margin-top: 20px;
-    margin-bottom: 20px;
-    border-radius: 45px;
-  }
-
-  .SfParallaxSede {
-    //Sfondo Parallax
-    position: absolute;
-    z-index: 1;
-    opacity: 0.15;
-    width: 100%;
-  }
-
-//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  .home4SfShUp {height: 150px; background-color: transparent;}
-  .home4SfShDown {height: 50px;}
-
-
-//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-  .h3 {
-    color: black;
-  }
-
-  .cardround {
-    border-radius: 45px 45px 45px 45px;
-    //TL-TR-BR-BL
-  }
-
-
-  //  Colori Globali        Background        
-  .Anc_BC {
-    background-color: rgb(19, 21, 36);
-    color: antiquewhite;
-  }
-
-  .Anc_BC_Blue {
-    background-color: rgb(4, 11, 46);
-    color: aliceblue;
-  }
-
-  .Anc_BC_BlueDark {
-    background-color: rgb(1, 4, 20);
-    color: blanchedalmond;
-  }
-
-  .Anc_BC_Transparent {
-    background-color: transparent;
-    color: blanchedalmond;
-  }
-
-  //Cards..
-  .c {
-    border-radius: 45px;
-    }
-
-  .cTop {
-    border-radius: 45px 45px 0px 0px;
-    }
-
-  .cBottom {
-    border-radius: 0px 0px 45px 45px;
-   }
-*/
-</style>
-
-
-<style media="screen" scoped>
-
 /*20201204*/
 /*general...*/
-.rT_lv            {position: absolute;  z-index: 6;}/*Row semi-Transparent level on MENU */
-.SfParallax       {position: absolute;  z-index: 1; opacity: 0.15; width: 100%;}
-.r_main           {position: absolute;  z-index: 5; opacity: 1; background-color: transparent;
+.rT_lv          {position: absolute;  z-index: 6;}/*Row semi-Transparent level on MENU */
+.SfParallax     {position: absolute;  z-index: 1; opacity: 0.15; width: 100%;}
+.r_main         {position: absolute;  z-index: 5; opacity: 1; background-color: transparent;
   width: 100%;
   padding-top: 20px;
   padding-bottom: 20px;}
-.cx_main          {opacity: 1;  background-color: transparent;
+.cx_main        {opacity: 1;  background-color: transparent;
   margin-top: 20px;
   margin-bottom: 20px;
   border-radius: 15px;}
-.card_main        {opacity: 0.8;
+.card_main      {opacity: 0.8;
   margin-top: 20px;
   margin-bottom: 20px;
   padding-top: 20px;
@@ -339,10 +224,10 @@
   border-radius: 45px;}
 
 /*responsive...*/
-.r_main_h_LG      {height: 600px;}
-.r_main_hsUp_LG   {height: 150px;}
-.r_main_hsDown_LG {height: 50px;}
+.r_main_h_XL      {height: 1000px;}
+.r_main_hsUp_XL   {height: 150px;}
+.r_main_hsDown_XL {height: 50px;}
 /**/
-.Anc_BC_BlueDark  {background-color: rgb(1, 4, 20);color: blanchedalmond;}
-
+.Anc_BC_BlueDark {background-color: rgb(1, 4, 20);color: blanchedalmond;}
 </style>
+

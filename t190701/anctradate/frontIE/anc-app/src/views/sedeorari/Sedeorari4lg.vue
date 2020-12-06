@@ -3,33 +3,33 @@
 <template>
   <div class="SfBase">
     <v-row      class="rT rT_lv rThXL rTbg2 mx-auto" v-show="drawerLeft"></v-row><!--menu/txp-->
-    <div        class="r_main_hsUp_LG">spazio Up md</div>
+    <div        class="r_main_hsUp_LG">spazio Up lg</div>
     <v-parallax class="SfParallax" src="/static/images/bg/bg8.jpg" height="850"></v-parallax>
     <v-row      class="r_main r_main_h_LG mx-auto" justify="start" align="start">
 
       <v-col cols="2" class="carcol carcolsx"></v-col><!--sx-->
       <v-col cols="8" class="cx_main"><!--cx-->
         <v-card class="card_main Anc_BC_BlueDark">
-          <rc3            :langCode="121"       :tn="[{ id: '0' }, { id: '1' }, { id: '2' }, { id: '3' }]"></rc3>
-          <rc1Img         :imgtype="'iframe'"   :src="mappa1" :height="550"></rc1Img>
-          <rc2pTOP        :langCode="121"       :tn="[{ id: '6' }, { id: '16' }]"></rc2pTOP>
-          <rc1pBOTTOMlink :langCode="121"       :tn="[{ id: '10' }]" :link="link2"></rc1pBOTTOMlink>
-          <rc1Img         :imgtype="'img'"      :src="img1"   :height="550"></rc1Img>
-          <rc1p           :langCode="121"       :tn="[{ id: '7' }]"></rc1p>
-          <rc1Img         :imgtype="'iframe'"   :src="mappa2" :height="550" ></rc1Img>
-          <rc3pTOP        :langCode="121"       :tn="[{ id: '8' }, { id: '15' }, { id: '9' }]"></rc3pTOP>
-          <rc1pBOTTOMlink :langCode="121"       :tn="[{ id: '12' }]" :link="link1"></rc1pBOTTOMlink>
-          <rc1Img         :imgtype="'imgSmall'" :src="img3"   :height="250" :width="250"></rc1Img>
+
+          
+
+          <rc3h3Ori       :langCode="122"       :tn="[{ id: '0' },{ id: '2' },{ id: '3' }]" ></rc3h3Ori>
+
+          <rc1p           :langCode="122"       :tn="[{ id: '0' }]"></rc1p>
+          <rc1p           :langCode="122"       :tn="[{ id: '1' }]"></rc1p>
+
           <rc1p           :langCode="121"       :tn="[{ id: '13' }]" ></rc1p>
+          <rc1Img         :imgtype="'imgSmall'" :src="img3"   :height="250" :width="250"></rc1Img>
         </v-card>
         <AncIntestazioneFine></AncIntestazioneFine>
-        <div class="r_main_hsDown_LG">spazio Down md</div>
+        <div class="r_main_hsDown_LG">spazio Down lg</div>
       </v-col><!--cx-->
       <v-col cols="2" class="carcol carcoldx" ></v-col><!--dx-->
 
     </v-row>
   </div>
 </template>
+
 
 <script>
   import AncIntestazioneFine from "@/components/AncIntestazioneFine.vue";
@@ -47,6 +47,7 @@
 
   import rc3 from "@/components/AncRow/Text/rc3.vue";
   import rc3pTOP from "@/components/AncRow/Text/rc3pTOP.vue";
+  import rc3h3Ori from "@/components/AncRow/Text/rc3h3Ori.vue";
 
   import rc4 from "@/components/AncRow/Text/rc4.vue";
 
@@ -65,6 +66,7 @@
       rc2pTOP,
       rc3,
       rc3pTOP,
+      rc3h3Ori,
       rc4
     },
 
@@ -216,109 +218,7 @@
   };
 </script>
 
-
-
 <style media="screen" scoped>
-
-    /* row Transparent level  */
-/*
-  .rT_lv {position: absolute;z-index: 6;}
-
-  .ancsederLG {
-    position: absolute;
-    z-index: 5;
-    //height: 600px;
-    height: 1000px;
-    width: 100%;
-    background-color: transparent;
-    opacity: 1;
-    //transparent;
-    padding-top: 20px;
-    padding-bottom: 20px;
-  }
-
-  .sedecolcx {
-    background-color: transparent;
-    opacity: 1;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    border-radius: 15px;
-  }
-
-  .sedecardcx {
-    opacity: 0.8;
-    padding-top: 20px;
-    padding-bottom: 20px;
-
-    margin-top: 20px;
-    margin-bottom: 20px;
-    border-radius: 45px;
-  }
-
-  .SfParallaxSede {
-    //Sfondo Parallax
-    position: absolute;
-    z-index: 1;
-    opacity: 0.15;
-    width: 100%;
-  }
-
-//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  .home4SfShUp {height: 150px; background-color: transparent;}
-  .home4SfShDown {height: 50px;}
-
-
-//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-  .h3 {
-    color: black;
-  }
-
-  .cardround {
-    border-radius: 45px 45px 45px 45px;
-    //TL-TR-BR-BL
-  }
-
-
-  //  Colori Globali        Background        
-  .Anc_BC {
-    background-color: rgb(19, 21, 36);
-    color: antiquewhite;
-  }
-
-  .Anc_BC_Blue {
-    background-color: rgb(4, 11, 46);
-    color: aliceblue;
-  }
-
-  .Anc_BC_BlueDark {
-    background-color: rgb(1, 4, 20);
-    color: blanchedalmond;
-  }
-
-  .Anc_BC_Transparent {
-    background-color: transparent;
-    color: blanchedalmond;
-  }
-
-  //Cards..
-  .c {
-    border-radius: 45px;
-    }
-
-  .cTop {
-    border-radius: 45px 45px 0px 0px;
-    }
-
-  .cBottom {
-    border-radius: 0px 0px 45px 45px;
-   }
-*/
-</style>
-
-
-<style media="screen" scoped>
-
 /*20201204*/
 /*general...*/
 .rT_lv            {position: absolute;  z-index: 6;}/*Row semi-Transparent level on MENU */

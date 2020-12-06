@@ -2,10 +2,10 @@
 
 <template>
   <div class="SfBase">
-    <v-row      class="rT rT_lv rThXS rTbg2 mx-auto" v-show="drawerLeft"></v-row><!--menu/txp-->
-    <div        class="r_main_hsUp_XS">spazio Up xs</div>
+    <v-row      class="rT rT_lv rThXL rTbg2 mx-auto" v-show="drawerLeft"></v-row><!--menu/txp-->
+    <div        class="r_main_hsUp_MD">spazio Up md</div>
     <v-parallax class="SfParallax" src="/static/images/bg/bg8.jpg" height="850"></v-parallax>
-    <v-row      class="r_main r_main_h_XS mx-auto" justify="start" align="start">
+    <v-row      class="r_main r_main_h_MD mx-auto" justify="start" align="start">
 
       <v-col cols="2" class="carcol carcolsx"></v-col><!--sx-->
       <v-col cols="8" class="cx_main"><!--cx-->
@@ -23,7 +23,7 @@
           <rc1p           :langCode="121"       :tn="[{ id: '13' }]" ></rc1p>
         </v-card>
         <AncIntestazioneFine></AncIntestazioneFine>
-        <div class="r_main_hsDown_XS">spazio Down xs</div>
+        <div class="r_main_hsDown_MD">spazio Down md</div>
       </v-col><!--cx-->
       <v-col cols="2" class="carcol carcoldx" ></v-col><!--dx-->
 
@@ -55,7 +55,7 @@
   
 
 export default {
-  name: "sedeubi1xs",
+  name: "sedeorari3md",
 
   components: {
     AncIntestazioneFine,
@@ -221,7 +221,7 @@ export default {
 .SfParallax     {position: absolute;  z-index: 1; opacity: 0.15; width: 100%;}
 .r_main         {position: absolute;  z-index: 5; opacity: 1; background-color: transparent;
   width: 100%;
-  padding-top: 80px;
+  padding-top: 20px;
   padding-bottom: 20px;}
 .cx_main        {opacity: 1;  background-color: transparent;
   margin-top: 20px;

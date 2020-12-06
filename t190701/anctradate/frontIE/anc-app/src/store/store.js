@@ -1091,7 +1091,21 @@ const moduleL = {
                                     {
                                         id: 22,
                                         nome: "orari",
-                                        t: [{ id: 0, code: "", text: "" }]
+                                        
+                                        t: [
+                                            { id: 0, code: "", text: "Giovedí " },
+                                            { id: 1, code: "", text: "Domenica" },
+                                            { id: 2, code: "", text: "dalle" },
+                                            { id: 3, code: "", text: "alle" },
+                                            {
+                                                id: 4,
+                                                code: "",
+                                                text:""}],
+
+
+
+
+
                                     }
                                 ]
                             },

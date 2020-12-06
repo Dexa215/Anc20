@@ -55,7 +55,7 @@
   
 
 export default {
-  name: "sedeubi1xs",
+  name: "sedeorari1xs",
 
   components: {
     AncIntestazioneFine,
@@ -221,7 +221,7 @@ export default {
 .SfParallax     {position: absolute;  z-index: 1; opacity: 0.15; width: 100%;}
 .r_main         {position: absolute;  z-index: 5; opacity: 1; background-color: transparent;
   width: 100%;
-  padding-top: 80px;
+  padding-top: 20px;
   padding-bottom: 20px;}
 .cx_main        {opacity: 1;  background-color: transparent;
   margin-top: 20px;

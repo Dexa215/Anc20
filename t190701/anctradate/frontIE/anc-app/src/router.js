@@ -12,7 +12,10 @@ import Links from "@/views/links/Links.vue";
 //import Sede from "./views/Sede.vue";
 import Sede from "./views/sede/Sede.vue";
 
-import SedeOrari from "./views/SedeOrari.vue";
+//import SedeOrari from "./views/SedeOrari.vue";
+import SedeOrari from "./views/sedeorari/Sedeorari.vue";
+
+
 import Contatti from "./views/Contatti.vue";
 
 import Chisiamo from "./views/Chisiamo.vue";
