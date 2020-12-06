@@ -1,23 +1,12 @@
 <template>
   <div class="rmNews">
     <!-- @@@ -->
-    <div v-if="currentres=='xs'">
-      <n1xs></n1xs>
-    </div>
-    <div v-else-if="currentres=='sm'">
-      <n2sm></n2sm>
-    </div>
-    <div v-else-if="currentres=='md'">
-      <n3md></n3md>
-    </div>
-    <div v-else-if="currentres=='lg'">
-      <n4lg></n4lg>
-    </div>
-    <div v-else-if="currentres=='xl'">
-      <n5xl></n5xl>
-    </div>
-  </div>
-
+    <n1xs      v-if="currentres == 'xs'"></n1xs>
+    <n2sm v-else-if="currentres == 'sm'"></n2sm>
+    <n3md v-else-if="currentres == 'md'"></n3md>
+    <n4lg v-else-if="currentres == 'lg'"></n4lg>
+    <n5xl v-else-if="currentres == 'xl'"></n5xl>
+  </div>  
   <!--
     
     <v-col>
@@ -76,7 +65,7 @@ export default {
     n5xl
   },
 
-  data() {
+  data () {
     return {
       // * EVIDENZA
       Eevents: [],
@@ -86,12 +75,12 @@ export default {
     };
   },
   computed: {
-    categorie() {
+    categorie () {
       return this.$store.getters.categorie;
     },
 
     // eslint-disable-next-line vue/return-in-computed-property
-    currentres() {
+    currentres () {
       switch (this.$vuetify.breakpoint.name) {
         case "xs":
           //console.log("xs");
@@ -144,10 +133,10 @@ export default {
       });
     }*/
   },
-  created() {
+  created () {
     //this.getEvidenza();
   },
-  updated() {
+  updated () {
     //this.getEvidenza();
   }
 };
@@ -157,9 +146,8 @@ export default {
 .rmNews {
   /* ... comunicazioni ...*/
   position: absolute;
-  top: 80px;
   z-index: 2;
-  height: 70px;
+  
   width: 100%;
   background-color: rgb(146, 0, 0) !important; /*test*/
 }
@@ -191,7 +179,7 @@ export default {
   height: 90%;
 }
 .rc2 {
-  height: 80%;
+  height: 100%;
   background-color: transparent !important;
   align-content: center;
 }

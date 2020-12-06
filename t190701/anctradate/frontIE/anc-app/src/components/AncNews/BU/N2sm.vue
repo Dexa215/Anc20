@@ -1,7 +1,7 @@
 <template>
-  <!--  MD  -->
+  <!--  SM  -->
   <v-row class="ancNewsr" align="center" justify="center">
-    <v-col class="tc1 t_BC" align="center" cols="2">
+    <v-col class="tc1 t_BC" align="center" cols="1">
       <v-img
         v-if="Eevents!='' && Eevents "
         style="background-color: transparent !important;"
@@ -11,7 +11,7 @@
       ></v-img>
     </v-col>
     <!---->
-    <v-col class="tc2 t_BC" cols="10">
+    <v-col class="tc2 t_BC" cols="11">
       <v-row class="rc2">
         <marquee align="center" justify="center" behavior="scroll" direction="left" scrolldelay="0">
           <div
@@ -29,7 +29,7 @@ import { apiService } from "@/common/api.service";
 import router from "@/router";
 
 export default {
-  name: "N3md",
+  name: "N2sm",
 
   data() {
     return {

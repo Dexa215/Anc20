@@ -1,15 +1,27 @@
 <template>
   <!--  XS  -->
   <v-row class="ancNewsr" align="center" justify="center">
-    <!--
-  <v-row v-if="currentres == 'xs'" class="ancNewsr" align="center" justify="center">
-    -->
-    <marquee align="center" justify="center" behavior="scroll" direction="left" scrolldelay="0">
-      <div
-        class="display-2 font-weight-bold AncTitleColorDark"
-        style="color:yellow; background-color:transparent;"
-      >{{Titolone}}</div>
-    </marquee>
+
+    <v-col class="tc1 t_BC" align="center" cols="2">
+      <v-img
+        v-if="Eevents!='' && Eevents "
+        style="background-color: transparent !important;"
+        :src="categorie[0].imgEvidenza"
+        width="30"
+        height="30"
+      ></v-img>
+    </v-col>
+    <!---->
+    <v-col class="tc2 t_BC" cols="10">
+      <v-row class="rc2">
+        <marquee align="center" justify="center" behavior="scroll" direction="left" scrolldelay="0">
+          <div
+            class="display-1 font-weight-bold AncTitleColorDark"
+            style="color:white; background-color:transparent;"
+          >{{Titolone}}</div>
+        </marquee>
+      </v-row>
+    </v-col>
   </v-row>
 </template>
 
@@ -23,35 +35,24 @@ export default {
   data() {
     return {
       // * EVIDENZA
-      Eevents: [],
-      Enext: null,
-      EloadingEvents: false
-      //Titolone: null
+      //Computed: >>> Eevents: [],
+      //Computed: >>> Enext: null,
+      //Computed: >>> EloadingEvents: false
+      //Computed: >>> Titolone: null
     };
   },
   computed: {
-    Titolone() {
-      return this.$store.getters.get_Titolone;
-    },
-    categorie() {
-      return this.$store.getters.categorie;
-    }
+    categorie() {      return this.$store.getters.categorie;},
+    Titolone() {       return this.$store.getters.get_Titolone;},
+    Eevents() {         return this.$store.getters.get_Eevents;},
+    Enext() {           return this.$store.getters.get_Enext;},
+    EloadingEvents() {  return this.$store.getters.get_EloadingEvents;}
   },
-
   methods: {
-    getEvidenza() {
-      this.$store.dispatch("getEvidenza");
-    }
+  getEvidenza() { this.$store.dispatch("getEvidenza");}
   },
-  beforecreated() {
-    //this.getEvidenza();
-  },
-  created() {
-    this.getEvidenza();
-  },
-  updated() {
-    //this.getEvidenza();
-  }
+  created() {this.getEvidenza();},
+  updated() {}
 };
 </script>
 
