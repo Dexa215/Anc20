@@ -13,7 +13,7 @@
 
           
 
-          <rc3h3Ori       :langCode="122"       :tn="[{ id: '0' },{ id: '2' },{ id: '3' }]" ></rc3h3Ori>
+          <rc3orario       :langCode="122"       :tn="[{ id: '0' },{ id: '2' },{ id: '3' }]" ></rc3orario>
 
           <rc1p           :langCode="122"       :tn="[{ id: '0' }]"></rc1p>
           <rc1p           :langCode="122"       :tn="[{ id: '1' }]"></rc1p>
@@ -48,6 +48,7 @@
   import rc3 from "@/components/AncRow/Text/rc3.vue";
   import rc3pTOP from "@/components/AncRow/Text/rc3pTOP.vue";
   import rc3h3Ori from "@/components/AncRow/Text/rc3h3Ori.vue";
+  import rc3orario from "@/components/AncRow/Text/rc3orario.vue";
 
   import rc4 from "@/components/AncRow/Text/rc4.vue";
 
@@ -67,6 +68,7 @@
       rc3,
       rc3pTOP,
       rc3h3Ori,
+      rc3orario,
       rc4
     },
 
