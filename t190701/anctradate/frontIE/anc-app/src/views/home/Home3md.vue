@@ -223,7 +223,7 @@ export default {
 
 <style media="screen" scoped>
 .home3SfShUp {
-  height: 150px;
+  height: 80px;
 }
 .home3SfShDown {
   height: 78px;
@@ -234,6 +234,7 @@ export default {
   height: 600px;
   width: 100%;
   background-color: transparent;
+  padding-top: 100px;
 }
 
 .rT_lv {

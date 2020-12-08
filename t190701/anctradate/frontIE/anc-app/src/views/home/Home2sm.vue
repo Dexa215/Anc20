@@ -2,64 +2,26 @@
 
   <template>
   <div class="SfBase">
+    <h1></h1>
+    <!---->
     <v-row class="rT rT_lv rThSM rTbg1 mx-auto" v-show="drawerLeft"></v-row>
-    <div class="SfSpazio home5SfShUp AncAppBar_BC">spazio Up</div>
-    <v-row justify="center" align="center" class="anchomerSM mx-auto">
-      <v-col cols="12" justify="center" align="center">
-        <!--cx-->
-        <ancClock></ancClock>
-        <!--cx-->
-      </v-col>
-    </v-row>
-
-    <v-row
-      class="anchomerSMnext mx-auto"
-      justify="center"
-      align="center"
-      style="height:600px; width:100%; background-color:yellow; "
-    >
-      <v-col cols="12" justify="center" align="center">
-        <!--sx-->
-        <carP></carP>
-        <!--sx-->
-      </v-col>
-    </v-row>
-
-    <v-row
-      class="anchomerSMnext mx-auto"
-      justify="center"
-      align="center"
-      style="height:600px; width:100%; background-color:red; "
-    >
-      <v-col cols="12" justify="center" align="center">
-        <!--dx-->
-        <carF></carF>
-        <!--dx-->
-      </v-col>
-    </v-row>
-
-    <!--
-      <v-col cols="4" style="height:500px; background-color:blue; "></v-col>
-    <dx-->
-
+    <div class="SfSpazio home2SfShUp AncAppBar_BC">spazio Up</div>
     <v-parallax class="SfParallax" src="/static/images/bg/bg8.jpg" height="650"></v-parallax>
+    
+    <v-row justify="center" align="center" class="anchomerSM mx-auto">
+      <v-row class="anchomerSMnext mx-auto" justify="center" align="center">  
+        <v-col cols="12" justify="center" align="center"><ancClock></ancClock></v-col>
+      </v-row>
+      <v-row class="anchomerSMnext mx-auto" justify="center" align="center">
+        <v-col cols="12" justify="center" align="center"><carP></carP></v-col>
+      </v-row>
+      <v-row class="anchomerSMnext mx-auto" justify="center" align="center">
+        <v-col cols="12" justify="center" align="center"><carF></carF></v-col>
+      </v-row>
+      <AncIntestazioneFine></AncIntestazioneFine>
+      <div class="SfSpazio home2SfShDown AncAppBar_BC">spazio Down</div>
+    </v-row>
 
-    <!-- <span>spiegone:</span>-->
-
-    <span v-if="CS==0">{{ categorie[(C/10)-1].descrizione }}</span>
-    <span v-else>{{ categorie[(C/10)-1].sottocategorie[(CS-C)-1].descrizione }}</span>
-
-    <!--
-    <div class="SfImmagine">sfondo Immagine</div>
-    -->
-    <div class="container-fluid text-center">
-      <AncIntestazioneFine :C="C" :CS="CS" :categorie="categorie" @gotoR="gotoR"></AncIntestazioneFine>
-    </div>
-    <div class="SfSpazio SfShDown AncAppBar_BC">spazio Down</div>
-
-    <!--
-/* ********************************************************************************************************** */
-    -->
   </div>
 </template>
 
@@ -229,19 +191,43 @@ export default {
 };
 </script>
 
-<style media="screen">
+<style media="screen" scoped>
+
+    /*general...*/
+  .rT_lv            {position: absolute;  z-index: 6;}/*Row semi-Transparent level on MENU */
+  .SfParallax       {position: absolute;  z-index: 1; opacity: 0.15; width: 100%;}
+  .r_main           {position: absolute;  z-index: 5; opacity: 1; background-color: transparent;
+    width: 100%;
+    padding-top: 20px;
+    padding-bottom: 20px;}
+  .cx_main          {opacity: 1;  background-color: transparent;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 15px;}
+  .card_main        {opacity: 0.8;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-radius: 45px;}  
+  .Anc_BC_BlueDark  {background-color: rgb(1, 4, 20);color: blanchedalmond;}
+  /*general...*/
+
+  
 .home2SfShUp {
-  height: 150px;
+  height: 80px;
+  background-color: transparent;
 }
 .home2SfShDown {
-  height: 78px;
+  height: 50px;
 }
 .anchomerSM {
-  position: relative;
+  position: absolute;
   z-index: 5;
   height: 600px;
   width: 100%;
   background-color: transparent;
+  padding-top: 100px;
 }
 .anchomerSMnext {
   position: relative;

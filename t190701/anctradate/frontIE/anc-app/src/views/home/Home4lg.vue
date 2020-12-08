@@ -228,19 +228,17 @@ export default {
     //this.clock();
     //this.setMyPar();
   },
-
   updated() {
     //this.getEventsPast(); // !!store - moduleE
     //this.getEventsFuture(); // !!store - moduleE
   },
-
   mounted() {},
 };
 </script>
 
 <style media="screen" scoped>
 .home4SfShUp {
-  height: 150px;
+  height: 80px;
   background-color: transparent;
 }
 .home4SfShDown {
@@ -252,6 +250,7 @@ export default {
   height: 600px;
   width: 100%;
   background-color: transparent;
+  padding-top: 100px;
 }
 .rT_lv {
   /* row Transparent level  */

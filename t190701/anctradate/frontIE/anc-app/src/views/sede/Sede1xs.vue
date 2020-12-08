@@ -214,31 +214,29 @@ export default {
 </script>
 
 <style media="screen" scoped>
-
-/*20201204*/
-/*general...*/
-.rT_lv          {position: absolute;  z-index: 6;}/*Row semi-Transparent level on MENU */
-.SfParallax     {position: absolute;  z-index: 1; opacity: 0.15; width: 100%;}
-.r_main         {position: absolute;  z-index: 5; opacity: 1; background-color: transparent;
-  width: 100%;
-  padding-top: 80px;
-  padding-bottom: 20px;}
-.cx_main        {opacity: 1;  background-color: transparent;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  border-radius: 15px;}
-.card_main      {opacity: 0.8;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  border-radius: 45px;}
-
-/*responsive...*/
-.r_main_h_MD      {height: 600px;}
-.r_main_hsUp_MD   {height: 150px;}
-.r_main_hsDown_MD {height: 50px;}
-/**/
-.Anc_BC_BlueDark {background-color: rgb(1, 4, 20);color: blanchedalmond;}
-
+  /*20201204*/
+    /*general...*/
+  .rT_lv            {position: absolute;  z-index: 6;}/*Row semi-Transparent level on MENU */
+  .SfParallax       {position: absolute;  z-index: 1; opacity: 0.15; width: 100%;}
+  .r_main           {position: absolute;  z-index: 5; opacity: 1; background-color: transparent;
+    width: 100%;
+    padding-top: 20px;
+    padding-bottom: 20px;}
+  .cx_main          {opacity: 1;  background-color: transparent;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 15px;}
+  .card_main        {opacity: 0.8;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-radius: 45px;}  
+  .Anc_BC_BlueDark  {background-color: rgb(1, 4, 20);color: blanchedalmond;}
+  /*general...*/
+  /*responsive...*/
+  .r_main_h_XS      {height: 600px;}
+  .r_main_hsUp_XS   {height: 150px;}
+  .r_main_hsDown_XS {height: 50px;}
+  /*responsive...*/
 </style>

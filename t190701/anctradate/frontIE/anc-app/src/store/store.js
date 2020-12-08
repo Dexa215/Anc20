@@ -1093,8 +1093,8 @@ const moduleL = {
                                         nome: "orari",
                                         
                                         t: [
-                                            { id: 0, code: "", text: "Giovedí " },
-                                            { id: 1, code: "", text: "Domenica" },
+                                            { id: 0, code: "", text: "Giovedí " , in:"21:30",out:"23:30"},
+                                            { id: 1, code: "", text: "Domenica" , in:"09:30",out:"12:30"},
                                             { id: 2, code: "", text: "dalle" },
                                             { id: 3, code: "", text: "alle" },
                                             {

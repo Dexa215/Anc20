@@ -2,8 +2,8 @@
 
   <template>
   <div class="SfBase">
+    <h1></h1>
     <!---->
-
     <v-row class="rT rT_lv rThXL rTbg1 mx-auto" v-show="drawerLeft"></v-row>
     <div class="SfSpazio home5SfShUp AncAppBar_BC">spazio Up</div>
     <v-row justify="center" align="center" class="anchomerXL mx-auto">
@@ -218,7 +218,7 @@ export default {
 
 <style media="screen" scoped>
 .home5SfShUp {
-  height: 150px;
+  height: 80px;
   background-color: transparent;
 }
 .home5SfShDown {
@@ -230,6 +230,7 @@ export default {
   height: 600px;
   width: 100%;
   background-color: transparent;
+  padding-top: 100px;
 }
 
 .rT_lv {

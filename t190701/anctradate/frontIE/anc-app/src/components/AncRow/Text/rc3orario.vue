@@ -11,7 +11,7 @@
           <h2>{{ t1 }}</h2>
         </v-card>
         <v-card class="pa-4 cBottom Anc_BC">
-          <h3>{{ t2 }}  -  {{ t3 }}</h3>
+          <h3>{{ t2 }} {{ t1in }}  -  {{ t3 }} {{ t1out }}</h3>
         </v-card>
       </v-col>
     </v-row>
@@ -52,6 +52,22 @@ export default {
       if (this.c_sc == 0) return lang.t[t].lista[l].t[this.tn[0].id].text;
       else return lang.t[t].lista[l].sc[sc].t[this.tn[0].id].text;
     },
+    t1in () {
+      var lang = this.$store.getters.getCurrentLanguage;
+      var t = this.c_langt;
+      var l = this.c_lista - 1;
+      var sc = this.c_sc - 1;
+      if (this.c_sc == 0) return lang.t[t].lista[l].t[this.tn[0].id].in;
+      else return lang.t[t].lista[l].sc[sc].t[this.tn[0].id].in;
+    },
+    t1out () {
+      var lang = this.$store.getters.getCurrentLanguage;
+      var t = this.c_langt;
+      var l = this.c_lista - 1;
+      var sc = this.c_sc - 1;
+      if (this.c_sc == 0) return lang.t[t].lista[l].t[this.tn[0].id].out;
+      else return lang.t[t].lista[l].sc[sc].t[this.tn[0].id].out;
+    },
     t2 () {
       var lang = this.$store.getters.getCurrentLanguage;
       var t = this.c_langt;
@@ -68,6 +84,8 @@ export default {
       if (this.c_sc == 0) return lang.t[t].lista[l].t[this.tn[2].id].text;
       else return lang.t[t].lista[l].sc[sc].t[this.tn[2].id].text;
     },
+
+
 
     /*  +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 
