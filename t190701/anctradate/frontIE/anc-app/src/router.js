@@ -15,8 +15,9 @@ import Sede from "./views/sede/Sede.vue";
 //import SedeOrari from "./views/SedeOrari.vue";
 import SedeOrari from "./views/sedeorari/Sedeorari.vue";
 
+//import Contatti from "./views/Contatti.vue";
+import Contatti from "./views/contatti/Contatti.vue";
 
-import Contatti from "./views/Contatti.vue";
 
 import Chisiamo from "./views/Chisiamo.vue";
 //import ChisiamoBenemerite from "./views/ChisiamoBenemerite.vue";

@@ -1,5 +1,5 @@
 <template>
-  <v-row dense class="row ma-2 pa-2">
+  <v-row dense class="row ma-2 mb-4 pa-2 ancintestazionefine">
     <v-container>
       <v-flex xs12>
         <v-img class="my-3" contain height="50"></v-img>
@@ -19,11 +19,16 @@
       <v-layout justify-center>
         <p class="my-2">
           <!-- contattaci... Per qualsiasi informazione non presente in questa pagina non esitare a contattarci  -->
-          {{lang.t[0].lista[0].t[0].text}}
+          {{ lang.t[0].lista[0].t[0].text }}
           <br />
-          <v-chip class="ma-4" color="red" text-color="white" @click="gotoR('contatti/')">
+          <v-chip
+            class="ma-4"
+            color="red"
+            text-color="white"
+            @click="gotoR('contatti/')"
+          >
             <!--Contatti-->
-            <a>{{lang.t[0].lista[0].t[2].text}}</a>
+            <a>{{ lang.t[0].lista[0].t[2].text }}</a>
           </v-chip>
           <!-- class="headline font-weight-bold" -->
         </p>
@@ -35,13 +40,15 @@
         <div>
           <v-row justify="center" align="center" class="mx-auto">
             <!-- Potrebbero interessarti... -->
-            <a class="text-center mb-3 headline font-weight-bold">{{lang.t[0].lista[0].t[1].text}}</a>
+            <a class="text-center mb-3 headline font-weight-bold">{{
+              lang.t[0].lista[0].t[1].text
+            }}</a>
             <!--h3 class="text-center">{{lang.t[0].lista[0].t[1].text}}</h3-->
           </v-row>
 
           <a
             style="color:green"
-            v-for="(link, i) in categorie[C/10-1].linksFP"
+            v-for="(link, i) in categorie[C / 10 - 1].linksFP"
             :key="i"
             @click="gotoR(link.link)"
             class="subheading mx-3"
@@ -52,7 +59,8 @@
               class="ma-2"
               color="green"
               text-color="white"
-            >{{ link.descrizione }}</v-chip>
+              >{{ link.descrizione }}</v-chip
+            >
           </a>
         </div>
       </v-layout>
@@ -72,7 +80,7 @@ export default {
   props: {
     linksFP: { type: Array },
     alignment: { type: String },
-    justify: { type: String },
+    justify: { type: String }
     /*
     C: { type: Number },
     CS: { type: Number },
@@ -86,25 +94,25 @@ export default {
     importantLinks: [
       {
         text: "Documentation",
-        href: "https://vuetifyjs.com",
+        href: "https://vuetifyjs.com"
       },
       {
         text: "Chat",
-        href: "https://community.vuetifyjs.com",
+        href: "https://community.vuetifyjs.com"
       },
       {
         text: "Made with Vuetify",
-        href: "https://madewithvuetifyjs.com",
+        href: "https://madewithvuetifyjs.com"
       },
       {
         text: "Twitter",
-        href: "https://twitter.com/vuetifyjs",
+        href: "https://twitter.com/vuetifyjs"
       },
       {
         text: "Articles",
-        href: "https://medium.com/vuetify",
-      },
-    ],
+        href: "https://medium.com/vuetify"
+      }
+    ]
   }),
 
   computed: {
@@ -126,7 +134,7 @@ export default {
     },
     CS() {
       return this.$store.getters.getCS;
-    },
+    }
   },
 
   methods: {
@@ -137,10 +145,13 @@ export default {
     gotoR0(r) {
       console.log("intestazionefine goto ... ", r);
       this.$emit("gotoR", r);
-    },
-  },
+    }
+  }
 };
 </script>
 
 <style>
+.ancintestazionefine {
+  margin-bottom: 400px;
+}
 </style>

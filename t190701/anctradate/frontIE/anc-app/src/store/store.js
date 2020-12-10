@@ -157,8 +157,7 @@ const moduleA = {
         CatCLunsel (state) {
             return state.CatCLunsel;
         }
-    }
-};
+    }};
 //      Module C: Categories
 const moduleC = {
     state: {
@@ -505,8 +504,7 @@ const moduleC = {
         categorie (state) {
             return state.menucat;
         }
-    }
-};
+    }};
 //      Module D: Drawers
 const moduleD = {
     state: {
@@ -670,8 +668,7 @@ const moduleD = {
         admincommands: state => {
             return state.admincommands;
         }
-    }
-};
+    }};
 //      Module E: Events
 const moduleE = {
     state: {
@@ -906,8 +903,7 @@ const moduleE = {
         get_FloadingEvents (state) {
             return state.FloadingEvents;
         }
-    }
-};
+    }};
 //      Module L: Languages
 const moduleL = {
     state: {
@@ -1000,15 +996,14 @@ const moduleL = {
                         id: 1,
                         tipo: "views",
                         lista: [
+                            //10 home
                             {
-                                //10 home
                                 id: 10,
                                 nomecategoria: "home",
                                 t: [{ id: 0, code: "Ttoday", text: "Oggi" }],
-                                sc: []
-                            },
+                                sc: []},
+                            //20 sede
                             {
-                                //20 sede
                                 id: 20,
                                 nomecategoria: "sede",
                                 t: [{ id: 0, code: "Ttoday", text: "Oggi" }],
@@ -1107,13 +1102,25 @@ const moduleL = {
 
 
                                     }
-                                ]
-                            },
+                                ]},
+                            //30 contatti
                             {
-                                //30 contatti
                                 id: 30,
                                 nomecategoria: "contatti",
-                                t: [{ id: 0, code: "", text: "" }],
+                                t: [{ id: 0, code: "1", text: " contatti... " },
+                                    { id: 1, code: "2", text: " Scariot Massimo" },
+                                    { id: 2, code: "3", text: " Calzavara Paolo" },
+                                    { id: 3, code: "4", text: " PRESIDENTE" },
+                                    { id: 4, code: "5", text: " VICE-PRESIDENTE" },
+                                    { id: 5, code: "6", text: " Info" },
+                                    { id: 6, code: "7", text: " Cellulare P:    335 5797460" },
+                                    { id: 7, code: "8", text: " Cellulare vP:   xxx xxxxxxx" },
+                                    { id: 8, code: "9", text: " Grado in Servizio:" },
+                                    { id: 9, code: "10", text: " Carabiniere " },
+                                    { id: 10, code: "11", text: " Carabiniere " },
+                                    { id: 11, code: "12", text: " ===" },
+                                    { id: 12, code: "13", text: " ===" },
+                                    { id: 13, code: "14", text: " ===" }],
                                 sc: [
                                     {
                                         id: 31,
@@ -1829,6 +1836,7 @@ const moduleL = {
             }
         ],
 
+        // single monthArr Deprecated...    
         monthArrIt: [
             { id: 0, nome: "Gennaio" },
             { id: 1, nome: "Febbraio" },
@@ -1841,8 +1849,7 @@ const moduleL = {
             { id: 3, nome: "Settembre" },
             { id: 4, nome: "Ottobre" },
             { id: 0, nome: "Novembre" },
-            { id: 1, nome: "Dicembre" }
-        ],
+            { id: 1, nome: "Dicembre" }],
         monthArrSp: [
             { id: 0, nome: "GennaioS" },
             { id: 1, nome: "FebbraioS" },
@@ -1855,8 +1862,7 @@ const moduleL = {
             { id: 3, nome: "SettembreS" },
             { id: 4, nome: "OttobreS" },
             { id: 0, nome: "NovembreS" },
-            { id: 1, nome: "DicembreS" }
-        ],
+            { id: 1, nome: "DicembreS" }],
         monthArrEn: [
             { id: 0, nome: "January" },
             { id: 1, nome: "February" },
@@ -1869,8 +1875,7 @@ const moduleL = {
             { id: 8, nome: "September" },
             { id: 9, nome: "October" },
             { id: 10, nome: "November" },
-            { id: 11, nome: "December" }
-        ]
+            { id: 11, nome: "December" }]
     },
 
     mutations: {
@@ -1958,8 +1963,7 @@ const moduleL = {
         getLanguagesShow: state => {
             return state.LanguagesShow;
         }
-    }
-};
+    }};
 //      Module R: Router, internal coding of the call - [ C - CS ]
 const moduleR = {
     state: {
@@ -2246,8 +2250,7 @@ const moduleR = {
         getCSs: state => {
             return state.CSs;
         }
-    }
-};
+    }};
 //      Module U: User, retrieve informations of current user [ RANK ]
 const moduleU = {
     state: {
@@ -2374,8 +2377,7 @@ const moduleU = {
         requestToken (state) {
             return state.requestToken;
         }
-    }
-};
+    }};
 
 export const store = new Vuex.Store({
     modules: {
