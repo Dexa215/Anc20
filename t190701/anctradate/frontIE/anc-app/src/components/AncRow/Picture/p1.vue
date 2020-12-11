@@ -1,105 +1,105 @@
 {% load l10n %}
 
 <template>
-  <div>
-    <v-row dense class="row ma-2 pa-2">
-      <v-col cols="12">
-        <v-alert
-          dark
-          class="infogrado mx-auto"
-          v-show="grado"
-          color="rgb(1, 4, 20)"
-          type="info"
-          transition="scale-transition"
-          dense
-          text
-          >Grado in servizio</v-alert
-        >
-        <v-alert
-          class="infogrado mx-auto"
-          v-show="carica"
-          color="rgb(1, 4, 20)"
-          type="info"
-          transition="scale-transition"
-          dense
-          text
-          >Carica Sociale</v-alert
-        >
-        <v-card
-          infinite
-          dark
-          class="pa-4 c Anc_BC mx-auto anccard"
-          max-width="344"
-        >
-          <v-img class="foto" :src="src" height="200px" width="300"></v-img>
+  <div class="rxt">
+    <v-row dense class="row ma-2 pa-2" justify="center">
+      <v-alert
+        class="infogrado mx-auto"
+        v-show="grado"
+        color="rgb(1, 4, 20)"
+        type="info"
+        transition="scale-transition"
+        dense
+        text
+        >Grado in servizio</v-alert
+      >
+      <v-alert
+        class="infogrado mx-auto"
+        v-show="carica"
+        color="rgb(1, 4, 20)"
+        type="info"
+        transition="scale-transition"
+        dense
+        text
+        >Carica Sociale</v-alert
+      >
+      <v-card
+        infinite
+        dark
+        class="pa-4 c Anc_BC mx-auto anccard"
+        max-width="344"
+      >
+        <v-img class="foto" :src="src" height="200px" width="300"></v-img>
 
-          <v-row class="gradorow" align="center" justify="center"
-            ><v-col cols="2"
-              ><v-row align="center" justify="center"
-                ><v-btn
-                  icon
-                  @mouseover="Grado(true)"
-                  @mouseleave="Grado(false)"
-                >
-                  <v-icon>mdi-shield-star</v-icon>
-                </v-btn></v-row
-              >
-            </v-col>
-
-            <v-divider vertical></v-divider>
-
-            <v-col cols="2"
-              ><v-row align="center" justify="center">
-                <v-btn
-                  icon
-                  @mouseover="Carica(true)"
-                  @mouseleave="Carica(false)"
-                >
-                  <v-icon>mdi-account-tie</v-icon>
-                </v-btn>
-              </v-row></v-col
+        <v-row class="gradorow" align="center" justify="center"
+          ><v-col cols="2"
+            ><v-row align="center" justify="center"
+              ><v-btn icon @mouseover="Grado(true)" @mouseleave="Grado(false)">
+                <v-icon>mdi-shield-star</v-icon>
+              </v-btn></v-row
             >
-            <v-col
-              ><v-row v-show="lastcarica" align="center" justify="center">{{
-                t2
-              }}</v-row>
-              <v-row v-show="lastgrado" align="center" justify="center">{{
-                t6
-              }}</v-row>
-            </v-col>
-          </v-row>
+          </v-col>
 
-          <v-card-title>
-            {{ t1 }}
-          </v-card-title>
+          <v-divider vertical></v-divider>
 
-          <v-card-subtitle></v-card-subtitle>
+          <v-col cols="2"
+            ><v-row align="center" justify="center">
+              <v-btn icon @mouseover="Carica(true)" @mouseleave="Carica(false)">
+                <v-icon>mdi-account-tie</v-icon>
+              </v-btn>
+            </v-row></v-col
+          >
+          <v-col
+            ><v-row v-show="lastcarica" align="center" justify="center">{{
+              t2
+            }}</v-row>
+            <v-row v-show="lastgrado" align="center" justify="center">{{
+              t6
+            }}</v-row>
+          </v-col>
+        </v-row>
 
-          <v-card-actions>
-            <v-btn color="orange lighten-2" text>
-              {{ t3 }}
-            </v-btn>
+        <v-card-title>
+          {{ t1 }}
+        </v-card-title>
 
-            <v-spacer></v-spacer>
+        <v-card-subtitle></v-card-subtitle>
 
-            <v-btn icon @click="show = !show">
-              <v-icon>{{
-                show ? "mdi-chevron-up" : "mdi-chevron-down"
-              }}</v-icon>
-            </v-btn>
-          </v-card-actions>
+        <v-card-actions>
+          <v-btn color="orange lighten-2" text>
+            {{ t3 }}
+          </v-btn>
 
-          <v-expand-transition>
-            <div v-show="show">
-              <v-divider></v-divider>
+          <v-spacer></v-spacer>
 
-              <v-card-text>
-                {{ t4 }}
-              </v-card-text>
-            </div>
-          </v-expand-transition>
-        </v-card>
-      </v-col>
+          <v-btn icon @click="show = !show">
+            <v-icon>{{ show ? "mdi-chevron-up" : "mdi-chevron-down" }}</v-icon>
+          </v-btn>
+        </v-card-actions>
+
+        <v-expand-transition>
+          <div v-show="show">
+            <v-divider></v-divider>
+            <!--phone-->
+            <v-card-text>
+              {{ t4 }}
+            </v-card-text>
+            <!--@mail-->
+            <v-chip
+              class="ma-4 pa-4"
+              color="darkblue"
+              text-color="white"
+              @click="gotoR('contatti/')"
+            >
+              <v-row align="center" justify="center" id="rci" dark>
+                <a class="mt" href="mailto:posta@anctradate.it">{{
+                  lang.t[1].lista[2].t[13].text
+                }}</a>
+              </v-row>
+            </v-chip>
+          </div>
+        </v-expand-transition>
+      </v-card>
     </v-row>
   </div>
 </template>
@@ -239,7 +239,8 @@ export default {
       if (d == true) {
         this.lastcarica = true;
       }
-    }
+    },
+    Mt() {}
   },
   created() {},
   updated() {},
@@ -276,14 +277,22 @@ export default {
 .infogrado {
   position: absolute;
   z-index: 5;
-  margin-top: 160px;
-  border-left: 40px;
-  border-radius: 15px;
-  width: 80%;
+  margin-top: 150px;
+  /*border-left: 80px;*/
+  border-radius: 35px;
+  width: 60%;
 }
 .anccard {
   animation: pulse 1s;
 }
 .gradorow {
+}
+.rxt {
+  /*background-color: darkgoldenrod;*/
+  border-radius: 15px;
+  text-justify: center;
+}
+.mt {
+  color: antiquewhite;
 }
 </style>

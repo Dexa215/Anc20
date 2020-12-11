@@ -960,7 +960,7 @@ const moduleL = {
                             },
                             {
                                 id: 1,
-                                code: "",
+                                code: "AncIntestazioneFine",
                                 t: [
                                     {
                                         id: 0,
@@ -988,7 +988,8 @@ const moduleL = {
                                     { id: 5, code: "T6", text: "Visualizzato" },
                                     { id: 6, code: "T7", text: "Note" }
                                 ]
-                            }
+                            },
+                            
                         ]
                     },
                     /*      ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++      */
@@ -1120,7 +1121,7 @@ const moduleL = {
                                     { id: 10, code: "11", text: " Carabiniere " },
                                     { id: 11, code: "12", text: " ===" },
                                     { id: 12, code: "13", text: " ===" },
-                                    { id: 13, code: "14", text: " ===" }],
+                                    { id: 13, code: "14", text: " posta@anctradate.it", descrizione:"mailbox" }],
                                 sc: [
                                     {
                                         id: 31,

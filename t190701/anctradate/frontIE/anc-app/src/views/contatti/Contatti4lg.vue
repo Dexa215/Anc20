@@ -18,8 +18,20 @@
       <v-col cols="8" class="cx_main"
         ><!--cx-->
         <v-card class="card_main Anc_BC_BlueDark">
-          <v-row>
-            <v-col
+          <!--Contatti
+          <v-chip
+            class="ma-4 pa-4"
+            color="red"
+            text-color="white"
+            @click="gotoR('contatti/')"
+          >
+            <v-row align="center" justify="center" id="rci" dark>
+              <a>{{ lang.t[0].lista[0].t[2].text }}</a>
+            </v-row>
+          </v-chip>
+-->
+          <v-row align="center" justify="center" id="rci" dark>
+            <v-col cols="5"
               ><p1
                 :langCode="130"
                 :tn="[
@@ -34,7 +46,9 @@
               ></p1
             ></v-col>
 
-            <v-col
+            <v-divider dark vertical></v-divider>
+
+            <v-col cols="5"
               ><p1
                 :langCode="130"
                 :tn="[
@@ -48,7 +62,7 @@
                 :src="img2"
               ></p1
             ></v-col>
-
+            <!--
             <rc1Img
               :imgtype="'imgSmall'"
               :src="img3"
@@ -57,6 +71,7 @@
             ></rc1Img>
 
             <v-col><p1></p1></v-col>
+            -->
           </v-row>
         </v-card>
         <AncIntestazioneFine></AncIntestazioneFine>
@@ -267,5 +282,8 @@ export default {
 .Anc_BC_BlueDark {
   background-color: rgb(1, 4, 20);
   color: blanchedalmond;
+}
+#rci {
+  /*background-color: darkseagreen;*/
 }
 </style>
