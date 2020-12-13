@@ -22,7 +22,7 @@
           {{ lang.t[0].lista[0].t[0].text }}
           <br />
           <v-chip
-            class="ma-4"
+            class="ma-4 cnt"
             color="red"
             text-color="white"
             @click="gotoR('contatti/')"
@@ -56,7 +56,7 @@
           >
             <v-chip
               v-show="link.link"
-              class="ma-2"
+              class="ma-2 cnt"
               color="green"
               text-color="white"
               >{{ link.descrizione }}</v-chip
@@ -153,5 +153,11 @@ export default {
 <style>
 .ancintestazionefine {
   margin-bottom: 400px;
+}
+.cnt {
+  transform: scale(1, 1) rotate(0deg);
+}
+.cnt:hover {
+  transform: scale(1.1, 1.1) rotate(5deg);
 }
 </style>

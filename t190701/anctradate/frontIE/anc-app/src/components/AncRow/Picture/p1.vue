@@ -3,24 +3,22 @@
 <template>
   <div class="rxt">
     <v-row dense class="row ma-2 pa-2" justify="center">
-      <v-alert
-        class="infogrado mx-auto"
-        v-show="grado"
-        color="rgb(1, 4, 20)"
+      <!--
+        text
         type="info"
+        color="rgb(1, 4, 20)"-->
+      <v-alert
+        class="infogrado"
+        v-show="grado"
         transition="scale-transition"
         dense
-        text
-        >Grado in servizio</v-alert
-      >
+        >Grado in servizio
+      </v-alert>
       <v-alert
         class="infogrado mx-auto"
         v-show="carica"
-        color="rgb(1, 4, 20)"
-        type="info"
         transition="scale-transition"
         dense
-        text
         >Carica Sociale</v-alert
       >
       <v-card
@@ -66,13 +64,13 @@
         <v-card-subtitle></v-card-subtitle>
 
         <v-card-actions>
-          <v-btn color="orange lighten-2" text>
+          <v-btn color="orange lighten-2" text @mouseenter="show = !show">
             {{ t3 }}
           </v-btn>
 
           <v-spacer></v-spacer>
 
-          <v-btn icon @click="show = !show">
+          <v-btn icon @click="show = !show" @mouseenter="show = !show">
             <v-icon>{{ show ? "mdi-chevron-up" : "mdi-chevron-down" }}</v-icon>
           </v-btn>
         </v-card-actions>
@@ -277,10 +275,15 @@ export default {
 .infogrado {
   position: absolute;
   z-index: 5;
-  margin-top: 150px;
+  margin-top: 170px;
   /*border-left: 80px;*/
-  border-radius: 35px;
-  width: 60%;
+  border-radius: 35px, 35px, 50px, 35px;
+  width: 40%;
+  /*background-color: red;*/
+  background-color: rgb(1, 4, 20);
+  color: antiquewhite;
+  /*color="rgb(1, 4, 20)*/
+  opacity: 0.5;
 }
 .anccard {
   animation: pulse 1s;
