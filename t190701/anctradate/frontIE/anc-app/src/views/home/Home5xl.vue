@@ -1,12 +1,18 @@
 {% load l10n %}
 
-  <template>
+<template>
   <div class="SfBase">
     <h1></h1>
-    <!---->
-    <v-row class="rT rT_lv rThXL rTbg1 mx-auto" v-show="drawerLeft"></v-row>
-    <div class="SfSpazio home5SfShUp AncAppBar_BC">spazio Up</div>
-    <v-row justify="center" align="center" class="anchomerXL mx-auto">
+    <v-row class="rT rT_lv rThXL rTbg2 mx-auto" v-show="drawerLeft"></v-row
+    ><!--menu/txp-->
+    <!--rr-->
+    <v-parallax
+      class="SfParallax"
+      height="850"
+      src="/static/images/bg/bg8.jpg"
+    ></v-parallax>
+    <v-row class="r_main r_main_h_LG mx-auto" justify="start" align="start"
+      ><!--rr-->
       <!--sx-->
       <v-col cols="4" class="carcol carcolsx">
         <carP></carP>
@@ -14,22 +20,23 @@
       <!--cx-->
       <v-col cols="4" class="carcol carcolcx">
         <ancClock></ancClock>
+        <AncIntestazioneFine></AncIntestazioneFine>
+        <div class="r_main_hsDown_LG">spazio Down lg</div>
       </v-col>
       <!--dx-->
       <v-col cols="4" class="carcol carcoldx">
         <carF></carF>
       </v-col>
     </v-row>
-    <v-parallax class="SfParallax" src="/static/images/bg/bg8.jpg" height="650"></v-parallax>
-    <!-- <span>spiegone:</span>-->
-    <span v-if="CS==0">{{ categorie[(C/10)-1].descrizione }}</span>
-    <span v-else>{{ categorie[(C/10)-1].sottocategorie[(CS-C)-1].descrizione }}</span>
-    <!--<div class="SfImmagine">sfondo Immagine</div>-->
-    <div class="container-fluid text-center">
-      <AncIntestazioneFine :C="C" :CS="CS" :categorie="categorie" @gotoR="gotoR"></AncIntestazioneFine>
+    <div
+      class="container-fluid text-center"
+      style="background-color:transparent "
+    >
+      <span v-if="CS == 0">{{ categorie[C / 10 - 1].descrizione }}</span>
+      <span v-else>{{
+        categorie[C / 10 - 1].sottocategorie[CS - C - 1].descrizione
+      }}</span>
     </div>
-    <div class="SfSpazio home5SfShDown AncAppBar_BC">spazio Down</div>
-    <!--/* *** */-->
   </div>
 </template>
 
@@ -60,13 +67,13 @@ export default {
     AncCard,
     carP,
     carF,
-    ancClock,
+    ancClock
   },
   props: {},
   data() {
     return {
       scr: "",
-      focusOn: false,
+      focusOn: false
     };
   },
   computed: {
@@ -169,7 +176,7 @@ export default {
         case "xl":
           return "xl";
       }
-    },
+    }
   },
   methods: {
     /*2020 06 16*/
@@ -203,7 +210,7 @@ export default {
     },
     getEventsFuture() {
       this.$store.dispatch("getEventsFuture");
-    },
+    }
   },
   created() {
     console.log("home 5 xl oncreate --> start");
@@ -212,31 +219,62 @@ export default {
     //this.getEventsPast(); // !!store - moduleE
     //this.getEventsFuture(); // !!store - moduleE
   },
-  mounted() {},
+  mounted() {}
 };
 </script>
 
 <style media="screen" scoped>
-.home5SfShUp {
-  height: 80px;
-  background-color: transparent;
-}
-.home5SfShDown {
-  height: 78px;
-}
-.anchomerXL {
-  position: absolute;
-  z-index: 5;
-  height: 600px;
-  width: 100%;
-  background-color: transparent;
-  padding-top: 100px;
-}
-
+/*20201204*/
+/*general...*/
 .rT_lv {
-  /* row Transparent level  */
   position: absolute;
   z-index: 6;
+} /*Row semi-Transparent level on MENU */
+.SfParallax {
+  position: absolute;
+  z-index: 1;
+  opacity: 0.15;
+  width: 100%;
+}
+.r_main {
+  position: absolute;
+  z-index: 5;
+  opacity: 1;
+  background-color: transparent;
+  width: 100%;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.cx_main {
+  opacity: 1;
+  background-color: transparent;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-radius: 15px;
+}
+.card_main {
+  opacity: 0.8;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-radius: 45px;
+}
+
+/*responsive...*/
+.r_main_h_LG {
+  margin-top: 150px;
+  height: 600px;
+}
+.r_main_hsUp_LG {
+  height: 150px;
+}
+.r_main_hsDown_LG {
+  height: 100px;
+}
+/**/
+.Anc_BC_BlueDark {
+  background-color: rgb(1, 4, 20);
+  color: blanchedalmond;
 }
 </style>
-

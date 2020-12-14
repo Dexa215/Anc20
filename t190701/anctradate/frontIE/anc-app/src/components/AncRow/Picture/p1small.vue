@@ -27,47 +27,47 @@
         class="pa-4 c Anc_BC mx-auto anccard"
         max-width="344"
       >
-        <v-img
-          v-if="small == true"
-          class="foto fotosmall"
-          :src="src"
-          height="100px"
-          width="150"
-        ></v-img>
-        <v-img
-          v-else
-          class="foto"
-          :src="src"
-          height="200px"
-          width="300"
-        ></v-img>
-
-        <v-row class="gradorow" align="center" justify="center"
-          ><v-col cols="2"
-            ><v-row align="center" justify="center"
-              ><v-btn icon @mouseover="Grado(true)" @mouseleave="Grado(false)">
-                <v-icon>mdi-shield-star</v-icon>
-              </v-btn></v-row
-            >
+        <v-row align="center" justify="center">
+          <v-col cols="6">
+            <v-img class="foto" :src="src" height="100px" width="120"></v-img>
           </v-col>
+          <v-col cols="6"
+            ><v-row class="gradorow" align="center" justify="center"
+              ><v-col cols="2"
+                ><v-row align="center" justify="center"
+                  ><v-btn
+                    icon
+                    @mouseover="Grado(true)"
+                    @mouseleave="Grado(false)"
+                  >
+                    <v-icon>mdi-shield-star</v-icon>
+                  </v-btn></v-row
+                >
+              </v-col>
 
-          <v-divider vertical></v-divider>
+              <v-divider vertical></v-divider>
 
-          <v-col cols="2"
-            ><v-row align="center" justify="center">
-              <v-btn icon @mouseover="Carica(true)" @mouseleave="Carica(false)">
-                <v-icon>mdi-account-tie</v-icon>
-              </v-btn>
+              <v-col cols="2"
+                ><v-row align="center" justify="center">
+                  <v-btn
+                    icon
+                    @mouseover="Carica(true)"
+                    @mouseleave="Carica(false)"
+                  >
+                    <v-icon>mdi-account-tie</v-icon>
+                  </v-btn>
+                </v-row></v-col
+              >
+              <v-col
+                ><v-row v-show="lastcarica" align="center" justify="center">{{
+                  t2
+                }}</v-row>
+                <v-row v-show="lastgrado" align="center" justify="center">{{
+                  t6
+                }}</v-row>
+              </v-col>
             </v-row></v-col
           >
-          <v-col
-            ><v-row v-show="lastcarica" align="center" justify="center">{{
-              t2
-            }}</v-row>
-            <v-row v-show="lastgrado" align="center" justify="center">{{
-              t6
-            }}</v-row>
-          </v-col>
         </v-row>
 
         <v-card-title>
@@ -117,14 +117,13 @@
 
 <script>
 export default {
-  name: "p1",
+  name: "p1small",
   components: {},
 
   props: {
     langCode: { type: Number },
     tn: { type: Array },
-    src: { type: String },
-    small: { type: Boolean }
+    src: { type: String }
   },
   data() {
     return {
@@ -205,20 +204,6 @@ export default {
     },
     languagesShow() {
       return this.$store.getters.getLanguagesShow;
-    },
-    currentres() {
-      switch (this.$vuetify.breakpoint.name) {
-        case "xs":
-          return "xs";
-        case "sm":
-          return "sm";
-        case "md":
-          return "md";
-        case "lg":
-          return "lg";
-        case "xl":
-          return "xl";
-      }
     }
   },
 
@@ -286,13 +271,10 @@ export default {
   z-index: 4;
   border-radius: 25px;
 }
-.fotosmall {
-  border-radius: 15px;
-}
 .infogrado {
   position: absolute;
   z-index: 5;
-  margin-top: 170px;
+  margin-top: 100px;
   /*border-left: 80px;*/
   border-radius: 35px, 35px, 50px, 35px;
   width: 40%;

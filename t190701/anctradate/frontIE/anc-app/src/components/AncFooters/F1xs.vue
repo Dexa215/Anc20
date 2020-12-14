@@ -29,8 +29,16 @@
         <!-- Smartphone -->
 
         <!-- sx -->
-        <v-col cols="5" class="colFotSx" style="background-color: transparent !important;">
-          <v-row class="mx-auto" justify="end" style="background-color: transparent !important;">
+        <v-col
+          cols="5"
+          class="colFotSx"
+          style="background-color: transparent !important;"
+        >
+          <v-row
+            class="mx-auto"
+            justify="end"
+            style="background-color: transparent !important;"
+          >
             <div class="grey--text mr-1">
               <span class="font-weight-light mx-2">Sez."C.Bergia"</span>
             </div>
@@ -43,35 +51,39 @@
           cols="2"
           class="mx-auto"
           style="background-color: transparent; 
-                              max-height:150px "
+                              max-height:50px "
           align="center"
         >
-          <div sytle="max-height:80px;">
-            <v-avatar
-              class="mx-auto my-0 avatarBottom"
-              max-height="90"
-              max-width="90"
-              min-height="50"
-              min-width="50"
-            >
-              <img
-                src="/static/images/Icone/logoanc2000.png"
-                alt="ancTradate"
-                @click="gotoR('/')"
-                @mouseover="hoveravatar = true"
-                @mouseleave="hoveravatar = false"
-                style="
-                      height: 50px; 
-                      width:  50px;"
-              />
-            </v-avatar>
-          </div>
+          <v-row class="rav" align="center" justify="center">
+            <div>
+              <v-avatar class="mx-auto my-auto avatarBottom">
+                <img
+                  src="/static/images/Icone/logoanc2000.png"
+                  alt="ancTradate"
+                  @click="gotoR('/')"
+                  @mouseover="hoveravatar = true"
+                  @mouseleave="hoveravatar = false"
+                  style="
+                      height: 20px; 
+                      width:  20px;"
+                />
+              </v-avatar>
+            </div>
+          </v-row>
         </v-col>
         <!-- col2 CENTER -->
 
         <!-- dx -->
-        <v-col cols="5" class="colFotDx" style="background-color: transparent !important;">
-          <v-row class="mx-auto" justify="start" style="background-color: transparent !important;">
+        <v-col
+          cols="5"
+          class="colFotDx"
+          style="background-color: transparent !important;"
+        >
+          <v-row
+            class="mx-auto"
+            justify="start"
+            style="background-color: transparent !important;"
+          >
             <div class="grey--text ml-1">
               <span class="font-weight-light">CF:95066440124</span>
             </div>
@@ -118,8 +130,8 @@ export default {
 <style media="screen">
 .avatarBottom {
   z-index: 5;
-  max-width: 48px;
-  max-height: 50px;
+  max-width: 18px;
+  max-height: 20px;
   transform: scale(1, 1);
 }
 .avatarBottom:hover {
@@ -132,5 +144,17 @@ export default {
 .colFotDx {
   align-content: start;
   background-color: red !important;
+}
+.rav {
+  height: 30px;
+  background-color: transparent;
+  opacity: 0.8;
+  border-radius: 15px;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+.av {
+  height: 25px;
+  width: 25px;
 }
 </style>
