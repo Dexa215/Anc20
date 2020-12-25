@@ -1,35 +1,16 @@
 <template>
   <v-row align="center" justify="center" style="height:100%">
-    <v-col cols="12" align="center" justify="center" class="ancClock">
-      <div class="cage r_BC">
-        <!-- data oggi 555555555555555555555555555555555555555555555555555555555555  -->
-
-        <v-row class="todayr" align="center" justify="center">
-          <v-row class="rup mx-auto" align="end">
-            <v-col cols="9" class="cup mx-auto display-2">{{lang.text1}}</v-col>
-          </v-row>
-
-          <v-row class="rdw mx-auto" align="start">
-            <v-col cols="9" class="cdw mx-auto">
-              <!-- test ok 
-            <a class="title">{{ displaydate }}</a>
-              -->
-              <a class="title">{{ displayeddate }}</a>
-            </v-col>
-          </v-row>
+    <v-col class="ancClock" cols="12" align="center" justify="center">
+      <v-row class="cage my-auto mx-auto r_BC" align="center" justify="center">
+        <v-row class="rup mx-auto" align="end">
+          <v-col cols="9" class="cup mx-auto display-2">{{ lang.text1 }}</v-col>
         </v-row>
-
-        <!--
-      <v-col cols="12" class="todayCircleText">
-        <v-row class="todayrowup" align="end">
-          <v-col cols="12" class="todaylineup headline mt-0">Oggi...</v-col>
+        <v-row class="rdw mx-auto" align="start">
+          <v-col cols="9" class="cdw mx-auto">
+            <a class="title">{{ displayeddate }}</a>
+          </v-col>
         </v-row>
-        <v-row class="todayrowdown" align="start">
-          <v-col cols="12" class="todaylinedown headline mt-0">{{ displaydate }}</v-col>
-        </v-row>
-      </v-col>
-        -->
-      </div>
+      </v-row>
     </v-col>
   </v-row>
 </template>
@@ -147,19 +128,22 @@ export default {
 .ancClock {
   position: relative;
   z-index: 4;
-  background-color: transparent;
-  /*style="height:320px; "*/
   height: 325px;
 }
 .cage {
+  position: relative;
+  z-index: 5;
+  opacity: 0.9;
   border-radius: 150px;
-  background-color: royalblue;
-  height: 300px;
-  width: 300px;
-  padding-top: 4px;
+  height: 100%;
+  padding: 4px;
 }
+
 .todayr {
-  background-color: transparent !important;
+  /*background-color: transparent !important;*/
+  position: relative;
+  z-index: 6;
+  background-color: yellow !important;
   width: 92%;
   height: 95%;
   border-radius: 250px;

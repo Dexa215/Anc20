@@ -49,8 +49,8 @@
 -->
 
 <script>
-/*import $ from "jquery";
- */
+import $ from "jquery";
+
 export default {
   name: "ancItem",
   components: {},
@@ -141,16 +141,22 @@ export default {
     /*css changes*/
     icoBIG() {
       this.msg1 = true;
-      /*$(this.itemidtxt).css({
+      $(this.itemidtxt).css({
         transform: "scale(1.2, 1.2) rotate(5deg)"
-      });*/
+      });
+      /*
+      $("#id").css({
+        transform: "scale(1.5, 1.5)"
+      }); 
+      */
+      /*
+      $(".class").css({ transform: "scale(1.5, 1.5)" });
+      */
 
-      /*$("#id")    .css({ transform: "scale(1.5, 1.5)" });*/
-      /*$(".class") .css({ transform: "scale(1.5, 1.5)" });*/
       /*this.msg1 = true;*/
     },
     icoSMALL() {
-      /*$(this.itemidtxt).css({ transform: "scale(1, 1) rotate(0deg)" });*/
+      $(this.itemidtxt).css({ transform: "scale(1, 1) rotate(0deg)" });
       /*this.msg1 = false;*/
     },
 
