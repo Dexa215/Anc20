@@ -48,8 +48,8 @@
                   <v-btn
                     rounded
                     class="ml-3"
-                    v-if="categorie[C/10-1].descrizione"
-                    @click="gotoR(categorie[C/10-1].link)"
+                    v-if="categorie[C / 10 - 1].descrizione"
+                    @click="gotoR(categorie[C / 10 - 1].link)"
                     @mouseenter="DSCset('true')"
                   >
                     <a class="mx-1">
@@ -59,13 +59,21 @@
                       style="color:lightblue;"
                       ></span-->
 
-                      <span class="mx-1" style="color:white;">{{categorie[C/10-1].descrizione}}</span>
-                      <span class="mx-1" v-if="CS!=0" style="color:white;">\</span>
+                      <span class="mx-1" style="color:white;">{{
+                        categorie[C / 10 - 1].descrizione
+                      }}</span>
+                      <span class="mx-1" v-if="CS != 0" style="color:white;"
+                        >\</span
+                      >
                       <span
                         class="mx-1"
-                        v-if="CS!=0"
+                        v-if="CS != 0"
                         style="color:burlywood;"
-                      >{{categorie[C/10-1].sottocategorie[(CS-C)-1].descrizione }}</span>
+                        >{{
+                          categorie[C / 10 - 1].sottocategorie[CS - C - 1]
+                            .descrizione
+                        }}</span
+                      >
                     </a>
                   </v-btn>
 
@@ -88,8 +96,9 @@
                     large
                     dark
                     @mouseenter="DSCset('true')"
-                    @click="gotoR(categorie[C/10-1].link)"
-                  >{{categorie[C/10-1].icona}}</v-icon>
+                    @click="gotoR(categorie[C / 10 - 1].link)"
+                    >{{ categorie[C / 10 - 1].icona }}</v-icon
+                  >
                 </transition>
                 <!-- categoria corrente -->
               </v-row>
@@ -117,7 +126,13 @@
         <v-col class="rcC rcX rcC_BC" cols="4">
           <!-- MACRO COLONNA CENTRO ************************************************************************************************************ -->
           <!--v-expand-transition v-show="!drawerLeft" -->
-          <v-row class="rcCr rcCr_BC" align="center" justify="center" dense style="z-index: 2">
+          <v-row
+            class="rcCr rcCr_BC"
+            align="center"
+            justify="center"
+            dense
+            style="z-index: 2"
+          >
             <v-col class="rcCrcS rcCrcLat_BC">
               <div>ANC</div>
             </v-col>
@@ -138,7 +153,9 @@
                 <v-avatar size="48" right="true" v-else>
                   <!-- drawer aperto -->
 
-                  <v-icon size="48" @click="setDF">mdi-close-circle-outline</v-icon>
+                  <v-icon size="48" @click="setDF"
+                    >mdi-close-circle-outline</v-icon
+                  >
                 </v-avatar>
               </v-expand-x-transition>
 
@@ -164,8 +181,13 @@
                 <!-- lista di linguaggi... -->
                 <!-- @click="SDL" -->
                 <!-- -->
-                <v-btn @click="SDL" rounded v-show="languagesShow && !drawerLeft" class="mx-3">
-                  {{lang.t[0].lista[2].t[0].text}}
+                <v-btn
+                  @click="SDL"
+                  rounded
+                  v-show="languagesShow && !drawerLeft"
+                  class="mx-3"
+                >
+                  {{ lang.t[0].lista[2].t[0].text }}
                   <!-- lang.t[0]                == components-->
                   <!-- lang.t[0].lista[2]       == Menu Language-->
                   <!-- lang.t[0].lista[2].t[0]  == Menu Language testo 0 -->
@@ -180,7 +202,12 @@
                   rounded
                   @click="ScL(lang.code)"
                 >
-                  <v-img class="mx-1 AncIconLang" large dark :src="lang.icona"></v-img>
+                  <v-img
+                    class="mx-1 AncIconLang"
+                    large
+                    dark
+                    :src="lang.icona"
+                  ></v-img>
                 </v-btn>
               </v-row>
             </v-col>
@@ -191,7 +218,12 @@
                 <!--v-app-bar-nav-icon >
                 </v-app-bar-nav-icon-->
 
-                <v-btn v-show="!languagesShow && drawerLeft" class="mx-3" icon @click="gotoR('/')">
+                <v-btn
+                  v-show="!languagesShow && drawerLeft"
+                  class="mx-3"
+                  icon
+                  @click="gotoR('/')"
+                >
                   <v-icon class="mx-3 AncIconLang" large dark>mdi-bank</v-icon>
                 </v-btn>
 
@@ -223,7 +255,12 @@
                     style="background-color: transparent"
                     @click="SDL"
                   >
-                    <v-img class="mx-1 AncIconLang" large dark :src="lang.icona"></v-img>
+                    <v-img
+                      class="mx-1 AncIconLang"
+                      large
+                      dark
+                      :src="lang.icona"
+                    ></v-img>
                     <!-- TEST OK 2020 05 10-->
                     <!--
                     {{lang.code}}
@@ -282,7 +319,9 @@
                     rounded
                     style="background-color: transparent"
                   >
-                    <v-icon class="mx-3 AncIconColor" large dark>mdi-magnify</v-icon>
+                    <v-icon class="mx-3 AncIconColor" large dark
+                      >mdi-magnify</v-icon
+                    >
                   </v-btn>
                 </v-expand-x-transition>
 
@@ -364,7 +403,7 @@ ESCLUSI DA DATA:
 
       expand: "true",
       expandSC: "false",
-      h: "80px",
+      h: "280px",
       cab: "AncAppBarE cBE-Vis",
 
       rvt: 10,
@@ -386,12 +425,12 @@ ESCLUSI DA DATA:
       shrinkOnScroll: true,
       extended: false,
 
-      AncAppBar_BC: "rgb(19, 21, 36)",
+      AncAppBar_BC: "rgb(19, 21, 36)"
     };
   },
   props: {
     height: {
-      type: String,
+      type: String
     } /*TODO: SOSTITUIRE CS CS categorie [ PROP CON COMPUTED DA STORE ] */ /*
     C:{type: Number},
     CS: { type: Number },
@@ -399,7 +438,7 @@ ESCLUSI DA DATA:
     */ /*TODO: SOSTITUIRE CS CS [ PROP CON COMPUTED DA STORE ] */ /*TODO: SOSTITUIRE RCS RCD [ PROP CON COMPUTED DA STORE ] */ /*
     rcS: { type: String },
     rcD: { type: String },
-*/, //colBarEst: { type: String }, //colBarInt: { type: String }, // eslint-disable-next-line vue/no-dupe-keys
+*/ //colBarEst: { type: String }, //colBarInt: { type: String }, // eslint-disable-next-line vue/no-dupe-keys
 
     /*
 TODO:
@@ -503,7 +542,7 @@ TODO:
     },
     rcU() {
       return this.$store.getters.rcU;
-    },
+    }
     /* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
   },
 
@@ -529,7 +568,7 @@ TODO:
     },
     setDF() {
       this.$store.dispatch("setDF");
-    },
+    }
   },
   updated() {
     /*this.setcolor();*/
@@ -538,9 +577,8 @@ TODO:
     /*this.setcolor();*/
     this.h = this.height;
     //console.log(this.$vuetify.breakpoint);
-  },
+  }
 };
 </script>
 
-<style media="screen">
-</style>
+<style media="screen"></style>

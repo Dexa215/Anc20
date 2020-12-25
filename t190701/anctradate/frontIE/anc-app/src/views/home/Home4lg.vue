@@ -309,7 +309,7 @@ export default {
   height: 150px;
 }
 .r_main_hsDown_LG {
-  height: 100px;
+  height: 50px;
 }
 /**/
 .Anc_BC_BlueDark {

@@ -43,10 +43,10 @@
 </template>
 
 <script>
-import { apiService } from "@/common/api.service";
-
+/*import { apiService } from "@/common/api.service";
 import router from "@/router";
-import ancNews from "@/components/AncNews/AncNews.vue";
+*/
+/*import ancNews from "@/components/AncNews/AncNews.vue";*/
 //AncAppBars...
 import b1xs from "@/components/AncAppBars/B1xs.vue";
 import b2sm from "@/components/AncAppBars/B2sm.vue";
@@ -73,20 +73,20 @@ export default {
     b2sm,
     b3md,
     b4lg,
-    b5xl,
-
+    b5xl
+    /*
     menuS,
     menuSC,
-
     u4lg,
     m4lg,
     m4lgSottocategorie,
     m4lgAdmin,
-    ancNews,
+    ancNews
+    */
   },
 
   props: {
-    iconX: { type: String },
+    iconX: { type: String }
     /*  2020 04 26 test sostituzione con computed su $store - TEST OK /*
     requestUser: { type: String },
     requestUserIsStaff: { type: Boolean },
@@ -126,7 +126,7 @@ export default {
 */
 
     admin: false,
-    admincommands: false,
+    admincommands: false
   }),
 
   computed: {
@@ -223,7 +223,7 @@ export default {
           //console.log("xl");
           return "xl";
       }
-    },
+    }
   },
 
   methods: {
@@ -329,7 +329,7 @@ export default {
 
     DSCset(state) {
       this.$emit("DSCset", state);
-    },
+    }
   },
 
   updated() {
@@ -341,7 +341,7 @@ export default {
 
     // eslint-disable-next-line no-console
     console.log(this.$vuetify.breakpoint);
-  },
+  }
 
   /*
   _computed: {  
@@ -399,7 +399,8 @@ export default {
 .AncAppBarE {
   position: fixed;
   z-index: 6;
-  height: 150px;
+  height: 250px;
+  /*height: 150px;*/
   width: 100%;
   padding-top: 6px;
   padding-bottom: 0px;
@@ -411,6 +412,7 @@ export default {
   /*.AncRowBarEst / ARBI */
   position: relative;
   z-index: 7;
+  /*height: 70px;*/
   height: 70px;
   margin-left: 10px;
   margin-right: 10px;

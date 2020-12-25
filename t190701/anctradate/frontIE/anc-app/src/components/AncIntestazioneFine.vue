@@ -12,6 +12,7 @@
             class="my-3"
             contain
             height="100"
+            id="bustina"
           ></v-img>
         </v-flex>
       </v-layout>
@@ -159,5 +160,11 @@ export default {
 }
 .cnt:hover {
   transform: scale(1.1, 1.1) rotate(5deg);
+}
+#bustina {
+  transform: scale(1, 1) rotate(0deg);
+}
+#bustina:hover {
+  transform: scale(1.05, 1.05) rotate(2deg);
 }
 </style>
