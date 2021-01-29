@@ -1,9 +1,10 @@
 <template>
   <v-app id="anc">
-    <ancAppBar class="Mx6"></ancAppBar>
-    <menuS class="Mx5"></menuS>
+    <ancAppBar class="Mx7"></ancAppBar>
+    <ancNews class="Mx5"></ancNews>
+
+    <menuS class="Mx6"></menuS>
     <!--menuSC class="Mx4"></menuSC-->
-    <ancNews></ancNews>
 
     <v-content class="Mx3">
       <router-view
@@ -48,6 +49,7 @@ import { getCurrentCat } from "./common/menu";
 // test sintassi ok
 // @ resolve src
 import menuT from "./common/menuTime.js";
+import $ from "jquery";
 
 export default {
   name: "App",
@@ -188,31 +190,37 @@ export default {
     ]
   }),
 
+  computed: {
+    barBIG() {
+      return this.$store.getters.getbarBIG;
+    }
+  },
+
   methods: {
-    getToken () {
+    getToken() {
       //test OK
       console.log("cookies.get(CSRF_TOKEN)", $cookies.get("csrftoken"));
       this.requestToken = $cookies.get("csrftoken");
     },
 
-    getRequestUser () {
+    getRequestUser() {
       this.$store.dispatch("getRequestUser");
     },
 
-    getEvidenza () {
+    getEvidenza() {
       this.$store.dispatch("getEvidenza");
     },
 
-    T (c) {
+    T(c) {
       console.log("App --> RICEVUTO emit su T ", c); //set parameters
     },
 
-    spMC (P) {
+    spMC(P) {
       this.Ccurrent = P.Ccurrent;
       this.CScurrent = P.CScurrent;
     },
 
-    setD () {
+    setD() {
       this.drawerLeft = !this.drawerLeft;
       if (this.drawerLeft == false) {
         this.setDF();
@@ -222,7 +230,7 @@ export default {
     },
 
     /* Drawer SottoCategoria */
-    DSCset (state) {
+    DSCset(state) {
       switch (state) {
         case "true":
           this.drawerSottocategoria = true;
@@ -235,41 +243,41 @@ export default {
           break;
       }
     },
-    setDF () {
+    setDF() {
       this.drawerLeft = false;
       this.drawerRight = false;
       this.iconX = this.iconC;
     },
-    setDT () {
+    setDT() {
       this.drawerLeft = true;
       this.drawerRight = true;
       this.iconX = this.iconO;
     },
 
-    setDLf () {
+    setDLf() {
       this.$store.dispatch("setDLf");
     },
 
-    setColor () {
+    setColor() {
       this.$store.dispatch("setcolor");
     },
 
-    navi () {
+    navi() {
       console.log("navi click...");
     },
 
-    mouseOver: function () {
+    mouseOver: function() {
       this.Logoutbtn.color = "LightGoldenRodYellow";
     },
 
     /* TEST OK 2020 05 03 */
-    gotoR (r) {
+    gotoR(r) {
       console.log("APP gotoR", r);
       this.$store.dispatch("gotoR", r);
     },
 
     /* TODO: RIPRISTINARE DOPO IL TEST COME GOTOR */
-    gotoR1 (r) {
+    gotoR1(r) {
       var m = menuT;
       m.goto(r);
       (this.C = m.currentcat[0]),
@@ -282,7 +290,7 @@ export default {
       //router.push(r);
     },
 
-    getCat () {
+    getCat() {
       var set = false;
       var count = 0;
       var m = menuT;
@@ -315,7 +323,7 @@ export default {
       console.log("App getCat FINEWHILE");
     },
 
-    setCat () {
+    setCat() {
       menuT.sem
         .then(data => {
           console.log("setCat ...data:", data);
@@ -333,9 +341,9 @@ export default {
 
   // Hooks ---------------------------------------------------------
 
-  beforecreated () { },
+  beforecreated() {},
 
-  created () {
+  created() {
     document.title = "ANC Tradate";
     this.setDLf();
     this.getToken();
@@ -463,8 +471,10 @@ Con Sottoclassi in ogni view di definizione risoluzione:
   z-index: 1;
   width: 100%;
   height: 100%;
-  background-color: whitesmoke;
+  /*  background-color: whitesmoke;*/
+  background-color: greenyellow;
   text-align: center;
+  color: black;
 }
 
 .SfImmagine {
@@ -512,11 +522,23 @@ Con Sottoclassi in ogni view di definizione risoluzione:
   z-index: 4;
 }
 .Mx5 {
-  position: relative;
+  position: absolute;
   z-index: 5;
+  width: 100%;
 }
 .Mx6 {
-  position: relative;
+  position: absolute;
   z-index: 6;
+  width: 100%;
+}
+.Mx7 {
+  position: relative;
+  z-index: 7;
+}
+.p0 {
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
 }
 </style>

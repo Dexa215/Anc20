@@ -228,13 +228,13 @@ export default {
 };
 </script>
 
-
 <style media="screen">
 .menuS {
   position: relative;
   z-index: 4;
-  background-color: darkred !important;
+  /*background-color: transparent !important;*/
   height: 1px;
+  width: 100%;
   /*
   padding-left: 15px;
   padding-right: 15px;
@@ -477,9 +477,6 @@ export default {
   /* Menu column User...*/
   padding-left: 0px;
   padding-right: 0px;
-}
-.mr {
-  background-color: transparent !important;
 }
 
 .caticon {

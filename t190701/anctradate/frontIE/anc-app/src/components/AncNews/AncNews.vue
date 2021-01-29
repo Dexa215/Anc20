@@ -1,12 +1,23 @@
 <template>
-  <div class="rmNews">
-    <!-- @@@ -->
-    <n1xs      v-if="currentres == 'xs'"></n1xs>
+  <!--
+  <v-row
+    class="rmNews mx-auto"
+    align="center"
+    justify="center"
+  >  </v-row>
+-->
+
+  <!-- @@@ -->
+  <div
+    @mouseenter="setnews('true')"
+    @mouseleave="setnews('false')"
+  >
+    <n1xs v-if="currentres == 'xs'"></n1xs>
     <n2sm v-else-if="currentres == 'sm'"></n2sm>
     <n3md v-else-if="currentres == 'md'"></n3md>
     <n4lg v-else-if="currentres == 'lg'"></n4lg>
     <n5xl v-else-if="currentres == 'xl'"></n5xl>
-  </div>  
+  </div>
   <!--
     
     <v-col>
@@ -102,6 +113,27 @@ export default {
   },
 
   methods: {
+    setnews (val) {
+      /*this.$store.dispatch("setNN", val);*/
+      if (val === "true") {
+        this.nON();
+      } else {
+        this.nOFF();
+      }
+    },
+    /*barBIG*/
+    nON () {
+      var rR = $(".ancNewsrLG");
+      /*rR.css("background-color", "rgb(1, 4, 20)");*/
+      rR.css("opacity", "0.8");
+    },
+    /*barSMALL*/
+    nOFF () {
+      var rR = $(".ancNewsrLG");
+      /*rR.css("background-color", "rgb(19, 21, 36)");*/
+      rR.css("opacity", "0.6");
+    }
+
     /*
     getEvidenza() {
       var x;
@@ -146,12 +178,22 @@ export default {
 .rmNews {
   /* ... comunicazioni ...*/
   position: absolute;
-  z-index: 2;
-  
+  z-index: 5;
   width: 100%;
+  height: 80px;
+  margin-top: 0px;
   background-color: rgb(146, 0, 0) !important; /*test*/
+  opacity: 0.7;
 }
-
+.cmNews {
+  height: 90%;
+}
+.ancNewsr {
+  background-color: transparent !important;
+  align-content: center;
+  width: 100%;
+  opacity: 0.8;
+}
 .container-fluid {
   /*    background-color:white;
 */
@@ -162,25 +204,19 @@ export default {
   background-color: white;
 }
 
-.ancNewsr {
-  background-color: transparent !important;
-  align-content: center;
-  width: 100%;
-}
-
 .t_BC {
   background-color: transparent !important;
 }
 .tc1 {
-  height: 80%;
-  justify-content: center;
+  height: 100%;
+  background-color: turquoise;
 }
 .tc2 {
-  height: 90%;
+  height: 100%;
+  background-color: violet;
 }
 .rc2 {
   height: 100%;
   background-color: transparent !important;
-  align-content: center;
 }
 </style>

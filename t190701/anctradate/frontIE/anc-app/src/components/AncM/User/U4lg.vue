@@ -1,63 +1,72 @@
 <template>
-  <div class="u4menu mx-auto">
-    <!--  User NAME  -->
-    <v-row id="u4r2" class="mx-auto" align="center" justify="center">
-      <v-col>
-        <h2 class>Ciao {{ requestUser }} !!</h2>
-      </v-col>
-    </v-row>
-    <!--  User RANK / RANGO  -->
-    <v-row id="u4r4" class="mx-auto">
-      <v-col>
-        <v-btn
-          v-if="requestUserIsSuper"
-          class="ma-2"
-          rounded
-          outlined
-          large
-          color="rgb(245, 244, 228)"
-          @click="acs"
-        >
-          <a style="color:red;">Amministratore</a>
-        </v-btn>
+  <v-row class="ur mx-auto">
+    <v-col id="u4c0">
+      <!--  User NAME  -->
+      <v-row id="u4r2" class="mx-auto" align="center" justify="center">
+        <v-col>
+          <h2 class>Ciao {{ requestUser }} !!</h2>
+        </v-col>
+      </v-row>
+      <!--  User RANK / RANGO  -->
+      <v-row id="u4r4" class="mx-auto">
+        <v-col>
+          <v-btn
+            v-if="requestUserIsSuper"
+            class="ma-2"
+            rounded
+            outlined
+            large
+            color="rgb(245, 244, 228)"
+            @click="acs"
+          >
+            <a style="color:red;">Amministratore</a>
+          </v-btn>
 
-        <v-btn
-          v-else-if="requestUserIsStaff"
-          class="ma-2"
-          rounded
-          outlined
-          large
-          color="rgb(245, 244, 228)"
-        >
-          <a style="color:blue;">Consigliere</a>
-        </v-btn>
+          <v-btn
+            v-else-if="requestUserIsStaff"
+            class="ma-2"
+            rounded
+            outlined
+            large
+            color="rgb(245, 244, 228)"
+          >
+            <a style="color:blue;">Consigliere</a>
+          </v-btn>
 
-        <v-btn v-else class="ma-2" rounded outlined large color="rgb(245, 244, 228)">
-          <a style="color:brown;">Socio</a>
-        </v-btn>
-      </v-col>
-    </v-row>
+          <v-btn
+            v-else
+            class="ma-2"
+            rounded
+            outlined
+            large
+            color="rgb(245, 244, 228)"
+          >
+            <a style="color:brown;">Socio</a>
+          </v-btn>
+        </v-col>
+      </v-row>
 
-    <!--  User AVATAR  -->
-    <v-row id="u4r1" class="mx-auto" align="center" justify="center">
-      <img class="uimg" :src="ico" />
-    </v-row>
+      <!--  User AVATAR  -->
+      <v-row id="u4r1" class="mx-auto" align="center" justify="center">
+        <img class="uimg" :src="ico" />
+      </v-row>
 
-    <!--  User LOGOUT  -->
-    <v-row id="u4r3" class="mx-auto" align="center" justify="center">
-      <v-col>
-        <v-btn class="ma-2" rounded outlined large color="rgb(245, 244, 228)">
-          <span v-if="requestUser">
-            <!--
+      <!--  User LOGOUT  -->
+      <v-row id="u4r3" class="mx-auto" align="center" justify="center">
+        <v-col>
+          <v-btn class="ma-2" rounded outlined large color="rgb(245, 244, 228)">
+            <span v-if="requestUser">
+              <!--
             <a @click="gotoR('/')">test logout...</a>
             <spacer type="horizontal" width="100" height="100">♢</spacer>
             -->
-            <a class="my-1 logout" href="/accounts/logout/">Logout</a>
-          </span>
-        </v-btn>
-      </v-col>
-    </v-row>
-  </div>
+              <a class="my-1 logout" href="/accounts/logout/">Logout</a>
+            </span>
+          </v-btn>
+        </v-col>
+      </v-row>
+    </v-col>
+  </v-row>
 </template>
 
 <script>
@@ -176,12 +185,12 @@ export default {
 </script>
 
 <style media="screen">
-.u4menu {
-  /* div  */
+.ur {
+  /*background-color: transparent !important;*/
+  background-color: red !important;
+  padding-top: 50px;
   margin-left: 0px;
   margin-right: 0px;
-  background-color: transparent !important;
-  /*background-color: YELLOW !important;*/
 }
 
 .u4r {
@@ -196,6 +205,10 @@ export default {
   height: 100px;
   width: 100px;
   border-radius: 50px;
+}
+
+#u4c0 {
+  background-color: yellow;
 }
 
 /*  rows...                           */
@@ -242,5 +255,3 @@ h2 {
   color: bisque;
 }
 </style>
-
- 

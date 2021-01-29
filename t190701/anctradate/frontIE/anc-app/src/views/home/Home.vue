@@ -30,7 +30,7 @@ export default {
     home2sm,
     home3md,
     home4lg,
-    home5xl,
+    home5xl
   },
 
   props: {},
@@ -39,92 +39,92 @@ export default {
 
   computed: {
     /*  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  */
-    lang() {
+    lang () {
       return this.$store.getters.getCurrentLanguage;
     },
-    languages() {
+    languages () {
       return this.$store.getters.getLanguages;
     },
-    languagesShow() {
+    languagesShow () {
       return this.$store.getters.getLanguagesShow;
     },
     /*  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  */
-    drawer() {
+    drawer () {
       return this.$store.getters.getDrawer;
     },
-    drawerLeft() {
+    drawerLeft () {
       return this.$store.getters.getDrawerLeft;
     },
-    drawerRight() {
+    drawerRight () {
       return this.$store.getters.getDrawerRight;
     },
-    drawerSottocategoria() {
+    drawerSottocategoria () {
       return this.$store.getters.getDrawerSottocategoria;
     },
     /*  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  */
-    iconX() {
+    iconX () {
       return this.$store.getters.getIconX;
     },
-    iconO() {
+    iconO () {
       return this.$store.getters.getIconO;
     },
-    iconOdx() {
+    iconOdx () {
       return this.$store.getters.getIconOdx;
     },
-    iconC() {
+    iconC () {
       return this.$store.getters.getIconC;
     },
-    iconCdx() {
+    iconCdx () {
       return this.$store.getters.getIconCdx;
     },
     /*  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  */
-    categorie() {
+    categorie () {
       return this.$store.getters.categorie;
     },
-    C() {
+    C () {
       return this.$store.getters.getC;
     },
-    CS() {
+    CS () {
       return this.$store.getters.getCS;
     },
     /*  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  */
-    requestUser() {
+    requestUser () {
       return this.$store.getters.requestUser;
     },
-    requestUserIsStaff() {
+    requestUserIsStaff () {
       return this.$store.getters.requestUserIsStaff;
     },
-    requestUserIsSuper() {
+    requestUserIsSuper () {
       return this.$store.getters.requestUserIsSuper;
     },
-    requestUserAvatar() {
+    requestUserAvatar () {
       return this.$store.getters.requestUserAvatar;
     },
-    requestUserBio() {
+    requestUserBio () {
       return this.$store.getters.requestUserBio;
     },
-    requestToken() {
+    requestToken () {
       return this.$store.getters.requestToken;
     },
     /*  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  */
-    rcS() {
+    rcS () {
       return this.$store.getters.rcS;
     },
-    rcD() {
+    rcD () {
       return this.$store.getters.rcD;
     },
-    rcU() {
+    rcU () {
       return this.$store.getters.rcU;
     },
     /* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
-    admin() {
+    admin () {
       return this.$store.getters.admin;
     },
-    admincommands() {
+    admincommands () {
       return this.$store.getters.admincommands;
     },
     /* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
-    currentres() {
+    currentres () {
       switch (this.$vuetify.breakpoint.name) {
         case "xs":
           return "xs";
@@ -137,44 +137,43 @@ export default {
         case "xl":
           return "xl";
       }
-    },
+    }
   },
 
   methods: {
     /*2020 06 16*/
-    gotoR(r) {
+    gotoR (r) {
       this.expand = !this.expand;
       this.$store.dispatch("setDF");
       this.$store.dispatch("gotoR", r);
     },
-    SDL() {
+    SDL () {
       /*Switch Drawer Language*/
       this.$store.dispatch("switchDrawerLang");
     },
-    ScL(val) {
+    ScL (val) {
       /*SET Current Language*/
       this.$store.dispatch("setL", val);
     },
-    DSCset(state) {
+    DSCset (state) {
       /*SC Sotto Categoria*/
       this.$store.dispatch("DSCset", state);
     },
-    setD() {
+    setD () {
       this.$store.dispatch("setD");
     },
-    setDF() {
+    setDF () {
       this.$store.dispatch("setDF");
-    },
+    }
   },
 
-  updated() {},
+  updated () { },
 
-  mounted() {},
+  mounted () { },
 
-  created() {},
+  created () { }
 };
 </script>
-
 
 <style media="screen">
 .anchome {

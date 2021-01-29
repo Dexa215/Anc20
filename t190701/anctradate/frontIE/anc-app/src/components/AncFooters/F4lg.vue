@@ -1,6 +1,12 @@
 <template>
   <div>
-    <v-footer fixed app :color="AncFooter_BC" class="grey--text" dark>
+    <v-footer
+      fixed
+      app
+      :color="AncFooter_BC"
+      class="grey--text"
+      dark
+    >
       <v-row
         dense
         class="AncFooter_r_BC ma-1 pu-1"
@@ -11,7 +17,12 @@
         <!-- large -->
         <!-- class="hidden-md-and-down" -->
         <!-- large -->
-        <v-col cols="5" class="hidden-md-and-down colFot" align="end" justify="center">
+        <v-col
+          cols="5"
+          class="hidden-md-and-down colFot"
+          align="end"
+          justify="center"
+        >
           <div class="grey--text">
             <span class="font-weight-light mx-2">Associazione Nazionale Carabinieri</span>
           </div>
@@ -40,9 +51,8 @@
                 @click="gotoR('/')"
                 @mouseover="hoveravatar = true"
                 @mouseleave="hoveravatar = false"
-                style="
-                    height: 50px; 
-                    width:  50px;"
+                style=" height: 50px; width:
+              50px;"
               />
             </v-avatar>
           </div>
@@ -108,7 +118,8 @@ export default {
   }),
 
   methods: {
-    gotoR(r) {
+    gotoR (r) {
+      console.log("Anc FOOTER LG - gotoR", r);
       this.expand = !this.expand;
       this.$store.dispatch("gotoR", r);
     }
@@ -116,5 +127,4 @@ export default {
 };
 </script>
 
-<style media="screen" scoped>
-</style>
+<style media="screen" scoped></style>

@@ -1,6 +1,9 @@
 <template>
-  <div>
-    <v-row class="mr mx-auto">
+  <!--
+  
+  -->
+  <v-row class="mr mx-auto">
+    <div v-if="false">
       <v-col @mouseenter="DSCset('false')" @mouseleave="DSCset('true')">
         <v-list dark shaped class="ancM4l ancM4l_BC">
           <!-- * shaped  -->
@@ -15,7 +18,7 @@
           >
             <!-- desel ----------------------------------------------------------------------------
             -->
-            <v-list-item-content v-if="item.n!=Cs" class="CcB CclDESEL">
+            <v-list-item-content v-if="item.n != Cs" class="CcB CclDESEL">
               <v-btn class="mbtn" color="transparent">
                 <v-list-item-icon @click="gotoR(item.link)" class="tileM4icon">
                   <v-icon class="caticon">{{ item.icona }}</v-icon>
@@ -38,9 +41,15 @@
             <v-list-item-content v-else-if="drawerSCM" class="CcB CclOPEN">
               <!-- pulsante categoria-->
 
-              <v-btn @click="selectR(item.link,item.n)" class="mbtn" color="transparent">
+              <v-btn
+                @click="selectR(item.link, item.n)"
+                class="mbtn"
+                color="transparent"
+              >
                 <v-list-item-icon @click="gotoR(item.link)" class="tileM4icon">
-                  <v-icon class="caticon" @click="gotoR(item.link)">{{ item.icona }}</v-icon>
+                  <v-icon class="caticon" @click="gotoR(item.link)">{{
+                    item.icona
+                  }}</v-icon>
                 </v-list-item-icon>
                 <!--descrizione categoria-->
 
@@ -76,7 +85,8 @@
                   <v-icon
                     v-show="categorie[Cs / 10 - 1].sottocategorie.length > 1"
                     class="caticon"
-                  >mdi-plus-circle</v-icon>
+                    >mdi-plus-circle</v-icon
+                  >
                 </v-list-item-icon>
               </v-btn>
             </v-list-item-content>
@@ -87,8 +97,10 @@
           <!-- * -->
         </v-list>
       </v-col>
-    </v-row>
-    <!--
+    </div></v-row
+  >
+
+  <!--
     <a style="color:yellow">in selezione $store > Cs Categoria ... {{ Cs }}</a>
     <a style="color:yellow">in selezione CSs SottoCategoria ... {{ CSs }}</a>
     <a>in selezione... {{ btnsel }}</a>
@@ -96,7 +108,6 @@
     <a>DRAWER SCM: {{drawerSCM}}</a>
     <v-row class="mx-auto" style="background-color: red"></v-row>
     -->
-  </div>
 </template>
 
 <script>
@@ -249,7 +260,6 @@ export default {
     /*2020 06 27*/
     selectBtn(ncat) {
       this.btnsel = ncat;
-
       /*  setta in Cs Categoria dell'item selezionato nel menu  */
       console.log("!! M4lg selectBtn - ncat : ", this.btnsel, ncat);
       this.$store.dispatch("selectncat", ncat);
@@ -311,6 +321,12 @@ export default {
 </script>
 
 <style media="screen">
+.mr {
+  /*background-color: transparent !important;*/
+  background-color: orange !important;
+  padding-top: 40px;
+}
+
 /*
 .selezionato {
   height: 200px;
@@ -323,8 +339,3 @@ export default {
 */
 /* 8888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888  */
 </style>
-
-
-
-
-

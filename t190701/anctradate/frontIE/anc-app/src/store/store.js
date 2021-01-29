@@ -190,21 +190,12 @@ const moduleC = {
         imgEvidenza: "/static/icons/menu/importanteww.png",
         link: "/",
         linksFP: [
-          {
-            descrizione: "Ubicazione sede",
-            link: "sede/"
-          },
-          {
-            descrizione: "Chi siamo",
-            link: "chisiamo/"
-          },
-          {
-            descrizione: "Richiedi INFO",
-            link: "contatti/"
-          }
+          { r: [{ C: "20" }, { CS: "22" }] },
+          { r: [{ C: "40" }, { CS: "0" }] },
+          { r: [{ C: "30" }, { CS: "0" }] }
         ],
         sottocategorie: []
-      },
+      }, //cat1 10 home
       {
         //cat2 20 sede
         n: "20",
@@ -228,6 +219,11 @@ const moduleC = {
             link: "contatti/"
           }
         ],
+        linksFP: [
+          { r: [{ C: "20" }, { CS: "21" }] },
+          { r: [{ C: "40" }, { CS: "0" }] },
+          { r: [{ C: "30" }, { CS: "0" }] }
+        ],
         sottocategorie: [
           {
             n: "21",
@@ -246,7 +242,7 @@ const moduleC = {
             link: "/sedeOrari"
           }
         ]
-      },
+      }, //cat2 20 sede
       {
         //cat3 30 contatti
         n: "30",
@@ -295,7 +291,7 @@ const moduleC = {
             link: ""
           }
         ]
-      },
+      }, //cat3 30 contatti
       {
         //cat4 40 chisiamo
         n: "40",
@@ -353,7 +349,7 @@ const moduleC = {
             link: "/chisiamosimpatizzanti"
           }
         ]
-      },
+      }, //cat4 40 chisiamo
       {
         //cat5 50 agenda
         n: "50",
@@ -386,7 +382,7 @@ const moduleC = {
             link: ""
           }
         ]
-      },
+      }, //cat5 50 agenda
       {
         //cat6 60 archivio
         n: "60",
@@ -420,7 +416,7 @@ const moduleC = {
             link: ""
           }
         ]
-      },
+      }, //cat6 60 archivio
       {
         //cat7 70 tesseramento
         n: "70",
@@ -454,7 +450,7 @@ const moduleC = {
             link: "/tesseramentoprassi"
           }
         ]
-      },
+      }, //cat7 70 tesseramento
       {
         //cat8 80 links
         n: "80",
@@ -499,7 +495,7 @@ const moduleC = {
         ],
 
         sottocategorie: []
-      }
+      } //cat8 80 links
     ]
   },
   mutations: {},
@@ -513,6 +509,9 @@ const moduleC = {
 //      Module D: Drawers
 const moduleD = {
   state: {
+    barBig: false,
+    barBigSEM: false,
+
     drawer: false,
     drawerLeft: false,
     drawerRight: false,
@@ -536,6 +535,50 @@ const moduleD = {
     iconOdx: "mdi-menu-up"
   },
   mutations: {
+    setbarBIG (state, val) {
+      /* check sem... */
+
+      if (state.barBigSEM === true) {
+        console.log("semaforo bar big SEM occupato... rinuncio");
+      } else {
+        state.barBigSEM = true;
+        console.log("$STORE barBig ottengo semaforo bar big SEM");
+        /**/
+        switch (val) {
+          case "true":
+            state.barBig = true;
+
+            state.barBigSEM = false;
+            console.log(
+              "$STORE barBig VAL===TRUE rilascio semaforo bar big SEM"
+            );
+
+            /*setTimeout(function () {
+              state.barBigSEM = false;
+            }, 50);
+            */
+            break;
+          case "false":
+            state.barBig = false;
+
+            state.barBigSEM = false;
+            console.log(
+              "$STORE barBig VAL===FALSE rilascio semaforo bar big SEM"
+            );
+
+            break;
+          default:
+            state.barBig = !state.barBig;
+
+            state.barBigSEM = false;
+            console.log(
+              "$STORE barBig VAL===DEFAULT rilascio semaforo bar big SEM"
+            );
+            break;
+        }
+        /**/
+      }
+    },
     setDrawer (state, val) {
       state.drawer = val;
     },
@@ -601,6 +644,9 @@ const moduleD = {
     }
   },
   actions: {
+    setBB (context, val) {
+      context.commit("setbarBIG", val);
+    },
     setL (context, val) {
       context.commit("setCurrentLanguage", val);
     },
@@ -632,6 +678,12 @@ const moduleD = {
   },
 
   getters: {
+    getbarBIG: state => {
+      return state.barBig;
+    },
+    getbarBIGsem: state => {
+      return state.barBigSEM;
+    },
     getDrawer: state => {
       return state.drawer;
     },
@@ -744,17 +796,17 @@ const moduleE = {
                                                                                                                                                                 context.state.EloadingPushData = true;
                                                                                                                                                                 context.state.Eevents.push(...data.results);
                                                                                                                                                                 context.state.EloadingPushData = false;
-                                                                
+
                                                                                                                                                                 if (data.next) {
                                                                                                                                                                     context.state.Enext = data.next;
                                                                                                                                                                 } else {
                                                                                                                                                                     context.state.Enext = null;
                                                                                                                                                                 }
                                                                                                                                                             },
-                                                                
+
                                                                                                                                                             EeventsCreaEvidenza (context) {
                                                                                                                                                                 //ciclo per creare titolo in evidenza...
-                                                                
+
                                                                                                                                                                 if (context.state.Eevents.length == 0) {
                                                                                                                                                                     context.state.Titolone = "";
                                                                                                                                                                 } else {
@@ -863,7 +915,7 @@ const moduleE = {
                                                                                                                                                                 this.loadingEvents = true;
                                                                                                                                                                 apiService(endpoint).then(data => {
                                                                                                                                                                     console.log(data.results);
-                                                                
+
                                                                                                                                                                     this.events.push(...data.results);
                                                                                                                                                                     this.loadingEvents = false;
                                                                                                                                                                     if (data.next) {
@@ -1812,7 +1864,7 @@ const moduleL = {
                         title: "Envío de solicitud",
                         text: `
                                                               Para solicitar el registro, se requieren 2 fotografías en formato "pasaporte".
-                                                              El aspirante debe completar un formulario simple. 
+                                                              El aspirante debe completar un formulario simple.
                                                               Si la solicitud de membresía proviene de un militar que desea convertirse en miembro efectivo, también se requerirá una copia de la descarga.
                                                             `
                       },
@@ -2033,6 +2085,14 @@ const moduleR = {
       console.log("!! store aggiornamento....");
       state.calculatingC = true;
       state.calculatingCS = true;
+      console.log(
+        "!! store aggiornamento.... calculatingC",
+        state.calculatingC
+      );
+      console.log(
+        "!! store aggiornamento.... calculatingCS",
+        state.calculatingCS
+      );
     },
     /*      *******************************************************************     */
     /*In selezione da Menu Categorie*/
@@ -2044,10 +2104,8 @@ const moduleR = {
       state.CSs = cs;
       state.calculatingCSs = false;
     },
-
     aggiornaCCSs (state, cat) {
       /* SETTA cat come categoria selezionata nel menu categorie*/
-
       //state.Cs = cat;
       state.Cs = cat[0];
 
@@ -2060,7 +2118,7 @@ const moduleR = {
       state.calculatingCSs = false;
     },
     aggiornamentos (state) {
-      console.log("!! store aggiornamento....");
+      console.log("!! $store aggiornamento....");
       state.calculatingCs = true;
       state.calculatingCSs = true;
     }
@@ -2069,12 +2127,14 @@ const moduleR = {
     /* TEST 2020 05 03 OK */
     gotoR (context, r) {
       context.commit("aggiornamento");
+
       store
         .dispatch("setCS", r)
         .then(() => {
           //Attesa assegnazione codice pagina corrente
           if (context.state.calculatingC || context.state.calculatingCS) {
             setTimeout(100);
+            console.log("!! gotoR - attesa calculatingC or CS");
           }
           router.push("/");
           router.push(r);
@@ -2111,9 +2171,12 @@ const moduleR = {
 
     setCS (context, r) {
       /*  CODE THE CALL    */
+
       var cat = [];
-      //console.log("!! store setCS --> RATING r: ", r);
-      switch (r) {
+      var route = r;
+      console.log("!! store setCS --> RATING route: ", route);
+
+      switch (route) {
         case "":
           cat = [0, 0];
           break;
@@ -2168,10 +2231,14 @@ const moduleR = {
         case "/links":
           cat = [80, 0];
           break;
+
         default:
-          cat = [10, 0];
+          cat = [110, 0];
           break; //HOME...
       }
+
+      console.log("!! store setCS --> RATING cat[0]: ", cat[0]);
+      console.log("!! store setCS --> RATING cat[1]: ", cat[1]);
       context.commit("aggiornaCCS", cat);
       console.log(
         "!! store moduleR setCS --> FINE valutazione r: ",
@@ -2187,7 +2254,8 @@ const moduleR = {
     setCSs (context, r) {
       /*  CODE THE CALL    */
       var cat = [];
-      //console.log("!! store setCS --> RATING r: ", r);
+      console.log("!! store setCSs --> RATING r: ", r);
+
       switch (r) {
         case "":
           cat = [0, 0];
@@ -2247,6 +2315,7 @@ const moduleR = {
           cat = [10, 0];
           break; //HOME...
       }
+
       context.commit("aggiornaCCSs", cat);
       console.log(
         "!! store moduleR setCSs --> FINE valutazione r: ",
@@ -2472,7 +2541,7 @@ export const store = new Vuex.Store({
                                                                                                                                                         state.requestUserIsStaff = us.staff;
                                                                                                                                                         state.requestUserIsSuper = us.superuser;
                                                                                                                                                         state.requestUserBio = us.bio;
-                                                                
+
                                                                                                                                                     }
                                                                                                                                                     */
   },
@@ -2512,7 +2581,7 @@ export const store = new Vuex.Store({
                                                                                                                                                             console.log("!! STORE --> chiamata rest... data:", data.us.name);
                                                                                                                                                             context.commit('SET_LOADING_STATUS', 'finish loading')
                                                                                                                                                             context.commit('SET_requestUser', data.us)
-                                                                
+
                                                                                                                                                         }).catch(error => {
                                                                                                                                                             console.log("!! STORE Err ... ", error)
                                                                                                                                                             context.commit('SET_LOADING_STATUS', 'NOT loading')

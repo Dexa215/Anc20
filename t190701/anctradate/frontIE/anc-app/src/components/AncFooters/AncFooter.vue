@@ -1,6 +1,6 @@
 <template>
   <!-- @@@ -->
-  <div v-if="currentres=='xs'">
+  <div v-if="currentres == 'xs'">
     <f1xs
       :footercolor="footercolor"
       :requestUser="requestUser"
@@ -10,7 +10,7 @@
       @gotoR="gotoR"
     ></f1xs>
   </div>
-  <div v-else-if="currentres=='sm'">
+  <div v-else-if="currentres == 'sm'">
     <f2sm
       :footercolor="footercolor"
       :requestUser="requestUser"
@@ -20,7 +20,7 @@
       @gotoR="gotoR"
     ></f2sm>
   </div>
-  <div v-else-if="currentres=='md'">
+  <div v-else-if="currentres == 'md'">
     <f3md
       :footercolor="footercolor"
       :requestUser="requestUser"
@@ -30,7 +30,7 @@
       @gotoR="gotoR"
     ></f3md>
   </div>
-  <div v-else-if="currentres=='lg'">
+  <div v-else-if="currentres == 'lg'">
     <f4lg
       :footercolor="footercolor"
       :requestUser="requestUser"
@@ -40,7 +40,7 @@
       @gotoR="gotoR"
     ></f4lg>
   </div>
-  <div v-else-if="currentres=='xl'">
+  <div v-else-if="currentres == 'xl'">
     <f5xl
       :footercolor="footercolor"
       :requestUser="requestUser"
@@ -97,18 +97,18 @@ export default {
     variant: "default"
   }),
   methods: {
-    gotoR(r) {
-      console.log("AppBar rotta per...");
+    gotoR (r) {
+      console.log("Anc FOOTER rotta per...", r);
       this.$emit("gotoR", r);
     }
   },
 
-  mounted() {
+  mounted () {
     console.log(this.$vuetify.breakpoint);
   },
 
   computed: {
-    imageHeight() {
+    imageHeight () {
       switch (this.$vuetify.breakpoint.name) {
         case "xs":
           console.log("xs");
@@ -128,7 +128,7 @@ export default {
       }
     },
 
-    currentres() {
+    currentres () {
       switch (this.$vuetify.breakpoint.name) {
         case "xs":
           console.log("xs");
@@ -152,7 +152,7 @@ export default {
       }
     },
 
-    localAttrs() {
+    localAttrs () {
       const attrs = {};
 
       if (this.variant === "default") {

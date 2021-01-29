@@ -4,17 +4,16 @@
     enter-active-class="animated fadeInDownBig"
     leave-active-class="animated fadeOutUp"
   >
-    <!--enter-active-class="animated fadeInDown"
-    -->
+    <!--enter-active-class="animated fadeInDown"-->
     <v-row v-show="drawerLeft" class="m4r" text-align="center">
       <!-- /*lg*/ system... -->
-      <v-col class="rmH4 m4cL" cols="4"></v-col>
+      <v-col cols="4" class="rmH4 m4cL"></v-col>
       <!-- user -->
-      <v-col class="rmH4 m4cC rcC_BC" cols="4">
+      <v-col cols="4" class="rmH4 m4cC rcC_BC">
         <u4lg></u4lg>
       </v-col>
       <!-- cats menu -->
-      <v-col class="rmH4 m4cR" cols="4">
+      <v-col cols="4" class="rmH4 m4cR">
         <div :class="rcU">
           <m4lg></m4lg>
         </div>
@@ -33,7 +32,7 @@ import router from "@/router";
 import b1xs from "@/components/AncAppBars/B1xs.vue";
 import b2sm from "@/components/AncAppBars/B2sm.vue";
 import b3md from "@/components/AncAppBars/B3md.vue";
-import b4lg from "@/components/AncAppBars/B4lg.vue";
+import b4lg from "@/components/AncAppBars/B4/B4lg.vue";
 import b5xl from "@/components/AncAppBars/B5xl.vue";
 /* Transitions */
 
@@ -183,7 +182,6 @@ export default {
       }
     }
   },
-
   methods: {
     /*2020 06 16*/
     gotoR(r) {
@@ -216,29 +214,29 @@ export default {
 </script>
 <style media="screen">
 .rmH4 {
+  /*relative*/
   position: relative;
   z-index: 7;
-  height: 540px;
+  height: 640px;
 }
-
 .m4r {
-  position: relative;
-  height: 0px;
+  /*relative*/
+  position: fixed;
+  /*inizia row sotto la barra 80px*/
+  top: 101px; /*width: 578px; */
+  background-color: whitesmoke !important;
+  /*height: 0px;*/
+  height: 1px;
+  width: 100%;
   z-index: 7;
   opacity: 0.96;
   /* background-color: transparent !important; */
   border-radius: 0px 0px 5px 5px;
-  /*inizia row sotto la barra*/
-  top: 80px; /*width: 578px; */
-  margin-left: 26px;
-  margin-right: 26px;
-
+  margin-left: 0px;
+  margin-right: 0px;
   padding-left: 0px;
   padding-right: 0px;
-
-  background-color: orangered !important;
 }
-
 .m4cL {
   /*menu 4 - lg - Column Left - Servizio*/
   position: relative;
@@ -248,6 +246,8 @@ export default {
   /*background-color: cyan !important;*/
 }
 .m4cC {
+  position: relative;
+  z-index: 3;
   /*menu 4 - lg - Column Central - User*/
   background-color: grey !important;
   border-radius: 0px 0px 0px 450px;
