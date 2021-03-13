@@ -1,3 +1,4 @@
+/* eslint-disable no-fallthrough */
 import Vue from "vue";
 import Vuex from "vuex";
 import router from "@/router";
@@ -93,45 +94,22 @@ const moduleA = {
       /*TODO: sistema sincronizzazione per non far leggere sempre vis...*/
 
       var cu = context.getters.requestUser;
+
       console.log("$store moduleA setcolor, intanto user :", cu);
 
       if (context.getters.requestUserIsSuper === true) {
         context.commit("set_rcS", "rcS rcX rcLat rcLat_BC_Admin");
         context.commit("set_rcD", "rcD rcX rcLat rcLat_BC_Admin");
-        context.commit("set_rcU", "rmvcolD rmH   rcLat_BC_Admin"); //menu USER
-
-        /*
-                                                                                                                                                                                                                                                                                                                        state.nbc = "#212121"; //dark-grey
-                                                                                                                                                                                                                                                                                                                        state.rcU = "rmvcolD rmH   rcLat_BC_Admin"; //menu USER
-                                                                                                                                                                                                                                                                                                                        state.admin = true;
-                                                                                                                                                                                                                                                                                                                        */
+        context.commit("set_rcU", "rmvcolD rmH   rcLat_BC_Admin"); //menu USER                                                                                                                                                                                                                                                                                                               */
       } else {
         if (context.getters.requestUserIsStaff === true) {
           context.commit("set_rcS", "rcS rcX rcLat rcLat_BC_Staff");
           context.commit("set_rcD", "rcD rcX rcLat rcLat_BC_Staff");
           context.commit("set_rcU", "rmvcolD rmH   rcLat_BC_Staff"); //menu USER
-
-          /*
-                                                                                                                                                                                                                                                                                                                                                                                                      state.rcS = "rcS rcX rcLat rcLat_BC_Staff";
-                                                                                                                                                                                                                                                                                                                                                                                                      state.rcD = "rcD rcX rcLat rcLat_BC_Staff";
-                                                                                                                                                                                                                                                                                                                                                                                                      state.nbc = "black";
-                                                                                                                                                                                                                                                                                                                                                                                                      state.admin = false;
-                                                                                                                                                                                                                                                                                                                                                                                                      */
-          /*state.rcU = "rmvcolD rmH   rcLat_BC_Staff"; /*menu USER*/
         } else {
           context.commit("set_rcS", "rcS rcX rcLat rcLat_BC_Visitor");
           context.commit("set_rcD", "rcD rcX rcLat rcLat_BC_Visitor");
-          context.commit(
-            "set_rcU",
-            "rmvcolD rmH   rcLat_BC_Visitor"
-          ); /*
-                    state.rcU = "rmvcolD rmH   rcLat_BC_Visitor"; /*menu USER*/ //menu USER
-          /*
-                                                                                                                                                                                                                                                                                                                                                                                  state.rcS = "rcS rcX rcLat rcLat_BC_Visitor";
-                                                                                                                                                                                                                                                                                                                                                                                  state.rcD = "rcD rcX rcLat rcLat_BC_Visitor";
-                                                                                                                                                                                                                                                                                                                                                                                  state.nbc = "#212121"; //dark-grey
-                                                                                                                                                                                                                                                                                                                                                                                  state.admin = false;
-                                                                                                                                                                                                                                                                                                                                                                                  */
+          context.commit("set_rcU", "rmvcolD rmH rcLat_BC_Visitor"); //                                                                                                                                                                                                                                                                                                                                                                        * /
         }
       }
     }
@@ -509,8 +487,15 @@ const moduleC = {
 //      Module D: Drawers
 const moduleD = {
   state: {
+    /*classes...*/
+    barBigClass: "r0B4x r0B4small mx-auto my-auto",
+    r0B4: "r0B4x r0B4small Anc_BC mx-auto my-auto",
+    r0B4int: "r0B4intx r0B4intsmall Anc_BC_Blue",
+
     barBig: false,
     barBigSEM: false,
+
+    scrolling: false,
 
     drawer: false,
     drawerLeft: false,
@@ -535,6 +520,47 @@ const moduleD = {
     iconOdx: "mdi-menu-up"
   },
   mutations: {
+    /*2021 02 21 COMPRESO IN setbarBIG*/
+    /*setbarBIGClass (state, val) {
+      switch (val) {
+        case "true":
+          state.barBigClass = "r0B4x r0B4Big mx-auto my-auto";
+          break;
+        case "false":
+          state.barBigClass = "r0B4x r0B4small r0B4smallDin mx-auto my-auto";
+          break;
+        default:
+          break;
+        
+      }
+    },*/
+    /*2021 02 21*/
+
+    setscrolling (state, val, rcS, rcD, rcU) {
+      state.scrolling = val;
+      state.barBig = !val;
+
+      switch (val) {
+        case true:
+          /*state.barBigClass = "r0B4x r0B4small r0B4smallDin mx-auto my-auto";*/
+          state.r0B4 = "r0B4x r0B4small r0B4smallDin Anc_BC mx-auto my-auto";
+          state.r0B4int = "r0B4intx r0B4intsmall r0B4intsmallDin Anc_BC_Blue";
+
+          /*console.log("$STORE setscrolling - val true");*/
+          break;
+        case false:
+          /*state.barBigClass = "r0B4x r0B4Big mx-auto my-auto";*/
+          state.r0B4 = "r0B4x r0B4Big Anc_BC mx-auto my-auto";
+          state.r0B4int = "r0B4intx r0B4intBig Anc_BC_Blue";
+
+          /*console.log("$STORE setscrolling - val false");*/
+          break;
+        default:
+          break;
+      }
+    },
+
+    /*deprecated*/
     setbarBIG (state, val) {
       /* check sem... */
 
@@ -547,6 +573,12 @@ const moduleD = {
         switch (val) {
           case "true":
             state.barBig = true;
+            state.scrolling = false;
+
+            state.barBigClass = "r0B4x r0B4Big mx-auto my-auto";
+            state.r0B4 = "r0B4x r0B4Big Anc_BC mx-auto my-auto";
+            state.r0B4int = "r0B4intx r0B4intBig Anc_BC_Blue";
+            /*Anc_BC_Blue*/
 
             state.barBigSEM = false;
             console.log(
@@ -560,6 +592,11 @@ const moduleD = {
             break;
           case "false":
             state.barBig = false;
+            state.barBigClass = "r0B4x r0B4small r0B4smallDin mx-auto my-auto";
+            state.r0B4 = "r0B4x r0B4small r0B4smallDin Anc_BC mx-auto my-auto";
+            state.r0B4int = "r0B4intx r0B4intsmall r0B4intsmallDin Anc_BC_Blue";
+
+            /*Anc_BC_Blue*/
 
             state.barBigSEM = false;
             console.log(
@@ -647,6 +684,12 @@ const moduleD = {
     setBB (context, val) {
       context.commit("setbarBIG", val);
     },
+    setScrolling (context, val) {
+      var rcS = context.getters.rcS;
+      var rcD = context.getters.rcD;
+      var rcU = context.getters.rcU;
+      context.commit("setscrolling", val, rcS, rcD, rcU);
+    },
     setL (context, val) {
       context.commit("setCurrentLanguage", val);
     },
@@ -674,6 +717,7 @@ const moduleD = {
     drawerSCMswitch (context) {
       context.commit("drawerSCMswitch");
     }
+
     /*  menu sottocategorie */
   },
 
@@ -681,8 +725,17 @@ const moduleD = {
     getbarBIG: state => {
       return state.barBig;
     },
+    getbarBIGClass: state => {
+      return state.barBigClass;
+    },
     getbarBIGsem: state => {
       return state.barBigSEM;
+    },
+    getr0B4int: state => {
+      return state.r0B4int;
+    },
+    getr0B4: state => {
+      return state.r0B4;
     },
     getDrawer: state => {
       return state.drawer;
@@ -724,6 +777,9 @@ const moduleD = {
     },
     admincommands: state => {
       return state.admincommands;
+    },
+    getscrolling: state => {
+      return state.scrolling;
     }
   }
 };

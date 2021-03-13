@@ -1,10 +1,9 @@
 <template>
-  <div
-    class="aAb"
-    @mouseover="setDF()"
-    @mouseenter="setbarBIG('true')"
-    @mouseleave="setbarBIG('false')"
-  >
+  <!--div class="aAb" @mouseover="setDF()" @mouseenter="setbarBIG('true')"-->
+  <!--test 2021 03 10-->
+  <div class="aAb" @mouseover="setDF()" @mouseenter="setSc(false)">
+    <!--@mouseleave="setbarBIG('false')"-->
+
     <!-- test ok 2021 01 06 -->
     <!-- @@@ -->
     <b1xs v-if="currentres == 'xs'" :height="hsm"></b1xs>
@@ -38,6 +37,16 @@
       :CS="CS"
       :categorie="categorie"
     -- ******************************************************************-->
+
+    <!--test 2021 02 20
+    <transition name="dexo3"
+      ><div id="divtest2021if" v-if="barBIG"></div>
+    </transition>
+
+    <transition name="dexo3"
+      ><div id="divtest2021else" v-if="!barBIG"></div
+    ></transition>
+    -->
   </div>
   <!-- @@@ -->
 </template>
@@ -71,7 +80,6 @@ import $ from "jquery";
 
 export default {
   name: "ancAppBar",
-
   components: {
     b1xs,
     b2sm,
@@ -88,7 +96,6 @@ export default {
     ancNews
     */
   },
-
   props: {
     iconX: { type: String }
     /*  2020 04 26 test sostituzione con computed su $store - TEST OK /*
@@ -111,7 +118,6 @@ export default {
     drawerSottocategoria: { type: Boolean }
 */
   },
-
   data: () => ({
     rgb2: "#241518",
     rgb3: "",
@@ -132,7 +138,6 @@ export default {
     admin: false,
     admincommands: false
   }),
-
   computed: {
     barBIG() {
       return this.$store.getters.getbarBIG;
@@ -251,6 +256,7 @@ export default {
       if (val === "true") {
         console.log("set bar BIG -- VAL TRUE");
         this.bB();
+        this.$store.dispatch("setScrolling", false);
       } else {
         console.log("set bar BIG -- VAL FALSE");
         this.bS();
@@ -262,11 +268,13 @@ export default {
       if (this.barBIGsem === false) {
         var mr = $(".mr");
         mr.css("background-color", "rgb(4,4,4)");
+
         var rR = $(".r0B4");
         rR.css("background-color", "rgb(1, 4, 20)");
         rR.css("opacity", "1");
         rR.animate({ height: "125px" }, "fast");
         rR.animate({ height: "120px" }, "slow");
+
         var rRi = $(".r0B4int");
         rRi.animate({ height: "114px" }, "fast");
         rRi.animate({ height: "110px" }, "slow");
@@ -385,6 +393,10 @@ export default {
 
     DSCset(state) {
       this.$emit("DSCset", state);
+    },
+
+    setSc(val) {
+      this.$store.dispatch("setScrolling", val);
     }
 
     /*css changes*/
@@ -439,6 +451,12 @@ export default {
   position: relative;
   z-index: 3;
   padding: 0px;
+}
+.ANCbrd {
+  /*ANC borders*/
+  border-style: solid;
+  border-color: rgb(2, 23, 42);
+  border-width: thin;
 }
 
 /*------------------------------------------------------------------------------------------------------*/
@@ -635,10 +653,8 @@ export default {
 }
 .rcLat_BC_Visitor {
   /*    EX:   .arbcs-Visitor    */
-  background-color: rgb(1, 4, 20) !important; /* Blue */
-
-  /*background-color: #1a0408 !important; */ /* Marrone */
-  /*background-color: pink !important;*/
+  /*  background-color: rgb(1, 4, 20) !important;  Blue */
+  background-color: rgb(0, 3, 17) !important; /* Blue */
 }
 .rcLat_BC_Socio {
   /*    EX:   .arbcs-Socio      */
@@ -673,7 +689,7 @@ export default {
   margin-right: 0px;
   margin-bottom: 0px;
   padding: 0px 8px 0px 8px; /*T-R-B-L*/
-  border-radius: 48px 85px 0px 48px;
+  /*border-radius: 48px 85px 0px 48px;*/
 }
 /*------------------------------------------------------------------------------------------------------*/
 .rcD {
@@ -1274,23 +1290,7 @@ border-radius
 
   border-radius: 1px;
 }
-.r0B4int {
-  height: 80px;
-  animation-name: r0B4anint;
-  animation-duration: 2.5s;
-  /* background-color: rgb(4, 11, 46);*/
-  /* background-color: wheat;*/
-  opacity: 0.95;
-  position: relative;
-  z-index: 7;
 
-  padding-top: 2px;
-  padding-bottom: 0px;
-  padding-left: 1px;
-  padding-right: 1px;
-
-  border-radius: 40px;
-}
 /* The animation code */
 @keyframes r0B4an {
   0% {
@@ -1306,17 +1306,7 @@ border-radius
     opacity: 0.95;
   }
 }
-@keyframes r0B4anint {
-  0% {
-    height: 0px;
-  }
-  60% {
-    height: 84px;
-  }
-  100% {
-    height: 80px;
-  }
-}
+
 /*  +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  */
 /* The animation code */
 @keyframes r0an {
@@ -1331,6 +1321,106 @@ border-radius
     height: 74px;
     background-color: rgb(19, 21, 36);
     opacity: 0.95;
+  }
+}
+
+.r0B4int {
+  height: 80px;
+  /*animation-name: r0B4anint;*/
+  /*animation-duration: 2.5s;*/
+
+  /* background-color: rgb(4, 11, 46);*/
+  /* background-color: wheat;*/
+  opacity: 0.95;
+  position: relative;
+  z-index: 7;
+
+  padding-top: 2px;
+  padding-bottom: 0px;
+  padding-left: 1px;
+  padding-right: 1px;
+
+  border-radius: 40px;
+}
+@keyframes r0B4anint {
+  0% {
+    height: 0px;
+  }
+  60% {
+    height: 84px;
+  }
+  100% {
+    height: 80px;
+  }
+}
+
+#divtest2021 {
+  background-color: red;
+  height: 300px;
+}
+
+/*test 2021 02 20*/
+#divtest2021if {
+  position: relative;
+  z-index: 10;
+  background-color: red;
+  height: 300px;
+}
+#divtest2021else {
+  position: relative;
+  z-index: 10;
+  background-color: darkred;
+  height: 300px;
+}
+
+/*dexo21 transition*/
+.dexo21-enter-active {
+  animation: dexoAn 1.5s;
+}
+.dexo21-leave-active {
+  animation: dexoAn 1.5s reverse;
+}
+/*
+.dexo21-enter,
+.dexo21-leave-to{			        opacity: 	0;}
+*/
+@keyframes dexoAn {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/*animation: dexoAn2 1.5s;*/
+
+/*dexo3 transition*/
+.dexo3-enter-active {
+  animation-name: dexoAn2;
+  animation-duration: 1.5s;
+  animation-timing-function: ease;
+  /*animation-delay: -2s;*/
+  /*animation-iteration-count: infinite;*/
+  /*animation-direction: alternate;*/
+  animation-fill-mode: both; /*None{default},forwards,backwards,both*/
+}
+.dexo3-leave-active {
+  animation-name: dexoAn2;
+  animation-duration: 1.5s;
+  animation-timing-function: ease;
+  /*animation-delay: -2s;*/
+  /*animation-iteration-count: infinite;*/
+  animation-direction: reverse;
+  animation-fill-mode: both; /*None{default},forwards,backwards,both*/
+}
+
+@keyframes dexoAn2 {
+  0% {
+    height: 300px;
+  }
+  100% {
+    height: 400px;
   }
 }
 </style>

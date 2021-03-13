@@ -376,17 +376,23 @@ export default {
   background-color: #470410 !important;
 }
 
-/*  Colori Globali        Background        */
+/*  Colori Globali Background
+BU 2021 03 07
+.Anc_BC           {background-color: rgb(19, 21, 36);}
+.Anc_BC_Blue      {background-color: rgb(4, 11, 46);}
+.Anc_BC_BlueDark  {background-color: rgb(1, 4, 20);}
+*/
+
 .Anc_BC {
-  background-color: rgb(19, 21, 36);
+  background-color: rgb(33, 29, 54);
   color: antiquewhite;
 }
 .Anc_BC_Blue {
-  background-color: rgb(4, 11, 46);
+  background-color: rgb(9, 5, 49);
   color: aliceblue;
 }
 .Anc_BC_BlueDark {
-  background-color: rgb(1, 4, 20);
+  background-color: rgb(189, 8, 8);
   color: blanchedalmond;
 }
 
