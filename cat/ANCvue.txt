@@ -1,0 +1,25 @@
+TODO:
+yarn install vuex --save
+npm install vuex --save
+
+npm install vue-filter-date-format
+npm install moment
+
+npm install axios
+  
+npm install querystring 
+npm install vee-validate 
+npm install vue-material
+npm install vue-i18n
+npm install @mdi/font
+npm install --save vue-material-design-icons
+npm install --save vue-material-design-icons
+npm install -g npm@next
+npm install --save vue-auth-component
+npm install vue-cookies --save                  // risolve su dexamini
+npm install --save vue-authenticate-service
+npm install --save vue-auth
+npm install hamburgers
+
+npm install animate.css --save
+

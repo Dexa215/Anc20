@@ -1,0 +1,20 @@
+{% extends "auth_layout.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block auth %}
+
+<h3>Crea il tuo account su Anc Tradate</h3>
+<img src="{% static 'images/Soci/Registrazione/bustina.jpg' %}" class="rounded mx-auto d-block" style ="width: 130px"  alt="...">
+<div class="registration-form-container">
+    
+    <form method="post">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <button type="submit" class="btn btn-sm btn-outline-primary">Registrati</button>
+    </form>
+
+    <br><hr>
+    <p class="mt-4">Oppure, se giá ti sei registrato  <a href="{% url 'login' %}">Accedi</a></p>
+
+</div>
+{% endblock %}

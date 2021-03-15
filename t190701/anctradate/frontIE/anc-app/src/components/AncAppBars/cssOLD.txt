@@ -1,0 +1,244 @@
+/*    AncAppBarE               #38282b                                                                        */
+/*  +-------------------------------------------------------------------------------------------------+ h100  */
+/*     AncRowBarEst            #241518                                                                        */
+/*    +---------------------------------------------------------------------------------------------+   h70   */
+/*                                                                                                            */
+/*      +--------------         -----------------------------------------           --------------+           */
+/*      | AncRowBar-  |                      AncRowBar-Colcx-                       | AncRowBar-  |           */
+/*      |   Colssx    |                                                             |   colddx    |           */
+/*      |             |         -----------------------------------------           |             |           */
+/*      |             |                       RowInt-                               |             |           */
+/*      |             |         +---------------------------------------+           |             |           */
+/*      |             |         |           |             |             |           |             |           */
+/*      |             |         |  Colssx   |   Colxccx   |   Colddx    |           |             |           */
+/*      |             |         |           |             |             |           |             |           */
+/*      |             |         |           | +---------+ |             |           |             |           */
+/*      |             |         |           | | Avatar  | |             |           |             |           */
+/*      |             |         |           | +---------+ |             |           |             |           */
+/*      |             |         |           |             |             |           |             |           */
+/*      |             |         +---------------------------------------+           |             |           */
+/*      |             |                                                             |             |           */
+/*      +-----------------------------------------------------------------------------------------+           */
+/*    +---------------------------------------------------------------------------------------------+         */
+/*  +-------------------------------------------------------------------------------------------------+       */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+col {
+  padding: 20px 0px 0px;
+}
+
+
+.t{
+    background-color: transparent !important;
+}
+
+.colBar{
+    background-color: transparent !important;
+}
+.coltest{
+    background-color: red !important;
+}
+
+
+
+.AncRowBar{
+    /*background-color: #2b2b29 !important;*/
+    background-color: YELLOW !important;
+
+    height:             70px;
+    text-align:         center;
+    text-justify:       center;
+
+    padding:            1px;
+
+    margin-left:        50px;
+    margin-right:       50px;
+    margin-top:         10px;
+    margin-bottom:      0px;
+
+    border-radius:      50px 50px 50px 50px;
+  
+    text-align:         center;
+    text-justify:       center;
+
+
+}
+
+.AncRowBarColsx{
+  background-color: lightgreen !important;
+  height:             68px;
+
+  text-align:         left;
+  text-justify:       auto;
+
+  padding:            11px 20px;
+
+  margin-left:        1px;
+  margin-right:       0px;
+  margin-top:         1px;
+  margin-bottom:      1px;
+
+  border-radius:      48px 48px 0px 48px;
+}
+
+.AncRowBarColsxRow{
+  background-color: pink !important;
+  height:             32px;
+}
+
+
+.AncRowBarColcx{
+  /*background-color: #2b2b29 !important;*/
+  background-color: salmon !important;
+  height: 90px;
+
+  text-align:         center;
+  text-justify:       auto;
+
+  padding:            2px 20px;    
+  margin-left:        0px;
+  margin-right:       0px;
+  margin-top:         0px;
+  margin-bottom:      0px;
+  border-radius:      0px 0px 25px 25px;
+}
+
+.AncRowBarColcxRowInt{
+  background-color: yellow !important;
+  border-radius:      0px 0px 50px 50px;
+}
+
+.AncRowBarColcxRowIntColsxsx{
+  background-color: darkred !important;
+  height:             50px;
+  text-align:         left;
+  text-justify:       auto;
+  
+}
+
+
+.AncRowBarColcxRowIntColsx{
+  background-color: red !important;
+  text-justify:       auto;
+  text-align:         right;
+}
+.AncRowBarColcxRowIntColcx{
+  background-color: darkred !important;
+  height:             66px;
+  text-align:         center;
+}
+.AncRowBarColcxRowIntColdx{
+  background-color: red !important;
+  text-justify:       auto;
+  text-align:         left;
+}
+
+
+.AncRowBarColdx{
+  background-color: deeppink !important;
+  height:             66px;
+  text-align:         start;
+
+  padding:            2px 2px;
+  margin-left:        0px;
+  margin-right:       1px;
+  margin-top:         1px;
+  margin-bottom:      1px;
+  border-radius:      40px 40px 40px 0px;
+}
+
+
+.colAvSx{
+  background-color: darkorange !important;
+  text-align:       end;
+  text-justify:     center;
+  height:           22px;
+  padding:          22px 10px;   
+}
+
+.colAvDx{
+  background-color: orange !important;
+  text-align:       start;
+  text-justify:     center;
+  height:           22px;
+  padding:          22px 10px;    
+}
+
+.colAvatar{
+  background-color: pink !important;
+  height:         48px;
+  max-width:      80px;
+
+  text-align:     center;
+  text-justify:   center;
+
+  padding:        1px; 
+}
+
+.avatar{
+  background-color: green !important;
+  color: green;
+  right: "true";
+
+  size: 48;                 
+
+  max-width:    48px;
+  max-height:   48px;
+  
+  
+  transform:  scale(1.0,1.0);   
+}
+
+.avatar:hover{
+  transform:  scale(1.1,1.1);
+
+}
+
+
+
+.icorot{
+    transform: rotate(10deg);
+}
+
+.drwOpen{
+    /*transform: rotate(25deg);*/
+    transform:  scale(1.2,1.2);
+
+    height: 48px;
+    width:  48px;
+}
+.drwClose{
+    /*transform: rotate(0deg);*/
+    transform:  scale(1.0,1.0);
+    height: 48px;
+    width:  48px;
+}
+
+.menubtnd1{
+   z-index: 7;
+  background-color: darkorchid !important;
+  
+  max-width:    75px;   
+  max-height:   45px;
+
+  border-radius: 2px 2px 40px 40px;
+  
+  text-align:         center;
+  text-justify:       center;
+  padding-bottom:     15px;
+  margin-top:         5px;
+}
+
+</style>

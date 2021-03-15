@@ -1,0 +1,50 @@
+h1 {
+    color: #6DDCBD;
+}
+h2 {
+    color: #609ab6;
+}
+h5{
+    color: #993300;
+}
+body {
+    font-family: 'Slabo 27px', serif;
+}
+
+a, a:hover{
+    color: #17a2b8;
+}
+
+navbar-brand{
+    color: #993300;
+}
+
+#idtitle{
+    color: #cc1111;
+    margin-right: 30px;
+}
+
+/* classi */
+.h-600{
+    height: 600px;
+}
+
+.tab1 {
+    padding-left: 8em;
+}
+.tab2 {
+    padding-left: 18em;
+}
+.tab3 {
+    padding-left: 28em;
+}
+
+.page-footer , h5 {
+    color: #6DDCBD;
+}
+.footer {
+  background-color: red;
+  color: white;
+  text-align: center;
+}
+

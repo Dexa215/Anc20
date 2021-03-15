@@ -1,0 +1,10 @@
+setuptools
+zope.interface
+
+[docs]
+Sphinx
+repoze.sphinx.autointerface
+
+[test]
+zope.security
+zope.testrunner

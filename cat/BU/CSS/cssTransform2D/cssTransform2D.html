@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        .ex {
+            position: relative;
+            z-index: -1;
+            background-color: bisque;
+            width: 430px;
+            height: 450px;
+            padding: 15px;
+        }
+
+        .ex2 {
+            height: 150px;
+        }
+
+        .titolino {
+            padding: 1px;
+        }
+
+        .d {
+            position: absolute;
+            z-index: 1;
+            width: 140px;
+            height: 130px;
+            background-color: aqua;
+
+            padding-left: 20px;
+            padding-right: 20px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+
+            align-content: center;
+        }
+
+        .d1 {
+            margin-left: 20px;
+            margin-right: 0px;
+            margin-top: 0px;
+            margin-bottom: 0px;
+        }
+
+        .d2 {
+            margin-left: 220px;
+            margin-right: 0px;
+            margin-top: 0px;
+            margin-bottom: 0px;
+        }
+
+        .d3 {
+            margin-left: 20px;
+            margin-right: 0px;
+            margin-top: 150px;
+            margin-bottom: 0px;
+        }
+
+        .d4 {
+            margin-left: 220px;
+            margin-right: 0px;
+            margin-top: 150px;
+            margin-bottom: 0px;
+        }
+
+        .d5 {
+            margin-left: 20px;
+            margin-right: 0px;
+            margin-top: 300px;
+            margin-bottom: 0px;
+        }
+
+        .d6 {
+            margin-left: 220px;
+            margin-right: 0px;
+            margin-top: 300px;
+            margin-bottom: 0px;
+        }
+
+        .r0 {
+            width: 100%;
+            background-color: pink;
+        }
+
+        div {
+            width: 80px;
+            height: 40px;
+
+        }
+
+        .divP {
+            position: absolute;
+            z-index: 2;
+            background-color: yellow;
+            border: 1px solid black;
+
+        }
+
+        .s {
+            position: absolute;
+            z-index: 3;
+            color: bisque;
+            border: 1px solid black;
+        }
+
+        /*      ++++++++++++++++++++++++++++++++++++++++++++        */
+        .skewX {
+            color: white;
+        }
+
+        #skewX20 {
+            transform: skewX(20deg);
+            background-color: blue;
+        }
+
+        #skewX20n {
+            transform: skewX(-20deg);
+            background-color: red;
+        }
+
+        #skewY30 {
+            transform: skewY(30deg);
+            background-color: blue;
+        }
+
+        #skewY10n {
+            transform: skewY(-10deg);
+            background-color: red;
+        }
+
+        #skew2030 {
+            transform: skew(20deg, 30deg);
+            background-color: purple;
+        }
+
+        #skew2010 {
+            transform: skew(-20deg, -10deg);
+            background-color: purple;
+        }
+    </style>
+</head>
+
+<body>
+
+
+
+
+    <h1>The skew() Method</h1>
+
+    <ul>
+        <li>skewX()</li>
+        <li>skewY()</li>
+        <li>skew()</li>
+    </ul>
+
+    <div>
+
+        <div>
+            .myclass{
+            transform:
+        </div>
+        <div class="ex">
+
+            <div class="d d1">
+                <p class="tiolino">skewX(20deg);</p>
+                <div class="divP">
+                    .
+                </div>
+                <div id="skewX20" class="s skew">
+
+                </div>
+            </div>
+            <div class="d d2">
+                <p class="tiolino">skewX(-20deg);</p>
+                <div class="divP">
+                    .
+                </div>
+                <div id="skewX20n" class="s skew">
+
+                </div>
+            </div>
+            <div class="d d3">
+                <div>
+                    <p class="tiolino">skew(20deg,30deg);</p>
+                </div>
+                <div class="divP">
+                    .
+                </div>
+                <div id="skew2030" class="s skew">
+
+                </div>
+
+            </div>
+            <div class="d d4">
+                <div>
+                    <p class="tiolino">skew(-20deg,-10deg);</p>
+                </div>
+                <div class="divP">
+                    .
+                </div>
+                <div id="skew2010" class="s skew">
+
+                </div>
+
+            </div>
+            <div class="d d5">
+                <div>
+                    <p class="tiolino">skewY(30deg);</p>
+                </div>
+                <div class="divP">
+                    .
+                </div>
+                <div id="skewY30" class="s skew">
+
+                </div>
+            </div>
+            <div class="d d6">
+                <div>
+                    <p class="tiolino">skewY(-10deg);</p>
+                </div>
+                <div class="divP">
+                    .
+                </div>
+                <div id="skewY10n" class="s skew">
+
+                </div>
+            </div>
+
+
+        </div>
+        <div>
+            }
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

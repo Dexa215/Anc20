@@ -1,0 +1,222 @@
+<template>
+  <!--
+  <v-row
+    class="rmNews mx-auto"
+    align="center"
+    justify="center"
+  >  </v-row>
+-->
+
+  <!-- @@@ -->
+  <div
+    @mouseenter="setnews('true')"
+    @mouseleave="setnews('false')"
+  >
+    <n1xs v-if="currentres == 'xs'"></n1xs>
+    <n2sm v-else-if="currentres == 'sm'"></n2sm>
+    <n3md v-else-if="currentres == 'md'"></n3md>
+    <n4lg v-else-if="currentres == 'lg'"></n4lg>
+    <n5xl v-else-if="currentres == 'xl'"></n5xl>
+  </div>
+  <!--
+    
+    <v-col>
+      <v-img
+        v-if="C==10 && Eevents!='' && Eevents "
+        class="my-1"
+        style="background-color: red !important; weight:100px; "
+        :src="categorie[0].imgEvidenza"
+        max-width="90"
+        width="80"
+        max-height="90"
+        height="80"
+      ></v-img>
+    </v-col>
+  <! img-->
+
+  <!-- msg -->
+  <!--
+    <v-col
+      cols="10"
+      class="pa-0"
+      style="z-index:1; background-color: red!important; height:50px;"
+      align="center"
+      justify="center"
+    >
+      <div v-if="C==10 && Eevents!='' ">
+        <marquee align="center" justify="center" behavior="scroll" direction="left" scrolldelay="0">
+          <div
+            class="display-2 font-weight-bold AncTitleColorDark"
+            style="color:white; background-color:transparent;"
+          >{{Titolone}}</div>
+        </marquee>
+      </div>
+    </v-col>
+  -->
+</template>
+
+<script>
+import { apiService } from "@/common/api.service";
+import router from "@/router";
+
+import n1xs from "@/components/AncNews/N1xs.vue";
+import n2sm from "@/components/AncNews/N2sm.vue";
+import n3md from "@/components/AncNews/N3md.vue";
+import n4lg from "@/components/AncNews/N4lg.vue";
+import n5xl from "@/components/AncNews/N5xl.vue";
+
+export default {
+  name: "ancNews",
+
+  components: {
+    n1xs,
+    n2sm,
+    n3md,
+    n4lg,
+    n5xl
+  },
+
+  data () {
+    return {
+      // * EVIDENZA
+      Eevents: [],
+      Enext: null,
+      EloadingEvents: false,
+      Titolone: null
+    };
+  },
+  computed: {
+    categorie () {
+      return this.$store.getters.categorie;
+    },
+
+    // eslint-disable-next-line vue/return-in-computed-property
+    currentres () {
+      switch (this.$vuetify.breakpoint.name) {
+        case "xs":
+          //console.log("xs");
+          return "xs";
+        case "sm":
+          //onsole.log("sm");
+          return "sm";
+        case "md":
+          //console.log("md");
+          return "md";
+        case "lg":
+          //console.log("lg");
+          return "lg";
+        case "xl":
+          //console.log("xl");
+          return "xl";
+      }
+    }
+  },
+
+  methods: {
+    setnews (val) {
+      /*this.$store.dispatch("setNN", val);*/
+      if (val === "true") {
+        this.nON();
+      } else {
+        this.nOFF();
+      }
+    },
+    /*barBIG*/
+    nON () {
+      var rR = $(".ancNewsrLG");
+      /*rR.css("background-color", "rgb(1, 4, 20)");*/
+      rR.css("opacity", "0.8");
+    },
+    /*barSMALL*/
+    nOFF () {
+      var rR = $(".ancNewsrLG");
+      /*rR.css("background-color", "rgb(19, 21, 36)");*/
+      rR.css("opacity", "0.6");
+    }
+
+    /*
+    getEvidenza() {
+      var x;
+      let endpoint = "api/evidenza/";
+      if (this.Enext) {
+        endpoint = this.Pnext;
+      }
+      this.EloadingEvents = true;
+      apiService(endpoint).then(data => {
+        console.log(data.results);
+        this.Eevents.push(...data.results);
+        this.EloadingEvents = false;
+        if (data.next) {
+          this.Enext = data.next;
+        } else {
+          this.Enext = null;
+        }
+
+        //ciclo per creare titolo in evidenza...
+        if (this.Eevents.length == 0) {
+          this.Titolone = "";
+        } else {
+          this.Titolone = "IN EVIDENZA: ";
+          for (x of this.Eevents) {
+            console.log(x.title);
+            this.Titolone = this.Titolone + " - " + x.title + "   ";
+          }
+        }
+      });
+    }*/
+  },
+  created () {
+    //this.getEvidenza();
+  },
+  updated () {
+    //this.getEvidenza();
+  }
+};
+</script>
+
+<style media="screen">
+.rmNews {
+  /* ... comunicazioni ...*/
+  position: absolute;
+  z-index: 5;
+  width: 100%;
+  height: 80px;
+  margin-top: 0px;
+  background-color: rgb(146, 0, 0) !important; /*test*/
+  opacity: 0.7;
+}
+.cmNews {
+  height: 90%;
+}
+.ancNewsr {
+  background-color: transparent !important;
+  align-content: center;
+  width: 100%;
+  opacity: 0.8;
+}
+.container-fluid {
+  /*    background-color:white;
+*/
+  width: 100%;
+}
+
+.v-img {
+  background-color: white;
+}
+
+.t_BC {
+  background-color: transparent !important;
+}
+.tc1 {
+  height: 100%;
+  background-color: turquoise;
+}
+.tc2 {
+  height: 100%;
+  background-color: violet;
+}
+.rc2 {
+  height: 100%;
+  background-color: transparent !important;
+}
+</style>

@@ -1,0 +1,203 @@
+<template>
+  <!--  finestra comandi amministatore **************************************************** -->
+  <transition
+    name="custom-classes-transition2"
+    enter-active-class="animated bounceInLeft"
+    leave-active-class="animated bounceOutLeft"
+  >
+    <!--
+    <v-col
+      v-show="this.$store.getters.requestUserIsSuper & admincommands"
+      class="rmvcolSadmin rmH"
+      cols="12"
+    >
+    -->
+    <!-- 
+        /*row admin*/
+    -->
+    <v-row v-show="this.$store.getters.requestUserIsSuper & admincommands" class="rmvcolrSadmin4">
+      <v-col class="cPAdmin-pre" cols="8">{{admincommands}}</v-col>
+      <v-col class="cPAdmin">
+        <v-list shaped dark class="ancM4l ancM4l_BC">
+          <!--
+      <v-list dark shaped class="adminList">
+          -->
+          <div class="display-1">
+            <a>Comandi Amministratore</a>
+          </div>
+          <v-list-item class="tile" @click="gotoR('event/')">
+            <v-list-item-content>
+              <v-list-item-title>Nuovo Evento</v-list-item-title>
+            </v-list-item-content>
+
+            <v-list-item-icon>
+              <v-icon>mdi-timeline-plus</v-icon>
+            </v-list-item-icon>
+          </v-list-item>
+        </v-list>
+      </v-col>
+    </v-row>
+    <!--
+        /*row admin*/
+    -->
+    <!--
+    </v-col>
+    -->
+  </transition>
+</template>
+
+<script>
+export default {
+  name: "m4lgAdmin",
+
+  components: {},
+
+  computed: {
+    lang() {
+      return this.$store.getters.getCurrentLanguage;
+    },
+    languages() {
+      return this.$store.getters.getLanguages;
+    },
+    languagesShow() {
+      return this.$store.getters.getLanguagesShow;
+    },
+    /*  -----------------------------------------------------------------------   */
+    drawer() {
+      return this.$store.getters.getDrawer;
+    },
+    drawerLeft() {
+      return this.$store.getters.getDrawerLeft;
+    },
+    drawerRight() {
+      return this.$store.getters.getDrawerRight;
+    },
+    drawerSottocategoria() {
+      return this.$store.getters.getDrawerSottocategoria;
+    },
+    /*  -----------------------------------------------------------------------   */
+    iconX() {
+      return this.$store.getters.getIconX;
+    },
+    iconO() {
+      return this.$store.getters.getIconO;
+    },
+    iconOdx() {
+      return this.$store.getters.getIconOdx;
+    },
+    iconC() {
+      return this.$store.getters.getIconC;
+    },
+    iconCdx() {
+      return this.$store.getters.getIconCdx;
+    },
+    /*  -----------------------------------------------------------------------   */
+    categorie() {
+      return this.$store.getters.categorie;
+    },
+    C() {
+      return this.$store.getters.getC;
+    },
+    CS() {
+      return this.$store.getters.getCS;
+    },
+    requestUser() {
+      return this.$store.getters.requestUser;
+    },
+    requestUserIsStaff() {
+      return this.$store.getters.requestUserIsStaff;
+    },
+    requestUserIsSuper() {
+      return this.$store.getters.requestUserIsSuper;
+    },
+    requestUserAvatar() {
+      return this.$store.getters.requestUserAvatar;
+    },
+    requestUserBio() {
+      return this.$store.getters.requestUserBio;
+    },
+    requestToken() {
+      return this.$store.getters.requestToken;
+    },
+    /* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+    /* DINAMIC CSS */
+    rcS() {
+      return this.$store.getters.rcS;
+    },
+    rcD() {
+      return this.$store.getters.rcD;
+    },
+    rcU() {
+      return this.$store.getters.rcU;
+    },
+    /* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+    admincommands() {
+      return this.$store.getters.admincommands;
+    }
+  },
+
+  props: {
+    /*
+    C: { type: Number },
+    CS: { type: Number },
+    categorie: { type: Array }
+    */
+  },
+
+  data() {
+    return {
+      dark: "true"
+    };
+  },
+  methods: {
+    gotoR(r) {
+      this.$store.dispatch("setDF");
+      this.$store.dispatch("gotoR", r);
+    },
+    setDF() {
+      this.$store.dispatch("setDF");
+      //this.$emit("setDF");
+    }
+  }
+};
+</script>
+
+<style media="screen">
+.rmvcolrSadmin4 {
+  position: absolute;
+  text-align: center;
+  text-justify: center;
+  z-index: 6;
+
+  padding-left: 0px;
+  padding-right: 1px;
+  padding-bottom: 1px;
+
+  width: 100%;
+  /*
+  height: 100%;
+*/
+
+  /*background-color: transparent !important;*/
+}
+
+.cPAdmin-pre {
+  /*background-color: green !important;*/
+}
+.cPAdmin {
+  margin-left: 14px;
+  margin-right: 0px;
+  margin-bottom: 2px;
+
+  padding-top: 35px;
+
+  background-color: rgb(131, 32, 48);
+  height: 600px;
+  border-radius: 0px 0px 350px 0px;
+}
+</style>
+
+
+
+
+

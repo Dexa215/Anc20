@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% load render_bundle from webpack_loader %}
+{% load static %}
+
+
+{% block style %}
+    <link href="{% static 'bundle.css' %}" rel="stylesheet">
+{% endblock %}
+
+
+{% block content %}
+<!--
+<h3>Index</h3>
+-->
+
+<h3>Index-TEST</h3>
+<img src="{% static 'images/Soci/Registrazione/bustina.jpg' %}" class="rounded mx-auto d-block" style ="width: 80px"  alt="...">
+<h6> test invio gmail da view --> core/IndexTemplateViewTEST </h6>
+
+
+
+    <noscript>
+        <strong>
+            Ci spiace, ma il frontend non funziona senza JavaScript abilitato. Abilita JavaScript per continuare!
+        </strong>
+    </noscript>
+
+    <div id="app"></div>
+    {% render_bundle 'app' %}
+{% endblock %}
+
+{% block js %}
+    <script src="{% static 'bundle.js' %}"></script>
+{% endblock %}

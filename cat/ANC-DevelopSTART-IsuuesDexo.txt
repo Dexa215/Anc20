@@ -1,0 +1,9 @@
+
+1.POSTGRES==>EDB SERVER si pianta sulla 8080
+server di sviluppo vue si attacca.
+disinstallare e bloccare servizio PEM HTTPD
+
+2.IIS disabilitare SERVER si pianta sulla 80
+ 
+
+

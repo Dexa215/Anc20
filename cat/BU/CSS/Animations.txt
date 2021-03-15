@@ -1,0 +1,24 @@
+animation-name: 		        example;
+
+animation-duration: 		    4s;
+
+/*animation-timing-function:	ease;		        */  /*Default*/
+/*animation-timing-function:	ease-in;	        */
+/*animation-timing-function:	ease-out;	        */
+/*animation-timing-function:	ease-in-out;        */
+/*animation-timing-function:	linear;		        */
+/*animation-timing-function:	cubic-bezier(0.5,0.5,1.0,0.1);      */
+
+/*animation-delay: 		        -2s;                */
+
+/*animation-iteration-count:	infinite;           */
+
+/*animation-direction: 	        normal;             */  /*forwards Default  */
+/*animation-direction:	        reverse;            */  /*backwards         */
+/*animation-direction:	        alternate;          */  /*fw - bw           */
+/*animation-direction:	        alternate-reverse;  */  /*bw - fw           */
+
+/*animation-fill-mode:	        None;               */  /*Default*/
+/*animation-fill-mode:	        forwards;           */
+/*animation-fill-mode:	        backwards;          */
+/*animation-fill-mode:	        both;               */	

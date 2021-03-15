@@ -1,0 +1,39 @@
+ESEMPI MODIFICA CSS DA METODO IN VUE/SCRIPT   
+    
+1. javascript PURO
+...
+    /*
+      var el = document.getElementById("element");
+      el.style.opacity = 0.5;
+      el.style.fontFamily = "sans-serif";
+    }
+    */
+
+
+/* 2020 12 19 TEST JQUERY OK*/     
+2. jquery
+...
+  methods: {
+
+    chgbyID() {
+        $("#rci")       .css(   "background-color"  , "yellow"
+        );
+    } 
+      
+    chgbyCLASS() {
+        $(".linkicon")  .css(
+                            {  margin              : "5px"         ,
+                               padding             : "10px"        ,
+                               color               : "black"       ,
+                               background-color    : "yellow"
+                            }
+        );
+    }
+
+    chgbyCLASS() {     
+        $(".linkicon")  .css(
+                            {  transform           : "scale(1.2, 2)", 
+                               color               : "red" 
+                            }
+        );
+      

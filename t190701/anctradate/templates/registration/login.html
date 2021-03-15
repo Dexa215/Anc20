@@ -1,0 +1,63 @@
+{% extends "auth_layout.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block auth %}
+
+<h2>Anc Tradate test VUE</h2>
+<h3>test production no. 15</h3>
+<h6>
+    DEBUG = False
+    ALLOWED_HOSTS = '127.0.0.1',
+                            '80.211.234.218',
+                            'localhost',
+                            '0.0.0.0:8000',
+</h6>
+<img 
+    src="{% static 'images/Soci/Registrazione/bustina.jpg' %}" 
+    class="rounded mx-auto d-block" 
+    style ="width: 180px"  
+    alt="...">
+<!--
+ <p class="lead text-muted">Accedi</p>
+-->
+
+
+<!--
+<div class="container">
+    <form method="post">
+    
+        {% csrf_token %}
+
+      
+        
+        <label for="fname">username:</label><br>
+        <input type="text" id="username" name="fname" value="visitor"><br>
+        <label for="lname">password:</label><br>
+        <input type="text" id="password" name="lname" value="Maaaaaaaaaa"><br><br>
+        
+
+        <button 
+            type="submit" 
+            class="btn btn-sm btn-outline-primary"
+        >Visita
+        </button>
+    
+    </form>
+    <br>
+    <hr>
+</div>
+-->
+
+
+<div class="login-form-container">
+    <form method="post">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <button type="submit" class="btn btn-sm btn-outline-primary">Accedi</button>
+    </form>
+<br><hr>
+<p class="mt-4">Oppure <a href="{% url 'django_registration_register' %}">Registrati</a></p>
+
+
+</div>
+{% endblock %}

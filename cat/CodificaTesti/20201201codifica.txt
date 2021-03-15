@@ -1,0 +1,100 @@
+Decodifica della stringa trasmessa.
+La stringa si compone di 3 cifre:   [a][b][c]
+
+//-------------------------------------------------------------//
+
+[a]:t       tipo                    {0,1}       // components, views
+[b]:lista   lista categorie         {0,1,...,7} // es.home,sede...
+[c]:sc      lista sottocategorie    {0,1,...,7} // es.sede/ubicazione... 
+        if(sc=0)    ->  cat.t
+        else            cat.sc[c].t   
+
+//-------------------------------------------------------------//
+monthArr[language].[a].[b].t[d]         // testi categoria;         sc==0      
+monthArr[language].[a].[b].sc[c].t[d]   // testi sottocategoria;    sc<>0 
+//-------------------------------------------------------------//
+
+monthArr[ ]  //lingue    
+
+    {   [0] //ita,    
+        [1] //eng,    
+        [2] //esp           }
+
+from computed...
+
+lang.
+
+t       [ ]  // tipo
+//-------------------------------------------------------------//
+    {   [0] // components      
+            .lista  [ ]  // categorie
+                {   [0] // test
+                        .t[ ]         
+                    [1] // Intestazione
+                        .t[ ]         
+                    [2] // menuLanguage 
+                        .t[ ]    
+                    [3] // general   
+                        .t[ ]   }
+//-------------------------------------------------------------//
+        [1] //views  
+            .lista  [ ]      // categorie
+                    [0] //  id:00   test
+                        .t  [  ]
+                        .sc [  ]
+                    [1] //  id:10   home
+                        .t  [  ]
+                        .sc [  ]
+                    [2] //  id:20   sede
+                        .t  [  ]
+                        .sc [  ]
+                            [21]    //  ubicazione
+                                    .t  [ 0,...,15 ]    
+                            [22]    //  orari
+                                    .t  [  ]
+                    [3] //  id:30   contatti    
+                        .t  [  ]
+                        .sc [  ]
+                            [31]    //  Presidente
+                                    .t  [  ]    
+                            [32]    //  Vice
+                                    .t  [  ]
+                            [33]    //  Posta
+                                    .t  [  ]    
+                    [4] //  id:40   chisiamo
+                        .t  [  ]
+                        .sc [  ]
+                            [41]    //  Direttivo
+                                    .t  [  ]    
+                            [42]    //  Soci
+                                    .t  [  ]
+                            [43]    //  Benemerite
+                                    .t  [  ]  
+                            [44]    //  Simpatizzanti
+                                    .t  [  ]  
+                    [5] //  id:50   agenda
+                        .t  [  ]
+                        .sc [  ]
+                            [51]    //  appuntamenti
+                                    .t  [  ]  
+                    [6] //  id:60   archivio
+                        .t  [  ]
+                        .sc [  ]
+                            [61]    //  eventi
+                                    .t  [  ]                      
+                    [7] //  id:70   tesseramento
+                        .t  [  ]    {0,1,2}
+                        .sc [  ]
+                            [71]    //  prassi
+                                    .t      [  ]  {0,...,3}
+                                    .steps  [  ]  {0,...,2}   
+                    [8] //  id:80   links    
+                        .t  [  ]    {0,1}
+                        .sc [  ]
+           }
+
+
+   
+                                                           }
+
+

@@ -1,0 +1,26 @@
+    <div v-else-if="currentres == 'lg'">
+      <!--div class="rmblock">ciao</div
+        DELEGATE A $STORE
+        :requestUser="requestUser"
+        :requestUserIsStaff="requestUserIsStaff"
+        :requestUserIsSuper="requestUserIsSuper"
+        :requestUserAvatar="requestUserAvatar"
+        :requestUserBio="requestUserBio"      
+        :C="C"
+        :CS="CS"
+        :categorie="categorie"
+        :rcS="rcS"
+        :rcD="rcD"      
+        :drawer="drawer"
+        :drawerLeft="drawerLeft"
+        :drawerRight="drawerRight"
+        :drawerSottocategoria="drawerSottocategoria"
+        :iconX="iconX"
+        @gotoR="gotoR"
+        @setD="setD" 
+        @setDF="setDF"
+        @DSCset="DSCset"
+      -->
+
+      <b4lg :height="hlg" @mouseover="setDF()"></b4lg>
+    </div>

@@ -1,0 +1,5 @@
+
+
+10 venv
+20 FOLDER static-serve media-served
+30 django_REST_env [ per PRODUZIONE ]

@@ -1,0 +1,30 @@
+nginx.conf
+Location: C:\nginx\conf
+
+worker_processes  1;
+events {
+    worker_connections  1024;
+}
+http {
+    include       mime.types;
+    default_type  application/octet-stream;
+    #to read external configuration.
+    include "C:/nginx/conf/sites-enabled/*.conf";
+}
+
+
+localhost.conf
+Location: C:\nginx\conf\sites-enabled
+
+server {
+        listen       80;
+        server_name  localhost;
+        location / {
+            root   html;
+            index  index.html index.htm;
+        }
+        error_page   500 502 503 504  /50x.html;
+        location = /50x.html {
+            root   html;
+        }
+}

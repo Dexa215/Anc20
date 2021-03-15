@@ -1,0 +1,81 @@
+
+    <!-- div BLOCCO MENU -->
+    <transition
+      name="custom-classes-transition"
+      enter-active-class="animated fadeInDown"
+      leave-active-class="animated fadeOutUp"
+    >
+      <v-row class="rmvrow" v-show="drawerLeft" text-align="center">
+        <!-- menu sottocategorie... -->
+
+        <v-col class="rmH0" cols="4"></v-col>
+
+        <!--  finestra comandi amministatore **************************************************** -->
+        <transition
+          name="custom-classes-transition2"
+          enter-active-class="animated bounceInLeft"
+          leave-active-class="animated bounceOutLeft"
+        >
+          <!-- v-col v-show="admin & admincommands" class="rmvcolSadmin rmH" cols="12"-->
+          <v-col
+            v-show="this.$store.getters.requestUserIsSuper & admincommands"
+            class="rmvcolSadmin rmH"
+            cols="12"
+          >
+            <m4lgAdmin @gotoR="gotoR" @setDF="setDF"></m4lgAdmin>
+          </v-col>
+        </transition>
+        <!--  finestra comandi amministatore **************************************************** -->
+
+        <!--  finestra dati untente -->
+        <v-col class="rmvcolC rmH rcC_BC" cols="4">
+          <!--          
+          :requestUser="requestUser"
+          :requestUserIsStaff="requestUserIsStaff"
+          :requestUserIsSuper="requestUserIsSuper"
+          :requestUserAvatar="requestUserAvatar"
+          :requestUserBio="requestUserBio"
+          -->
+
+          <u4lg @adminCommandSwitch="adminCommandSwitch" @gotoR="gotoR"></u4lg>
+        </v-col>
+        <!--  finestra dati untente -->
+
+        <!-- old ok
+        <v-col class="rmvcolD rmH rcLat_BC">
+        -->
+        <v-col :class="rcU">
+          <!-- test OK
+          class rcU: {{rcU}}
+          class rcS: {{rcS}}
+          class rcD: {{rcD}}
+          -->
+
+          <!-- 
+            :requestUser="requestUser"
+            :requestUserIsStaff="requestUserIsStaff"
+            :requestUserIsSuper="requestUserIsSuper"
+            :requestUserAvatar="requestUserAvatar"
+            :requestUserBio="requestUserBio"
+                        :C="C"
+            :CS="CS"
+            :categorie="categorie"
+          -->
+
+          <m4lg
+            :drawer="drawer"
+            :drawerLeft="drawerLeft"
+            :drawerRight="drawerRight"
+            :drawerSottocategoria="drawerSottocategoria"
+            :rcLat_BC="rcLat_BC"
+            :iconX="iconX"
+            @gotoR="gotoR"
+            @setD="setD"
+            @setDF="setDF"
+            @mouseover="setDF()"
+            @DSCset="DSCset"
+          ></m4lg>
+        </v-col>
+      </v-row>
+    </transition>
+    <!-- ****************************************************************** -->

@@ -1,0 +1,18 @@
+[vue.cli]			task/build/esegui		(rebuild dist)
+
+[filezilla]			sftp://root@80.211.234.218/home/dexo/
+	UPLOAD: 
+	dist...		/anctradate/frontIE/anc-app/dist 
+	Files statici...	/static-serve
+	
+[putty / Lx Shell]		SSH root@80.211.234.218
+			Maaaaa12345
+						
+			cd..
+			source django_REST_env/bin/activate
+(django_REST_env)	
+			root@2piUbuntu1:/home/dexo/anctradate#
+
+			python manage.py collectstatic
+			sudo service nginx reload
+			sudo systemctl reload supervisor
