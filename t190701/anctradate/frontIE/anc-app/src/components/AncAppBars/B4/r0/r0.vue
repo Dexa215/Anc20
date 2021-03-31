@@ -3,9 +3,17 @@
   <!--v-row class="r0B4 mx-auto my-auto" justify="center" align="start"-->
 
   <!--v-row :class="bBcl" justify="center" align="start"-->
-  <v-row :class="r0B4" justify="center" align="start">
+  <v-row
+    :class="r0B4"
+    justify="center"
+    align="start"
+  >
     <v-col cols="12">
-      <v-row :class="r0B4int" justify="center" align="start">
+      <v-row
+        :class="r0B4int"
+        justify="center"
+        align="start"
+      >
         <c0sx></c0sx>
         <c0cx></c0cx>
         <c0dx></c0dx>
@@ -32,7 +40,7 @@ export default {
     c0dx
   },
 
-  data() {
+  data () {
     return {};
   },
 
@@ -42,27 +50,27 @@ export default {
     }
   },
   computed: {
-    bBcl() {
+    bBcl () {
       /*bBcl = bar BIG class*/
       /*{r0B4small,r0B4Big}*/
       return this.$store.getters.getbarBIGClass;
     },
-    r0B4int() {
+    r0B4int () {
       return this.$store.getters.getr0B4int;
     },
-    r0B4() {
+    r0B4 () {
       return this.$store.getters.getr0B4;
     },
-    barBIG() {
+    barBIG () {
       return this.$store.getters.getbarBIG;
     }
   },
 
   methods: {},
-  updated() {
+  updated () {
     /*this.setcolor();*/
   },
-  mounted() {
+  mounted () {
     /*this.setcolor();*/
     this.h = this.height;
     //console.log(this.$vuetify.breakpoint);

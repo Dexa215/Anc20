@@ -1,6 +1,7 @@
 <template>
   <!-- MACRO COLONNA DESTRA ************************************************************************************************************ -->
   <v-col :class="rcD">
+    <r1></r1>
     <!-- test 2021 03 13
     <r1></r1>
     -->
@@ -16,7 +17,7 @@ export default {
   computed: {
     /* DINAMIC CSS */
     /* rcD(){return this.$store.getters.rcD;},*/
-    rcD() {
+    rcD () {
       var rcD = this.$store.getters.rcD;
       var bb = this.$store.getters.getbarBIG;
       if (bb === true) {

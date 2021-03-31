@@ -12,6 +12,7 @@
     class="aab"
   ></v-app-bar>
   -->
+
   <r0></r0>
 </template>
 
@@ -29,7 +30,7 @@ export default {
   name: "b4lg",
   components: { r0 },
 
-  data() {
+  data () {
     return {
       alON: "true",
       langIco: "/static/icons/Nations/italy.png",
@@ -102,85 +103,85 @@ TODO:
     */
   },
   computed: {
-    lang() {
+    lang () {
       return this.$store.getters.getCurrentLanguage;
     },
-    languages() {
+    languages () {
       return this.$store.getters.getLanguages;
     },
-    languagesShow() {
+    languagesShow () {
       return this.$store.getters.getLanguagesShow;
     },
     /*  -----------------------------------------------------------------------   */
-    drawer() {
+    drawer () {
       return this.$store.getters.getDrawer;
     },
-    drawerLeft() {
+    drawerLeft () {
       return this.$store.getters.getDrawerLeft;
     },
-    drawerRight() {
+    drawerRight () {
       return this.$store.getters.getDrawerRight;
     },
-    drawerSottocategoria() {
+    drawerSottocategoria () {
       return this.$store.getters.getDrawerSottocategoria;
     },
     /*  -----------------------------------------------------------------------   */
-    iconX() {
+    iconX () {
       return this.$store.getters.getIconX;
     },
-    iconO() {
+    iconO () {
       return this.$store.getters.getIconO;
     },
-    iconOdx() {
+    iconOdx () {
       return this.$store.getters.getIconOdx;
     },
-    iconC() {
+    iconC () {
       return this.$store.getters.getIconC;
     },
-    iconCdx() {
+    iconCdx () {
       return this.$store.getters.getIconCdx;
     },
     /*  -----------------------------------------------------------------------   */
-    categorie() {
+    categorie () {
       return this.$store.getters.categorie;
     },
-    C() {
+    C () {
       return this.$store.getters.getC;
     },
-    CS() {
+    CS () {
       return this.$store.getters.getCS;
     },
-    requestUser() {
+    requestUser () {
       return this.$store.getters.requestUser;
     },
-    requestUserIsStaff() {
+    requestUserIsStaff () {
       return this.$store.getters.requestUserIsStaff;
     },
-    requestUserIsSuper() {
+    requestUserIsSuper () {
       return this.$store.getters.requestUserIsSuper;
     },
-    requestUserAvatar() {
+    requestUserAvatar () {
       return this.$store.getters.requestUserAvatar;
     },
-    requestUserBio() {
+    requestUserBio () {
       return this.$store.getters.requestUserBio;
     },
-    requestToken() {
+    requestToken () {
       return this.$store.getters.requestToken;
     },
     /* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
     /* DINAMIC CSS */
-    rcS() {
+    rcS () {
       return this.$store.getters.rcS;
     },
-    rcD() {
+    rcD () {
       return this.$store.getters.rcD;
     },
-    rcU() {
+    rcU () {
       return this.$store.getters.rcU;
     },
     /* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
-    barBIG() {
+    barBIG () {
       return this.$store.getters.getbarBIG;
     }
   },
@@ -193,34 +194,34 @@ TODO:
       this.alON = false;
     },
 */
-    gotoR(r) {
+    gotoR (r) {
       this.expand = !this.expand;
       this.$store.dispatch("setDF");
       this.$store.dispatch("gotoR", r);
     },
 
-    SDL() {
+    SDL () {
       /*Switch Drawer Language*/
       this.$store.dispatch("switchDrawerLang");
     },
-    ScL(val) {
+    ScL (val) {
       /*Set Current Language*/
       this.$store.dispatch("setL", val);
     },
-    DSCset(state) {
+    DSCset (state) {
       this.$store.dispatch("DSCset", state);
     },
-    setD() {
+    setD () {
       this.$store.dispatch("setD");
     },
-    setDF() {
+    setDF () {
       this.$store.dispatch("setDF");
     }
   },
-  updated() {
+  updated () {
     /*this.setcolor();*/
   },
-  mounted() {
+  mounted () {
     /*this.setcolor();*/
     this.h = this.height;
     //console.log(this.$vuetify.breakpoint);

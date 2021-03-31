@@ -8,6 +8,16 @@
     <c1sx></c1sx>
     <c1cx></c1cx>
     <c1dx></c1dx>
+    <v-col
+      v-if="barBIG === true"
+      class=""
+      cols="12"
+    >
+      <v-row
+        justify="center"
+        align="center"
+      >ciao</v-row>
+    </v-col>
   </v-row>
 </template>
 <script>
@@ -21,6 +31,11 @@ export default {
     c1sx,
     c1cx,
     c1dx
+  },
+  computed: {
+    barBIG () {
+      return this.$store.getters.getbarBIG;
+    }
   }
 };
 </script>

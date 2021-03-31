@@ -1,13 +1,23 @@
 <template>
   <!--div class="aAb" @mouseover="setDF()" @mouseenter="setbarBIG('true')"-->
   <!--test 2021 03 10-->
-  <div class="aAb" @mouseover="setDF()" @mouseenter="setSc(false)">
+  <div
+    class="aAb"
+    @mouseover="setDF()"
+    @mouseenter="setSc(false)"
+  >
     <!--@mouseleave="setbarBIG('false')"-->
 
     <!-- test ok 2021 01 06 -->
     <!-- @@@ -->
-    <b1xs v-if="currentres == 'xs'" :height="hsm"></b1xs>
-    <b2sm v-else-if="currentres == 'sm'" :height="hsm"></b2sm>
+    <b1xs
+      v-if="currentres == 'xs'"
+      :height="hsm"
+    ></b1xs>
+    <b2sm
+      v-else-if="currentres == 'sm'"
+      :height="hsm"
+    ></b2sm>
     <b3md
       v-else-if="currentres == 'md'"
       :height="hlg"
@@ -76,6 +86,7 @@ import m4lg from "@/components/AncM/Cat/M4lg.vue";
 import m4lgSottocategorie from "@/components/AncM/CatSotto/M4lgSottocategorie.vue";
 
 import m4lgAdmin from "@/components/AncM/Admin/M4lgAdmin.vue";
+
 import $ from "jquery";
 
 export default {
@@ -139,64 +150,64 @@ export default {
     admincommands: false
   }),
   computed: {
-    barBIG() {
+    barBIG () {
       return this.$store.getters.getbarBIG;
     },
-    barBIGsem() {
+    barBIGsem () {
       return this.$store.getters.getbarBIGsem;
     },
 
-    drawer() {
+    drawer () {
       return this.$store.getters.getDrawer;
     },
-    drawerLeft() {
+    drawerLeft () {
       return this.$store.getters.getDrawerLeft;
     },
-    drawerRight() {
+    drawerRight () {
       return this.$store.getters.getDrawerRight;
     },
-    drawerSottocategoria() {
+    drawerSottocategoria () {
       return this.$store.getters.getDrawerSottocategoria;
     },
-    requestUser() {
+    requestUser () {
       return this.$store.getters.requestUser;
     },
-    requestUserIsStaff() {
+    requestUserIsStaff () {
       return this.$store.getters.requestUserIsStaff;
     },
-    requestUserIsSuper() {
+    requestUserIsSuper () {
       return this.$store.getters.requestUserIsSuper;
     },
-    requestUserAvatar() {
+    requestUserAvatar () {
       return this.$store.getters.requestUserAvatar;
     },
-    requestUserBio() {
+    requestUserBio () {
       return this.$store.getters.requestUserBio;
     },
-    requestToken() {
+    requestToken () {
       return this.$store.getters.requestToken;
     },
-    categorie() {
+    categorie () {
       return this.$store.getters.categorie;
     },
 
-    C() {
+    C () {
       return this.$store.getters.C;
     },
-    Cs() {
+    Cs () {
       return this.$store.getters.CS;
     },
-    rcS() {
+    rcS () {
       return this.$store.getters.rcS;
     },
-    rcD() {
+    rcD () {
       return this.$store.getters.rcD;
     },
-    rcU() {
+    rcU () {
       return this.$store.getters.rcU;
     },
 
-    imageHeight() {
+    imageHeight () {
       switch (this.$vuetify.breakpoint.name) {
         case "xs":
           // eslint-disable-next-line no-console
@@ -221,7 +232,7 @@ export default {
       }
     },
     // eslint-disable-next-line vue/return-in-computed-property
-    currentres() {
+    currentres () {
       switch (this.$vuetify.breakpoint.name) {
         case "xs":
           //console.log("xs");
@@ -251,7 +262,7 @@ export default {
     },
     */
 
-    setbarBIG(val) {
+    setbarBIG (val) {
       this.$store.dispatch("setBB", val);
       if (val === "true") {
         console.log("set bar BIG -- VAL TRUE");
@@ -263,7 +274,7 @@ export default {
       }
     },
     /*barBIG*/
-    bB() {
+    bB () {
       console.log("AncAppBar -- bB");
       if (this.barBIGsem === false) {
         var mr = $(".mr");
@@ -282,7 +293,7 @@ export default {
       }
     },
     /*barSMALL*/
-    bS() {
+    bS () {
       console.log("AncAppBar -- bS");
       if (this.barBIGsem === false) {
         var mr = $(".mr");
@@ -299,15 +310,15 @@ export default {
       }
     },
 
-    gotoR(r) {
+    gotoR (r) {
       this.$store.dispatch("gotoR", r);
     },
 
-    adminCommandSwitch() {
+    adminCommandSwitch () {
       this.admincommands = !this.admincommands;
     },
 
-    setD() {
+    setD () {
       // eslint-disable-next-line no-console
       console.log("AncAppBar ricevuto setD");
 
@@ -325,11 +336,11 @@ export default {
       this.$emit("setD");
     },
 
-    setDF() {
+    setDF () {
       this.$emit("setDF");
     },
 
-    setC() {
+    setC () {
       // eslint-disable-next-line no-console
       console.log("1 analizzo DATA this.requestUserIsStaff");
       // eslint-disable-next-line no-console
@@ -350,7 +361,7 @@ export default {
       }
     },
 
-    setcolor() {
+    setcolor () {
       //this.$store.dispatch(setcolor);
 
       var x = this;
@@ -391,11 +402,11 @@ export default {
       }
     },
 
-    DSCset(state) {
+    DSCset (state) {
       this.$emit("DSCset", state);
     },
 
-    setSc(val) {
+    setSc (val) {
       this.$store.dispatch("setScrolling", val);
     }
 
@@ -406,11 +417,11 @@ export default {
     /*  .Anc_BC_BlueDark  ...  rgb(1, 4, 20);   */
   },
 
-  updated() {
+  updated () {
     //TODO: RIPRISTINARE    this.setcolor();
   },
 
-  mounted() {
+  mounted () {
     //TODO: RIPRISTINARE    this.setcolor();
 
     // eslint-disable-next-line no-console
