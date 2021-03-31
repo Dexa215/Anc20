@@ -1,0 +1,55 @@
+PS>
+
+Get-ExecutionPolicy
+
+Set-ExecutionPolicy Restricted
+Set-ExecutionPolicy RemoteSigned
+Set-ExecutionPolicy AllSigned
+Set-ExecutionPolicy Unrestricted
+
+-----------------------------------------------------------------------------------------------------------------
+
+Abilitare esecuzione script Powershell      
+
+By Matteo Zigliani
+Ultimo aggiornamento: 21 Maggio 2020
+
+Per abilitare l’esecuzione di script in Powershell sul tuo computer Windows, bisogna eseguire un piccolo comando, 
+che ti potrà essere utile in diversi casi.
+Sarà capitato a tutti chi prima e chi dopo di scontrarsi con il problema dell’esecuzione di script in Powershell,
+durante la programmazione o l’esecuzione di uno script in ambiente Windows.
+
+Puoi anche controllare il parametro prima di modificarlo utilizzando il comando:
+    Get-ExecutionPolicy
+
+Se sul tuo sistema operativo non è configurata una piccola regola, 
+i tuoi script non verranno eseguiti e la consolle ti ritornerà un bell’errore che molte volte conterrà le parole “Access Dained”.
+Per ovviare a questo problema occorre configurare l’esecuzione degli script con il comando:
+Ricordati sempre di eseguire la Powershell come Amministratore di sistema
+
+Set-ExecutionPolicy Restricted
+Set-ExecutionPolicy RemoteSigned
+Set-ExecutionPolicy AllSigned
+Set-ExecutionPolicy Unrestriced
+
+
+    Set-ExecutionPolicy <policy name>
+
+Descrizione dei comandi <policy name>:
+
+                        +   Restricted:         con questo comando lo script non si eseguirà mai.
+                        +   RemoteSigned:       con questo comando potranno essere eseguiti solamente gli script creati localmente, nel caso si eseguano degli script scaricati dal web, essi dovranno essere firmati da un editore attendibile.
+                        +   AllSigned:          potranno essere eseguiti solo script firmati da un editore attendibile
+                        +   Unrestriced:        in questo ultimo caso si potranno eseguire qualsiasi script, scaricato o scritto localmente.
+
+Abilitare esecuzione script Powershell eseguire tutti gli script
+Quindi nel caso si vogliono eseguire qualsiasi tipo di script si dovrà digitare il comando:
+
+Set-ExecutionPolicy Unrestricted
+
+E’ sconsigliato utilizzarlo, poiché qualsiasi script presente sul tuo computer, potrà essere eseguito in qualsiasi momento.
+E’ facile che qualche malintenzionato possa creare dei danni al tuo computer.
+Se proprio devi attivare questo tipo di esecuzione per gli script in Powershell sul tuo sistema operativo Microsoft Windows, è bene che poi ti ricordi di disattivare questa modalità, una volta terminato il tuo lavoro.
+Conclusioni
+Come puoi vedere, è facile eseguire questo tipo di comando. 
+Ti sarà di grande aiuto e ricordati sempre di far tornare tutto come all’inizio, altrimenti come ti ho detto, potrebbe accadere che qualcuno possa recar danni al tuo pc, tramite l’utilizzo incontrollato della Powershell
