@@ -45,5 +45,6 @@ python manage.py runserver
 
 PS2>
 npm i -g @vue/cli
+npm install jquery
 
 
