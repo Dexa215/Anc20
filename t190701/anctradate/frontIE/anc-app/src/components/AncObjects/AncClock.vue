@@ -1,29 +1,35 @@
 <template>
-  <v-row align="center" justify="center" style="height:100%">
-    <v-col class="ancClock" cols="12" align="center" justify="center">
-      <v-row class="cage my-auto mx-auto r_BC" align="center" justify="center">
-        <v-row class="rup mx-auto" align="end">
-          <v-col cols="9" class="cup mx-auto display-2">{{ lang.text1 }}</v-col>
-        </v-row>
-        <v-row class="rdw mx-auto" align="start">
-          <v-col cols="9" class="cdw mx-auto">
-            <a class="title">{{ displayeddate }}</a>
-          </v-col>
-        </v-row>
+  <v-row
+    align="center"
+    justify="center"
+    style="height:100%"
+  >
+    <v-col
+      class="ancClock"
+      cols="12"
+      align="center"
+      justify="center"
+    >
+      <v-row class="cage my-auto mx-auto r_BC">
+        <rup></rup>
+        <rdw></rdw>
       </v-row>
     </v-col>
   </v-row>
 </template>
 
 <script>
+import rup from "@/components/AncObjects/rup/rup.vue";
+import rdw from "@/components/AncObjects/rdw/rdw.vue";
+
 export default {
   name: "AncClock",
 
-  components: {},
+  components: { rup, rdw },
 
   props: {},
 
-  data() {
+  data () {
     return {
       d: null,
       date: null,
@@ -35,7 +41,7 @@ export default {
   },
 
   computed: {
-    displayeddate() {
+    displayeddate () {
       this.d = new Date();
       this.date = this.d.getDate();
       this.year = this.d.getFullYear();
@@ -48,17 +54,17 @@ export default {
       return this.displaydate;
     },
 
-    lang() {
+    lang () {
       return this.$store.getters.getCurrentLanguage;
     },
-    languages() {
+    languages () {
       return this.$store.getters.getLanguages;
     },
-    languagesShow() {
+    languagesShow () {
       return this.$store.getters.getLanguagesShow;
     },
 
-    getmonthArrLang() {
+    getmonthArrLang () {
       // test ok
       //      let lang = "it";
       //      let lang = "sp";
@@ -73,7 +79,7 @@ export default {
     },
 
     /* TODO: DA RIVEDERE */
-    getmonthArrLanguage() {
+    getmonthArrLanguage () {
       return this.$store.getters.getmonthArrLanguage(this.month);
 
       //return this.$store.state.l.monthArrIt;
@@ -81,7 +87,7 @@ export default {
   },
 
   methods: {
-    clock() {
+    clock () {
       this.d = new Date();
       this.date = this.d.getDate();
       this.year = this.d.getFullYear();
@@ -116,11 +122,11 @@ export default {
       //            document.getElementById("date").innerHTML=this.date+" "+this.month+", "+this.year;
     }
   },
-  created() {
+  created () {
     console.log("clock oncreate --> start");
     this.clock();
   },
-  updated() {}
+  updated () { }
 };
 </script>
 
@@ -135,12 +141,12 @@ export default {
   z-index: 5;
   opacity: 0.9;
   border-radius: 150px;
-  height: 100%;
-  padding: 4px;
+  height: 300px;
+  width: 300px;
+  /*padding: 1px;*/
 }
-
+/*
 .todayr {
-  /*background-color: transparent !important;*/
   position: relative;
   z-index: 6;
   background-color: yellow !important;
@@ -148,7 +154,8 @@ export default {
   height: 95%;
   border-radius: 250px;
 }
-
+*/
+/*
 .rup {
   background-color: aliceblue !important;
   height: 50%;
@@ -161,7 +168,9 @@ export default {
   width: 100%;
   border-radius: 0px 0px 250px 250px;
 }
+*/
 /*------------------------------------------------------------------------------------*/
+/*
 .cup {
   background-color: transparent !important;
   height: 70px;
@@ -173,7 +182,10 @@ export default {
   height: 70px;
   width: 100px;
 }
+*/
 /*------------------------------------------------------------------------------------*/
+
+/*
 .todayCircle {
   height: 100%;
   width: 300px;
@@ -190,7 +202,6 @@ export default {
   width: 100%;
 }
 .todaylineup {
-  /*background-color: orangered;*/
   width: 300px;
   background-color: red;
   border-radius: 150px 150px 0px 0px;
@@ -200,10 +211,10 @@ export default {
   width: 100%;
 }
 .todaylinedown {
-  /*background-color: orange;*/
   height: 150px;
   width: 300px;
   background-color: yellow;
   border-radius: 0px 0px 150px 150px;
 }
+*/
 </style>
