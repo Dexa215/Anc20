@@ -1,1 +1,6 @@
-03/31/2021 10:14:58 PM INFO autoreload 13464 6128 Watching for file changes with StatReloader
+04/15/2021 08:53:47 PM INFO autoreload 12824 1920 Watching for file changes with StatReloader
+04/16/2021 10:29:00 PM WARNING log 12824 3024 Not Found: /favicon.ico
+04/16/2021 10:48:27 PM WARNING log 12824 13380 Not Found: /{% static 'images/Soci/Registrazione/bustina.jpg' %}
+04/16/2021 10:48:43 PM WARNING log 12824 13380 Not Found: /auth
+04/16/2021 10:49:19 PM WARNING log 12824 13380 Not Found: /api/rest-auth/
+04/16/2021 10:49:38 PM WARNING log 12824 13380 Method Not Allowed: /api/rest-auth/login/

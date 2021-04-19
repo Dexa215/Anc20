@@ -1,0 +1,28 @@
+[vue.cli]			task/build/esegui		(rebuild dist)
+
+--------------------------------------------------------------------------
+	[filezilla]				sftp://root@80.211.234.218/home/dexo/
+
+	gestione sito:			Anc20
+	Protocollo:				SFTP - SSH File Transfert Protocol
+	Host:					80.211.234.218
+	Tipo di accesso:		Normale
+	Utente:					root
+	PW:						Maaaaa12345
+--------------------------------------------------------------------------
+	UPLOAD
+	Locale					Remoto
+	dist...					/anctradate/frontIE/anc-app/dist 
+	Files statici...		/static-serve
+--------------------------------------------------------------------------
+
+	[putty / Lx Shell]		SSH root@80.211.234.218
+	PW:						Maaaaa12345
+
+	CMD:					cd..
+							source django_REST_env/bin/activate
+							(django_REST_env) root@2piUbuntu1:/home/dexo/anctradate#
+
+							python manage.py collectstatic
+							sudo service nginx reload
+							sudo systemctl reload supervisor

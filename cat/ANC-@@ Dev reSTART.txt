@@ -1,20 +1,6 @@
 LOCALE - Riavvio SRV di SVILUPPO
 
-PS[1]
-CD C:\Projects\GIT\online\Anc20\t190701\venv\scripts
-
-CD C:\Projects\Anc20\t190701\venv\scripts
-.\activate
-CD..
-CD..
-CD anctradate
-python manage.py runserver
-
-[ local port 8000 ]
-
-PS[2]
-CD C:\Projects\GIT\online\Anc20\t190701\anctradate\frontIE\anc-app
-vue ui
+a
 [ local port 8001 ]
 -------------------------------------------------------------------------------------
 SmartGit            v20.1.1     REPO:       C:\Projects\GIT\online\Anc20

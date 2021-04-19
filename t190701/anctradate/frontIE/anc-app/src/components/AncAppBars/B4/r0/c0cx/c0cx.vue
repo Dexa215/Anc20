@@ -1,9 +1,12 @@
 <template>
   <!-- MACRO COLONNA CENTRALE ************************************************************************************************************ -->
   <v-col
-    class="rcC rcX rcC_BC"
+    class="TEST"
     cols="4"
+    align="start"
   >
+    <!--TODO: ripristinare classe in v-col rcC rcX rcC_BC -->
+
     <r1></r1>
   </v-col>
 </template>
@@ -18,4 +21,10 @@ export default {
 };
 </script>
 
-<style media="screen"></style>
+<style media="screen">
+.TEST {
+  /*background-color: blueviolet !important;*/
+  height: 100%;
+  /*padding: 0px;*/
+}
+</style>
