@@ -12,18 +12,23 @@
       <v-row
         :class="r0B4int"
         justify="center"
-        align="start"
+        align="center"
       >
-        <!-- TODO: {}-->
-
+        <!-- TODO: { 2021 04 20 - funzionante }-->
+        <!--
         <c0sx></c0sx>
         <c0cx></c0cx>
         <c0dx> </c0dx>
+-->
+        <!-- TODO: { 2021 04 20 - funzionante }-->
 
-        <!--
-        <v-col cols="4"></v-col>
-        <v-col cols="4"></v-col>
-        -->
+        <!-- TODO: { 2021 04 20 - TEST LIVELLI Z-10 / Z-20 }-->
+
+        <r0csx></r0csx>
+        <r0cdx></r0cdx>
+        <r0rcx></r0rcx>
+
+        <!-- TODO: { 2021 04 20 - TEST LIVELLI Z-10 / Z-20 }-->
       </v-row>
     </v-col>
   </v-row>
@@ -33,13 +38,21 @@ import c0sx from "@/components/AncAppBars/B4/r0/c0sx/c0sx.vue";
 import c0cx from "@/components/AncAppBars/B4/r0/c0cx/c0cx.vue";
 import c0dx from "@/components/AncAppBars/B4/r0/c0dx/c0dx.vue";
 
+import r0csx from "@/components/AncAppBars/B4/r0/csx/csx.vue";
+import r0cdx from "@/components/AncAppBars/B4/r0/cdx/cdx.vue";
+import r0rcx from "@/components/AncAppBars/B4/r0/rcx/rcx.vue";
+
 export default {
   name: "r0",
 
   components: {
     c0sx,
     c0cx,
-    c0dx
+    c0dx,
+    /**/
+    r0csx,
+    r0cdx,
+    r0rcx
   },
 
   data () {

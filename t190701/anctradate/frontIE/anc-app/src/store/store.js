@@ -9,6 +9,7 @@ import { axiosService } from "@/common/axios_calls";
 import menuT from "@/common/menuTime.js";
 
 //Module A: General, dynamic assignment css
+//Module B: Background
 //Module C: Categories
 //Module D: Drawers
 //Module E: Events
@@ -134,6 +135,32 @@ const moduleA = {
     },
     CatCLunsel (state) {
       return state.CatCLunsel;
+    }
+  }
+};
+//      Module B: Backgrounds
+const moduleB = {
+  state: {
+    //bgc: BackGroundClass
+    bgc_R: "",
+    bgc_G: "",
+    bgc_B: "",
+    bgc_K: ""
+  },
+  mutations: {},
+  actions: {},
+  getters: {
+    bc_R (state) {
+      return state.bgc_R;
+    },
+    bc_G (state) {
+      return state.bgc_G;
+    },
+    bc_B (state) {
+      return state.bgc_B;
+    },
+    bc_K (state) {
+      return state.bgc_K;
     }
   }
 };
@@ -2410,7 +2437,6 @@ const moduleR = {
 const moduleU = {
   state: {
     loadingStatusUser: false,
-
     requestUser: "Vis",
     requestUserIsStaff: false,
     requestUserIsSuper: false,
@@ -2488,29 +2514,7 @@ const moduleU = {
 
     setUSER (context) {
       /* test ok */
-      /*
-                                                                                                                                                                                                                                          context.commit('SET_LOADING_STATUS_user', 'loading')
-                                                                                                                                                                                                                                          const axios = require('axios');
-                                                                                                                                                                                                                                          let endpoint = "api/profiles/getcurrentuser/";
-                                                                                                                                                                                                                                          axios.get(endpoint).then(response => {
-                                                                                                                                                                                                                                              console.log("Store... axios... setUSER...");
-                                                                                                                                                                                                                                              console.log("RESPONSE: ", response);
-                                                                                                                                                                                                                                              console.log("RESPONSE headers: ", response.headers);
-                                                                                                                                                                                                                                              console.log("RESPONSE status: ", response.status);
-                                                                                                                                                                                                                                              console.log("RESPONSE url: ", response.url);
-                                                                                                                                                                                                                                              context.commit('SET_LOADING_STATUS_user', 'finish loading')
-                                                                                                                                                                                                                                              context.commit('SET_TODOS', response.data.results)
-                                                                                                                                                                                                                                              context.commit('setuser', response.data.us.name)
-                                                                                                                                                                                                                                              context.commit('setuserIsStaff', data.us.staff)
-                                                                                                                                                                                                                                              context.commit('setuserIsSuper', data.us.superuser)
-                                                                                                                                                                                                                                              //context.commit('setuserAvatar', data.us.avatar)
-                                                                                                                                                                                                                                              context.commit('setuserBio', data.us.bio)
-                                                                                                                                                                                                                                              context.commit('SET_LOADING_STATUS_user', 'loading')
-                                                                                                                                                                                                                                          }).catch(error => {
-                                                                                                                                                                                                                                              console.log(error)
-                                                                                                                                                                                                                                              context.commit('SET_LOADING_STATUS_user', 'NOT loading')
-                                                                                                                                                                                                                                          });;
-                                                                                                                                                                                                                                */
+      /*                                                                                                                                                                                                                           */
     }
   },
   getters: {
@@ -2538,6 +2542,7 @@ const moduleU = {
 export const store = new Vuex.Store({
   modules: {
     a: moduleA, //General
+    b: moduleB, //backgrounds
     c: moduleC, //Categorie
     d: moduleD, //Drawers
     e: moduleE, //Events
