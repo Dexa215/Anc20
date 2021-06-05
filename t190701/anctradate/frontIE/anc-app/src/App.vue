@@ -1,6 +1,6 @@
 <template>
   <v-app id="anc">
-    <ancAppBar class="Mx7"></ancAppBar>
+    <ancAppBar class="Mx8"></ancAppBar>
     <ancNews class="Mx5"></ancNews>
 
     <menuS class="Mx6"></menuS>
@@ -21,6 +21,7 @@
     </v-content>
 
     <ancFooter
+      class="Mx9"
       :footercolor="footercolor"
       :C="C"
       :CS="CS"
@@ -391,7 +392,9 @@ BU 2021 03 07
   color: antiquewhite;
 }
 .Anc_BC_Blue {
-  background-color: rgb(9, 5, 49);
+  background-color: rgb(37, 55, 105);
+  /*background-color: rgb(27, 64, 163);*/
+  /*background-color: rgb(9, 5, 49);*/
   color: aliceblue;
 }
 .Anc_BC_BlueDark {
@@ -543,6 +546,14 @@ Con Sottoclassi in ogni view di definizione risoluzione:
 .Mx7 {
   position: relative;
   z-index: 7;
+}
+.Mx8 {
+  position: relative;
+  z-index: 8;
+}
+.Mx9 {
+  position: relative;
+  z-index: 9;
 }
 .p0 {
   padding-left: 0px;
