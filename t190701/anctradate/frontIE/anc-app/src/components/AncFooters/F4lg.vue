@@ -1,10 +1,12 @@
 <template>
   <div>
+    <!--/*class="grey--text"
+      */-->
     <v-footer
       fixed
       app
       :color="AncFooter_BC"
-      class="grey--text"
+      :class="F"
       dark
     >
       <v-row
@@ -108,7 +110,6 @@ export default {
   data: () => ({
     /*AncAppBar_BC: "rgb(19, 21, 36)" /* blue */
     AncFooter_BC: "rgb(28, 43, 31)" /* green */,
-
     AncFooter_r_BC: "rgb(11, 26, 14)" /* green */,
 
     colordefault: "footercolor",
@@ -124,6 +125,17 @@ export default {
   }),
 
   computed: {
+    F () {
+      var bb = this.$store.getters.getbarBIG;
+      var f = "grey--text ";
+      if (bb === true) {
+        f += "BBf ";
+      } else {
+        f += "SSf ";
+      }
+      return f;
+    },
+
     /*Fcl Anc Footer Class*/
     Fcl () {
       var bb = this.$store.getters.getbarBIG;
@@ -171,8 +183,10 @@ export default {
 
 <style media="screen" scoped>
 .BBclass {
-  height: 150px;
-  border-radius: 75px;
+  /*height: 150px;*/
+  /*border-radius: 75px;*/
+  height: 75px;
+  border-radius: 37px;
   background-color: rgb(11, 26, 14);
   transition: height 0.3s cubic-bezier(0.1, 0.1, 0.1, 0.5), border-radius 0.5s;
 }
@@ -184,9 +198,9 @@ export default {
 }
 
 .BBic {
-  height: 90px;
-  width: 90px;
-  border-radius: 45px;
+  height: 50px;
+  width: 50px;
+  border-radius: 25px;
 
   transition: height 0.3s cubic-bezier(0.1, 0.1, 0.1, 0.5),
     width 0.3s cubic-bezier(0.1, 0.1, 0.1, 0.5), border-radius 0.5s;
@@ -197,5 +211,12 @@ export default {
   border-radius: 25px;
 
   transition: height 0.8s, width 0.8s, background-color 2s, border-radius 0.5s;
+}
+
+.BBf {
+  height: 80px;
+}
+.SSf {
+  height: 80px;
 }
 </style>
