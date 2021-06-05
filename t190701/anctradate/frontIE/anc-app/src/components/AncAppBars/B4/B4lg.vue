@@ -12,7 +12,6 @@
     class="aab"
   ></v-app-bar>
   -->
-
   <r0></r0>
 </template>
 
@@ -26,9 +25,11 @@
 -->
 <script>
 import r0 from "@/components/AncAppBars/B4/r0/r0.vue";
+import r0b4bm from "@/components/AncAppBars/B4/r0/r0b4bm/r0b4bm.vue";
+
 export default {
   name: "b4lg",
-  components: { r0 },
+  components: { r0, r0b4bm },
 
   data () {
     return {
@@ -229,7 +230,11 @@ TODO:
 };
 </script>
 
-<style media="screen">
+<style media="screen" scoped>
+.bar2021 {
+  padding: 0px;
+}
+
 /*aab anc app bar*/
 .aab {
   height: 110px;

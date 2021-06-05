@@ -5,16 +5,38 @@
     align="center"
     justify="center"
   >
-    <div>
-      ciao
-    </div>
+    <!--c1cx></c1cx-->
+
+    <img
+      :class="rcxIco"
+      src="/static/images/Icone/anclogo2012.gif"
+      alt="ancTradate"
+      @click="gotoR('/')"
+      @mouseover="hoveravatar = true"
+      @mouseleave="hoveravatar = false"
+    />
   </v-row>
 </template>
 <script>
+import c1cx from "@/components/AncAppBars/B4/r0/c0cx/r1/c1cx/c1cx.vue";
+
 export default {
   name: "rcx",
-  components: {},
+  components: {
+    c1cx
+  },
   computed: {
+    rcxIco () {
+      var rcxIco = "rcxIco ";
+      var bb = this.$store.getters.getbarBIG;
+      if (bb === true) {
+        rcxIco += "rcxIcoBB ";
+      } else {
+        rcxIco += "rcxIcoSS ";
+      }
+      return rcxIco;
+    },
+
     rcX () {
       var rcX = "rcx mx-auto my-auto colorBlue "; /*Bordi*/
       var rank = 0;
@@ -36,7 +58,7 @@ export default {
       }
 
       if (bb === true) {
-        rcX += "BBclass ";
+        rcX += "BBclass bg_blue ";
         /*bgc*/
         switch (rank) {
           case 1:
@@ -51,7 +73,7 @@ export default {
           default:
         }
       } else {
-        rcX += "SSclass ";
+        rcX += "SSclass bg_blue ";
         /*bgc*/
         switch (rank) {
           case 1:
@@ -76,54 +98,86 @@ export default {
   position: fixed;
   z-index: 20;
   /*background-color: pink !important;*/
-  height: 64px;
-  width: 64px;
+  height: 70px;
+  width: 70px;
 }
 
 .BBclass {
   /*background-color: rgb(146, 0, 0); /*test !important*/
   opacity: 1;
   /*height: 98%;*/
-  height: 160px;
-  width: 160px;
-  border-radius: 80px;
-  transition: border-radius 1.5s, height 1.5s, width 1.5s,
-    cubic-bezier(0.1, 0.1, 0.1, 0.5), background-color 1s, opacity 2s;
+  height: 68px;
+  width: 68px;
+  border-radius: 34px;
+  transition: border-radius 0.5s cubic-bezier(0.1, 0.1, 0.1, 0.5), height 0.5s,
+    width 0.5s, background-color 0.2s, opacity 2s;
 }
 .SSclass {
   /*background-color: black;*/
   opacity: 1;
   /*background-color: yellowgreen !important;*/
-  height: 64px;
-  width: 64px;
-  border-radius: 35px;
+  height: 66px;
+  width: 66px;
+  border-radius: 33px;
   transition: border-radius 0.5s, height 0.5s, width 0.5s, background-color 1s;
+}
+
+.bg_blue {
+  background-color: rgb(37, 55, 105);
 }
 
 /*Combinazioni RANK*/
 .SS-r1 {
-  background-color: rgb(19, 21, 36);
+  /*.colorBlueOpaque */
+  background-color: rgb(37, 55, 105);
+  /*background-color: rgb(27, 64, 163);*/
+  /*background-color: rgb(19, 21, 36);*/
   /*background-color: rgb(1, 4, 20);*/
 }
 .SS-r2 {
-  background-color: rgb(19, 21, 36);
+  background-color: rgb(27, 64, 163);
+  /*background-color: rgb(19, 21, 36);*/
   /*background-color: #470410;*/
 }
 .SS-r3 {
-  background-color: rgb(19, 21, 36);
+  background-color: rgb(27, 64, 163);
+  /*background-color: rgb(19, 21, 36);*/
   /*background-color: #9b0c26;*/
 }
 
 .BB-r1 {
-  background-color: rgb(19, 21, 36);
+  background-color: rgb(209, 209, 209);
+  /*background-color: rgb(19, 21, 36);*/
   /*background-color: rgb(1, 4, 20);*/
 }
 .BB-r2 {
-  background-color: rgb(19, 21, 36);
+  background-color: rgb(209, 209, 209);
+  /*background-color: rgb(19, 21, 36);*/
   /*background-color: #470410;*/
 }
 .BB-r3 {
-  background-color: rgb(19, 21, 36);
+  background-color: rgb(209, 209, 209);
+  /*background-color: rgb(19, 21, 36);*/
   /*background-color: #9b0c26;*/
+}
+.rcxIco {
+  height: 10px;
+  width: 10px;
+  border-radius: 5px;
+}
+
+.rcxIcoSS {
+  height: 58px;
+  width: 58px;
+  border-radius: 29px;
+  transition: border-radius 0.5s cubic-bezier(0.1, 0.1, 0.1, 0.5), height 0.5s,
+    width 0.5s, background-color 1s, opacity 2s;
+}
+.rcxIcoBB {
+  height: 60px;
+  width: 60px;
+  border-radius: 30px;
+  transition: border-radius 0.5s, height 0.5s, width 0.5s, background-color 2s,
+    opacity 2s;
 }
 </style>

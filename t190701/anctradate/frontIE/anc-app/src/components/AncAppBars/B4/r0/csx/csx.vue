@@ -1,24 +1,42 @@
 <template>
   <!-- MACRO COLONNA SINISTRA ************************************************************************************************************ -->
   <v-col
-    :class="rcS"
     cols="6"
+    class="c"
   >
-    <v-row> </v-row>
+    <v-row
+      class="cr"
+      align="center"
+      justify="start"
+    >
+      <div :class="rcS">
+        <rBB v-if="bb"></rBB>
+        <rSS v-else></rSS>
+      </div>
+    </v-row>
 
     <!--<r1></r1>-->
   </v-col>
 </template>
 <script>
 import r1 from "@/components/AncAppBars/B4/r0/c0sx/r1/r1.vue";
+import rSS from "@/components/AncAppBars/B4/r0/csx/rSS/rSS.vue";
+import rBB from "@/components/AncAppBars/B4/r0/csx/rBB/rBB.vue";
 export default {
   name: "csx",
   components: {
-    r1
+    r1,
+    rSS,
+    rBB
   },
+
   computed: {
+    bb () {
+      var bb = this.$store.getters.getbarBIG;
+      return bb;
+    },
     rcS () {
-      var rcS = "csx ANCbrd mx-auto my-auto "; /*Bordi*/
+      var rcS = "csx ANCbrd "; /*Bordi*/
       var rank = 0;
       /**/
       var u = this.$store.getters.requestUser;
@@ -77,25 +95,45 @@ export default {
 .csx {
   position: relative;
   z-index: 10;
+  margin: 0%;
+}
+.c {
+  /*v-col*/
+  height: 100%;
+  /*background-color: pink;*/
+  background-color: transparent;
+  padding: 0%;
+}
+
+.cr {
+  /*v-row*/
+  height: 100%;
+  /*background-color: yellow;*/
+  background-color: transparent;
+  margin: 0%;
+  margin-right: 2px;
 }
 
 .BBclass {
   background-color: rgb(146, 0, 0); /*test !important*/
   opacity: 1;
   height: 75px;
-  /*height: 98%;*/
-  width: 250px;
-  border-radius: 80px 160px 0px 80px;
-  transition: width 0.3s, height 0.3s cubic-bezier(0.1, 0.1, 0.1, 0.5),
-    background-color 1s, opacity 2s, border-radius 0.5s;
+  width: 70%;
+  border-radius: 48px 75px 0px 48px;
+  margin-left: 2px;
+
+  transition: width 0.7s, height 0.3s cubic-bezier(0.1, 0.1, 0.1, 0.5),
+    border-radius 1s cubic-bezier(0.1, 0.2, 0.5, 1);
 }
 .SSclass {
   background-color: black;
   opacity: 0.8;
   /*background-color: yellowgreen !important;*/
+  width: 100%;
   height: 75px;
   border-radius: 48px 1px 1px 48px;
-  transition: width 0.3s, height 0.8s, background-color 1s, border-radius 0.5s;
+  transition: width 0.5s, height 0.8s, background-color 2s,
+    border-radius 0.5s cubic-bezier(1, 0.2, 0.2, 1);
 }
 
 /*Combinazioni RANK*/
@@ -106,7 +144,8 @@ export default {
   background-color: #470410;
 }
 .SS-r3 {
-  background-color: #9b0c26;
+  /*background-color: #9b0c26;*/
+  background-color: #470410;
 }
 
 .BB-r1 {
@@ -116,6 +155,8 @@ export default {
   background-color: #470410;
 }
 .BB-r3 {
-  background-color: #9b0c26;
+  /*background-color: #9b0c26;*/
+  background-color: #470410;
 }
+/*---------------------*/
 </style>

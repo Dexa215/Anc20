@@ -9,7 +9,10 @@
       align="center"
       justify="end"
     >
-      <div :class="rcD"></div>
+      <div :class="rcD">
+        <rBB v-if="bb"></rBB>
+        <rSS v-else></rSS>
+      </div>
     </v-row>
 
     <!--<r1></r1>-->
@@ -17,12 +20,20 @@
 </template>
 <script>
 import r1 from "@/components/AncAppBars/B4/r0/c0dx/r1/r1.vue";
+import rSS from "@/components/AncAppBars/B4/r0/cdx/rSS/rSS.vue";
+import rBB from "@/components/AncAppBars/B4/r0/cdx/rBB/rBB.vue";
 export default {
   name: "cdx",
   components: {
-    r1
+    r1,
+    rSS,
+    rBB
   },
   computed: {
+    bb () {
+      var bb = this.$store.getters.getbarBIG;
+      return bb;
+    },
     rcD () {
       var rcD = "cdx ANCbrd "; /*Bordi*/
       var rank = 0;
@@ -87,25 +98,32 @@ export default {
 }
 
 .c {
+  /*v-col*/
   height: 100%;
-  background-color: pink;
+  /*background-color: pink;*/
+  background-color: transparent;
   padding: 0%;
 }
 
 .cr {
+  /*v-row*/
   height: 100%;
-  background-color: yellow;
+  /*background-color: yellow;*/
+  background-color: transparent;
   margin: 0%;
+  margin-left: 2px;
 }
 
 .BBclass {
   background-color: rgb(146, 0, 0); /*test !important*/
   opacity: 1;
-  height: 145px;
-  width: 350px;
-  border-radius: 160px 80px 80px 0px;
-  transition: width 0.5s, height 0.3s cubic-bezier(0.1, 0.1, 0.1, 0.5),
-    border-radius 0.5s;
+  height: 75px;
+  width: 70%;
+  border-radius: 75px 48px 48px 0px;
+  margin-right: 2px;
+
+  transition: width 0.7s, height 0.3s cubic-bezier(0.1, 0.1, 0.1, 0.5),
+    border-radius 1s cubic-bezier(0.1, 0.2, 0.5, 1), margin-right 0.5s;
 }
 .SSclass {
   background-color: black;
@@ -114,7 +132,9 @@ export default {
   width: 100%;
   height: 75px;
   border-radius: 1px 48px 48px 1px;
-  transition: width 0.8s, height 0.8s, background-color 2s, border-radius 0.5s;
+  margin-right: 0px;
+  transition: width 0.5s, height 0.8s, background-color 2s,
+    border-radius 0.5s cubic-bezier(1, 0.2, 0.2, 1), margin-right 0.4s;
 }
 
 /*Combinazioni RANK*/
@@ -125,7 +145,8 @@ export default {
   background-color: #470410;
 }
 .SS-r3 {
-  background-color: #9b0c26;
+  /*background-color: #9b0c26;*/
+  background-color: #470410;
 }
 
 .BB-r1 {
@@ -135,6 +156,7 @@ export default {
   background-color: #470410;
 }
 .BB-r3 {
-  background-color: #9b0c26;
+  /*background-color: #9b0c26;*/
+  background-color: #470410;
 }
 </style>

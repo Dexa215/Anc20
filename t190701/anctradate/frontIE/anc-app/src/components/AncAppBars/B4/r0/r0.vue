@@ -3,62 +3,64 @@
   <!--v-row class="r0B4 mx-auto my-auto" justify="center" align="start"-->
 
   <!--v-row :class="bBcl" justify="center" align="start"-->
+
   <v-row
     :class="r0B4"
     justify="center"
     align="start"
   >
-    <v-col cols="12">
-      <v-row
-        :class="r0B4int"
-        justify="center"
-        align="center"
-      >
-        <!-- TODO: { 2021 04 20 - funzionante }-->
-        <!--
+    <v-row
+      :class="r0B4int"
+      justify="center"
+      align="center"
+    >
+      <!-- TODO: { 2021 04 20 - funzionante }-->
+      <!--
         <c0sx></c0sx>
         <c0cx></c0cx>
         <c0dx> </c0dx>
--->
-        <!-- TODO: { 2021 04 20 - funzionante }-->
+        -->
+      <!-- TODO: { 2021 04 20 - funzionante }-->
+      <!-- TODO: { 2021 04 20 - TEST LIVELLI Z-10 / Z-20 }-->
 
-        <!-- TODO: { 2021 04 20 - TEST LIVELLI Z-10 / Z-20 }-->
+      <r0csx></r0csx>
+      <r0cdx></r0cdx>
+      <r0rcx></r0rcx>
 
-        <r0csx></r0csx>
-        <r0cdx></r0cdx>
-        <r0rcx></r0rcx>
+      <!-- TODO: { 2021 04 20 - TEST LIVELLI Z-10 / Z-20 }-->
+    </v-row>
 
-        <!-- TODO: { 2021 04 20 - TEST LIVELLI Z-10 / Z-20 }-->
-      </v-row>
-    </v-col>
+    <r0b4bm></r0b4bm>
   </v-row>
 </template>
 <script>
+/*deprecated...
 import c0sx from "@/components/AncAppBars/B4/r0/c0sx/c0sx.vue";
 import c0cx from "@/components/AncAppBars/B4/r0/c0cx/c0cx.vue";
 import c0dx from "@/components/AncAppBars/B4/r0/c0dx/c0dx.vue";
-
+*/
 import r0csx from "@/components/AncAppBars/B4/r0/csx/csx.vue";
 import r0cdx from "@/components/AncAppBars/B4/r0/cdx/cdx.vue";
 import r0rcx from "@/components/AncAppBars/B4/r0/rcx/rcx.vue";
+import r0b4bm from "@/components/AncAppBars/B4/r0/r0b4bm/r0b4bm.vue";
 
 export default {
   name: "r0",
 
   components: {
+    /*deprecated...
     c0sx,
     c0cx,
     c0dx,
-    /**/
+    */
     r0csx,
     r0cdx,
-    r0rcx
+    r0rcx,
+    r0b4bm
   },
-
   data () {
     return {};
   },
-
   props: {
     height: {
       type: String
@@ -70,25 +72,64 @@ export default {
       /*{r0B4small,r0B4Big}*/
       return this.$store.getters.getbarBIGClass;
     },
+
+    barBIG () {
+      return this.$store.getters.getbarBIG;
+    },
+
+    /*test sostituzione 20210423*/
+    /*
+        r0B4int () {
+          return this.$store.getters.getr0B4int;
+        },
+    
+        r0B4 () {
+          return this.$store.getters.getr0B4;
+        },
+    */
+
+    r0B4 () {
+      var r0b4 = "r0B4x Anc_BC mx-auto my-auto ";
+      var bb = this.$store.getters.getbarBIG;
+      if (bb === true) {
+        r0b4 += "r0B4Big ";
+      } else {
+        r0b4 += "r0B4small r0B4smallDin ";
+      }
+      return r0b4;
+    },
+    r0B4int () {
+      var r0b4int = "r0B4intx Anc_BC_Blue ";
+      var bb = this.$store.getters.getbarBIG;
+      if (bb === true) {
+        r0b4int += "r0B4intBig ";
+      } else {
+        r0b4int += "r0B4intsmall r0B4intsmallDin ";
+      }
+      return r0b4int;
+    }
+
+    /*test sostituzione 20210423*/
+    /*
     r0B4int () {
       return this.$store.getters.getr0B4int;
     },
+
     r0B4 () {
       return this.$store.getters.getr0B4;
     },
-    barBIG () {
-      return this.$store.getters.getbarBIG;
-    }
+*/
   },
 
-  methods: {},
-  updated () {
-    /*this.setcolor();*/
-  },
-  mounted () {
-    /*this.setcolor();*/
-    this.h = this.height;
-    //console.log(this.$vuetify.breakpoint);
+  methods: {
+    updated () {
+      /*this.setcolor();*/
+    },
+    mounted () {
+      /*this.setcolor();*/
+      this.h = this.height;
+      //console.log(this.$vuetify.breakpoint);
+    }
   }
 };
 </script>
@@ -125,15 +166,17 @@ export default {
   animation-fill-mode: forwards;
 }
 .r0B4Big {
-  height: 190px;
+  height: 90px;
+  /* height: 190px;*/
+  /*TODO: RIPRISTINARE 190PX*/
   /*  height: 120px;*/
   background-color: red;
   /*transition: height 0.3s cubic-bezier(0.1, 0.1, 0.1, 0.5);*/
   /**/
   opacity: 1;
   /*padding-bottom: 0px;*/
-  padding-left: 10px;
-  padding-right: 10px;
+  /*padding-left: 10px;*/
+  /* padding-right: 10px;*/
   border-radius: 1px;
 
   /*  animation-name: bbBIGan;*/
@@ -147,6 +190,10 @@ export default {
   animation-iteration-count: infinite;
   animation-direction: alternate;*/
 }
+.r0C4 {
+  margin: 1px;
+}
+
 @keyframes bbSMALLan {
   0% {
     height: 170px;
@@ -189,7 +236,7 @@ export default {
 .r0B4intx {
   opacity: 0.95;
   position: relative;
-  z-index: 7;
+  z-index: 8;
   padding-top: 2px;
   padding-bottom: 0px;
   padding-left: 1px;
@@ -207,8 +254,8 @@ export default {
   transition: height 0.8s, background-color 2s, border-radius 1.5s;
 }
 .r0B4intBig {
-  /*height: 114px;*/
-  height: 164px;
+  /*TODO: RIPRISTINA height: 164px;*/
+  height: 90px;
   /*background-color: yellowgreen;*/
   opacity: 1;
   border-radius: 92px;
