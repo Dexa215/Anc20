@@ -1,9 +1,4 @@
 <template>
-  <!--Anc_BC -->
-  <!--v-row class="r0B4 mx-auto my-auto" justify="center" align="start"-->
-
-  <!--v-row :class="bBcl" justify="center" align="start"-->
-
   <v-row
     :class="r0B4"
     justify="center"
@@ -23,14 +18,13 @@
       <!-- TODO: { 2021 04 20 - funzionante }-->
       <!-- TODO: { 2021 04 20 - TEST LIVELLI Z-10 / Z-20 }-->
 
+      <r0b4bm></r0b4bm>
       <r0csx></r0csx>
       <r0cdx></r0cdx>
       <r0rcx></r0rcx>
 
       <!-- TODO: { 2021 04 20 - TEST LIVELLI Z-10 / Z-20 }-->
     </v-row>
-
-    <r0b4bm></r0b4bm>
   </v-row>
 </template>
 <script>
@@ -89,7 +83,9 @@ export default {
     */
 
     r0B4 () {
-      var r0b4 = "r0B4x Anc_BC mx-auto my-auto ";
+      //Anc_BC
+
+      var r0b4 = "r0B4x Anc_BC mx-auto my-auto mE ";
       var bb = this.$store.getters.getbarBIG;
       if (bb === true) {
         r0b4 += "r0B4Big ";
@@ -99,7 +95,7 @@ export default {
       return r0b4;
     },
     r0B4int () {
-      var r0b4int = "r0B4intx Anc_BC_Blue ";
+      var r0b4int = "r0B4intx Anc_BC_Blue mU ";
       var bb = this.$store.getters.getbarBIG;
       if (bb === true) {
         r0b4int += "r0B4intBig ";
@@ -135,31 +131,28 @@ export default {
 </script>
 
 <style media="screen">
-.r0B4x {
-  position: fixed;
-  z-index: 7;
-  width: 100%;
-  padding-top: 2px;
-
+/*Margin - External Bar*/
+.mE {
   margin-top: 0px;
   margin-bottom: 0px;
   margin-left: 0px;
   margin-right: 0px;
 }
+.r0B4x {
+  position: fixed;
+  z-index: 7;
+  width: 100%;
+}
 .r0B4small {
   height: 90px;
   background-color: yellowgreen;
   opacity: 0.95;
-  padding-bottom: 0px;
-  padding-left: 10px;
-  padding-right: 10px;
-  border-radius: 1px;
 }
 .r0B4smallDin {
   height: 90px;
   background-color: yellow;
   transition: height 0.5s, background-color 2s;
-
+  opacity: 0.95;
   animation-name: bbSMALLan;
   animation-duration: 0.8s;
   animation-timing-function: cubic-bezier(0.2, 1, 1, 1);
@@ -167,28 +160,15 @@ export default {
 }
 .r0B4Big {
   height: 90px;
-  /* height: 190px;*/
-  /*TODO: RIPRISTINARE 190PX*/
-  /*  height: 120px;*/
   background-color: red;
-  /*transition: height 0.3s cubic-bezier(0.1, 0.1, 0.1, 0.5);*/
-  /**/
+  transition: background-color 2s;
   opacity: 1;
-  /*padding-bottom: 0px;*/
-  /*padding-left: 10px;*/
-  /* padding-right: 10px;*/
   border-radius: 1px;
-
   /*  animation-name: bbBIGan;*/
   animation-name: bbBIGan190;
   animation-duration: 1.5s;
   animation-timing-function: linear;
   animation-fill-mode: forwards;
-
-  /*
-  animation-delay: -2s;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;*/
 }
 .r0C4 {
   margin: 1px;
@@ -233,6 +213,15 @@ export default {
     height: 170px;
   }
 }
+
+/*margin Up*/
+
+.mU {
+  margin-top: 2px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
 .r0B4intx {
   opacity: 0.95;
   position: relative;
@@ -243,20 +232,18 @@ export default {
   padding-right: 1px;
 }
 .r0B4intsmall {
+  margin-bottom: 2px;
   height: 85px;
-  /*background-color: orange;*/
   border-radius: 42px;
   transition: border-radius 1s;
 }
 .r0B4intsmallDin {
+  margin-bottom: 2px;
   height: 85px;
-  /*background-color: red;*/
   transition: height 0.8s, background-color 2s, border-radius 1.5s;
 }
 .r0B4intBig {
-  /*TODO: RIPRISTINA height: 164px;*/
   height: 90px;
-  /*background-color: yellowgreen;*/
   opacity: 1;
   border-radius: 92px;
   transition: height 0.3s cubic-bezier(0.1, 0.1, 0.1, 0.5), border-radius 0.5s;

@@ -1,18 +1,17 @@
 <template>
-  <v-col
-    cols="12"
-    class="ext"
-  >
-    <v-row
-      :class="r0B4bm"
-      justify="center"
-      align="center"
-    >
-      <div :class="r0B4bmint">
-        <div v-if="bb">menu BB</div>
-      </div>
-    </v-row>
-  </v-col>
+  <v-row class="ext">
+    <v-col cols="12">
+      <v-row
+        :class="r0B4bm"
+        justify="center"
+        align="center"
+      >
+        <div :class="r0B4bmint">
+          <div v-if="bb">menu BB</div>
+        </div>
+      </v-row>
+    </v-col>
+  </v-row>
 </template>
 
 <script>
@@ -56,12 +55,11 @@ export default {
 <style media="screen" scoped>
 /*--------------------------------------------------------*/
 .ext {
-  position: relative;
+  position: fixed;
   z-index: 6;
-  top: 0px;
-  height: 1px;
-  background-color: darkblue;
-  padding-top: 0px;
+  height: 70px;
+  border-radius: 35px;
+  width: 31%;
 }
 
 .r0B4bmx {
@@ -69,7 +67,7 @@ export default {
   position: relative;
   /*top: 100px;*/
   z-index: 7;
-  width: 30%;
+
   padding-top: 2px;
   padding-bottom: 0px;
   padding-left: 1px;
@@ -87,7 +85,7 @@ export default {
 }
 .r0B4bmBig {
   /*width: 610px;*/
-  width: 30%;
+
   height: 1000px;
   opacity: 1;
   border-radius: 0px 0px 305px 305px;

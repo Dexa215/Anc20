@@ -98,6 +98,8 @@ export default {
 }
 
 .c {
+  position: relative;
+  z-index: 10;
   /*v-col*/
   height: 100%;
   /*background-color: pink;*/

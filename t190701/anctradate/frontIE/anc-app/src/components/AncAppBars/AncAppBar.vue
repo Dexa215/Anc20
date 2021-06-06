@@ -23,7 +23,11 @@
       :height="hlg"
       @mouseover="setDF()"
     ></b3md>
+
+    <!-- IN TEST -->
     <b4lg v-else-if="currentres == 'lg'"></b4lg>
+    <!-- IN TEST -->
+
     <b5xl
       v-else-if="currentres == 'xl'"
       :height="hlg"
@@ -75,7 +79,10 @@ import b5xl from "@/components/AncAppBars/B5xl.vue";
 // menuS
 
 //2021
+
+//<!-- IN TEST -->
 import b4lg from "@/components/AncAppBars/B4/B4lg.vue";
+//<!-- IN TEST -->
 
 import menuS from "@/components/AncM/MenuS/MenuS.vue";
 import menuSC from "@/components/AncM/CatSotto/MenuSottoCategorie.vue";

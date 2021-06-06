@@ -1,46 +1,21 @@
 <template>
-  <!--
-    prominent
-  
-  <v-app-bar
-    shrink-on-scroll
-    fixed
-    fade-img-on-scroll
-    scroll-target="#ancContent"
-    height="100"
-    color="transparent"
-    class="aab"
-  ></v-app-bar>
-  -->
   <r0></r0>
 </template>
-
-<!-- BARRA PRINCIPALE -->
-<!--
-  <v-alert
-    v-if="barBIG === true"
-    type="success"
-  >scrooooooooool {{ alON }}
-  </v-alert>
--->
 <script>
 import r0 from "@/components/AncAppBars/B4/r0/r0.vue";
-import r0b4bm from "@/components/AncAppBars/B4/r0/r0b4bm/r0b4bm.vue";
 
 export default {
   name: "b4lg",
-  components: { r0, r0b4bm },
+  components: { r0 },
 
   data () {
     return {
       alON: "true",
       langIco: "/static/icons/Nations/italy.png",
-
       expand: "true",
       expandSC: "false",
       h: "1280px",
       cab: "AncAppBarE cBE-Vis",
-
       rvt: 10,
       breweries: [],
       isLoading: false,
