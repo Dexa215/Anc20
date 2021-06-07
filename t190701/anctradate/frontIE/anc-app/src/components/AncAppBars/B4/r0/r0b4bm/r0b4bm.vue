@@ -7,7 +7,19 @@
         align="center"
       >
         <div :class="r0B4bmint">
-          <div v-if="bb">menu BB</div>
+          <m4lg></m4lg>
+
+          <div v-if="bb"></div>
+
+          <!-- TODO:  
+          crea selezione di tre diversi menu
+
+          STD
+          UTENTE
+          XXX
+          
+          
+          -->
         </div>
       </v-row>
     </v-col>
@@ -15,9 +27,11 @@
 </template>
 
 <script>
+import m4lg from "@/components/AncM/Cat/M4lg.vue";
+
 export default {
   name: "r0b4bm",
-  components: {},
+  components: { m4lg },
   data () {
     return {};
   },
@@ -84,34 +98,44 @@ export default {
   transition: height 0.8s, background-color 2s, border-radius 1.5s;
 }
 .r0B4bmBig {
-  /*width: 610px;*/
-
   height: 1000px;
   opacity: 1;
   border-radius: 0px 0px 305px 305px;
-  transition: height 0.5s cubic-bezier(0.5, 0.5, 0.5, 0.5) 0.4s,
+  transition: height 0.5s cubic-bezier(0.5, 0.5, 0.5, 0.5) 0.1s,
     border-radius 0.5s;
 }
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+
 .r0B4bmintx {
   opacity: 0.95;
   position: relative;
   z-index: 7;
   width: 300px;
+  align-content: flex-start;
 }
 .r0B4bmintsmall {
   height: 20px;
-  border-radius: 42px;
+  border-radius: 25px;
   transition: border-radius 1s;
 }
 .r0B4bmintsmallDin {
-  height: 20px;
-  transition: height 0.8s, background-color 2s, border-radius 1.5s;
+  height: 65px;
+  width: 95%;
+  margin-top: 90px;
+
+  border-radius: 45px;
+  /*background-color: black;*/
+  transition: height 0.6s, background-color 0.5s, border-radius 1.5s,
+    margin-top 1s;
 }
 .r0B4bmintBig {
-  height: 300px;
+  height: 100%;
+  width: 95%;
+  margin-top: 90px;
   opacity: 1;
-  border-radius: 0px 0px 150px 150px;
-  transition: height 0.3s cubic-bezier(0.1, 0.1, 0.1, 0.5), border-radius 0.5s;
+  border-radius: 25px 25px 25px 25px;
+  /*background-color: ;*/
+  transition: height 1.2s cubic-bezier(0.1, 0.1, 0.1, 0.5) -0.7s,
+    background-color 2s, border-radius 0.5s, margin-top 1s;
 }
 </style>

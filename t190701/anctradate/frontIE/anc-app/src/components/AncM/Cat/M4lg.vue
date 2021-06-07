@@ -2,10 +2,22 @@
   <!--
   
   -->
-  <v-row class="mr mx-auto">
-    <div v-if="false">
-      <v-col @mouseenter="DSCset('false')" @mouseleave="DSCset('true')">
-        <v-list dark shaped class="ancM4l ancM4l_BC">
+
+  <transition name="mrT">
+    <v-row
+      v-if="bb"
+      class="mr mx-auto"
+    >
+      <!--<div v-if="false">-->
+      <v-col
+        @mouseenter="DSCset('false')"
+        @mouseleave="DSCset('true')"
+      >
+        <v-list
+          dark
+          shaped
+          class="ancM4l ancM4l_BC"
+        >
           <!-- * shaped  -->
 
           <v-list-item
@@ -18,9 +30,18 @@
           >
             <!-- desel ----------------------------------------------------------------------------
             -->
-            <v-list-item-content v-if="item.n != Cs" class="CcB CclDESEL">
-              <v-btn class="mbtn" color="transparent">
-                <v-list-item-icon @click="gotoR(item.link)" class="tileM4icon">
+            <v-list-item-content
+              v-if="item.n != Cs"
+              class="CcB CclDESEL"
+            >
+              <v-btn
+                class="mbtn"
+                color="transparent"
+              >
+                <v-list-item-icon
+                  @click="gotoR(item.link)"
+                  class="tileM4icon"
+                >
                   <v-icon class="caticon">{{ item.icona }}</v-icon>
                 </v-list-item-icon>
                 <v-list-item-title>{{ item.descrizione }}</v-list-item-title>
@@ -38,7 +59,10 @@
             <!-- open ----------------------------------------------------------------------------
             -:class="CatCL"
             -->
-            <v-list-item-content v-else-if="drawerSCM" class="CcB CclOPEN">
+            <v-list-item-content
+              v-else-if="drawerSCM"
+              class="CcB CclOPEN"
+            >
               <!-- pulsante categoria-->
 
               <v-btn
@@ -46,8 +70,14 @@
                 class="mbtn"
                 color="transparent"
               >
-                <v-list-item-icon @click="gotoR(item.link)" class="tileM4icon">
-                  <v-icon class="caticon" @click="gotoR(item.link)">{{
+                <v-list-item-icon
+                  @click="gotoR(item.link)"
+                  class="tileM4icon"
+                >
+                  <v-icon
+                    class="caticon"
+                    @click="gotoR(item.link)"
+                  >{{
                     item.icona
                   }}</v-icon>
                 </v-list-item-icon>
@@ -56,7 +86,10 @@
                 <v-list-item-title>{{ item.descrizione }}</v-list-item-title>
 
                 <!--icona categoria-->
-                <v-list-item-icon class="tileM4icon" @click="drawerSCMswitch()">
+                <v-list-item-icon
+                  class="tileM4icon"
+                  @click="drawerSCMswitch()"
+                >
                   <v-icon class="caticon">mdi-minus-circle</v-icon>
                 </v-list-item-icon>
               </v-btn>
@@ -67,12 +100,21 @@
             <!-- Selected ----------------------------------------------------------------------------
             -:class="CatCL"
             -->
-            <v-list-item-content v-else class="CcB CclSEL">
+            <v-list-item-content
+              v-else
+              class="CcB CclSEL"
+            >
               <!-- pulsante categoria-->
               <!--@click="selectR(item.link,item.n)"-->
-              <v-btn class="mbtn" color="transparent">
+              <v-btn
+                class="mbtn"
+                color="transparent"
+              >
                 <!--icona categoria-->
-                <v-list-item-icon @click="gotoR(item.link)" class="tileM4icon">
+                <v-list-item-icon
+                  @click="gotoR(item.link)"
+                  class="tileM4icon"
+                >
                   <v-icon class="caticon">{{ item.icona }}</v-icon>
                 </v-list-item-icon>
 
@@ -81,12 +123,14 @@
                 <v-list-item-title>{{ item.descrizione }}</v-list-item-title>
 
                 <!--icona sottomenu-->
-                <v-list-item-icon class="tileM4icon" @click="drawerSCMswitch()">
+                <v-list-item-icon
+                  class="tileM4icon"
+                  @click="drawerSCMswitch()"
+                >
                   <v-icon
                     v-show="categorie[Cs / 10 - 1].sottocategorie.length > 1"
                     class="caticon"
-                    >mdi-plus-circle</v-icon
-                  >
+                  >mdi-plus-circle</v-icon>
                 </v-list-item-icon>
               </v-btn>
             </v-list-item-content>
@@ -97,10 +141,10 @@
           <!-- * -->
         </v-list>
       </v-col>
-    </div></v-row
-  >
+      <!--</div>-->
+    </v-row>
 
-  <!--
+    <!--
     <a style="color:yellow">in selezione $store > Cs Categoria ... {{ Cs }}</a>
     <a style="color:yellow">in selezione CSs SottoCategoria ... {{ CSs }}</a>
     <a>in selezione... {{ btnsel }}</a>
@@ -108,6 +152,7 @@
     <a>DRAWER SCM: {{drawerSCM}}</a>
     <v-row class="mx-auto" style="background-color: red"></v-row>
     -->
+  </transition>
 </template>
 
 <script>
@@ -122,106 +167,110 @@ export default {
 
   props: {},
   computed: {
-    catCL() {
+    bb () {
+      var bb = this.$store.getters.getbarBIG;
+      return bb;
+    },
+    catCL () {
       return this.$store.getters.catCL;
     },
 
     /*Selezione nel menu  +++++++++++++++++++++++++++++++++++++++++++++ */
-    CatCL() {
+    CatCL () {
       /*Categoria selezionata nel menu --> Classe per CSS DINAMICO <-- */
       return this.$store.getters.CatCL;
     },
-    Cs() {
+    Cs () {
       /*Categoria*/
       return this.$store.getters.getCs;
     },
-    CSs() {
+    CSs () {
       /*SottoCategoria*/
       return this.$store.getters.getCSs;
     },
     /*Selezione nel menu  +++++++++++++++++++++++++++++++++++++++++++++ */
 
-    requestUser() {
+    requestUser () {
       return this.$store.getters.requestUser;
     },
-    requestUserIsStaff() {
+    requestUserIsStaff () {
       return this.$store.getters.requestUserIsStaff;
     },
-    requestUserIsSuper() {
+    requestUserIsSuper () {
       return this.$store.getters.requestUserIsSuper;
     },
-    requestUserAvatar() {
+    requestUserAvatar () {
       return this.$store.getters.requestUserAvatar;
     },
-    requestUserBio() {
+    requestUserBio () {
       return this.$store.getters.requestUserBio;
     },
-    requestToken() {
+    requestToken () {
       return this.$store.getters.requestToken;
     },
     /*  -----------------------------------------------------------------------   */
-    drawer() {
+    drawer () {
       return this.$store.getters.getDrawer;
     },
-    drawerLeft() {
+    drawerLeft () {
       return this.$store.getters.getDrawerLeft;
     },
-    drawerRight() {
+    drawerRight () {
       return this.$store.getters.getDrawerRight;
     },
-    drawerSottocategoria() {
+    drawerSottocategoria () {
       return this.$store.getters.getDrawerSottocategoria;
     },
-    drawerSCM() {
+    drawerSCM () {
       return this.$store.getters.drawerSCMget;
     },
     /*  -----------------------------------------------------------------------   */
-    iconX() {
+    iconX () {
       return this.$store.getters.getIconX;
     },
-    iconO() {
+    iconO () {
       return this.$store.getters.getIconO;
     },
-    iconOdx() {
+    iconOdx () {
       return this.$store.getters.getIconOdx;
     },
-    iconC() {
+    iconC () {
       return this.$store.getters.getIconC;
     },
-    iconCdx() {
+    iconCdx () {
       return this.$store.getters.getIconCdx;
     },
     /*  -----------------------------------------------------------------------   */
-    categorie() {
+    categorie () {
       return this.$store.getters.categorie;
     },
-    C() {
+    C () {
       return this.$store.getters.getC;
     },
-    CS() {
+    CS () {
       return this.$store.getters.getCS;
     },
     /*In selezione nel menu...*/
-    Cs() {
+    Cs () {
       return this.$store.getters.getCs;
     },
-    CSs() {
+    CSs () {
       return this.$store.getters.getCSs;
     },
 
     /* DINAMIC CSS */
-    rcS() {
+    rcS () {
       return this.$store.getters.rcS;
     },
-    rcD() {
+    rcD () {
       return this.$store.getters.rcD;
     },
-    rcU() {
+    rcU () {
       return this.$store.getters.rcU;
     }
   },
 
-  data() {
+  data () {
     return {
       btnsel: 10,
       dark: "true",
@@ -251,14 +300,14 @@ export default {
 
   methods: {
     /*2020 06 16*/
-    gotoR(r) {
+    gotoR (r) {
       this.expand = !this.expand;
       this.$store.dispatch("setDF");
       this.$store.dispatch("gotoR", r);
     },
 
     /*2020 06 27*/
-    selectBtn(ncat) {
+    selectBtn (ncat) {
       this.btnsel = ncat;
       /*  setta in Cs Categoria dell'item selezionato nel menu  */
       console.log("!! M4lg selectBtn - ncat : ", this.btnsel, ncat);
@@ -274,46 +323,46 @@ export default {
       }
     },
 
-    deselectBtn(ncat) {
+    deselectBtn (ncat) {
       this.btnsel = ncat;
       this.$store.dispatch("selectncat", 0);
       this.$store.dispatch("setCatcl", "desel");
       /*  setta in moduleA/CatCL : CclDESEL  */
     },
 
-    drawerSCMswitch() {
+    drawerSCMswitch () {
       if (this.categorie[this.Cs / 10 - 1].sottocategorie.length > 1) {
         this.$store.dispatch("drawerSCMswitch");
       }
     },
 
-    selectR(r, ncat) {
+    selectR (r, ncat) {
       this.$store.dispatch("selectncat", ncat);
       this.$store.dispatch("selectR", r);
 
       //this.$store.dispatch("switchDrawerSottocategoriaSelezione");
       /* SE LA CAT SELEZIONATA CONTIENE SUB MENU */
     },
-    setcatCL(val) {
+    setcatCL (val) {
       this.$store.dispatch("setcatCL", val);
     },
 
-    SDL() {
+    SDL () {
       /*Switch Drawer Language*/
       this.$store.dispatch("switchDrawerLang");
     },
-    ScL(val) {
+    ScL (val) {
       /*SET Current Language*/
       this.$store.dispatch("setL", val);
     },
-    DSCset(state) {
+    DSCset (state) {
       /*SC Sotto Categoria*/
       this.$store.dispatch("DSCset", state);
     },
-    setD() {
+    setD () {
       this.$store.dispatch("setD");
     },
-    setDF() {
+    setDF () {
       this.$store.dispatch("setDF");
     }
   }
@@ -322,9 +371,41 @@ export default {
 
 <style media="screen">
 .mr {
-  /*background-color: transparent !important;*/
   background-color: orange !important;
-  padding-top: 40px;
+}
+
+.mrT-enter-active {
+  animation-name: mrAnimationIN;
+  animation-duration: 0.8s;
+  /*animation-timing-function: ease-out;*/
+  animation-delay: -0.1s;
+  /*animation-iteration-count: infinite;*/
+  /*animation-direction: alternate;*/
+  /*animation-fill-mode: forwards;*/
+}
+.mrT-leave-active {
+  animation: mrAnimationOUT 0.5s;
+}
+
+@keyframes mrAnimationIN {
+  0% {
+    padding-top: 1000px;
+    transform: scale(1.05);
+    opacity: 0;
+  }
+  100% {
+    padding-top: 0px;
+    transform: scale(1);
+    opacity: 100%;
+  }
+}
+
+@keyframes mrAnimationOUT {
+  0% {
+  }
+  100% {
+    opacity: 0%;
+  }
 }
 
 /*
