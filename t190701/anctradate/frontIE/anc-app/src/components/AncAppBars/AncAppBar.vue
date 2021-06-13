@@ -1,11 +1,12 @@
 <template>
   <!--div class="aAb" @mouseover="setDF()" @mouseenter="setbarBIG('true')"-->
   <!--test 2021 03 10-->
-  <div
-    class="aAb"
+  <div class="aAb">
+    <!--
     @mouseover="setDF()"
     @mouseenter="setSc(false)"
-  >
+    -->
+
     <!--@mouseleave="setbarBIG('false')"-->
 
     <!-- test ok 2021 01 06 -->

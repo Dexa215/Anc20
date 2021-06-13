@@ -1,8 +1,16 @@
 <template>
   <div class="sedeorari">
-    <v-row class="AncTrasparenza" v-show="drawerLeft"></v-row>
+    <v-row
+      class="AncTrasparenza"
+      v-show="drawerLeft"
+    ></v-row>
     <!-- Ai  -->
-    <AncIntestazione :C="20" :CS="22" :categorie="categorie" @gotoR="gotoR"></AncIntestazione>
+    <AncIntestazione
+      :C="20"
+      :CS="22"
+      :categorie="categorie"
+      @gotoR="gotoR"
+    ></AncIntestazione>
     <!-- Ai  -->
 
     <div>
@@ -21,14 +29,20 @@
         <!-- Titolo -->
         <!-- **** -->
 
-        <v-row dense class="row ma-2 pa-2">
+        <v-row
+          dense
+          class="row ma-2 pa-2"
+        >
           <!-- row 00 -->
           <!-- Riassunto Orari -->
           <v-col cols="6">
-            <v-card class="pa-4" dark>
+            <v-card
+              class="pa-4"
+              dark
+            >
               <h2>Giovedi</h2>
               <br />
-              <h3>dalle {{pickerGstart}} alle {{pickerGend}}</h3>
+              <h3>dalle {{ pickerGstart }} alle {{ pickerGend }}</h3>
             </v-card>
           </v-col>
           <hr />
@@ -36,14 +50,17 @@
             <v-card class="pa-4">
               <h2>Domenica</h2>
               <br />
-              <h3>dalle {{pickerDstart}} alle {{pickerDend}}</h3>
+              <h3>dalle {{ pickerDstart }} alle {{ pickerDend }}</h3>
             </v-card>
           </v-col>
         </v-row>
         <!-- row 00 -->
         <!-- Riassunto Orari -->
 
-        <v-row dense class="row ma-2 pa-2">
+        <v-row
+          dense
+          class="row ma-2 pa-2"
+        >
           <!-- row 01 -->
           <!-- Pickers -->
           <v-col cols="12">
@@ -58,20 +75,39 @@
               </h3>
             </div-->
 
-            <v-card outlined dark>
-              <v-img :src="img1" height="200px">
+            <v-card
+              outlined
+              dark
+            >
+              <v-img
+                :src="img1"
+                height="200px"
+              >
                 <div>
-                  <h3 class="display-3 font-weight-bold mb-0 text-right" style="color:white">Giovedí</h3>
+                  <h3
+                    class="display-3 font-weight-bold mb-0 text-right"
+                    style="color:white"
+                  >
+                    Giovedí
+                  </h3>
                 </div>
               </v-img>
 
               <v-flex class="ma-4">
-                <v-time-picker v-model="pickerGstart" color="green lighten-1" format="24hr">
+                <v-time-picker
+                  v-model="pickerGstart"
+                  color="green lighten-1"
+                  format="24hr"
+                >
                   <h4 class="ma-4">Apre</h4>
                 </v-time-picker>
               </v-flex>
               <v-flex class="ma-4">
-                <v-time-picker v-model="pickerGend" color="red lighten-1" format="24hr">
+                <v-time-picker
+                  v-model="pickerGend"
+                  color="red lighten-1"
+                  format="24hr"
+                >
                   <h4 class="ma-4">Chiude</h4>
                 </v-time-picker>
               </v-flex>
@@ -96,21 +132,37 @@
 
             <v-card outlined>
               <v-flex class="ma-4">
-                <v-time-picker v-model="pickerDstart" color="green lighten-1" format="24hr">
+                <v-time-picker
+                  v-model="pickerDstart"
+                  color="green lighten-1"
+                  format="24hr"
+                >
                   <h4 class="ma-4">Apre</h4>
                 </v-time-picker>
               </v-flex>
               <v-flex class="ma-4">
-                <v-time-picker v-model="pickerDend" color="red lighten-1" format="24hr">
+                <v-time-picker
+                  v-model="pickerDend"
+                  color="red lighten-1"
+                  format="24hr"
+                >
                   <h4 class="ma-4">Chiude</h4>
                 </v-time-picker>
               </v-flex>
-              <v-img :src="img1" height="200px">
-                <v-card-title class="ma-4" color="white lighten-2">
+              <v-img
+                :src="img1"
+                height="200px"
+              >
+                <v-card-title
+                  class="ma-4"
+                  color="white lighten-2"
+                >
                   <h3
                     class="display-3 font-weight-bold mb-0 text-right"
                     style="color:white"
-                  >Domenica</h3>
+                  >
+                    Domenica
+                  </h3>
                 </v-card-title>
               </v-img>
             </v-card>
@@ -123,7 +175,10 @@
 
         <!-- **** -->
 
-        <v-row dense class="row ma-2 pa-2">
+        <v-row
+          dense
+          class="row ma-2 pa-2"
+        >
           <!-- row 7 -->
           <!-- The end -->
           <!-- AiF -->
@@ -148,7 +203,7 @@
   </div>
 </template>
 <script>
-import router from "../router";
+import router from "../../../router";
 import AncIntestazione from "@/components/AncIntestazione.vue";
 import AncIntestazioneFine from "@/components/AncIntestazioneFine.vue";
 import AncCard from "@/components/AncCard.vue";
@@ -180,7 +235,7 @@ export default {
     drawerLeft: { type: Boolean }
   },
 
-  data() {
+  data () {
     return {
       pickerGstart: "21:00",
       pickerGend: "23:00",
@@ -194,19 +249,19 @@ export default {
   },
 
   methods: {
-    setMyPar() {
+    setMyPar () {
       let myparam = {
         Ccurrent: 20,
         CScurrent: 22
       };
       this.$emit("spMC", myparam); //spMC -- > sAVE pARAMETER / menu Cat
     },
-    gotoR(r) {
+    gotoR (r) {
       console.log("SedeORARI --> rotta per...");
       this.$emit("gotoR", r);
     }
   },
-  created() {
+  created () {
     console.log("sede orari oncreate --> start");
     //this.setMyPar();
   }

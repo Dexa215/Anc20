@@ -4,6 +4,7 @@
     :class="rcX"
     align="center"
     justify="center"
+    @mouseenter="setSc(false)"
   >
     <!--c1cx></c1cx-->
 
@@ -89,6 +90,11 @@ export default {
         }
       }
       return rcX;
+    }
+  },
+  methods: {
+    setSc (val) {
+      this.$store.dispatch("setScrolling", val);
     }
   }
 };

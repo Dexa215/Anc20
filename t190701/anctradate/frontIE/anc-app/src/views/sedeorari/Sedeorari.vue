@@ -165,7 +165,10 @@ export default {
     }
   },
   updated () { },
-  mounted () { },
+  mounted () {
+    /*imposta menu non attivo*/
+    this.$store.dispatch("setScrolling", true);
+  },
   created () { }
 };
 </script>
@@ -206,5 +209,4 @@ export default {
 .sedeoraricardbottom {
   border-radius: 0px 0px 15px 15px;
 }
-
 </style>

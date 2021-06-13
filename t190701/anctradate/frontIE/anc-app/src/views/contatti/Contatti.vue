@@ -165,7 +165,9 @@ export default {
     }
   },
   updated () { },
-  mounted () { },
+  mounted () { /*imposta menu non attivo*/
+    this.$store.dispatch("setScrolling", true);
+  },
   created () { }
 };
 </script>
@@ -173,23 +175,41 @@ export default {
 <style media="screen" scoped>
   /*20201204*/
   /*general...*/
-  .rT_lv            {position: absolute;  z-index: 6;}/*Row semi-Transparent level on MENU */
-  .SfParallax       {position: absolute;  z-index: 1; opacity: 0.15; width: 100%;}
-  .r_main           {position: absolute;  z-index: 5; opacity: 1; background-color: transparent;
-    width: 100%;
-    padding-top: 20px;
-    padding-bottom: 20px;}
-  .cx_main          {opacity: 1;  background-color: transparent;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    border-radius: 15px;}
-  .card_main        {opacity: 0.8;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    border-radius: 45px;}
-  /*general...*/
+  .rT_lv {
+  position: absolute;
+  z-index: 6;
+} /*Row semi-Transparent level on MENU */
+.SfParallax {
+  position: absolute;
+  z-index: 1;
+  opacity: 0.15;
+  width: 100%;
+}
+.r_main {
+  position: absolute;
+  z-index: 5;
+  opacity: 1;
+  background-color: transparent;
+  width: 100%;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.cx_main {
+  opacity: 1;
+  background-color: transparent;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-radius: 15px;
+}
+.card_main {
+  opacity: 0.8;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-radius: 45px;
+}
+/*general...*/
 </style>
 
 </style>

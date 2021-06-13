@@ -1,9 +1,17 @@
 <template>
   <div class="sede">
-    <v-row class="AncTrasparenza" v-show="drawerLeft">ciao</v-row>
+    <v-row
+      class="AncTrasparenza"
+      v-show="drawerLeft"
+    >ciao</v-row>
 
     <!-- Ai  -->
-    <AncIntestazione :C="20" :CS="21" :categorie="categorie" @gotoR="gotoR"></AncIntestazione>
+    <AncIntestazione
+      :C="20"
+      :CS="21"
+      :categorie="categorie"
+      @gotoR="gotoR"
+    ></AncIntestazione>
     <!-- Ai  -->
 
     <div>
@@ -22,11 +30,17 @@
         <!-- Titolo -->
         <!-- **** -->
 
-        <v-row dense class="row ma-2 pa-2">
+        <v-row
+          dense
+          class="row ma-2 pa-2"
+        >
           <!-- row 00 -->
           <!-- Riassunto Sede -->
           <v-col cols="6">
-            <v-card class="pa-4" dark>
+            <v-card
+              class="pa-4"
+              dark
+            >
               <h2>Indirizzo</h2>
               <br />
               <h3>Via De Simoni 1</h3>
@@ -44,22 +58,25 @@
         <!-- row 00 -->
         <!-- Riassunto Sede -->
 
-        <v-row dense class="row ma-2 pa-2">
+        <v-row
+          dense
+          class="row ma-2 pa-2"
+        >
           <!-- row 01 -->
           <!-- Descrizione Ubicazione -->
           <!--h3>iframe [0] {{maps[0].src}}</h3-->
           <v-card class="pa-4">
             <blockquote>
               <P class="text-justify">
-                La sede della Sezione é aperta per tutti i Soci, Benemerite e Simpatizzanti.
-                Le giornate di apertura sono il Giovedí sera e Domenica mattina.
-                I dettagli degli orari sono disponibili nella pagina degli
+                La sede della Sezione é aperta per tutti i Soci, Benemerite e
+                Simpatizzanti. Le giornate di apertura sono il Giovedí sera e
+                Domenica mattina. I dettagli degli orari sono disponibili nella
+                pagina degli
                 <a
                   @click="gotoR('sedeorari/')"
                   style="color:green"
-                >orari sede</a>.
-                Per accedere in sede l'ingresso si trova al civico n.1 di via De Simoni,
-                una delle quattro vie che circoscrivono il
+                >orari sede</a>. Per accedere in sede l'ingresso si trova al civico n.1 di via
+                De Simoni, una delle quattro vie che circoscrivono il
                 <a
                   href="http://www.comune.tradate.va.it/"
                   style="color:green"
@@ -73,19 +90,31 @@
         <!-- row 01 -->
         <!-- Descrizione Ubicazione -->
 
-        <v-row dense class="row ma-2 pa-2">
+        <v-row
+          dense
+          class="row ma-2 pa-2"
+        >
           <!-- row 02 -->
-          <v-img id="c10img" width="100%" src="../assets/images/Foto/tradatecomune.jpg"></v-img>
+          <v-img
+            id="c10img"
+            width="100%"
+            src="../assets/images/Foto/tradatecomune.jpg"
+          ></v-img>
         </v-row>
         <!-- row 02 -->
 
-        <v-row dense class="row ma-2 pa-2">
+        <v-row
+          dense
+          class="row ma-2 pa-2"
+        >
           <!-- row 03 -->
           <v-card class="pa-4">
             <blockquote>
               <P class="text-justify">
-                Considerando come riferimento l'ingresso principale del Comune di Tradate (per intenderci dal lato dei giardini pubblici),
-                l'ingresso per la sede si trova nel lato opposto dello stabile del Comune.
+                Considerando come riferimento l'ingresso principale del Comune
+                di Tradate (per intenderci dal lato dei giardini pubblici),
+                l'ingresso per la sede si trova nel lato opposto dello stabile
+                del Comune.
               </P>
             </blockquote>
           </v-card>
@@ -94,7 +123,10 @@
         </v-row>
         <!-- row 03 -->
 
-        <v-row dense class="row ma-2 pa-2">
+        <v-row
+          dense
+          class="row ma-2 pa-2"
+        >
           <!-- row 04 -->
           <iframe
             id="c1img"
@@ -107,30 +139,38 @@
         </v-row>
         <!-- row 04 -->
 
-        <v-row dense class="row ma-2 pa-2">
+        <v-row
+          dense
+          class="row ma-2 pa-2"
+        >
           <!-- row 05 -->
           <v-card class="pa-4">
             <blockquote>
               <P class="text-justify">
-                Una volta entrati per arrivare al 2º piano ci sono le scale oppure l'ascensore.
-                Arrivati al piano, la sede si trova sulla destra; come riferimento visivo sulla sinistra si vede l'ingresso dell'
+                Una volta entrati per arrivare al 2º piano ci sono le scale
+                oppure l'ascensore. Arrivati al piano, la sede si trova sulla
+                destra; come riferimento visivo sulla sinistra si vede
+                l'ingresso dell'
                 <a
                   style="color:green"
                   href="https://www.inps.it/nuovoportaleinps/default.aspx"
-                >INPS</a>.
-                Gli orari di apertura sono garantiti dalla presenza di un Consigliere.
-                Per ulteriori informazioni sugli
+                >INPS</a>. Gli orari di apertura sono garantiti dalla presenza di un
+                Consigliere. Per ulteriori informazioni sugli
                 <a
                   style="color:green"
                   @click="gotoR('sedeorari/')"
-                >orari</a> visitate la pagina dedicata.
+                >orari</a>
+                visitate la pagina dedicata.
               </P>
             </blockquote>
           </v-card>
         </v-row>
         <!-- row 05 -->
 
-        <v-row dense class="row ma-2 pa-2">
+        <v-row
+          dense
+          class="row ma-2 pa-2"
+        >
           <!-- row 06 -->
           <!-- Cartina Google Maps -->
           <iframe
@@ -147,12 +187,20 @@
 
         <!-- **** -->
 
-        <v-row dense class="row ma-2 pa-2">
+        <v-row
+          dense
+          class="row ma-2 pa-2"
+        >
           <!-- row 7 -->
           <!-- The end -->
           <!-- AiF -->
           <div class="container-fluid text-center">
-            <AncIntestazioneFine :C="C" :CS="CS" :categorie="categorie" @gotoR="gotoR"></AncIntestazioneFine>
+            <AncIntestazioneFine
+              :C="C"
+              :CS="CS"
+              :categorie="categorie"
+              @gotoR="gotoR"
+            ></AncIntestazioneFine>
           </div>
           <!-- AiF -->
         </v-row>
@@ -166,7 +214,7 @@
 </template>
 
 <script>
-import router from "../router";
+import router from "../../../router";
 import AncIntestazione from "@/components/AncIntestazione.vue";
 import AncIntestazioneFine from "@/components/AncIntestazioneFine.vue";
 import AncCard from "@/components/AncCard.vue";
@@ -200,7 +248,7 @@ export default {
     drawerLeft: { type: Boolean }
   },
 
-  data() {
+  data () {
     return {
       Eevents: [],
       Titolone: null,
@@ -277,7 +325,7 @@ export default {
   },
 
   methods: {
-    setMyPar() {
+    setMyPar () {
       // TODO: COPIA PROCEDURA SU OGNI VIEW PERCHE FUNZIONA !!!!
 
       let myparam = {
@@ -287,13 +335,13 @@ export default {
       this.$emit("spMC", myparam); //spMC -- > sAVE pARAMETER / menu Cat
     },
 
-    gotoR(r) {
+    gotoR (r) {
       console.log("rotta per...");
       this.$emit("gotoR", r);
     }
   }, //methods
 
-  created() {
+  created () {
     console.log("sede oncreate --> start");
     //this.setMyPar();
   }

@@ -165,7 +165,10 @@ export default {
     }
   },
   updated () { },
-  mounted () { },
+  mounted () {
+    /*imposta menu non attivo*/
+    this.$store.dispatch("setScrolling", true);
+  },
   created () { }
 };
 </script>

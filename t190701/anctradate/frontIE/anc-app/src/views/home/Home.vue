@@ -1,4 +1,6 @@
 <template>
+  <!-- TODO: CREARE UNICA SUPERCLASSE VIEW CON REAZIONE COMANDI DA CUI ESTENDERE OGNI VIEW -->
+
   <div class="menuS">
     <home1xs v-if="currentres == 'xs'"></home1xs>
     <home2sm v-if="currentres == 'sm'"></home2sm>
@@ -164,12 +166,17 @@ export default {
     },
     setDF () {
       this.$store.dispatch("setDF");
+    },
+    setSc (val) {
+      this.$store.dispatch("setScrolling", val);
     }
   },
 
   updated () { },
 
-  mounted () { },
+  mounted () {
+    this.$store.dispatch("setScrolling", true);
+  },
 
   created () { }
 };

@@ -6,20 +6,21 @@
     <menuS class="Mx6"></menuS>
     <!--menuSC class="Mx4"></menuSC-->
 
-    <v-content class="Mx3">
-      <router-view
-        :rvt="rvt"
-        @spMC="spMC"
-        @mouseover="setDF()"
-        :evidenza="evidenza"
-        @gotoR="gotoR"
-        :C="C"
-        :CS="CS"
-        :categorie="categorie"
-        :drawerLeft="drawerLeft"
-      ></router-view>
-    </v-content>
-
+    <div @mousewheel="setSc(true)">
+      <v-content class="Mx3">
+        <router-view
+          :rvt="rvt"
+          @spMC="spMC"
+          @mouseover="setDF()"
+          :evidenza="evidenza"
+          @gotoR="gotoR"
+          :C="C"
+          :CS="CS"
+          :categorie="categorie"
+          :drawerLeft="drawerLeft"
+        ></router-view>
+      </v-content>
+    </div>
     <ancFooter
       class="Mx9"
       :footercolor="footercolor"
@@ -198,6 +199,11 @@ export default {
   },
 
   methods: {
+    setSc (val) {
+      console.log("setSc", val);
+      this.$store.dispatch("setScrolling", val);
+    },
+
     getToken () {
       //test OK
       console.log("cookies.get(CSRF_TOKEN)", $cookies.get("csrftoken"));
