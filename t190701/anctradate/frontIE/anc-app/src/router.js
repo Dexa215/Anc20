@@ -18,13 +18,19 @@ import SedeOrari from "./views/sedeorari/Sedeorari.vue";
 //import Contatti from "./views/Contatti.vue";
 import Contatti from "./views/contatti/Contatti.vue";
 
+//import Chisiamo from "./views/Chisiamo.vue";
+//2021 06 20
+import Chisiamo from "./views/chisiamo/Chisiamo.vue";
+import ChisiamoBenemerite from "./views/chisiamo/Benemerite/ChisiamoBenemerite.vue";
+import ChisiamoDirettivo from "./views/chisiamo/Direttivo/ChisiamoDirettivo.vue";
+import ChisiamoSoci from "./views/chisiamo/Soci/ChisiamoSoci.vue";
+import ChisiamoSimpatizzanti from "./views/chisiamo/Simpatizzanti/ChisiamoSimpatizzanti.vue";
 
-import Chisiamo from "./views/Chisiamo.vue";
 //import ChisiamoBenemerite from "./views/ChisiamoBenemerite.vue";
-import ChisiamoSimpatizzanti from "./views/ChisiamoSimpatizzanti.vue";
-import ChisiamoSoci from "./views/ChisiamoSoci.vue";
-import ChisiamoDirettivo from "@/views/chisiamo/ChisiamoDirettivo.vue";
-import ChisiamoBenemerite from "@/views/chisiamo/ChisiamoBenemerite.vue";
+//import ChisiamoSimpatizzanti from "./views/ChisiamoSimpatizzanti.vue";
+//import ChisiamoSoci from "./views/ChisiamoSoci.vue";
+//import ChisiamoDirettivo from "@/views/chisiamo/ChisiamoDirettivo.vue";
+//import ChisiamoBenemerite from "@/views/chisiamo/ChisiamoBenemerite.vue";
 
 //import Eventi from "./views/Eventi.vue";
 
@@ -70,11 +76,11 @@ export default new Router({
             component: Home
         },
         /*      {
-                                          path: "/esempio",
-                                          name: "esempio",
-                                          component: Esempio
-                                      },
-                                */
+                                                          path: "/esempio",
+                                                          name: "esempio",
+                                                          component: Esempio
+                                                      },
+                                                */
         {
             path: "/sede",
             name: "sede",
@@ -118,11 +124,11 @@ export default new Router({
         },
 
         /*        {
-                                            path: "/eventi",
-                                            name: "eventi",
-                                            component: Eventi
-                                        },
-                                 */
+                                                            path: "/eventi",
+                                                            name: "eventi",
+                                                            component: Eventi
+                                                        },
+                                                 */
         {
             path: "/event/:slug",
             name: "event",
@@ -177,16 +183,16 @@ export default new Router({
             component: Login
         }
         /*
-                                {
-                                    path: "/about",
-                                    name: "about",
-                                    // route level code-splitting
-                                    // this generates a separate chunk (about.[hash].js) for this route
-                                    // which is lazy-loaded when the route is visited.
-                                    component: () =>
-                                      import(/* webpackChunkName: "about"  "./views/About.vue")
-                            
-                                    },
-                                */
+                                                {
+                                                    path: "/about",
+                                                    name: "about",
+                                                    // route level code-splitting
+                                                    // this generates a separate chunk (about.[hash].js) for this route
+                                                    // which is lazy-loaded when the route is visited.
+                                                    component: () =>
+                                                      import(/* webpackChunkName: "about"  "./views/About.vue")
+                                            
+                                                    },
+                                                */
     ]
 });

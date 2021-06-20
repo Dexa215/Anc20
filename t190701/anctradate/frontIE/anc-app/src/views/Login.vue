@@ -1,12 +1,9 @@
 <template>
   <div>
-    <h2>Anc Tradate</h2>
+    <h2>BLA BLA BLA Anc Tradate</h2>
     <h3>VUE ---- test production no. 15</h3>
     <h6>
-      DEBUG = False
-      ALLOWED_HOSTS = '127.0.0.1',
-      '80.211.234.218',
-      'localhost',
+      DEBUG = False ALLOWED_HOSTS = '127.0.0.1', '80.211.234.218', 'localhost',
       '0.0.0.0:8000',
     </h6>
     <img
@@ -18,7 +15,12 @@
 
     <div class="login-form-container">
       <form method="post">
-        <button type="submit" class="btn btn-sm btn-outline-primary">Accedi</button>
+        <button
+          type="submit"
+          class="btn btn-sm btn-outline-primary"
+        >
+          Accedi
+        </button>
       </form>
       <br />
       <hr />
@@ -29,7 +31,6 @@
     </div>
   </div>
 </template>
-
 
 <script>
 // @ is an alias to /src
@@ -66,12 +67,12 @@ export default {
     drawerLeft: { type: Boolean }
   },
 
-  data() {
+  data () {
     return {};
   },
 
   methods: {
-    setMyPar() {
+    setMyPar () {
       let myparam = {
         Ccurrent: 80,
         CScurrent: 0
@@ -79,13 +80,13 @@ export default {
       this.$emit("spMC", myparam); //spMC -- > sAVE pARAMETER / menu Cat
     },
 
-    gotoR(r) {
+    gotoR (r) {
       console.log("rotta per...");
       this.$emit("gotoR", "r");
     }
   }, //methods
 
-  created() {
+  created () {
     console.log("links oncreate --> start");
     //this.setMyPar();
   }

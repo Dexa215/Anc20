@@ -138,9 +138,11 @@ urlpatterns = [
     path("tesseramentoprassi",
          IndexTemplateView.as_view(),
          name="homepagetesseramentoprassi"),
-    path("login",
-         IndexTemplateView.as_view(),
-         name="homepagelogin")
+
+    #     
+    #path("login",
+    #     IndexTemplateView.as_view(),
+    #     name="homepagelogin")
 
 ]
 
