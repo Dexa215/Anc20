@@ -32,11 +32,12 @@
           <!-- contattaci... Per qualsiasi informazione non presente in questa pagina non esitare a contattarci  -->
           {{ lang.t[0].lista[0].t[0].text }}
           <br />
+          <!--            @click="gotoR('contatti/')"-->
           <v-chip
             class="ma-4 cnt"
             color="red"
             text-color="white"
-            @click="gotoR('contatti/')"
+            @click="gotoRcontatti"
           >
             <!--Contatti-->
             <a>{{ lang.t[0].lista[0].t[2].text }}</a>
@@ -215,6 +216,15 @@ export default {
           link.r[1].CS - link.r[0].C - 1
         ].link;
       }
+
+      this.expand = !this.expand;
+      this.$store.dispatch("setDF");
+      this.$store.dispatch("gotoR", r);
+    },
+
+    gotoRcontatti () {
+      var r;
+      r = this.categorie[2].link;
 
       this.expand = !this.expand;
       this.$store.dispatch("setDF");
