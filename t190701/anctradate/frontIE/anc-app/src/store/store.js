@@ -243,18 +243,9 @@ const moduleC = {
         img: "/static/images/Icone/anclogo7.gif",
         link: "/contatti",
         linksFP: [
-          {
-            descrizione: "Ubicazione sede",
-            link: "sede/"
-          },
-          {
-            descrizione: "Chi siamo",
-            link: "chisiamo/"
-          },
-          {
-            descrizione: "Richiedi INFO",
-            link: "contatti/"
-          }
+          { r: [{ C: "80" }, { CS: "0" }] },
+          { r: [{ C: "80" }, { CS: "0" }] },
+          { r: [{ C: "80" }, { CS: "0" }] }
         ],
         sottocategorie: [
           {
@@ -292,20 +283,10 @@ const moduleC = {
         img: "/static/images/Icone/anclogo7.gif",
         link: "/chisiamo",
         linksFP: [
-          {
-            descrizione: "Ubicazione sede",
-            link: "sede/"
-          },
-          {
-            descrizione: "Chi siamo",
-            link: "chisiamo/"
-          },
-          {
-            descrizione: "Richiedi INFO",
-            link: "contatti/"
-          }
+          { r: [{ C: "80" }, { CS: "0" }] },
+          { r: [{ C: "80" }, { CS: "0" }] },
+          { r: [{ C: "80" }, { CS: "0" }] }
         ],
-
         sottocategorie: [
           {
             n: "41",
@@ -350,18 +331,9 @@ const moduleC = {
         img: "/static/icons/menu/Agenda.jpg",
         link: "/agenda",
         linksFP: [
-          {
-            descrizione: "Ubicazione sede",
-            link: "sede/"
-          },
-          {
-            descrizione: "Chi siamo",
-            link: "chisiamo/"
-          },
-          {
-            descrizione: "Richiedi INFO",
-            link: "contatti/"
-          }
+          { r: [{ C: "80" }, { CS: "0" }] },
+          { r: [{ C: "80" }, { CS: "0" }] },
+          { r: [{ C: "80" }, { CS: "0" }] }
         ],
         sottocategorie: [
           {
@@ -383,20 +355,10 @@ const moduleC = {
         img: "/static/images/Icone/anclogo7.gif",
         link: "/archivio",
         linksFP: [
-          {
-            descrizione: "Ubicazione sede",
-            link: "sede/"
-          },
-          {
-            descrizione: "Chi siamo",
-            link: "chisiamo/"
-          },
-          {
-            descrizione: "Richiedi INFO",
-            link: "contatti/"
-          }
+          { r: [{ C: "80" }, { CS: "0" }] },
+          { r: [{ C: "80" }, { CS: "0" }] },
+          { r: [{ C: "80" }, { CS: "0" }] }
         ],
-
         sottocategorie: [
           {
             n: "61",
@@ -417,18 +379,9 @@ const moduleC = {
         img: "/static/images/Materiale/tesserino.jpg",
         link: "/tesseramento",
         linksFP: [
-          {
-            descrizione: "Ubicazione sede",
-            link: "sede/"
-          },
-          {
-            descrizione: "Chi siamo",
-            link: "chisiamo/"
-          },
-          {
-            descrizione: "Richiedi INFO",
-            link: "contatti/"
-          }
+          { r: [{ C: "80" }, { CS: "0" }] },
+          { r: [{ C: "80" }, { CS: "0" }] },
+          { r: [{ C: "80" }, { CS: "0" }] }
         ],
 
         sottocategorie: [
@@ -451,18 +404,9 @@ const moduleC = {
         img: "/static/images/Icone/anclogo7.gif",
         link: "/links",
         linksFP: [
-          {
-            descrizione: "Ubicazione sede",
-            link: "sede/"
-          },
-          {
-            descrizione: "Chi siamo",
-            link: "chisiamo/"
-          },
-          {
-            descrizione: "Richiedi INFO",
-            link: "contatti/"
-          }
+          { r: [{ C: "80" }, { CS: "0" }] },
+          { r: [{ C: "80" }, { CS: "0" }] },
+          { r: [{ C: "80" }, { CS: "0" }] }
         ],
         linksAmici: [
           {
