@@ -1,214 +1,236 @@
 {% load l10n %}
 
-  <template>
+<template>
   <div class="SfBase">
     <!---->
-    <v-row class="rT rT_lv rThLG rTbg2 mx-auto" v-show="drawerLeft"></v-row>
-    
-    <div class="SfSpazio home4SfShUp AncAppBar_BC">spazio Up</div>
-
-    <v-row justify="center" align="center" class="anchomerLG mx-auto">
+    <v-row
+      class="rT rT_lv rThLG rTbg2 mx-auto"
+      v-show="drawerLeft"
+    ></v-row>
+    <v-parallax
+      class="SfParallax"
+      src="/static/images/bg/bg8.jpg"
+      height="850"
+    ></v-parallax>
+    <v-row
+      class="r_main r_main_h_LG mx-auto"
+      justify="start"
+      align="start"
+    >
       <!--sx-->
-      <v-col cols="2" class="carcol carcolsx"></v-col>
+      <v-col
+        cols="2"
+        class="carcol carcolsx"
+      ></v-col>
       <!--cx-->
-      <v-col cols="8" class="carcol carcolcx">
-        <!---->
-        <v-row>
-          <v-col cols="12">
-            <v-card class="pa-4 cardround" light>
-              <!--  * -->
-              <v-row dense class="row ma-2 pa-2" align="center" justify="center">
-                <!--h3>Sei un collega in congedo e non ti sei ancora iscritto all'ANC?</h3-->
-                <!--h3 class="font-weight-thin colorBlue"></h3-->
-                <h5 class="colorBlue">{{lang.t[1].lista[6].t[1].text}}</h5>
-                <br />
-              </v-row>
-              <!--  * -->
-              <!--  * -->
-              <v-row dense class="row ma-2 pa-2" align="center" justify="center">
-                <v-img src="/static/images/Materiale/carrozza.png" max-width="250px"></v-img>
-              </v-row>
-              <!--  * -->
-              <!--  * -->
-              <v-row dense class="row ma-2 pa-2" align="center" justify="center">
-                <h2 class="display-2 colorBlue">
-                  <!--strong>E cosa aspetti, la carrozza?</strong-->
-                  <strong>{{lang.t[1].lista[6].t[2].text}}</strong>
-                </h2>
-              </v-row>
-              <!--  * -->
-              <!--  * -->
-              <v-row dense class="row ma-2 pa-2" align="center" justify="center">
-                <!--h3>Bastano 2 foto formato tessera. Facile no?</h3-->
-              </v-row>
-              <v-row dense class="row ma-2 pa-2" align="center" justify="center">
-                <!--come fare-->
-                <!--raised outlined-->
-                <v-btn
-                  @click="gotoR('/tesseramentoprassi')"
-                  elevation="2"
-                  rounded
-                  color="success"
-                >{{lang.t[1].lista[6].t[0].text}}</v-btn>
-              </v-row>
-              <!--  * -->
-            </v-card>
-          </v-col>
-        </v-row>
-        <!-- row 00 -->
+      <v-col
+        cols="8"
+        class="carcol carcolcx"
+      >
+        <v-card class="card_main Anc_BC_BlueDark">
+          <v-row
+            dense
+            class="row ma-2 pa-2"
+            align="center"
+            justify="center"
+          >
+            <!--00-->
+
+            <!--  * -->
+            <v-row
+              dense
+              class="row row1 ma-2 pa-2"
+              align="center"
+              justify="center"
+            >
+              <!--h3>Sei un collega in congedo e non ti sei ancora iscritto all'ANC?</h3-->
+              <!--h3 class="font-weight-thin colorBlue"></h3-->
+              <h5 class="colorBlue">{{ lang.t[1].lista[6].t[1].text }}</h5>
+              <br />
+            </v-row>
+            <!--  * -->
+
+            <!--  * -->
+            <v-row
+              dense
+              class="row row2 ma-2 pa-2"
+              align="center"
+              justify="center"
+            >
+              <v-img
+                src="/static/images/Materiale/carrozza.png"
+                max-width="250px"
+              ></v-img>
+            </v-row>
+            <!--  * -->
+            <!--  * -->
+            <v-row
+              dense
+              class="row row1 ma-2 pa-2"
+              align="center"
+              justify="center"
+            >
+              <h2 class="display-2 colorBlue">
+                <!--strong>E cosa aspetti, la carrozza?</strong-->
+                <strong>{{ lang.t[1].lista[6].t[2].text }}</strong>
+              </h2>
+            </v-row>
+            <!--  * -->
+            <!--  * -->
+            <v-row
+              dense
+              class="row ma-2 pa-2"
+              align="center"
+              justify="center"
+            >
+              <!--h3>Bastano 2 foto formato tessera. Facile no?</h3-->
+            </v-row>
+            <v-row
+              dense
+              class="row ma-2 pa-2"
+              align="center"
+              justify="center"
+            >
+              <!--come fare-->
+              <!--raised outlined-->
+              <v-btn
+                @click="gotoR('/tesseramentoprassi')"
+                elevation="2"
+                rounded
+                color="success"
+              >{{ lang.t[1].lista[6].t[0].text }}</v-btn>
+            </v-row>
+            <!--  * -->
+
+            <!--00-->
+          </v-row>
+        </v-card>
+        <AncIntestazioneFine></AncIntestazioneFine>
+        <!--spazio down LG-->
+        <div class="r_main_hsDown_LG"></div>
+
         <!--cx-->
       </v-col>
       <!--dx-->
-      <v-col cols="2" class="carcol carcoldx"></v-col>
+      <v-col
+        cols="2"
+        class="carcol carcoldx"
+      ></v-col>
     </v-row>
-
-    <v-parallax class="SfParallaxTess" src="/static/images/bg/bg8.jpg" height="1000"></v-parallax>
-    <!-- <span>spiegone:</span>-->
-
-    <v-row justify="center" align="center" class="mx-auto">
-      <span>
-        <!--Prassi per il tesseramento-->
-        <h4 class="font-weight-thin colorBlue">{{lang.t[1].lista[6].t[0].text}}</h4>
-      </span>
-    </v-row>
-
-
-    <!-- <span>spiegone:</span>-->
-    <v-row>
-      <div class="container-fluid text-center" style="background-color:transparent ">
-        <span v-if="CS==0">{{ categorie[(C/10)-1].descrizione }}</span>
-        <span v-else>{{ categorie[(C/10)-1].sottocategorie[(CS-C)-1].descrizione }}</span>
-      </div>
-    </v-row>
-
-
-    <!--<div class="SfImmagine">sfondo Immagine</div>-->
-    <div class="container-fluid text-center">
-      <AncIntestazioneFine></AncIntestazioneFine>
-      </div>
-      <!-- AncIntestazioneFine :C="C" :CS="CS" :categorie="categorie" @gotoR="gotoR"></AncIntestazioneFine-->
-    
-    <div class="SfSpazio home4SfShDown AncAppBar_BC">spazio Down</div>
-    <!--/* *** */-->
   </div>
 </template>
 
 <script>
-import { apiService } from "@/common/api.service";
-import router from "@/router";
-import AncIntestazioneHome from "@/components/AncIntestazioneHome.vue";
+//import AncIntestazioneHome from "@/components/AncIntestazioneHome.vue";
 import AncIntestazioneFine from "@/components/AncIntestazioneFine.vue";
-import AncCard from "@/components/AncCard.vue";
-import m4lgSottocategorie from "@/components/AncM/CatSotto/M4lgSottocategorie.vue";
-import m4lgAdmin from "@/components/AncM/Admin/M4lgAdmin.vue";
-import ancClock from "@/components/AncObjects/AncClock.vue";
 
 export default {
   name: "links4lg",
-
   components: {
-    AncIntestazioneHome,
-    AncIntestazioneFine,
-    AncCard,
+    AncIntestazioneFine
   },
-  props: {},
-  data() {
+
+  prop: {},
+  data () {
     return {
       scr: "",
       focusOn: false,
       snackbar: true,
       text: `Hello, I'm a snackbar`,
-      dialog: false,
+      dialog: false
     };
   },
   computed: {
-    /*  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  */
-    lang() {
+    /*
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+    lang () {
       return this.$store.getters.getCurrentLanguage;
     },
-    languages() {
+    languages () {
       return this.$store.getters.getLanguages;
     },
-    languagesShow() {
+    languagesShow () {
       return this.$store.getters.getLanguagesShow;
-    },
-    /*  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  */
-    drawer() {
+    } /*
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */,
+    drawer () {
       return this.$store.getters.getDrawer;
     },
-    drawerLeft() {
+    drawerLeft () {
       return this.$store.getters.getDrawerLeft;
     },
-    drawerRight() {
+    drawerRight () {
       return this.$store.getters.getDrawerRight;
     },
-    drawerSottocategoria() {
+    drawerSottocategoria () {
       return this.$store.getters.getDrawerSottocategoria;
-    },
-    /*  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  */
-    iconX() {
+    } /*
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */,
+    iconX () {
       return this.$store.getters.getIconX;
     },
-    iconO() {
+    iconO () {
       return this.$store.getters.getIconO;
     },
-    iconOdx() {
+    iconOdx () {
       return this.$store.getters.getIconOdx;
     },
-    iconC() {
+    iconC () {
       return this.$store.getters.getIconC;
     },
-    iconCdx() {
+    iconCdx () {
       return this.$store.getters.getIconCdx;
-    },
-    /*  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  */
-    categorie() {
+    } /*
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */,
+    categorie () {
       return this.$store.getters.categorie;
     },
-    C() {
+    C () {
       return this.$store.getters.getC;
     },
-    CS() {
+    CS () {
       return this.$store.getters.getCS;
-    },
-    /*  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  */
-    requestUser() {
+    } /*
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */,
+    requestUser () {
       return this.$store.getters.requestUser;
     },
-    requestUserIsStaff() {
+    requestUserIsStaff () {
       return this.$store.getters.requestUserIsStaff;
     },
-    requestUserIsSuper() {
+    requestUserIsSuper () {
       return this.$store.getters.requestUserIsSuper;
     },
-    requestUserAvatar() {
+    requestUserAvatar () {
       return this.$store.getters.requestUserAvatar;
     },
-    requestUserBio() {
+    requestUserBio () {
       return this.$store.getters.requestUserBio;
     },
-    requestToken() {
+    requestToken () {
       return this.$store.getters.requestToken;
-    },
-    /*  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  */
-    rcS() {
+    } /*
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */,
+    rcS () {
       return this.$store.getters.rcS;
     },
-    rcD() {
+    rcD () {
       return this.$store.getters.rcD;
     },
-    rcU() {
+    rcU () {
       return this.$store.getters.rcU;
     },
-    /* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
-    admin() {
+    /*
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+    admin () {
       return this.$store.getters.admin;
     },
-    admincommands() {
+    admincommands () {
       return this.$store.getters.admincommands;
-    },
-    /* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
-    currentres() {
+    } /*
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */,
+    currentres () {
       switch (this.$vuetify.breakpoint.name) {
         case "xs":
           return "xs";
@@ -221,81 +243,97 @@ export default {
         case "xl":
           return "xl";
       }
-    },
+    }
   },
+
   methods: {
     /*2020 06 16*/
-    gotoR(r) {
+
+    gotoR (r) {
       this.expand = !this.expand;
       this.$store.dispatch("setDF");
       this.$store.dispatch("gotoR", r);
     },
-    SDL() {
-      /*Switch Drawer Language*/
-      this.$store.dispatch("switchDrawerLang");
-    },
-    ScL(val) {
-      /*SET Current Language*/
-      this.$store.dispatch("setL", val);
-    },
-    DSCset(state) {
-      /*SC Sotto Categoria*/
-      this.$store.dispatch("DSCset", state);
-    },
-    setD() {
-      this.$store.dispatch("setD");
-    },
-    setDF() {
-      this.$store.dispatch("setDF");
-    },
-
-    // Events ...
-    getEventsPast() {
-      this.$store.dispatch("getEventsPast");
-    },
-    getEventsFuture() {
-      this.$store.dispatch("getEventsFuture");
-    },
-    v(link) {
+    v (link) {
       /*this.$emit("vola", link);*/
       this.$store.dispatch("vola", link);
-    },
+    }
   },
-  created() {
-    console.log("tess4lg oncreate --> start");
-  },
-  updated() {},
-  mounted() {},
+
+  updated () { },
+
+  mounted () { },
+
+  created () { }
 };
 </script>
 
 <style media="screen" scoped>
-.home4SfShUp {
-  height: 150px;
-  background-color: transparent;
-}
-.home4SfShDown {
-  height: 78px;
-}
-.anchomerLG {
-  position: absolute;
-  z-index: 5;
-  height: 300px;
-  width: 100%;
-  background-color: transparent;
-}
-
-.h3 {
-  color: black;
-}
-.cardround {
-  border-radius: 45px 45px 45px 45px; /*TL-TR-BR-BL*/
-}
-
+/*2021 06 21*/
+/*20201204*/
+/*general...*/
 .rT_lv {
-  /* row Transparent level  */
   position: absolute;
   z-index: 6;
+} /*Row semi-Transparent level on MENU */
+.SfParallax {
+  position: absolute;
+  z-index: 1;
+  opacity: 0.15;
+  width: 100%;
+}
+.r_main {
+  position: absolute;
+  z-index: 5;
+  opacity: 1;
+  background-color: transparent;
+  width: 100%;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.cx_main {
+  opacity: 1;
+  background-color: transparent;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-radius: 15px;
+}
+.card_main {
+  opacity: 0.8;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-radius: 45px;
+}
+
+/*responsive...*/
+.r_main_h_LG {
+  margin-top: 150px;
+  height: 600px;
+}
+.r_main_hsUp_LG {
+  height: 150px;
+}
+.r_main_hsDown_LG {
+  height: 50px;
+}
+/**/
+.Anc_BC_BlueDark {
+  background-color: rgb(1, 4, 20);
+  color: blanchedalmond;
+}
+#rci {
+  /*background-color: darkseagreen;*/
+}
+
+.row1 {
+  width: 100%;
+}
+
+.row2 {
+  width: 100%;
+  border-radius: 20px;
+  background-color: white;
 }
 </style>
-

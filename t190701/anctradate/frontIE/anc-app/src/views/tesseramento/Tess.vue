@@ -186,7 +186,9 @@ export default {
       this.$store.dispatch("setDF");
     }
   },
-  updated () { },
+  updated () {
+    this.$store.dispatch("setScrolling", true);
+  },
   mounted () {
     /*imposta menu non attivo*/
     this.$store.dispatch("setScrolling", true);

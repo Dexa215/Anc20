@@ -197,7 +197,7 @@ const moduleC = {
         linksFP: [
           { r: [{ C: "20" }, { CS: "22" }] },
           { r: [{ C: "40" }, { CS: "0" }] },
-          { r: [{ C: "30" }, { CS: "0" }] }
+          { r: [{ C: "50" }, { CS: "0" }] } /*Agenda*/
         ],
         sottocategorie: []
       }, //cat1 10 home
@@ -211,23 +211,9 @@ const moduleC = {
         img: "/static/images/Icone/anclogo7.gif",
         link: "/sede",
         linksFP: [
-          {
-            descrizione: "Sede ubicazione",
-            link: "sede/"
-          },
-          {
-            descrizione: "Sede orari",
-            link: "sedeOrari/"
-          },
-          {
-            descrizione: "Richiedi INFO",
-            link: "contatti/"
-          }
-        ],
-        linksFP: [
-          { r: [{ C: "20" }, { CS: "21" }] },
-          { r: [{ C: "40" }, { CS: "0" }] },
-          { r: [{ C: "30" }, { CS: "0" }] }
+          { r: [{ C: "20" }, { CS: "22" }] } /*orari*/,
+          { r: [{ C: "20" }, { CS: "21" }] } /*sede*/,
+          { r: [{ C: "40" }, { CS: "0" }] } /*chisiamo*/
         ],
         sottocategorie: [
           {
@@ -1270,8 +1256,8 @@ const moduleL = {
                   { id: 6, code: "7", text: " Cellulare P:    335 5797460" },
                   { id: 7, code: "8", text: " Cellulare vP:   xxx xxxxxxx" },
                   { id: 8, code: "9", text: " Grado in Servizio:" },
-                  { id: 9, code: "10", text: " Carabiniere " },
-                  { id: 10, code: "11", text: " Carabiniere " },
+                  { id: 9, code: "10", text: " Carabiniere" },
+                  { id: 10, code: "11", text: " Carabiniere" },
                   { id: 11, code: "12", text: " ===" },
                   { id: 12, code: "13", text: " ===" },
                   {

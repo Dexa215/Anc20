@@ -2,13 +2,11 @@
 
 <template>
   <div class="SfBase">
+    <!---->
     <v-row
-      class="rT rT_lv rThXL rTbg2 mx-auto"
+      class="rT rT_lv rThLG rTbg2 mx-auto"
       v-show="drawerLeft"
     ></v-row>
-    <!--menu/txp-->
-    <!--div class="r_main_hsUp_LG">spazio Up lg</div-->
-    <!--rr-->
     <v-parallax
       class="SfParallax"
       src="/static/images/bg/bg8.jpg"
@@ -19,110 +17,103 @@
       justify="start"
       align="start"
     >
-      <!--rr-->
+      <!--sx-->
       <v-col
         cols="2"
         class="carcol carcolsx"
       ></v-col>
-      <!--sx-->
+      <!--cx-->
       <v-col
         cols="8"
-        class="cx_main"
+        class="carcol carcolcx"
       >
-        <!--cx-->
         <v-card class="card_main Anc_BC_BlueDark">
-          <!-- 00 -->
-          <!-- bu -->
-
           <v-row
             dense
             class="row ma-2 pa-2"
+            align="center"
+            justify="center"
           >
-            <!-- row 01 -->
-            <!--  -->
-            <v-col
-              cols="3"
-              v-for="cat in categorie[3].sottocategorie"
-              :key="cat.n"
+            <!--00-->
+
+            <!--h3>Sei un collega in congedo e non ti sei ancora iscritto all'ANC?</h3-->
+            <!--h3 class="font-weight-thin colorBlue"></h3-->
+            <h5 class="colorBlue">
+              {{ lang.t[1].lista[6].sc[0].t[0].text }}
+            </h5>
+
+            <v-expansion-panels
+              focusable
+              inset
             >
-              <v-card
-                light
-                class="pa-4 chisiamocard"
-                height="200px"
-                hover
-                @click="gotoR(cat.link)"
+              <!--v-expansion-panel v-for="(item, i) in 5" :key="i"-->
+              <v-expansion-panel
+                v-for="(item, i) in lang.t[1].lista[6].sc[0].steps"
+                :key="i"
               >
-                <v-img
-                  :src="cat.img"
-                  class="chisiamoimm"
-                > </v-img>
+                <v-expansion-panel-header :expand-icon="item.icon">{{
+                  item.title
+                }}</v-expansion-panel-header>
+                <v-expansion-panel-content>
+                  <!--v-row>{{ i }}</v-row-->
+                  <v-row class="ma-3">{{ item.text }}</v-row>
+                  <v-row
+                    class="ma-3"
+                    justify="center"
+                    align="center"
+                  >
+                    <v-img
+                      :src="item.picture"
+                      max-height="250"
+                      max-width="150"
+                    >{{ i }}{{ item.picture }}</v-img>
+                  </v-row>
+                </v-expansion-panel-content>
+              </v-expansion-panel>
+            </v-expansion-panels>
+            <br />
 
-                <v-card-title>{{ cat.descrizione }}</v-card-title>
-              </v-card>
-            </v-col>
+            <!--00-->
           </v-row>
-          <!-- row 01 -->
-          <!--  -->
-
-          <!-- row 00 -->
-          <!--  -->
-
-          <v-row
-            dense
-            class="row ma-2 pa-2"
-          >
-            <v-col cols="12">
-              <p>
-                La Sezione é formata dai Soci Effettivi, dalle Benemerite e dai
-                Simpatizzanti.
-              </p>
-            </v-col>
-          </v-row>
-
-          <!-- row 00 -->
-
-          <!-- 00 -->
         </v-card>
         <AncIntestazioneFine></AncIntestazioneFine>
-        <div class="r_main_hsDown_LG">spazio Down lg</div>
-        <!--rr-->
+        <!--spazio down LG-->
+        <div class="r_main_hsDown_LG"></div>
+
+        <!--cx-->
       </v-col>
-      <!--cx-->
+      <!--dx-->
       <v-col
         cols="2"
         class="carcol carcoldx"
       ></v-col>
-      <!--dx-->
     </v-row>
   </div>
 </template>
 
 <script>
+//import AncIntestazioneHome from "@/components/AncIntestazioneHome.vue";
 import AncIntestazioneFine from "@/components/AncIntestazioneFine.vue";
-import rc1p from "@/components/AncRow/Text/rc1p.vue";
-import p1 from "@/components/AncRow/Picture/p1.vue";
+
 export default {
-  name: "contatti4lg",
+  name: "links4lg",
   components: {
-    AncIntestazioneFine,
-    rc1p,
-    p1
+    AncIntestazioneFine
   },
-  props: {},
+
+  prop: {},
   data () {
     return {
-      tn1: [{ id: "0" }, { id: "1" }, { id: "2" }, { id: "3" }],
-      mappa1:
-        "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1663.15881154439!2d8.905701070027497!3d45.71332899343703!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x478685f126a1ea85%3A0x7c16b78535fb871a!2sVia%20Carlo%20de%20Simoni%2C%201%2C%2021049%20Tradate%20VA!5e0!3m2!1sit!2sit!4v1576285621978!5m2!1sit!2sit",
-      mappa2:
-        "https://www.google.com/maps/embed?pb=!4v1576284624812!6m8!1m7!1sXkQU4fJD85BZziGDdsNGNw!2m2!1d45.71363123189879!2d8.906257580735!3f290.300251927189!4f2.186880441983959!5f1.1924812503605782",
-      img1: "/static/images/2019/MAX.jpg",
-      img2: "/static/images/2019/CALZAVARA.jpg",
-      img3: "/static/images/Foto/sopracolletto.jpg"
+      scr: "",
+      focusOn: false,
+      snackbar: true,
+      text: `Hello, I'm a snackbar`,
+      dialog: false
     };
   },
   computed: {
-    /*  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  */
+    /*
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
     lang () {
       return this.$store.getters.getCurrentLanguage;
     },
@@ -131,8 +122,8 @@ export default {
     },
     languagesShow () {
       return this.$store.getters.getLanguagesShow;
-    },
-    /*  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  */
+    } /*
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */,
     drawer () {
       return this.$store.getters.getDrawer;
     },
@@ -144,8 +135,8 @@ export default {
     },
     drawerSottocategoria () {
       return this.$store.getters.getDrawerSottocategoria;
-    },
-    /*  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  */
+    } /*
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */,
     iconX () {
       return this.$store.getters.getIconX;
     },
@@ -160,8 +151,8 @@ export default {
     },
     iconCdx () {
       return this.$store.getters.getIconCdx;
-    },
-    /*  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  */
+    } /*
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */,
     categorie () {
       return this.$store.getters.categorie;
     },
@@ -170,8 +161,8 @@ export default {
     },
     CS () {
       return this.$store.getters.getCS;
-    },
-    /*  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  */
+    } /*
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */,
     requestUser () {
       return this.$store.getters.requestUser;
     },
@@ -189,8 +180,8 @@ export default {
     },
     requestToken () {
       return this.$store.getters.requestToken;
-    },
-    /*  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  */
+    } /*
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */,
     rcS () {
       return this.$store.getters.rcS;
     },
@@ -200,14 +191,16 @@ export default {
     rcU () {
       return this.$store.getters.rcU;
     },
-    /* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+    /*
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
     admin () {
       return this.$store.getters.admin;
     },
     admincommands () {
       return this.$store.getters.admincommands;
-    },
-    /* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+    } /*
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */,
     currentres () {
       switch (this.$vuetify.breakpoint.name) {
         case "xs":
@@ -223,26 +216,33 @@ export default {
       }
     }
   },
+
   methods: {
     /*2020 06 16*/
+
     gotoR (r) {
       this.expand = !this.expand;
       this.$store.dispatch("setDF");
       this.$store.dispatch("gotoR", r);
     },
     v (link) {
+      /*this.$emit("vola", link);*/
       this.$store.dispatch("vola", link);
     }
   },
-  created () { },
-  updated () {
-    console.log("contatti4lg oncreate-- > start");
+
+  updated () { },
+
+  mounted () {
+    this.$store.dispatch("setScrolling", true);
   },
-  mounted () { }
+
+  created () { }
 };
 </script>
 
 <style media="screen" scoped>
+/*2021 06 21*/
 /*20201204*/
 /*general...*/
 .rT_lv {
@@ -298,24 +298,5 @@ export default {
 }
 #rci {
   /*background-color: darkseagreen;*/
-}
-.chisiamocard {
-  opacity: 0.8;
-  border-radius: 25px;
-}
-
-.chisiamocard:hover {
-  opacity: 1;
-}
-
-.chisiamoimm {
-  border-radius: 15px;
-  height: 120px;
-  width: 180px;
-}
-
-.chisiamoimm:hover {
-  height: 130px;
-  width: 190px;
 }
 </style>

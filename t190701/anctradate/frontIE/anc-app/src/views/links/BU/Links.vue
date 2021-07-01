@@ -1,8 +1,16 @@
 <template>
   <div class="links">
-    <v-row class="AncTrasparenza" v-show="drawerLeft"></v-row>
+    <v-row
+      class="AncTrasparenza"
+      v-show="drawerLeft"
+    ></v-row>
     <!-- Ai  -->
-    <AncIntestazione :C="80" :CS="0" :categorie="categorie" @gotoR="gotoR"></AncIntestazione>
+    <AncIntestazione
+      :C="80"
+      :CS="0"
+      :categorie="categorie"
+      @gotoR="gotoR"
+    ></AncIntestazione>
     <!-- Ai  -->
 
     <div>
@@ -22,18 +30,42 @@
 
         <!-- **** -->
 
-        <v-row dense class="row ma-2 pa-2">
+        <v-row
+          dense
+          class="row ma-2 pa-2"
+        >
           <!-- row 00 -->
           <!-- Riassunto Sede -->
-          <v-col cols="12" v-for="l in links" :key="l.n">
-            <v-card light class="container pa-1" height="200px" hover @click="gotoR(l.link)">
+          <v-col
+            cols="12"
+            v-for="l in links"
+            :key="l.n"
+          >
+            <v-card
+              light
+              class="container pa-1"
+              height="200px"
+              hover
+              @click="gotoR(l.link)"
+            >
               <div style="background-color:red;">
-                <v-row class="mx-4 px-4" align="center" justify="center">
-                  <v-img class="mx-4" :src="l.img" max-width="100" max-height="90"></v-img>
+                <v-row
+                  class="mx-4 px-4"
+                  align="center"
+                  justify="center"
+                >
+                  <v-img
+                    class="mx-4"
+                    :src="l.img"
+                    max-width="100"
+                    max-height="90"
+                  ></v-img>
                   <h2
                     class="mx-2 display-1 font-weight-bold"
                     style="color: #1A237E;"
-                  >{{l.descrizione}}</h2>
+                  >
+                    {{ l.descrizione }}
+                  </h2>
                 </v-row>
               </div>
             </v-card>
@@ -45,34 +77,52 @@
         <!-- row 01 -->
         <!-- Descrizione Ubicazione -->
 
-        <v-row dense class="row ma-2 pa-2">
+        <v-row
+          dense
+          class="row ma-2 pa-2"
+        >
           <!-- row 02 -->
         </v-row>
         <!-- row 02 -->
 
-        <v-row dense class="row ma-2 pa-2">
+        <v-row
+          dense
+          class="row ma-2 pa-2"
+        >
           <!-- row 03 -->
         </v-row>
         <!-- row 03 -->
 
-        <v-row dense class="row ma-2 pa-2">
+        <v-row
+          dense
+          class="row ma-2 pa-2"
+        >
           <!-- row 04 -->
         </v-row>
         <!-- row 04 -->
 
-        <v-row dense class="row ma-2 pa-2">
+        <v-row
+          dense
+          class="row ma-2 pa-2"
+        >
           <!-- row 05 -->
         </v-row>
         <!-- row 05 -->
 
-        <v-row dense class="row ma-2 pa-2">
+        <v-row
+          dense
+          class="row ma-2 pa-2"
+        >
           <!-- row 06 -->
         </v-row>
         <!-- row 06 -->
 
         <!-- **** -->
 
-        <v-row dense class="row ma-2 pa-2">
+        <v-row
+          dense
+          class="row ma-2 pa-2"
+        >
           <!-- row 7 -->
           <!-- The end -->
           <!-- AiF -->
@@ -97,12 +147,11 @@
   </div>
 </template>
 
-
 <script>
 // @ is an alias to /src
 import HelloWorld from "@/components/HelloWorld.vue";
 
-import router from "../router";
+import router from "../../../router";
 import AncIntestazione from "@/components/AncIntestazione.vue";
 import AncIntestazioneFine from "@/components/AncIntestazioneFine.vue";
 import AncCard from "@/components/AncCard.vue";
@@ -135,12 +184,12 @@ export default {
     drawerLeft: { type: Boolean }
   },
 
-  data() {
+  data () {
     return {};
   },
 
   methods: {
-    setMyPar() {
+    setMyPar () {
       let myparam = {
         Ccurrent: 80,
         CScurrent: 0
@@ -148,13 +197,13 @@ export default {
       this.$emit("spMC", myparam); //spMC -- > sAVE pARAMETER / menu Cat
     },
 
-    gotoR(r) {
+    gotoR (r) {
       console.log("rotta per...");
       this.$emit("gotoR", "r");
     }
   }, //methods
 
-  created() {
+  created () {
     console.log("links oncreate --> start");
     //this.setMyPar();
   }

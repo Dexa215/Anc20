@@ -36,11 +36,10 @@ import ChisiamoSimpatizzanti from "./views/chisiamo/Simpatizzanti/ChisiamoSimpat
 
 import Bacheca from "./views/Bacheca.vue";
 
-//import Tesseramentoprassi from "./views/Tesseramentoprassi.vue";
-import TesseramentoPrassi from "./views/tesseramentoPrassi/TessP.vue";
-
 //import Tesseramento from "./views/Tesseramento.vue";
 import Tesseramento from "./views/tesseramento/Tess.vue";
+//import Tesseramentoprassi from "./views/Tesseramentoprassi.vue";
+import TesseramentoPrassi from "./views/tesseramento/tesseramentoPrassi/TessP.vue";
 
 import Event from "./views/Event.vue";
 import EventEditor from "./views/EventEditor.vue";
@@ -76,11 +75,11 @@ export default new Router({
             component: Home
         },
         /*      {
-                                                          path: "/esempio",
-                                                          name: "esempio",
-                                                          component: Esempio
-                                                      },
-                                                */
+                                                              path: "/esempio",
+                                                              name: "esempio",
+                                                              component: Esempio
+                                                          },
+                                                    */
         {
             path: "/sede",
             name: "sede",
@@ -124,11 +123,11 @@ export default new Router({
         },
 
         /*        {
-                                                            path: "/eventi",
-                                                            name: "eventi",
-                                                            component: Eventi
-                                                        },
-                                                 */
+                                                                path: "/eventi",
+                                                                name: "eventi",
+                                                                component: Eventi
+                                                            },
+                                                     */
         {
             path: "/event/:slug",
             name: "event",
@@ -183,16 +182,16 @@ export default new Router({
             component: Login
         }
         /*
-                                                {
-                                                    path: "/about",
-                                                    name: "about",
-                                                    // route level code-splitting
-                                                    // this generates a separate chunk (about.[hash].js) for this route
-                                                    // which is lazy-loaded when the route is visited.
-                                                    component: () =>
-                                                      import(/* webpackChunkName: "about"  "./views/About.vue")
-                                            
-                                                    },
-                                                */
+                                                    {
+                                                        path: "/about",
+                                                        name: "about",
+                                                        // route level code-splitting
+                                                        // this generates a separate chunk (about.[hash].js) for this route
+                                                        // which is lazy-loaded when the route is visited.
+                                                        component: () =>
+                                                          import(/* webpackChunkName: "about"  "./views/About.vue")
+                                                
+                                                        },
+                                                    */
     ]
 });

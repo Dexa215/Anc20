@@ -2,37 +2,46 @@
 
 <template>
   <div class="SfBase">
-    <v-row class="rT rT_lv rThXL rTbg2 mx-auto" v-show="drawerLeft"></v-row
-    ><!--menu/txp-->
-    <!--div class="r_main_hsUp_LG">spazio Up lg</div-->
-    <!--rr-->
+    <v-row
+      class="rT rT_lv rThXL rTbg2 mx-auto"
+      v-show="drawerLeft"
+    ></v-row>
+    <!--menu/txp-->
     <v-parallax
       class="SfParallax"
       src="/static/images/bg/bg8.jpg"
       height="850"
     ></v-parallax>
-    <v-row class="r_main r_main_h_LG mx-auto" justify="start" align="start"
-      ><!--rr-->
-      <v-col cols="2" class="carcol carcolsx"></v-col
-      ><!--sx-->
-      <v-col cols="8" class="cx_main"
-        ><!--cx-->
+
+    <div class="r_main_hsUp_LG">spazio Up lg</div>
+
+    <v-row
+      class="r_main r_main_h_LG mx-auto"
+      justify="start"
+      align="start"
+    >
+      <!--rr-->
+      <v-col
+        cols="2"
+        class="carcol carcolsx"
+      ></v-col>
+      <!--sx-->
+
+      <v-col
+        cols="8"
+        class="cx_main"
+      >
+        <!--cx-->
         <v-card class="card_main Anc_BC_BlueDark">
-          <!--Contatti
-          <v-chip
-            class="ma-4 pa-4"
-            color="red"
-            text-color="white"
-            @click="gotoR('contatti/')"
+          <!--/*Contatti4lg*/-->
+          <v-row
+            align="center"
+            justify="center"
+            id="rci"
+            dark
           >
-            <v-row align="center" justify="center" id="rci" dark>
-              <a>{{ lang.t[0].lista[0].t[2].text }}</a>
-            </v-row>
-          </v-chip>
--->
-          <v-row align="center" justify="center" id="rci" dark>
-            <v-col cols="5"
-              ><p1
+            <v-col cols="5">
+              <p1
                 :langCode="130"
                 :tn="[
                   { id: '1' },
@@ -43,13 +52,16 @@
                   { id: '9' }
                 ]"
                 :src="img1"
-              ></p1
-            ></v-col>
+              ></p1>
+            </v-col>
 
-            <v-divider dark vertical></v-divider>
+            <v-divider
+              dark
+              vertical
+            ></v-divider>
 
-            <v-col cols="5"
-              ><p1
+            <v-col cols="5">
+              <p1
                 :langCode="130"
                 :tn="[
                   { id: '2' },
@@ -60,26 +72,22 @@
                   { id: '10' }
                 ]"
                 :src="img2"
-              ></p1
-            ></v-col>
-            <!--
-            <rc1Img
-              :imgtype="'imgSmall'"
-              :src="img3"
-              :height="250"
-              :width="250"
-            ></rc1Img>
-
-            <v-col><p1></p1></v-col>
-            -->
+              ></p1>
+            </v-col>
           </v-row>
+          <!--/*Contatti4lg*/-->
         </v-card>
         <AncIntestazioneFine></AncIntestazioneFine>
-        <div class="r_main_hsDown_LG">spazio Down lg</div>
-        <!--rr--> </v-col
-      ><!--cx-->
-      <v-col cols="2" class="carcol carcoldx"></v-col
-      ><!--dx-->
+        <!--spazio Down lg-->
+        <div class="r_main_hsDown_LG"></div>
+        <!--rr-->
+      </v-col>
+      <!--cx-->
+      <v-col
+        cols="2"
+        class="carcol carcoldx"
+      ></v-col>
+      <!--dx-->
     </v-row>
   </div>
 </template>
@@ -96,7 +104,7 @@ export default {
     p1
   },
   props: {},
-  data() {
+  data () {
     return {
       tn1: [{ id: "0" }, { id: "1" }, { id: "2" }, { id: "3" }],
       mappa1:
@@ -110,92 +118,92 @@ export default {
   },
   computed: {
     /*  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  */
-    lang() {
+    lang () {
       return this.$store.getters.getCurrentLanguage;
     },
-    languages() {
+    languages () {
       return this.$store.getters.getLanguages;
     },
-    languagesShow() {
+    languagesShow () {
       return this.$store.getters.getLanguagesShow;
     },
     /*  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  */
-    drawer() {
+    drawer () {
       return this.$store.getters.getDrawer;
     },
-    drawerLeft() {
+    drawerLeft () {
       return this.$store.getters.getDrawerLeft;
     },
-    drawerRight() {
+    drawerRight () {
       return this.$store.getters.getDrawerRight;
     },
-    drawerSottocategoria() {
+    drawerSottocategoria () {
       return this.$store.getters.getDrawerSottocategoria;
     },
     /*  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  */
-    iconX() {
+    iconX () {
       return this.$store.getters.getIconX;
     },
-    iconO() {
+    iconO () {
       return this.$store.getters.getIconO;
     },
-    iconOdx() {
+    iconOdx () {
       return this.$store.getters.getIconOdx;
     },
-    iconC() {
+    iconC () {
       return this.$store.getters.getIconC;
     },
-    iconCdx() {
+    iconCdx () {
       return this.$store.getters.getIconCdx;
     },
     /*  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  */
-    categorie() {
+    categorie () {
       return this.$store.getters.categorie;
     },
-    C() {
+    C () {
       return this.$store.getters.getC;
     },
-    CS() {
+    CS () {
       return this.$store.getters.getCS;
     },
     /*  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  */
-    requestUser() {
+    requestUser () {
       return this.$store.getters.requestUser;
     },
-    requestUserIsStaff() {
+    requestUserIsStaff () {
       return this.$store.getters.requestUserIsStaff;
     },
-    requestUserIsSuper() {
+    requestUserIsSuper () {
       return this.$store.getters.requestUserIsSuper;
     },
-    requestUserAvatar() {
+    requestUserAvatar () {
       return this.$store.getters.requestUserAvatar;
     },
-    requestUserBio() {
+    requestUserBio () {
       return this.$store.getters.requestUserBio;
     },
-    requestToken() {
+    requestToken () {
       return this.$store.getters.requestToken;
     },
     /*  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  */
-    rcS() {
+    rcS () {
       return this.$store.getters.rcS;
     },
-    rcD() {
+    rcD () {
       return this.$store.getters.rcD;
     },
-    rcU() {
+    rcU () {
       return this.$store.getters.rcU;
     },
     /* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
-    admin() {
+    admin () {
       return this.$store.getters.admin;
     },
-    admincommands() {
+    admincommands () {
       return this.$store.getters.admincommands;
     },
     /* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
-    currentres() {
+    currentres () {
       switch (this.$vuetify.breakpoint.name) {
         case "xs":
           return "xs";
@@ -212,20 +220,20 @@ export default {
   },
   methods: {
     /*2020 06 16*/
-    gotoR(r) {
+    gotoR (r) {
       this.expand = !this.expand;
       this.$store.dispatch("setDF");
       this.$store.dispatch("gotoR", r);
     },
-    v(link) {
+    v (link) {
       this.$store.dispatch("vola", link);
     }
   },
-  created() {},
-  updated() {
+  created () { },
+  updated () {
     console.log("contatti4lg oncreate-- > start");
   },
-  mounted() {}
+  mounted () { }
 };
 </script>
 
@@ -269,7 +277,6 @@ export default {
 
 /*responsive...*/
 .r_main_h_LG {
-  margin-top: 150px;
   height: 600px;
 }
 .r_main_hsUp_LG {

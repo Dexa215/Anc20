@@ -2,34 +2,68 @@
 
 <template>
   <div class="SfBase">
-    <v-row class="rT rT_lv rThXL rTbg2 mx-auto" v-show="drawerLeft"></v-row
-    ><!--menu/txp-->
+    <v-row
+      class="rT rT_lv rThXL rTbg2 mx-auto"
+      v-show="drawerLeft"
+    ></v-row>
+    <!--menu/txp-->
     <v-parallax
       class="SfParallax"
       src="/static/images/bg/bg8.jpg"
       height="850"
     ></v-parallax>
+
     <div class="r_main_hsUp_LG">spazio Up lg</div>
-    <v-row class="r_main r_main_h_LG mx-auto" justify="start" align="start">
-      <v-col cols="2" class="carcol carcolsx"></v-col
-      ><!--sx-->
-      <v-col cols="8" class="cx_main"
-        ><!--cx-->
+
+    <v-row
+      class="r_main r_main_h_LG mx-auto"
+      justify="start"
+      align="start"
+    >
+      <v-col
+        cols="2"
+        class="carcol carcolsx"
+      ></v-col>
+      <!--sx-->
+
+      <v-col
+        cols="8"
+        class="cx_main"
+      >
+        <!--cx-->
         <v-card class="card_main Anc_BC_BlueDark">
           <rc3
             :langCode="121"
             :tn="[{ id: '0' }, { id: '1' }, { id: '2' }, { id: '3' }]"
           ></rc3>
-          <rc1Img :imgtype="'iframe'" :src="mappa1" :height="550"></rc1Img>
-          <rc2pTOP :langCode="121" :tn="[{ id: '6' }, { id: '16' }]"></rc2pTOP>
+          <rc1Img
+            :imgtype="'iframe'"
+            :src="mappa1"
+            :height="550"
+          ></rc1Img>
+          <rc2pTOP
+            :langCode="121"
+            :tn="[{ id: '6' }, { id: '16' }]"
+          ></rc2pTOP>
           <rc1pBOTTOMlink
             :langCode="121"
             :tn="[{ id: '10' }]"
             :link="link2"
           ></rc1pBOTTOMlink>
-          <rc1Img :imgtype="'img'" :src="img1" :height="550"></rc1Img>
-          <rc1p :langCode="121" :tn="[{ id: '7' }]"></rc1p>
-          <rc1Img :imgtype="'iframe'" :src="mappa2" :height="550"></rc1Img>
+          <rc1Img
+            :imgtype="'img'"
+            :src="img1"
+            :height="550"
+          ></rc1Img>
+          <rc1p
+            :langCode="121"
+            :tn="[{ id: '7' }]"
+          ></rc1p>
+          <rc1Img
+            :imgtype="'iframe'"
+            :src="mappa2"
+            :height="550"
+          ></rc1Img>
           <rc3pTOP
             :langCode="121"
             :tn="[{ id: '8' }, { id: '15' }, { id: '9' }]"
@@ -45,13 +79,21 @@
             :height="250"
             :width="250"
           ></rc1Img>
-          <rc1p :langCode="121" :tn="[{ id: '13' }]"></rc1p>
+          <rc1p
+            :langCode="121"
+            :tn="[{ id: '13' }]"
+          ></rc1p>
         </v-card>
         <AncIntestazioneFine></AncIntestazioneFine>
-        <div class="r_main_hsDown_LG">spazio Down lg</div> </v-col
-      ><!--cx-->
-      <v-col cols="2" class="carcol carcoldx"></v-col
-      ><!--dx-->
+        <!--spazio Down lg-->
+        <div class="r_main_hsDown_LG"></div>
+      </v-col>
+      <!--cx-->
+      <v-col
+        cols="2"
+        class="carcol carcoldx"
+      ></v-col>
+      <!--dx-->
     </v-row>
   </div>
 </template>
@@ -94,7 +136,7 @@ export default {
   },
 
   props: {},
-  data() {
+  data () {
     return {
       testo1: "testo 1 ...",
       testo2: "testo 2 ...",
@@ -118,92 +160,92 @@ export default {
   },
   computed: {
     /*  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  */
-    lang() {
+    lang () {
       return this.$store.getters.getCurrentLanguage;
     },
-    languages() {
+    languages () {
       return this.$store.getters.getLanguages;
     },
-    languagesShow() {
+    languagesShow () {
       return this.$store.getters.getLanguagesShow;
     },
     /*  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  */
-    drawer() {
+    drawer () {
       return this.$store.getters.getDrawer;
     },
-    drawerLeft() {
+    drawerLeft () {
       return this.$store.getters.getDrawerLeft;
     },
-    drawerRight() {
+    drawerRight () {
       return this.$store.getters.getDrawerRight;
     },
-    drawerSottocategoria() {
+    drawerSottocategoria () {
       return this.$store.getters.getDrawerSottocategoria;
     },
     /*  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  */
-    iconX() {
+    iconX () {
       return this.$store.getters.getIconX;
     },
-    iconO() {
+    iconO () {
       return this.$store.getters.getIconO;
     },
-    iconOdx() {
+    iconOdx () {
       return this.$store.getters.getIconOdx;
     },
-    iconC() {
+    iconC () {
       return this.$store.getters.getIconC;
     },
-    iconCdx() {
+    iconCdx () {
       return this.$store.getters.getIconCdx;
     },
     /*  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  */
-    categorie() {
+    categorie () {
       return this.$store.getters.categorie;
     },
-    C() {
+    C () {
       return this.$store.getters.getC;
     },
-    CS() {
+    CS () {
       return this.$store.getters.getCS;
     },
     /*  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  */
-    requestUser() {
+    requestUser () {
       return this.$store.getters.requestUser;
     },
-    requestUserIsStaff() {
+    requestUserIsStaff () {
       return this.$store.getters.requestUserIsStaff;
     },
-    requestUserIsSuper() {
+    requestUserIsSuper () {
       return this.$store.getters.requestUserIsSuper;
     },
-    requestUserAvatar() {
+    requestUserAvatar () {
       return this.$store.getters.requestUserAvatar;
     },
-    requestUserBio() {
+    requestUserBio () {
       return this.$store.getters.requestUserBio;
     },
-    requestToken() {
+    requestToken () {
       return this.$store.getters.requestToken;
     },
     /*  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  */
-    rcS() {
+    rcS () {
       return this.$store.getters.rcS;
     },
-    rcD() {
+    rcD () {
       return this.$store.getters.rcD;
     },
-    rcU() {
+    rcU () {
       return this.$store.getters.rcU;
     },
     /* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
-    admin() {
+    admin () {
       return this.$store.getters.admin;
     },
-    admincommands() {
+    admincommands () {
       return this.$store.getters.admincommands;
     },
     /* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
-    currentres() {
+    currentres () {
       switch (this.$vuetify.breakpoint.name) {
         case "xs":
           return "xs";
@@ -222,121 +264,23 @@ export default {
   methods: {
     /*2020 06 16*/
 
-    gotoR(r) {
+    gotoR (r) {
       this.expand = !this.expand;
       this.$store.dispatch("setDF");
       this.$store.dispatch("gotoR", r);
     },
-    v(link) {
+    v (link) {
       /*tis.$emit("vola", link);*/
-
       this.$store.dispatch("vola", link);
     }
   },
-  created() {},
-  updated() {
+  created () { },
+  updated () {
     console.log("tess4lg oncreate-- > start");
   },
-  mounted() {}
+  mounted () { }
 };
 </script>
-
-<style media="screen" scoped>
-/* row Transparent level  */
-/*
-  .rT_lv {position: absolute;z-index: 6;}
-
-  .ancsederLG {
-    position: absolute;
-    z-index: 5;
-    //height: 600px;
-    height: 1000px;
-    width: 100%;
-    background-color: transparent;
-    opacity: 1;
-    //transparent;
-    padding-top: 20px;
-    padding-bottom: 20px;
-  }
-
-  .sedecolcx {
-    background-color: transparent;
-    opacity: 1;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    border-radius: 15px;
-  }
-
-  .sedecardcx {
-    opacity: 0.8;
-    padding-top: 20px;
-    padding-bottom: 20px;
-
-    margin-top: 20px;
-    margin-bottom: 20px;
-    border-radius: 45px;
-  }
-
-  .SfParallaxSede {
-    //Sfondo Parallax
-    position: absolute;
-    z-index: 1;
-    opacity: 0.15;
-    width: 100%;
-  }
-
-//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  .home4SfShUp {height: 150px; background-color: transparent;}
-  .home4SfShDown {height: 50px;}
-
-
-//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-  .h3 {
-    color: black;
-  }
-
-  .cardround {
-    border-radius: 45px 45px 45px 45px;
-    //TL-TR-BR-BL
-  }
-
-
-  //  Colori Globali        Background        
-  .Anc_BC {
-    background-color: rgb(19, 21, 36);
-    color: antiquewhite;
-  }
-
-  .Anc_BC_Blue {
-    background-color: rgb(4, 11, 46);
-    color: aliceblue;
-  }
-
-  .Anc_BC_BlueDark {
-    background-color: rgb(1, 4, 20);
-    color: blanchedalmond;
-  }
-
-  .Anc_BC_Transparent {
-    background-color: transparent;
-    color: blanchedalmond;
-  }
-
-  //Cards..
-  .c {
-    border-radius: 45px;
-    }
-
-  .cTop {
-    border-radius: 45px 45px 0px 0px;
-    }
-
-  .cBottom {
-    border-radius: 0px 0px 45px 45px;
-   }
-*/
-</style>
 
 <style media="screen" scoped>
 /*20201204*/

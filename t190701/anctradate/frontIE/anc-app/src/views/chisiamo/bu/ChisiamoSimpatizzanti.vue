@@ -1,8 +1,16 @@
 <template>
-  <div class="tesseramento">
-    <v-row class="AncTrasparenza" v-show="drawerLeft"></v-row>
+  <div class="chisiamosimpatizzanti">
+    <v-row
+      class="AncTrasparenza"
+      v-show="drawerLeft"
+    ></v-row>
     <!-- Ai  -->
-    <AncIntestazione :C="70" :CS="0" :categorie="categorie" @gotoR="gotoR"></AncIntestazione>
+    <AncIntestazione
+      :C="40"
+      :CS="43"
+      :categorie="categorie"
+      @gotoR="gotoR"
+    ></AncIntestazione>
     <!-- Ai  -->
 
     <div>
@@ -11,50 +19,51 @@
         <!--container-fluid -->
         <!-- Titolo -->
         <AncCard
-          :C="70"
-          :CS="0"
+          :C="40"
+          :CS="43"
           :categorie="categorie"
           :evidenza="Eevents"
           :Titolone="Titolone"
           @gotoR="gotoR"
         ></AncCard>
         <!-- Titolo -->
+
         <!-- **** -->
 
-        <v-row dense class="row ma-2 pa-2" align="center" justify="center">
-          <!-- row 00 -->
-          <!-- Riassunto tesseramento -->
-
-          <v-col cols="12">
-            <v-card class="pa-4" light>
-              <v-row dense class="row ma-2 pa-2" align="center" justify="center">
-                <h3>Sei un collega in congedo e non ti sei ancora iscritto all'ANC?</h3>
-                <br />
-              </v-row>
-              <v-row dense class="row ma-2 pa-2" align="center" justify="center">
-                <h2 class="display-2">
-                  <strong>E cosa aspetti, la carrozza?</strong>
-                </h2>
-              </v-row>
-
-              <v-row dense class="row ma-2 pa-2" align="center" justify="center">
-                <v-img src="/static/images/Materiale/carrozza.png" max-width="250px"></v-img>
-              </v-row>
-              <v-row dense class="row ma-2 pa-2" align="center" justify="center">
-                <!--h3>Bastano 2 foto formato tessera. Facile no?</h3-->
-              </v-row>
-              <v-row dense class="row ma-2 pa-2" align="center" justify="center">
-                <v-btn @click="gotoR('/tesseramentoprassi')">Come fare</v-btn>
-              </v-row>
+        <v-row
+          dense
+          class="row ma-2 pa-2"
+        >
+          <!-- row 01 -->
+          <!--  -->
+          <v-col
+            cols="4"
+            v-for="cat in cats"
+            :key="cat.n"
+          >
+            <v-card
+              light
+              class="pa-4"
+              height="400px"
+            >
+              <v-img
+                :src="cat.link"
+                width="300"
+                max-height="200"
+              ></v-img>
+              <v-card-title>{{ cat.descrizione }}</v-card-title>
             </v-card>
           </v-col>
         </v-row>
-        <!-- row 00 -->
-        <!-- Riassunto Sede -->
+        <!-- row 01 -->
+        <!--  -->
 
         <!-- **** -->
 
-        <v-row dense class="row ma-2 pa-2">
+        <v-row
+          dense
+          class="row ma-2 pa-2"
+        >
           <!-- row 7 -->
           <!-- The end -->
           <!-- AiF -->
@@ -65,7 +74,7 @@
               :intFMsg="intMsg"
               :intFMsgSubH="intMsgSubH"
               :linksFP="linksFP"
-              src="../../src/assets/images/Icone/busS.png"
+              :src="src"
             ></AncIntestazioneFine>
           </div>
           <!-- AiF -->
@@ -78,15 +87,14 @@
     <!-- div 00 -->
   </div>
 </template>
-
 <script>
-import router from "../router";
+import router from "../../../router";
 import AncIntestazione from "@/components/AncIntestazione.vue";
 import AncIntestazioneFine from "@/components/AncIntestazioneFine.vue";
 import AncCard from "@/components/AncCard.vue";
 
 export default {
-  name: "tesseramento",
+  name: "chisiamosimpatizzanti",
 
   components: {
     AncIntestazione,
@@ -106,44 +114,54 @@ export default {
     linksFP: { type: Array }, //
     src: { type: String },
 
+    catsChi: { type: Array }, //
+    catsConsiglio: { type: Array }, //
+
     categorie: { type: Array },
     C: { type: Number },
     CS: { type: Number },
+
     drawerLeft: { type: Boolean }
   },
 
-  data() {
-    return {};
+  data () {
+    return {
+      catLink: "/chisiamo",
+
+      img1: "/static/images/Icone/bus.jpg", // chisiamo cappello soci
+      img2: "/static/images/Icone/ben.jpg", // chisiamo cappello benemerite
+      img3: "/static/images/Icone/cap.jpg", // chisiamo cappello simpatizzanti
+
+      alignment: "start",
+      justify: "start",
+      dense: false
+    };
   },
 
   methods: {
-    setMyPar() {
+    setMyPar () {
       let myparam = {
-        Ccurrent: 70,
-        CScurrent: 0
+        Ccurrent: 40,
+        CScurrent: 43
       };
       this.$emit("spMC", myparam); //spMC -- > sAVE pARAMETER / menu Cat
     },
-
-    gotoR(r) {
+    gotoR (r) {
       console.log("rotta per...");
       this.$emit("gotoR", r);
     }
-  }, //methods
-
-  created() {
-    console.log("sede oncreate --> start");
-    this.setMyPar();
+  },
+  created () {
+    console.log("chisiamosimpatizzanti created --> start");
+    //this.setMyPar();
   }
 };
 </script>
 
 <style media="screen">
-.tesseramento {
-  background-color: pink;
+.chisiamosimpatizzanti {
+  background-color: greenyellow;
   width: 100%;
   height: 100%;
 }
 </style>
-
-

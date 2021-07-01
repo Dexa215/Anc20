@@ -1,8 +1,16 @@
 <template>
   <div class="tesseramentoprassi">
-    <v-row class="AncTrasparenza" v-show="drawerLeft"></v-row>
+    <v-row
+      class="AncTrasparenza"
+      v-show="drawerLeft"
+    ></v-row>
 
-    <AncIntestazione :C="70" :CS="71" :categorie="categorie" @gotoR="gotoR"></AncIntestazione>
+    <AncIntestazione
+      :C="70"
+      :CS="71"
+      :categorie="categorie"
+      @gotoR="gotoR"
+    ></AncIntestazione>
     <!-- Ai  -->
 
     <div>
@@ -30,8 +38,16 @@
           align="start"
           justify="center"
         >
-          <v-col class="t c110" cols="12" align="center" justify="center">
-            <v-stepper :value="e6" :alt-labels="true">
+          <v-col
+            class="t c110"
+            cols="12"
+            align="center"
+            justify="center"
+          >
+            <v-stepper
+              :value="e6"
+              :alt-labels="true"
+            >
               <v-stepper-header>
                 <v-stepper-step
                   v-for="st in steps"
@@ -45,15 +61,37 @@
                 </v-stepper-step>
               </v-stepper-header>
 
-              <v-btn v-if="e6 != 3" class="ma-4" color="#ffbe4d" @click="e6plus">Passo successivo</v-btn>
-              <v-btn v-else class="ma-4" color="#ffbe4d" @click="e6plus">Torna all'inizio</v-btn>
+              <v-btn
+                v-if="e6 != 3"
+                class="ma-4"
+                color="#ffbe4d"
+                @click="e6plus"
+              >Passo successivo</v-btn>
+              <v-btn
+                v-else
+                class="ma-4"
+                color="#ffbe4d"
+                @click="e6plus"
+              >Torna all'inizio</v-btn>
 
-              <v-stepper-content v-for="st in steps" :key="`${st.n}-step`" :step="st.n">
-                <v-card style="background-color:white;" class="pa-1 mb-1">
+              <v-stepper-content
+                v-for="st in steps"
+                :key="`${st.n}-step`"
+                :step="st.n"
+              >
+                <v-card
+                  style="background-color:white;"
+                  class="pa-1 mb-1"
+                >
                   <v-card-content class="pa-1 mb-1">
                     <div>{{ st.descrizione }}</div>
 
-                    <v-img class="ma-4" :src="st.foto" width="100px" eight="150px"></v-img>
+                    <v-img
+                      class="ma-4"
+                      :src="st.foto"
+                      width="100px"
+                      eight="150px"
+                    ></v-img>
 
                     <hr />
                   </v-card-content>
@@ -179,7 +217,10 @@
 
         <!-- **** -->
 
-        <v-row dense class="row ma-2 pa-2">
+        <v-row
+          dense
+          class="row ma-2 pa-2"
+        >
           <!-- row 7 -->
           <!-- The end -->
           <!-- AiF -->
@@ -205,7 +246,7 @@
 </template>
 
 <script>
-import router from "../router";
+import router from "../../../router";
 import AncIntestazione from "@/components/AncIntestazione.vue";
 import AncIntestazioneFine from "@/components/AncIntestazioneFine.vue";
 import AncCard from "@/components/AncCard.vue";
@@ -237,7 +278,7 @@ export default {
     drawerLeft: { type: Boolean }
   },
 
-  data() {
+  data () {
     return {
       e6: 1,
       steps: [
@@ -279,7 +320,7 @@ export default {
   },
 
   methods: {
-    setMyPar() {
+    setMyPar () {
       let myparam = {
         Ccurrent: 70,
         CScurrent: 71
@@ -287,7 +328,7 @@ export default {
       this.$emit("spMC", myparam); //spMC -- > sAVE pARAMETER / menu Cat
     },
 
-    e6plus() {
+    e6plus () {
       let e6 = this.e6;
       if (e6 == 3) {
         this.e6 = 1;
@@ -296,13 +337,13 @@ export default {
       }
     },
 
-    gotoR(r) {
+    gotoR (r) {
       console.log("rotta per...");
       this.$emit("gotoR", r);
     }
   }, //methods
 
-  created() {
+  created () {
     console.log("sede oncreate --> start");
     this.setMyPar();
   }

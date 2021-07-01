@@ -19,11 +19,11 @@
 /* Transitions */
 
 /*Res Menu*/
-import tessP1xs from "@/views/tesseramentoPrassi/TessP1xs.vue";
-import tessP2sm from "@/views/tesseramentoPrassi/TessP2sm.vue";
-import tessP3md from "@/views/tesseramentoPrassi/TessP3md.vue";
-import tessP4lg from "@/views/tesseramentoPrassi/TessP4lg.vue";
-import tessP5xl from "@/views/tesseramentoPrassi/TessP5xl.vue";
+import tessP1xs from "@/views/tesseramento/tesseramentoPrassi/TessP1xs.vue";
+import tessP2sm from "@/views/tesseramento/tesseramentoPrassi/TessP2sm.vue";
+import tessP3md from "@/views/tesseramento/tesseramentoPrassi/TessP3md.vue";
+import tessP4lg from "@/views/tesseramento/tesseramentoPrassi/TessP4lg.vue";
+import tessP5xl from "@/views/tesseramento/tesseramentoPrassi/TessP5xl.vue";
 
 export default {
   name: "tessP",

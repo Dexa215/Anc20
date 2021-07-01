@@ -1,12 +1,27 @@
 <template>
   <div class="chisiamobenemerite">
-    <v-row dense class="row ma-2 pa-2">
+    <v-row
+      dense
+      class="row ma-2 pa-2"
+    >
       <!-- row 01 -->
       <!--  -->
-      <v-col cols="4" v-for="cat in cats" :key="cat.n">
-        <v-card light class="pa-4" height="400px">
-          <v-img :src="cat.link" width="300" max-height="200"></v-img>
-          <v-card-title>{{cat.descrizione}}</v-card-title>
+      <v-col
+        cols="4"
+        v-for="cat in cats"
+        :key="cat.n"
+      >
+        <v-card
+          light
+          class="pa-4"
+          height="400px"
+        >
+          <v-img
+            :src="cat.link"
+            width="300"
+            max-height="200"
+          ></v-img>
+          <v-card-title>{{ cat.descrizione }}</v-card-title>
         </v-card>
       </v-col>
     </v-row>
@@ -15,7 +30,10 @@
 
     <!-- **** -->
 
-    <v-row dense class="row ma-2 pa-2">
+    <v-row
+      dense
+      class="row ma-2 pa-2"
+    >
       <!-- row 7 -->
       <!-- The end -->
       <!-- AiF -->
@@ -36,7 +54,7 @@
   </div>
 </template>
 <script>
-import router from "../router";
+import router from "../../../router";
 import AncIntestazione from "@/components/AncIntestazione.vue";
 import AncIntestazioneFine from "@/components/AncIntestazioneFine.vue";
 import AncCard from "@/components/AncCard.vue";
@@ -68,7 +86,7 @@ export default {
     drawerLeft: { type: Boolean }
   },
 
-  data() {
+  data () {
     return {
       catLink: "/chisiamo",
 
@@ -83,26 +101,25 @@ export default {
   },
 
   methods: {
-    setMyPar() {
+    setMyPar () {
       let myparam = {
         Ccurrent: 40,
         CScurrent: 42
       };
       this.$emit("spMC", myparam); //spMC -- > sAVE pARAMETER / menu Cat
     },
-    gotoR(r) {
+    gotoR (r) {
       console.log("rotta per...");
       this.$emit("gotoR", r);
     }
   },
 
-  created() {
+  created () {
     console.log("chisiamobenemerite created --> start");
     //this.setMyPar();
   }
 };
 </script>
-
 
 <style media="screen">
 .chisiamobenemerite {

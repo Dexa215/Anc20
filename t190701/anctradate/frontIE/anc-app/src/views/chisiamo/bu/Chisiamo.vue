@@ -1,8 +1,16 @@
 <template>
   <div class="chisiamo">
-    <v-row class="AncTrasparenza" v-show="drawerLeft"></v-row>
+    <v-row
+      class="AncTrasparenza"
+      v-show="drawerLeft"
+    ></v-row>
     <!-- Ai  -->
-    <AncIntestazione :C="C" :CS="CS" :categorie="categorie" @gotoR="gotoR"></AncIntestazione>
+    <AncIntestazione
+      :C="C"
+      :CS="CS"
+      :categorie="categorie"
+      @gotoR="gotoR"
+    ></AncIntestazione>
     <!-- Ai  -->
 
     <div>
@@ -22,13 +30,30 @@
 
         <!-- **** -->
 
-        <v-row dense class="row ma-2 pa-2">
+        <v-row
+          dense
+          class="row ma-2 pa-2"
+        >
           <!-- row 01 -->
           <!--  -->
-          <v-col cols="4" v-for="cat in categorie[3].sottocategorie" :key="cat.n">
-            <v-card light class="pa-4" height="400px" hover @click="gotoR(cat.link)">
-              <v-img :src="cat.img" width="300" max-height="200"></v-img>
-              <v-card-title>{{cat.descrizione}}</v-card-title>
+          <v-col
+            cols="4"
+            v-for="cat in categorie[3].sottocategorie"
+            :key="cat.n"
+          >
+            <v-card
+              light
+              class="pa-4"
+              height="400px"
+              hover
+              @click="gotoR(cat.link)"
+            >
+              <v-img
+                :src="cat.img"
+                width="300"
+                max-height="200"
+              ></v-img>
+              <v-card-title>{{ cat.descrizione }}</v-card-title>
             </v-card>
           </v-col>
         </v-row>
@@ -38,9 +63,15 @@
         <!-- row 00 -->
         <!--  -->
 
-        <v-row dense class="row ma-2 pa-2">
+        <v-row
+          dense
+          class="row ma-2 pa-2"
+        >
           <v-col cols="12">
-            <p>La Sezione é formata dai Soci Effettivi, dalle Benemerite e dai Simpatizzanti.</p>
+            <p>
+              La Sezione é formata dai Soci Effettivi, dalle Benemerite e dai
+              Simpatizzanti.
+            </p>
           </v-col>
         </v-row>
 
@@ -49,12 +80,20 @@
 
         <!-- **** -->
 
-        <v-row dense class="row ma-2 pa-2">
+        <v-row
+          dense
+          class="row ma-2 pa-2"
+        >
           <!-- row 7 -->
           <!-- The end -->
           <!-- AiF -->
           <div class="container-fluid text-center">
-            <AncIntestazioneFine :C="C" :CS="CS" :categorie="categorie" @gotoR="gotoR"></AncIntestazioneFine>
+            <AncIntestazioneFine
+              :C="C"
+              :CS="CS"
+              :categorie="categorie"
+              @gotoR="gotoR"
+            ></AncIntestazioneFine>
           </div>
           <!-- AiF -->
         </v-row>
@@ -67,7 +106,7 @@
   </div>
 </template>
 <script>
-import router from "../router";
+import router from "../../../router";
 import AncIntestazione from "@/components/AncIntestazione.vue";
 import AncIntestazioneFine from "@/components/AncIntestazioneFine.vue";
 import AncCard from "@/components/AncCard.vue";
@@ -104,7 +143,7 @@ export default {
     drawerLeft: { type: Boolean }
   },
 
-  data() {
+  data () {
     return {
       Titolone: null,
       evidenza: [],
@@ -118,7 +157,7 @@ export default {
   },
 
   methods: {
-    setMyPar() {
+    setMyPar () {
       let myparam = {
         Ccurrent: 40,
         CScurrent: 0
@@ -145,19 +184,18 @@ export default {
       this.$emit("spMC", myparam); //spMC -- > sAVE pARAMETER / menu Cat
     },
 
-    gotoR(r) {
+    gotoR (r) {
       console.log("rotta per...");
       this.$emit("gotoR", r);
     }
   }, //methods
 
-  created() {
+  created () {
     console.log("chisiamo created --> start");
     //this.setMyPar();
   }
 };
 </script>
-
 
 <style media="screen">
 .chisiamo {

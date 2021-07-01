@@ -1,8 +1,16 @@
 <template>
-  <div class="chisiamosimpatizzanti">
-    <v-row class="AncTrasparenza" v-show="drawerLeft"></v-row>
+  <div class="chisiamosoci">
+    <v-row
+      class="AncTrasparenza"
+      v-show="drawerLeft"
+    ></v-row>
     <!-- Ai  -->
-    <AncIntestazione :C="40" :CS="43" :categorie="categorie" @gotoR="gotoR"></AncIntestazione>
+    <AncIntestazione
+      :C="40"
+      :CS="41"
+      :categorie="categorie"
+      @gotoR="gotoR"
+    ></AncIntestazione>
     <!-- Ai  -->
 
     <div>
@@ -12,7 +20,7 @@
         <!-- Titolo -->
         <AncCard
           :C="40"
-          :CS="43"
+          :CS="41"
           :categorie="categorie"
           :evidenza="Eevents"
           :Titolone="Titolone"
@@ -22,13 +30,59 @@
 
         <!-- **** -->
 
-        <v-row dense class="row ma-2 pa-2">
+        <v-row
+          dense
+          class="row ma-2 pa-2"
+        >
+          <!-- row 00 -->
+          <!--  -->
+          <v-col cols="12">
+            <v-card
+              class="pa-4"
+              light
+              elevation="-4"
+            >
+              <h2>Divisione dei compiti</h2>
+              <p>
+                Al fine di organizzare... Lorem ipsum dolor, sit amet
+                consectetur adipisicing elit. Quas ad quaerat atque libero nam
+                excepturi porro culpa, aliquam blanditiis, illum suscipit animi
+                laboriosam laudantium quidem neque similique, dolore maxime
+                autem!
+              </p>
+            </v-card>
+          </v-col>
+        </v-row>
+        <!-- row 00 -->
+        <!--  -->
+
+        <h2>Ruoli</h2>
+        <!--h3>le figure che compongono la Sezione </h3-->
+
+        <v-row
+          dense
+          class="row ma-2 pa-2"
+        >
           <!-- row 01 -->
           <!--  -->
-          <v-col cols="4" v-for="cat in cats" :key="cat.n">
-            <v-card light class="pa-4" height="400px">
-              <v-img :src="cat.link" width="300" max-height="200"></v-img>
-              <v-card-title>{{cat.descrizione}}</v-card-title>
+          <v-col
+            cols="3"
+            v-for="cat in catsConsiglio"
+            :key="cat.n"
+          >
+            <v-card
+              light
+              class="pa-4"
+              height="400px"
+              hover
+              @click="gotoR(cat.link)"
+            >
+              <v-img
+                :src="cat.img"
+                width="300"
+                max-height="200"
+              ></v-img>
+              <v-card-title>{{ cat.descrizione }}</v-card-title>
             </v-card>
           </v-col>
         </v-row>
@@ -37,7 +91,10 @@
 
         <!-- **** -->
 
-        <v-row dense class="row ma-2 pa-2">
+        <v-row
+          dense
+          class="row ma-2 pa-2"
+        >
           <!-- row 7 -->
           <!-- The end -->
           <!-- AiF -->
@@ -62,13 +119,13 @@
   </div>
 </template>
 <script>
-import router from "../router";
+import router from "../../../router";
 import AncIntestazione from "@/components/AncIntestazione.vue";
 import AncIntestazioneFine from "@/components/AncIntestazioneFine.vue";
 import AncCard from "@/components/AncCard.vue";
 
 export default {
-  name: "chisiamosimpatizzanti",
+  name: "chisiamo",
 
   components: {
     AncIntestazione,
@@ -94,11 +151,10 @@ export default {
     categorie: { type: Array },
     C: { type: Number },
     CS: { type: Number },
-
     drawerLeft: { type: Boolean }
   },
 
-  data() {
+  data () {
     return {
       catLink: "/chisiamo",
 
@@ -113,29 +169,30 @@ export default {
   },
 
   methods: {
-    setMyPar() {
+    setMyPar () {
       let myparam = {
         Ccurrent: 40,
-        CScurrent: 43
+        CScurrent: 41
       };
       this.$emit("spMC", myparam); //spMC -- > sAVE pARAMETER / menu Cat
     },
-    gotoR(r) {
+
+    gotoR (r) {
       console.log("rotta per...");
       this.$emit("gotoR", r);
     }
-  },
-  created() {
-    console.log("chisiamosimpatizzanti created --> start");
+  }, //methods
+
+  created () {
+    console.log("chisiamo created --> start");
     //this.setMyPar();
   }
 };
 </script>
 
-
 <style media="screen">
-.chisiamosimpatizzanti {
-  background-color: greenyellow;
+.chisiamosoci {
+  background-color: grey;
   width: 100%;
   height: 100%;
 }

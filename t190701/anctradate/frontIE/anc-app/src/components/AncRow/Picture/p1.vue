@@ -2,71 +2,105 @@
 
 <template>
   <div class="rxt">
-    <v-row dense class="row ma-2 pa-2" justify="center">
+    <v-row
+      dense
+      class="row ma-2 pa-2"
+      justify="center"
+    >
       <!--
         text
         type="info"
         color="rgb(1, 4, 20)"-->
       <v-alert
-        class="infogrado"
+        class="infogrado mx-auto"
         v-show="grado"
         transition="scale-transition"
         dense
-        >Grado in servizio
+      >Grado in servizio
       </v-alert>
       <v-alert
         class="infogrado mx-auto"
         v-show="carica"
         transition="scale-transition"
         dense
-        >Carica Sociale</v-alert
-      >
+      >Carica Sociale
+      </v-alert>
       <v-card
         infinite
         dark
         class="pa-4 c Anc_BC mx-auto anccard"
         max-width="344"
       >
-        <v-img
-          v-if="small == true"
-          class="foto fotosmall"
-          :src="src"
-          height="100px"
-          width="150"
-        ></v-img>
-        <v-img
-          v-else
-          class="foto"
-          :src="src"
-          height="200px"
-          width="300"
-        ></v-img>
+        <v-row class="immaginerow">
+          <v-img
+            v-if="small == true"
+            class="foto fotosmall"
+            :src="src"
+            height="100px"
+            width="150"
+          ></v-img>
+          <v-img
+            v-else
+            class="foto"
+            :src="src"
+            height="200px"
+            width="300"
+          ></v-img>
+        </v-row>
 
-        <v-row class="gradorow" align="center" justify="center"
-          ><v-col cols="2"
-            ><v-row align="center" justify="center"
-              ><v-btn icon @mouseover="Grado(true)" @mouseleave="Grado(false)">
-                <v-icon>mdi-shield-star</v-icon>
-              </v-btn></v-row
+        <v-row
+          class="gradorow"
+          align="center"
+          justify="center"
+        >
+          <v-col cols="2">
+            <v-row
+              align="center"
+              justify="center"
             >
+              <v-btn
+                icon
+                @mouseover="Grado(true)"
+                @mouseleave="Grado(false)"
+              >
+                <v-icon>mdi-shield-star</v-icon>
+              </v-btn>
+            </v-row>
           </v-col>
 
           <v-divider vertical></v-divider>
 
-          <v-col cols="2"
-            ><v-row align="center" justify="center">
-              <v-btn icon @mouseover="Carica(true)" @mouseleave="Carica(false)">
+          <v-col cols="2">
+            <v-row
+              align="center"
+              justify="center"
+            >
+              <v-btn
+                icon
+                @mouseover="Carica(true)"
+                @mouseleave="Carica(false)"
+              >
                 <v-icon>mdi-account-tie</v-icon>
               </v-btn>
-            </v-row></v-col
-          >
+            </v-row>
+          </v-col>
+
           <v-col
-            ><v-row v-show="lastcarica" align="center" justify="center">{{
-              t2
-            }}</v-row>
-            <v-row v-show="lastgrado" align="center" justify="center">{{
-              t6
-            }}</v-row>
+            class="ccarica"
+            cols="8"
+          >
+            <v-row
+              class="rcarica"
+              v-show="lastcarica"
+              align="center"
+              justify="center"
+            >{{ t2 }}</v-row>
+            <v-row
+              class="rcarica"
+              v-show="lastgrado"
+              align="center"
+              justify="center"
+            >{{ t6 }}</v-row>
           </v-col>
         </v-row>
 
@@ -77,13 +111,21 @@
         <v-card-subtitle></v-card-subtitle>
 
         <v-card-actions>
-          <v-btn color="orange lighten-2" text @mouseenter="show = !show">
+          <v-btn
+            color="orange lighten-2"
+            text
+            @mouseenter="show = !show"
+          >
             {{ t3 }}
           </v-btn>
 
           <v-spacer></v-spacer>
 
-          <v-btn icon @click="show = !show" @mouseenter="show = !show">
+          <v-btn
+            icon
+            @click="show = !show"
+            @mouseenter="show = !show"
+          >
             <v-icon>{{ show ? "mdi-chevron-up" : "mdi-chevron-down" }}</v-icon>
           </v-btn>
         </v-card-actions>
@@ -102,8 +144,16 @@
               text-color="white"
               @click="gotoR('contatti/')"
             >
-              <v-row align="center" justify="center" id="rci" dark>
-                <a class="mt" href="mailto:posta@anctradate.it">{{
+              <v-row
+                align="center"
+                justify="center"
+                id="rci"
+                dark
+              >
+                <a
+                  class="mt"
+                  href="mailto:posta@anctradate.it"
+                >{{
                   lang.t[1].lista[2].t[13].text
                 }}</a>
               </v-row>
@@ -126,7 +176,7 @@ export default {
     src: { type: String },
     small: { type: Boolean }
   },
-  data() {
+  data () {
     return {
       text: `Hello`,
       show: false,
@@ -137,17 +187,17 @@ export default {
     };
   },
   computed: {
-    c_langt() {
+    c_langt () {
       return parseInt(this.langCode / 100);
     },
-    c_lista() {
+    c_lista () {
       return parseInt((this.langCode % 100) / 10);
     },
-    c_sc() {
+    c_sc () {
       return parseInt(this.langCode % 10);
     },
 
-    t1() {
+    t1 () {
       var lang = this.$store.getters.getCurrentLanguage;
       var t = this.c_langt;
       var l = this.c_lista - 1;
@@ -155,7 +205,7 @@ export default {
       if (this.c_sc == 0) return lang.t[t].lista[l].t[this.tn[0].id].text;
       else return lang.t[t].lista[l].sc[sc].t[this.tn[0].id].text;
     },
-    t2() {
+    t2 () {
       var lang = this.$store.getters.getCurrentLanguage;
       var t = this.c_langt;
       var l = this.c_lista - 1;
@@ -163,7 +213,7 @@ export default {
       if (this.c_sc == 0) return lang.t[t].lista[l].t[this.tn[1].id].text;
       else return lang.t[t].lista[l].sc[sc].t[this.tn[1].id].text;
     },
-    t3() {
+    t3 () {
       var lang = this.$store.getters.getCurrentLanguage;
       var t = this.c_langt;
       var l = this.c_lista - 1;
@@ -171,7 +221,7 @@ export default {
       if (this.c_sc == 0) return lang.t[t].lista[l].t[this.tn[2].id].text;
       else return lang.t[t].lista[l].sc[sc].t[this.tn[2].id].text;
     },
-    t4() {
+    t4 () {
       var lang = this.$store.getters.getCurrentLanguage;
       var t = this.c_langt;
       var l = this.c_lista - 1;
@@ -179,7 +229,7 @@ export default {
       if (this.c_sc == 0) return lang.t[t].lista[l].t[this.tn[3].id].text;
       else return lang.t[t].lista[l].sc[sc].t[this.tn[3].id].text;
     },
-    t5() {
+    t5 () {
       var lang = this.$store.getters.getCurrentLanguage;
       var t = this.c_langt;
       var l = this.c_lista - 1;
@@ -187,7 +237,7 @@ export default {
       if (this.c_sc == 0) return lang.t[t].lista[l].t[this.tn[4].id].text;
       else return lang.t[t].lista[l].sc[sc].t[this.tn[4].id].text;
     },
-    t6() {
+    t6 () {
       var lang = this.$store.getters.getCurrentLanguage;
       var t = this.c_langt;
       var l = this.c_lista - 1;
@@ -197,16 +247,16 @@ export default {
     },
     /*  +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 
-    lang() {
+    lang () {
       return this.$store.getters.getCurrentLanguage;
     },
-    languages() {
+    languages () {
       return this.$store.getters.getLanguages;
     },
-    languagesShow() {
+    languagesShow () {
       return this.$store.getters.getLanguagesShow;
     },
-    currentres() {
+    currentres () {
       switch (this.$vuetify.breakpoint.name) {
         case "xs":
           return "xs";
@@ -225,17 +275,17 @@ export default {
   methods: {
     /*2020 06 16*/
 
-    gotoR(r) {
+    gotoR (r) {
       this.expand = !this.expand;
       this.$store.dispatch("setDF");
       this.$store.dispatch("gotoR", r);
     },
-    v(link) {
+    v (link) {
       /*tis.$emit("vola", link);*/
 
       this.$store.dispatch("vola", link);
     },
-    Grado(d) {
+    Grado (d) {
       this.grado = d;
       if (d == true) {
         this.lastgrado = true;
@@ -246,17 +296,18 @@ export default {
       }
     },
 
-    Carica(d) {
+    Carica (d) {
       this.carica = d;
       if (d == true) {
+        this.lastgrado = false;
         this.lastcarica = true;
       }
     },
-    Mt() {}
+    Mt () { }
   },
-  created() {},
-  updated() {},
-  mounted() {}
+  created () { },
+  updated () { },
+  mounted () { }
 };
 </script>
 
@@ -305,7 +356,16 @@ export default {
 .anccard {
   animation: pulse 1s;
 }
+.immaginerow {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
 .gradorow {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  height: 40px;
+  /*background-color: blueviolet;*/
 }
 .rxt {
   /*background-color: darkgoldenrod;*/
@@ -314,5 +374,21 @@ export default {
 }
 .mt {
   color: antiquewhite;
+}
+.ccarica {
+  height: 100%;
+  width: 100%;
+  /*background-color: burlywood;*/
+  padding: 2px;
+}
+.rcarica {
+  margin-left: 1px;
+  margin-right: 1px;
+  margin-top: 1px;
+  margin-bottom: 1px;
+  height: 100%;
+  width: 100%;
+
+  /*background-color: aqua;*/
 }
 </style>
