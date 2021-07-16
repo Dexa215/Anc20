@@ -2,9 +2,15 @@
 
 <template>
   <!--div class="SfBase"-->
-  <div class="HomeBase" @mousewheel="setSc(true)">
+  <div
+    class="HomeBase"
+    @mousewheel="setSc(true)"
+  >
     <!---->
-    <v-row class="rT rT_lv rThXL rTbg2 mx-auto" v-show="drawerLeft"></v-row>
+    <v-row
+      class="rT rT_lv rThXL rTbg2 mx-auto"
+      v-show="drawerLeft"
+    ></v-row>
     <!--menu/txp-->
     <!--rr-->
     <v-parallax
@@ -15,21 +21,34 @@
 
     <!--div class="r_main_hsUp_LG">spazio Up lg</div-->
 
-    <v-row class="r_main r_main_h_LG mx-auto" justify="start" align="start">
+    <v-row
+      class="r_main r_main_h_LG mx-auto"
+      justify="start"
+      align="start"
+    >
       <!--rr-->
       <!--sx-->
-      <v-col cols="4" class="carcol carcolsx">
+      <v-col
+        cols="4"
+        class="carcol carcolsx"
+      >
         <carP></carP>
       </v-col>
       <!--cx-->
-      <v-col cols="4" class="carcol carcolcx">
+      <v-col
+        cols="4"
+        class="carcol carcolcx"
+      >
         <ancClock></ancClock>
-        <div>test on scroll...{{ scrolling }}</div>
+        <!--div>test on scroll...{{ scrolling }}</div-->
         <AncIntestazioneFine></AncIntestazioneFine>
         <div class="r_main_hsDown_LG">spazio Down lg</div>
       </v-col>
       <!--dx-->
-      <v-col cols="4" class="carcol carcoldx">
+      <v-col
+        cols="4"
+        class="carcol carcoldx"
+      >
         <carF></carF>
       </v-col>
     </v-row>
@@ -98,7 +117,7 @@ export default {
 
   props: {},
 
-  data() {
+  data () {
     return {
       scr: "",
       focusOn: false
@@ -107,92 +126,92 @@ export default {
 
   computed: {
     /*  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  */
-    lang() {
+    lang () {
       return this.$store.getters.getCurrentLanguage;
     },
-    languages() {
+    languages () {
       return this.$store.getters.getLanguages;
     },
-    languagesShow() {
+    languagesShow () {
       return this.$store.getters.getLanguagesShow;
     },
     /*  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  */
-    drawer() {
+    drawer () {
       return this.$store.getters.getDrawer;
     },
-    drawerLeft() {
+    drawerLeft () {
       return this.$store.getters.getDrawerLeft;
     },
-    drawerRight() {
+    drawerRight () {
       return this.$store.getters.getDrawerRight;
     },
-    drawerSottocategoria() {
+    drawerSottocategoria () {
       return this.$store.getters.getDrawerSottocategoria;
     },
     /*  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  */
-    iconX() {
+    iconX () {
       return this.$store.getters.getIconX;
     },
-    iconO() {
+    iconO () {
       return this.$store.getters.getIconO;
     },
-    iconOdx() {
+    iconOdx () {
       return this.$store.getters.getIconOdx;
     },
-    iconC() {
+    iconC () {
       return this.$store.getters.getIconC;
     },
-    iconCdx() {
+    iconCdx () {
       return this.$store.getters.getIconCdx;
     },
     /*  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  */
-    categorie() {
+    categorie () {
       return this.$store.getters.categorie;
     },
-    C() {
+    C () {
       return this.$store.getters.getC;
     },
-    CS() {
+    CS () {
       return this.$store.getters.getCS;
     },
     /*  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  */
-    requestUser() {
+    requestUser () {
       return this.$store.getters.requestUser;
     },
-    requestUserIsStaff() {
+    requestUserIsStaff () {
       return this.$store.getters.requestUserIsStaff;
     },
-    requestUserIsSuper() {
+    requestUserIsSuper () {
       return this.$store.getters.requestUserIsSuper;
     },
-    requestUserAvatar() {
+    requestUserAvatar () {
       return this.$store.getters.requestUserAvatar;
     },
-    requestUserBio() {
+    requestUserBio () {
       return this.$store.getters.requestUserBio;
     },
-    requestToken() {
+    requestToken () {
       return this.$store.getters.requestToken;
     },
     /*  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  */
-    rcS() {
+    rcS () {
       return this.$store.getters.rcS;
     },
-    rcD() {
+    rcD () {
       return this.$store.getters.rcD;
     },
-    rcU() {
+    rcU () {
       return this.$store.getters.rcU;
     },
     /* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
-    admin() {
+    admin () {
       return this.$store.getters.admin;
     },
-    admincommands() {
+    admincommands () {
       return this.$store.getters.admincommands;
     },
     /* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
-    currentres() {
+    currentres () {
       switch (this.$vuetify.breakpoint.name) {
         case "xs":
           return "xs";
@@ -206,51 +225,51 @@ export default {
           return "xl";
       }
     },
-    scrolling() {
+    scrolling () {
       return this.$store.getters.getscrolling;
     }
   },
 
   methods: {
     /*2020 06 16*/
-    gotoR(r) {
+    gotoR (r) {
       this.expand = !this.expand;
       this.$store.dispatch("setDF");
       this.$store.dispatch("gotoR", r);
     },
-    SDL() {
+    SDL () {
       /*Switch Drawer Language*/
       this.$store.dispatch("switchDrawerLang");
     },
-    ScL(val) {
+    ScL (val) {
       /*SET Current Language*/
       this.$store.dispatch("setL", val);
     },
-    DSCset(state) {
+    DSCset (state) {
       /*SC Sotto Categoria*/
       this.$store.dispatch("DSCset", state);
     },
-    setD() {
+    setD () {
       this.$store.dispatch("setD");
     },
-    setDF() {
+    setDF () {
       this.$store.dispatch("setDF");
     },
 
     // Events ...
-    getEventsPast() {
+    getEventsPast () {
       this.$store.dispatch("getEventsPast");
     },
-    getEventsFuture() {
+    getEventsFuture () {
       this.$store.dispatch("getEventsFuture");
     },
 
-    setSc(val) {
+    setSc (val) {
       console.log("setSc", val);
       this.$store.dispatch("setScrolling", val);
     }
   },
-  created() {
+  created () {
     console.log("home oncreate --> start");
     //this.getEventsPast(); // !!store - moduleE
     //this.getEventsFuture(); // !!store - moduleE
@@ -263,11 +282,11 @@ export default {
     //this.clock();
     //this.setMyPar();
   },
-  updated() {
+  updated () {
     //this.getEventsPast(); // !!store - moduleE
     //this.getEventsFuture(); // !!store - moduleE
   },
-  mounted() {}
+  mounted () { }
 };
 </script>
 

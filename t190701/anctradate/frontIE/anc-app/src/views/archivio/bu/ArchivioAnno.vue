@@ -1,6 +1,9 @@
 <template>
   <div class="text-center">
-    <v-row class="AncTrasparenza" v-show="drawerLeft"></v-row>
+    <v-row
+      class="AncTrasparenza"
+      v-show="drawerLeft"
+    ></v-row>
     <v-timeline>
       <v-timeline-item
         v-for="(event, i) in events"
@@ -22,23 +25,29 @@
           ></span>
         </template>
         <div class="py-4">
-          <h2 :class="`headline font-weight-light mb-4 ${year.color}--text mx-4`">{{event.title}}</h2>
+          <h2 :class="`headline font-weight-light mb-4 ${year.color}--text mx-4`">
+            {{ event.title }}
+          </h2>
         </div>
       </v-timeline-item>
     </v-timeline>
 
     <div class="my-4">
       <p v-show="loadingEvents">...loading...</p>
-      <button v-show="next" @click="getEvents" class="btn btn-sm btn-outline-success">Carica Ancora</button>
+      <button
+        v-show="next"
+        @click="getEvents"
+        class="btn btn-sm btn-outline-success"
+      >
+        Carica Ancora
+      </button>
     </div>
   </div>
 </template>
 
-
-
 <script>
-import { apiService } from "../common/api.service";
-import router from "../router";
+import { apiService } from "../../../common/api.service";
+import router from "../../../router";
 import AncCard from "@/components/AncCard.vue";
 
 export default {
@@ -56,7 +65,7 @@ export default {
 
   components: {},
 
-  data() {
+  data () {
     return {
       events: [],
       next: null,
@@ -65,7 +74,7 @@ export default {
   },
 
   methods: {
-    gotoR(r) {
+    gotoR (r) {
       let anno = r.toString();
       console.log("anno..." + anno);
 
@@ -76,7 +85,7 @@ export default {
       router.push(endpoint);
     }
   },
-  created() {
+  created () {
     document.title = "ANC Tradate";
   }
 };

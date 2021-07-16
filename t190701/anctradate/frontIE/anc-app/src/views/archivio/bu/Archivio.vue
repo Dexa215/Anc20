@@ -1,8 +1,16 @@
 <template>
   <div class="archivio">
-    <v-row class="AncTrasparenza" v-show="drawerLeft"></v-row>
+    <v-row
+      class="AncTrasparenza"
+      v-show="drawerLeft"
+    ></v-row>
     <!-- Ai  -->
-    <AncIntestazione :C="60" :CS="61" :categorie="categorie" @gotoR="gotoR"></AncIntestazione>
+    <AncIntestazione
+      :C="60"
+      :CS="61"
+      :categorie="categorie"
+      @gotoR="gotoR"
+    ></AncIntestazione>
     <!-- Ai  -->
 
     <div>
@@ -22,7 +30,10 @@
 
         <!-- **** -->
 
-        <v-row dense class="row ma-2 pa-2">
+        <v-row
+          dense
+          class="row ma-2 pa-2"
+        >
           <!-- row 00 -->
           <!-- Riassunto Sede -->
           <v-col cols="12"></v-col>
@@ -30,7 +41,10 @@
         <!-- row 00 -->
         <!-- Riassunto Sede -->
 
-        <v-row dense class="row ma-2 pa-2">
+        <v-row
+          dense
+          class="row ma-2 pa-2"
+        >
           <!-- row 01 -->
           <!-- x -->
           <v-col cols="3">
@@ -38,7 +52,10 @@
 
             <h2 class="display-1 font-weight-bold AncTitleColorDark">Anni</h2>
 
-            <v-timeline class="my-6 py-2" style="background-color:#ECEFF1;">
+            <v-timeline
+              class="my-6 py-2"
+              style="background-color:#ECEFF1;"
+            >
               <v-timeline-item
                 v-for="(year, i) in yearsList"
                 :key="i"
@@ -49,8 +66,15 @@
                 style="background-color:#ECEFF1;"
               >
                 <template v-slot:icon>
-                  <v-avatar v-show="!YfocusOn | Yy!=year" size="100">
-                    <v-img v-if="year.preview" :src="year.preview" @click="sety(year)"></v-img>
+                  <v-avatar
+                    v-show="!YfocusOn | (Yy != year)"
+                    size="100"
+                  >
+                    <v-img
+                      v-if="year.preview"
+                      :src="year.preview"
+                      @click="sety(year)"
+                    ></v-img>
                     <v-img
                       v-else
                       src="../../src/assets/images/Icone/anclogo2012.gif"
@@ -60,16 +84,20 @@
                 </template>
 
                 <template v-slot:opposite>
-                  <div v-show="Yy!=year">
+                  <div v-show="Yy != year">
                     <span
                       style="color: #1A237E;"
-                      :class="`display-2 headline font-weight-bold ${year.color}--text mx-4`"
+                      :class="
+                        `display-2 headline font-weight-bold ${year.color}--text mx-4`
+                      "
                       v-text="year.anno"
                     ></span>
                   </div>
                 </template>
                 <div class="py-4">
-                  <h2 :class="`headline font-weight-light mb-4 ${year.color}--text mx-4`"></h2>
+                  <h2 :class="
+                      `headline font-weight-light mb-4 ${year.color}--text mx-4`
+                    "></h2>
                 </div>
               </v-timeline-item>
             </v-timeline>
@@ -81,7 +109,9 @@
               v-show="next"
               @click="getYears"
               class="btn btn-sm btn-outline-success"
-            >Carica anni precedenti</button>
+            >
+              Carica anni precedenti
+            </button>
           </v-col>
           <!--column 1-->
           <v-col cols="6">
@@ -109,12 +139,20 @@
 
         <!-- **** -->
 
-        <v-row dense class="row ma-2 pa-2">
+        <v-row
+          dense
+          class="row ma-2 pa-2"
+        >
           <!-- row 7 -->
           <!-- The end -->
           <!-- AiF -->
           <div class="container-fluid text-center">
-            <AncIntestazioneFine :C="C" :CS="CS" :categorie="categorie" @gotoR="gotoR"></AncIntestazioneFine>
+            <AncIntestazioneFine
+              :C="C"
+              :CS="CS"
+              :categorie="categorie"
+              @gotoR="gotoR"
+            ></AncIntestazioneFine>
           </div>
           <!-- AiF -->
         </v-row>
@@ -128,10 +166,10 @@
   <!-- archivio -->
 </template>
 <script>
-import { apiService } from "../common/api.service";
-import { axiosServicePost } from "../common/axios_calls";
+import { apiService } from "../../../common/api.service";
+import { axiosServicePost } from "../../../common/axios_calls";
 
-import router from "../router";
+import router from "../../../router";
 import ancArchiveYear from "../components/AncArchiveYear";
 
 import AncIntestazione from "@/components/AncIntestazione.vue";
@@ -157,7 +195,7 @@ export default {
     drawerLeft: { type: Boolean }
   },
 
-  data() {
+  data () {
     return {
       Eevents: [],
       Titolone: null,
@@ -181,7 +219,7 @@ export default {
   },
 
   methods: {
-    sety(y) {
+    sety (y) {
       this.Yy = y;
       this.Yyanno = y.anno;
       this.YyPREV = y.preview;
@@ -193,7 +231,7 @@ export default {
       //this.gotoR(y);
     },
 
-    getYears() {
+    getYears () {
       let endpoint = "api/events/crud/Years/";
       if (this.next) {
         endpoint = this.next;
@@ -220,7 +258,7 @@ export default {
           });
         },
 */
-    getEvents(y) {
+    getEvents (y) {
       console.log("getEvents inizio procedura...");
       let anno = null;
       /*          if (this.y.id){
@@ -250,7 +288,7 @@ export default {
       }
     },
 
-    eventPost(NEbody) {
+    eventPost (NEbody) {
       console.log("eventPost...");
       console.log(NEbody);
       //          console.log("store"+this.$store.state);
@@ -278,7 +316,7 @@ Fetch test
       }
     },
 
-    gotoR(r) {
+    gotoR (r) {
       let anno = r.toString();
       let endpoint = "api/events/archive/" + anno + "/";
       this.$emit("gotoR", "endpoint");
@@ -293,7 +331,7 @@ Fetch test
     }
   },
 
-  created() {
+  created () {
     //this.getRequestUser();
     this.getYears();
     //this.getYearsList();

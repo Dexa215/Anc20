@@ -37,7 +37,11 @@
     </div>
 
     <div v-else         class="container">
-      {{event.slug}}
+      <v-row>slug parametro passato prop/slug: {{slug}}</v-row>
+      <v-row>      event.slug : {{event.slug}}</v-row>
+
+
+      
       <v-btn
         @click="eventoDELETE"
       >
@@ -583,7 +587,7 @@ export default {
     AncCard
   },
 
-  data() {
+  data () {
     return {
       selectedphoto: "",
 
@@ -656,28 +660,28 @@ export default {
   },
 
   computed: {
-    isOwner() {
+    isOwner () {
       return this.event.author === this.requestUser;
     },
-    notFound() {
+    notFound () {
       return this.event["detail"];
     }
   },
 
   methods: {
-    AxiosTest() {
+    AxiosTest () {
       axiosTest();
     },
 
-    AxiosTestGet() {
+    AxiosTestGet () {
       axiosGet();
     },
 
-    setPageTitle(title) {
+    setPageTitle (title) {
       document.title = title;
     },
 
-    setRequestUser() {
+    setRequestUser () {
       this.requestUser = window.localStorage.getItem("username");
     },
     /*
@@ -691,7 +695,7 @@ export default {
     },
 */
 
-    getEventData() {
+    getEventData () {
       let endpoint = `/api/events/${this.slug}/`;
       apiService(endpoint).then(data => {
         this.event = data;
@@ -711,7 +715,7 @@ export default {
       }
     },
 */
-    async eventoDELETE() {
+    async eventoDELETE () {
       const axios = require("axios");
       let url = `/api/events/${this.slug}/`;
 
@@ -727,13 +731,13 @@ export default {
           //this.axiosMsg = "evento cancellato";
           this.gotoR("/");
         })
-        .catch(function() {
+        .catch(function () {
           console.log("evento delete FAILURE!!");
           //this.axiosMsg = "evento NON cacellato";
         });
     },
 
-    eventoPATCH() {
+    eventoPATCH () {
       const axios = require("axios");
       let url = `/api/events/${this.slug}/`;
 
@@ -762,13 +766,13 @@ export default {
 
           this.axiosMsg = "evento modificato correttamente";
         })
-        .catch(function() {
+        .catch(function () {
           console.log("evento patch FAILURE!!");
           this.axiosMsg = "evento NON modificato";
         });
     },
 
-    getEventPhotos() {
+    getEventPhotos () {
       let endpoint = `/api/events/${this.slug}/photos/`;
       if (this.next) {
         endpoint = this.next;
@@ -785,7 +789,7 @@ export default {
       });
     },
 
-    onSubmit() {
+    onSubmit () {
       if (this.newPhotoBody) {
         let endpoint = `/api/events/${this.slug}/photo/`;
         apiService(endpoint, "POST", { body: this.newPhotoBody }).then(data => {
@@ -802,11 +806,11 @@ export default {
       }
     },
 
-    onfileselected(event) {
+    onfileselected (event) {
       console.log(event);
     },
 
-    async deletePhoto(photo) {
+    async deletePhoto (photo) {
       //ng      let endpoint = `/api/photos/${photo.id}/`;
       let endpoint = `/api/events/${this.slug}/photos/${photo.id}/`;
 
@@ -820,7 +824,7 @@ export default {
       }
     },
 
-    addPhoto(photo) {
+    addPhoto (photo) {
       const axios = require("axios");
       let url = `/api/events/${this.slug}/photos/new/`;
 
@@ -850,7 +854,7 @@ export default {
     },
 
     //2019 12 10 TEST OK
-    submitFile() {
+    submitFile () {
       const axios = require("axios");
       let url = `/api/events/${this.slug}/caricafile/`;
       let formData = new FormData(); //Initialize the form data
@@ -876,13 +880,13 @@ export default {
 
           this.axiosMsg = "file caricato correttamente";
         })
-        .catch(function() {
+        .catch(function () {
           console.log("submit file FAILURE!!");
           this.axiosMsg = "file NON caricato";
         });
     },
 
-    getPP() {
+    getPP () {
       this.loader = "loading3";
       const axios = require("axios");
       let url = `/api/events/${this.id}/photosPlus/`;
@@ -916,22 +920,22 @@ export default {
             this.ppNext = null;
           }
         })
-        .catch(function() {
+        .catch(function () {
           console.log("get PP FAILURE!!");
         });
     },
 
-    handleFileUpload() {
+    handleFileUpload () {
       //Handles a change on the file upload
       this.file = this.$refs.file.files[0];
     },
 
-    vaiadarchivio() {
+    vaiadarchivio () {
       let r = "archivio/";
       this.gotoR(r);
     },
 
-    setMyPar() {
+    setMyPar () {
       let myparam = {
         Ccurrent: 60,
         CScurrent: 69
@@ -939,33 +943,33 @@ export default {
       this.$emit("spMC", myparam); //spMC -- > sAVE pARAMETER / menu Cat
     },
 
-    gotoR(r) {
+    gotoR (r) {
       console.log("rotta per...");
       this.$emit("gotoR", r);
     },
 
     //form *************************************************************************
-    validate() {
+    validate () {
       if (this.$refs.form.validate()) {
         this.snackbar = true;
       }
     },
-    reset() {
+    reset () {
       this.$refs.form.reset();
     },
-    resetValidation() {
+    resetValidation () {
       this.$refs.form.resetValidation();
     }
     //form *************************************************************************
   },
   // methods ******
 
-  updated() {
+  updated () {
     //    this.getRequestUser();
   },
 
   watch: {
-    loader() {
+    loader () {
       const l = this.loader;
       this[l] = !this[l];
 
@@ -975,7 +979,7 @@ export default {
     }
   },
 
-  created() {
+  created () {
     //this.getRequestUser();
     //this.setMyPar();
     this.getEventData();

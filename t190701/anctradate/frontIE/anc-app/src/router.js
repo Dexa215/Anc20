@@ -46,9 +46,15 @@ import EventEditor from "./views/EventEditor.vue";
 
 //import EventNEXT from "./views/EventNEXT.vue";
 
-import Agenda from "./views/Agenda.vue";
-import Archivio from "./views/Archivio.vue";
-import ArchivioAnno from "./views/ArchivioAnno.vue";
+import Agenda from "./views/agenda/Agenda.vue";
+
+/*
+import Archivio from "./views/archivio/Archivio.vue";
+*/
+import Archivio from "./views/archivio/home/AHome.vue";
+
+import ArchivioUltimi from "./views/archivioUltimi/A.vue";
+import ArchivioAnno from "./views/archivio/ArchivioAnno.vue";
 
 import Login from "./views/Login.vue";
 
@@ -75,11 +81,11 @@ export default new Router({
             component: Home
         },
         /*      {
-                                                              path: "/esempio",
-                                                              name: "esempio",
-                                                              component: Esempio
-                                                          },
-                                                    */
+                                                                                          path: "/esempio",
+                                                                                          name: "esempio",
+                                                                                          component: Esempio
+                                                                                      },
+                                                                                */
         {
             path: "/sede",
             name: "sede",
@@ -123,11 +129,11 @@ export default new Router({
         },
 
         /*        {
-                                                                path: "/eventi",
-                                                                name: "eventi",
-                                                                component: Eventi
-                                                            },
-                                                     */
+                                                                                            path: "/eventi",
+                                                                                            name: "eventi",
+                                                                                            component: Eventi
+                                                                                        },
+                                                                                 */
         {
             path: "/event/:slug",
             name: "event",
@@ -175,6 +181,11 @@ export default new Router({
             name: "archivioAnno",
             component: ArchivioAnno
         },
+        {
+            path: "/archivioUltimi",
+            name: "archivioUltimi",
+            component: ArchivioUltimi
+        },
 
         {
             path: "/login",
@@ -182,16 +193,16 @@ export default new Router({
             component: Login
         }
         /*
-                                                    {
-                                                        path: "/about",
-                                                        name: "about",
-                                                        // route level code-splitting
-                                                        // this generates a separate chunk (about.[hash].js) for this route
-                                                        // which is lazy-loaded when the route is visited.
-                                                        component: () =>
-                                                          import(/* webpackChunkName: "about"  "./views/About.vue")
-                                                
-                                                        },
-                                                    */
+                                                                                {
+                                                                                    path: "/about",
+                                                                                    name: "about",
+                                                                                    // route level code-splitting
+                                                                                    // this generates a separate chunk (about.[hash].js) for this route
+                                                                                    // which is lazy-loaded when the route is visited.
+                                                                                    component: () =>
+                                                                                      import(/* webpackChunkName: "about"  "./views/About.vue")
+                                                                            
+                                                                                    },
+                                                                                */
     ]
 });

@@ -1,8 +1,16 @@
 <template>
   <div class="agenda">
-    <v-row class="AncTrasparenza" v-show="drawerLeft"></v-row>
+    <v-row
+      class="AncTrasparenza"
+      v-show="drawerLeft"
+    ></v-row>
 
-    <AncIntestazione :C="50" :CS="0" :categorie="categorie" @gotoR="gotoR"></AncIntestazione>
+    <AncIntestazione
+      :C="50"
+      :CS="0"
+      :categorie="categorie"
+      @gotoR="gotoR"
+    ></AncIntestazione>
     <!-- Ai  -->
 
     <div>
@@ -22,24 +30,48 @@
 
         <!-- **** -->
 
-        <v-row dense class="row ma-2 pa-2">
+        <v-row
+          dense
+          class="row ma-2 pa-2"
+        >
           <!-- row 01 -->
           <!-- Descrizione Ubicazione -->
 
           <div>
             <v-timeline>
-              <v-timeline-item v-for="event in events" :key="event.pk" color="lightgrey" large>
+              <v-timeline-item
+                v-for="event in events"
+                :key="event.pk"
+                color="lightgrey"
+                large
+              >
                 <template v-slot:opposite>
-                  <span :class="`headline font-weight-bold `" v-text="x"></span>
-                  {{event.datainizio | formatDate}}
+                  <span
+                    :class="`headline font-weight-bold `"
+                    v-text="x"
+                  ></span>
+                  {{ event.datainizio | formatDate }}
                 </template>
 
                 <template>
-                  <div class="py-4" align="center">
-                    <v-img :src="event.preview" class="white--text v-img-dexo">
+                  <div
+                    class="py-4"
+                    align="center"
+                  >
+                    <v-img
+                      :src="event.preview"
+                      class="white--text v-img-dexo"
+                    >
                       <template v-slot:placeholder>
-                        <v-row class="fill-height ma-0" align="center" justify="center">
-                          <v-progress-circular indeterminate color="grey darken-5"></v-progress-circular>
+                        <v-row
+                          class="fill-height ma-0"
+                          align="center"
+                          justify="center"
+                        >
+                          <v-progress-circular
+                            indeterminate
+                            color="grey darken-5"
+                          ></v-progress-circular>
                         </v-row>
                       </template>
                       <v-card-title>
@@ -55,22 +87,34 @@
         <!-- row 01 -->
         <!-- Descrizione Ubicazione -->
 
-        <v-row dense class="row ma-2 pa-2">
+        <v-row
+          dense
+          class="row ma-2 pa-2"
+        >
           <!-- row 02 -->
         </v-row>
         <!-- row 02 -->
 
-        <v-row dense class="row ma-2 pa-2">
+        <v-row
+          dense
+          class="row ma-2 pa-2"
+        >
           <!-- row 03 -->
         </v-row>
         <!-- row 03 -->
 
-        <v-row dense class="row ma-2 pa-2">
+        <v-row
+          dense
+          class="row ma-2 pa-2"
+        >
           <!-- row 04 -->
         </v-row>
         <!-- row 04 -->
 
-        <v-row dense class="row ma-2 pa-2">
+        <v-row
+          dense
+          class="row ma-2 pa-2"
+        >
           <!-- row 05 -->
           <v-card class="pa-4">
             <blockquote>
@@ -80,19 +124,30 @@
         </v-row>
         <!-- row 05 -->
 
-        <v-row dense class="row ma-2 pa-2">
+        <v-row
+          dense
+          class="row ma-2 pa-2"
+        >
           <!-- row 06 -->
         </v-row>
         <!-- row 06 -->
 
         <!-- **** -->
 
-        <v-row dense class="row ma-2 pa-2">
+        <v-row
+          dense
+          class="row ma-2 pa-2"
+        >
           <!-- row 7 -->
           <!-- The end -->
           <!-- AiF -->
           <div class="container-fluid text-center">
-            <AncIntestazioneFine :C="C" :CS="CS" :categorie="categorie" @gotoR="gotoR"></AncIntestazioneFine>
+            <AncIntestazioneFine
+              :C="C"
+              :CS="CS"
+              :categorie="categorie"
+              @gotoR="gotoR"
+            ></AncIntestazioneFine>
           </div>
           <!-- AiF -->
         </v-row>
@@ -105,14 +160,10 @@
   </div>
 </template>
 
-
-
-
-
 <script>
-import { apiService } from "../common/api.service";
+import { apiService } from "../../../common/api.service";
 
-import router from "../router";
+import router from "../../../router";
 import AncIntestazione from "@/components/AncIntestazione.vue";
 import AncIntestazioneFine from "@/components/AncIntestazioneFine.vue";
 import AncCard from "@/components/AncCard.vue";
@@ -151,7 +202,7 @@ export default {
     drawerLeft: { type: Boolean }
   },
 
-  data() {
+  data () {
     return {
       Eevents: [],
       Titolone: null,
@@ -163,7 +214,7 @@ export default {
   },
 
   methods: {
-    getEventsFuture() {
+    getEventsFuture () {
       let endpoint = "api/events/crud/listFuture/";
       if (this.next) {
         endpoint = this.next;
@@ -181,20 +232,20 @@ export default {
       });
     },
 
-    setMyPar() {
+    setMyPar () {
       let myparam = {
         Ccurrent: 50,
         CScurrent: 0
       };
       this.$emit("spMC", myparam); //spMC -- > sAVE pARAMETER / menu Cat
     },
-    gotoR(r) {
+    gotoR (r) {
       console.log("rotta per...");
       this.$emit("gotoR", "r");
     }
   }, //methods
 
-  created() {
+  created () {
     //this.getRequestUser();
     console.log("agenda oncreate --> start");
     //this.setMyPar();

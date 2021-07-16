@@ -1229,8 +1229,8 @@ const moduleL = {
                   }
                 ]
               },
+              //40 chisiamo
               {
-                //40 chisiamo
                 id: 40,
                 nomecategoria: "chisiamo",
                 t: [{ id: 0, code: "", text: "" }],
@@ -1257,11 +1257,14 @@ const moduleL = {
                   }
                 ]
               },
+              //50 agenda
               {
-                //50 agenda
                 id: 50,
                 nomecategoria: "agenda",
-                t: [{ id: 0, code: "", text: "" }],
+                t: [
+                  { id: 0, code: "Title1", text: "Agenda" },
+                  { id: 1, code: "Title2", text: "Appuntamenti in Agenda" }
+                ],
                 sc: [
                   {
                     id: 51,
@@ -1270,11 +1273,14 @@ const moduleL = {
                   }
                 ]
               },
+              //60 archivio
               {
-                //60 archivio
                 id: 60,
                 nomecategoria: "archivio",
-                t: [{ id: 0, code: "", text: "" }],
+                t: [
+                  { id: 0, code: "Title1", text: "Archivio" },
+                  { id: 1, code: "Title2", text: "Ultimi eventi in Archivio" }
+                ],
                 sc: [
                   {
                     id: 61,
@@ -1283,8 +1289,8 @@ const moduleL = {
                   }
                 ]
               },
+              //cat7 70 tesseramento
               {
-                //cat7 70 tesseramento
                 id: 70,
                 nomecategoria: "tesseramento",
                 t: [
@@ -1532,7 +1538,11 @@ const moduleL = {
                 //50 agenda
                 id: 50,
                 nomecategoria: "agenda",
-                t: [{ id: 0, code: "", text: "" }],
+
+                t: [
+                  { id: 0, code: "Title1", text: "Diary" },
+                  { id: 1, code: "Title2", text: "Appointments on the Agenda" }
+                ],
                 sc: [
                   {
                     id: 51,
@@ -1545,7 +1555,14 @@ const moduleL = {
                 //60 archivio
                 id: 60,
                 nomecategoria: "archivio",
-                t: [{ id: 0, code: "", text: "" }],
+                t: [
+                  { id: 0, code: "Title1", text: "Archive" },
+                  {
+                    id: 1,
+                    code: "Title2",
+                    text: "Latest events in the Archive"
+                  }
+                ],
                 sc: [
                   {
                     id: 61,
@@ -1807,7 +1824,12 @@ const moduleL = {
                 //50 agenda
                 id: 50,
                 nomecategoria: "agenda",
-                t: [{ id: 0, code: "", text: "" }],
+
+                t: [
+                  { id: 0, code: "Title1", text: "Agenda" },
+                  { id: 1, code: "Title2", text: "Citas en la agenda" }
+                ],
+
                 sc: [
                   {
                     id: 51,
@@ -1820,7 +1842,14 @@ const moduleL = {
                 //60 archivio
                 id: 60,
                 nomecategoria: "archivio",
-                t: [{ id: 0, code: "", text: "" }],
+                t: [
+                  { id: 0, code: "Title1", text: "Archivo" },
+                  {
+                    id: 1,
+                    code: "Title2",
+                    text: "Últimos eventos en el Archivo"
+                  }
+                ],
                 sc: [
                   {
                     id: 61,
