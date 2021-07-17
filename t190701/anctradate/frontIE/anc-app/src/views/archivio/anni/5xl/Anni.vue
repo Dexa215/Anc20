@@ -104,27 +104,18 @@ export default {
 
   methods: {
     /*2020 06 16*/
-
-    /*TODO: RIPRISTINARE */
-    /*
-        gotoR (r) {
-          this.expand = !this.expand;
-          this.$store.dispatch("setDF");
-    */
-    /* FROM BU ARCHIVIO...*/
-    /*
-    let anno = r.toString();
-          let endpoint = "api/events/archive/" + anno + "/";
-          this.$store.dispatch("gotoR", endpoint);
-          /*this.$store.dispatch("gotoR", r);*/
-    /*
+    gotoR (r) {
+      this.expand = !this.expand;
+      this.$store.dispatch("setDF");
+      /* FROM BU ARCHIVIO...*/
+      let anno = r.toString();
+      let endpoint = "api/events/archive/" + anno + "/";
+      this.$store.dispatch("gotoR", endpoint);
+      /*this.$store.dispatch("gotoR", r);*/
     },
-    */
-
     v (link) {
       this.$store.dispatch("vola", link);
     },
-
     sety (y) {
       this.Yy = y;
       this.Yyanno = y.anno;
