@@ -36,20 +36,12 @@
             {{ lang.t[1].lista[5].t[1].text }}
           </v-row>
           <v-row>
-            <v-col cols="5">
-              <!--
+            <v-col cols="10">
               <TimelineYears></TimelineYears>
-              -->
-
-              <a @click="gotoR(link3)">Archivio</a>
             </v-col>
 
             <v-col cols="2">
-              LG HOME
-            </v-col>
-
-            <v-col cols="5">
-              <TimelineEvents></TimelineEvents>
+              LG Anni Elenco
             </v-col>
           </v-row>
         </v-card>
@@ -73,14 +65,12 @@ import { axiosServicePost } from "@/common/axios_calls";
 
 import AncIntestazioneFine from "@/components/AncIntestazioneFine.vue";
 import TimelineYears from "./timeline/Years.vue";
-import TimelineEvents from "./timeline/Events.vue";
 
 export default {
   name: "Home",
   components: {
     AncIntestazioneFine,
-    TimelineYears,
-    TimelineEvents
+    TimelineYears
   },
 
   props: {},
@@ -103,8 +93,7 @@ export default {
       img3: "/static/images/Foto/sopracolletto.jpg",
 
       lik1: "https://www.inps.it/nuovoportaleinps/default.aspx",
-      link2: "http://www.comune.tradate.va.it/",
-      link3: "/archivioanni"
+      link2: "http://www.comune.tradate.va.it/"
     };
   },
   computed: {
@@ -115,8 +104,7 @@ export default {
 
   methods: {
     /*2020 06 16*/
-    /* TODO: RIPRISTINA RINOMINANDO gotoR*/
-    OLDgotoR (r) {
+    gotoR (r) {
       this.expand = !this.expand;
       this.$store.dispatch("setDF");
       /* FROM BU ARCHIVIO...*/
@@ -125,14 +113,6 @@ export default {
       this.$store.dispatch("gotoR", endpoint);
       /*this.$store.dispatch("gotoR", r);*/
     },
-
-    /*TEST 2021 07 17*/
-    gotoR (r) {
-      console.log("Anc ARCHIVIO LG - gotoR", r);
-      this.expand = !this.expand;
-      this.$store.dispatch("gotoR", r);
-    },
-
     v (link) {
       this.$store.dispatch("vola", link);
     },
