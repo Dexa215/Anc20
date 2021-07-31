@@ -33,24 +33,33 @@
         <!--cx-->
         <v-card class="card_main Anc_BC_BlueDark">
           <v-row class="ArchivioTitolo display-2">
-            {{ lang.t[1].lista[5].t[1].text }}
+            {{ lang.t[1].lista[5].t[0].text }}
           </v-row>
           <v-row>
-            <v-col cols="5">
+            <v-col cols="1"></v-col>
+            <v-col cols="4">
               <!--
               <TimelineYears></TimelineYears>
               -->
 
-              <a @click="gotoR(link3)">Archivio</a>
-            </v-col>
+              <!-- Archivio Anni -->
 
-            <v-col cols="2">
-              LG HOME
+              <v-img
+                @click="gotoR(link3)"
+                :src="require('@/assets/images/Icone/cassaforte.png')"
+                class="my-3 cassaF"
+                contain
+                id="cassaforte"
+              ></v-img>
+              <a @click="gotoR(link3)">
+                {{ lang.t[1].lista[5].t[2].text }}
+              </a>
             </v-col>
-
-            <v-col cols="5">
+            <v-col cols="2"></v-col>
+            <v-col cols="4">
               <TimelineEvents></TimelineEvents>
             </v-col>
+            <v-col cols="1"></v-col>
           </v-row>
         </v-card>
         <AncIntestazioneFine></AncIntestazioneFine>
@@ -277,5 +286,12 @@ export default {
   height: 50px;
   justify-content: center;
   align-content: center;
+}
+.cassaF {
+  height: 250px;
+}
+
+.cassaF:hover {
+  height: 255px;
 }
 </style>

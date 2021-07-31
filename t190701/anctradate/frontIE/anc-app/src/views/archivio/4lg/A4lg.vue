@@ -31,9 +31,10 @@
         class="cx_main"
       >
         <!--cx-->
-        <v-card class="card_main Anc_BC_BlueDark">
+        <v-card class="card_main Anc_BC_BlueDark">`
+
           <v-row class="ArchivioTitolo display-2">
-            {{ lang.t[1].lista[5].t[1].text }}
+            {{ lang.t[1].lista[5].t[1].text }} <a href="">A4lg</a>
           </v-row>
           <v-row>
             <v-col cols="6">

@@ -104,21 +104,30 @@ export default {
 
   methods: {
     /*2020 06 16*/
-    gotoR (r) {
-      this.expand = !this.expand;
-      this.$store.dispatch("setDF");
-      /* FROM BU ARCHIVIO...*/
-      let anno = r.toString();
-      let endpoint = "api/events/archive/" + anno + "/";
-      this.$store.dispatch("gotoR", endpoint);
-      /*this.$store.dispatch("gotoR", r);*/
+
+    /*TODO: RIPRISTINARE */
+    /*
+        gotoR (r) {
+          this.expand = !this.expand;
+          this.$store.dispatch("setDF");
+    */
+    /* FROM BU ARCHIVIO...*/
+    /*
+    lt anno = r.toString();
+          let endpoint = "api/events/archive/" + anno + "/";
+          this.$store.dispatch("gotoR", endpoint);
+         /*this.$store.dispatch("gotoR", r);*/
+    /*
     },
+    */
+
     v (link) {
       this.$store.dispatch("vola", link);
     },
+
     sety (y) {
       this.Yy = y;
-      this.Yyanno = y.anno;
+      this.Yanno = y.anno;
       this.YyPREV = y.preview;
       this.YfocusOn = true;
       this.Yevents = [];
@@ -136,7 +145,7 @@ export default {
       apiService(endpoint).then(data => {
         console.log(data.results);
 
-        this.yearsList.push(...data.results);
+        this.earsList.push(...data.results);
         this.loadingYears = false;
         if (data.next) {
           this.next = data.next;
@@ -165,7 +174,7 @@ export default {
           this.Yevents.push(...data.results);
           this.YloadingEvents = false;
           if (data.next) {
-            this.Ynext = data.next;
+            tis.Ynext = data.next;
           } else {
             this.Ynext = null;
           }
@@ -174,14 +183,28 @@ export default {
         // no y set
       }
     },
+
     eventPost (NEbody) {
       console.log("eventPost...");
       console.log(NEbody);
+      //          console.log("store"+this.$store.state);
+
       if (NEbody) {
         let data = {
+          //              user:this.$store.state.authUser.user_id,
           post: NEbody
         };
+
+        //            let url =`/api/events/`;
+        //            let url = `/api/events/cyc/`;
+        //            let url = `/api/events/crudCreate/`;
         let url = `/api/events/crudCreateOLD/`;
+
+        /*
+Fetch test            
+            apiService(endpoint, "post", { body: NEbody });
+*/
+        //axios test post
         axiosServicePost(url, data);
         //axios test post
       } else {

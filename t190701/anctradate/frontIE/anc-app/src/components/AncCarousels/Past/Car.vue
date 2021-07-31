@@ -1,10 +1,23 @@
 <template>
   <!--v-col cols="4" class="carcolsx"-->
   <!-- ///////////////////////////////////////////////////////////////////////////// -->
-  <v-card elevation="24" class="anccard mx-auto my-auto r_BC darken-4" dark shaped height="465">
-    <v-list two-line class="carlist r_BC darken-4" dark>
+  <v-card
+    elevation="24"
+    class="anccard mx-auto my-auto r_BC darken-4"
+    dark
+    shaped
+    height="465"
+  >
+    <v-list
+      two-line
+      class="carlist r_BC darken-4"
+      dark
+    >
       <v-list-item>
-        <router-link :to="{name: 'archivio',}" class="event-link">
+        <router-link
+          :to="{ name: 'archivio' }"
+          class="event-link"
+        >
           <v-list-item-avatar>
             <v-icon x-large>mdi-archive</v-icon>
           </v-list-item-avatar>
@@ -47,29 +60,49 @@ settaggi carousel:
       reverse-transition="fade-transition"
       transition="fade-transition"
     >
-      <v-carousel-item v-for="event in Pevents" :key="event.pk" class="anccarouselitem mx-auto">
+      <v-carousel-item
+        v-for="event in Pevents"
+        :key="event.pk"
+        class="anccarouselitem mx-auto"
+      >
         <v-sheet>
           <!-- class="fill-height" -->
-          <v-row align="center" justify="center">
+          <v-row
+            align="center"
+            justify="center"
+          >
             <div v-if="event.preview">
-              <v-img class="imgop1" :src="event.preview"></v-img>
+              <v-img
+                class="imgop1"
+                :src="event.preview"
+              ></v-img>
             </div>
             <div v-else>
-              <v-img class="imgop1" src="@/assets/images/Servizio/frecce.jpg"></v-img>
+              <v-img
+                class="imgop1"
+                src="@/assets/images/Servizio/frecce.jpg"
+              ></v-img>
             </div>
           </v-row>
         </v-sheet>
         <!-- intestazione evento -->
 
-        <v-list two-line class="eventrif r_BC darken-3" dark>
+        <v-list
+          two-line
+          class="eventrif r_BC darken-3"
+          dark
+        >
           <v-list-item class="r_BC darken-4">
             <v-list-item-content>
-              <v-list-item-title>{{ event.datainizio | formatDate }}</v-list-item-title>
+              <v-list-item-title>{{
+                event.datainizio | formatDate
+              }}</v-list-item-title>
               <v-list-item-subtitle>
                 <router-link
-                  :to="{    name: 'event',
-                                                params: { id: event.id, slug: event.slug }
-                                            }"
+                  :to="{
+                    name: 'event',
+                    params: { id: event.id, slug: event.slug }
+                  }"
                   class="event-link"
                 >{{ event.title }}</router-link>
               </v-list-item-subtitle>
@@ -117,31 +150,31 @@ export default {
   },
 
   computed: {
-    Pevents() {
+    Pevents () {
       return this.$store.getters.get_Pevents;
     },
-    Pnext() {
+    Pnext () {
       return this.$store.getters.get_Pnext;
     },
-    PloadingEvents() {
+    PloadingEvents () {
       return this.$store.getters.get_PloadingEvents;
     }
   },
 
   methods: {
-    PastClearData() {
+    PastClearData () {
       this.$store.dispatch("getEventsPastClearData");
     },
-    getEventsPast() {
+    getEventsPast () {
       this.$store.dispatch("getEventsPast");
     }
   },
 
-  beforeCreate() {
+  beforeCreate () {
     console.log("before created");
   },
 
-  created() {
+  created () {
     console.log("Car-- call to PastClearData");
     this.PastClearData();
     console.log("Car-- call to getEventsPast");
@@ -199,7 +232,7 @@ export default {
 }
 </style>
 
-            <!--
+<!--
             <ancEventsPast
               :Pevents="Pevents"
               :Pnext="Pnext"
@@ -210,4 +243,3 @@ export default {
               clFeventInt="grey darken-4 "
             ></ancEventsPast>
             -->
-

@@ -23,3 +23,5 @@ npm install hamburgers
 
 npm install animate.css --save
 
+npm install vue-filter-date-format              // 2021 07 25 Test formattazione date
+

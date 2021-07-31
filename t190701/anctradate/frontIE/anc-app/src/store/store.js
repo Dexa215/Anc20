@@ -1279,7 +1279,9 @@ const moduleL = {
                 nomecategoria: "archivio",
                 t: [
                   { id: 0, code: "Title1", text: "Archivio" },
-                  { id: 1, code: "Title2", text: "Ultimi eventi in Archivio" }
+                  { id: 1, code: "Title2", text: "Ultimi eventi in Archivio" },
+                  { id: 2, code: "Title3", text: "Archivio Anni" },
+                  { id: 3, code: "Title4", text: "XXXX" }
                 ],
                 sc: [
                   {
@@ -1561,7 +1563,9 @@ const moduleL = {
                     id: 1,
                     code: "Title2",
                     text: "Latest events in the Archive"
-                  }
+                  },
+                  { id: 2, code: "Title3", text: "Years Archive" },
+                  { id: 3, code: "Title4", text: "XXXX" }
                 ],
                 sc: [
                   {
@@ -1848,7 +1852,9 @@ const moduleL = {
                     id: 1,
                     code: "Title2",
                     text: "Últimos eventos en el Archivo"
-                  }
+                  },
+                  { id: 2, code: "Title3", text: "Años Archivo" },
+                  { id: 3, code: "Title4", text: "XXXX" }
                 ],
                 sc: [
                   {

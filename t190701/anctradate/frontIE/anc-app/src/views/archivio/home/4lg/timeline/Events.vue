@@ -8,11 +8,45 @@
       color="lightgrey"
       large
     >
+      <template v-slot:placeholder>
+        <v-row
+          class="fill-height ma-0"
+          align="center"
+          justify="center"
+        >
+          <v-progress-circular
+            indeterminate
+            color="grey darken-5"
+          >
+            anc attesa immagini...
+          </v-progress-circular>
+        </v-row>
+      </template>
+
+      <template v-slot:icon>
+        <router-link
+          :to="{
+            name: 'event',
+            params: { id: event.id, slug: event.slug }
+          }"
+          class="event-link"
+        >
+          <v-avatar>
+            <img
+              :src="event.preview"
+              class="white--text v-img-dexo "
+            />
+          </v-avatar>
+        </router-link>
+      </template>
+
       <template v-slot:opposite>
         <span
           :class="`headline font-weight-bold `"
           v-text="x"
         ></span>
+        <!--{{ event.datainizio | formatDate }}-->
+
         {{ event.datainizio | formatDate }}
       </template>
 
@@ -21,26 +55,7 @@
           class="py-4"
           align="center"
         >
-          <v-img
-            :src="event.preview"
-            class="white--text v-img-dexo"
-          >
-            <template v-slot:placeholder>
-              <v-row
-                class="fill-height ma-0"
-                align="center"
-                justify="center"
-              >
-                <v-progress-circular
-                  indeterminate
-                  color="grey darken-5"
-                ></v-progress-circular>
-              </v-row>
-            </template>
-            <v-card-title>
-              <h5>{{ event.title }}</h5>
-            </v-card-title>
-          </v-img>
+          {{ event.title }}
         </div>
       </template>
     </v-timeline-item>
@@ -105,4 +120,15 @@ export default {
 };
 </script>
 
-<style media="screen" scoped></style>
+<style media="screen" scoped>
+.v-img-dexo {
+  height: 100px;
+  width: 100px;
+  border-radius: 50px;
+}
+.v-img-dexo:hover {
+  height: 120px;
+  width: 120px;
+  border-radius: 60px;
+}
+</style>
