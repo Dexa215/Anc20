@@ -1,1 +1,4 @@
-07/28/2021 11:35:53 PM INFO autoreload 7796 9512 Watching for file changes with StatReloader
+08/07/2021 08:39:53 AM INFO autoreload 11144 12328 Watching for file changes with StatReloader
+08/07/2021 09:08:35 AM WARNING log 11144 624 Not Found: /tesseramento/ADMIN
+08/07/2021 09:08:35 AM WARNING log 11144 624 Not Found: /favicon.ico
+08/07/2021 09:08:40 AM WARNING log 11144 624 Not Found: /tesseramento/admin
