@@ -1,3 +1,1 @@
-08/07/2021 11:25:11 AM INFO autoreload 9720 17600 Watching for file changes with StatReloader
-08/07/2021 11:26:13 AM WARNING log 9720 21864 Unauthorized: /api/events/crud/listPast/
-08/07/2021 11:26:13 AM WARNING log 9720 10912 Unauthorized: /api/events/crud/listFuture/
+08/08/2021 06:12:31 AM INFO autoreload 7212 9816 Watching for file changes with StatReloader
