@@ -2,20 +2,70 @@
   <!-- MACRO row centro z20 ************************************************************************************************************ -->
   <v-row
     :class="rcX"
-    align="center"
     justify="center"
+    align="center"
     @mouseenter="setSc(false)"
   >
+    <!--align="center"-->
     <!--c1cx></c1cx-->
-
-    <img
-      :class="rcxIco"
-      src="/static/images/Icone/anclogo2012.gif"
-      alt="ancTradate"
-      @click="gotoR('/')"
-      @mouseover="hoveravatar = true"
-      @mouseleave="hoveravatar = false"
-    />
+    <v-col
+      class="col3"
+      cols="3"
+      v-if="bb === true"
+    >
+      <v-row
+        justify="center"
+        align="center"
+      >
+        <img
+          :class="rcxIco"
+          src="/static/images/Icone/anclogo2012.gif"
+          alt="ancTradate"
+          @click="setmenuU"
+          @mouseover="hoveravatar = true"
+          @mouseleave="hoveravatar = false"
+        />
+      </v-row>
+    </v-col>
+    <v-col
+      cols="4"
+      class="col3"
+    >
+      <v-row
+        justify="center"
+        align="center"
+        @mouseenter="setSc(false)"
+      >
+        <img
+          :class="rcxIco"
+          src="/static/images/Icone/anclogo2012.gif"
+          alt="ancTradate"
+          @click="setmenuC"
+          @mouseover="hoveravatar = true"
+          @mouseleave="hoveravatar = false"
+        />
+      </v-row>
+    </v-col>
+    <v-col
+      class="col3"
+      cols="3"
+      v-if="bb === true"
+    >
+      <v-row
+        justify="center"
+        align="center"
+      >
+        <img
+          v-if="bb === true"
+          :class="rcxIco"
+          src="/static/images/Icone/anclogo2012.gif"
+          alt="ancTradate"
+          @click="setmenuL"
+          @mouseover="hoveravatar = true"
+          @mouseleave="hoveravatar = false"
+        />
+      </v-row>
+    </v-col>
   </v-row>
 </template>
 <script>
@@ -26,7 +76,32 @@ export default {
   components: {
     c1cx
   },
+  data: () => ({
+    u: "user",
+    c: "cat",
+    l: "lang"
+  }),
+
   computed: {
+    bb () {
+      var bb = this.$store.getters.getbarBIG;
+      return bb;
+    },
+
+    /*menu CAt*/
+    mC () {
+      var mC = this.$store.getters.getmenuCAT();
+      return mC;
+    },
+    mU () {
+      var mU = this.$store.getters.getmenuUSER();
+      return mU;
+    },
+    mL () {
+      var mL = this.$store.getters.getmenuLANG();
+      return mL;
+    },
+
     rcxIco () {
       var rcxIco = "rcxIco ";
       var bb = this.$store.getters.getbarBIG;
@@ -95,6 +170,21 @@ export default {
   methods: {
     setSc (val) {
       this.$store.dispatch("setScrolling", val);
+    },
+
+    /*{"cat","user","lang"}*/
+    setmenu (val) {
+      this.$store.dispatch("menuSet", val);
+    },
+
+    setmenuU () {
+      this.$store.dispatch("menuSet", "user");
+    },
+    setmenuC () {
+      this.$store.dispatch("menuSet", "cat");
+    },
+    setmenuL () {
+      this.$store.dispatch("menuSet", "lang");
     }
   }
 };
@@ -105,7 +195,8 @@ export default {
   z-index: 20;
   /*background-color: pink !important;*/
   height: 70px;
-  width: 70px;
+  width: 350px;
+  /*width: 70px;*/
 }
 
 .BBclass {
@@ -113,7 +204,8 @@ export default {
   opacity: 1;
   /*height: 98%;*/
   height: 68px;
-  width: 68px;
+  /*width: 68px;*/
+  width: 350px;
   border-radius: 34px;
   transition: border-radius 0.5s cubic-bezier(0.1, 0.1, 0.1, 0.5), height 0.5s,
     width 0.5s, background-color 0.2s, opacity 2s;
@@ -185,5 +277,10 @@ export default {
   border-radius: 30px;
   transition: border-radius 0.5s, height 0.5s, width 0.5s, background-color 2s,
     opacity 2s;
+}
+
+.col3 {
+  height: 100%;
+  background-color: yellow;
 }
 </style>

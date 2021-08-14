@@ -474,8 +474,13 @@ const moduleD = {
     iconO: "mdi-menu-up",
 
     iconCdx: "mdi-menu-down",
-    iconOdx: "mdi-menu-up"
+    iconOdx: "mdi-menu-up",
+
+    menuCAT: false,
+    menuUSER: false,
+    menuLANG: false
   },
+
   mutations: {
     /*2021 02 21 COMPRESO IN setbarBIG*/
     /*setbarBIGClass (state, val) {
@@ -635,6 +640,28 @@ const moduleD = {
     },
     drawerSCMswitch (state) {
       state.drawerSCM = !state.drawerSCM;
+    },
+
+    setmenuCAT (state, val) {
+      state.menuCAT = val;
+      state.menuUSER = false;
+      state.menuLANG = false;
+    },
+    setmenuUSER (state, val) {
+      state.menuUSER = val;
+      state.menuCAT = false;
+      state.menuLANG = false;
+    },
+    setmenuLANG (state, val) {
+      state.menuLANG = val;
+      state.menuCAT = false;
+      state.menuUSER = false;
+    },
+
+    setmenuCLOSE (state) {
+      state.menuCAT = false;
+      state.menuUSER = false;
+      state.menuLANG = false;
     }
   },
   actions: {
@@ -673,6 +700,24 @@ const moduleD = {
     },
     drawerSCMswitch (context) {
       context.commit("drawerSCMswitch");
+    },
+
+    /*2021 08 14*/
+    menuSet (context, val) {
+      switch (val) {
+        case "cat":
+          context.commit("setmenuCAT", true);
+          break;
+        case "user":
+          context.commit("setmenuUSER", true);
+          break;
+        case "lang":
+          context.commit("setmenuLANG", true);
+          break;
+
+        default:
+          context.commit("setmenuCLOSE");
+      }
     }
 
     /*  menu sottocategorie */
@@ -737,6 +782,18 @@ const moduleD = {
     },
     getscrolling: state => {
       return state.scrolling;
+    },
+
+    getmenuCAT: state => {
+      return state.menuCAT;
+    },
+
+    getmenuUSER: state => {
+      return state.menuUSER;
+    },
+
+    getmenuLANG: state => {
+      return state.menuLANG;
     }
   }
 };
