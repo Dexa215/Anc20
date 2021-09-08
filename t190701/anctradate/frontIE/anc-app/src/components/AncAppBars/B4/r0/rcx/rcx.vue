@@ -8,18 +8,21 @@
   >
     <!--align="center"-->
     <!--c1cx></c1cx-->
+
+    <!--
     <v-col
       class="col3"
       cols="3"
       v-if="bb === true"
     >
       <v-row
+        class="row4"
         justify="center"
         align="center"
       >
         <img
           :class="rcxIco"
-          src="/static/images/Icone/anclogo2012.gif"
+          src="/static/images/Icone/bus.jpg"
           alt="ancTradate"
           @click="setmenuU"
           @mouseover="hoveravatar = true"
@@ -27,11 +30,17 @@
         />
       </v-row>
     </v-col>
+
+    -->
+
+    <cSx></cSx>
+
     <v-col
       cols="4"
       class="col3"
     >
       <v-row
+        class="row4"
         justify="center"
         align="center"
         @mouseenter="setSc(false)"
@@ -46,12 +55,16 @@
         />
       </v-row>
     </v-col>
+
+    <cDx></cDx>
+    <!--
     <v-col
       class="col3"
       cols="3"
       v-if="bb === true"
     >
       <v-row
+        class="row4"
         justify="center"
         align="center"
       >
@@ -66,15 +79,20 @@
         />
       </v-row>
     </v-col>
+-->
   </v-row>
 </template>
 <script>
 import c1cx from "@/components/AncAppBars/B4/r0/c0cx/r1/c1cx/c1cx.vue";
+import cSx from "@/components/AncAppBars/B4/r0/rcx/cSx/cSx.vue";
+import cDx from "@/components/AncAppBars/B4/r0/rcx/cDx/cDx.vue";
 
 export default {
   name: "rcx",
   components: {
-    c1cx
+    c1cx,
+    cSx,
+    cDx
   },
   data: () => ({
     u: "user",
@@ -206,7 +224,7 @@ export default {
   height: 68px;
   /*width: 68px;*/
   width: 350px;
-  border-radius: 34px;
+  border-radius: 0px 0px 68px 68px;
   transition: border-radius 0.5s cubic-bezier(0.1, 0.1, 0.1, 0.5), height 0.5s,
     width 0.5s, background-color 0.2s, opacity 2s;
 }
@@ -280,7 +298,11 @@ export default {
 }
 
 .col3 {
+  /*height: 100%;*/
+  background-color: teal;
+}
+.row4 {
+  background-color: palevioletred;
   height: 100%;
-  background-color: yellow;
 }
 </style>
