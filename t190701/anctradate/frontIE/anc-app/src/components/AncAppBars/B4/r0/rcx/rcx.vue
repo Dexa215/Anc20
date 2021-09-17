@@ -35,6 +35,8 @@
 
     <cSx></cSx>
 
+    <cCx></cCx>
+    <!--
     <v-col
       cols="4"
       class="col3"
@@ -55,6 +57,7 @@
         />
       </v-row>
     </v-col>
+    -->
 
     <cDx></cDx>
     <!--
@@ -85,6 +88,7 @@
 <script>
 import c1cx from "@/components/AncAppBars/B4/r0/c0cx/r1/c1cx/c1cx.vue";
 import cSx from "@/components/AncAppBars/B4/r0/rcx/cSx/cSx.vue";
+import cCx from "@/components/AncAppBars/B4/r0/rcx/cCx/cCx.vue";
 import cDx from "@/components/AncAppBars/B4/r0/rcx/cDx/cDx.vue";
 
 export default {
@@ -92,6 +96,7 @@ export default {
   components: {
     c1cx,
     cSx,
+    cCx,
     cDx
   },
   data: () => ({
