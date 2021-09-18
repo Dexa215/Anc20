@@ -1,14 +1,26 @@
 <template>
   <v-col
-    class="col3"
+    class="col3s"
     cols="3"
     v-if="bb === true"
   >
     <v-row
-      class="row4"
+      v-if="mU"
+      class="IcoSel"
+    >
+      <div class="IcoSelINT"></div>
+    </v-row>
+
+    <v-row
+      class="row4csx"
       justify="center"
       align="center"
     >
+      <a
+        class="IcoTEST"
+        @click="setmenuU"
+      >{{ mU }}</a>
+
       <img
         :class="Ico"
         src="/static/images/Icone/bus.jpg"
@@ -44,6 +56,10 @@ export default {
     bb () {
       var bb = this.$store.getters.getbarBIG;
       return bb;
+    },
+    mU () {
+      var mU = this.$store.getters.getmenuUSER;
+      return mU;
     }
   },
 
@@ -70,11 +86,60 @@ export default {
 };
 </script>
 <style media="screen" scoped>
+.col3s {
+  background-color: palevioletred;
+  height: 100%;
+  padding: 0px;
+}
+
 .Ico {
+  z-index: index 10;
   height: 10px;
   width: 10px;
   border-radius: 5px;
 }
+/**/
+.row4csx {
+  opacity: 1;
+  z-index: 10;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+
+  background-color: transparent;
+
+  margin: 0px;
+  padding: 0px;
+  justify-content: center;
+  align-content: center;
+}
+/**/
+.IcoSel {
+  opacity: 1;
+  z-index: 9;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  /*background-color: blue;*/
+  background-color: transparent;
+  margin: 0px;
+  padding: 0px;
+  justify-content: center;
+  align-content: center;
+}
+.IcoSelINT {
+  background-color: red;
+  height: 64px;
+  width: 64px;
+  border-radius: 35px;
+}
+/**/
+.IcoTEST {
+  opacity: 1;
+  position: absolute;
+  z-index: 15;
+}
+
 .IcoSS {
   height: 58px;
   width: 58px;
@@ -88,5 +153,8 @@ export default {
   border-radius: 30px;
   transition: border-radius 0.5s, height 0.5s, width 0.5s, background-color 2s,
     opacity 2s;
+}
+.actl {
+  width: 100%;
 }
 </style>

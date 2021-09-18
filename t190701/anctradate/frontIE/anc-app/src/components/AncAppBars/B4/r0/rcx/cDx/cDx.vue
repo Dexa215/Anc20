@@ -1,19 +1,31 @@
 <template>
   <v-col
-    class="col3"
+    class="col3d"
     cols="3"
     v-if="bb === true"
   >
     <v-row
-      class="row4"
+      v-if="mL"
+      class="IcoSel"
+    >
+      <div class="IcoSelINT"></div>
+    </v-row>
+
+    <v-row
+      class="row4cdx"
       justify="center"
       align="center"
     >
+      <a
+        class="IcoTEST"
+        @click="setmenuL"
+      >{{ mL }}</a>
+
       <img
         :class="Ico"
         src="/static/icons/Nations/italy.png"
         alt="ancTradate"
-        @click="setmenuU"
+        @click="setmenuL"
         @mouseover="hoveravatar = true"
         @mouseleave="hoveravatar = false"
       />
@@ -44,6 +56,11 @@ export default {
     bb () {
       var bb = this.$store.getters.getbarBIG;
       return bb;
+    },
+
+    mL () {
+      var mL = this.$store.getters.getmenuLANG;
+      return mL;
     }
   },
 
@@ -70,6 +87,54 @@ export default {
 };
 </script>
 <style media="screen" scoped>
+.col3d {
+  background-color: palevioletred;
+  height: 100%;
+  padding: 0px;
+}
+
+/**/
+.row4cdx {
+  opacity: 1;
+  z-index: 10;
+  position: absolute;
+  background-color: transparent;
+  margin: 0px;
+  padding: 0px;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+  align-content: center;
+}
+/**/
+.IcoSel {
+  opacity: 1;
+  z-index: 9;
+  position: absolute;
+  /*background-color: blue;*/
+  background-color: transparent;
+  margin: 0px;
+  padding: 0px;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+  align-content: center;
+}
+.IcoSelINT {
+  background-color: red;
+  height: 64px;
+  width: 64px;
+  border-radius: 35px;
+}
+/**/
+.IcoTEST {
+  opacity: 1;
+  position: absolute;
+  z-index: 15;
+}
+/**/
+/**/
+/**/
 .Ico {
   height: 10px;
   width: 10px;
@@ -88,5 +153,8 @@ export default {
   border-radius: 30px;
   transition: border-radius 0.5s, height 0.5s, width 0.5s, background-color 2s,
     opacity 2s;
+}
+.actl {
+  width: 100%;
 }
 </style>
