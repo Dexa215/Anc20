@@ -2,13 +2,21 @@
   <v-row class="ur mx-auto">
     <v-col id="u4c0">
       <!--  User NAME  -->
-      <v-row id="u4r2" class="mx-auto" align="center" justify="center">
+      <v-row
+        id="u4r2"
+        class="mx-auto"
+        align="center"
+        justify="center"
+      >
         <v-col>
           <h2 class>Ciao {{ requestUser }} !!</h2>
         </v-col>
       </v-row>
       <!--  User RANK / RANGO  -->
-      <v-row id="u4r4" class="mx-auto">
+      <v-row
+        id="u4r4"
+        class="mx-auto"
+      >
         <v-col>
           <v-btn
             v-if="requestUserIsSuper"
@@ -47,20 +55,42 @@
       </v-row>
 
       <!--  User AVATAR  -->
-      <v-row id="u4r1" class="mx-auto" align="center" justify="center">
-        <img class="uimg" :src="ico" />
+      <v-row
+        id="u4r1"
+        class="mx-auto"
+        align="center"
+        justify="center"
+      >
+        <img
+          class="uimg"
+          :src="ico"
+        />
       </v-row>
 
       <!--  User LOGOUT  -->
-      <v-row id="u4r3" class="mx-auto" align="center" justify="center">
+      <v-row
+        id="u4r3"
+        class="mx-auto"
+        align="center"
+        justify="center"
+      >
         <v-col>
-          <v-btn class="ma-2" rounded outlined large color="rgb(245, 244, 228)">
+          <v-btn
+            class="ma-2"
+            rounded
+            outlined
+            large
+            color="rgb(245, 244, 228)"
+          >
             <span v-if="requestUser">
               <!--
             <a @click="gotoR('/')">test logout...</a>
             <spacer type="horizontal" width="100" height="100">♢</spacer>
             -->
-              <a class="my-1 logout" href="/accounts/logout/">Logout</a>
+              <a
+                class="my-1 logout"
+                href="/accounts/logout/"
+              >Logout</a>
             </span>
           </v-btn>
         </v-col>
@@ -77,7 +107,7 @@ export default {
 
   props: {},
 
-  data() {
+  data () {
     return {
       mini: true,
       ico: "/static/images/Icone/anclogo2012.gif",
@@ -94,90 +124,90 @@ export default {
 
   computed: {
     /*  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  */
-    drawer() {
+    drawer () {
       return this.$store.getters.getDrawer;
     },
-    drawerLeft() {
+    drawerLeft () {
       return this.$store.getters.getDrawerLeft;
     },
-    drawerRight() {
+    drawerRight () {
       return this.$store.getters.getDrawerRight;
     },
-    drawerSottocategoria() {
+    drawerSottocategoria () {
       return this.$store.getters.getDrawerSottocategoria;
     },
     /*  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  */
 
-    categorie() {
+    categorie () {
       return this.$store.getters.categorie;
     },
 
-    C() {
+    C () {
       return this.$store.getters.getC;
     },
-    CS() {
+    CS () {
       return this.$store.getters.getCS;
     },
 
-    requestUser() {
+    requestUser () {
       return this.$store.getters.requestUser;
     },
-    requestUserIsStaff() {
+    requestUserIsStaff () {
       return this.$store.getters.requestUserIsStaff;
     },
-    requestUserIsSuper() {
+    requestUserIsSuper () {
       return this.$store.getters.requestUserIsSuper;
     },
-    requestUserAvatar() {
+    requestUserAvatar () {
       return this.$store.getters.requestUserAvatar;
     },
-    requestUserBio() {
+    requestUserBio () {
       return this.$store.getters.requestUserBio;
     },
-    requestToken() {
+    requestToken () {
       return this.$store.getters.requestToken;
     },
     /* DINAMIC CSS */
 
-    rcS() {
+    rcS () {
       return this.$store.getters.rcS;
     },
-    rcD() {
+    rcD () {
       return this.$store.getters.rcD;
     },
-    rcU() {
+    rcU () {
       return this.$store.getters.rcU;
     }
   },
 
   methods: {
-    gotoR(r) {
+    gotoR (r) {
       this.expand = !this.expand;
       this.$store.dispatch("setDF");
       this.$store.dispatch("gotoR", r);
     },
 
-    acs() {
+    acs () {
       this.$store.dispatch("adminCommandSwitch");
       //this.$emit("adminCommandSwitch");
     },
 
-    SDL() {
+    SDL () {
       /*Switch Drawer Language*/
       this.$store.dispatch("switchDrawerLang");
     },
-    ScL(val) {
+    ScL (val) {
       /*SET Current Language*/
       this.$store.dispatch("setL", val);
     },
-    DSCset(state) {
+    DSCset (state) {
       /*SC Sotto Categoria*/
       this.$store.dispatch("DSCset", state);
     },
-    setD() {
+    setD () {
       this.$store.dispatch("setD");
     },
-    setDF() {
+    setDF () {
       this.$store.dispatch("setDF");
     }
   }
@@ -186,8 +216,8 @@ export default {
 
 <style media="screen">
 .ur {
-  /*background-color: transparent !important;*/
-  background-color: red !important;
+  background-color: transparent !important;
+  /*background-color: red !important;*/
   padding-top: 50px;
   margin-left: 0px;
   margin-right: 0px;
@@ -208,7 +238,9 @@ export default {
 }
 
 #u4c0 {
-  background-color: yellow;
+  height: 100%;
+  width: 100%;
+  background-color: transparent;
 }
 
 /*  rows...                           */
