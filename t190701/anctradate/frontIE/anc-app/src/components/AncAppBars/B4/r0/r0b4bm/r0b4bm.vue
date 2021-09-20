@@ -7,7 +7,9 @@
         align="center"
       >
         <div :class="r0B4bmint">
-          <m4lg></m4lg>
+          <m4lg v-if="mC"></m4lg>
+          <u4lg v-if="mU"></u4lg>
+          <l4lg v-if="mL"></l4lg>
 
           <div v-if="bb"></div>
 
@@ -28,10 +30,12 @@
 
 <script>
 import m4lg from "@/components/AncM/Cat/M4lg.vue";
+import u4lg from "@/components/AncM/User/U4lg.vue";
+import l4lg from "@/components/AncM/Language/L4lg.vue";
 
 export default {
   name: "r0b4bm",
-  components: { m4lg },
+  components: { m4lg, u4lg, l4lg },
   data () {
     return {};
   },
@@ -61,6 +65,18 @@ export default {
         r0b4bmint += "r0B4bmintsmall r0B4bmintsmallDin ";
       }
       return r0b4bmint;
+    },
+    mC () {
+      var mC = this.$store.getters.getmenuCAT;
+      return mC;
+    },
+    mU () {
+      var mU = this.$store.getters.getmenuUSER;
+      return mU;
+    },
+    mL () {
+      var mL = this.$store.getters.getmenuLANG;
+      return mL;
     }
   }
 };

@@ -376,15 +376,15 @@ export default {
 
 .mrT-enter-active {
   animation-name: mrAnimationIN;
-  animation-duration: 0.8s;
+  animation-duration: 0s;
   /*animation-timing-function: ease-out;*/
-  animation-delay: -0.1s;
+  /*animation-delay: -0.1s;*/
   /*animation-iteration-count: infinite;*/
   /*animation-direction: alternate;*/
   /*animation-fill-mode: forwards;*/
 }
 .mrT-leave-active {
-  animation: mrAnimationOUT 0.5s;
+  animation: mrAnimationOUT 0s;
 }
 
 @keyframes mrAnimationIN {
