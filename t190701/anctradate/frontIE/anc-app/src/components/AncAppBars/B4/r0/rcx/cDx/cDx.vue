@@ -21,6 +21,47 @@
         @click="setmenuL"
       >{{ mL }}</a>
 
+      <v-btn
+        class="mx-1"
+        icon
+        v-if="!drawerLeft && languagesShow && mL"
+      >
+        <!--class="mx-1 AncIconLang"-->
+        <v-img
+          :class="rcxIco"
+          large
+          dark
+          :src="worldIcon"
+          @click="setmenuL"
+        ></v-img>
+      </v-btn>
+
+      <v-btn
+        class="mx-1"
+        icon
+        v-show="!drawerLeft && !languagesShow"
+        fab
+        rounded
+        style="background-color: transparent"
+        @click="SDL"
+      >
+        <!-- test testo lingua -->
+        <!--
+        <v-row class="TT">{{ lang.t[0].lista[2].t[0].text }}</v-row>
+        -->
+        <!-- test testo lingua -->
+
+        <v-img
+          v-if="!languagesShow"
+          :class="rcxIco"
+          large
+          dark
+          :src="lang.icona"
+          @click="setmenuL"
+        ></v-img>
+      </v-btn>
+
+      <!---
       <img
         :class="Ico"
         src="/static/icons/Nations/italy.png"
@@ -29,6 +70,7 @@
         @mouseover="hoveravatar = true"
         @mouseleave="hoveravatar = false"
       />
+-->
     </v-row>
   </v-col>
 </template>
@@ -39,10 +81,33 @@ export default {
   data: () => ({
     u: "user",
     c: "cat",
-    l: "lang"
+    l: "lang",
+    worldIcon: "/static/icons/Nations/worldIcon.png"
+
+    /*    worldIcon: "/static/icons/Nations/italy.png"*/
   }),
 
   computed: {
+    /*  -----------------------------------------------------------------------   */
+    lang () {
+      return this.$store.getters.getCurrentLanguage;
+    },
+    languages () {
+      return this.$store.getters.getLanguages;
+    },
+    languagesShow () {
+      return this.$store.getters.getLanguagesShow;
+    },
+    rcxIco () {
+      var rcxIco = "Ico ";
+      var bb = this.$store.getters.getbarBIG;
+      if (bb === true) {
+        rcxIco += "IcoBB ";
+      } else {
+        rcxIco += "IcoSS ";
+      }
+      return rcxIco;
+    },
     Ico () {
       var rcxIco = "Ico ";
       var bb = this.$store.getters.getbarBIG;
@@ -82,7 +147,30 @@ export default {
     },
     setmenuL () {
       this.$store.dispatch("menuSet", "lang");
+      this.SDL;
+    },
+
+    /**/
+    SDL () {
+      /*Switch Drawer Language*/
+      this.$store.dispatch("switchDrawerLang");
+    },
+    ScL (val) {
+      /*SET Current Language*/
+      this.$store.dispatch("setL", val);
+    },
+    DSCset (state) {
+      /*SC Sotto Categoria*/
+      this.$store.dispatch("DSCset", state);
+    },
+    setD () {
+      this.$store.dispatch("setD");
+    },
+    setDF () {
+      this.$store.dispatch("setDF");
     }
+
+    /**/
   }
 };
 </script>
