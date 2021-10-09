@@ -209,7 +209,7 @@ export default {
   align-content: center;
 }
 .IcoSelINT {
-  background-color: blue;
+  background-color: bisque;
   height: 64px;
   width: 64px;
   border-radius: 35px;

@@ -476,7 +476,7 @@ const moduleD = {
     iconCdx: "mdi-menu-down",
     iconOdx: "mdi-menu-up",
 
-    menuCAT: false,
+    menuCAT: true,
     menuUSER: false,
     menuLANG: false
   },
@@ -504,6 +504,12 @@ const moduleD = {
 
       switch (val) {
         case true:
+          /*      
+          state.menuCAT = true;
+          state.menuUSER = false;
+          state.menuLANG = false;
+*/
+
           /*state.barBigClass = "r0B4x r0B4small r0B4smallDin mx-auto my-auto";*/
           state.r0B4 = "r0B4x r0B4small r0B4smallDin Anc_BC mx-auto my-auto";
           state.r0B4int = "r0B4intx r0B4intsmall r0B4intsmallDin Anc_BC_Blue";
@@ -536,6 +542,11 @@ const moduleD = {
           case "true":
             state.barBig = true;
             state.scrolling = false;
+            /*
+            state.menuCAT = true;
+            state.menuUSER = false;
+            state.menuLANG = false;
+*/
 
             state.barBigClass = "r0B4x r0B4Big mx-auto my-auto";
             state.r0B4 = "r0B4x r0B4Big Anc_BC mx-auto my-auto";
@@ -662,16 +673,32 @@ const moduleD = {
       state.menuCAT = false;
       state.menuUSER = false;
       state.menuLANG = false;
+    },
+    setmenuDEFAULT (state) {
+      console.log("SET MENU DEFAULT");
+      state.menuCAT = true;
+      state.menuUSER = false;
+      state.menuLANG = false;
     }
   },
   actions: {
     setBB (context, val) {
+      /*context.commit("setmenuDEFAULT");  NG*/
       context.commit("setbarBIG", val);
     },
     setScrolling (context, val) {
       var rcS = context.getters.rcS;
       var rcD = context.getters.rcD;
       var rcU = context.getters.rcU;
+
+      switch (val) {
+        case true:
+          context.commit("setmenuDEFAULT");
+        case false:
+
+        default:
+      }
+
       context.commit("setscrolling", val, rcS, rcD, rcU);
     },
     setL (context, val) {
@@ -716,7 +743,7 @@ const moduleD = {
           break;
 
         default:
-          context.commit("setmenuCLOSE");
+          context.commit("setmenuDEFAULT");
       }
     }
 
